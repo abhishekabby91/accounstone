@@ -38,7 +38,7 @@ export function Footer() {
               Your trusted partner for global consulting, outsourcing, HR, taxation, and arbitration solutions. Growing together since establishment.
             </p>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors duration-200"
@@ -108,7 +108,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  Global Presence: USA, UK, India
+                  222 First Floor, World Trade Tower, Barakhamba Road, Connaught Place, New Delhi -110001
                 </span>
               </li>
             </ul>
