@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
@@ -36,23 +37,25 @@ export function Navbar() {
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 group">
 
-            {/* ICON */}
-            <div className="w-8 h-8 rounded-full border-2 border-[#f1c83f] flex items-center justify-center">
-              <span className="text-[#f1c83f] font-bold text-xs">
-                AU
-              </span>
+            {/* IMAGE LOGO (YOUR FILE) */}
+            <div className="w-10 h-10 relative">
+              <Image
+                src="https://user8396.na.imgto.link/public/20260417/au.avif"
+                alt="AU Corporate Logo"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
 
             {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
 
-              {/* BRAND NAME */}
               <span className="text-xl font-semibold tracking-tight text-[#f1c83f]">
                 AU Corporate
               </span>
 
-              {/* TAGLINE */}
-              <span className="text-[11px] text-[#06225e] tracking-[0.25em] uppercase">
+              <span className="text-[11px] text-[#021a4d] tracking-[0.25em] uppercase">
                 Growing Together
               </span>
 
@@ -83,13 +86,12 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE MENU */}
           <button
             className="lg:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X /> : <Menu />}
           </button>
 
         </div>
