@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { 
+import {
   ArrowRight,
   Target,
   Eye,
@@ -60,13 +60,13 @@ const stats = [
 
 const leadership = [
   {
-    name: 'Arun Sharma',
+    name: 'Abhishek Jain',
     role: 'Founder & CEO',
     description: 'Visionary leader with 30+ years in global consulting and business transformation.',
   },
   {
-    name: 'Priya Mehta',
-    role: 'Chief Operating Officer',
+    name: 'Utsav Dogra',
+    role: 'Founder & CEO',
     description: 'Expert in operational excellence and global delivery management.',
   },
   {
@@ -90,7 +90,7 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">About AU Corporate</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              Growing Together, 
+              Growing Together,
               <span className="text-gold"> Achieving Excellence</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -195,10 +195,10 @@ export default function AboutPage() {
               Our values define who we are and guide every interaction with our clients, partners, and colleagues.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value) => (
-              <div 
+              <div
                 key={value.title}
                 className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
               >
@@ -225,10 +225,10 @@ export default function AboutPage() {
               Experienced professionals committed to driving client success and organizational excellence.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {leadership.map((leader) => (
-              <div 
+              <div
                 key={leader.name}
                 className="p-6 rounded-xl bg-secondary border border-border text-center"
               >
@@ -258,7 +258,7 @@ export default function AboutPage() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 With offices and delivery centers across North America, Europe, and Asia, we bring local expertise with global capabilities to serve clients wherever they operate.
               </p>
-              
+
               <div className="space-y-4">
                 {[
                   { region: 'Americas', locations: 'USA, Canada, Mexico' },
@@ -299,7 +299,7 @@ export default function AboutPage() {
             Join hundreds of businesses that trust AU Corporate for their consulting, outsourcing, and advisory needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
@@ -309,7 +309,7 @@ export default function AboutPage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
+            <Button
               asChild
               variant="outline"
               size="lg"

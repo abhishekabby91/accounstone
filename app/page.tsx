@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { 
-  Shield, 
-  Calculator, 
-  FileCheck, 
-  Scale, 
-  Users, 
+import {
+  Shield,
+  Calculator,
+  FileCheck,
+  Scale,
+  Users,
   Building2,
   ArrowRight,
   Globe,
@@ -69,19 +69,24 @@ export default function HomePage() {
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
             <span className="text-gold text-sm font-medium">Global Business Solutions</span>
           </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight text-balance">
-            <span className="text-gold">AU Corporate</span>
-            <span className="block mt-2">Growing Together</span>
+
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 tracking-tight text-balance">
+            <span className="text-[#f1c83f]">
+              AU Corporate
+            </span>
           </h1>
-          
+
+          <p className="text-xs sm:text-sm md:text-base text-[#081a42] tracking-[0.25em] uppercase font-medium">
+            Growing Together
+          </p>
+
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
-            Global consulting, outsourcing, HR, taxation, and arbitration solutions. 
+            Global consulting, outsourcing, HR, taxation, and arbitration solutions.
             Your trusted partner for sustainable business growth and operational excellence.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg"
@@ -91,7 +96,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
+            <Button
               asChild
               variant="outline"
               size="lg"
@@ -100,7 +105,7 @@ export default function HomePage() {
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
-          
+
           {/* Stats */}
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -125,10 +130,10 @@ export default function HomePage() {
               We deliver integrated solutions across consulting, compliance, and operations to help your business thrive in a competitive global market.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <Link 
+              <Link
                 key={service.title}
                 href={service.href}
                 className="group p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
@@ -148,9 +153,9 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
-            <Button 
+            <Button
               asChild
               variant="outline"
               className="border-blue text-blue hover:bg-blue/5"
@@ -176,7 +181,7 @@ export default function HomePage() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 India offers unparalleled advantages for global businesses seeking growth, efficiency, and access to world-class talent. Our deep expertise in the Indian market positions us as your ideal strategic partner.
               </p>
-              
+
               <div className="space-y-6">
                 {[
                   { icon: Globe, title: 'Global Talent Hub', desc: 'Access to millions of skilled professionals' },
@@ -194,8 +199,8 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-              
-              <Button 
+
+              <Button
                 asChild
                 className="mt-8 bg-gold hover:bg-gold-dark text-foreground font-semibold"
               >
@@ -205,7 +210,7 @@ export default function HomePage() {
                 </Link>
               </Button>
             </div>
-            
+
             <div className="relative">
               <div className="aspect-square rounded-2xl bg-secondary border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
@@ -232,7 +237,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="order-1 lg:order-2">
               <span className="text-gold text-sm font-semibold uppercase tracking-wider">About AU Corporate</span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
@@ -244,8 +249,8 @@ export default function HomePage() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 Our commitment to integrity, innovation, and client success has positioned us among the leading consulting firms worldwide. We believe in growing together with our clients, creating lasting partnerships that drive sustainable value.
               </p>
-              
-              <Button 
+
+              <Button
                 asChild
                 variant="outline"
                 className="border-blue text-blue hover:bg-blue/5"
@@ -269,9 +274,9 @@ export default function HomePage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
             Partner with AU Corporate and unlock your organization&apos;s full potential. Let&apos;s discuss how we can help you achieve your business goals.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg"
@@ -281,7 +286,7 @@ export default function HomePage() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button 
+            <Button
               asChild
               variant="outline"
               size="lg"
