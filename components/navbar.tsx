@@ -51,7 +51,7 @@ export function Navbar() {
             {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
               <span className="text-xl font-semibold tracking-tight text-gray-900">
-                AU <span className="text-[#D4AF37]">Corporate</span>
+                AU <span className="text-[#f1c83f]">Corporate</span>
               </span>
 
               <span className="text-[11px] text-gray-500 tracking-[0.25em] uppercase">
@@ -66,7 +66,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#D4AF37] transition-colors duration-200 rounded-md hover:bg-gray-50"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#e7c553] transition-colors duration-200 rounded-md hover:bg-gray-50"
               >
                 {item.label}
               </Link>
@@ -79,7 +79,7 @@ export function Navbar() {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#D4AF37] transition-colors duration-200"
+              className="text-gray-600 hover:text-[#ebc549] transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
@@ -87,7 +87,7 @@ export function Navbar() {
 
             <Button
               asChild
-              className="bg-[#D4AF37] hover:bg-yellow-500 text-black font-semibold px-6 transition-all duration-200"
+              className="bg-[#e8c347] hover:bg-yellow-500 text-black font-semibold px-6 transition-all duration-200"
             >
               <Link href="/career">Get Started</Link>
             </Button>
@@ -116,7 +116,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-3 text-gray-700 hover:text-[#D4AF37] hover:bg-gray-50 rounded-md transition-colors duration-200"
+              className="px-4 py-3 text-gray-700 hover:text-[#efc743] hover:bg-gray-50 rounded-md transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
