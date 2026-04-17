@@ -76,7 +76,7 @@ export default function HomePage() {
             </span>
           </h1>
 
-          <p className="text-xs sm:text-sm md:text-base text-[#081a42] tracking-[0.25em] uppercase font-medium">
+          <p className="text-xs sm:text-sm md:text-base text-[#081a42] tracking-[0.45em] uppercase font-medium">
             Growing Together
           </p>
 
