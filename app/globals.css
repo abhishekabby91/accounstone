@@ -5,33 +5,33 @@
 
 :root {
   /* AU Corporate Brand Colors - Premium White Theme */
-  --gold: #f1c83f;
-  --gold-light: #f5d76e;
-  --gold-dark: #d4a929;
-  --blue: #2563EB;
-  --blue-light: #3b82f6;
+  --gold: #fdda65;
+  --gold-light: #fdda65;
+  --gold-dark: #fdda65;
+  --blue: #072564;
+  --blue-light: #072564;
   --gray-dark: #111827;
   --gray-light: #E5E7EB;
-  
+
   --background: #ffffff;
   --foreground: #111827;
   --card: #ffffff;
   --card-foreground: #111827;
   --popover: #ffffff;
   --popover-foreground: #111827;
-  --primary: #f1c83f;
+  --primary: #fdda65;
   --primary-foreground: #111827;
   --secondary: #f3f4f6;
   --secondary-foreground: #111827;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
-  --accent: #f1c83f;
+  --accent: #fdda65;
   --accent-foreground: #111827;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #E5E7EB;
   --input: #E5E7EB;
-  --ring: #f1c83f;
+  --ring: #fdda65;
   --radius: 0.5rem;
 }
 
@@ -61,7 +61,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  
+
   /* Custom brand colors for Tailwind */
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
@@ -74,6 +74,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
