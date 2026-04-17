@@ -1,8 +1,8 @@
-'use client'
+"use client"
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 const navLinks = [
@@ -20,32 +20,47 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-border ${
-        isScrolled ? 'shadow-sm' : ''
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-border ${isScrolled ? 'shadow-sm' : ''
+        }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex flex-col">
-            <span className="text-2xl font-bold tracking-wide text-gold">
-              AU Corporate
-            </span>
-            <span className="text-[10px] text-blue tracking-[0.25em] uppercase font-medium">
-              Growing Together
-            </span>
+
+          {/* LOGO */}
+          <Link href="/" className="flex items-center gap-3 group">
+
+            {/* ICON */}
+            <div className="w-8 h-8 rounded-full border-2 border-[#f1c83f] flex items-center justify-center">
+              <span className="text-[#f1c83f] font-bold text-xs">
+                AU
+              </span>
+            </div>
+
+            {/* TEXT BLOCK */}
+            <div className="flex flex-col leading-tight">
+
+              {/* BRAND NAME */}
+              <span className="text-xl font-semibold tracking-tight text-[#f1c83f]">
+                AU Corporate
+              </span>
+
+              {/* TAGLINE */}
+              <span className="text-[11px] text-[#06225e] tracking-[0.25em] uppercase">
+                Growing Together
+              </span>
+
+            </div>
+
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* DESKTOP NAVIGATION */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -58,14 +73,17 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-gold hover:bg-gold-dark text-foreground font-semibold">
+            <Button
+              asChild
+              className="bg-[#f1c83f] hover:bg-yellow-500 text-black font-semibold"
+            >
               <Link href="/contact">Get Started</Link>
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE MENU BUTTON */}
           <button
             className="lg:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}
@@ -73,12 +91,14 @@ export function Navbar() {
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
+
         </div>
 
-        {/* Mobile Navigation */}
+        {/* MOBILE MENU */}
         {isOpen && (
           <div className="lg:hidden border-t border-border bg-white">
             <div className="py-4 space-y-1">
+
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -89,16 +109,22 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+
               <div className="px-4 pt-4">
-                <Button asChild className="w-full bg-gold hover:bg-gold-dark text-foreground font-semibold">
+                <Button
+                  asChild
+                  className="w-full bg-[#f1c83f] hover:bg-yellow-500 text-black font-semibold"
+                >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Get Started
                   </Link>
                 </Button>
               </div>
+
             </div>
           </div>
         )}
+
       </nav>
     </header>
   )
