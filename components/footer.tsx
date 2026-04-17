@@ -25,15 +25,25 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
 
-            {/* GOLD LOGO */}
+            {/* LOGO */}
             <Link href="/" className="flex flex-col mb-6">
-              <span className="text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 drop-shadow-[0_0_10px_rgba(212,175,55,0.25)]">
-                AU
-              </span>
 
+              {/* AU + CORPORATE */}
+              <div className="flex items-end gap-2">
+                <span className="text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 drop-shadow-[0_0_10px_rgba(212,175,55,0.25)]">
+                  AU
+                </span>
+
+                <span className="text-sm font-medium text-foreground">
+                  Corporate
+                </span>
+              </div>
+
+              {/* TAGLINE */}
               <span className="text-xs tracking-[0.3em] text-muted-foreground mt-1">
                 Growing Together
               </span>
+
             </Link>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
