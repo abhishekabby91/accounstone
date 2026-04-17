@@ -136,7 +136,7 @@ export function Navbar() {
 
             <Button
               asChild
-              className="bg-[#D4AF37] hover:bg-yellow-500 text-black font-semibold flex-1"
+              className="bg-[#f7cb3e] hover:bg-yellow-500 text-black font-semibold flex-1"
             >
               <Link href="/career">Get Started</Link>
             </Button>
