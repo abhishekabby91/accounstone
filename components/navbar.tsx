@@ -32,10 +32,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled
-          ? 'bg-navy/95 backdrop-blur-md shadow-lg shadow-black/20'
-          : 'bg-transparent'
+        "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm transition-all duration-300"
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -51,38 +48,38 @@ export function Navbar() {
               className="transition-transform duration-300 group-hover:scale-105"
             />
 
-            {/* TEXT BLOCK (UPDATED) */}
+            {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
-              <span className="text-xl font-semibold tracking-tight text-foreground">
-                AU <span className="text-gold">Corporate</span>
+              <span className="text-xl font-semibold tracking-tight text-gray-900">
+                AU <span className="text-[#D4AF37]">Corporate</span>
               </span>
 
-              <span className="text-[11px] text-foreground/60 tracking-[0.25em] uppercase">
+              <span className="text-[11px] text-gray-500 tracking-[0.25em] uppercase">
                 Growing Together
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* DESKTOP NAVIGATION */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-gold transition-colors duration-200 rounded-md hover:bg-white/5"
+                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#D4AF37] transition-colors duration-200 rounded-md hover:bg-gray-50"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          {/* Desktop Actions */}
+          {/* DESKTOP ACTIONS */}
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/80 hover:text-gold transition-colors duration-200"
+              className="text-gray-600 hover:text-[#D4AF37] transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
@@ -90,7 +87,7 @@ export function Navbar() {
 
             <Button
               asChild
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 transition-all duration-200 hover:shadow-lg hover:shadow-gold/20"
+              className="bg-[#D4AF37] hover:bg-yellow-500 text-black font-semibold px-6 transition-all duration-200"
             >
               <Link href="/career">Get Started</Link>
             </Button>
@@ -98,7 +95,7 @@ export function Navbar() {
 
           {/* MOBILE MENU BUTTON */}
           <button
-            className="lg:hidden text-foreground p-2"
+            className="lg:hidden text-gray-900 p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -110,8 +107,8 @@ export function Navbar() {
       {/* MOBILE MENU */}
       <div
         className={cn(
-          'lg:hidden absolute top-full left-0 right-0 bg-navy/98 backdrop-blur-md border-t border-border transition-all duration-300 overflow-hidden',
-          isMobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+          "lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 transition-all duration-300 overflow-hidden",
+          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         )}
       >
         <nav className="flex flex-col px-4 py-4">
@@ -119,19 +116,19 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="px-4 py-3 text-foreground/80 hover:text-gold hover:bg-white/5 rounded-md transition-colors duration-200"
+              className="px-4 py-3 text-gray-700 hover:text-[#D4AF37] hover:bg-gray-50 rounded-md transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </Link>
           ))}
 
-          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border px-4">
+          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-200 px-4">
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground/80 hover:text-gold transition-colors duration-200"
+              className="text-gray-600 hover:text-[#e0bd4c] transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
@@ -139,7 +136,7 @@ export function Navbar() {
 
             <Button
               asChild
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold flex-1"
+              className="bg-[#D4AF37] hover:bg-yellow-500 text-black font-semibold flex-1"
             >
               <Link href="/career">Get Started</Link>
             </Button>
