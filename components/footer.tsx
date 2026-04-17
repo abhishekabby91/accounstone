@@ -12,12 +12,12 @@ const quickLinks = [
 const companyLinks = [
   { label: 'About Us', href: '/about' },
   { label: 'Careers', href: '/career' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-navy-dark border-t border-border">
+    <footer className="bg-white border-t border-border">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -27,23 +27,12 @@ export function Footer() {
 
             {/* LOGO */}
             <Link href="/" className="flex flex-col mb-6">
-
-              {/* AU + CORPORATE */}
-              <div className="flex items-end gap-2">
-                <span className="text-2xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-yellow-500 to-yellow-700 drop-shadow-[0_0_10px_rgba(212,175,55,0.25)]">
-                  AU
-                </span>
-
-                <span className="text-sm font-medium text-foreground">
-                  Corporate
-                </span>
-              </div>
-
-              {/* TAGLINE */}
-              <span className="text-xs tracking-[0.3em] text-muted-foreground mt-1">
+              <span className="text-2xl font-bold tracking-wide text-gold">
+                AU Corporate
+              </span>
+              <span className="text-[10px] text-blue tracking-[0.25em] uppercase font-medium">
                 Growing Together
               </span>
-
             </Link>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
@@ -54,7 +43,7 @@ export function Footer() {
               href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-blue transition-colors duration-200"
               aria-label="Follow us on LinkedIn"
             >
               <Linkedin className="h-5 w-5" />

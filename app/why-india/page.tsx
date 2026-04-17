@@ -56,7 +56,7 @@ const reasons = [
   {
     icon: Globe,
     title: 'Global Outsourcing Hub',
-    description: 'India is the world&apos;s leading destination for business process outsourcing and IT services, handling operations for the largest global enterprises.',
+    description: 'India is the world\'s leading destination for business process outsourcing and IT services, handling operations for the largest global enterprises.',
     points: [
       'Mature outsourcing ecosystem with 30+ years of experience',
       'World-class infrastructure and technology parks',
@@ -67,7 +67,7 @@ const reasons = [
   {
     icon: TrendingUp,
     title: 'Business Scalability',
-    description: 'Scale your operations rapidly with India&apos;s flexible business environment and abundant resources.',
+    description: 'Scale your operations rapidly with India\'s flexible business environment and abundant resources.',
     points: [
       'Flexible workforce scaling up or down based on needs',
       'Multiple tier-1 and tier-2 city options for delivery',
@@ -103,9 +103,7 @@ export default function WhyIndiaPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-navy to-navy-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <section className="relative py-24 bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Strategic Advantage</span>
@@ -121,7 +119,7 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* Key Advantages */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Key Advantages</span>
@@ -134,7 +132,7 @@ export default function WhyIndiaPage() {
             {advantages.map((advantage) => (
               <div 
                 key={advantage.title}
-                className="p-8 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300 text-center"
+                className="p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
               >
                 <div className="w-16 h-16 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <advantage.icon className="h-8 w-8 text-gold" />
@@ -151,7 +149,7 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* Stats Banner */}
-      <section className="py-16 bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20">
+      <section className="py-16 bg-gold/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -165,7 +163,7 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* Detailed Reasons */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">In Detail</span>
@@ -181,7 +179,7 @@ export default function WhyIndiaPage() {
             {reasons.map((reason) => (
               <div 
                 key={reason.title}
-                className="p-8 rounded-xl bg-navy-light border border-border"
+                className="p-8 rounded-xl bg-secondary border border-border"
               >
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
@@ -206,7 +204,7 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gold/10 via-navy-dark to-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Leverage the India Advantage?
@@ -218,9 +216,9 @@ export default function WhyIndiaPage() {
             <Button 
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
             >
-              <Link href="/career">
+              <Link href="/contact">
                 Start Your Journey
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -229,7 +227,7 @@ export default function WhyIndiaPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg"
+              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
             >
               <Link href="/outsourcing">Explore Outsourcing</Link>
             </Button>

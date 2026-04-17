@@ -63,24 +63,19 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy to-navy-dark" />
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-        
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-white">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-8">
             <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
             <span className="text-gold text-sm font-medium">Global Business Solutions</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight">
-            AU Corporate
-            <span className="block text-gold mt-2">Growing Together</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight text-balance">
+            <span className="text-gold">AU Corporate</span>
+            <span className="block mt-2">Growing Together</span>
           </h1>
           
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
             Global consulting, outsourcing, HR, taxation, and arbitration solutions. 
             Your trusted partner for sustainable business growth and operational excellence.
           </p>
@@ -89,7 +84,7 @@ export default function HomePage() {
             <Button 
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-gold/20 hover:scale-105"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg"
             >
               <Link href="/career">
                 Get Started
@@ -100,9 +95,9 @@ export default function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg transition-all duration-300"
+              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg transition-all duration-300"
             >
-              <Link href="/#contact">Contact Us</Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
           
@@ -116,17 +111,10 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-        
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-gold/50 flex items-start justify-center p-2">
-            <div className="w-1 h-3 rounded-full bg-gold" />
-          </div>
-        </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Expertise</span>
@@ -143,7 +131,7 @@ export default function HomePage() {
               <Link 
                 key={service.title}
                 href={service.href}
-                className="group p-8 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg hover:shadow-gold/5"
+                className="group p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-lg bg-gold/10 flex items-center justify-center mb-6 group-hover:bg-gold/20 transition-colors duration-300">
                   <service.icon className="h-7 w-7 text-gold" />
@@ -154,7 +142,7 @@ export default function HomePage() {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {service.description}
                 </p>
-                <div className="mt-6 flex items-center text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="mt-6 flex items-center text-blue text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   Learn More <ArrowRight className="ml-2 h-4 w-4" />
                 </div>
               </Link>
@@ -165,7 +153,7 @@ export default function HomePage() {
             <Button 
               asChild
               variant="outline"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold"
+              className="border-blue text-blue hover:bg-blue/5"
             >
               <Link href="/services">
                 View All Services
@@ -177,7 +165,7 @@ export default function HomePage() {
       </section>
 
       {/* Why India Section */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -209,7 +197,7 @@ export default function HomePage() {
               
               <Button 
                 asChild
-                className="mt-8 bg-gold hover:bg-gold-light text-navy-dark font-semibold"
+                className="mt-8 bg-gold hover:bg-gold-dark text-foreground font-semibold"
               >
                 <Link href="/why-india">
                   Explore India Advantage
@@ -219,26 +207,24 @@ export default function HomePage() {
             </div>
             
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-navy-light to-navy border border-gold/20 p-8 flex items-center justify-center">
+              <div className="aspect-square rounded-2xl bg-secondary border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl md:text-8xl font-bold text-gold mb-4">1.4B+</div>
                   <p className="text-foreground text-xl font-medium">Population</p>
                   <p className="text-muted-foreground mt-2">World&apos;s Largest Talent Pool</p>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 bg-gold/10 rounded-full blur-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* About Preview Section */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 relative">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-gold/20 to-gold/5 border border-gold/20 flex items-center justify-center overflow-hidden">
+              <div className="aspect-video rounded-2xl bg-white border border-border flex items-center justify-center overflow-hidden">
                 <div className="text-center p-8">
                   <div className="text-4xl md:text-5xl font-bold text-gold mb-2">25+</div>
                   <p className="text-foreground text-lg">Years of Excellence</p>
@@ -262,7 +248,7 @@ export default function HomePage() {
               <Button 
                 asChild
                 variant="outline"
-                className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold"
+                className="border-blue text-blue hover:bg-blue/5"
               >
                 <Link href="/about">
                   Learn More About Us
@@ -275,7 +261,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-24 bg-gradient-to-br from-gold/10 via-navy to-navy-dark">
+      <section id="contact" className="py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Transform Your Business?
@@ -288,7 +274,7 @@ export default function HomePage() {
             <Button 
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg hover:shadow-gold/20"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg transition-all duration-300 hover:shadow-lg"
             >
               <Link href="/career">
                 Get Started Today
@@ -299,7 +285,7 @@ export default function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg"
+              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
             >
               <a href="mailto:info@aucorporate.com">Email Us</a>
             </Button>

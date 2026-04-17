@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -134,8 +135,7 @@ export default function CareerPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-navy to-navy-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <section className="relative py-24 bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Join Our Team</span>
@@ -151,7 +151,7 @@ export default function CareerPage() {
       </section>
 
       {/* Culture Section */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Culture</span>
@@ -167,7 +167,7 @@ export default function CareerPage() {
             {cultureValues.map((value) => (
               <div 
                 key={value.title}
-                className="p-6 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300 text-center"
+                className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <value.icon className="h-7 w-7 text-gold" />
@@ -181,7 +181,7 @@ export default function CareerPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -203,7 +203,7 @@ export default function CareerPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/20 p-8 flex items-center justify-center">
+              <div className="aspect-video rounded-2xl bg-secondary border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
                   <Award className="w-16 h-16 text-gold/50 mx-auto mb-4" />
                   <div className="text-4xl font-bold text-gold mb-2">Top Employer</div>
@@ -217,7 +217,7 @@ export default function CareerPage() {
       </section>
 
       {/* Job Listings */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Open Positions</span>
@@ -233,7 +233,7 @@ export default function CareerPage() {
             {jobListings.map((job) => (
               <div 
                 key={job.id}
-                className="p-6 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300"
+                className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="mb-4">
                   <span className="inline-block px-3 py-1 text-xs font-medium bg-gold/10 text-gold rounded-full">
@@ -259,7 +259,7 @@ export default function CareerPage() {
       </section>
 
       {/* Application Form */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Apply Now</span>
@@ -271,9 +271,9 @@ export default function CareerPage() {
             </p>
           </div>
           
-          <form onSubmit={handleSubmit} className="p-8 rounded-xl bg-navy-light border border-border">
+          <form onSubmit={handleSubmit} className="p-8 rounded-xl bg-secondary border border-border">
             {submitSuccess && (
-              <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400 text-center">
+              <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-center">
                 Thank you for your application! We&apos;ll be in touch soon.
               </div>
             )}
@@ -291,7 +291,7 @@ export default function CareerPage() {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="bg-navy border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
+                    className="bg-white border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
                     placeholder="John Doe"
                   />
                 </div>
@@ -306,7 +306,7 @@ export default function CareerPage() {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-navy border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
+                    className="bg-white border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
                     placeholder="john@example.com"
                   />
                 </div>
@@ -323,7 +323,7 @@ export default function CareerPage() {
                   required
                   value={formData.position}
                   onChange={handleInputChange}
-                  className="bg-navy border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
+                  className="bg-white border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold"
                   placeholder="e.g., Senior Consultant"
                 />
               </div>
@@ -339,7 +339,7 @@ export default function CareerPage() {
                   rows={5}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="bg-navy border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold resize-none"
+                  className="bg-white border-border text-foreground placeholder:text-muted-foreground focus:border-gold focus:ring-gold resize-none"
                   placeholder="Tell us about yourself and why you'd be a great fit..."
                 />
               </div>
@@ -347,7 +347,7 @@ export default function CareerPage() {
               <Button 
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gold hover:bg-gold-light text-navy-dark font-semibold py-6 text-lg"
+                className="w-full bg-gold hover:bg-gold-dark text-foreground font-semibold py-6 text-lg"
               >
                 {isSubmitting ? (
                   'Submitting...'
@@ -364,7 +364,7 @@ export default function CareerPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-24 bg-gradient-to-br from-gold/10 via-navy-dark to-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Have Questions?
@@ -376,7 +376,7 @@ export default function CareerPage() {
             asChild
             variant="outline"
             size="lg"
-            className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg"
+            className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
           >
             <a href="mailto:careers@aucorporate.com">
               Contact HR Team

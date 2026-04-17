@@ -103,8 +103,7 @@ export default function HRServicesPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-navy to-navy-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <section className="relative py-24 bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -120,9 +119,9 @@ export default function HRServicesPage() {
                 <Button 
                   asChild
                   size="lg"
-                  className="bg-gold hover:bg-gold-light text-navy-dark font-semibold"
+                  className="bg-gold hover:bg-gold-dark text-foreground font-semibold"
                 >
-                  <Link href="/career">
+                  <Link href="/contact">
                     Get Started
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
@@ -130,7 +129,7 @@ export default function HRServicesPage() {
               </div>
             </div>
             <div className="relative hidden lg:block">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-navy-light to-navy border border-gold/20 p-8 flex items-center justify-center">
+              <div className="aspect-square rounded-2xl bg-secondary border border-border p-8 flex items-center justify-center">
                 <Users className="w-32 h-32 text-gold/50" />
               </div>
             </div>
@@ -139,7 +138,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20">
+      <section className="py-16 bg-gold/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -153,7 +152,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* Core Services */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Core Services</span>
@@ -169,7 +168,7 @@ export default function HRServicesPage() {
             {services.map((service) => (
               <div 
                 key={service.title}
-                className="p-8 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300"
+                className="p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
                   <service.icon className="h-7 w-7 text-gold" />
@@ -193,7 +192,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Additional Services</span>
@@ -206,7 +205,7 @@ export default function HRServicesPage() {
             {additionalServices.map((service) => (
               <div 
                 key={service.title}
-                className="p-6 rounded-xl bg-navy-light border border-border hover:border-gold/50 transition-all duration-300 text-center"
+                className="p-6 rounded-xl bg-secondary border border-border hover:border-gold/50 transition-all duration-300 text-center"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <service.icon className="h-7 w-7 text-gold" />
@@ -220,7 +219,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -242,7 +241,7 @@ export default function HRServicesPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-2xl bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/20 p-8 flex items-center justify-center">
+              <div className="aspect-video rounded-2xl bg-white border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
                   <div className="text-6xl font-bold text-gold mb-4">40%</div>
                   <p className="text-foreground text-xl font-medium">Cost Reduction</p>
@@ -255,7 +254,7 @@ export default function HRServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gold/10 via-navy to-navy-dark">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Transform Your HR Operations?
@@ -267,9 +266,9 @@ export default function HRServicesPage() {
             <Button 
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
             >
-              <Link href="/career">
+              <Link href="/contact">
                 Contact HR Experts
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -278,7 +277,7 @@ export default function HRServicesPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg"
+              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
             >
               <Link href="/services">View All Services</Link>
             </Button>

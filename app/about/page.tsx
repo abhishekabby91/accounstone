@@ -85,9 +85,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-navy to-navy-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <section className="relative py-24 bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">About AU Corporate</span>
@@ -103,7 +101,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-16 bg-gradient-to-r from-gold/20 via-gold/10 to-gold/20">
+      <section className="py-16 bg-gold/10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat) => (
@@ -117,10 +115,10 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 rounded-xl bg-navy border border-border">
+            <div className="p-8 rounded-xl bg-white border border-border">
               <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
                 <Target className="h-7 w-7 text-gold" />
               </div>
@@ -129,7 +127,7 @@ export default function AboutPage() {
                 To empower businesses worldwide by delivering innovative, high-quality consulting and outsourcing solutions that drive operational excellence, ensure compliance, and create sustainable competitive advantages.
               </p>
             </div>
-            <div className="p-8 rounded-xl bg-navy border border-border">
+            <div className="p-8 rounded-xl bg-white border border-border">
               <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mb-6">
                 <Eye className="h-7 w-7 text-gold" />
               </div>
@@ -143,7 +141,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -186,7 +184,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Foundation</span>
@@ -202,7 +200,7 @@ export default function AboutPage() {
             {values.map((value) => (
               <div 
                 key={value.title}
-                className="p-6 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300 text-center"
+                className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <value.icon className="h-7 w-7 text-gold" />
@@ -216,7 +214,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Leadership</span>
@@ -232,7 +230,7 @@ export default function AboutPage() {
             {leadership.map((leader) => (
               <div 
                 key={leader.name}
-                className="p-6 rounded-xl bg-navy-light border border-border text-center"
+                className="p-6 rounded-xl bg-secondary border border-border text-center"
               >
                 <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <span className="text-2xl font-bold text-gold">
@@ -249,7 +247,7 @@ export default function AboutPage() {
       </section>
 
       {/* Global Presence */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -267,7 +265,7 @@ export default function AboutPage() {
                   { region: 'Europe', locations: 'UK, Germany, Netherlands' },
                   { region: 'Asia Pacific', locations: 'India, Singapore, Australia' },
                 ].map((item) => (
-                  <div key={item.region} className="flex items-center gap-4 p-4 rounded-lg bg-navy border border-border">
+                  <div key={item.region} className="flex items-center gap-4 p-4 rounded-lg bg-white border border-border">
                     <Globe className="h-6 w-6 text-gold shrink-0" />
                     <div>
                       <h3 className="font-semibold text-foreground">{item.region}</h3>
@@ -278,7 +276,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-gold/10 to-gold/5 border border-gold/20 p-8 flex items-center justify-center">
+              <div className="aspect-square rounded-2xl bg-white border border-border p-8 flex items-center justify-center">
                 <div className="text-center">
                   <Globe className="w-24 h-24 text-gold/50 mx-auto mb-6" />
                   <div className="text-5xl font-bold text-gold mb-2">15</div>
@@ -292,7 +290,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gold/10 via-navy to-navy-dark">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Let&apos;s Grow Together
@@ -304,9 +302,9 @@ export default function AboutPage() {
             <Button 
               asChild
               size="lg"
-              className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
             >
-              <Link href="/career">
+              <Link href="/contact">
                 Get in Touch
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -315,7 +313,7 @@ export default function AboutPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-gold/50 text-foreground hover:bg-gold/10 hover:border-gold px-8 py-6 text-lg"
+              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
             >
               <Link href="/services">Our Services</Link>
             </Button>

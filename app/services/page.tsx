@@ -113,8 +113,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-b from-navy to-navy-dark overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl" />
+      <section className="relative py-24 bg-white overflow-hidden">
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Services</span>
@@ -130,13 +129,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24 bg-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service) => (
               <div 
                 key={service.title}
-                className="group p-8 rounded-xl bg-navy border border-border hover:border-gold/50 transition-all duration-300"
+                className="group p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
                 <div className="flex items-start gap-6">
                   <div className="w-16 h-16 rounded-xl bg-gold/10 flex items-center justify-center shrink-0 group-hover:bg-gold/20 transition-colors duration-300">
@@ -159,7 +158,7 @@ export default function ServicesPage() {
                     </ul>
                     <Link 
                       href={service.href}
-                      className="inline-flex items-center text-gold text-sm font-medium hover:underline"
+                      className="inline-flex items-center text-blue text-sm font-medium hover:underline"
                     >
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
@@ -172,7 +171,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Industries Section */}
-      <section className="py-24 bg-navy">
+      <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Industry Expertise</span>
@@ -188,7 +187,7 @@ export default function ServicesPage() {
             {industries.map((industry) => (
               <div 
                 key={industry.name}
-                className="p-6 rounded-xl bg-navy-light border border-border text-center hover:border-gold/50 transition-all duration-300"
+                className="p-6 rounded-xl bg-secondary border border-border text-center hover:border-gold/50 transition-all duration-300"
               >
                 <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
                   <industry.icon className="h-7 w-7 text-gold" />
@@ -201,7 +200,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-gold/10 via-navy-dark to-navy-dark">
+      <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
             Ready to Get Started?
@@ -212,9 +211,9 @@ export default function ServicesPage() {
           <Button 
             asChild
             size="lg"
-            className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-8 py-6 text-lg"
+            className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
           >
-            <Link href="/career">
+            <Link href="/contact">
               Contact Our Team
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>

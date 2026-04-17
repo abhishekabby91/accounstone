@@ -4,33 +4,34 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* AU Corporate Brand Colors */
-  --navy: #071D49;
-  --navy-light: #0a2a6b;
-  --navy-dark: #041230;
-  --gold: #C9A227;
-  --gold-light: #d4b445;
-  --gold-dark: #a8871f;
+  /* AU Corporate Brand Colors - Premium White Theme */
+  --gold: #f1c83f;
+  --gold-light: #f5d76e;
+  --gold-dark: #d4a929;
+  --blue: #2563EB;
+  --blue-light: #3b82f6;
+  --gray-dark: #111827;
+  --gray-light: #E5E7EB;
   
-  --background: #071D49;
-  --foreground: #ffffff;
-  --card: #0a2a6b;
-  --card-foreground: #ffffff;
-  --popover: #0a2a6b;
-  --popover-foreground: #ffffff;
-  --primary: #C9A227;
-  --primary-foreground: #071D49;
-  --secondary: #0a2a6b;
-  --secondary-foreground: #ffffff;
-  --muted: #0a2a6b;
-  --muted-foreground: #94a3b8;
-  --accent: #C9A227;
-  --accent-foreground: #071D49;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #f1c83f;
+  --primary-foreground: #111827;
+  --secondary: #f3f4f6;
+  --secondary-foreground: #111827;
+  --muted: #f3f4f6;
+  --muted-foreground: #6b7280;
+  --accent: #f1c83f;
+  --accent-foreground: #111827;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: rgba(201, 162, 39, 0.2);
-  --input: rgba(201, 162, 39, 0.2);
-  --ring: #C9A227;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: #f1c83f;
   --radius: 0.5rem;
 }
 
@@ -62,12 +63,11 @@
   --radius-xl: calc(var(--radius) + 4px);
   
   /* Custom brand colors for Tailwind */
-  --color-navy: var(--navy);
-  --color-navy-light: var(--navy-light);
-  --color-navy-dark: var(--navy-dark);
   --color-gold: var(--gold);
   --color-gold-light: var(--gold-light);
   --color-gold-dark: var(--gold-dark);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
 }
 
 @layer base {
@@ -84,20 +84,20 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for dark theme */
+/* Custom scrollbar for premium white theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--navy-dark);
+  background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--gold);
+  background: #d1d5db;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--gold-light);
+  background: #9ca3af;
 }
