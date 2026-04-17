@@ -1,25 +1,32 @@
-"use client"
+'use client'
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, Linkedin } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
-const navItems = [
+const navLinks = [
+  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'Why India', href: '/why-india' },
-  { label: 'Arbitration Services', href: '/arbitration-services' },
-  { label: 'HR Services', href: '/hr-services' },
-  { label: 'Outsourcing', href: '/outsourcing' },
+  {
+    label: 'Solutions',
+    href: '#',
+    children: [
+      { label: 'Arbitration Services', href: '/arbitration-services' },
+      { label: 'HR Services', href: '/hr-services' },
+      { label: 'Outsourcing', href: '/outsourcing' },
+    ],
+  },
   { label: 'About', href: '/about' },
   { label: 'Career', href: '/career' },
 ]
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,118 +38,139 @@ export function Navbar() {
 
   return (
     <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm transition-all duration-300"
-      )}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg'
+          : 'bg-transparent'
+      }`}
     >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-
-          {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3 group">
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/images/logo.png"
-              alt="AU Corporate"
+              alt="AU Corporate Logo"
               width={48}
               height={48}
-              className="transition-transform duration-300 group-hover:scale-105"
+              className="h-12 w-auto"
             />
-
-            {/* TEXT BLOCK */}
-            <div className="flex flex-col leading-tight">
-              <span className="text-xl font-semibold tracking-tight text-[#f1c83f]">
-                AU <span className="text-[#f1c83f]">Corporate</span>
+            <div className="flex flex-col">
+              <span className="text-xl font-semibold tracking-tight text-gold">
+                AU <span className="text-foreground">Corporate</span>
               </span>
-
-              <span className="text-[11px] text-gray-500 tracking-[0.25em] uppercase">
+              <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
                 Growing Together
               </span>
             </div>
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden lg:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-[#e7c553] transition-colors duration-200 rounded-md hover:bg-gray-50"
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-1">
+            {navLinks.map((link) => (
+              <div
+                key={link.label}
+                className="relative"
+                onMouseEnter={() => link.children && setOpenDropdown(link.label)}
+                onMouseLeave={() => setOpenDropdown(null)}
               >
-                {item.label}
-              </Link>
+                {link.children ? (
+                  <>
+                    <button
+                      className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.label}
+                      <ChevronDown className="h-4 w-4" />
+                    </button>
+                    {openDropdown === link.label && (
+                      <div className="absolute top-full left-0 w-56 pt-2">
+                        <div className="bg-card border border-border rounded-lg shadow-xl overflow-hidden">
+                          {link.children.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              className="block px-4 py-3 text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={link.href}
+                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                )}
+              </div>
             ))}
-          </nav>
+          </div>
 
-          {/* DESKTOP ACTIONS */}
-          <div className="hidden lg:flex items-center gap-4">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#ebc549] transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-
-            <Button
-              asChild
-              className="bg-[#e8c347] hover:bg-yellow-500 text-black font-semibold px-6 transition-all duration-200"
-            >
-              <Link href="/career">Get Started</Link>
+          {/* CTA Button */}
+          <div className="hidden lg:block">
+            <Button asChild className="bg-gold hover:bg-gold-dark text-background font-semibold">
+              <Link href="/#contact">Get in Touch</Link>
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* Mobile Menu Button */}
           <button
-            className="lg:hidden text-gray-900 p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </div>
 
-      {/* MOBILE MENU */}
-      <div
-        className={cn(
-          "lg:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 transition-all duration-300 overflow-hidden",
-          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        )}
-      >
-        <nav className="flex flex-col px-4 py-4">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="px-4 py-3 text-gray-700 hover:text-[#efc743] hover:bg-gray-50 rounded-md transition-colors duration-200"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
-
-          <div className="flex items-center gap-4 mt-4 pt-4 border-t border-gray-200 px-4">
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-[#e0bd4c] transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="h-5 w-5" />
-            </a>
-
-            <Button
-              asChild
-              className="bg-[#f7cb3e] hover:bg-yellow-500 text-black font-semibold flex-1"
-            >
-              <Link href="/career">Get Started</Link>
-            </Button>
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-md">
+            <div className="py-4 space-y-1">
+              {navLinks.map((link) => (
+                <div key={link.label}>
+                  {link.children ? (
+                    <div className="space-y-1">
+                      <div className="px-4 py-2 text-sm font-medium text-muted-foreground">
+                        {link.label}
+                      </div>
+                      {link.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="block pl-8 pr-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="block px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent transition-colors"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </div>
+              ))}
+              <div className="px-4 pt-4">
+                <Button asChild className="w-full bg-gold hover:bg-gold-dark text-background font-semibold">
+                  <Link href="/#contact" onClick={() => setIsOpen(false)}>
+                    Get in Touch
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </div>
-        </nav>
-      </div>
+        )}
+      </nav>
     </header>
   )
 }
