@@ -38,11 +38,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
           ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-lg'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
@@ -57,7 +56,7 @@ export function Navbar() {
             />
             <div className="flex flex-col">
               <span className="text-xl font-semibold tracking-tight text-gold">
-                AU <span className="text-foreground">Corporate</span>
+                AU <span className="text-gold">Corporate</span>
               </span>
               <span className="text-[10px] text-muted-foreground tracking-[0.2em] uppercase">
                 Growing Together
