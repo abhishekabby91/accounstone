@@ -71,7 +71,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4 tracking-tight text-balance">
-            <span className="text-[#f1c83f]">
+            <span className="text-[#e1bf4f]">
               AU Corporate
             </span>
           </h1>
