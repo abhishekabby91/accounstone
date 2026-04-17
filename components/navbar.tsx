@@ -51,7 +51,7 @@ export function Navbar() {
             {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
 
-              <span className="text-xl font-semibold tracking-tight text-[#f1c83f]">
+              <span className="text-xl font-semibold tracking-tight text-[#f1d060]">
                 AU Corporate
               </span>
 
@@ -80,7 +80,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="bg-[#f1c83f] hover:bg-yellow-500 text-black font-semibold"
+              className="bg-[#fcd75a] hover:bg-yellow-500 text-black font-semibold"
             >
               <Link href="/contact">Get Started</Link>
             </Button>
@@ -115,7 +115,7 @@ export function Navbar() {
               <div className="px-4 pt-4">
                 <Button
                   asChild
-                  className="w-full bg-[#f1c83f] hover:bg-yellow-500 text-black font-semibold"
+                  className="w-full bg-[#f7d66d] hover:bg-yellow-500 text-black font-semibold"
                 >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Get Started
