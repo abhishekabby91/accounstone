@@ -40,7 +40,8 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
-          {/* Logo */}
+
+          {/* LOGO */}
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/images/logo.png"
@@ -49,9 +50,17 @@ export function Navbar() {
               height={48}
               className="transition-transform duration-300 group-hover:scale-105"
             />
-            <span className="text-xl font-semibold text-foreground tracking-tight">
-              AU <span className="text-gold">Corporate</span>
-            </span>
+
+            {/* TEXT BLOCK (UPDATED) */}
+            <div className="flex flex-col leading-tight">
+              <span className="text-xl font-semibold tracking-tight text-foreground">
+                AU <span className="text-gold">Corporate</span>
+              </span>
+
+              <span className="text-[11px] text-foreground/60 tracking-[0.25em] uppercase">
+                Growing Together
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -78,7 +87,8 @@ export function Navbar() {
             >
               <Linkedin className="h-5 w-5" />
             </a>
-            <Button 
+
+            <Button
               asChild
               className="bg-gold hover:bg-gold-light text-navy-dark font-semibold px-6 transition-all duration-200 hover:shadow-lg hover:shadow-gold/20"
             >
@@ -86,7 +96,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* MOBILE MENU BUTTON */}
           <button
             className="lg:hidden text-foreground p-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -97,7 +107,7 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* MOBILE MENU */}
       <div
         className={cn(
           'lg:hidden absolute top-full left-0 right-0 bg-navy/98 backdrop-blur-md border-t border-border transition-all duration-300 overflow-hidden',
@@ -115,6 +125,7 @@ export function Navbar() {
               {item.label}
             </Link>
           ))}
+
           <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border px-4">
             <a
               href="https://linkedin.com"
@@ -125,7 +136,8 @@ export function Navbar() {
             >
               <Linkedin className="h-5 w-5" />
             </a>
-            <Button 
+
+            <Button
               asChild
               className="bg-gold hover:bg-gold-light text-navy-dark font-semibold flex-1"
             >
