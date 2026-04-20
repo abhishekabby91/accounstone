@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { 
+import {
   ArrowRight,
   Building2,
   Calculator,
@@ -118,14 +118,14 @@ export default function OutsourcingPage() {
             <div>
               <span className="text-gold text-sm font-semibold uppercase tracking-wider">Business Process</span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-                Outsourcing 
+                <span className="text-[#081a42]">Outsourcing,</span>
                 <span className="text-gold"> Solutions</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
                 Scalable business process outsourcing solutions that optimize operations, reduce costs, and drive efficiency. Focus on your core business while we handle the rest.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
+                <Button
                   asChild
                   size="lg"
                   className="bg-gold hover:bg-gold-dark text-foreground font-semibold"
@@ -135,7 +135,7 @@ export default function OutsourcingPage() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <Button 
+                <Button
                   asChild
                   variant="outline"
                   size="lg"
@@ -159,7 +159,7 @@ export default function OutsourcingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {benefits.map((benefit) => (
-              <div 
+              <div
                 key={benefit.title}
                 className="p-6 rounded-xl bg-white border border-border text-center"
               >
@@ -187,10 +187,10 @@ export default function OutsourcingPage() {
               End-to-end business process outsourcing tailored to your industry and operational needs.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service) => (
-              <div 
+              <div
                 key={service.title}
                 className="p-8 rounded-xl bg-secondary border border-border hover:border-gold/50 transition-all duration-300"
               >
@@ -227,7 +227,7 @@ export default function OutsourcingPage() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 Our outsourcing solutions are tailored to meet the unique requirements of diverse industries, ensuring compliance and best practices.
               </p>
-              
+
               <div className="grid grid-cols-2 gap-4">
                 {industries.map((industry) => (
                   <div key={industry} className="flex items-center gap-3 p-4 rounded-lg bg-white border border-border">
@@ -259,7 +259,7 @@ export default function OutsourcingPage() {
               Seamless Transition Process
             </h2>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { step: '01', title: 'Discovery', desc: 'Understanding your business processes and requirements' },
@@ -267,7 +267,7 @@ export default function OutsourcingPage() {
               { step: '03', title: 'Transition', desc: 'Smooth knowledge transfer and setup' },
               { step: '04', title: 'Operations', desc: 'Ongoing delivery with continuous improvement' },
             ].map((item, index) => (
-              <div 
+              <div
                 key={item.step}
                 className="relative p-6 rounded-xl bg-secondary border border-border text-center"
               >
@@ -292,7 +292,7 @@ export default function OutsourcingPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
             Let AU Corporate help you achieve operational excellence through our proven outsourcing solutions.
           </p>
-          <Button 
+          <Button
             asChild
             size="lg"
             className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
