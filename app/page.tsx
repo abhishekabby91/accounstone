@@ -81,8 +81,7 @@ export default function HomePage() {
           </p>
 
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
-            Global consulting, outsourcing, HR, taxation, and arbitration solutions.
-            Your trusted partner for sustainable business growth and operational excellence.
+            AU Corporate is a trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions focused on compliance, operational excellence, and long-term business value.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
