@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { 
+import {
   Mail,
   Phone,
   MapPin,
@@ -72,14 +72,14 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
+
     setIsSubmitting(false)
     setSubmitSuccess(true)
     setFormData({ name: '', email: '', company: '', phone: '', service: '', message: '' })
-    
+
     setTimeout(() => setSubmitSuccess(false), 5000)
   }
 
@@ -91,7 +91,7 @@ export default function ContactPage() {
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Get in Touch</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              Contact 
+              Contact
               <span className="text-gold"> AU Corporate</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -133,14 +133,14 @@ export default function ContactPage() {
               <p className="text-muted-foreground mb-8">
                 Fill out the form below and our team will get back to you within 24 hours.
               </p>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 {submitSuccess && (
                   <div className="p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-center">
                     Thank you for your message! We&apos;ll get back to you soon.
                   </div>
                 )}
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
@@ -226,7 +226,7 @@ export default function ContactPage() {
                     <option value="other">Other</option>
                   </select>
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Your Message *
@@ -242,8 +242,8 @@ export default function ContactPage() {
                     placeholder="Tell us about your needs..."
                   />
                 </div>
-                
-                <Button 
+
+                <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-gold hover:bg-gold-dark text-foreground font-semibold py-6 text-lg"
@@ -266,7 +266,7 @@ export default function ContactPage() {
               <p className="text-muted-foreground mb-8">
                 Follow us on LinkedIn to stay updated with the latest news, insights, and career opportunities.
               </p>
-              
+
               <a
                 href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
                 target="_blank"
@@ -285,7 +285,7 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-foreground mb-6">Our Global Offices</h3>
               <div className="space-y-4">
                 {offices.map((office) => (
-                  <div 
+                  <div
                     key={office.region}
                     className="p-4 rounded-xl bg-secondary border border-border"
                   >
@@ -312,21 +312,21 @@ export default function ContactPage() {
             Partner With AU Corporate
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-            Whether you&apos;re looking to expand into new markets, optimize operations, or transform your business, 
+            Whether you&apos;re looking to expand into new markets, optimize operations, or transform your business,
             we&apos;re here to help you achieve your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
+            <Button
               asChild
               size="lg"
               className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
             >
-              <a href="tel:+1234567890">
+              <a href="tel:+919999010513">
                 <Phone className="mr-2 h-5 w-5" />
                 Call Us Now
               </a>
             </Button>
-            <Button 
+            <Button
               asChild
               variant="outline"
               size="lg"
