@@ -61,12 +61,12 @@ const stats = [
 const leadership = [
   {
     name: 'Abhishek Jain',
-    role: 'Founder & CEO',
+    role: 'Partner',
     description: 'Visionary leader with 30+ years in global consulting and business transformation.',
   },
   {
     name: 'Utsav Dogra',
-    role: 'Founder & CEO',
+    role: 'Partner',
     description: 'Expert in operational excellence and global delivery management.',
   },
   {

@@ -51,7 +51,7 @@ export function Navbar() {
             {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
 
-              <span className="text-xl font-semibold tracking-tight text-[#f2bf18]">
+              <span className="text-xl font-semibold tracking-tight text-[#FBC403]">
                 AU Corporate
               </span>
 
@@ -80,7 +80,7 @@ export function Navbar() {
           <div className="hidden lg:block">
             <Button
               asChild
-              className="bg-[#f2bf18] hover:bg-yellow-500 text-black font-semibold"
+              className="bg-[#FBC403] hover:bg-yellow-500 text-black font-semibold"
             >
               <Link href="/contact">Get Started</Link>
             </Button>
