@@ -25,7 +25,6 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
 
-            {/* LOGO */}
             <Link href="/" className="flex flex-col mb-6">
               <span className="text-2xl font-bold tracking-wide text-gold">
                 AU Corporate
@@ -43,8 +42,7 @@ export function Footer() {
               href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-blue transition-colors duration-200"
-              aria-label="Follow us on LinkedIn"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors duration-200"
             >
               <Linkedin className="h-5 w-5" />
               <span className="text-sm">Follow us on LinkedIn</span>
@@ -60,7 +58,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground hover:pl-2 transition-all duration-200 text-sm"
+                    className="text-muted-foreground hover:text-gold hover:pl-2 transition-all duration-200 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +75,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-foreground hover:pl-2 transition-all duration-200 text-sm"
+                    className="text-muted-foreground hover:text-gold hover:pl-2 transition-all duration-200 text-sm"
                   >
                     {link.label}
                   </Link>
@@ -96,7 +94,7 @@ export function Footer() {
                 <Mail className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <a
                   href="mailto:partner@aucorporate.com"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+                  className="text-muted-foreground hover:text-gold transition-colors duration-200 text-sm"
                 >
                   partner@aucorporate.com
                 </a>
@@ -106,7 +104,7 @@ export function Footer() {
                 <Phone className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <a
                   href="tel:+1234567890"
-                  className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm"
+                  className="text-muted-foreground hover:text-gold transition-colors duration-200 text-sm"
                 >
                   +1 (234) 567-890
                 </a>
@@ -135,14 +133,14 @@ export function Footer() {
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
+                className="text-muted-foreground hover:text-gold text-sm transition-colors duration-200"
               >
                 Privacy Policy
               </Link>
 
               <Link
                 href="/terms"
-                className="text-muted-foreground hover:text-foreground text-sm transition-colors duration-200"
+                className="text-muted-foreground hover:text-gold text-sm transition-colors duration-200"
               >
                 Terms of Service
               </Link>
