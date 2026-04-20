@@ -35,9 +35,8 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-3">
 
-            {/* IMAGE LOGO (YOUR FILE) */}
             <div className="w-10 h-10 relative">
               <Image
                 src="https://user8396.na.imgto.link/public/20260417/au.avif"
@@ -48,22 +47,19 @@ export function Navbar() {
               />
             </div>
 
-            {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
+              <span className="text-2xl font-bold tracking-wide text-gold">
+                AU Corporate
+              </span>
 
-              <Link href="/" className="flex flex-col mb-6">
-                <span className="text-2xl font-bold tracking-wide text-gold">
-                  AU Corporate
-                </span>
-                <span className="text-[10px] text-blue tracking-[0.25em] uppercase font-medium">
-                  Growing Together
-                </span>
-
+              <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase font-medium">
+                Growing Together
+              </span>
             </div>
 
           </Link>
 
-          {/* DESKTOP NAVIGATION */}
+          {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
@@ -86,7 +82,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE MENU */}
+          {/* MOBILE BUTTON */}
           <button
             className="lg:hidden p-2 text-foreground"
             onClick={() => setIsOpen(!isOpen)}

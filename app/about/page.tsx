@@ -80,7 +80,7 @@ export default function AboutPage() {
             </span>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-              <span className="text-[#081a42]">Growing Together</span>,
+              <span className="text-[#081a42]">Growing Together,</span>,
               <span className="text-gold"> Building in India</span>
             </h1>
 
