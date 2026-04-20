@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { 
-  Shield, 
-  Calculator, 
-  FileCheck, 
-  Scale, 
-  Users, 
+import {
+  Shield,
+  Calculator,
+  FileCheck,
+  Scale,
+  Users,
   Building2,
   ArrowRight,
   CheckCircle2,
@@ -118,7 +118,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Services</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              Comprehensive Solutions for 
+              <span className="text-[#081a42]">Comprehensive Solutions for,</span>
               <span className="text-gold"> Business Excellence</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -133,7 +133,7 @@ export default function ServicesPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {services.map((service) => (
-              <div 
+              <div
                 key={service.title}
                 className="group p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                         </li>
                       ))}
                     </ul>
-                    <Link 
+                    <Link
                       href={service.href}
                       className="inline-flex items-center text-blue text-sm font-medium hover:underline"
                     >
@@ -182,10 +182,10 @@ export default function ServicesPage() {
               Our deep industry knowledge enables us to deliver tailored solutions that address sector-specific challenges and opportunities.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {industries.map((industry) => (
-              <div 
+              <div
                 key={industry.name}
                 className="p-6 rounded-xl bg-secondary border border-border text-center hover:border-gold/50 transition-all duration-300"
               >
@@ -208,7 +208,7 @@ export default function ServicesPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
             Let&apos;s discuss how our services can help you achieve your business objectives.
           </p>
-          <Button 
+          <Button
             asChild
             size="lg"
             className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
