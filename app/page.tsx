@@ -83,16 +83,12 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3">
             <span className="text-[#FFD700]">AU Corporate</span>
           </h1>
 
-          <p className="text-[10px] sm:text-sm md:text-base text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-[0.35em] uppercase font-medium mb-5">
-            Growing Together
-          </p>
-
-          <p className="text-sm sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed px-2">
-            AU Corporate is a trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions.
+          <p className="text-sm sm:text-lg text-white/80 max-w-3xl mx-auto mb-8">
+            Trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -121,6 +117,7 @@ export default function HomePage() {
 
           </div>
 
+          {/* STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
@@ -137,99 +134,97 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 CLIENT BANNER (AU STYLE) */}
+      {/* ✅ CLIENT BANNER (FIXED + NO ERROR VERSION) */}
       <section className="py-8 bg-white border-y border-border overflow-hidden">
 
-        <div className="relative whitespace-nowrap">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          <div className="flex gap-10 animate-scroll">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
 
-            {[
-              "India",
-              "UAE",
-              "USA",
-              "UK",
-              "Singapore",
-              "Germany",
-              "Australia",
-              "Canada",
-              "Europe",
-            ].concat([
-              "India",
-              "UAE",
-              "USA",
-              "UK",
-              "Singapore",
-              "Germany",
-              "Australia",
-              "Canada",
-              "Europe",
-            ]).map((country, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-sm font-medium text-[#081a42]"
-              >
-                <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                {country}
+            {/* TEXT */}
+            <div className="text-center lg:text-left">
+              <h3 className="text-lg font-semibold text-[#081a42]">
+                Our Clients are from
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Global presence across multiple regions
+              </p>
+            </div>
+
+            {/* SCROLL */}
+            <div className="relative w-full lg:w-auto overflow-hidden">
+
+              <div className="flex gap-10 w-max animate-[scroll_18s_linear_infinite]">
+
+                {[
+                  "India",
+                  "UAE",
+                  "USA",
+                  "UK",
+                  "Singapore",
+                  "Germany",
+                  "Australia",
+                  "Canada",
+                  "Europe",
+                ].concat([
+                  "India",
+                  "UAE",
+                  "USA",
+                  "UK",
+                  "Singapore",
+                  "Germany",
+                  "Australia",
+                  "Canada",
+                  "Europe",
+                ]).map((country, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 text-sm font-medium text-[#081a42]"
+                  >
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
+                    {country}
+                  </div>
+                ))}
+
               </div>
-            ))}
+
+            </div>
 
           </div>
 
         </div>
-
-        <style jsx>{`
-          .animate-scroll {
-            display: flex;
-            width: max-content;
-            animation: scroll 18s linear infinite;
-          }
-
-          @keyframes scroll {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-        `}</style>
-
       </section>
 
-      {/* SERVICES SECTION */}
+      {/* SERVICES */}
       <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-16">
-            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
+            <span className="text-yellow-400 text-sm font-semibold uppercase">
               Our Expertise
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mt-4">
               Comprehensive Business Solutions
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              We deliver integrated consulting, compliance, and operational solutions.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {services.map((service) => (
               <Link
                 key={service.title}
                 href={service.href}
-                className="group p-8 rounded-xl bg-white border border-border hover:border-yellow-400 transition-all duration-300 hover:shadow-lg"
+                className="p-8 bg-white border rounded-xl hover:shadow-lg transition"
               >
-                <div className="w-14 h-14 rounded-lg bg-yellow-400/10 flex items-center justify-center mb-6">
-                  <service.icon className="h-7 w-7 text-yellow-500" />
+                <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center rounded-lg mb-4">
+                  <service.icon className="text-yellow-500 w-6 h-6" />
                 </div>
 
-                <h3 className="text-xl font-semibold group-hover:text-yellow-500">
+                <h3 className="font-semibold mb-2">
                   {service.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   {service.description}
                 </p>
               </Link>
@@ -239,6 +234,14 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      {/* GLOBAL KEYFRAME (SAFE) */}
+      <style jsx global>{`
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
 
     </div>
   )
