@@ -123,6 +123,8 @@ export default function HomePage() {
               className="border-white text-white hover:bg-white hover:text-black px-6 py-3 text-sm sm:text-base"
             >
               <Link href="/contact">Contact Us</Link>
+              Contact us
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
           </div>
