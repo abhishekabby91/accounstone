@@ -99,7 +99,7 @@ export default function HomePage() {
 
           {/* Description */}
           <p className="text-sm sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed px-2">
-            AU Corporate is a trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions focused on compliance, operational excellence, and long-term business value.
+            AU Corporate is a global advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution, enabling sustainable client growth through structured execution, regulatory expertise, integrity, and efficiency.
           </p>
 
           {/* BUTTONS (FIXED) */}
