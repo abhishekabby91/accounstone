@@ -73,7 +73,7 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        {/* Overlay (improved readability) */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
         {/* CONTENT */}
@@ -93,7 +93,7 @@ export default function HomePage() {
           </h1>
 
           {/* Tagline */}
-          <p className="text-[10px] sm:text-sm md:text-base text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-[0.35em] uppercase font-medium mb-5">
+          <p className="text-xs sm:text-sm md:text-base text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-[0.35em] uppercase font-medium mb-5">
             Growing Together
           </p>
 
@@ -110,7 +110,7 @@ export default function HomePage() {
               size="lg"
               className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 text-sm sm:text-base"
             >
-              <Link href="/career">
+              <Link href="/career" className="flex items-center">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -119,12 +119,12 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black px-6 py-3 text-sm sm:text-base"
+              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3 text-sm sm:text-base"
             >
-              <Link href="/contact">Contact Us</Link>
-              Contact us
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Link href="/contact" className="flex items-center">
+                Contact Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
 
           </div>
