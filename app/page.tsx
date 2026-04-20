@@ -73,10 +73,10 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70 sm:bg-black/60" />
+        {/* Overlay (improved readability) */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
-        {/* Content */}
+        {/* CONTENT */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
 
           {/* Badge */}
@@ -102,7 +102,7 @@ export default function HomePage() {
             AU Corporate is a trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions focused on compliance, operational excellence, and long-term business value.
           </p>
 
-          {/* Buttons */}
+          {/* BUTTONS (FIXED) */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 
             <Button
@@ -119,12 +119,12 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black px-6 py-3 text-sm sm:text-base"
+              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3 text-sm sm:text-base"
             >
-              <Link href="/contact">Contact Us</Link>
-              Contact us
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <Link href="/contact">
+                Contact Us
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
 
           </div>
