@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Linkedin, Mail, MapPin, Phone } from 'lucide-react'
+import { Linkedin, Mail, MapPin } from 'lucide-react'
 
 const quickLinks = [
   { label: 'Services', href: '/services' },
@@ -100,20 +100,11 @@ export function Footer() {
                 </a>
               </li>
 
-              <li className="flex items-start gap-3">
-                <Phone className="h-5 w-5 text-gold shrink-0 mt-0.5" />
-                <a
-                  href="tel:+1234567890"
-                  className="text-muted-foreground hover:text-gold transition-colors duration-200 text-sm"
-                >
-                  +91 9999 010-513
-                </a>
-              </li>
-
+              {/* LOCATION UPDATED */}
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  222 First Floor, World Trade Tower, Barakhamba Road, Connaught Place, New Delhi -110001
+                  New Delhi & Haryana, India
                 </span>
               </li>
 
@@ -133,14 +124,14 @@ export function Footer() {
             <div className="flex gap-6">
               <Link
                 href="/privacy"
-                className="text-muted-foreground hover:text-gold text-sm transition-colors duration-200"
+                className="text-muted-foreground hover:text-gold text-sm"
               >
                 Privacy Policy
               </Link>
 
               <Link
                 href="/terms"
-                className="text-muted-foreground hover:text-gold text-sm transition-colors duration-200"
+                className="text-muted-foreground hover:text-gold text-sm"
               >
                 Terms of Service
               </Link>
