@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
-import { 
+import {
   MapPin,
   Briefcase,
   Clock,
@@ -121,14 +121,14 @@ export default function CareerPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
+
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500))
-    
+
     setIsSubmitting(false)
     setSubmitSuccess(true)
     setFormData({ name: '', email: '', position: '', message: '' })
-    
+
     setTimeout(() => setSubmitSuccess(false), 5000)
   }
 
@@ -140,7 +140,7 @@ export default function CareerPage() {
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Join Our Team</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              Build Your Career at 
+              <span className="text-[#081a42]">Build Your Career at,</span>
               <span className="text-gold"> AU Corporate</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
@@ -162,10 +162,10 @@ export default function CareerPage() {
               At AU Corporate, we believe our people are our greatest asset. We foster an environment where talent thrives.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {cultureValues.map((value) => (
-              <div 
+              <div
                 key={value.title}
                 className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
               >
@@ -192,7 +192,7 @@ export default function CareerPage() {
               <p className="text-muted-foreground mb-8 leading-relaxed">
                 We invest in our employees&apos; success and well-being with a comprehensive benefits package designed to support you at every stage of your career.
               </p>
-              
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {benefits.map((benefit) => (
                   <div key={benefit} className="flex items-center gap-3">
@@ -228,10 +228,10 @@ export default function CareerPage() {
               Explore exciting career opportunities across our global offices and find the role that matches your expertise.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {jobListings.map((job) => (
-              <div 
+              <div
                 key={job.id}
                 className="p-6 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 hover:shadow-lg"
               >
@@ -270,14 +270,14 @@ export default function CareerPage() {
               Interested in joining our team? Fill out the form below and we&apos;ll get back to you.
             </p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="p-8 rounded-xl bg-secondary border border-border">
             {submitSuccess && (
               <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-600 text-center">
                 Thank you for your application! We&apos;ll be in touch soon.
               </div>
             )}
-            
+
             <div className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
@@ -311,7 +311,7 @@ export default function CareerPage() {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="position" className="block text-sm font-medium text-foreground mb-2">
                   Position of Interest *
@@ -327,7 +327,7 @@ export default function CareerPage() {
                   placeholder="e.g., Senior Consultant"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                   Cover Letter / Message *
@@ -343,8 +343,8 @@ export default function CareerPage() {
                   placeholder="Tell us about yourself and why you'd be a great fit..."
                 />
               </div>
-              
-              <Button 
+
+              <Button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-gold hover:bg-gold-dark text-foreground font-semibold py-6 text-lg"
@@ -372,7 +372,7 @@ export default function CareerPage() {
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
             Our HR team is here to help. Reach out to learn more about career opportunities at AU Corporate.
           </p>
-          <Button 
+          <Button
             asChild
             variant="outline"
             size="lg"
