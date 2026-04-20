@@ -23,82 +23,88 @@ export const metadata: Metadata = {
 
 const services = [
   {
-    icon: Shield,
-    title: 'Risk & Technology Consulting',
-    description: 'Strategic risk management and cutting-edge technology solutions to safeguard and accelerate your business growth.',
+    icon: Building2,
+    title: 'Global Support Services',
+    description:
+      'Scalable business support and outsourcing solutions designed to optimize operations, reduce cost, and improve efficiency.',
     features: [
-      'Enterprise Risk Assessment',
-      'Cybersecurity Strategy',
-      'Digital Transformation',
-      'IT Infrastructure Consulting',
-      'Business Continuity Planning',
+      'Finance & Accounting Support',
+      'Back-office Operations',
+      'Process Outsourcing',
+      'Customer Support Solutions',
+      'Operational Optimization',
+    ],
+    href: '/outsourcing',
+  },
+  {
+    icon: FileCheck,
+    title: 'Accounting & Assurance',
+    description:
+      'Robust financial reporting, audit assurance, and compliance services ensuring transparency and stakeholder confidence.',
+    features: [
+      'Statutory & Internal Audit',
+      'Financial Reporting',
+      'IFRS / GAAP Compliance',
+      'SOX & Controls Assurance',
+      'Process Reviews',
     ],
     href: '/services',
   },
   {
     icon: Calculator,
     title: 'Taxation & Regulatory Services',
-    description: 'Expert guidance navigating complex tax landscapes and regulatory frameworks across multiple jurisdictions.',
+    description:
+      'End-to-end tax advisory and regulatory compliance solutions across domestic and international jurisdictions.',
     features: [
-      'International Tax Planning',
-      'Transfer Pricing',
-      'Tax Compliance & Filing',
-      'Regulatory Advisory',
-      'Tax Dispute Resolution',
+      'Direct & Indirect Tax Advisory',
+      'International Tax Structuring',
+      'Transfer Pricing Support',
+      'Regulatory Compliance',
+      'Tax Litigation Support',
     ],
     href: '/services',
   },
   {
-    icon: FileCheck,
-    title: 'Accounting & Assurance',
-    description: 'Comprehensive financial reporting and assurance services that build stakeholder confidence and drive informed decisions.',
+    icon: Shield,
+    title: 'Risk Management',
+    description:
+      'Integrated risk governance, compliance frameworks, and technology-driven advisory to enhance resilience and business performance.',
     features: [
-      'Financial Statement Audits',
-      'Internal Audit Services',
-      'IFRS/GAAP Compliance',
-      'Financial Reporting',
-      'SOX Compliance',
+      'Enterprise Risk Frameworks',
+      'Cybersecurity & Controls',
+      'Digital & IT Advisory',
+      'Business Continuity Planning',
+      'Governance & Compliance',
     ],
     href: '/services',
   },
   {
     icon: Scale,
-    title: 'Arbitration Services',
-    description: 'Professional dispute resolution services for complex corporate matters with expertise in cross-border arbitration.',
+    title: 'Arbitration & Dispute Resolution',
+    description:
+      'Strategic dispute resolution services with expertise in commercial arbitration and cross-border conflict management.',
     features: [
       'Commercial Arbitration',
-      'International Disputes',
-      'Mediation Services',
-      'Expert Witness Services',
-      'Contract Review',
+      'Cross-border Disputes',
+      'Mediation & Negotiation',
+      'Contract Advisory',
+      'Expert Opinions',
     ],
     href: '/arbitration-services',
   },
   {
     icon: Users,
     title: 'HR & Payroll Solutions',
-    description: 'End-to-end human capital management solutions that streamline operations and enhance employee experience.',
+    description:
+      'Comprehensive workforce management solutions covering recruitment, payroll, compliance, and employee lifecycle management.',
     features: [
       'Talent Acquisition',
       'Payroll Processing',
-      'Benefits Administration',
       'HR Compliance',
       'Performance Management',
+      'Employee Lifecycle Support',
     ],
     href: '/hr-services',
-  },
-  {
-    icon: Building2,
-    title: 'Outsourcing Solutions',
-    description: 'Scalable business process outsourcing that optimizes operations and drives cost efficiencies.',
-    features: [
-      'Finance & Accounting BPO',
-      'Back Office Operations',
-      'Customer Support',
-      'Data Processing',
-      'Process Optimization',
-    ],
-    href: '/outsourcing',
   },
 ]
 
@@ -113,19 +119,37 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
+
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://cdn.corenexis.com/files/c/1255642720.png"
+            alt="Services Background"
+            className="w-full h-full object-cover"
+          />
+          {/* Overlay for readability */}
+          <div className="absolute inset-0 bg-white/80" />
+        </div>
+
+        {/* Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Services</span>
+            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+              Our Services
+            </span>
+
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
               <span className="text-[#081a42]">Comprehensive Solutions for</span>
               <span className="text-gold"> Business Excellence</span>
             </h1>
+
             <p className="text-lg text-muted-foreground leading-relaxed">
               From strategic consulting to operational excellence, we deliver integrated solutions that address your most complex business challenges and drive sustainable growth.
             </p>
           </div>
         </div>
+
       </section>
 
       {/* Services Grid */}
