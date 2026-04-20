@@ -13,21 +13,27 @@ import {
 
 const services = [
   {
-    icon: Shield,
-    title: 'Risk & Technology Consulting',
-    description: 'Strategic risk management and technology solutions to protect and grow your business.',
-    href: '/services',
-  },
-  {
-    icon: Calculator,
-    title: 'Taxation & Regulatory Services',
-    description: 'Expert guidance on tax planning, compliance, and regulatory frameworks.',
-    href: '/services',
+    icon: Building2,
+    title: 'Global Support Services',
+    description: 'Scalable business process outsourcing to optimize your operations.',
+    href: '/outsourcing',
   },
   {
     icon: FileCheck,
     title: 'Accounting & Assurance',
     description: 'Comprehensive accounting services and financial assurance for stakeholder confidence.',
+    href: '/services',
+  },
+  {
+    icon: Calculator,
+    title: 'Taxation & Regulatory',
+    description: 'Expert guidance on tax planning, compliance, and regulatory frameworks.',
+    href: '/services',
+  },
+  {
+    icon: Shield,
+    title: 'Risk Management',
+    description: 'Strategic risk management solutions to protect and grow your business.',
     href: '/services',
   },
   {
@@ -41,12 +47,6 @@ const services = [
     title: 'HR & Payroll Solutions',
     description: 'End-to-end human resource management and payroll processing services.',
     href: '/hr-services',
-  },
-  {
-    icon: Building2,
-    title: 'Outsourcing Solutions',
-    description: 'Scalable business process outsourcing to optimize your operations.',
-    href: '/outsourcing',
   },
 ]
 
@@ -102,7 +102,7 @@ export default function HomePage() {
             AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution, enabling sustainable client growth through structured execution, regulatory expertise, integrity, and efficiency.
           </p>
 
-          {/* BUTTONS (FIXED) */}
+          {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 
             <Button
@@ -121,7 +121,9 @@ export default function HomePage() {
               size="lg"
               className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3 text-sm sm:text-base"
             >
-
+              <Link href="/contact">
+                Contact Us
+              </Link>
             </Button>
 
           </div>
