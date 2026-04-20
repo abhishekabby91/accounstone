@@ -133,7 +133,7 @@ export default function WhyIndiaPage() {
             </span>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 text-white">
-              Why India is Your,
+              Why India is Your
               <span className="text-gold"> Growth Destination</span>
             </h1>
 
