@@ -5,9 +5,9 @@
 
 :root {
   /* AU Corporate Brand Colors - Premium White Theme */
-  --gold: #fdda65;
-  --gold-light: #fdda65;
-  --gold-dark: #fdda65;
+  --gold: #FFD700;
+  --gold-light: #FFD700;
+  --gold-dark: #FFD700;
   --blue: #072564;
   --blue-light: #072564;
   --gray-dark: #111827;
@@ -19,19 +19,19 @@
   --card-foreground: #111827;
   --popover: #ffffff;
   --popover-foreground: #111827;
-  --primary: #fdda65;
+  --primary: #FFD700;
   --primary-foreground: #111827;
   --secondary: #f3f4f6;
   --secondary-foreground: #111827;
   --muted: #f3f4f6;
   --muted-foreground: #6b7280;
-  --accent: #fdda65;
+  --accent: #FFD700;
   --accent-foreground: #111827;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #E5E7EB;
   --input: #E5E7EB;
-  --ring: #fdda65;
+  --ring: #FFD700;
   --radius: 0.5rem;
 }
 
