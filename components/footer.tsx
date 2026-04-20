@@ -35,7 +35,7 @@ export function Footer() {
             </Link>
 
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Your trusted partner for global consulting, outsourcing, HR, taxation, and arbitration solutions. Growing together since establishment.
+              Supporting global businesses in establishing and operating in India through expert advisory, compliance, and outsourcing solutions.
             </p>
 
             <a
