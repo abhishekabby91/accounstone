@@ -54,7 +54,7 @@ const advantages = [
 
 const stats = [
   { value: '$3.5T+', label: 'GDP Size' },
-  { value: '5th', label: 'Largest Economy' },
+  { value: '4th', label: 'Largest Economy' },
   { value: '100+', label: 'Unicorns' },
   { value: 'High', label: 'FDI Growth' },
 ]
