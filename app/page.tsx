@@ -151,7 +151,7 @@ export default function HomePage() {
 
         <Button asChild className="bg-[#FFD700] text-black hover:bg-yellow-500 font-semibold">
           <Link href="/why-india" className="flex items-center">
-            Explore Why India
+            Explore
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
