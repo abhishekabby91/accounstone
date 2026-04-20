@@ -51,7 +51,7 @@ export function Navbar() {
             {/* TEXT BLOCK */}
             <div className="flex flex-col leading-tight">
 
-              <span className="text-xl font-semibold tracking-tight text-[#FBC403]">
+              <span className="text-xl font-semibold tracking-tight text-[#FFD700]">
                 AU Corporate
               </span>
 
