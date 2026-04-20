@@ -111,7 +111,7 @@ export default function ArbitrationServicesPage() {
               </span>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-                <span className="text-[#081a42]">Dispute Resolution,</span>
+                <span className="text-[#081a42]">Dispute Resolution</span>
                 <span className="text-gold"> Experts</span>
               </h1>
 
