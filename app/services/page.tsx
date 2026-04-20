@@ -118,7 +118,7 @@ export default function ServicesPage() {
           <div className="max-w-3xl">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Services</span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              <span className="text-[#081a42]">Comprehensive Solutions for,</span>
+              <span className="text-[#081a42]">Comprehensive Solutions for</span>
               <span className="text-gold"> Business Excellence</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
