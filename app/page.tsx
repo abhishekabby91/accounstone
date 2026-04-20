@@ -59,7 +59,7 @@ const services = [
 ]
 
 const stats = [
-  { value: "500+", label: "Global Clients" },
+  { value: "500+", label: "Clients" },
   { value: "25+", label: "Years Experience" },
   { value: "15", label: "Countries Served" },
   { value: "98%", label: "Client Retention" },

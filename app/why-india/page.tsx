@@ -18,7 +18,7 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Why India | AU Corporate',
   description:
-    'Understand why India is a preferred destination for foreign investment, business expansion, and global growth.',
+    'Understand why India is a preferred destination for foreign investment, business expansion and global growth.',
 }
 
 const advantages = [
