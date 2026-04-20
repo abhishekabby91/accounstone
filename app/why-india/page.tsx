@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import {
   ArrowRight,
@@ -107,32 +108,52 @@ export default function WhyIndiaPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* Hero Section */}
-      <section className="relative py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* HERO SECTION WITH BACKGROUND IMAGE */}
+      <section className="relative py-24 flex items-center overflow-hidden">
+
+        {/* Background Image */}
+        <Image
+          src="https://cdn.corenexis.com/files/c/3298128720.jpg"
+          alt="Why India Background"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-7xl px-4 w-full">
+
           <div className="max-w-3xl">
+
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">
               Strategic Advantage
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6">
-              <span className="text-[#081a42]">Why India is Your,</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6 text-white">
+              Why India is Your,
               <span className="text-gold"> Growth Destination</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               India is one of the fastest-growing major economies, offering significant opportunities
               for foreign businesses. With a large consumer base, strong regulatory framework, and
               continuous economic reforms, India has become a preferred destination for global
               companies looking to establish and expand their presence.
             </p>
+
           </div>
+
         </div>
+
       </section>
 
-      {/* Key Advantages */}
+      {/* KEY ADVANTAGES */}
       <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4">
+
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">
               Key Advantages
@@ -154,10 +175,11 @@ export default function WhyIndiaPage() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* Stats */}
+      {/* STATS */}
       <section className="py-16 bg-gold/10">
         <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {stats.map((stat) => (
@@ -169,9 +191,10 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* Detailed Reasons */}
+      {/* REASONS */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4">
+
           <div className="text-center mb-16">
             <span className="text-gold text-sm font-semibold uppercase tracking-wider">
               In Detail
@@ -179,14 +202,12 @@ export default function WhyIndiaPage() {
             <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
               Why Global Businesses Choose India
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Key economic, regulatory, and strategic factors that make India a preferred destination for foreign investment.
-            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {reasons.map((reason) => (
               <div key={reason.title} className="p-8 bg-gray-50 border rounded-xl">
+
                 <div className="flex gap-4 mb-6">
                   <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center">
                     <reason.icon className="h-7 w-7 text-gold" />
@@ -196,6 +217,7 @@ export default function WhyIndiaPage() {
                     <p className="text-sm text-muted-foreground">{reason.description}</p>
                   </div>
                 </div>
+
                 <ul className="space-y-2 border-l-2 border-gold/30 pl-4">
                   {reason.points.map((point) => (
                     <li key={point} className="text-sm text-muted-foreground">
@@ -203,9 +225,11 @@ export default function WhyIndiaPage() {
                     </li>
                   ))}
                 </ul>
+
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -216,7 +240,7 @@ export default function WhyIndiaPage() {
         </h2>
 
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-          Planning to establish your business in India? AU Corporate provides end-to-end support across entry strategy, regulatory compliance, and operations.
+          AU Corporate provides end-to-end support for business entry, compliance, and operations in India.
         </p>
 
         <Button className="bg-gold text-black px-6 py-3">
