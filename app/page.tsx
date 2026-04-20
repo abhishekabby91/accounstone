@@ -98,23 +98,14 @@ export default function HomePage() {
 
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 
+
+
             <Button
               asChild
               size="lg"
               className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3"
             >
-              <Link href="/career" className="flex items-center">
-                Get Started
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-
-            <Button
-              asChild
-              size="lg"
-              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3"
-            >
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">Get Started</Link>
             </Button>
 
           </div>
