@@ -1,6 +1,8 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+"use client"
+
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
 import {
   Shield,
   Calculator,
@@ -8,53 +10,59 @@ import {
   Scale,
   Users,
   Building2,
-  ArrowRight
-} from 'lucide-react'
+  ArrowRight,
+} from "lucide-react"
 
 const services = [
   {
     icon: Building2,
-    title: 'Global Support Services',
-    description: 'Scalable business process outsourcing to optimize your operations.',
-    href: '/outsourcing',
+    title: "Global Support Services",
+    description:
+      "Scalable business process outsourcing to optimize your operations.",
+    href: "/outsourcing",
   },
   {
     icon: FileCheck,
-    title: 'Accounting & Assurance',
-    description: 'Comprehensive accounting services and financial assurance for stakeholder confidence.',
-    href: '/services',
+    title: "Accounting & Assurance",
+    description:
+      "Comprehensive accounting services and financial assurance for stakeholder confidence.",
+    href: "/services",
   },
   {
     icon: Calculator,
-    title: 'Taxation & Regulatory',
-    description: 'Expert guidance on tax planning, compliance, and regulatory frameworks.',
-    href: '/services',
+    title: "Taxation & Regulatory",
+    description:
+      "Expert guidance on tax planning, compliance, and regulatory frameworks.",
+    href: "/services",
   },
   {
     icon: Shield,
-    title: 'Risk Management',
-    description: 'Strategic risk management solutions to protect and grow your business.',
-    href: '/services',
+    title: "Risk Management",
+    description:
+      "Strategic risk management solutions to protect and grow your business.",
+    href: "/services",
   },
   {
     icon: Scale,
-    title: 'Arbitration Services',
-    description: 'Professional dispute resolution and legal advisory for complex corporate matters.',
-    href: '/arbitration-services',
+    title: "Arbitration Services",
+    description:
+      "Professional dispute resolution and legal advisory for complex corporate matters.",
+    href: "/arbitration-services",
   },
   {
     icon: Users,
-    title: 'HR & Payroll Solutions',
-    description: 'End-to-end human resource management and payroll processing services.',
-    href: '/hr-services',
+    title: "HR & Payroll Solutions",
+    description:
+      "End-to-end human resource management and payroll processing services.",
+    href: "/hr-services",
   },
 ]
 
 const stats = [
-  { value: '500+', label: 'Global Clients' },
-  { value: '25+', label: 'Years Experience' },
-  { value: '15', label: 'Countries Served' },
-  { value: '98%', label: 'Client Retention' },
+  { value: "500+", label: "Global Clients" },
+  { value: "25+", label: "Years Experience" },
+  { value: "15", label: "Countries Served" },
+  { value: "98%", label: "Client Retention" },
 ]
 
 export default function HomePage() {
@@ -64,7 +72,6 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
 
-        {/* Background Image */}
         <Image
           src="https://cdn.corenexis.com/files/c/6282821720.jpg"
           alt="AU Corporate Background"
@@ -73,42 +80,28 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
-        {/* CONTENT */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
 
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
-            <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
-            <span className="text-yellow-400 text-xs sm:text-sm font-medium">
-              Global Business Solutions
-            </span>
-          </div>
-
-          {/* Title */}
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 tracking-tight">
             <span className="text-[#FFD700]">AU Corporate</span>
           </h1>
 
-          {/* Tagline */}
           <p className="text-xs sm:text-sm md:text-base text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-[0.35em] uppercase font-medium mb-5">
             Growing Together
           </p>
 
-          {/* Description */}
           <p className="text-sm sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed px-2">
             AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution, enabling sustainable client growth through structured execution, regulatory expertise, integrity, and efficiency.
           </p>
 
-          {/* BUTTONS */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 
             <Button
               asChild
               size="lg"
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 text-sm sm:text-base"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3"
             >
               <Link href="/career" className="flex items-center">
                 Get Started
@@ -119,11 +112,9 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3 text-sm sm:text-base"
+              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3"
             >
-              <Link href="/contact">
-                Contact Us
-              </Link>
+              <Link href="/contact">Contact Us</Link>
             </Button>
 
           </div>
@@ -136,7 +127,7 @@ export default function HomePage() {
                 <div className="text-2xl sm:text-4xl font-bold text-yellow-400">
                   {stat.value}
                 </div>
-                <div className="text-white/70 text-[10px] sm:text-sm">
+                <div className="text-white/70 text-sm">
                   {stat.label}
                 </div>
               </div>
@@ -147,18 +138,35 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ✅ NEW BANNER SECTION (YOU ASKED FOR THIS) */}
+      <section className="py-12 bg-[#081a42] text-white text-center">
+
+        <h2 className="text-2xl md:text-3xl font-semibold mb-3">
+          Doing Business in India
+        </h2>
+
+        <p className="text-white/70 mb-6 max-w-2xl mx-auto">
+          Insights, regulatory framework, and strategic guidance for global companies entering and expanding in India.
+        </p>
+
+        <Button asChild className="bg-[#FFD700] text-black hover:bg-yellow-500 font-semibold">
+          <Link href="/why-india" className="flex items-center">
+            Explore Why India
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+
+      </section>
+
       {/* SERVICES SECTION */}
       <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-16">
-            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
-              Our Expertise
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Comprehensive Business Solutions
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
               We deliver integrated consulting, compliance, and operational solutions.
             </p>
           </div>
@@ -169,17 +177,17 @@ export default function HomePage() {
               <Link
                 key={service.title}
                 href={service.href}
-                className="group p-8 rounded-xl bg-white border border-border hover:border-yellow-400 transition-all duration-300 hover:shadow-lg"
+                className="group p-8 rounded-xl bg-white border hover:border-yellow-400 transition hover:shadow-lg"
               >
                 <div className="w-14 h-14 rounded-lg bg-yellow-400/10 flex items-center justify-center mb-6">
                   <service.icon className="h-7 w-7 text-yellow-500" />
                 </div>
 
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-yellow-500">
+                <h3 className="text-xl font-semibold group-hover:text-yellow-500">
                   {service.title}
                 </h3>
 
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                <p className="text-muted-foreground text-sm mt-2">
                   {service.description}
                 </p>
               </Link>
