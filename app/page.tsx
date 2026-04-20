@@ -292,7 +292,7 @@ export default function HomePage() {
               size="lg"
               className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
             >
-              <a href="mailto:info@aucorporate.com">Email Us</a>
+              <a href="mailto:partner@theaucorp.com">Email Us</a>
             </Button>
           </div>
         </div>
