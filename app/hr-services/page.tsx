@@ -113,7 +113,7 @@ export default function HRServicesPage() {
             </span>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              HR & Payroll
+              <span className="text-[#081a42]">HR & Payroll,</span>
               <span className="text-gold"> Solutions</span>
             </h1>
 
