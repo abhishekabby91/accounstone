@@ -115,7 +115,7 @@ export function Navbar() {
               <div className="px-4 pt-4">
                 <Button
                   asChild
-                  className="w-full bg-[#f2bf18] hover:bg-yellow-500 text-black font-semibold"
+                  className="w-full bg-[#FBC403] hover:bg-yellow-500 text-black font-semibold"
                 >
                   <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Get Started
