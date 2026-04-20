@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { 
+import {
   ArrowRight,
   Users,
   TrendingUp,
@@ -15,86 +15,90 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Why India | AU Corporate',
-  description: 'Discover why India is the premier destination for global business outsourcing, talent acquisition, and business growth.',
+  description: 'Understand why India is a preferred destination for foreign investment, business expansion, and global growth.',
 }
 
 const advantages = [
   {
     icon: Users,
-    title: 'Massive Talent Pool',
+    title: 'Large Consumer Market',
     value: '1.4B+',
-    description: 'Access to over 1.4 billion people with a rapidly growing workforce of skilled professionals across all industries.',
+    description: 'Access to one of the world’s largest and fastest-growing consumer markets across multiple industries.',
   },
   {
     icon: GraduationCap,
-    title: 'Highly Educated Workforce',
+    title: 'Skilled Workforce',
     value: '5M+',
-    description: 'Over 5 million graduates annually from world-class universities and technical institutions.',
+    description: 'A vast pool of qualified professionals across finance, engineering, technology, and management.',
   },
   {
     icon: DollarSign,
-    title: 'Cost Efficiency',
-    value: '60%',
-    description: 'Achieve up to 60% cost savings compared to Western markets without compromising on quality.',
+    title: 'Cost Advantage',
+    value: '50%+',
+    description: 'Significant cost efficiencies in manpower, operations, and infrastructure compared to developed economies.',
   },
   {
     icon: Clock,
-    title: 'Time Zone Advantage',
-    value: '24/7',
-    description: 'Strategic time zone positioning enables round-the-clock operations and faster turnaround times.',
+    title: 'Ease of Doing Business',
+    value: 'Improving',
+    description: 'Ongoing regulatory reforms and digitization improving transparency and ease of business operations.',
   },
 ]
 
 const stats = [
-  { value: '$200B+', label: 'IT Services Export' },
-  { value: '1500+', label: 'Global Delivery Centers' },
-  { value: '500+', label: 'Fortune 500 Clients' },
-  { value: '4.5M+', label: 'IT Professionals' },
+  { value: '$3.5T+', label: 'GDP Size' },
+  { value: '5th', label: 'Largest Economy' },
+  { value: '100+', label: 'Unicorn Startups' },
+  { value: 'Strong', label: 'FDI Inflows' },
 ]
 
 const reasons = [
   {
     icon: Globe,
-    title: 'Global Outsourcing Hub',
-    description: 'India is the world\'s leading destination for business process outsourcing and IT services, handling operations for the largest global enterprises.',
+    title: 'Favorable Investment Environment',
+    description:
+      'India provides a stable and evolving regulatory ecosystem that supports foreign investment across sectors.',
     points: [
-      'Mature outsourcing ecosystem with 30+ years of experience',
-      'World-class infrastructure and technology parks',
-      'Proven track record with Fortune 500 companies',
-      'Strong data protection and compliance frameworks',
+      '100% FDI permitted in multiple sectors under automatic route',
+      'Robust legal and regulatory framework',
+      'Government incentives for foreign investors',
+      'Growing international trade partnerships',
     ],
   },
   {
     icon: TrendingUp,
-    title: 'Business Scalability',
-    description: 'Scale your operations rapidly with India\'s flexible business environment and abundant resources.',
+    title: 'High Growth Potential',
+    description:
+      'India continues to be one of the fastest-growing major economies, offering long-term growth opportunities.',
     points: [
-      'Flexible workforce scaling up or down based on needs',
-      'Multiple tier-1 and tier-2 city options for delivery',
-      'Established vendor ecosystem and partnerships',
-      'Government incentives for foreign businesses',
+      'Rapid urbanization and rising middle class',
+      'Increasing consumption across sectors',
+      'Strong domestic demand',
+      'Expanding digital and startup ecosystem',
     ],
   },
   {
     icon: Building2,
-    title: 'Quality Excellence',
-    description: 'India maintains the highest quality standards with a strong emphasis on process excellence and continuous improvement.',
+    title: 'Regulatory & Compliance Framework',
+    description:
+      'Structured compliance systems ensure transparency and governance for foreign companies operating in India.',
     points: [
-      'Highest number of CMM Level 5 certified companies',
-      'Strong focus on Six Sigma and lean methodologies',
-      'ISO certified delivery centers',
-      'Robust quality management systems',
+      'Company law and FEMA regulations for foreign entities',
+      'GST-based indirect tax regime',
+      'Defined corporate compliance requirements',
+      'Robust audit and reporting standards',
     ],
   },
   {
     icon: Zap,
-    title: 'Innovation & Technology',
-    description: 'A thriving startup ecosystem and strong R&D capabilities make India a hub for innovation and digital transformation.',
+    title: 'Digital & Infrastructure Growth',
+    description:
+      'Rapid digitalization and infrastructure development support efficient and scalable business operations.',
     points: [
-      'Third-largest startup ecosystem globally',
-      'Strong presence of global R&D centers',
-      'Leading in AI, ML, and emerging technologies',
-      'Robust digital infrastructure',
+      'Digital India and e-governance initiatives',
+      'Strong fintech and startup ecosystem',
+      'Improving logistics and connectivity',
+      'Technology-driven business environment',
     ],
   },
 ]
@@ -102,97 +106,99 @@ const reasons = [
 export default function WhyIndiaPage() {
   return (
     <div className="min-h-screen pt-20">
+
       {/* Hero Section */}
-      <section className="relative py-24 bg-white overflow-hidden">
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="relative py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4">
           <div className="max-w-3xl">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">Strategic Advantage</span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mt-4 mb-6">
-              Why India is Your 
-              <span className="text-gold"> Global Business Partner</span>
+            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+              Strategic Advantage
+            </span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6">
+              Why India is Your
+              <span className="text-gold"> Growth Destination</span>
             </h1>
+
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Discover why leading global enterprises choose India as their strategic partner for growth, innovation, and operational excellence.
+              India is one of the fastest-growing major economies, offering significant opportunities
+              for foreign businesses. With a large consumer base, strong regulatory framework, and
+              continuous economic reforms, India has become a preferred destination for global
+              companies looking to establish and expand their presence.
             </p>
           </div>
         </div>
       </section>
 
       {/* Key Advantages */}
-      <section className="py-24 bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">Key Advantages</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4">
+            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+              Key Advantages
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4">
               The India Advantage
             </h2>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((advantage) => (
-              <div 
-                key={advantage.title}
-                className="p-8 rounded-xl bg-white border border-border hover:border-gold/50 transition-all duration-300 text-center hover:shadow-lg"
-              >
-                <div className="w-16 h-16 rounded-xl bg-gold/10 flex items-center justify-center mx-auto mb-4">
+              <div key={advantage.title} className="p-8 bg-white border rounded-xl text-center hover:shadow-lg">
+                <div className="w-16 h-16 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <advantage.icon className="h-8 w-8 text-gold" />
                 </div>
                 <div className="text-4xl font-bold text-gold mb-2">{advantage.value}</div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">{advantage.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {advantage.description}
-                </p>
+                <h3 className="font-semibold mb-2">{advantage.title}</h3>
+                <p className="text-sm text-muted-foreground">{advantage.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Stats Banner */}
+      {/* Stats */}
       <section className="py-16 bg-gold/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-foreground mb-2">{stat.value}</div>
-                <div className="text-muted-foreground text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
+        <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <div className="text-3xl font-bold">{stat.value}</div>
+              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Detailed Reasons */}
       <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">In Detail</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
-              Why Global Leaders Choose India
+            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+              In Detail
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6">
+              Why Global Businesses Choose India
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              A comprehensive look at the strategic benefits of partnering with India for your business operations.
+              Key economic, regulatory, and strategic factors that make India a preferred destination for foreign investment.
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+          <div className="grid lg:grid-cols-2 gap-8">
             {reasons.map((reason) => (
-              <div 
-                key={reason.title}
-                className="p-8 rounded-xl bg-secondary border border-border"
-              >
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-14 h-14 rounded-xl bg-gold/10 flex items-center justify-center shrink-0">
+              <div key={reason.title} className="p-8 bg-gray-50 border rounded-xl">
+                <div className="flex gap-4 mb-6">
+                  <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center">
                     <reason.icon className="h-7 w-7 text-gold" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{reason.title}</h3>
-                    <p className="text-muted-foreground text-sm">{reason.description}</p>
+                    <h3 className="text-xl font-semibold">{reason.title}</h3>
+                    <p className="text-sm text-muted-foreground">{reason.description}</p>
                   </div>
                 </div>
-                <ul className="space-y-3 pl-4 border-l-2 border-gold/30">
+                <ul className="space-y-2 border-l-2 border-gold/30 pl-4">
                   {reason.points.map((point) => (
-                    <li key={point} className="text-muted-foreground text-sm pl-4">
+                    <li key={point} className="text-sm text-muted-foreground">
                       {point}
                     </li>
                   ))}
@@ -203,37 +209,23 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-secondary/50">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Ready to Leverage the India Advantage?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-            Let AU Corporate be your guide to successful business operations in India. We bring local expertise with global standards.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              asChild
-              size="lg"
-              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
-            >
-              <Link href="/contact">
-                Start Your Journey
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button 
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
-            >
-              <Link href="/outsourcing">Explore Outsourcing</Link>
-            </Button>
-          </div>
-        </div>
+      {/* CTA */}
+      <section className="py-24 bg-gray-50 text-center">
+        <h2 className="text-3xl font-bold mb-4">
+          Ready to Enter the Indian Market?
+        </h2>
+
+        <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+          Planning to establish your business in India? AU Corporate provides end-to-end support across entry strategy, regulatory compliance, and operations.
+        </p>
+
+        <Button className="bg-gold text-black px-6 py-3">
+          <Link href="/contact">
+            Start Your Journey <ArrowRight className="ml-2 inline" />
+          </Link>
+        </Button>
       </section>
+
     </div>
   )
 }
