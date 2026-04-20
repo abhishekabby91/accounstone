@@ -64,6 +64,7 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
 
+        {/* Background Image */}
         <Image
           src="https://cdn.corenexis.com/files/c/6282821720.jpg"
           alt="AU Corporate Background"
@@ -72,10 +73,13 @@ export default function HomePage() {
           className="object-cover"
         />
 
+        {/* Overlay (improved readability) */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
+        {/* CONTENT */}
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center">
 
+          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
             <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
             <span className="text-yellow-400 text-xs sm:text-sm font-medium">
@@ -83,20 +87,28 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3">
+          {/* Title */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-3 tracking-tight">
             <span className="text-[#FFD700]">AU Corporate</span>
           </h1>
 
-          <p className="text-sm sm:text-lg text-white/80 max-w-3xl mx-auto mb-8">
-            Trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions.
+          {/* Tagline */}
+          <p className="text-[10px] sm:text-sm md:text-base text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-[0.35em] uppercase font-medium mb-5">
+            Growing Together
           </p>
 
+          {/* Description */}
+          <p className="text-sm sm:text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-8 leading-relaxed px-2">
+            AU Corporate is a trusted advisory partner providing consulting, outsourcing, HR, taxation, and arbitration solutions focused on compliance, operational excellence, and long-term business value.
+          </p>
+
+          {/* BUTTONS (FIXED) */}
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
 
             <Button
               asChild
               size="lg"
-              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3"
+              className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-3 text-sm sm:text-base"
             >
               <Link href="/career">
                 Get Started
@@ -107,124 +119,68 @@ export default function HomePage() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-black hover:bg-gray-200 font-semibold px-6 py-3"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-black px-6 py-3 text-sm sm:text-base"
             >
-              <Link href="/contact">
-                Contact Us
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
+              <Link href="/contact">Contact Us</Link>
+              Contact us
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
 
           </div>
 
           {/* STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-2xl sm:text-4xl font-bold text-yellow-400">
                   {stat.value}
                 </div>
-                <div className="text-white/70 text-sm">
+                <div className="text-white/70 text-[10px] sm:text-sm">
                   {stat.label}
                 </div>
               </div>
             ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ✅ CLIENT BANNER (FIXED + NO ERROR VERSION) */}
-      <section className="py-8 bg-white border-y border-border overflow-hidden">
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-
-            {/* TEXT */}
-            <div className="text-center lg:text-left">
-              <h3 className="text-lg font-semibold text-[#081a42]">
-                Our Clients are from
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Global presence across multiple regions
-              </p>
-            </div>
-
-            {/* SCROLL */}
-            <div className="relative w-full lg:w-auto overflow-hidden">
-
-              <div className="flex gap-10 w-max animate-[scroll_18s_linear_infinite]">
-
-                {[
-                  "India",
-                  "UAE",
-                  "USA",
-                  "UK",
-                  "Singapore",
-                  "Germany",
-                  "Australia",
-                  "Canada",
-                  "Europe",
-                ].concat([
-                  "India",
-                  "UAE",
-                  "USA",
-                  "UK",
-                  "Singapore",
-                  "Germany",
-                  "Australia",
-                  "Canada",
-                  "Europe",
-                ]).map((country, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-2 text-sm font-medium text-[#081a42]"
-                  >
-                    <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
-                    {country}
-                  </div>
-                ))}
-
-              </div>
-
-            </div>
 
           </div>
 
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SERVICES SECTION */}
       <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="text-center mb-16">
-            <span className="text-yellow-400 text-sm font-semibold uppercase">
+            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
               Our Expertise
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
               Comprehensive Business Solutions
             </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We deliver integrated consulting, compliance, and operational solutions.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             {services.map((service) => (
               <Link
                 key={service.title}
                 href={service.href}
-                className="p-8 bg-white border rounded-xl hover:shadow-lg transition"
+                className="group p-8 rounded-xl bg-white border border-border hover:border-yellow-400 transition-all duration-300 hover:shadow-lg"
               >
-                <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center rounded-lg mb-4">
-                  <service.icon className="text-yellow-500 w-6 h-6" />
+                <div className="w-14 h-14 rounded-lg bg-yellow-400/10 flex items-center justify-center mb-6">
+                  <service.icon className="h-7 w-7 text-yellow-500" />
                 </div>
 
-                <h3 className="font-semibold mb-2">
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-yellow-500">
                   {service.title}
                 </h3>
 
-                <p className="text-sm text-muted-foreground">
+                <p className="text-muted-foreground text-sm leading-relaxed">
                   {service.description}
                 </p>
               </Link>
@@ -234,14 +190,6 @@ export default function HomePage() {
 
         </div>
       </section>
-
-      {/* GLOBAL KEYFRAME (SAFE) */}
-      <style jsx global>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
 
     </div>
   )
