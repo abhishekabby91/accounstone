@@ -117,7 +117,7 @@ export default function HomePage() {
               asChild
               variant="outline"
               size="lg"
-              className="bg-white text-[#081a42] hover:bg-white/90 font-semibold px-8 py-6 text-lg"
+              className="bg-gold hover:bg-gold-dark text-foreground font-semibold px-8 py-6 text-lg"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>
