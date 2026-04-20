@@ -55,7 +55,7 @@ export function Navbar() {
                 AU Corporate
               </span>
 
-              <span className="text-[11px] text-[#021a4d] tracking-[0.25em] uppercase">
+              <span className="text-[10px] text-blue tracking-[0.25em] uppercase font-medium">
                 Growing Together
               </span>
 
