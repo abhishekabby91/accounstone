@@ -1,13 +1,11 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion, useInView, animate } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
 
 import {
-  Shield,
   Calculator,
   FileCheck,
   Scale,
@@ -21,43 +19,31 @@ const services = [
   {
     icon: Building2,
     title: "Global Support Services",
-    description:
-      "Scalable business process outsourcing to optimize your operations.",
+    description: "Scalable business process outsourcing to optimize your operations.",
     href: "/outsourcing",
   },
   {
     icon: FileCheck,
     title: "Accounting & Assurance",
-    description:
-      "Comprehensive accounting services and financial assurance.",
+    description: "Comprehensive accounting services and financial assurance.",
     href: "/services",
   },
   {
     icon: Calculator,
     title: "Taxation & Regulatory",
-    description:
-      "Expert guidance on tax planning and compliance frameworks.",
-    href: "/services",
-  },
-  {
-    icon: Shield,
-    title: "Risk Management",
-    description:
-      "Strategic risk solutions to protect and grow your business.",
+    description: "Expert guidance on tax planning and compliance frameworks.",
     href: "/services",
   },
   {
     icon: Scale,
     title: "Arbitration Services",
-    description:
-      "Professional dispute resolution and legal advisory.",
+    description: "Professional dispute resolution and legal advisory.",
     href: "/arbitration-services",
   },
   {
     icon: Users,
     title: "HR & Payroll Solutions",
-    description:
-      "End-to-end HR and payroll management services.",
+    description: "End-to-end HR and payroll management services.",
     href: "/hr-services",
   },
 ]
@@ -90,8 +76,7 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 
   return (
     <span ref={ref}>
-      {display}
-      {suffix}
+      {display}{suffix}
     </span>
   )
 }
@@ -101,36 +86,19 @@ export default function HomePage() {
     <div className="min-h-screen">
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+      <section className="relative min-h-screen flex items-center justify-center pt-24 bg-black">
 
-        <Image
-          src="https://cdn.corenexis.com/files/c/6282821720.jpg"
-          alt="AU Corporate"
-          fill
-          priority
-          className="object-cover"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
 
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-bold text-white mb-4"
-          >
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
             <span className="text-yellow-400">AU Corporate</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-white/80 mb-8"
-          >
+          <p className="text-white/80 mb-8">
             AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution.
-          </motion.p>
+          </p>
 
           <Button asChild className="bg-yellow-400 text-black">
             <Link href="/contact">Get Started</Link>
@@ -195,77 +163,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 DOING BUSINESS IN INDIA (IMAGE BACKGROUND) */}
-      <section className="relative py-24 text-white overflow-hidden">
+      {/* DOING BUSINESS IN INDIA (FIXED STABLE VERSION) */}
+      <section className="relative py-24 bg-[#081a42] text-white overflow-hidden">
 
-        {/* Background Image */}
-        <Image
-          src="https://cdn.corenexis.com/files/c/2524617720.jpg"
-          alt="Doing Business in India"
-          fill
-          priority
-          className="object-cover"
-        />
+        {/* background effects */}
+        <div className="absolute inset-0">
+          <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-400/10 blur-[120px] rounded-full" />
+          <div className="absolute bottom-[-200px] right-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full" />
+        </div>
 
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-black/40 to-black/80" />
-
-        {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
-          <motion.h2
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mb-6"
-          >
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Doing Business in India
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
-            className="text-white/80 max-w-3xl mx-auto text-lg"
-          >
-            AU Corporate enables global businesses to enter, establish, and scale in India with seamless regulatory, tax, and financial support.
-          </motion.p>
+          <p className="text-white/80 text-lg max-w-3xl mx-auto mb-10">
+            AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and financial support.
+          </p>
 
-          {/* Feature Cards */}
-          <div className="mt-12 grid md:grid-cols-3 gap-6 text-left">
+          {/* cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
 
-            {[
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md hover:bg-white/15 transition"
-              >
-                <h3 className="text-yellow-400 font-semibold mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-white/70 text-sm">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
+            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+              <h3 className="text-yellow-400 font-semibold mb-2">Market Entry</h3>
+              <p className="text-white/70 text-sm">Structured entry into India’s fast-growing economy.</p>
+            </div>
+
+            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+              <h3 className="text-yellow-400 font-semibold mb-2">Compliance Setup</h3>
+              <p className="text-white/70 text-sm">End-to-end regulatory, tax and legal setup support.</p>
+            </div>
+
+            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+              <h3 className="text-yellow-400 font-semibold mb-2">Scalable Growth</h3>
+              <p className="text-white/70 text-sm">Long-term expansion and operational scaling strategy.</p>
+            </div>
 
           </div>
 
-          {/* CTA */}
-          <div className="mt-12">
-            <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-500">
-              <Link href="/why-india">
-                Explore India Opportunity
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
+          <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-500">
+            <Link href="/why-india">
+              Explore India Opportunity
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
 
         </div>
       </section>
+
+    </div>
+  )
+}
