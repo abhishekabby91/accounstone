@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion, useInView, animate } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
+
 import {
   Shield,
   Calculator,
@@ -15,6 +16,7 @@ import {
   ArrowRight,
 } from "lucide-react"
 
+/* SERVICES */
 const services = [
   {
     icon: Building2,
@@ -60,15 +62,15 @@ const services = [
   },
 ]
 
-/* ✅ UPDATED STATS */
+/* STATS */
 const stats = [
   { value: 500, suffix: "+", label: "Clients" },
   { value: 25, suffix: "+", label: "Years Experience" },
   { value: 15, suffix: "", label: "Countries Served" },
-  { value: 99, suffix: "%", label: "Client Retention" },
+  { value: 98, suffix: "%", label: "Client Retention" },
 ]
 
-/* ✅ COUNT UP COMPONENT */
+/* COUNT UP */
 function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -146,15 +148,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SCROLL ANIMATION SECTION */}
+      {/* 🔥 WHY INDIA SCROLL */}
       <motion.section
         initial={{ opacity: 0, y: 120 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
+        transition={{ duration: 0.9 }}
         viewport={{ once: true }}
         className="py-16 bg-[#081a42] text-white text-center"
       >
-
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Doing Business in India
         </h2>
@@ -169,42 +170,65 @@ export default function HomePage() {
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
-
       </motion.section>
 
-      {/* SERVICES */}
+      {/* 🔥 SERVICES (PREMIUM ANIMATION) */}
       <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4">
 
-          <div className="text-center mb-16">
+          {/* Heading */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
             <h2 className="text-3xl font-bold">
               Comprehensive Business Solutions
             </h2>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+          {/* Cards */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: {
+                transition: { staggerChildren: 0.15 },
+              },
+            }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {services.map((service) => (
-              <Link
+              <motion.div
                 key={service.title}
-                href={service.href}
-                className="group p-8 bg-white border rounded-xl hover:shadow-lg"
+                variants={{
+                  hidden: { opacity: 0, y: 60 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: 0.6 }}
               >
-                <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6">
-                  <service.icon className="text-yellow-500" />
-                </div>
+                <Link
+                  href={service.href}
+                  className="group block p-8 bg-white border rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                >
+                  <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
+                    <service.icon className="text-yellow-500 h-7 w-7" />
+                  </div>
 
-                <h3 className="font-semibold group-hover:text-yellow-500">
-                  {service.title}
-                </h3>
+                  <h3 className="font-semibold group-hover:text-yellow-500 transition">
+                    {service.title}
+                  </h3>
 
-                <p className="text-sm text-muted-foreground mt-2">
-                  {service.description}
-                </p>
-              </Link>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    {service.description}
+                  </p>
+                </Link>
+              </motion.div>
             ))}
-
-          </div>
+          </motion.div>
 
         </div>
       </section>
