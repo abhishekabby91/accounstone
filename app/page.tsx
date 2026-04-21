@@ -129,7 +129,7 @@ export default function HomePage() {
             transition={{ delay: 0.3 }}
             className="text-white/80 mb-8"
           >
-            AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution, enabling sustainable client growth through structured execution, regulatory expertise, integrity, and efficiency.
+            AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution.
           </motion.p>
 
           <Button asChild className="bg-yellow-400 text-black">
@@ -143,9 +143,7 @@ export default function HomePage() {
                 <div className="text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/70 text-sm">
-                  {stat.label}
-                </div>
+                <div className="text-white/70 text-sm">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -177,7 +175,6 @@ export default function HomePage() {
                   href={service.href}
                   className="group block p-8 bg-white border rounded-xl hover:shadow-2xl transition-all hover:-translate-y-2"
                 >
-
                   <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
                     <service.icon className="text-yellow-500 h-7 w-7" />
                   </div>
@@ -189,7 +186,6 @@ export default function HomePage() {
                   <p className="text-sm text-muted-foreground mt-2">
                     {service.description}
                   </p>
-
                 </Link>
               </motion.div>
             ))}
@@ -199,27 +195,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 DOING BUSINESS IN INDIA (NEW SECTION) */}
+      {/* 🔥 DOING BUSINESS IN INDIA (FIXED + COMPLETE) */}
       <section className="py-24 bg-[#081a42] text-white relative overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent" />
 
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-yellow-400 text-sm font-semibold uppercase tracking-wider"
-          >
-          </motion.span>
-
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold mt-4 mb-6"
+            className="text-3xl md:text-5xl font-bold mb-6"
           >
             Doing Business in India
           </motion.h2>
@@ -228,24 +214,34 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            viewport={{ once: true }}
             className="text-white/70 max-w-3xl mx-auto text-lg"
           >
-            AU Corporate enables global businesses to expand in fast-growing India with complete regulatory and financial support.
+            AU Corporate helps global businesses establish, structure, and scale in India with complete regulatory, tax, and financial support.
           </motion.p>
 
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
+          {/* CARDS */}
+          <div className="mt-12 grid md:grid-cols-3 gap-6 text-left">
 
             {[
-
+              {
+                title: "Market Access",
+                desc: "Tap into 1.4B+ consumers and one of the fastest-growing economies."
+              },
+              {
+                title: "Regulatory Setup",
+                desc: "End-to-end support for incorporation, FEMA, GST and compliance."
+              },
+              {
+                title: "Cost Advantage",
+                desc: "Significant cost efficiency with access to skilled workforce."
+              }
             ].map((item, i) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition"
+                className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10"
               >
                 <h3 className="text-yellow-400 font-semibold mb-2">
                   {item.title}
