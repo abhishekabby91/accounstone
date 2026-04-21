@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { motion, useInView, animate } from "framer-motion"
 import { useEffect, useRef, useState } from "react"
@@ -56,7 +57,6 @@ const stats = [
   { value: 98, suffix: "%", label: "Client Retention" },
 ]
 
-/* COUNT UP */
 function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
@@ -85,11 +85,22 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
 
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center pt-24 bg-black">
+      {/* HERO SECTION */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50" />
+        {/* BACKGROUND IMAGE */}
+        <Image
+          src="https://cdn.corenexis.com/files/c/5473521720.jpg"
+          alt="AU Corporate Hero"
+          fill
+          priority
+          className="object-cover"
+        />
 
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-black/70" />
+
+        {/* CONTENT */}
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -106,14 +117,18 @@ export default function HomePage() {
 
           {/* STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+
             {stats.map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/70 text-sm">{stat.label}</div>
+                <div className="text-white/70 text-sm">
+                  {stat.label}
+                </div>
               </div>
             ))}
+
           </div>
 
         </div>
@@ -151,9 +166,10 @@ export default function HomePage() {
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-muted-foreground mt-2">
+                  <p className="text-sm text-gray-500 mt-2">
                     {service.description}
                   </p>
+
                 </Link>
               </motion.div>
             ))}
@@ -163,13 +179,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DOING BUSINESS IN INDIA (FIXED STABLE VERSION) */}
-      <section className="relative py-24 bg-[#081a42] text-white overflow-hidden">
+      {/* DOING BUSINESS IN INDIA */}
+      <section className="relative py-24 text-white overflow-hidden bg-[#081a42]">
 
-        {/* background effects */}
+        {/* Glow background */}
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-400/10 blur-[120px] rounded-full" />
-          <div className="absolute bottom-[-200px] right-0 w-[400px] h-[400px] bg-blue-500/10 blur-[120px] rounded-full" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 text-center">
@@ -182,22 +197,27 @@ export default function HomePage() {
             AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and financial support.
           </p>
 
-          {/* cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-12">
 
             <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
               <h3 className="text-yellow-400 font-semibold mb-2">Market Entry</h3>
-              <p className="text-white/70 text-sm">Structured entry into India’s fast-growing economy.</p>
+              <p className="text-white/70 text-sm">
+                Structured entry into India’s fast-growing economy.
+              </p>
             </div>
 
             <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
               <h3 className="text-yellow-400 font-semibold mb-2">Compliance Setup</h3>
-              <p className="text-white/70 text-sm">End-to-end regulatory, tax and legal setup support.</p>
+              <p className="text-white/70 text-sm">
+                End-to-end regulatory, tax and legal setup support.
+              </p>
             </div>
 
             <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
               <h3 className="text-yellow-400 font-semibold mb-2">Scalable Growth</h3>
-              <p className="text-white/70 text-sm">Long-term expansion and operational scaling strategy.</p>
+              <p className="text-white/70 text-sm">
+                Long-term expansion and operational scaling strategy.
+              </p>
             </div>
 
           </div>
