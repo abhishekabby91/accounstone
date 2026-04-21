@@ -330,7 +330,7 @@ export default function CareerPage() {
             Have Questions?
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-            Our HR team is here to help. Reach out to learn more about career opportunities at AU Corporate.
+            Our team is here to help. Reach out to learn more about career opportunities at AU Corporate.
           </p>
           <Button
             asChild
@@ -338,8 +338,8 @@ export default function CareerPage() {
             size="lg"
             className="border-blue text-blue hover:bg-blue/5 px-8 py-6 text-lg"
           >
-            <a href="mailto:careers@aucorporate.com">
-              Contact HR Team
+            <a href="mailto:partner@theaucorp.com">
+              Contact us
             </a>
           </Button>
         </div>

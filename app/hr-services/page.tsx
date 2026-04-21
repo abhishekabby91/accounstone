@@ -294,7 +294,7 @@ export default function HRServicesPage() {
 
         <Button asChild className="bg-yellow-400 text-black">
           <Link href="/contact">
-            Contact HR Team <ArrowRight className="ml-2 h-4 w-4" />
+            Contact us <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </section>

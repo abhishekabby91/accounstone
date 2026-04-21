@@ -289,7 +289,7 @@ export default function OutsourcingPage() {
             Ready to Optimize Your Operations?
           </h2>
           <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
-            Let AU Corporate help you achieve operational excellence through our proven outsourcing solutions.
+            Let AU Corporate help you achieve operational excellence through our proven Global Support.
           </p>
           <Button
             asChild
