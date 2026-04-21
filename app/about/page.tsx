@@ -5,7 +5,6 @@ import {
   Target,
   Eye,
   Award,
-  Globe,
   Users,
   Shield,
   Lightbulb,
@@ -52,21 +51,6 @@ const stats = [
   { value: '50+', label: 'Cross-Border Engagements' },
 ]
 
-const leadership = [
-  {
-    name: 'Abhishek Jain',
-    role: 'Partner – International Advisory',
-    description:
-      'Leads international advisory engagements with a focus on India entry strategy, FEMA regulations, and cross-border taxation for foreign companies.',
-  },
-  {
-    name: 'Utsav Dogra',
-    role: 'Partner – Operations & Compliance',
-    description:
-      'Oversees execution and delivery across compliance, outsourcing, and business support services, ensuring efficient and seamless operations for clients.',
-  },
-]
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen pt-20">
@@ -85,7 +69,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="text-lg text-muted-foreground">
-              AU Corporate is a specialized advisory firm focused on helping foreign companies establish and operate in India. We provide end-to-end support across company setup, regulatory compliance, taxation, and ongoing business advisory, ensuring a smooth and compliant market entry.
+              AU Corporate is your specialized advisory firm focused on helping foreign companies establish and operate in India. We provide end-to-end support across company setup, regulatory compliance, taxation and ongoing business advisory, ensuring a smooth and compliant market entry.
             </p>
           </div>
         </div>
@@ -119,21 +103,52 @@ export default function AboutPage() {
             <Eye className="text-gold mb-4" />
             <h2 className="text-xl font-bold mb-3">Our Vision</h2>
             <p className="text-muted-foreground">
-              To be a trusted partner for international companies entering India, recognized for our expertise, responsiveness, and commitment to long-term client success.
+              To be your trusted partner for international companies entering India, recognized for our expertise, responsiveness and commitment to long-term client success.
             </p>
           </div>
 
         </div>
       </section>
 
-      {/* Story */}
+      {/* Values */}
       <section className="py-24 bg-white">
+        <div className="mx-auto max-w-7xl px-4">
+
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Our Core Values
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mt-4">
+              The principles that guide our work and client relationships.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="p-6 rounded-xl border bg-white hover:shadow-lg transition"
+              >
+                <value.icon className="text-gold mb-4" />
+                <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
+                <p className="text-sm text-muted-foreground">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* Story */}
+      <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-3xl px-4">
 
           <h2 className="text-3xl font-bold mb-6">Our Story</h2>
 
           <p className="text-muted-foreground mb-4">
-            AU Corporate was established with a clear objective — to simplify India entry and regulatory compliance for foreign businesses. We assist clients with company incorporation, FEMA compliance, taxation, and ongoing regulatory requirements.
+            AU Corporate was established with a clear objective - to simplify India entry and regulatory compliance for foreign businesses. We assist clients with company incorporation, FEMA compliance, taxation and ongoing regulatory requirements.
           </p>
 
           <p className="text-muted-foreground mb-4">
@@ -143,45 +158,14 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership */}
-      <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 text-center mb-12">
-          <h2 className="text-3xl font-bold mb-6">Leadership</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Leadership driving strategic advisory, regulatory expertise, and seamless execution for global clients entering India.
-          </p>
-        </div>
-
-        <div className="mx-auto max-w-5xl px-4 grid md:grid-cols-2 gap-8">
-          {leadership.map((leader) => (
-            <div
-              key={leader.name}
-              className="p-8 rounded-xl bg-white border text-center hover:shadow-lg transition"
-            >
-              <div className="w-20 h-20 rounded-full bg-gold/10 flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-gold">
-                  {leader.name.split(' ').map(n => n[0]).join('')}
-                </span>
-              </div>
-
-              <h3 className="text-lg font-semibold">{leader.name}</h3>
-              <p className="text-gold text-sm mb-3">{leader.role}</p>
-              <p className="text-muted-foreground text-sm">{leader.description}</p>
-            </div>
-          ))}
-        </div>
-
-        <p className="text-sm text-muted-foreground text-center mt-10">
-          Supported by a team of experienced professionals in taxation, compliance, and advisory services.
-        </p>
-      </section>
-
       {/* CTA */}
       <section className="py-24 bg-white text-center">
-        <h2 className="text-3xl font-bold mb-4">Let’s Build Your India Presence</h2>
+        <h2 className="text-3xl font-bold mb-4">
+          Let’s Build Your India Presence
+        </h2>
 
         <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-          Planning to set up your business in India? Partner with AU Corporate for reliable advisory, compliance, and end-to-end execution support.
+          Planning to set up your business in India? AU Corporate is your trusted partner for advisory, compliance, and seamless end-to-end execution.
         </p>
 
         <Button className="bg-gold text-black px-6 py-3">
