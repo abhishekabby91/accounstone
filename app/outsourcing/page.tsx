@@ -148,7 +148,7 @@ export default function OutsourcingPage() {
                   </Link>
                 </Button>
 
-                <Button asChild variant="outline" size="lg" className="border-white text-black hover:bg-gold/10">
+                <Button asChild size="lg" className="bg-gold text-black font-semibold">
                   <Link href="/why-india">Why India</Link>
                 </Button>
               </div>
