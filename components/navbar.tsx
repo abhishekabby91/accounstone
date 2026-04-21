@@ -27,30 +27,25 @@ export function Navbar() {
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-border ${isScrolled ? 'shadow-sm' : ''
-        }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? 'shadow-sm' : ''}`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
         <div className="flex h-20 items-center justify-between">
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 relative">
-              <Image
-                src="https://user8396.na.imgto.link/public/20260417/au.avif"
-                alt="AU Corporate Logo"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
+            <Image
+              src="https://user8396.na.imgto.link/public/20260417/au.avif"
+              alt="AU Corporate Logo"
+              width={40}
+              height={40}
+            />
 
             <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold tracking-wide text-gold">
+              <span className="text-2xl font-bold text-gold">
                 AU Corporate
               </span>
-              <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase font-medium">
+              <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase">
                 Growing Together
               </span>
             </div>
@@ -65,7 +60,7 @@ export function Navbar() {
               onMouseEnter={() => setServicesOpen(true)}
               onMouseLeave={() => setServicesOpen(false)}
             >
-              <button className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <button className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black">
                 Services ▾
               </button>
 
@@ -75,47 +70,39 @@ export function Navbar() {
                   {/* HEADER */}
                   <div className="px-4 py-3 border-b bg-gray-50">
                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      Services
+                      Key Services
                     </p>
                   </div>
 
-                  {/* SERVICES LIST */}
-                  <div className="max-h-[420px] overflow-y-auto">
+                  {/* KEY SERVICES LIST */}
+                  <div className="py-2">
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    <Link href="/services/corporate-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
                       Corporate Tax
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    <Link href="/services/income-tax-litigation" className="block px-4 py-2 text-sm hover:bg-gray-100">
                       Income Tax Litigation Services
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Direct And Indirect Tax
+                    <Link href="/services/direct-indirect-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Direct & Indirect Tax
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    <Link href="/services/income-tax-return" className="block px-4 py-2 text-sm hover:bg-gray-100">
                       Income Tax Return Filings
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS and TCS Return Filings
+                    <Link href="/services/tds-tcs" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      TDS & TCS Return Filings
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Faceless Assessment under Income Tax
-                    </Link>
-
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS and TCS Return Filing Due Dates
-                    </Link>
-
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    <Link href="/services/gst" className="block px-4 py-2 text-sm hover:bg-gray-100">
                       GST Consultancy Services
                     </Link>
 
-                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Goods and Service Tax
+                    <Link href="/services/goods-service-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Goods & Service Tax
                     </Link>
 
                   </div>
@@ -123,12 +110,12 @@ export function Navbar() {
               )}
             </div>
 
-            {/* OTHER LINKS */}
+            {/* OTHER NAV LINKS */}
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="px-4 py-2 text-sm text-gray-600 hover:text-black"
               >
                 {link.label}
               </Link>
@@ -137,19 +124,13 @@ export function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:block">
-            <Button
-              asChild
-              className="bg-[#FFD700] hover:bg-yellow-500 text-black font-semibold"
-            >
+            <Button asChild className="bg-yellow-400 text-black font-semibold">
               <Link href="/contact">Get Started</Link>
             </Button>
           </div>
 
-          {/* MOBILE BUTTON */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
+          {/* MOBILE MENU BUTTON */}
+          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
 
@@ -157,40 +138,23 @@ export function Navbar() {
 
         {/* MOBILE MENU */}
         {isOpen && (
-          <div className="lg:hidden border-t border-border bg-white">
-            <div className="py-4 space-y-1">
+          <div className="lg:hidden border-t bg-white">
 
+            <Link href="/services" className="block px-4 py-3 font-medium">
+              Services
+            </Link>
+
+            {navLinks.map((link) => (
               <Link
-                href="/services"
-                className="block px-4 py-3 text-sm font-medium"
+                key={link.label}
+                href={link.href}
+                className="block px-4 py-3 text-sm text-gray-600"
                 onClick={() => setIsOpen(false)}
               >
-                Services
+                {link.label}
               </Link>
+            ))}
 
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  className="block px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              <div className="px-4 pt-4">
-                <Button
-                  asChild
-                  className="w-full bg-[#FFD700] hover:bg-yellow-500 text-black font-semibold"
-                >
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
-                    Get Started
-                  </Link>
-                </Button>
-              </div>
-
-            </div>
           </div>
         )}
 
