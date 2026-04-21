@@ -195,16 +195,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 DOING BUSINESS IN INDIA (FIXED + COMPLETE) */}
-      <section className="py-24 bg-[#081a42] text-white relative overflow-hidden">
+      {/* 🔥 DOING BUSINESS IN INDIA (IMAGE BACKGROUND) */}
+      <section className="relative py-24 text-white overflow-hidden">
 
-        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent" />
+        {/* Background Image */}
+        <Image
+          src="https://cdn.corenexis.com/files/c/2524617720.jpg"
+          alt="Doing Business in India"
+          fill
+          priority
+          className="object-cover"
+        />
 
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-black/40 to-black/80" />
+
+        {/* Content */}
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
             Doing Business in India
@@ -214,34 +227,24 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/70 max-w-3xl mx-auto text-lg"
+            viewport={{ once: true }}
+            className="text-white/80 max-w-3xl mx-auto text-lg"
           >
-            AU Corporate helps global businesses establish, structure, and scale in India with complete regulatory, tax, and financial support.
+            AU Corporate enables global businesses to enter, establish, and scale in India with seamless regulatory, tax, and financial support.
           </motion.p>
 
-          {/* CARDS */}
+          {/* Feature Cards */}
           <div className="mt-12 grid md:grid-cols-3 gap-6 text-left">
 
             {[
-              {
-                title: "Market Access",
-                desc: "Tap into 1.4B+ consumers and one of the fastest-growing economies."
-              },
-              {
-                title: "Regulatory Setup",
-                desc: "End-to-end support for incorporation, FEMA, GST and compliance."
-              },
-              {
-                title: "Cost Advantage",
-                desc: "Significant cost efficiency with access to skilled workforce."
-              }
             ].map((item, i) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
-                className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10"
+                viewport={{ once: true }}
+                className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md hover:bg-white/15 transition"
               >
                 <h3 className="text-yellow-400 font-semibold mb-2">
                   {item.title}
@@ -254,6 +257,7 @@ export default function HomePage() {
 
           </div>
 
+          {/* CTA */}
           <div className="mt-12">
             <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-500">
               <Link href="/why-india">
@@ -265,7 +269,3 @@ export default function HomePage() {
 
         </div>
       </section>
-
-    </div>
-  )
-}
