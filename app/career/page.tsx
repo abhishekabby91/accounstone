@@ -139,7 +139,7 @@ export default function CareerPage() {
       <section className="py-24 bg-secondary/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">Our Culture</span>
+            <span className="text-gold text-sm font-semibold uppercase tracking-wider"></span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
               Why Work With Us
             </h2>
