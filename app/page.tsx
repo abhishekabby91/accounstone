@@ -129,8 +129,7 @@ export default function HomePage() {
             transition={{ delay: 0.3 }}
             className="text-white/80 mb-8"
           >
-            Trusted advisory firm delivering integrated solutions across consulting,
-            taxation, HR, outsourcing, and dispute resolution.
+            AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution, enabling sustainable client growth through structured execution, regulatory expertise, integrity, and efficiency.
           </motion.p>
 
           <Button asChild className="bg-yellow-400 text-black">
