@@ -88,7 +88,6 @@ export default function HomePage() {
       {/* HERO SECTION */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
-        {/* BACKGROUND IMAGE */}
         <Image
           src="https://cdn.corenexis.com/files/c/5473521720.jpg"
           alt="AU Corporate Hero"
@@ -97,10 +96,8 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        {/* OVERLAY */}
         <div className="absolute inset-0 bg-black/70" />
 
-        {/* CONTENT */}
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
@@ -179,10 +176,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DOING BUSINESS IN INDIA */}
-      <section className="relative py-24 text-white overflow-hidden bg-[#081a42]">
+      {/* DOING BUSINESS IN INDIA (IMAGE BACKGROUND FIXED) */}
+      <section className="relative py-24 text-white overflow-hidden">
 
-        {/* Glow background */}
+        {/* BACKGROUND IMAGE */}
+        <Image
+          src="https://cdn.corenexis.com/files/c/5753696720.jpg"
+          alt="Doing Business in India"
+          fill
+          priority
+          className="object-cover"
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-black/70" />
+
+        {/* GLOW */}
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-400/10 blur-[120px] rounded-full" />
         </div>
@@ -194,26 +203,26 @@ export default function HomePage() {
           </h2>
 
           <p className="text-white/80 text-lg max-w-3xl mx-auto mb-10">
-            AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax and compliance support.
+            AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and compliance support.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
 
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
               <h3 className="text-yellow-400 font-semibold mb-2">Why India</h3>
               <p className="text-white/70 text-sm">
                 Structured entry into India’s fast-growing economy.
               </p>
             </div>
 
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
               <h3 className="text-yellow-400 font-semibold mb-2">Compliance Setup</h3>
               <p className="text-white/70 text-sm">
                 End-to-end regulatory, tax and legal setup support.
               </p>
             </div>
 
-            <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
               <h3 className="text-yellow-400 font-semibold mb-2">Scalable Growth</h3>
               <p className="text-white/70 text-sm">
                 Long-term expansion and operational scaling strategy.
