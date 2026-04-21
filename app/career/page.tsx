@@ -179,17 +179,6 @@ export default function CareerPage() {
             </div>
           </div>
 
-          <div className="bg-secondary border rounded-xl p-10 text-center">
-            <Award className="w-16 h-16 text-gold mx-auto mb-4" />
-            <div className="text-4xl font-bold text-gold mb-2">
-              Top Employer
-            </div>
-            <p className="text-lg font-medium">Certified Workplace</p>
-            <p className="text-sm text-muted-foreground mt-1">
-              3 Years Running
-            </p>
-          </div>
-
         </div>
       </section>
 
