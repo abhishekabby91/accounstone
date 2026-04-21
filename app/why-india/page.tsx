@@ -30,21 +30,21 @@ const advantages = [
     title: "Skilled Workforce",
     value: "5M+",
     description:
-      "Highly skilled professionals across finance, technology, and management.",
+      "Strong pool of skilled professionals across finance, technology, and management.",
   },
   {
     icon: DollarSign,
     title: "Cost Advantage",
     value: "50%+",
     description:
-      "Significant cost efficiencies compared to developed economies.",
+      "Significant operational and manpower cost efficiencies.",
   },
   {
     icon: Clock,
     title: "Ease of Doing Business",
     value: "Improving",
     description:
-      "Continuous reforms and digitization improving regulatory environment.",
+      "Continuous regulatory reforms and digital transformation improving efficiency.",
   },
 ]
 
@@ -60,50 +60,50 @@ const stats = [
 const reasons = [
   {
     icon: Globe,
-    title: "Investment Friendly Environment",
+    title: "Investment-Friendly Ecosystem",
     description:
-      "Strong government support and liberal FDI policies attract global investors.",
+      "India offers strong policy support and liberal FDI norms for global investors.",
     points: [
       "100% FDI in key sectors",
-      "Stable legal ecosystem",
+      "Stable legal and tax framework",
       "Government incentives",
-      "Trade agreements",
+      "Global trade integration",
     ],
   },
   {
     icon: TrendingUp,
-    title: "Rapid Economic Growth",
+    title: "Strong Economic Growth",
     description:
-      "India continues to be among the fastest-growing major economies.",
+      "India remains one of the fastest-growing major global economies.",
     points: [
       "Expanding middle class",
-      "High domestic consumption",
-      "Startup ecosystem boom",
-      "Digital transformation",
+      "High domestic demand",
+      "Startup ecosystem growth",
+      "Digital economy expansion",
     ],
   },
   {
     icon: Building2,
     title: "Robust Regulatory Framework",
     description:
-      "Clear and evolving compliance structure aligned with global standards.",
+      "Transparent and evolving compliance structure aligned with global standards.",
     points: [
-      "FEMA regulations",
-      "GST framework",
-      "Corporate law compliance",
-      "Transparent governance",
+      "GST & FEMA framework",
+      "Corporate compliance system",
+      "Digitized governance",
+      "Simplified reporting systems",
     ],
   },
   {
     icon: Zap,
     title: "Digital & Infrastructure Growth",
     description:
-      "Rapid development in digital and physical infrastructure.",
+      "Rapid expansion in digital and physical infrastructure.",
     points: [
       "Digital India initiative",
-      "Fintech ecosystem",
+      "Fintech & AI adoption",
       "Logistics expansion",
-      "AI adoption",
+      "Smart infrastructure development",
     ],
   },
 ]
@@ -125,33 +125,31 @@ export default function WhyIndiaPage() {
 
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative mx-auto max-w-7xl px-4 w-full">
+        <div className="relative mx-auto max-w-7xl px-4">
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
               Doing Business in India
             </span>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
-              India – A Strategic Hub for{" "}
-              <span className="text-gold">Global Expansion</span>
+              India – A Strategic Hub for Global Expansion
             </h1>
 
-            <p className="text-white/80 text-lg leading-relaxed">
+            <p className="text-white/80 text-lg">
               India offers a compelling combination of market scale, skilled talent,
-              cost efficiency, and regulatory evolution, making it a preferred
-              destination for global businesses.
+              cost efficiency, and regulatory evolution, making it a preferred destination
+              for global businesses.
             </p>
 
             <div className="mt-6">
-              <Button className="bg-gold text-black hover:bg-yellow-500">
+              <Button className="bg-yellow-400 text-black">
                 <Link href="/contact">
-                  Start Your India Journey{" "}
-                  <ArrowRight className="ml-2 h-4 w-4 inline" />
+                  Start Your India Journey <ArrowRight className="ml-2 h-4 w-4 inline" />
                 </Link>
               </Button>
             </div>
@@ -162,17 +160,18 @@ export default function WhyIndiaPage() {
 
       {/* STATS */}
       <section className="py-12 bg-gray-50 border-y">
-        <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 
-          {stats.map((s, i) => (
+          {stats.map((s) => (
             <motion.div
               key={s.label}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
+              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
               viewport={{ once: true }}
             >
-              <div className="text-3xl font-bold text-gold">{s.value}</div>
+              <div className="text-3xl font-bold text-yellow-500">
+                {s.value}
+              </div>
               <div className="text-sm text-muted-foreground">{s.label}</div>
             </motion.div>
           ))}
@@ -181,42 +180,35 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* ADVANTAGES */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 text-center">
 
-          <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase">
-              Key Advantages
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
-              The India Advantage
-            </h2>
-          </div>
+          <h2 className="text-3xl font-bold mb-2">
+            The India Advantage
+          </h2>
+          <p className="text-muted-foreground mb-12">
+            Key factors driving global business expansion into India
+          </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            {advantages.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-8 border rounded-xl text-center hover:shadow-lg transition"
-              >
-                <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <item.icon className="h-7 w-7 text-gold" />
+            {advantages.map((a) => (
+              <div key={a.title} className="p-6 border rounded-xl hover:shadow-md transition">
+
+                <div className="w-12 h-12 mx-auto mb-4 bg-yellow-400/10 rounded-lg flex items-center justify-center">
+                  <a.icon className="text-yellow-500 w-6 h-6" />
                 </div>
 
-                <div className="text-3xl font-bold text-gold mb-2">
-                  {item.value}
+                <div className="text-2xl font-bold text-yellow-500">
+                  {a.value}
                 </div>
 
-                <h3 className="font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">
-                  {item.description}
+                <h3 className="font-semibold mt-2">{a.title}</h3>
+                <p className="text-sm text-muted-foreground mt-2">
+                  {a.description}
                 </p>
-              </motion.div>
+
+              </div>
             ))}
 
           </div>
@@ -226,50 +218,35 @@ export default function WhyIndiaPage() {
 
       {/* REASONS */}
       <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="max-w-7xl mx-auto px-4">
 
-          <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase">
-              In Detail
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
-              Why Global Companies Choose India
-            </h2>
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Why Global Companies Choose India
+          </h2>
 
           <div className="grid lg:grid-cols-2 gap-8">
 
-            {reasons.map((r, i) => (
-              <motion.div
-                key={r.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-8 bg-white border rounded-xl"
-              >
+            {reasons.map((r) => (
+              <div key={r.title} className="p-8 bg-white border rounded-xl">
+
                 <div className="flex gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
-                    <r.icon className="h-6 w-6 text-gold" />
-                  </div>
+                  <r.icon className="text-yellow-500 w-6 h-6" />
 
                   <div>
-                    <h3 className="text-xl font-semibold">{r.title}</h3>
+                    <h3 className="font-semibold">{r.title}</h3>
                     <p className="text-sm text-muted-foreground">
                       {r.description}
                     </p>
                   </div>
                 </div>
 
-                <ul className="space-y-2 pl-4 border-l border-gold/30">
+                <ul className="text-sm text-muted-foreground space-y-2">
                   {r.points.map((p) => (
-                    <li key={p} className="text-sm text-muted-foreground">
-                      • {p}
-                    </li>
+                    <li key={p}>• {p}</li>
                   ))}
                 </ul>
 
-              </motion.div>
+              </div>
             ))}
 
           </div>
@@ -278,7 +255,7 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center bg-white">
+      <section className="py-24 text-center">
         <div className="max-w-3xl mx-auto px-4">
 
           <h2 className="text-3xl font-bold mb-4">
@@ -286,13 +263,12 @@ export default function WhyIndiaPage() {
           </h2>
 
           <p className="text-muted-foreground mb-8">
-            AU Corporate provides end-to-end support for foreign companies
-            entering and expanding in India.
+            AU Corporate provides end-to-end advisory for global businesses entering India.
           </p>
 
-          <Button className="bg-gold text-black hover:bg-yellow-500">
+          <Button className="bg-yellow-400 text-black">
             <Link href="/contact">
-              Talk to Experts <ArrowRight className="ml-2 h-4 w-4 inline" />
+              Talk to Experts <ArrowRight className="ml-2 w-4 h-4 inline" />
             </Link>
           </Button>
 
