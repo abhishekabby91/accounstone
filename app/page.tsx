@@ -212,7 +212,6 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-yellow-400 text-sm font-semibold uppercase tracking-wider"
           >
-            Global Expansion Hub
           </motion.span>
 
           <motion.h2
@@ -232,8 +231,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             className="text-white/70 max-w-3xl mx-auto text-lg"
           >
-            India is one of the fastest-growing economies globally.
-            AU Corporate helps global businesses establish, structure, and scale operations with complete regulatory and financial support.
+            AU Corporate enables global businesses to expand in fast-growing India with complete regulatory and financial support.
           </motion.p>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
