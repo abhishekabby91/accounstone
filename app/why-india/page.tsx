@@ -16,14 +16,6 @@ import {
   Zap
 } from "lucide-react"
 
-import type { Metadata } from "next"
-
-export const metadata: Metadata = {
-  title: "Why India | AU Corporate",
-  description:
-    "Understand why India is a preferred destination for foreign investment, business expansion and global growth.",
-}
-
 const advantages = [
   {
     icon: Users,
@@ -113,7 +105,7 @@ const reasons = [
   },
 ]
 
-export default function WhyIndiaPage() {
+export default function WhyIndiaClient() {
   return (
     <div className="min-h-screen pt-20 bg-white">
 
@@ -177,7 +169,7 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* 🔥 STATS STRIP */}
+      {/* STATS */}
       <section className="py-12 bg-gray-50 border-y">
         <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
 
@@ -187,7 +179,7 @@ export default function WhyIndiaPage() {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
             >
               <motion.div
                 className="text-3xl font-bold text-gold"
@@ -228,7 +220,7 @@ export default function WhyIndiaPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
                 viewport={{ once: true }}
-                className="p-8 bg-white border rounded-xl text-center hover:shadow-lg transition"
+                className="p-8 bg-white border rounded-xl text-center hover:shadow-lg"
               >
                 <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <item.icon className="h-7 w-7 text-gold" />
@@ -245,78 +237,6 @@ export default function WhyIndiaPage() {
               </motion.div>
             ))}
           </div>
-
-        </div>
-      </section>
-
-      {/* REASONS */}
-      <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4">
-
-          <div className="text-center mb-16">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
-              In Detail
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-4">
-              Why Global Companies Choose India
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8">
-            {reasons.map((r, i) => (
-              <motion.div
-                key={r.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
-                className="p-8 bg-white border rounded-xl"
-              >
-
-                <div className="flex gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
-                    <r.icon className="h-6 w-6 text-gold" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">{r.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {r.description}
-                    </p>
-                  </div>
-                </div>
-
-                <ul className="space-y-2 pl-4 border-l border-gold/30">
-                  {r.points.map((p) => (
-                    <li key={p} className="text-sm text-muted-foreground">
-                      • {p}
-                    </li>
-                  ))}
-                </ul>
-
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 text-center bg-white">
-        <div className="max-w-3xl mx-auto px-4">
-
-          <h2 className="text-3xl font-bold mb-4">
-            Ready to Expand in India?
-          </h2>
-
-          <p className="text-muted-foreground mb-8">
-            AU Corporate helps global companies establish, expand, and scale in India.
-          </p>
-
-          <Button className="bg-gold text-black hover:bg-yellow-500">
-            <Link href="/contact">
-              Contact Experts <ArrowRight className="ml-2 h-4 w-4 inline" />
-            </Link>
-          </Button>
 
         </div>
       </section>
