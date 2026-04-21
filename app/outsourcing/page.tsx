@@ -17,7 +17,7 @@ import {
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Outsourcing Solutions | AU Corporate',
+  title: 'Global Support | AU Corporate',
   description: 'Global outsourcing solutions including back-office operations, business process optimization, and managed services.',
 }
 
