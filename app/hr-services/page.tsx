@@ -92,7 +92,7 @@ const additionalServices = [
   },
 ]
 
-/* STATS (FIXED FOR ANIMATION) */
+/* STATS */
 const stats = [
   { value: 5000, suffix: "+", label: "Employees Managed" },
   { value: 200, suffix: "+", label: "Clients Served" },
@@ -100,7 +100,6 @@ const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
 ]
 
-/* COUNT UP ANIMATION */
 function CountUp({
   value,
   suffix = "",
@@ -128,8 +127,7 @@ function CountUp({
 
   return (
     <span ref={ref} className="transition-all duration-500">
-      {display}
-      {suffix}
+      {display}{suffix}
     </span>
   )
 }
@@ -138,12 +136,24 @@ export default function HRServicesPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* HERO */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+      {/* HERO WITH BACKGROUND IMAGE */}
+      <section className="relative py-24 min-h-[80vh] flex items-center">
+
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.corenexis.com/files/c/8589382720.jpg"
+            alt="HR Outsourcing India"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center text-white">
 
           <div>
-            <span className="text-yellow-500 text-sm font-semibold uppercase tracking-wider">
+            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
               HR & Payroll Services
             </span>
 
@@ -151,12 +161,12 @@ export default function HRServicesPage() {
               India-Focused HR Outsourcing Solutions
             </h1>
 
-            <p className="text-muted-foreground text-lg mb-6">
+            <p className="text-white/80 text-lg mb-6">
               AU Corporate provides end-to-end HR outsourcing, payroll processing,
               and labour law compliance services for companies operating in India.
             </p>
 
-            <p className="text-muted-foreground mb-8">
+            <p className="text-white/70 mb-8">
               We act as your extended HR arm, ensuring compliance, efficiency,
               and seamless workforce management while you focus on growth.
             </p>
@@ -167,10 +177,10 @@ export default function HRServicesPage() {
               </Link>
             </Button>
 
-            <div className="mt-6 space-y-2 text-sm text-muted-foreground">
+            <div className="mt-6 space-y-2 text-sm text-white/80">
               {heroPoints.map((p) => (
                 <div key={p} className="flex gap-2 items-start">
-                  <CheckCircle2 className="h-4 w-4 text-yellow-500 mt-1" />
+                  <CheckCircle2 className="h-4 w-4 text-yellow-400 mt-1" />
                   {p}
                 </div>
               ))}
@@ -180,15 +190,12 @@ export default function HRServicesPage() {
         </div>
       </section>
 
-      {/* STATS (ANIMATED) */}
+      {/* STATS */}
       <section className="py-16 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
           {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="transition-all duration-300 hover:scale-105"
-            >
+            <div key={stat.label}>
               <div className="text-3xl font-bold text-black">
                 <CountUp value={stat.value} suffix={stat.suffix} />
               </div>
@@ -256,28 +263,6 @@ export default function HRServicesPage() {
 
             </div>
           ))}
-
-        </div>
-      </section>
-
-      {/* BENEFITS */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
-
-          <div>
-            <h2 className="text-3xl font-bold mb-6">
-              Why Choose AU Corporate?
-            </h2>
-
-            <div className="space-y-3 text-sm text-muted-foreground">
-              {heroPoints.map((b) => (
-                <div key={b} className="flex gap-2">
-                  <CheckCircle2 className="text-yellow-500 mt-1" />
-                  {b}
-                </div>
-              ))}
-            </div>
-          </div>
 
         </div>
       </section>
