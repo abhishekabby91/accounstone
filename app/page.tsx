@@ -153,87 +153,132 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* WHY INDIA */}
-      <motion.section
-        initial={{ opacity: 0, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="py-16 bg-[#081a42] text-white text-center"
-      >
-        <h2 className="text-3xl font-bold mb-4">
-          Doing Business in India
-        </h2>
-
-        <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-          AU Corporate helps global companies set up and scale in India.
-        </p>
-
-        <Button asChild className="bg-yellow-400 text-black">
-          <Link href="/why-india">
-            Why India <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      </motion.section>
-
       {/* SERVICES */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
 
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h2 className="text-3xl font-bold">
               Comprehensive Business Solutions
             </h2>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: {
-                transition: { staggerChildren: 0.15 },
-              },
-            }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            {services.map((service) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {services.map((service, i) => (
               <motion.div
                 key={service.title}
-                variants={{
-                  hidden: { opacity: 0, y: 60 },
-                  visible: { opacity: 1, y: 0 },
-                }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
               >
                 <Link
                   href={service.href}
-                  className="group block p-8 bg-white border border-gray-200 rounded-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 relative overflow-hidden"
+                  className="group block p-8 bg-white border rounded-xl hover:shadow-2xl transition-all hover:-translate-y-2"
                 >
 
-                  {/* Glow effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-yellow-400/10 to-transparent" />
-
-                  <div className="relative z-10">
-                    <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
-                      <service.icon className="text-yellow-500 h-7 w-7" />
-                    </div>
-
-                    <h3 className="font-semibold group-hover:text-yellow-500">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-sm text-muted-foreground mt-2">
-                      {service.description}
-                    </p>
+                  <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
+                    <service.icon className="text-yellow-500 h-7 w-7" />
                   </div>
+
+                  <h3 className="font-semibold group-hover:text-yellow-500">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground mt-2">
+                    {service.description}
+                  </p>
 
                 </Link>
               </motion.div>
             ))}
-          </motion.div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* 🔥 DOING BUSINESS IN INDIA (NEW SECTION) */}
+      <section className="py-24 bg-[#081a42] text-white relative overflow-hidden">
+
+        <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 via-transparent to-transparent" />
+
+        <div className="relative max-w-7xl mx-auto px-4 text-center">
+
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-yellow-400 text-sm font-semibold uppercase tracking-wider"
+          >
+            Global Expansion Hub
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold mt-4 mb-6"
+          >
+            Doing Business in India
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-white/70 max-w-3xl mx-auto text-lg"
+          >
+            India is one of the fastest-growing economies globally.
+            AU Corporate helps global businesses establish, structure, and scale operations with complete regulatory and financial support.
+          </motion.p>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+
+            {[
+              {
+                title: "Business Setup",
+                desc: "Company formation, structuring & compliance",
+              },
+              {
+                title: "Tax & Compliance",
+                desc: "GST, FEMA & regulatory advisory",
+              },
+              {
+                title: "HR & Operations",
+                desc: "Payroll, hiring & workforce management",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="p-6 bg-white/5 border border-white/10 rounded-xl hover:bg-white/10 transition"
+              >
+                <h3 className="text-yellow-400 font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-white/70 text-sm">
+                  {item.desc}
+                </p>
+              </motion.div>
+            ))}
+
+          </div>
+
+          <div className="mt-12">
+            <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-500">
+              <Link href="/why-india">
+                Explore India Opportunity
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
 
         </div>
       </section>
