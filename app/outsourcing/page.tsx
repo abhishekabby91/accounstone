@@ -18,7 +18,7 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Global Support | AU Corporate',
-  description: 'Global outsourcing solutions including back-office operations, business process optimization, and managed services.',
+  description: 'Global outsourcing solutions including back-office operations, business process optimization and managed services.',
 }
 
 const services = [
@@ -105,7 +105,6 @@ const industries = [
   'Retail & E-commerce',
   'Technology',
   'Manufacturing',
-  'Real Estate',
 ]
 
 export default function OutsourcingPage() {
@@ -122,7 +121,7 @@ export default function OutsourcingPage() {
                 <span className="text-gold"> Solutions</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-                Scalable business process outsourcing solutions that optimize operations, reduce costs, and drive efficiency. Focus on your core business while we handle the rest.
+                Scalable business process outsourcing solutions that optimize operations, reduce costs and drive efficiency. Focus on your core business while we handle the rest.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
