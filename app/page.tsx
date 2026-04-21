@@ -29,35 +29,35 @@ const services = [
     icon: FileCheck,
     title: "Accounting & Assurance",
     description:
-      "Comprehensive accounting services and financial assurance for stakeholder confidence.",
+      "Comprehensive accounting services and financial assurance.",
     href: "/services",
   },
   {
     icon: Calculator,
     title: "Taxation & Regulatory",
     description:
-      "Expert guidance on tax planning, compliance, and regulatory frameworks.",
+      "Expert guidance on tax planning and compliance frameworks.",
     href: "/services",
   },
   {
     icon: Shield,
     title: "Risk Management",
     description:
-      "Strategic risk management solutions to protect and grow your business.",
+      "Strategic risk solutions to protect and grow your business.",
     href: "/services",
   },
   {
     icon: Scale,
     title: "Arbitration Services",
     description:
-      "Professional dispute resolution and legal advisory for complex corporate matters.",
+      "Professional dispute resolution and legal advisory.",
     href: "/arbitration-services",
   },
   {
     icon: Users,
     title: "HR & Payroll Solutions",
     description:
-      "End-to-end human resource management and payroll processing services.",
+      "End-to-end HR and payroll management services.",
     href: "/hr-services",
   },
 ]
@@ -101,11 +101,11 @@ export default function HomePage() {
     <div className="min-h-screen">
 
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 sm:pt-20">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
         <Image
           src="https://cdn.corenexis.com/files/c/6282821720.jpg"
-          alt="AU Corporate Background"
+          alt="AU Corporate"
           fill
           priority
           className="object-cover"
@@ -113,28 +113,34 @@ export default function HomePage() {
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 text-center">
+        <div className="relative z-10 text-center px-4 max-w-5xl">
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            <span className="text-[#FFD700]">AU Corporate</span>
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-bold text-white mb-4"
+          >
+            <span className="text-yellow-400">AU Corporate</span>
+          </motion.h1>
 
-          <p className="text-sm text-[#081a42] bg-white/90 inline-block px-3 py-1 rounded tracking-widest uppercase mb-6">
-            Growing Together
-          </p>
-
-          <p className="text-lg text-white/80 max-w-3xl mx-auto mb-8">
-            AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution.
-          </p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="text-white/80 mb-8"
+          >
+            Trusted advisory firm delivering integrated solutions across consulting,
+            taxation, HR, outsourcing, and dispute resolution.
+          </motion.p>
 
           <Button asChild className="bg-yellow-400 text-black">
             <Link href="/contact">Get Started</Link>
           </Button>
 
-          {/* 🔥 ANIMATED STATS */}
+          {/* STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
+              <div key={stat.label}>
                 <div className="text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
@@ -148,40 +154,35 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 WHY INDIA SCROLL */}
+      {/* WHY INDIA */}
       <motion.section
-        initial={{ opacity: 0, y: 120 }}
+        initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9 }}
         viewport={{ once: true }}
         className="py-16 bg-[#081a42] text-white text-center"
       >
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-3xl font-bold mb-4">
           Doing Business in India
         </h2>
 
         <p className="text-white/70 mb-6 max-w-2xl mx-auto">
-          Planning to set up your business in India? AU Corporate is your reliable advisory, compliance and end-to-end execution partner.
+          AU Corporate helps global companies set up and scale in India.
         </p>
 
-        <Button asChild className="bg-[#FFD700] text-black hover:bg-yellow-500">
-          <Link href="/why-india" className="flex items-center">
-            Why India
-            <ArrowRight className="ml-2 h-4 w-4" />
+        <Button asChild className="bg-yellow-400 text-black">
+          <Link href="/why-india">
+            Why India <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
       </motion.section>
 
-      {/* 🔥 SERVICES (PREMIUM ANIMATION) */}
-      <section className="py-24 bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* SERVICES */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
 
-          {/* Heading */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
             className="text-center mb-16"
           >
             <h2 className="text-3xl font-bold">
@@ -189,7 +190,6 @@ export default function HomePage() {
             </h2>
           </motion.div>
 
-          {/* Cards */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -208,23 +208,29 @@ export default function HomePage() {
                   hidden: { opacity: 0, y: 60 },
                   visible: { opacity: 1, y: 0 },
                 }}
-                transition={{ duration: 0.6 }}
               >
                 <Link
                   href={service.href}
-                  className="group block p-8 bg-white border rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                  className="group block p-8 bg-white border border-gray-200 rounded-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 relative overflow-hidden"
                 >
-                  <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
-                    <service.icon className="text-yellow-500 h-7 w-7" />
+
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-r from-yellow-400/10 to-transparent" />
+
+                  <div className="relative z-10">
+                    <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
+                      <service.icon className="text-yellow-500 h-7 w-7" />
+                    </div>
+
+                    <h3 className="font-semibold group-hover:text-yellow-500">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground mt-2">
+                      {service.description}
+                    </p>
                   </div>
 
-                  <h3 className="font-semibold group-hover:text-yellow-500 transition">
-                    {service.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {service.description}
-                  </p>
                 </Link>
               </motion.div>
             ))}
