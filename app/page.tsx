@@ -65,7 +65,6 @@ const stats = [
   { value: 500, suffix: "+", label: "Clients" },
   { value: 25, suffix: "+", label: "Years Experience" },
   { value: 15, suffix: "", label: "Countries Served" },
-  { value: 98, suffix: "%", label: "Client Retention" },
 ]
 
 /* ✅ COUNT UP COMPONENT */
