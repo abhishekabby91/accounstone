@@ -65,7 +65,7 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-[340px] bg-white border shadow-xl rounded-xl overflow-hidden z-50">
+                <div className="absolute top-10 left-0 w-[360px] bg-white border shadow-xl rounded-xl overflow-hidden z-50">
 
                   {/* HEADER */}
                   <div className="px-4 py-3 border-b bg-gray-50">
@@ -74,7 +74,7 @@ export function Navbar() {
                     </p>
                   </div>
 
-                  {/* KEY SERVICES LIST */}
+                  {/* SERVICES LIST */}
                   <div className="py-2">
 
                     <Link href="/services/corporate-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
@@ -86,7 +86,7 @@ export function Navbar() {
                     </Link>
 
                     <Link href="/services/direct-indirect-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Direct & Indirect Tax
+                      Direct And Indirect Tax
                     </Link>
 
                     <Link href="/services/income-tax-return" className="block px-4 py-2 text-sm hover:bg-gray-100">
@@ -94,15 +94,27 @@ export function Navbar() {
                     </Link>
 
                     <Link href="/services/tds-tcs" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS & TCS Return Filings
+                      TDS and TCS Return Filings
                     </Link>
 
-                    <Link href="/services/gst" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                    <Link href="/services/faceless-assessment" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Faceless Assessment under Income Tax
+                    </Link>
+
+                    <Link href="/services/tds-tcs-filing" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      TDS and TCS Return Filing
+                    </Link>
+
+                    <Link href="/services/tds-tcs-due-dates" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      TDS and TCS Return Filing Due Dates
+                    </Link>
+
+                    <Link href="/services/gst-consultancy" className="block px-4 py-2 text-sm hover:bg-gray-100">
                       GST Consultancy Services
                     </Link>
 
-                    <Link href="/services/goods-service-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Goods & Service Tax
+                    <Link href="/services/gst" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Goods and Service Tax
                     </Link>
 
                   </div>
@@ -129,7 +141,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE */}
           <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -149,7 +161,6 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 className="block px-4 py-3 text-sm text-gray-600"
-                onClick={() => setIsOpen(false)}
               >
                 {link.label}
               </Link>
