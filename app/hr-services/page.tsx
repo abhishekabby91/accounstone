@@ -1,5 +1,10 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+"use client"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { motion, useInView, animate } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
+
 import {
   ArrowRight,
   Users,
@@ -10,100 +15,124 @@ import {
   Award,
   CheckCircle2,
   Heart,
-  GraduationCap
-} from 'lucide-react'
-import type { Metadata } from 'next'
+  GraduationCap,
+} from "lucide-react"
 
-export const metadata: Metadata = {
-  title: 'HR Outsourcing & Payroll Services | AU Corporate',
-  description:
-    'End-to-end HR outsourcing, payroll, labour law compliance, recruitment, and workforce solutions for businesses operating in India.',
-}
+/* HERO POINTS */
+const heroPoints = [
+  "End-to-end HR outsourcing solutions",
+  "Payroll & statutory compliance management",
+  "Scalable workforce solutions for India operations",
+]
 
+/* CORE SERVICES */
 const services = [
   {
     icon: UserPlus,
-    title: 'Talent Acquisition & Recruitment',
+    title: "Talent Acquisition & Recruitment",
     description:
-      'End-to-end recruitment solutions to help you build the right team in India.',
+      "End-to-end recruitment solutions to help you build the right team in India.",
     features: [
-      'Executive & leadership hiring',
-      'Bulk & project-based recruitment',
-      'Campus hiring programs',
-      'Specialized & technical hiring',
-      'Background verification',
+      "Executive & leadership hiring",
+      "Bulk & project-based recruitment",
+      "Campus hiring programs",
+      "Specialized & technical hiring",
+      "Background verification",
     ],
   },
   {
     icon: Wallet,
-    title: 'Payroll Processing & Compliance',
+    title: "Payroll Processing & Compliance",
     description:
-      'Accurate payroll management with full statutory and tax compliance.',
+      "Accurate payroll management with full statutory and tax compliance.",
     features: [
-      'Monthly payroll processing',
-      'TDS, PF, ESIC compliance',
-      'Tax computation & filings',
-      'Leave & attendance integration',
-      'Employee payslip & reporting',
+      "Monthly payroll processing",
+      "TDS, PF, ESIC compliance",
+      "Tax computation & filings",
+      "Leave & attendance integration",
+      "Employee payslip & reporting",
     ],
   },
   {
     icon: Shield,
-    title: 'HR Compliance & Outsourcing',
+    title: "HR Compliance & Outsourcing",
     description:
-      'Complete HR outsourcing with strong focus on Indian labour law compliance.',
+      "Complete HR outsourcing with strong focus on Indian labour law compliance.",
     features: [
-      'Labour law compliance management',
-      'HR policy drafting',
-      'Employment contracts',
-      'HR audits & compliance checks',
-      'Employee grievance handling',
+      "Labour law compliance management",
+      "HR policy drafting",
+      "Employment contracts",
+      "HR audits & compliance checks",
+      "Employee grievance handling",
     ],
   },
 ]
 
+/* VALUE ADDED */
 const additionalServices = [
   {
     icon: TrendingUp,
-    title: 'Performance Management',
-    description:
-      'Structured frameworks to track, evaluate and improve employee performance.',
+    title: "Performance Management",
+    description: "Structured frameworks to track and improve employee performance.",
   },
   {
     icon: GraduationCap,
-    title: 'Learning & Development',
-    description:
-      'Training programs designed to enhance workforce capability.',
+    title: "Learning & Development",
+    description: "Training programs designed to enhance workforce capability.",
   },
   {
     icon: Heart,
-    title: 'Employee Engagement',
-    description:
-      'Strategies to improve retention, satisfaction and workplace culture.',
+    title: "Employee Engagement",
+    description: "Improve retention, satisfaction and workplace culture.",
   },
   {
     icon: Award,
-    title: 'Compensation Structuring',
-    description:
-      'Market-aligned salary benchmarking and compensation planning.',
+    title: "Compensation Structuring",
+    description: "Market-aligned salary benchmarking and planning.",
   },
 ]
 
+/* STATS (FIXED FOR ANIMATION) */
 const stats = [
-  { value: '50K+', label: 'Employees Managed' },
-  { value: '200+', label: 'Clients Served' },
-  { value: '99.9%', label: 'Payroll Accuracy' },
-  { value: '15+', label: 'Years Experience' },
+  { value: 5000, suffix: "+", label: "Employees Managed" },
+  { value: 200, suffix: "+", label: "Clients Served" },
+  { value: 99.9, suffix: "%", label: "Payroll Accuracy" },
+  { value: 15, suffix: "+", label: "Years Experience" },
 ]
 
-const benefits = [
-  'Full compliance with Indian labour laws',
-  'Reduction in HR operational costs',
-  'Accurate and timely payroll processing',
-  'Scalable HR support for growing businesses',
-  'Single-point HR outsourcing partner',
-  'Focus on core business operations',
-]
+/* COUNT UP ANIMATION */
+function CountUp({
+  value,
+  suffix = "",
+}: {
+  value: number
+  suffix?: string
+}) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const [display, setDisplay] = useState(0)
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(latest) {
+          setDisplay(Number(latest.toFixed(1)))
+        },
+      })
+
+      return () => controls.stop()
+    }
+  }, [isInView, value])
+
+  return (
+    <span ref={ref} className="transition-all duration-500">
+      {display}
+      {suffix}
+    </span>
+  )
+}
 
 export default function HRServicesPage() {
   return (
@@ -111,85 +140,93 @@ export default function HRServicesPage() {
 
       {/* HERO */}
       <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 grid lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <span className="text-yellow-500 text-sm font-semibold uppercase tracking-wider">
               HR & Payroll Services
             </span>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-              <span className="text-[#081a42]">India-Focused HR</span>
-              <span className="text-gold"> Outsourcing Solutions</span>
+              India-Focused HR Outsourcing Solutions
             </h1>
 
-            <p className="text-lg text-muted-foreground mb-6">
+            <p className="text-muted-foreground text-lg mb-6">
               AU Corporate provides end-to-end HR outsourcing, payroll processing,
               and labour law compliance services for companies operating in India.
             </p>
 
             <p className="text-muted-foreground mb-8">
               We act as your extended HR arm, ensuring compliance, efficiency,
-              and seamless workforce management while you focus on growing your business.
+              and seamless workforce management while you focus on growth.
             </p>
 
-            <Button asChild className="bg-gold text-black">
+            <Button asChild className="bg-yellow-400 text-black">
               <Link href="/contact">
                 Speak to HR Expert <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
 
-          <div className="hidden lg:flex bg-secondary rounded-2xl border p-10 items-center justify-center">
-            <Users className="w-32 h-32 text-gold/40" />
+            <div className="mt-6 space-y-2 text-sm text-muted-foreground">
+              {heroPoints.map((p) => (
+                <div key={p} className="flex gap-2 items-start">
+                  <CheckCircle2 className="h-4 w-4 text-yellow-500 mt-1" />
+                  {p}
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-16 bg-gold/10">
+      {/* STATS (ANIMATED) */}
+      <section className="py-16 bg-yellow-50">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+
           {stats.map((stat) => (
-            <div key={stat.label}>
-              <div className="text-3xl font-bold">{stat.value}</div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+            <div
+              key={stat.label}
+              className="transition-all duration-300 hover:scale-105"
+            >
+              <div className="text-3xl font-bold text-black">
+                <CountUp value={stat.value} suffix={stat.suffix} />
+              </div>
+              <div className="text-sm text-muted-foreground">
+                {stat.label}
+              </div>
             </div>
           ))}
+
         </div>
       </section>
 
       {/* CORE SERVICES */}
-      <section className="py-24 bg-secondary/50">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
 
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">
-              Core HR Services
-            </h2>
-            <p className="text-muted-foreground mt-4">
-              Comprehensive HR solutions designed for compliance and efficiency.
-            </p>
+            <h2 className="text-3xl font-bold">Core HR Services</h2>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-8">
             {services.map((service) => (
-              <div key={service.title} className="p-8 bg-white rounded-xl border hover:shadow-lg">
+              <div key={service.title} className="p-8 bg-white border rounded-xl">
 
-                <service.icon className="text-gold mb-4" />
+                <service.icon className="text-yellow-500 mb-4" />
 
-                <h3 className="text-xl font-semibold mb-3">
+                <h3 className="text-xl font-semibold mb-2">
                   {service.title}
                 </h3>
 
-                <p className="text-sm text-muted-foreground mb-6">
+                <p className="text-sm text-muted-foreground mb-4">
                   {service.description}
                 </p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-2 text-sm">
                   {service.features.map((f) => (
-                    <li key={f} className="flex gap-2 text-sm">
-                      <CheckCircle2 className="text-gold h-4 w-4 mt-1" />
+                    <li key={f} className="flex gap-2">
+                      <CheckCircle2 className="h-4 w-4 text-yellow-500 mt-1" />
                       {f}
                     </li>
                   ))}
@@ -204,21 +241,27 @@ export default function HRServicesPage() {
 
       {/* VALUE ADDED */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-6">
+
           {additionalServices.map((item) => (
             <div key={item.title} className="p-6 border rounded-xl text-center">
-              <item.icon className="text-gold mx-auto mb-3" />
+
+              <item.icon className="text-yellow-500 mx-auto mb-3" />
+
               <h3 className="font-semibold">{item.title}</h3>
+
               <p className="text-sm text-muted-foreground mt-2">
                 {item.description}
               </p>
+
             </div>
           ))}
+
         </div>
       </section>
 
       {/* BENEFITS */}
-      <section className="py-24 bg-secondary/50">
+      <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
@@ -226,22 +269,14 @@ export default function HRServicesPage() {
               Why Choose AU Corporate?
             </h2>
 
-            <div className="space-y-3">
-              {benefits.map((b) => (
+            <div className="space-y-3 text-sm text-muted-foreground">
+              {heroPoints.map((b) => (
                 <div key={b} className="flex gap-2">
-                  <CheckCircle2 className="text-gold mt-1" />
-                  <span className="text-sm text-muted-foreground">{b}</span>
+                  <CheckCircle2 className="text-yellow-500 mt-1" />
+                  {b}
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="bg-white border rounded-xl p-10 text-center">
-            <div className="text-5xl font-bold text-gold mb-3">40%</div>
-            <p className="font-semibold">Cost Optimization</p>
-            <p className="text-sm text-muted-foreground">
-              Through efficient HR outsourcing
-            </p>
           </div>
 
         </div>
@@ -257,7 +292,7 @@ export default function HRServicesPage() {
           Let us manage your HR, payroll, and compliance while you focus on growth.
         </p>
 
-        <Button asChild className="bg-gold text-black">
+        <Button asChild className="bg-yellow-400 text-black">
           <Link href="/contact">
             Contact HR Team <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

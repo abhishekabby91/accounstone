@@ -95,13 +95,11 @@ export default function ArbitrationServicesPage() {
             </h1>
 
             <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              AU Corporate provides specialized arbitration, mediation and expert advisory services
-              for domestic and international disputes. We assist clients in navigating complex
-              commercial conflicts with a structured, strategic and outcome-focused approach.
+              AU Corporate provides arbitration, mediation, and expert advisory services for domestic and international disputes, ensuring structured and effective resolution of complex commercial conflicts.
             </p>
 
             <p className="text-muted-foreground mb-8">
-              Our team combines legal, financial and regulatory expertise to deliver efficient,
+              Our team combines legal, compliance and regulatory expertise to deliver efficient,
               enforceable and commercially viable dispute resolution solutions.
             </p>
 
