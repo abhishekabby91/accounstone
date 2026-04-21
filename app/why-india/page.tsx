@@ -1,6 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
+"use client"
+
+import Link from "next/link"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 import {
   ArrowRight,
   Users,
@@ -11,101 +14,101 @@ import {
   Building2,
   DollarSign,
   Zap
-} from 'lucide-react'
+} from "lucide-react"
 
-import type { Metadata } from 'next'
+import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: 'Why India | AU Corporate',
+  title: "Why India | AU Corporate",
   description:
-    'Understand why India is a preferred destination for foreign investment, business expansion and global growth.',
+    "Understand why India is a preferred destination for foreign investment, business expansion and global growth.",
 }
 
 const advantages = [
   {
     icon: Users,
-    title: 'Large Consumer Market',
-    value: '1.4B+',
+    title: "Large Consumer Market",
+    value: "1.4B+",
     description:
-      'Access to one of the world’s largest and fastest-growing consumer markets.',
+      "Access to one of the world’s largest and fastest-growing consumer markets.",
   },
   {
     icon: GraduationCap,
-    title: 'Skilled Workforce',
-    value: '5M+',
+    title: "Skilled Workforce",
+    value: "5M+",
     description:
-      'Highly skilled professionals across finance, tech, legal, and management.',
+      "Highly skilled professionals across finance, tech, legal, and management.",
   },
   {
     icon: DollarSign,
-    title: 'Cost Advantage',
-    value: '50%+',
+    title: "Cost Advantage",
+    value: "50%+",
     description:
-      'Significant operational cost savings compared to global markets.',
+      "Significant operational cost savings compared to global markets.",
   },
   {
     icon: Clock,
-    title: 'Ease of Business',
-    value: 'Improving',
+    title: "Ease of Business",
+    value: "Improving",
     description:
-      'Reforms and digitization improving business environment continuously.',
+      "Reforms and digitization improving business environment continuously.",
   },
 ]
 
 const stats = [
-  { value: '$3.5T+', label: 'GDP Size' },
-  { value: '4th', label: 'Largest Economy' },
-  { value: '100+', label: 'Unicorns' },
-  { value: 'High', label: 'FDI Growth' },
+  { value: "$3.5T+", label: "GDP Size" },
+  { value: "4th", label: "Largest Economy" },
+  { value: "100+", label: "Unicorns" },
+  { value: "High", label: "FDI Growth" },
 ]
 
 const reasons = [
   {
     icon: Globe,
-    title: 'Investment Friendly Environment',
+    title: "Investment Friendly Environment",
     description:
-      'India supports foreign investment with strong policy frameworks.',
+      "India supports foreign investment with strong policy frameworks.",
     points: [
-      '100% FDI in multiple sectors',
-      'Stable legal framework',
-      'Government incentives',
-      'Global trade agreements',
+      "100% FDI in multiple sectors",
+      "Stable legal framework",
+      "Government incentives",
+      "Global trade agreements",
     ],
   },
   {
     icon: TrendingUp,
-    title: 'Rapid Economic Growth',
+    title: "Rapid Economic Growth",
     description:
-      'One of the fastest-growing economies globally.',
+      "One of the fastest-growing economies globally.",
     points: [
-      'Rising middle class',
-      'Strong domestic demand',
-      'Startup ecosystem growth',
-      'Digital transformation',
+      "Rising middle class",
+      "Strong domestic demand",
+      "Startup ecosystem growth",
+      "Digital transformation",
     ],
   },
   {
     icon: Building2,
-    title: 'Regulatory Structure',
+    title: "Regulatory Structure",
     description:
-      'Clear compliance systems for global businesses.',
+      "Clear compliance systems for global businesses.",
     points: [
-      'FEMA & Company Law compliance',
-      'GST taxation system',
-      'Audit & reporting standards',
-      'Transparent governance',
+      "FEMA & Company Law compliance",
+      "GST taxation system",
+      "Audit & reporting standards",
+      "Transparent governance",
     ],
   },
   {
     icon: Zap,
-    title: 'Digital Infrastructure',
+    title: "Digital Infrastructure",
     description:
-      'India leads in digital adoption and infrastructure growth.',
+      "India leads in digital adoption and infrastructure growth.",
     points: [
-      'Digital India initiative',
-      'Fintech ecosystem',
-      'Fast-growing logistics',
-      'AI & tech adoption',
+      "Digital India initiative",
+      "Fintech ecosystem",
+      "Fast-growing logistics",
+      "AI & tech adoption",
     ],
   },
 ]
@@ -128,43 +131,79 @@ export default function WhyIndiaPage() {
         <div className="absolute inset-0 bg-black/55" />
 
         <div className="relative mx-auto max-w-7xl px-4 w-full">
-
           <div className="max-w-3xl">
 
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-gold text-sm font-semibold uppercase tracking-wider"
+            >
               Strategic Advantage
-            </span>
+            </motion.span>
 
-            <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white"
+            >
               Why India is Your <span className="text-gold">Growth Destination</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-white/80 text-lg leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+              className="text-white/80 text-lg"
+            >
               India offers unmatched opportunities for global businesses with a strong economy,
               skilled workforce, and rapidly expanding digital infrastructure.
-            </p>
+            </motion.p>
 
-            <div className="mt-6">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="mt-6"
+            >
               <Button className="bg-gold text-black hover:bg-yellow-500">
                 <Link href="/contact">
                   Explore Opportunities <ArrowRight className="ml-2 h-4 w-4 inline" />
                 </Link>
               </Button>
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* STATS STRIP */}
+      {/* 🔥 STATS STRIP */}
       <section className="py-12 bg-gray-50 border-y">
         <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="text-3xl font-bold text-gold">{s.value}</div>
-              <div className="text-sm text-muted-foreground">{s.label}</div>
-            </div>
+
+          {stats.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="text-3xl font-bold text-gold"
+                initial={{ scale: 0.8 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                {s.value}
+              </motion.div>
+
+              <div className="text-sm text-muted-foreground">
+                {s.label}
+              </div>
+            </motion.div>
           ))}
+
         </div>
       </section>
 
@@ -182,9 +221,13 @@ export default function WhyIndiaPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {advantages.map((item) => (
-              <div
+            {advantages.map((item, i) => (
+              <motion.div
                 key={item.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
                 className="p-8 bg-white border rounded-xl text-center hover:shadow-lg transition"
               >
                 <div className="w-14 h-14 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -199,7 +242,7 @@ export default function WhyIndiaPage() {
                 <p className="text-sm text-muted-foreground">
                   {item.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -220,8 +263,15 @@ export default function WhyIndiaPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
-            {reasons.map((r) => (
-              <div key={r.title} className="p-8 bg-white border rounded-xl">
+            {reasons.map((r, i) => (
+              <motion.div
+                key={r.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="p-8 bg-white border rounded-xl"
+              >
 
                 <div className="flex gap-4 mb-4">
                   <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center">
@@ -243,7 +293,7 @@ export default function WhyIndiaPage() {
                   ))}
                 </ul>
 
-              </div>
+              </motion.div>
             ))}
           </div>
 
