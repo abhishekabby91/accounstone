@@ -200,7 +200,7 @@ export default function HomePage() {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
 
             <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
-              <h3 className="text-yellow-400 font-semibold mb-2">Market Entry</h3>
+              <h3 className="text-yellow-400 font-semibold mb-2">Why India</h3>
               <p className="text-white/70 text-sm">
                 Structured entry into India’s fast-growing economy.
               </p>
