@@ -70,32 +70,55 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-64 bg-white border shadow-lg rounded-md overflow-hidden">
+                <div className="absolute top-10 left-0 w-[340px] bg-white border shadow-xl rounded-xl overflow-hidden z-50">
 
-                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
-                    All Services
-                  </Link>
+                  {/* HEADER */}
+                  <div className="px-4 py-3 border-b bg-gray-50">
+                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                      Services
+                    </p>
+                  </div>
 
-                  <Link href="/outsourcing" className="block px-4 py-2 hover:bg-gray-100">
-                    Global Support Services
-                  </Link>
+                  {/* SERVICES LIST */}
+                  <div className="max-h-[420px] overflow-y-auto">
 
-                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
-                    Accounting & Assurance
-                  </Link>
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Corporate Tax
+                    </Link>
 
-                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
-                    Taxation & Regulatory
-                  </Link>
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Income Tax Litigation Services
+                    </Link>
 
-                  <Link href="/arbitration-services" className="block px-4 py-2 hover:bg-gray-100">
-                    Arbitration Services
-                  </Link>
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Direct And Indirect Tax
+                    </Link>
 
-                  <Link href="/hr-services" className="block px-4 py-2 hover:bg-gray-100">
-                    HR & Payroll Solutions
-                  </Link>
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Income Tax Return Filings
+                    </Link>
 
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      TDS and TCS Return Filings
+                    </Link>
+
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Faceless Assessment under Income Tax
+                    </Link>
+
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      TDS and TCS Return Filing Due Dates
+                    </Link>
+
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      GST Consultancy Services
+                    </Link>
+
+                    <Link href="/services" className="block px-4 py-2 text-sm hover:bg-gray-100">
+                      Goods and Service Tax
+                    </Link>
+
+                  </div>
                 </div>
               )}
             </div>
