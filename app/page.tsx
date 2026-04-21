@@ -239,18 +239,7 @@ export default function HomePage() {
           <div className="mt-12 grid md:grid-cols-3 gap-6">
 
             {[
-              {
-                title: "Business Setup",
-                desc: "Company formation, structuring & compliance",
-              },
-              {
-                title: "Tax & Compliance",
-                desc: "GST, FEMA & regulatory advisory",
-              },
-              {
-                title: "HR & Operations",
-                desc: "Payroll, hiring & workforce management",
-              },
+
             ].map((item, i) => (
               <motion.div
                 key={item.title}
