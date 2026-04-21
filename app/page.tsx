@@ -194,7 +194,7 @@ export default function HomePage() {
           </h2>
 
           <p className="text-white/80 text-lg max-w-3xl mx-auto mb-10">
-            AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and financial support.
+            AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax and compliance support.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
