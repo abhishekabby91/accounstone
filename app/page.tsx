@@ -3,7 +3,8 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
+import { motion, useInView, animate } from "framer-motion"
+import { useEffect, useRef, useState } from "react"
 import {
   Shield,
   Calculator,
@@ -59,12 +60,39 @@ const services = [
   },
 ]
 
+/* ✅ UPDATED STATS */
 const stats = [
-  { value: "500+", label: "Clients" },
-  { value: "25+", label: "Years Experience" },
-  { value: "15", label: "Countries Served" },
-  { value: "98%", label: "Client Retention" },
+  { value: 500, suffix: "+", label: "Clients" },
+  { value: 25, suffix: "+", label: "Years Experience" },
+  { value: 15, suffix: "", label: "Countries Served" },
+  { value: 98, suffix: "%", label: "Client Retention" },
 ]
+
+/* ✅ COUNT UP COMPONENT */
+function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+  const [display, setDisplay] = useState(0)
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration: 2,
+        onUpdate(latest) {
+          setDisplay(Math.floor(latest))
+        },
+      })
+      return () => controls.stop()
+    }
+  }, [isInView, value])
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  )
+}
 
 export default function HomePage() {
   return (
@@ -101,12 +129,12 @@ export default function HomePage() {
             <Link href="/contact">Get Started</Link>
           </Button>
 
-          {/* Stats */}
+          {/* 🔥 ANIMATED STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat) => (
-              <div key={stat.label}>
+              <div key={stat.label} className="text-center">
                 <div className="text-3xl font-bold text-yellow-400">
-                  {stat.value}
+                  <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-white/70 text-sm">
                   {stat.label}
@@ -118,7 +146,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 🔥 SCROLL ANIMATION SECTION */}
+      {/* SCROLL ANIMATION SECTION */}
       <motion.section
         initial={{ opacity: 0, y: 120 }}
         whileInView={{ opacity: 1, y: 0 }}
