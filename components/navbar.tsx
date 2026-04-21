@@ -6,25 +6,25 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
-const navLinks = [
-  { label: 'Services', href: '/services' },
-  { label: 'Why India', href: '/why-india' },
-  { label: 'Arbitration Services', href: '/arbitration-services' },
-  { label: 'HR Services', href: '/hr-services' },
-  { label: 'Global Support', href: '/outsourcing' },
-  { label: 'About', href: '/about' },
-  { label: 'Career', href: '/career' },
-]
-
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const navLinks = [
+    { label: 'Why India', href: '/why-india' },
+    { label: 'Arbitration Services', href: '/arbitration-services' },
+    { label: 'HR Services', href: '/hr-services' },
+    { label: 'Global Support', href: '/outsourcing' },
+    { label: 'About', href: '/about' },
+    { label: 'Career', href: '/career' },
+  ]
 
   return (
     <header
@@ -36,7 +36,6 @@ export function Navbar() {
 
           {/* LOGO */}
           <Link href="/" className="flex items-center gap-3">
-
             <div className="w-10 h-10 relative">
               <Image
                 src="https://user8396.na.imgto.link/public/20260417/au.avif"
@@ -51,16 +50,57 @@ export function Navbar() {
               <span className="text-2xl font-bold tracking-wide text-gold">
                 AU Corporate
               </span>
-
               <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase font-medium">
                 Growing Together
               </span>
             </div>
-
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-1 relative">
+
+            {/* SERVICES DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setServicesOpen(true)}
+              onMouseLeave={() => setServicesOpen(false)}
+            >
+              <button className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Services ▾
+              </button>
+
+              {servicesOpen && (
+                <div className="absolute top-10 left-0 w-64 bg-white border shadow-lg rounded-md overflow-hidden">
+
+                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
+                    All Services
+                  </Link>
+
+                  <Link href="/outsourcing" className="block px-4 py-2 hover:bg-gray-100">
+                    Global Support Services
+                  </Link>
+
+                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
+                    Accounting & Assurance
+                  </Link>
+
+                  <Link href="/services" className="block px-4 py-2 hover:bg-gray-100">
+                    Taxation & Regulatory
+                  </Link>
+
+                  <Link href="/arbitration-services" className="block px-4 py-2 hover:bg-gray-100">
+                    Arbitration Services
+                  </Link>
+
+                  <Link href="/hr-services" className="block px-4 py-2 hover:bg-gray-100">
+                    HR & Payroll Solutions
+                  </Link>
+
+                </div>
+              )}
+            </div>
+
+            {/* OTHER LINKS */}
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -96,6 +136,14 @@ export function Navbar() {
         {isOpen && (
           <div className="lg:hidden border-t border-border bg-white">
             <div className="py-4 space-y-1">
+
+              <Link
+                href="/services"
+                className="block px-4 py-3 text-sm font-medium"
+                onClick={() => setIsOpen(false)}
+              >
+                Services
+              </Link>
 
               {navLinks.map((link) => (
                 <Link
