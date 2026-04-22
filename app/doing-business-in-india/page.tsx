@@ -8,7 +8,7 @@ import { ChevronDown, ArrowRight } from "lucide-react"
 /* ================= MAIN CONTENT SECTIONS ================= */
 const sections = [
   {
-    title: "Doing Business in India – Overview",
+    title: "Why India? – Overview",
     content: `
 India is one of the fastest-growing major economies globally, offering a large consumer base, skilled workforce, and strong digital infrastructure.
 
