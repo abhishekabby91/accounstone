@@ -40,9 +40,7 @@ export default function Page() {
         </h1>
 
         <p className="text-gray-600 mb-12 max-w-3xl">
-          We provide comprehensive risk management and assurance services to help
-          organizations identify, assess, and mitigate risks while strengthening
-          internal controls and governance frameworks.
+          We provide comprehensive risk management services to help organizations identify, assess, and mitigate risks while strengthening internal controls and enhancing governance frameworks.
         </p>
 
         {/* SECTION 1 */}
