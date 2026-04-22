@@ -13,6 +13,7 @@ import {
   Users,
   Building2,
   ArrowRight,
+  GraduationCap,
 } from "lucide-react"
 
 /* SERVICES */
@@ -27,13 +28,13 @@ const services = [
     icon: FileCheck,
     title: "Accounting & Assurance",
     description: "Comprehensive accounting services and financial assurance.",
-    href: "/services",
+    href: "/services/accounting-assurance",
   },
   {
     icon: Calculator,
     title: "Taxation & Regulatory",
     description: "Expert guidance on tax planning and compliance frameworks.",
-    href: "/services",
+    href: "/services/taxation-regulatory",
   },
   {
     icon: Scale,
@@ -47,13 +48,20 @@ const services = [
     description: "End-to-end HR and payroll management services.",
     href: "/hr-services",
   },
+  {
+    icon: GraduationCap,
+    title: "Training & Workshops",
+    description:
+      "Professional training programs and workshops to enhance skills, compliance, and business performance.",
+    href: "/services/training-workshops",
+  },
 ]
 
 /* STATS */
 const stats = [
-  { value: 500, suffix: "+", label: "Clients" },
-  { value: 25, suffix: "+", label: "Years Experience" },
-  { value: 15, suffix: "", label: "Countries Served" },
+  { value: 500, suffix: "+", label: "Client Served" },
+  { value: 30, suffix: "+", label: "Collective Professional Experience" },
+  { value: 10, suffix: "+", label: "Countries Served" },
   { value: 98, suffix: "%", label: "Client Retention" },
 ]
 
@@ -76,7 +84,8 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 
   return (
     <span ref={ref}>
-      {display}{suffix}
+      {display}
+      {suffix}
     </span>
   )
 }
@@ -85,7 +94,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
         <Image
@@ -96,7 +105,7 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/50" />
 
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
@@ -114,7 +123,6 @@ export default function HomePage() {
 
           {/* STATS */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-
             {stats.map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl font-bold text-yellow-400">
@@ -125,7 +133,6 @@ export default function HomePage() {
                 </div>
               </div>
             ))}
-
           </div>
 
         </div>
@@ -176,10 +183,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DOING BUSINESS IN INDIA (IMAGE BACKGROUND FIXED) */}
+      {/* DOING BUSINESS IN INDIA */}
       <section className="relative py-24 text-white overflow-hidden">
 
-        {/* BACKGROUND IMAGE */}
         <Image
           src="https://cdn.corenexis.com/files/c/5753696720.jpg"
           alt="Doing Business in India"
@@ -188,13 +194,7 @@ export default function HomePage() {
           className="object-cover"
         />
 
-        {/* OVERLAY */}
-        <div className="absolute inset-0 bg-black/70" />
-
-        {/* GLOW */}
-        <div className="absolute inset-0">
-          <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow-400/10 blur-[120px] rounded-full" />
-        </div>
+        <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
@@ -216,16 +216,16 @@ export default function HomePage() {
             </div>
 
             <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Compliance Setup</h3>
+              <h3 className="text-yellow-400 font-semibold mb-2">Company Incorporation</h3>
               <p className="text-white/70 text-sm">
-                End-to-end regulatory, tax and legal setup support.
+                Seamless business setup and regulatory compliance support in India.
               </p>
             </div>
 
             <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Scalable Growth</h3>
+              <h3 className="text-yellow-400 font-semibold mb-2">Growing Together</h3>
               <p className="text-white/70 text-sm">
-                Long-term expansion and operational scaling strategy.
+                Partner with AU Corporate for long-term growth, operational scalability, and strategic expansion.
               </p>
             </div>
 
