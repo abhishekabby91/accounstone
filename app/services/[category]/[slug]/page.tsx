@@ -40,6 +40,57 @@ const servicesData: Record<string, any> = {
       ],
     },
   },
+
+  "taxation-regulatory": {
+    "direct-taxation": {
+      title: "Direct Taxation",
+      sections: [
+        "International Taxation Services",
+        "Advance Pricing Agreement (APA)",
+        "Transfer Pricing Services",
+        "Corporate Tax",
+        "Trust, Family Office & Succession Planning",
+      ],
+    },
+
+    "gst": {
+      title: "Goods & Service Tax (GST)",
+      sections: [
+        "GST Registration",
+        "GST Compliance",
+        "GST Litigation Handling and Advisory Services",
+        "GST Refund and Demand Settlement",
+        "GST E-Invoice and E-Way Bill",
+        "GST Health Check-Up",
+        "GST Annual Return and GST Audit",
+      ],
+    },
+
+    "regulatory-services": {
+      title: "Regulatory Services",
+      sections: [
+        "FEMA Compliance Services",
+        "FCRA Registration",
+        "Trade License Registration",
+        "FSSAI Registration",
+        "MSME Registration",
+        "Import-Export Code (IEC) Registration",
+      ],
+    },
+
+    "secretarial-legal": {
+      title: "Secretarial & Legal",
+      sections: [
+        "Company Incorporation & Statutory Registrations",
+        "Corporate Secretarial Services",
+        "SEBI Compliance Services",
+        "Intellectual Property Rights (IPR) Services",
+        "Labour Law Services",
+        "Contract Management Services",
+        "Corporate Legal Advisory Services",
+      ],
+    },
+  },
 }
 
 export default function Page({
@@ -60,13 +111,13 @@ export default function Page({
           {data.title}
         </h1>
 
-        {/* INTRO TEXT */}
+        {/* INTRO */}
         <p className="text-gray-600 mb-10">
-          AU Corporate delivers structured, compliance-driven and strategic advisory solutions
-          across multiple domains of Risk, Audit and Assurance.
+          AU Corporate delivers structured advisory, compliance and governance solutions
+          across risk, taxation and regulatory domains with precision and expertise.
         </p>
 
-        {/* CONTENT LIST */}
+        {/* CONTENT GRID */}
         <div className="grid md:grid-cols-2 gap-4">
           {data.sections.map((item: string, index: number) => (
             <div
