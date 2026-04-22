@@ -52,7 +52,7 @@ const services = [
     icon: GraduationCap,
     title: "Training & Workshops",
     description:
-      "Professional training programs and workshops to enhance skills, compliance, and business performance.",
+      "Training programs for skills, compliance and performance.",
     href: "/services/training-workshops",
   },
 ]
@@ -223,7 +223,7 @@ export default function HomePage() {
             </div>
 
             <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Growing Together</h3>
+              <h3 className="text-yellow-400 font-semibold mb-2">Market Entry & Growth</h3>
               <p className="text-white/70 text-sm">
                 Partner with AU Corporate for long-term growth, operational scalability, and strategic expansion.
               </p>
