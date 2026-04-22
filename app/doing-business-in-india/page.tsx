@@ -58,7 +58,7 @@ const helpSections = [
   },
 
   {
-    title: "Incorporation",
+    title: "Incorporation Support",
     services: [
       "Company incorporation",
       "SEBI compliance setup",
@@ -74,7 +74,7 @@ const helpSections = [
   },
 
   {
-    title: "Post-Incorporation",
+    title: "Post-Incorporation Support & Services",
     services: [
       "PAN, TAN & GST registrations",
       "Accounting & bookkeeping setup",
