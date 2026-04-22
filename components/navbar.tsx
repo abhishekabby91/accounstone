@@ -29,7 +29,7 @@ export function Navbar() {
 
   // LEVEL 2
   const mainServices = [
-    { label: "Risk Management", key: "risk" },
+    { label: "Risk Management Services", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
     { label: "Taxation & Regulatory Services", key: "tax" },
     { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
