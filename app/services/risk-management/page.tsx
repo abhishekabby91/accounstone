@@ -8,8 +8,10 @@ export default function Page() {
   const forensicRef = useRef<HTMLDivElement>(null)
   const auditRef = useRef<HTMLDivElement>(null)
 
-  const scrollTo = (ref: React.RefObject<HTMLDivElement | null>) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" })
+  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" })
+    }
   }
 
   const sections = [
@@ -134,7 +136,7 @@ export default function Page() {
           controls and enhancing governance frameworks.
         </motion.p>
 
-        {/* CLICK NAV */}
+        {/* NAV BUTTONS */}
         <div className="flex gap-4 mb-12 flex-wrap">
           {sections.map((sec) => (
             <button
@@ -162,9 +164,7 @@ export default function Page() {
               {section.title}
             </h2>
 
-            {/* FIXED GRID */}
             <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
               {section.items.map((item) => (
                 <motion.div
                   key={item.title}
@@ -180,8 +180,8 @@ export default function Page() {
                   </p>
                 </motion.div>
               ))}
-
             </div>
+
           </motion.div>
         ))}
 
