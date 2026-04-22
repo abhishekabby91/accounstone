@@ -16,12 +16,12 @@ export default function Page() {
 
   const sections = [
     {
-      title: "Risk Management",
+      title: "Risk Management Services",
       ref: riskRef,
       items: [
         {
-          title: "Internal Audit",
-          desc: "Independent evaluation of internal controls, processes, and risk management systems.",
+          title: "Risk Management",
+          desc: "Independent evaluation of internal controls, risk frameworks, and governance systems.",
         },
         {
           title: "Internal Audit Transformation",
@@ -40,11 +40,12 @@ export default function Page() {
           desc: "Developing standardized processes with detailed documentation for operational efficiency.",
         },
         {
-          title: "IFC/ICFR – Design and Testing",
+          title: "IFC / ICFR Design and Testing",
           desc: "Evaluating internal financial controls for compliance and reliability in financial reporting.",
         },
       ],
     },
+
     {
       title: "Forensic Services",
       ref: forensicRef,
@@ -54,15 +55,15 @@ export default function Page() {
           desc: "Identifying fraud risks and conducting detailed investigations to detect irregularities.",
         },
         {
-          title: "Enforcement Agencies Assistance – CBI, SFIO",
+          title: "Enforcement Agencies Assistance (CBI, SFIO)",
           desc: "Supporting organizations in matters involving regulatory and enforcement authorities.",
         },
         {
-          title: "Forensic Audit Under RBI Guidelines",
+          title: "Forensic Audit under RBI Guidelines",
           desc: "Conducting forensic audits as per RBI norms to identify financial discrepancies.",
         },
         {
-          title: "Transaction Audit Under IBC 2016",
+          title: "IBC Transaction Audit",
           desc: "Reviewing transactions to detect preferential, undervalued, or fraudulent dealings.",
         },
         {
@@ -70,7 +71,7 @@ export default function Page() {
           desc: "Analyzing digital data to uncover evidence of financial or operational misconduct.",
         },
         {
-          title: "Anti-Bribery and Corruption",
+          title: "Anti-Bribery & Corruption",
           desc: "Assessing and strengthening frameworks to prevent bribery and corruption risks.",
         },
         {
@@ -78,11 +79,12 @@ export default function Page() {
           desc: "Identifying and tracking assets in cases of fraud, disputes, or recovery proceedings.",
         },
         {
-          title: "AML and KYC Review",
+          title: "AML & KYC Review",
           desc: "Evaluating compliance with anti-money laundering and customer due diligence norms.",
         },
       ],
     },
+
     {
       title: "Special Audit / Review",
       ref: auditRef,
@@ -96,11 +98,11 @@ export default function Page() {
           desc: "Real-time audit checks to ensure transactions comply with policies and regulations.",
         },
         {
-          title: "Fixed Asset Management and Verification",
+          title: "Fixed Asset Management & Verification",
           desc: "Physical verification and control assessment of fixed assets for accuracy and safeguarding.",
         },
         {
-          title: "Inventory Control and Stock Audit Service",
+          title: "Inventory Control & Stock Audit",
           desc: "Evaluating inventory systems and conducting stock audits to ensure accuracy and control.",
         },
         {
@@ -121,7 +123,7 @@ export default function Page() {
           animate={{ opacity: 1, y: 0 }}
           className="text-4xl font-bold text-[#081a42] mb-6"
         >
-          Risk Management
+          Risk Advisory Services
         </motion.h1>
 
         {/* DESCRIPTION */}
@@ -131,9 +133,8 @@ export default function Page() {
           transition={{ delay: 0.2 }}
           className="text-gray-600 max-w-3xl mb-10"
         >
-          We provide comprehensive risk management services to help organizations
-          identify, assess, and mitigate risks while strengthening internal
-          controls and enhancing governance frameworks.
+          Comprehensive advisory services covering risk management, forensic investigations,
+          and specialized audit reviews to strengthen governance and compliance.
         </motion.p>
 
         {/* NAV BUTTONS */}
@@ -171,7 +172,7 @@ export default function Page() {
                   whileHover={{ y: -5 }}
                   className="p-6 bg-white border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
                 >
-                  <h3 className="font-semibold text-lg mb-3 text-[#081a42] leading-snug">
+                  <h3 className="font-semibold text-lg mb-3 text-[#081a42]">
                     {item.title}
                   </h3>
 
