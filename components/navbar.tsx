@@ -114,7 +114,7 @@ export function Navbar() {
                     {/* RISK */}
                     {activeMenu === "risk" && (
                       <>
-                        <p className="text-xs uppercase mb-3">Risk Management</p>
+                        <p className="text-xs uppercase mb-3">Risk Management Services</p>
                         {riskSubServices.map((item) => (
                           <Link key={item.label} href={item.href} className="block py-2 text-sm">
                             {item.label}
