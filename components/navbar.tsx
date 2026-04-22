@@ -10,7 +10,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
-  const [activeGroup, setActiveGroup] = useState<string | null>("risk")
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -27,50 +27,31 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  // LEVEL 2
-  const serviceGroups = [
-    { label: "Risk Management", key: "risk", href: "/services/risk-management" },
-    { label: "Accounting & Assurance", key: "accounting", href: "/services/accounting-assurance" },
-    { label: "Taxation & Regulatory", key: "tax", href: "/services/taxation-regulatory" },
-    { label: "Transaction Advisory Services", key: "transaction", href: "/services/transaction-advisory-services" },
+  // LEVEL 2 SERVICES
+  const mainServices = [
+    { label: "Risk Management", key: "risk" },
+    {
+      label: "Transaction & Regulatory Services",
+      key: "transaction",
+    },
+    { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
+    { label: "Taxation & Regulatory", href: "/services/taxation-regulatory" },
   ]
 
-  // LEVEL 3 - FULL RISK MANAGEMENT STRUCTURE
-  const keyServices: Record<string, string[]> = {
-    risk: [
-      "Internal Audit",
-      "Internal Audit Transformation",
-      "Enterprise Risk Management",
-      "Risk and Control Registers",
-      "Process Designing and Documentation",
-      "SOX/JSOX Reviews - Design and Testing",
-      "IFC/ICFR - Design and Testing",
+  // LEVEL 3 - RISK MANAGEMENT
+  const riskSubServices = [
+    { label: "Risk Management", href: "/services/risk-management/core" },
+    { label: "Forensic Services", href: "/services/risk-management/forensic-services" },
+    { label: "Special Audit / Review", href: "/services/risk-management/special-audit-review" },
+  ]
 
-      "Forensic Services",
-      "Fraud Risk Assessments & Investigations",
-      "Enforcement Agencies Assistance - CBI, SFIO",
-      "Forensic Audit Under RBI Guidelines",
-      "Transaction Audit Under IBC 2016",
-      "Digital Forensic",
-      "Anti Bribery and Corruption",
-      "Assets Tracing",
-      "AML and KYC Review",
-
-      "Special Audit / Review",
-      "Project Audit",
-      "Concurrent Audit / Pre-Audit",
-      "Fixed Asset Management and Verification",
-      "Inventory Control and Stock Audit Service",
-      "Agency for Specialized Monitoring (ASM) Mechanism",
-    ],
-  }
-
-  const slugify = (text: string) =>
-    text
-      .toLowerCase()
-      .replace(/&/g, "and")
-      .replace(/\//g, "-")
-      .replace(/\s+/g, "-")
+  // LEVEL 3 - TRANSACTION & REGULATORY
+  const transactionSubServices = [
+    { label: "Direct Taxation", href: "/services/transaction/direct-taxation" },
+    { label: "Goods & Service Tax", href: "/services/transaction/gst" },
+    { label: "Regulatory Services", href: "/services/transaction/regulatory-services" },
+    { label: "Secretarial & Legal", href: "/services/transaction/secretarial-legal" },
+  ]
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
@@ -89,7 +70,7 @@ export function Navbar() {
 
             <div className="flex flex-col leading-tight">
               <span className="text-2xl font-bold text-gold">AU Corporate</span>
-              <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase">
+              <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
                 Growing Together
               </span>
             </div>
@@ -98,50 +79,90 @@ export function Navbar() {
           {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-1">
 
-            {/* SERVICES */}
+            {/* SERVICES DROPDOWN */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => setServicesOpen(false)}
+              onMouseLeave={() => {
+                setServicesOpen(false)
+                setActiveMenu(null)
+              }}
             >
-              <button className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-black">
+              <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
                 Services ▾
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-[720px] bg-white border shadow-xl rounded-xl z-50 flex">
+                <div className="absolute top-10 left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
 
                   {/* LEVEL 2 */}
-                  <div className="w-1/3 border-r py-2">
-                    {serviceGroups.map((group) => (
+                  <div className="w-1/2 border-r py-2">
+
+                    {mainServices.map((service) => (
                       <div
-                        key={group.key}
-                        onMouseEnter={() => setActiveGroup(group.key)}
+                        key={service.label}
+                        onMouseEnter={() => setActiveMenu(service.key || null)}
                         className="flex items-center justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
                       >
-                        <Link href={group.href}>{group.label}</Link>
-                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                        {service.href ? (
+                          <Link href={service.href}>{service.label}</Link>
+                        ) : (
+                          <span>{service.label}</span>
+                        )}
+
+                        {service.key && (
+                          <ChevronRight className="w-4 h-4 text-gray-400" />
+                        )}
                       </div>
                     ))}
+
                   </div>
 
                   {/* LEVEL 3 */}
-                  <div className="w-2/3 p-4 max-h-[500px] overflow-y-auto">
-                    <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
-                      Key Services - Risk Management
-                    </p>
+                  <div className="w-1/2 p-4">
 
-                    <div className="grid grid-cols-2 gap-2">
-                      {keyServices["risk"].map((item) => (
-                        <Link
-                          key={item}
-                          href={`/services/${slugify(item)}`}
-                          className="text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-1 rounded"
-                        >
-                          {item}
-                        </Link>
-                      ))}
-                    </div>
+                    {/* RISK MANAGEMENT */}
+                    {activeMenu === "risk" && (
+                      <>
+                        <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
+                          Risk Management
+                        </p>
+
+                        <div className="space-y-2">
+                          {riskSubServices.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="block text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-2 rounded"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    )}
+
+                    {/* TRANSACTION & REGULATORY */}
+                    {activeMenu === "transaction" && (
+                      <>
+                        <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
+                          Transaction & Regulatory Services
+                        </p>
+
+                        <div className="space-y-2">
+                          {transactionSubServices.map((item) => (
+                            <Link
+                              key={item.label}
+                              href={item.href}
+                              className="block text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-2 rounded"
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </>
+                    )}
+
                   </div>
 
                 </div>
