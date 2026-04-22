@@ -38,10 +38,6 @@ export default function Page() {
           desc: "Developing standardized processes with detailed documentation for operational efficiency.",
         },
         {
-          title: "SOX/JSOX Reviews – Design and Testing",
-          desc: "Assessing design and effectiveness of controls in line with SOX/JSOX requirements.",
-        },
-        {
           title: "IFC/ICFR – Design and Testing",
           desc: "Evaluating internal financial controls for compliance and reliability in financial reporting.",
         },
