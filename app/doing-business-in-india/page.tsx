@@ -40,7 +40,7 @@ Joint Venture – Strategic Indian partnership
   },
 ]
 
-/* AU HELP STRUCTURE (UPDATED) */
+/* UPDATED HELP STRUCTURE */
 const helpSections = [
   {
     title: "Pre-Incorporation Support",
@@ -56,15 +56,23 @@ const helpSections = [
       "Industrial parks & zones development advisory",
     ],
   },
+
   {
     title: "Incorporation",
     services: [
-      "Company / LLP registration with MCA",
-      "RBI / FEMA approvals (where applicable)",
-      "Documentation preparation & filing",
-      "Government liaison & compliance setup",
+      "Company incorporation",
+      "SEBI compliance setup",
+      "FEMA & FDI compliance",
+      "GST & trade license registration",
+      "Accounting system setup",
+      "MIS reporting framework",
+      "GST & other statutory registrations",
+      "Initial board setup & secretarial compliance",
+      "Initial audit compliance",
+      "Expatriate solutions",
     ],
   },
+
   {
     title: "Post-Incorporation",
     services: [
