@@ -78,7 +78,7 @@ export default function Page() {
             onClick={() => scrollTo(mainRef)}
             className="px-5 py-2 border rounded-full text-sm font-medium bg-white hover:bg-yellow-400 hover:text-black transition shadow-sm"
           >
-            Key Services
+            Our Services
           </button>
         </div>
 
@@ -91,7 +91,7 @@ export default function Page() {
           className="mb-20"
         >
           <h2 className="text-2xl font-semibold mb-8 text-[#081a42]">
-            Key Services
+            Our Services
           </h2>
 
           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
