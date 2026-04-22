@@ -1,33 +1,79 @@
 "use client"
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Menu, X } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X, ChevronRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [activeGroup, setActiveGroup] = useState<string | null>("risk")
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const navLinks = [
-    { label: 'Why India', href: '/why-india' },
-    { label: 'Arbitration Services', href: '/arbitration-services' },
-    { label: 'HR Services', href: '/hr-services' },
-    { label: 'Global Support', href: '/outsourcing' },
-    { label: 'About', href: '/about' },
-    { label: 'Career', href: '/career' },
+    { label: "Why India", href: "/why-india" },
+    { label: "Arbitration Services", href: "/arbitration-services" },
+    { label: "HR Services", href: "/hr-services" },
+    { label: "Global Support", href: "/outsourcing" },
+    { label: "About", href: "/about" },
+    { label: "Career", href: "/career" },
   ]
 
+  // LEVEL 2
+  const serviceGroups = [
+    { label: "Risk Management", key: "risk", href: "/services/risk-management" },
+    { label: "Accounting & Assurance", key: "accounting", href: "/services/accounting-assurance" },
+    { label: "Taxation & Regulatory", key: "tax", href: "/services/taxation-regulatory" },
+    { label: "Transaction Advisory Services", key: "transaction", href: "/services/transaction-advisory-services" },
+  ]
+
+  // LEVEL 3 - FULL RISK MANAGEMENT STRUCTURE
+  const keyServices: Record<string, string[]> = {
+    risk: [
+      "Internal Audit",
+      "Internal Audit Transformation",
+      "Enterprise Risk Management",
+      "Risk and Control Registers",
+      "Process Designing and Documentation",
+      "SOX/JSOX Reviews - Design and Testing",
+      "IFC/ICFR - Design and Testing",
+
+      "Forensic Services",
+      "Fraud Risk Assessments & Investigations",
+      "Enforcement Agencies Assistance - CBI, SFIO",
+      "Forensic Audit Under RBI Guidelines",
+      "Transaction Audit Under IBC 2016",
+      "Digital Forensic",
+      "Anti Bribery and Corruption",
+      "Assets Tracing",
+      "AML and KYC Review",
+
+      "Special Audit / Review",
+      "Project Audit",
+      "Concurrent Audit / Pre-Audit",
+      "Fixed Asset Management and Verification",
+      "Inventory Control and Stock Audit Service",
+      "Agency for Specialized Monitoring (ASM) Mechanism",
+    ],
+  }
+
+  const slugify = (text: string) =>
+    text
+      .toLowerCase()
+      .replace(/&/g, "and")
+      .replace(/\//g, "-")
+      .replace(/\s+/g, "-")
+
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? 'shadow-sm' : ''}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex h-20 items-center justify-between">
@@ -42,9 +88,7 @@ export function Navbar() {
             />
 
             <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold text-gold">
-                AU Corporate
-              </span>
+              <span className="text-2xl font-bold text-gold">AU Corporate</span>
               <span className="text-[10px] text-[#081a42] tracking-[0.25em] uppercase">
                 Growing Together
               </span>
@@ -52,9 +96,9 @@ export function Navbar() {
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden lg:flex items-center gap-1 relative">
+          <div className="hidden lg:flex items-center gap-1">
 
-            {/* SERVICES DROPDOWN */}
+            {/* SERVICES */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -65,64 +109,46 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-[360px] bg-white border shadow-xl rounded-xl overflow-hidden z-50">
+                <div className="absolute top-10 left-0 w-[720px] bg-white border shadow-xl rounded-xl z-50 flex">
 
-                  {/* HEADER */}
-                  <div className="px-4 py-3 border-b bg-gray-50">
-                    <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      Key Services
+                  {/* LEVEL 2 */}
+                  <div className="w-1/3 border-r py-2">
+                    {serviceGroups.map((group) => (
+                      <div
+                        key={group.key}
+                        onMouseEnter={() => setActiveGroup(group.key)}
+                        className="flex items-center justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                      >
+                        <Link href={group.href}>{group.label}</Link>
+                        <ChevronRight className="w-4 h-4 text-gray-400" />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* LEVEL 3 */}
+                  <div className="w-2/3 p-4 max-h-[500px] overflow-y-auto">
+                    <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
+                      Key Services - Risk Management
                     </p>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      {keyServices["risk"].map((item) => (
+                        <Link
+                          key={item}
+                          href={`/services/${slugify(item)}`}
+                          className="text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-1 rounded"
+                        >
+                          {item}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
 
-                  {/* SERVICES LIST */}
-                  <div className="py-2">
-
-                    <Link href="/services/corporate-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Corporate Tax
-                    </Link>
-
-                    <Link href="/services/income-tax-litigation" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Income Tax Litigation Services
-                    </Link>
-
-                    <Link href="/services/direct-indirect-tax" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Direct And Indirect Tax
-                    </Link>
-
-                    <Link href="/services/income-tax-return" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Income Tax Return Filings
-                    </Link>
-
-                    <Link href="/services/tds-tcs" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS and TCS Return Filings
-                    </Link>
-
-                    <Link href="/services/faceless-assessment" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Faceless Assessment under Income Tax
-                    </Link>
-
-                    <Link href="/services/tds-tcs-filing" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS and TCS Return Filing
-                    </Link>
-
-                    <Link href="/services/tds-tcs-due-dates" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      TDS and TCS Return Filing Due Dates
-                    </Link>
-
-                    <Link href="/services/gst-consultancy" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      GST Consultancy Services
-                    </Link>
-
-                    <Link href="/services/gst" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                      Goods and Service Tax
-                    </Link>
-
-                  </div>
                 </div>
               )}
             </div>
 
-            {/* OTHER NAV LINKS */}
+            {/* OTHER LINKS */}
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -147,28 +173,6 @@ export function Navbar() {
           </button>
 
         </div>
-
-        {/* MOBILE MENU */}
-        {isOpen && (
-          <div className="lg:hidden border-t bg-white">
-
-            <Link href="/services" className="block px-4 py-3 font-medium">
-              Services
-            </Link>
-
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="block px-4 py-3 text-sm text-gray-600"
-              >
-                {link.label}
-              </Link>
-            ))}
-
-          </div>
-        )}
-
       </nav>
     </header>
   )
