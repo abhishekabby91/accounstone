@@ -40,35 +40,22 @@ Joint Venture – Strategic Indian partnership
   },
 ]
 
-/* HELP STRUCTURE (UPDATED PRE-INCORPORATION FULL REPLACEMENT) */
+/* AU HELP STRUCTURE (UPDATED) */
 const helpSections = [
   {
     title: "Pre-Incorporation Support",
     services: [
-      // CORE ENTRY STRATEGY
       "Business feasibility analysis & strategic planning",
       "Market entry strategy development",
       "Competition assessment & industry benchmarking",
-
-      // STRUCTURE & REGULATORY
-      "Business structure advisory (BO / LO / WOS / LLP)",
-      "Regulatory feasibility analysis",
-      "Name selection & approval guidance",
-
-      // POLICY & INVESTMENT PLANNING (NEW ADDITIONS)
-      "FDI policy assessment & regulatory mapping",
-      "Tax structure planning & optimization strategy",
-
-      // STRATEGIC BUSINESS PLANNING
+      "FDI policy assessment",
+      "Tax structure planning",
       "Product diversification strategies",
       "Joint venture & collaboration structuring",
       "Profit optimisation solutions",
-
-      // INFRA & INDUSTRY PLANNING
-      "Industrial parks & SEZ development advisory",
+      "Industrial parks & zones development advisory",
     ],
   },
-
   {
     title: "Incorporation",
     services: [
@@ -78,7 +65,6 @@ const helpSections = [
       "Government liaison & compliance setup",
     ],
   },
-
   {
     title: "Post-Incorporation",
     services: [
@@ -163,7 +149,6 @@ export default function WhyIndiaPage() {
                   animate={{
                     height: isOpen ? "auto" : 0,
                     opacity: isOpen ? 1 : 0,
-                    filter: isOpen ? "blur(0px)" : "blur(4px)",
                   }}
                   transition={{ duration: 0.35, ease: "easeInOut" }}
                   className="overflow-hidden bg-gray-50"
