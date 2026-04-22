@@ -2,237 +2,150 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown, ArrowRight } from "lucide-react"
+import { motion } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
-/* ================= MAIN CONTENT SECTIONS ================= */
+/* MAIN SECTIONS */
 const sections = [
   {
     title: "Why India?",
     content: `
-India is one of the fastest-growing major economies globally, offering a large consumer base, skilled workforce, and strong digital infrastructure.
+India is one of the most attractive global investment destinations due to its large consumer base, skilled workforce, and evolving regulatory framework.
 
-However, entering the Indian market requires structured planning due to regulatory complexity, tax framework, and cultural diversity.
-
-Key highlights:
-• Large domestic market with 1.4B+ population  
-• Strong IT and services ecosystem  
-• Continuous regulatory reforms  
-• Attractive FDI environment  
-• Rapid digital transformation  
-
-Global investors require a well-planned entry strategy to ensure compliance and long-term success.
+Key considerations include:
+• Entry structure selection
+• Regulatory approvals (RBI / FEMA / MCA)
+• Tax and compliance planning
+• Operational feasibility
     `,
   },
   {
-    title: "Challenges of Doing Business in India",
+    title: "Entry Process Overview",
     content: `
-While India offers strong growth opportunities, businesses must navigate a complex operating environment.
-
-Key challenges include:
-
-Regulatory Complexity:
-Multiple central and state-level regulations requiring continuous compliance monitoring.
-
-Taxation & Compliance:
-GST, income tax, transfer pricing, and reporting obligations increase compliance burden.
-
-Infrastructure Variations:
-Logistics, transport, and utilities differ across regions impacting operational efficiency.
-
-Cultural Diversity:
-Business practices, language, and consumer behavior vary across states.
-
-Labour Laws:
-Employment laws, hiring practices, and HR compliance require local expertise.
+1. Business evaluation
+2. Structure selection
+3. Regulatory approvals
+4. Incorporation and setup
     `,
   },
   {
-    title: "Opportunities in India",
+    title: "Business Structures in India",
     content: `
-India offers significant business opportunities across sectors:
+Wholly Owned Subsidiary – 100% foreign ownership
 
-Market Expansion:
-Large and rapidly growing middle-class consumption base.
+LLP – Flexible low compliance structure
 
-Technology Growth:
-Global hub for IT, SaaS, fintech, AI, and digital services.
-
-Manufacturing Push:
-Government initiatives like “Make in India” support global manufacturing setup.
-
-FDI Reforms:
-Liberalised FDI policy in multiple sectors with simplified entry routes.
-
-Renewable Energy:
-Strong focus on solar, wind, EV, and sustainability-driven investments.
-
-India is positioned as a strategic hub for global expansion.
-    `,
-  },
-  {
-    title: "Business Entry Structures in India",
-    content: `
-Foreign companies can enter India through multiple legal structures depending on their business objectives.
-
-Branch Office:
-• Revenue-generating presence  
-• Export/import and consultancy activities  
-• Limited operational scope  
-
-Liaison Office:
-• Non-commercial representative office  
-• Market research & communication role  
-• Cannot earn income  
-
-Project Office:
-• Set up for specific project execution  
-• Valid only for project duration  
-
-Wholly Owned Subsidiary:
-• 100% foreign ownership  
-• Separate legal entity in India  
-• Most preferred structure  
-
-LLP:
-• Flexible structure with lower compliance  
-• Suitable for service-based businesses  
-
-Joint Venture:
-• Strategic partnership with Indian company  
-• Common in regulated sectors  
-    `,
-  },
-  {
-    title: "Regulatory & Tax Environment",
-    content: `
-India operates under a structured regulatory framework governed by multiple authorities.
-
-Key laws include:
-• Companies Act, 2013  
-• FEMA (Foreign Exchange Management Act)  
-• Income Tax Act  
-• GST Law  
-
-Regulatory bodies:
-• Ministry of Corporate Affairs (MCA)  
-• Reserve Bank of India (RBI)  
-• DPIIT (FDI Policy authority)  
-
-Tax framework:
-• Corporate tax applicable on domestic & foreign entities  
-• GST for indirect taxation  
-• DTAA benefits for international businesses  
-• Transfer pricing compliance for cross-border transactions  
+Joint Venture – Strategic Indian partnership
     `,
   },
 ]
 
-/* ================= AU CORPORATE SUPPORT ================= */
+/* HELP STRUCTURE (UPDATED PRE-INCORPORATION FULL REPLACEMENT) */
 const helpSections = [
   {
     title: "Pre-Incorporation Support",
     services: [
-      "Market entry strategy & feasibility analysis",
-      "Entity structure selection (BO / LO / WOS / LLP)",
-      "Regulatory & tax planning advisory",
-      "Name approval & documentation guidance",
+      // CORE ENTRY STRATEGY
+      "Business feasibility analysis & strategic planning",
+      "Market entry strategy development",
+      "Competition assessment & industry benchmarking",
+
+      // STRUCTURE & REGULATORY
+      "Business structure advisory (BO / LO / WOS / LLP)",
+      "Regulatory feasibility analysis",
+      "Name selection & approval guidance",
+
+      // POLICY & INVESTMENT PLANNING (NEW ADDITIONS)
+      "FDI policy assessment & regulatory mapping",
+      "Tax structure planning & optimization strategy",
+
+      // STRATEGIC BUSINESS PLANNING
+      "Product diversification strategies",
+      "Joint venture & collaboration structuring",
+      "Profit optimisation solutions",
+
+      // INFRA & INDUSTRY PLANNING
+      "Industrial parks & SEZ development advisory",
     ],
   },
+
   {
     title: "Incorporation",
     services: [
       "Company / LLP registration with MCA",
-      "RBI / FEMA approvals (if applicable)",
-      "End-to-end documentation & filing",
-      "Government liaison & approvals",
+      "RBI / FEMA approvals (where applicable)",
+      "Documentation preparation & filing",
+      "Government liaison & compliance setup",
     ],
   },
+
   {
     title: "Post-Incorporation",
     services: [
-      "Tax registrations (PAN, TAN, GST)",
+      "PAN, TAN & GST registrations",
       "Accounting & bookkeeping setup",
-      "Payroll & HR compliance",
-      "Regulatory & annual filings",
+      "Payroll & HR compliance support",
+      "Ongoing regulatory compliance management",
     ],
   },
 ]
 
 export default function WhyIndiaPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+
+  const toggle = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i)
+  }
 
   return (
     <div className="min-h-screen bg-white">
 
-      {/* ================= HERO ================= */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+      {/* HERO */}
+      <section className="relative min-h-[65vh] flex items-center">
 
-        <motion.div
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 1.2 }}
-          className="absolute inset-0"
-        >
-          <Image
-            src="https://cdn.corenexis.com/files/c/3298128720.jpg"
-            alt="India Business"
-            fill
-            className="object-cover"
-            priority
-          />
-        </motion.div>
+        <Image
+          src="https://cdn.corenexis.com/files/c/3298128720.jpg"
+          alt="India Business"
+          fill
+          className="object-cover"
+          priority
+        />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative max-w-6xl mx-auto px-6">
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-3xl"
           >
-
-            <span className="text-yellow-400 text-sm tracking-widest">
-              GLOBAL EXPANSION
-            </span>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-white mt-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
               Doing Business in India
             </h1>
 
             <p className="mt-4 text-white/80 text-lg">
-              India offers unmatched opportunities for global businesses, but requires structured entry planning, compliance, and regulatory understanding.
+              Structured entry routes, regulatory clarity & scalable growth opportunities.
             </p>
-
-            <button className="mt-6 bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium flex items-center gap-2 hover:scale-105 transition">
-              Start Your Expansion <ArrowRight size={16} />
-            </button>
-
           </motion.div>
 
         </div>
       </section>
 
-      {/* ================= ACCORDION ================= */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-6 space-y-5">
+      {/* ACCORDION */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-4">
 
           {sections.map((sec, i) => {
             const isOpen = openIndex === i
 
             return (
-              <motion.div
+              <div
                 key={sec.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="bg-white border rounded-2xl overflow-hidden shadow-sm"
+                className="border rounded-2xl overflow-hidden shadow-sm"
               >
 
                 <button
-                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  onClick={() => toggle(i)}
                   className="w-full flex justify-between items-center p-5 hover:bg-gray-50 transition"
                 >
                   <span className="font-semibold text-[#081a42]">
@@ -245,63 +158,59 @@ export default function WhyIndiaPage() {
                   />
                 </button>
 
-                <AnimatePresence>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="p-5 text-sm text-gray-600 whitespace-pre-line leading-relaxed">
-                        {sec.content}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0,
+                    filter: isOpen ? "blur(0px)" : "blur(4px)",
+                  }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="overflow-hidden bg-gray-50"
+                >
+                  <div className="p-5 text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+                    {sec.content}
+                  </div>
+                </motion.div>
 
-              </motion.div>
+              </div>
             )
           })}
 
         </div>
       </section>
 
-      {/* ================= AU SUPPORT ================= */}
-      <section className="py-24 bg-white">
+      {/* HOW AU HELPS */}
+      <section className="py-24 bg-gray-50">
 
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-5xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center text-[#081a42] mb-14">
-            How AU Corporate Supports You
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#081a42]">
+            How AU Corporate Helps You
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
 
-            {helpSections.map((section, i) => (
-              <motion.div
-                key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-gray-50 border rounded-2xl p-6 hover:shadow-xl transition"
+            {helpSections.map((sec) => (
+              <div
+                key={sec.title}
+                className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition"
               >
 
-                <h3 className="font-semibold text-[#081a42] mb-4">
-                  {section.title}
+                <h3 className="font-semibold mb-4 text-[#081a42]">
+                  {sec.title}
                 </h3>
 
-                <ul className="space-y-3 text-sm text-gray-600">
-                  {section.services.map((item) => (
-                    <li key={item} className="flex gap-2">
+                <ul className="space-y-2 text-sm text-gray-700">
+                  {sec.services.map((s) => (
+                    <li key={s} className="flex gap-2">
                       <span className="text-yellow-500">•</span>
-                      {item}
+                      {s}
                     </li>
                   ))}
                 </ul>
 
-              </motion.div>
+              </div>
             ))}
 
           </div>
@@ -309,28 +218,24 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
+      {/* CTA */}
       <section className="py-20 bg-[#081a42] text-white text-center">
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mx-auto px-6"
-        >
+        <div className="max-w-3xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Expand into India?
+            Start Your India Expansion Journey
           </h2>
 
           <p className="text-white/70 mb-6">
-            AU Corporate helps global businesses establish, comply, and scale efficiently in India.
+            End-to-end advisory for seamless market entry, structuring & compliance.
           </p>
 
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
+          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium">
             Talk to Experts
           </button>
 
-        </motion.div>
+        </div>
 
       </section>
 
