@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.theaucorp.com'),
 
   title: {
-    default: 'AU Corporate | Assurance, Tax and Compliance Services',
+    default: 'AU Corporate | Assurance, Tax and Consulting Services',
     template: '%s | AU Corporate',
   },
 
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'AU Corporate' }],
 
   openGraph: {
-    title: 'AU Corporate | Assurance, Tax and Compliance Services',
+    title: 'AU Corporate | Assurance, Tax and Consulting Services',
     description:
       'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
     url: 'https://www.theaucorp.com',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'AU Corporate | Assurance, Tax and Compliance Services',
+    title: 'AU Corporate | Assurance, Tax and Consulting Services',
     description:
       'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
   },
