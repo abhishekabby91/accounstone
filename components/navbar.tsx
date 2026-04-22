@@ -27,7 +27,7 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  // LEVEL 2 MENU
+  // LEVEL 2
   const mainServices = [
     { label: "Risk Management", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
@@ -35,26 +35,23 @@ export function Navbar() {
     { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
   ]
 
-  // LEVEL 3 - RISK MANAGEMENT
+  // LEVEL 3 - RISK (ONE PAGE)
   const riskSubServices = [
-    { label: "Internal Audit", href: "/services/risk-management/internal-audit" },
-    { label: "Forensic Services", href: "/services/risk-management/forensic-services" },
-    { label: "Special Audit / Review", href: "/services/risk-management/special-audit-review" },
+    { label: "Internal Audit", href: "/services/risk-management" },
+    { label: "Forensic Services", href: "/services/risk-management" },
+    { label: "Special Audit / Review", href: "/services/risk-management" },
   ]
 
-  // LEVEL 3 - TAXATION & REGULATORY
+  // LEVEL 3 - TAXATION (ONE PAGE)
   const taxSubServices = [
-    { label: "Direct Taxation", href: "/services/taxation-regulatory/direct-taxation" },
-    { label: "Goods & Service Tax", href: "/services/taxation-regulatory/gst" },
-    { label: "Regulatory Services", href: "/services/taxation-regulatory/regulatory-services" },
-    { label: "Secretarial & Legal", href: "/services/taxation-regulatory/secretarial-legal" },
+    { label: "Direct Taxation", href: "/services/taxation-regulatory" },
+    { label: "Goods & Service Tax", href: "/services/taxation-regulatory" },
+    { label: "Regulatory Services", href: "/services/taxation-regulatory" },
+    { label: "Secretarial & Legal", href: "/services/taxation-regulatory" },
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""
-        }`}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex h-20 items-center justify-between">
@@ -67,21 +64,17 @@ export function Navbar() {
               width={40}
               height={40}
             />
-
             <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold text-gold">
-                AU Corporate
-              </span>
+              <span className="text-2xl font-bold text-gold">AU Corporate</span>
               <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
                 Growing Together
               </span>
             </div>
           </Link>
 
-          {/* DESKTOP NAV */}
+          {/* DESKTOP */}
           <div className="hidden lg:flex items-center gap-1">
 
-            {/* SERVICES DROPDOWN */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -99,7 +92,6 @@ export function Navbar() {
 
                   {/* LEVEL 2 */}
                   <div className="w-1/2 border-r py-2">
-
                     {mainServices.map((service) => (
                       <div
                         key={service.label}
@@ -111,57 +103,37 @@ export function Navbar() {
                         ) : (
                           <span>{service.label}</span>
                         )}
-
-                        {service.key && (
-                          <ChevronRight className="w-4 h-4 text-gray-400" />
-                        )}
+                        {service.key && <ChevronRight className="w-4 h-4" />}
                       </div>
                     ))}
-
                   </div>
 
                   {/* LEVEL 3 */}
                   <div className="w-1/2 p-4">
 
-                    {/* RISK MANAGEMENT */}
+                    {/* RISK */}
                     {activeMenu === "risk" && (
                       <>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
-                          Risk Management
-                        </p>
-
-                        <div className="space-y-2">
-                          {riskSubServices.map((item) => (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              className="block text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-2 rounded"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
+                        <p className="text-xs uppercase mb-3">Risk Management</p>
+                        {riskSubServices.map((item) => (
+                          <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                            {item.label}
+                          </Link>
+                        ))}
                       </>
                     )}
 
-                    {/* TAXATION */}
+                    {/* TAX */}
                     {activeMenu === "tax" && (
                       <>
-                        <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
+                        <p className="text-xs uppercase mb-3">
                           Taxation & Regulatory Services
                         </p>
-
-                        <div className="space-y-2">
-                          {taxSubServices.map((item) => (
-                            <Link
-                              key={item.label}
-                              href={item.href}
-                              className="block text-sm text-gray-600 hover:text-black hover:bg-gray-100 px-2 py-2 rounded"
-                            >
-                              {item.label}
-                            </Link>
-                          ))}
-                        </div>
+                        {taxSubServices.map((item) => (
+                          <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                            {item.label}
+                          </Link>
+                        ))}
                       </>
                     )}
 
@@ -171,21 +143,17 @@ export function Navbar() {
               )}
             </div>
 
-            {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="px-4 py-2 text-sm text-gray-600 hover:text-black"
-              >
+              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm">
                 {link.label}
               </Link>
             ))}
+
           </div>
 
           {/* CTA */}
           <div className="hidden lg:block">
-            <Button asChild className="bg-yellow-400 text-black font-semibold">
+            <Button asChild>
               <Link href="/contact">Get Started</Link>
             </Button>
           </div>
