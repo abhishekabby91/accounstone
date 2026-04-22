@@ -37,7 +37,7 @@ export function Navbar() {
 
   // LEVEL 3 - RISK (ONE PAGE)
   const riskSubServices = [
-    { label: "Internal Audit", href: "/services/risk-management" },
+    { label: "Risk Management", href: "/services/risk-management" },
     { label: "Forensic Services", href: "/services/risk-management" },
     { label: "Special Audit / Review", href: "/services/risk-management" },
   ]
