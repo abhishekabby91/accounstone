@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   authors: [{ name: 'AU Corporate' }],
 
   openGraph: {
-    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    title: 'AU Corporate | Assurance, Tax and Compliance Services',
     description:
-      'Professional services in Assurance, Taxation, Risk Management, and Consulting.',
+      'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
     url: 'https://www.theaucorp.com',
     siteName: 'AU Corporate',
     type: 'website',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    title: 'AU Corporate | Assurance, Tax and Compliance Services',
     description:
-      'Professional services in Assurance, Taxation, Risk Management, and Consulting.',
+      'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
   },
 }
 
