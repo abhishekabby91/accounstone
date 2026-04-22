@@ -4,7 +4,7 @@ const servicesData: Record<string, any> = {
   "risk-management": {
     "internal-audit": {
       title: "Internal Audit",
-      sections: [
+      items: [
         "Internal Audit",
         "Internal Audit Transformation",
         "Enterprises Risk Management",
@@ -17,7 +17,7 @@ const servicesData: Record<string, any> = {
 
     "forensic-services": {
       title: "Forensic Services",
-      sections: [
+      items: [
         "Fraud Risk Assessments & Investigations",
         "Enforcement Agencies Assistance - CBI, SFIO",
         "Forensic Audit Under RBI Guidelines",
@@ -31,7 +31,7 @@ const servicesData: Record<string, any> = {
 
     "special-audit-review": {
       title: "Special Audit / Review",
-      sections: [
+      items: [
         "Project Audit",
         "Concurrent Audit / Pre-Audit",
         "Fixed Asset Management and Verification",
@@ -44,7 +44,7 @@ const servicesData: Record<string, any> = {
   "taxation-regulatory": {
     "direct-taxation": {
       title: "Direct Taxation",
-      sections: [
+      items: [
         "International Taxation Services",
         "Advance Pricing Agreement (APA)",
         "Transfer Pricing Services",
@@ -54,8 +54,8 @@ const servicesData: Record<string, any> = {
     },
 
     "gst": {
-      title: "Goods & Service Tax (GST)",
-      sections: [
+      title: "Goods & Service Tax",
+      items: [
         "GST Registration",
         "GST Compliance",
         "GST Litigation Handling and Advisory Services",
@@ -68,23 +68,23 @@ const servicesData: Record<string, any> = {
 
     "regulatory-services": {
       title: "Regulatory Services",
-      sections: [
+      items: [
         "FEMA Compliance Services",
         "FCRA Registration",
         "Trade License Registration",
         "FSSAI Registration",
         "MSME Registration",
-        "Import-Export Code (IEC) Registration",
+        "Import Export Code (IEC) Registration",
       ],
     },
 
     "secretarial-legal": {
       title: "Secretarial & Legal",
-      sections: [
+      items: [
         "Company Incorporation & Statutory Registrations",
         "Corporate Secretarial Services",
         "SEBI Compliance Services",
-        "Intellectual Property Rights (IPR) Services",
+        "Intellectual Property Rights (IPR)",
         "Labour Law Services",
         "Contract Management Services",
         "Corporate Legal Advisory Services",
@@ -111,22 +111,20 @@ export default function Page({
           {data.title}
         </h1>
 
-        {/* INTRO */}
+        {/* DESCRIPTION BLOCK */}
         <p className="text-gray-600 mb-10">
-          AU Corporate delivers structured advisory, compliance and governance solutions
-          across risk, taxation and regulatory domains with precision and expertise.
+          AU Corporate provides expert advisory and compliance solutions across
+          taxation, risk, regulatory and governance domains.
         </p>
 
-        {/* CONTENT GRID */}
+        {/* LIST */}
         <div className="grid md:grid-cols-2 gap-4">
-          {data.sections.map((item: string, index: number) => (
+          {data.items.map((item: string, index: number) => (
             <div
               key={index}
-              className="border rounded-lg p-4 hover:shadow-sm transition bg-white"
+              className="border rounded-lg p-4 hover:shadow-sm transition"
             >
-              <span className="text-gray-700 text-sm">
-                • {item}
-              </span>
+              • {item}
             </div>
           ))}
         </div>

@@ -27,7 +27,7 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  // LEVEL 2
+  // LEVEL 2 MENU
   const mainServices = [
     { label: "Risk Management", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
@@ -35,19 +35,19 @@ export function Navbar() {
     { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
   ]
 
-  // LEVEL 3 - RISK
+  // LEVEL 3 - RISK MANAGEMENT
   const riskSubServices = [
     { label: "Internal Audit", href: "/services/risk-management/internal-audit" },
     { label: "Forensic Services", href: "/services/risk-management/forensic-services" },
     { label: "Special Audit / Review", href: "/services/risk-management/special-audit-review" },
   ]
 
-  // LEVEL 3 - TAXATION
+  // LEVEL 3 - TAXATION & REGULATORY
   const taxSubServices = [
-    { label: "Direct Taxation", href: "/services/taxation/direct-taxation" },
-    { label: "Goods & Service Tax", href: "/services/taxation/gst" },
-    { label: "Regulatory Services", href: "/services/taxation/regulatory-services" },
-    { label: "Secretarial & Legal", href: "/services/taxation/secretarial-legal" },
+    { label: "Direct Taxation", href: "/services/taxation-regulatory/direct-taxation" },
+    { label: "Goods & Service Tax", href: "/services/taxation-regulatory/gst" },
+    { label: "Regulatory Services", href: "/services/taxation-regulatory/regulatory-services" },
+    { label: "Secretarial & Legal", href: "/services/taxation-regulatory/secretarial-legal" },
   ]
 
   return (
@@ -118,12 +118,13 @@ export function Navbar() {
                   {/* LEVEL 3 */}
                   <div className="w-1/2 p-4">
 
-                    {/* RISK */}
+                    {/* RISK MANAGEMENT */}
                     {activeMenu === "risk" && (
                       <>
                         <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
                           Risk Management
                         </p>
+
                         <div className="space-y-2">
                           {riskSubServices.map((item) => (
                             <Link
@@ -144,6 +145,7 @@ export function Navbar() {
                         <p className="text-xs font-semibold text-gray-500 uppercase mb-3">
                           Taxation & Regulatory Services
                         </p>
+
                         <div className="space-y-2">
                           {taxSubServices.map((item) => (
                             <Link
