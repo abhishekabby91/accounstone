@@ -30,6 +30,10 @@ export default function Page() {
         title: "IFRS & IND-AS Implementation",
         desc: "Assisting in seamless transition and compliance with international and Indian accounting standards.",
       },
+      {
+        title: "Monthly Payroll Management",
+        desc: "End-to-end payroll processing ensuring timely salary disbursement, statutory compliance, and accuracy.",
+      },
     ],
   }
 

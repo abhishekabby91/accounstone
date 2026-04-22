@@ -35,15 +35,24 @@ export default function Page() {
           desc: "Advising on corporate tax planning, structuring, and compliance strategies.",
         },
         {
-          title: "Trust, Family Office & Succession Planning",
-          desc: "Structuring wealth and succession plans for long-term financial security.",
-        },
-        {
           title: "Income Tax Litigation Handling & Advisory",
           desc: "Managing tax disputes and providing strategic litigation support.",
         },
+        {
+          title: "Expat Taxation & Return Filing",
+          desc: "Managing tax compliance and filings for expatriates working in India.",
+        },
+        {
+          title: "DTAA Advisory & Compliance",
+          desc: "Advising on Double Taxation Avoidance Agreements for cross-border tax efficiency.",
+        },
+        {
+          title: "Direct Tax Return & Compliance",
+          desc: "Ensuring accurate filing and compliance of all direct tax obligations.",
+        },
       ],
     },
+
     {
       title: "Goods & Service Tax (GST)",
       ref: gstRef,
@@ -57,7 +66,7 @@ export default function Page() {
           desc: "Ensuring timely filing and compliance with GST laws and regulations.",
         },
         {
-          title: "GST Refund and Demand Settlement",
+          title: "GST Refund",
           desc: "Managing refund claims and resolving GST demands effectively.",
         },
         {
@@ -72,8 +81,23 @@ export default function Page() {
           title: "GST Annual Return and GST Audit",
           desc: "Preparing and filing GST returns and conducting audits for compliance.",
         },
+
+        // ✅ NEW ADDITIONS
+        {
+          title: "GST Litigation",
+          desc: "Handling GST disputes, assessments, and appeal proceedings before authorities.",
+        },
+        {
+          title: "GST Advisory & Opinion",
+          desc: "Providing expert advisory and legal opinions on complex GST matters.",
+        },
+        {
+          title: "GST APA (Advance Pricing Arrangement)",
+          desc: "Assisting in GST-related pricing arrangements for tax certainty and dispute avoidance.",
+        },
       ],
     },
+
     {
       title: "Regulatory Services",
       ref: regRef,
@@ -104,6 +128,7 @@ export default function Page() {
         },
       ],
     },
+
     {
       title: "Secretarial & Legal",
       ref: legalRef,
