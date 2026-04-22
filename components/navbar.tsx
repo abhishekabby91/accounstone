@@ -51,7 +51,10 @@ export function Navbar() {
   ]
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""
+        }`}
+    >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex h-20 items-center justify-between">
@@ -66,7 +69,9 @@ export function Navbar() {
             />
 
             <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold text-gold">AU Corporate</span>
+              <span className="text-2xl font-bold text-gold">
+                AU Corporate
+              </span>
               <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
                 Growing Together
               </span>
