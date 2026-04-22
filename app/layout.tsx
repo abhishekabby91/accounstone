@@ -14,12 +14,12 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.theaucorp.com'),
 
   title: {
-    default: 'AU Corporate | Assurance, Tax and Consulting Services',
+    default: 'AU Corporate | Assurance, Tax and Compliance Services',
     template: '%s | AU Corporate',
   },
 
   description:
-    'AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Consulting.',
+    'AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Compliance.',
 
   keywords: [
     'Assurance services',
