@@ -19,7 +19,7 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { label: "Why India", href: "/why-india" },
+    { label: "Doing Business in India", href: "/doing-business-in-india" },
     { label: "Arbitration Services", href: "/arbitration-services" },
     { label: "HR Services", href: "/hr-services" },
     { label: "Global Support", href: "/outsourcing" },
