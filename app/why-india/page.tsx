@@ -1,119 +1,110 @@
 "use client"
 
-import Link from "next/link"
+import { useState } from "react"
 import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import {
-  ArrowRight,
-  Users,
-  TrendingUp,
-  Clock,
-  GraduationCap,
-  Globe,
-  Building2,
-  DollarSign,
-  Zap,
-} from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
-/* ADVANTAGES */
-const advantages = [
+/* MAIN ACCORDION SECTIONS */
+const sections = [
   {
-    icon: Users,
-    title: "Large Consumer Market",
-    value: "1.4B+",
-    description:
-      "Access to one of the world’s largest and fastest-growing consumer markets.",
+    title: "Doing Business in India",
+    content: `
+India is one of the most attractive global investment destinations due to its large consumer base, skilled workforce, and evolving regulatory framework.
+
+Foreign investors can enter India through structured routes depending on business model, sector, and investment strategy.
+
+Key considerations include:
+• Entry structure selection
+• Regulatory approvals (RBI / FEMA / MCA)
+• Tax and compliance planning
+• Operational feasibility
+    `,
   },
   {
-    icon: GraduationCap,
-    title: "Skilled Workforce",
-    value: "5M+",
-    description:
-      "Strong pool of skilled professionals across finance, technology, and management.",
+    title: "Entry Process Overview",
+    content: `
+1. Business evaluation
+2. Structure selection
+3. Regulatory approvals
+4. Incorporation and setup
+
+AU Corporate ensures seamless execution at every stage.
+    `,
   },
   {
-    icon: DollarSign,
-    title: "Cost Advantage",
-    value: "50%+",
-    description:
-      "Significant operational and manpower cost efficiencies.",
+    title: "Branch, Liaison & Project Office",
+    content: `
+Branch Office:
+• Revenue-generating presence in India
+• Export/import and consultancy activities
+
+Liaison Office:
+• Non-commercial coordination only
+• Market research and communication
+
+Project Office:
+• Set up for specific project execution
+• Valid for project duration only
+    `,
   },
   {
-    icon: Clock,
-    title: "Ease of Doing Business",
-    value: "Improving",
-    description:
-      "Continuous regulatory reforms and digital transformation improving efficiency.",
+    title: "Business Structures in India",
+    content: `
+Wholly Owned Subsidiary:
+• 100% foreign ownership
+• Separate legal entity in India
+
+LLP:
+• Flexible structure with lower compliance
+• Ideal for service businesses
+
+Joint Venture:
+• Strategic partnership with Indian entity
+• Used in regulated sectors
+    `,
   },
 ]
 
-/* STATS */
-const stats = [
-  { value: "$3.5T+", label: "GDP Size" },
-  { value: "4th", label: "Largest Economy" },
-  { value: "100+", label: "Unicorns" },
-  { value: "High", label: "FDI Growth" },
-]
-
-/* REASONS */
-const reasons = [
+/* AU HELP STRUCTURE */
+const helpSections = [
   {
-    icon: Globe,
-    title: "Investment-Friendly Ecosystem",
-    description:
-      "India offers strong policy support and liberal FDI norms for global investors.",
-    points: [
-      "100% FDI in key sectors",
-      "Stable legal and tax framework",
-      "Government incentives",
-      "Global trade integration",
+    title: "Pre-Incorporation Support",
+    services: [
+      "Business structure advisory (BO / LO / WOS / LLP)",
+      "Regulatory feasibility analysis",
+      "Entry strategy planning",
+      "Name selection & approval guidance",
     ],
   },
   {
-    icon: TrendingUp,
-    title: "Strong Economic Growth",
-    description:
-      "India remains one of the fastest-growing major global economies.",
-    points: [
-      "Expanding middle class",
-      "High domestic demand",
-      "Startup ecosystem growth",
-      "Digital economy expansion",
+    title: "Incorporation",
+    services: [
+      "Company / LLP registration with MCA",
+      "RBI / FEMA approvals (where applicable)",
+      "Documentation & compliance drafting",
+      "Government filing & liaison",
     ],
   },
   {
-    icon: Building2,
-    title: "Robust Regulatory Framework",
-    description:
-      "Transparent and evolving compliance structure aligned with global standards.",
-    points: [
-      "GST & FEMA framework",
-      "Corporate compliance system",
-      "Digitized governance",
-      "Simplified reporting systems",
-    ],
-  },
-  {
-    icon: Zap,
-    title: "Digital & Infrastructure Growth",
-    description:
-      "Rapid expansion in digital and physical infrastructure.",
-    points: [
-      "Digital India initiative",
-      "Fintech & AI adoption",
-      "Logistics expansion",
-      "Smart infrastructure development",
+    title: "Post-Incorporation",
+    services: [
+      "Tax registrations (PAN, TAN, GST)",
+      "Accounting & compliance setup",
+      "Payroll & HR advisory support",
+      "Ongoing regulatory compliance management",
     ],
   },
 ]
 
 export default function WhyIndiaPage() {
-  return (
-    <div className="min-h-screen pt-20 bg-white">
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
 
-      {/* HERO */}
-      <section className="relative min-h-[70vh] flex items-center overflow-hidden">
+  return (
+    <div className="min-h-screen bg-white">
+
+      {/* HERO SECTION */}
+      <section className="relative min-h-[65vh] flex items-center">
 
         <Image
           src="https://cdn.corenexis.com/files/c/3298128720.jpg"
@@ -125,128 +116,118 @@ export default function WhyIndiaPage() {
 
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative mx-auto max-w-7xl px-4">
+        <div className="relative max-w-6xl mx-auto px-6">
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <span className="text-yellow-400 text-sm font-semibold uppercase tracking-wider">
-              Doing Business in India
-            </span>
-
-            <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6 text-white">
-              India – A Strategic Hub for Global Expansion
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              Why India – Strategic Business Entry
             </h1>
 
-            <p className="text-white/80 text-lg">
-              India offers a compelling combination of market scale, skilled talent,
-              cost efficiency, and regulatory evolution, making it a preferred destination
-              for global businesses.
+            <p className="mt-4 text-white/80 text-lg">
+              India offers structured entry routes, regulatory clarity, and long-term growth opportunities for global enterprises.
             </p>
-
-            <div className="mt-6">
-              <Button className="bg-yellow-400 text-black">
-                <Link href="/contact">
-                  Start Your India Journey <ArrowRight className="ml-2 h-4 w-4 inline" />
-                </Link>
-              </Button>
-            </div>
           </motion.div>
 
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="py-12 bg-gray-50 border-y">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      {/* MAIN ACCORDION */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-4">
 
-          {stats.map((s) => (
-            <motion.div
-              key={s.label}
-              whileInView={{ opacity: 1 }}
-              initial={{ opacity: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="text-3xl font-bold text-yellow-500">
-                {s.value}
+          {sections.map((sec, i) => {
+            const isOpen = openIndex === i
+
+            return (
+              <div
+                key={sec.title}
+                className="border rounded-xl overflow-hidden shadow-sm"
+              >
+
+                {/* HEADER */}
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex justify-between items-center p-5 bg-white hover:bg-gray-50 transition"
+                >
+                  <span className="font-semibold text-[#081a42]">
+                    {sec.title}
+                  </span>
+
+                  <ChevronDown
+                    className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                      }`}
+                  />
+                </button>
+
+                {/* CONTENT */}
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden bg-gray-50"
+                    >
+                      <div className="p-5 text-sm text-gray-700 whitespace-pre-line leading-relaxed">
+                        {sec.content}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
               </div>
-              <div className="text-sm text-muted-foreground">{s.label}</div>
-            </motion.div>
-          ))}
+            )
+          })}
 
         </div>
       </section>
 
-      {/* ADVANTAGES */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-
-          <h2 className="text-3xl font-bold mb-2">
-            The India Advantage
-          </h2>
-          <p className="text-muted-foreground mb-12">
-            Key factors driving global business expansion into India
-          </p>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-            {advantages.map((a) => (
-              <div key={a.title} className="p-6 border rounded-xl hover:shadow-md transition">
-
-                <div className="w-12 h-12 mx-auto mb-4 bg-yellow-400/10 rounded-lg flex items-center justify-center">
-                  <a.icon className="text-yellow-500 w-6 h-6" />
-                </div>
-
-                <div className="text-2xl font-bold text-yellow-500">
-                  {a.value}
-                </div>
-
-                <h3 className="font-semibold mt-2">{a.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2">
-                  {a.description}
-                </p>
-
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* REASONS */}
+      {/* HOW AU CORPORATE HELPS (3-PHASE STRUCTURE) */}
       <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-5xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Why Global Companies Choose India
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#081a42]">
+            How AU Corporate Helps You
           </h2>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
 
-            {reasons.map((r) => (
-              <div key={r.title} className="p-8 bg-white border rounded-xl">
+            {helpSections.map((section, i) => (
+              <motion.div
+                key={section.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="border rounded-xl bg-white shadow-sm overflow-hidden"
+              >
 
-                <div className="flex gap-4 mb-4">
-                  <r.icon className="text-yellow-500 w-6 h-6" />
-
-                  <div>
-                    <h3 className="font-semibold">{r.title}</h3>
-                    <p className="text-sm text-muted-foreground">
-                      {r.description}
-                    </p>
-                  </div>
+                {/* TITLE */}
+                <div className="p-5 font-semibold text-[#081a42] border-b">
+                  {section.title}
                 </div>
 
-                <ul className="text-sm text-muted-foreground space-y-2">
-                  {r.points.map((p) => (
-                    <li key={p}>• {p}</li>
-                  ))}
-                </ul>
+                {/* SERVICES */}
+                <div className="p-5">
+                  <ul className="space-y-3">
+                    {section.services.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm text-gray-700"
+                      >
+                        <span className="text-yellow-500 mt-1">•</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              </div>
+              </motion.div>
             ))}
 
           </div>
@@ -255,24 +236,24 @@ export default function WhyIndiaPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center">
-        <div className="max-w-3xl mx-auto px-4">
+      <section className="py-20 bg-[#081a42] text-white text-center">
+
+        <div className="max-w-3xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Enter the Indian Market?
+            Start Your India Expansion Journey
           </h2>
 
-          <p className="text-muted-foreground mb-8">
-            AU Corporate provides end-to-end advisory for global businesses entering India.
+          <p className="text-white/70 mb-6">
+            AU Corporate provides end-to-end advisory for seamless business setup, compliance, and operations in India.
           </p>
 
-          <Button className="bg-yellow-400 text-black">
-            <Link href="/contact">
-              Talk to Experts <ArrowRight className="ml-2 w-4 h-4 inline" />
-            </Link>
-          </Button>
+          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium">
+            Talk to Experts
+          </button>
 
         </div>
+
       </section>
 
     </div>
