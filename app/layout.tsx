@@ -5,20 +5,48 @@ import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-inter'
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
 })
 
 export const metadata: Metadata = {
-  title: 'AU Corporate – Growing Together | Global Consulting & Business Solutions',
-  description: 'AU Corporate provides premium global consulting, outsourcing, HR, taxation, and arbitration solutions. Your trusted partner for business growth.',
-  keywords: ['consulting', 'business solutions', 'HR services', 'outsourcing', 'taxation', 'arbitration', 'corporate advisory'],
+  metadataBase: new URL('https://www.theaucorp.com'),
+
+  title: {
+    default: 'AU Corporate | Assurance, Tax and Consulting Services',
+    template: '%s | AU Corporate',
+  },
+
+  description:
+    'AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Consulting.',
+
+  keywords: [
+    'Assurance services',
+    'Taxation services',
+    'Consulting firm India',
+    'Risk management',
+    'Transaction advisory',
+    'Corporate advisory',
+    'Business consulting India',
+  ],
+
   authors: [{ name: 'AU Corporate' }],
+
   openGraph: {
-    title: 'AU Corporate – Growing Together',
-    description: 'Global consulting, outsourcing, HR, taxation, and arbitration solutions',
+    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    description:
+      'Professional services in Assurance, Taxation, Risk Management, and Consulting.',
+    url: 'https://www.theaucorp.com',
+    siteName: 'AU Corporate',
     type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    description:
+      'Professional services in Assurance, Taxation, Risk Management, and Consulting.',
   },
 }
 
@@ -30,9 +58,9 @@ export const viewport = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="en" className="bg-background">
       <body className={`${inter.variable} font-sans antialiased`}>
