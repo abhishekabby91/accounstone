@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation"
 
 const servicesData: Record<string, any> = {
+  // ================= RISK MANAGEMENT =================
   "risk-management": {
     "internal-audit": {
       title: "Internal Audit",
@@ -41,6 +42,7 @@ const servicesData: Record<string, any> = {
     },
   },
 
+  // ================= TAXATION & REGULATORY =================
   "taxation-regulatory": {
     "direct-taxation": {
       title: "Direct Taxation",
@@ -84,7 +86,7 @@ const servicesData: Record<string, any> = {
         "Company Incorporation & Statutory Registrations",
         "Corporate Secretarial Services",
         "SEBI Compliance Services",
-        "Intellectual Property Rights (IPR)",
+        "Intellectual Property Rights (IPR) Services",
         "Labour Law Services",
         "Contract Management Services",
         "Corporate Legal Advisory Services",
@@ -98,31 +100,34 @@ export default function Page({
 }: {
   params: { category: string; slug: string }
 }) {
-  const data = servicesData?.[params.category]?.[params.slug]
+  const categoryData = servicesData[params.category]
+  const data = categoryData?.[params.slug]
 
+  // 🚨 If no data → show 404
   if (!data) return notFound()
 
   return (
     <div className="min-h-screen pt-24 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
 
         {/* TITLE */}
         <h1 className="text-4xl font-bold text-[#081a42] mb-6">
           {data.title}
         </h1>
 
-        {/* DESCRIPTION BLOCK */}
-        <p className="text-gray-600 mb-10">
+        {/* DESCRIPTION */}
+        <p className="text-gray-600 mb-10 max-w-3xl">
           AU Corporate provides expert advisory and compliance solutions across
-          taxation, risk, regulatory and governance domains.
+          taxation, risk, regulatory, and governance domains. Our team ensures
+          precision, compliance, and strategic value for your business.
         </p>
 
-        {/* LIST */}
-        <div className="grid md:grid-cols-2 gap-4">
+        {/* SERVICES GRID */}
+        <div className="grid md:grid-cols-2 gap-5">
           {data.items.map((item: string, index: number) => (
             <div
               key={index}
-              className="border rounded-lg p-4 hover:shadow-sm transition"
+              className="border rounded-lg p-4 hover:shadow-md transition"
             >
               • {item}
             </div>
