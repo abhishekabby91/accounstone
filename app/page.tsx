@@ -183,47 +183,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* RISK MANAGEMENT SERVICES */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">
-              Risk Management Services
-            </h2>
-            <p className="text-gray-500 mt-3">
-              Integrated risk advisory and assurance solutions
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-
-            <div className="p-8 border rounded-xl hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">Risk Management</h3>
-              <p className="text-sm text-gray-500">
-                Enterprise risk identification, assessment, and mitigation framework.
-              </p>
-            </div>
-
-            <div className="p-8 border rounded-xl hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">Forensic Services</h3>
-              <p className="text-sm text-gray-500">
-                Fraud detection, investigation, and financial analysis support.
-              </p>
-            </div>
-
-            <div className="p-8 border rounded-xl hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">Special Audit / Review</h3>
-              <p className="text-sm text-gray-500">
-                Focused audit engagements for specific risk or compliance areas.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
       {/* DOING BUSINESS IN INDIA */}
       <section className="relative py-24 text-white overflow-hidden">
 
