@@ -8,7 +8,7 @@ import { ChevronDown } from "lucide-react"
 /* MAIN ACCORDION SECTIONS */
 const sections = [
   {
-    title: "Doing Business in India",
+    title: "Why India?",
     content: `
 India is one of the most attractive global investment destinations due to its large consumer base, skilled workforce, and evolving regulatory framework.
 
