@@ -24,17 +24,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  /* HOVER FIX */
-  const handleEnter = () => {
+  /* FIXED HOVER HANDLING */
+  const openMenu = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
     setIndiaMenuOpen(true)
   }
 
-  const handleLeave = () => {
+  const closeMenu = () => {
     timeoutRef.current = setTimeout(() => {
       setIndiaMenuOpen(false)
       setIndiaSubMenu(null)
-    }, 300)
+    }, 250)
   }
 
   const navLinks = [
@@ -45,7 +45,6 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  /* SERVICES DATA */
   const mainServices = [
     { label: "Risk Management Services", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
@@ -88,42 +87,47 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* DESKTOP */}
+          {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-2">
 
             {/* DOING BUSINESS */}
             <div
               className="relative"
-              onMouseEnter={handleEnter}
-              onMouseLeave={handleLeave}
+              onMouseEnter={openMenu}
+              onMouseLeave={closeMenu}
             >
               <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
                 Doing Business in India ▾
               </button>
 
               {indiaMenuOpen && (
-                <div className="absolute top-full left-0 w-[320px] bg-white border shadow-xl rounded-xl flex z-50">
+                <div className="absolute top-full left-0 w-[320px] bg-white border shadow-xl rounded-xl z-50">
 
-                  <div className="w-full">
-                    <Link href="/doing-business-in-india#why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                      Why India
-                    </Link>
+                  <Link
+                    href="/doing-business-in-india/why-india"
+                    className="block px-4 py-3 text-sm hover:bg-gray-100"
+                  >
+                    Why India
+                  </Link>
 
-                    <Link href="/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                      Entry Process & Business Structures
-                    </Link>
+                  {/* ✅ FIXED ROUTE */}
+                  <Link
+                    href="/doing-business-in-india/entry-process"
+                    className="block px-4 py-3 text-sm hover:bg-gray-100"
+                  >
+                    Entry Process & Business Structures
+                  </Link>
 
-                    <div
-                      onMouseEnter={() => setIndiaSubMenu("help")}
-                      className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
-                    >
-                      <span>How AU Corporate Can Help You</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </div>
+                  <div
+                    onMouseEnter={() => setIndiaSubMenu("help")}
+                    className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                  >
+                    <span>How AU Corporate Can Help You</span>
+                    <ChevronRight className="w-4 h-4" />
                   </div>
 
                   {indiaSubMenu === "help" && (
-                    <div className="absolute top-0 left-[320px] w-[260px] bg-white border shadow-xl rounded-xl">
+                    <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
 
                       <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Pre-Incorporation
@@ -143,7 +147,7 @@ export function Navbar() {
               )}
             </div>
 
-            {/* ✅ SERVICES (RESTORED) */}
+            {/* SERVICES */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -159,7 +163,6 @@ export function Navbar() {
               {servicesOpen && (
                 <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
 
-                  {/* LEFT */}
                   <div className="w-1/2 border-r py-2">
                     {mainServices.map((service) => (
                       <div
@@ -177,7 +180,6 @@ export function Navbar() {
                     ))}
                   </div>
 
-                  {/* RIGHT */}
                   <div className="w-1/2 p-4">
                     {activeMenu === "risk" &&
                       riskSubServices.map((item) => (
