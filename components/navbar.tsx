@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Navbar() {
@@ -11,6 +11,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const [indiaOpen, setIndiaOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -19,7 +20,6 @@ export function Navbar() {
   }, [])
 
   const navLinks = [
-    { label: "Doing Business in India", href: "/doing-business-in-india" },
     { label: "Arbitration Services", href: "/arbitration-services" },
     { label: "HR Services", href: "/hr-services" },
     { label: "Global Support", href: "/outsourcing" },
@@ -27,7 +27,14 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  // LEVEL 2
+  /* DOING BUSINESS DROPDOWN */
+  const indiaMenu = [
+    { label: "Why India", href: "/doing-business-in-india#why" },
+    { label: "Entry Process & Structures", href: "/doing-business-in-india#process" },
+    { label: "How AU Corporate Helps You", href: "/doing-business-in-india#services" },
+  ]
+
+  /* SERVICES MENU */
   const mainServices = [
     { label: "Risk Management Services", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
@@ -35,14 +42,12 @@ export function Navbar() {
     { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
   ]
 
-  // LEVEL 3 - RISK (ONE PAGE)
   const riskSubServices = [
     { label: "Risk Management", href: "/services/risk-management" },
     { label: "Forensic Services", href: "/services/risk-management" },
     { label: "Special Audit / Review", href: "/services/risk-management" },
   ]
 
-  // LEVEL 3 - TAXATION (ONE PAGE)
   const taxSubServices = [
     { label: "Direct Taxation", href: "/services/taxation-regulatory" },
     { label: "Goods & Service Tax", href: "/services/taxation-regulatory" },
@@ -73,8 +78,34 @@ export function Navbar() {
           </Link>
 
           {/* DESKTOP */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-2">
 
+            {/* DOING BUSINESS DROPDOWN */}
+            <div
+              className="relative"
+              onMouseEnter={() => setIndiaOpen(true)}
+              onMouseLeave={() => setIndiaOpen(false)}
+            >
+              <button className="px-4 py-2 text-sm flex items-center gap-1 text-gray-600 hover:text-black">
+                Doing Business in India <ChevronDown className="w-4 h-4" />
+              </button>
+
+              {indiaOpen && (
+                <div className="absolute top-10 left-0 w-64 bg-white border shadow-lg rounded-xl py-2">
+                  {indiaMenu.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      className="block px-4 py-3 text-sm hover:bg-gray-100"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* SERVICES DROPDOWN */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -88,7 +119,7 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
+                <div className="absolute top-10 left-0 w-[650px] bg-white border shadow-xl rounded-xl flex">
 
                   {/* LEVEL 2 */}
                   <div className="w-1/2 border-r py-2">
@@ -96,7 +127,7 @@ export function Navbar() {
                       <div
                         key={service.label}
                         onMouseEnter={() => setActiveMenu(service.key || null)}
-                        className="flex items-center justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
                       >
                         {service.href ? (
                           <Link href={service.href}>{service.label}</Link>
@@ -111,10 +142,9 @@ export function Navbar() {
                   {/* LEVEL 3 */}
                   <div className="w-1/2 p-4">
 
-                    {/* RISK */}
                     {activeMenu === "risk" && (
                       <>
-                        <p className="text-xs uppercase mb-3">Risk Management Services</p>
+                        <p className="text-xs uppercase mb-3">Risk Management</p>
                         {riskSubServices.map((item) => (
                           <Link key={item.label} href={item.href} className="block py-2 text-sm">
                             {item.label}
@@ -123,12 +153,9 @@ export function Navbar() {
                       </>
                     )}
 
-                    {/* TAX */}
                     {activeMenu === "tax" && (
                       <>
-                        <p className="text-xs uppercase mb-3">
-                          Taxation & Regulatory Services
-                        </p>
+                        <p className="text-xs uppercase mb-3">Taxation</p>
                         {taxSubServices.map((item) => (
                           <Link key={item.label} href={item.href} className="block py-2 text-sm">
                             {item.label}
@@ -143,8 +170,9 @@ export function Navbar() {
               )}
             </div>
 
+            {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm">
+              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm text-gray-600 hover:text-black">
                 {link.label}
               </Link>
             ))}
