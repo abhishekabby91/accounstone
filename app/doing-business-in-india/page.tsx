@@ -3,20 +3,19 @@
 import { useState } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronDown } from "lucide-react"
+import { ChevronDown, ChevronRight } from "lucide-react"
 
-/* ================= MAIN DROPDOWN ================= */
+/* MAIN SECTIONS */
 const mainSections = [
   {
     title: "Why India",
     content: `
-India is one of the fastest-growing major economies offering strong market potential and policy support.
+India is one of the fastest-growing economies offering a large consumer base, skilled workforce, and strong policy reforms.
 
-• Large and expanding consumer base  
+• Expanding domestic demand  
+• Liberal FDI policies  
+• Digital ecosystem growth  
 • Cost-efficient operations  
-• Liberal FDI regime  
-• Strong digital ecosystem  
-• Strategic global location  
     `,
   },
   {
@@ -28,87 +27,79 @@ Entry Process:
 3. Regulatory approvals  
 4. Incorporation & setup  
 
-Structures:
+Business Structures:
 • Wholly Owned Subsidiary  
 • LLP  
 • Joint Venture  
-• Branch / Liaison / Project Office  
+• Branch / Liaison Office  
     `,
   },
 ]
 
-/* ================= SERVICES ================= */
-const serviceSections = [
+/* SERVICES */
+const services = [
   {
     title: "Pre-Incorporation",
-    services: [
-      "Business feasibility analysis to evaluate market entry viability",
-      "Market entry strategy development aligned with business objectives",
-      "Competition assessment and industry benchmarking insights",
-      "FDI policy assessment for regulatory route clarity",
-      "Tax structure planning for efficient operations",
-      "Product diversification strategies for growth expansion",
-      "Joint venture and collaboration structuring support",
-      "Profit optimisation solutions for sustainable margins",
-      "Industrial parks and zones advisory for location strategy",
+    items: [
+      "Business feasibility analysis & strategy planning – Evaluate market viability and define entry roadmap.",
+      "Market entry strategy development – Build structured go-to-market strategies.",
+      "Competition assessment & market analysis – Identify competitors and positioning.",
+      "FDI policy assessment – Ensure sectoral compliance with FDI regulations.",
+      "Tax structure planning – Optimize tax efficiency and structuring.",
+      "Product diversification strategies – Expand offerings based on market demand.",
+      "Joint venture structuring – Develop partnership frameworks.",
+      "Profit optimisation solutions – Improve margins and cost structures.",
+      "Industrial parks & zones advisory – Identify optimal locations and incentives.",
     ],
   },
   {
     title: "Incorporation",
-    services: [
-      "Company incorporation and legal entity setup",
-      "SEMA compliance implementation for regulatory adherence",
-      "FEMA & FDI compliance management for foreign investments",
-      "GST and trade license registration support",
-      "Accounting system setup for financial tracking",
-      "MIS reporting framework setup for management insights",
-      "Statutory registrations and government filings",
-      "Initial board setup and secretarial compliance",
-      "Initial audit and regulatory compliance support",
-      "Expatriate setup and advisory services",
+    items: [
+      "Company incorporation & legal setup – Establish legal entity in India.",
+      "SEMA compliance – Ensure compliance with applicable regulations.",
+      "FEMA & FDI compliance – Manage foreign investment regulations.",
+      "GST & trade license registration – Complete indirect tax registrations.",
+      "Accounting system setup – Implement financial systems and processes.",
+      "MIS reporting framework – Develop reporting structure for management.",
+      "Statutory registrations – Complete all required legal registrations.",
+      "Initial board & secretarial compliance – Setup governance structure.",
+      "Initial audit compliance – Ensure regulatory audit readiness.",
+      "Expatriate solutions – Support foreign employees setup and compliance.",
     ],
   },
   {
     title: "Post-Incorporation",
-    subSections: [
+    sub: [
       {
         title: "Accounting",
-        services: [
-          "End-to-end accounting services ensuring accurate financial records",
-          "MIS reporting to support management decision-making",
-          "Financial statement preparation as per applicable standards",
-          "Monthly payroll management ensuring compliance and accuracy",
+        items: [
+          "Accounting services – Maintain accurate books and records.",
+          "MIS reporting – Provide insights for decision-making.",
+          "Financial statements – Prepare compliant financial reports.",
+          "Payroll management – Manage salaries and statutory compliance.",
         ],
       },
       {
-        title: "Taxation & Regulatory",
-        services: [
-          "International taxation advisory and litigation support",
-          "Advance Pricing Agreement (APA) planning and execution",
-          "Transfer pricing compliance and documentation",
-          "Corporate tax planning and structuring strategies",
-          "Income tax litigation handling and advisory",
-          "Expat taxation and return filing services",
-          "DTAA advisory for cross-border tax efficiency",
-          "Direct tax return filing and compliance management",
-          "FEMA compliance services for foreign exchange regulations",
-          "GST compliance and return filing support",
-          "GST refund processing and dispute handling",
-          "GST audit and annual return filing",
-          "GST litigation and representation support",
-          "GST advisory and technical opinions",
+        title: "Taxation",
+        items: [
+          "International taxation – Advisory on cross-border transactions.",
+          "Transfer pricing – Ensure compliance with TP regulations.",
+          "Corporate tax – Strategic tax planning and compliance.",
+          "GST compliance – Filing and regulatory adherence.",
+          "GST litigation – Handling disputes and notices.",
+          "DTAA advisory – Optimize cross-border tax efficiency.",
+          "FEMA compliance – Manage foreign exchange regulations.",
         ],
       },
       {
-        title: "Legal & Secretarial",
-        services: [
-          "Company incorporation and statutory registrations",
-          "Corporate secretarial compliance management",
-          "SEBI compliance services for regulated entities",
-          "Intellectual Property Rights (IPR) advisory services",
-          "Labour law compliance and advisory support",
-          "Contract drafting and management services",
-          "Corporate legal advisory for business matters",
+        title: "Legal",
+        items: [
+          "Corporate secretarial services – Maintain statutory records.",
+          "SEBI compliance – Regulatory compliance for listed entities.",
+          "IPR services – Protect intellectual property.",
+          "Labour law compliance – Ensure HR regulatory compliance.",
+          "Contract management – Draft and review agreements.",
+          "Corporate legal advisory – Ongoing legal support.",
         ],
       },
     ],
@@ -124,7 +115,7 @@ export default function Page() {
     <div className="min-h-screen bg-white">
 
       {/* HERO */}
-      <section className="relative min-h-[65vh] flex items-center">
+      <section className="relative min-h-[60vh] flex items-center">
         <Image
           src="https://cdn.corenexis.com/files/c/3298128720.jpg"
           alt="India Business"
@@ -139,16 +130,17 @@ export default function Page() {
               Doing Business in India
             </h1>
             <p className="mt-4 text-white/80 text-lg">
-              End-to-end advisory for global businesses entering and expanding in India.
+              End-to-end support for global businesses entering India.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* MAIN DROPDOWN */}
+      {/* DROPDOWN SECTION */}
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-6 space-y-4">
 
+          {/* WHY INDIA + ENTRY */}
           {mainSections.map((sec, i) => {
             const isOpen = openMain === i
 
@@ -159,7 +151,7 @@ export default function Page() {
                   onClick={() => setOpenMain(isOpen ? null : i)}
                   className="w-full flex justify-between p-5 font-semibold"
                 >
-                  {sec.title}
+                  <span>▼ {sec.title}</span>
                   <ChevronDown className={`${isOpen ? "rotate-180" : ""}`} />
                 </button>
 
@@ -171,7 +163,7 @@ export default function Page() {
                       exit={{ height: 0 }}
                       className="overflow-hidden bg-gray-50"
                     >
-                      <div className="p-5 whitespace-pre-line text-sm">
+                      <div className="p-5 text-sm whitespace-pre-line">
                         {sec.content}
                       </div>
                     </motion.div>
@@ -189,31 +181,30 @@ export default function Page() {
               onClick={() => setOpenMain(openMain === 99 ? null : 99)}
               className="w-full flex justify-between p-5 font-semibold"
             >
-              How AU Corporate Can Help You
+              <span>▼ How AU Corporate Can Help You</span>
               <ChevronDown className={`${openMain === 99 ? "rotate-180" : ""}`} />
             </button>
 
             <AnimatePresence>
               {openMain === 99 && (
-                <motion.div
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                  exit={{ height: 0 }}
-                >
-                  <div className="p-5 space-y-4">
+                <motion.div initial={{ height: 0 }} animate={{ height: "auto" }}>
+                  <div className="p-5 space-y-3">
 
-                    {serviceSections.map((sec, i) => {
+                    {services.map((sec, i) => {
                       const isOpen = openService === i
 
                       return (
                         <div key={sec.title} className="border rounded-lg">
 
+                          {/* LEVEL 2 */}
                           <button
-                            onClick={() => setOpenService(isOpen ? null : i)}
+                            onClick={() =>
+                              setOpenService(isOpen ? null : i)
+                            }
                             className="w-full flex justify-between p-4 bg-gray-50"
                           >
-                            {sec.title}
-                            <ChevronDown className={`${isOpen ? "rotate-180" : ""}`} />
+                            <span>→ {sec.title}</span>
+                            <ChevronRight className={`${isOpen ? "rotate-90" : ""}`} />
                           </button>
 
                           <AnimatePresence>
@@ -225,17 +216,17 @@ export default function Page() {
                               >
                                 <div className="p-4 space-y-3">
 
-                                  {/* SERVICES */}
-                                  {sec.services && (
-                                    <ul className="text-sm space-y-2">
-                                      {sec.services.map((s) => (
-                                        <li key={s}>• {s}</li>
+                                  {/* NORMAL LIST */}
+                                  {sec.items && (
+                                    <ul className="space-y-2 text-sm">
+                                      {sec.items.map((item) => (
+                                        <li key={item}>• {item}</li>
                                       ))}
                                     </ul>
                                   )}
 
-                                  {/* SUB SECTIONS */}
-                                  {sec.subSections?.map((sub) => {
+                                  {/* SUB LEVEL */}
+                                  {sec.sub?.map((sub) => {
                                     const key = sec.title + sub.title
                                     const isSubOpen = openSub === key
 
@@ -248,8 +239,8 @@ export default function Page() {
                                           }
                                           className="w-full flex justify-between p-3 bg-gray-100"
                                         >
-                                          {sub.title}
-                                          <ChevronDown className={`${isSubOpen ? "rotate-180" : ""}`} />
+                                          <span className="ml-2">→ {sub.title}</span>
+                                          <ChevronRight className={`${isSubOpen ? "rotate-90" : ""}`} />
                                         </button>
 
                                         <AnimatePresence>
@@ -260,8 +251,8 @@ export default function Page() {
                                               exit={{ height: 0 }}
                                               className="p-3 text-sm space-y-2"
                                             >
-                                              {sub.services.map((s) => (
-                                                <li key={s}>• {s}</li>
+                                              {sub.items.map((item) => (
+                                                <li key={item}>• {item}</li>
                                               ))}
                                             </motion.ul>
                                           )}
@@ -296,7 +287,7 @@ export default function Page() {
           Start Your India Expansion Journey
         </h2>
         <p className="mb-6 text-white/70">
-          Seamless setup, compliance, and advisory for global businesses.
+          Seamless setup, compliance & advisory for global businesses.
         </p>
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
           Talk to Experts
