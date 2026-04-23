@@ -118,7 +118,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "IT - BPM",
-                image: "/images/it.jpg",
+                image: "https://cdn.corenexis.com/files/c/3221391720.jpg",
                 points: [
                   "8% contribution to GDP",
                   "USD 350 Bn expected size",
@@ -126,7 +126,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Automobile / EV",
-                image: "/images/auto.jpg",
+                image: "https://cdn.corenexis.com/files/c/9266523720.jpg",
                 points: [
                   "4th largest automotive market",
                   "Growing EV ecosystem",
