@@ -10,7 +10,10 @@ export default function WhyIndiaPage() {
 
       {/* HERO */}
       <section className="bg-[#081a42] text-white py-24 text-center">
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+        >
           <h1 className="text-5xl font-bold">Why India</h1>
           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
             India is one of the world’s fastest-growing economies, offering unmatched
@@ -55,7 +58,10 @@ export default function WhyIndiaPage() {
               desc: "Gateway to Asia, Middle East, and global supply chains.",
             },
           ].map((item) => (
-            <div key={item.title} className="p-6 border rounded-xl hover:shadow-lg transition">
+            <div
+              key={item.title}
+              className="p-6 border rounded-xl hover:shadow-lg transition"
+            >
               <div className="text-[#081a42] mb-4">{item.icon}</div>
               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
               <p className="text-sm text-gray-600">{item.desc}</p>
@@ -92,7 +98,7 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* SECTOR OPPORTUNITIES (NEW SECTION) */}
+      {/* SECTOR OPPORTUNITIES (FIXED WITH YOUR IMAGES) */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6">
 
@@ -110,7 +116,7 @@ export default function WhyIndiaPage() {
             {[
               {
                 title: "Pharmaceuticals",
-                image: "/images/pharma.jpg",
+                image: "https://cdn.corenexis.com/files/c/8581953720.jpg",
                 points: [
                   "20% global generic medicine supply",
                   "USD 130 Bn market by 2030",
@@ -118,7 +124,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "IT - BPM",
-                image: "/images/it.jpg",
+                image: "https://cdn.corenexis.com/files/c/4374972720.jpg",
                 points: [
                   "8% contribution to GDP",
                   "USD 350 Bn expected size",
@@ -126,7 +132,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Automobile / EV",
-                image: "/images/auto.jpg",
+                image: "https://cdn.corenexis.com/files/c/3863859720.jpg",
                 points: [
                   "4th largest automotive market",
                   "Growing EV ecosystem",
@@ -134,7 +140,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Construction",
-                image: "/images/construction.jpg",
+                image: "https://cdn.corenexis.com/files/c/7788446720.jpg",
                 points: [
                   "USD 1Tn market by 2025",
                   "Major GDP contributor",
@@ -142,7 +148,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Renewable Energy",
-                image: "/images/renewable.jpg",
+                image: "https://cdn.corenexis.com/files/c/7454887720.jpg",
                 points: [
                   "1000+ GW potential",
                   "Strong policy push",
@@ -150,16 +156,19 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Healthcare",
-                image: "/images/health.jpg",
+                image: "https://cdn.corenexis.com/files/c/4785839720.jpg",
                 points: [
                   "Fastest growing sector",
                   "USD 372 Bn opportunity",
                 ],
               },
             ].map((sector) => (
-              <div key={sector.title} className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition">
+              <div
+                key={sector.title}
+                className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition"
+              >
 
-                <div className="relative h-48">
+                <div className="relative h-48 w-full">
                   <Image
                     src={sector.image}
                     alt={sector.title}
@@ -169,7 +178,9 @@ export default function WhyIndiaPage() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">{sector.title}</h3>
+                  <h3 className="font-semibold text-lg mb-3">
+                    {sector.title}
+                  </h3>
 
                   <ul className="text-sm text-gray-600 space-y-2">
                     {sector.points.map((p, i) => (
@@ -186,7 +197,7 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* WHY INDIA CONTENT */}
+      {/* CONTENT */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
 
@@ -196,8 +207,7 @@ export default function WhyIndiaPage() {
             </h2>
             <p className="text-gray-600 leading-relaxed">
               India offers a unique combination of market size, talent availability,
-              policy reforms, and cost efficiency, making it a preferred destination
-              for global expansion.
+              policy reforms, and cost efficiency.
             </p>
           </div>
 
@@ -233,7 +243,7 @@ export default function WhyIndiaPage() {
           Expand Your Business in India with Confidence
         </h2>
         <p className="max-w-2xl mx-auto text-white/80 mb-6">
-          We provide end-to-end advisory and compliance support for seamless entry and growth.
+          We provide end-to-end advisory and compliance support.
         </p>
 
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
