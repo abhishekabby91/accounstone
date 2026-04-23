@@ -1,217 +1,295 @@
 "use client"
 
-import { useRef } from "react"
+import { useState } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
-/* ---------------- SERVICES ---------------- */
+/* MAIN ACCORDION */
+const sections = [
+  {
+    title: "Why Doing Business in India",
+    content: `
+India is one of the fastest-growing major economies offering a large consumer base, skilled workforce, and strong policy support.
 
-const preServices = [
-  "Business feasibility analysis & strategy planning",
-  "Market entry strategy",
-  "Competition assessment & market analysis",
-  "FDI policy assessment",
-  "Tax structure planning",
-  "Product diversification strategies",
-  "Joint venture & collaboration structuring",
-  "Profit optimisation solutions",
-  "Industrial parks & zones advisory",
+Key advantages:
+• Expanding domestic demand
+• Strong digital ecosystem
+• Liberal FDI policies
+• Cost-efficient operations
+• Strategic global positioning
+    `,
+  },
+  {
+    title: "Entry Process Overview",
+    content: `
+1. Business feasibility analysis  
+2. Entry structure selection  
+3. Regulatory approvals (RBI / FEMA / MCA)  
+4. Incorporation & operational setup  
+    `,
+  },
+  {
+    title: "Business Structures in India",
+    content: `
+• Wholly Owned Subsidiary – Full control with limited liability  
+• LLP – Flexible structure with reduced compliance  
+• Joint Venture – Strategic collaboration with Indian partner  
+    `,
+  },
 ]
 
-const incorporationServices = [
-  "Company incorporation",
-  "FEMA & FDI compliance",
-  "GST & trade license registration",
-  "Accounting system setup",
-  "MIS reporting framework",
-  "Statutory registrations",
-  "Initial board setup & secretarial compliance",
-  "Initial audit compliance",
-  "Expatriate solutions",
-]
-
-const postServices = [
-  "Accounting & bookkeeping",
-  "MIS reporting & financial insights",
-  "Financial statement preparation",
-  "Payroll & HR compliance",
-  "Corporate tax advisory",
-  "Transfer pricing services",
-  "GST compliance & litigation",
-  "FEMA compliance",
-  "Corporate secretarial services",
-  "Labour law & legal compliance",
+/* SERVICE STRUCTURE */
+const serviceSections = [
+  {
+    title: "Pre-Incorporation",
+    services: [
+      "Business feasibility analysis & strategy planning",
+      "Market entry strategy development",
+      "Competition assessment & market analysis",
+      "FDI policy assessment",
+      "Tax structure planning",
+      "Product diversification strategies",
+      "Joint venture & collaboration structuring",
+      "Profit optimisation solutions",
+      "Industrial parks & zones advisory",
+    ],
+  },
+  {
+    title: "Incorporation",
+    services: [
+      "Company incorporation & legal setup",
+      "SEMA compliance implementation",
+      "FEMA & FDI compliance management",
+      "GST & trade license registration",
+      "Accounting system setup",
+      "MIS reporting framework setup",
+      "Statutory registrations & filings",
+      "Initial board & secretarial compliance",
+      "Initial audit & regulatory compliance",
+      "Expatriate setup & advisory services",
+    ],
+  },
+  {
+    title: "Post-Incorporation",
+    subSections: [
+      {
+        title: "Accounting",
+        services: [
+          "End-to-end accounting and bookkeeping services",
+          "MIS reporting for management decision-making",
+          "Financial statement preparation as per standards",
+          "Monthly payroll processing and compliance",
+        ],
+      },
+      {
+        title: "Taxation & Regulatory",
+        services: [
+          "International taxation advisory and litigation support",
+          "Advance Pricing Agreement (APA) advisory",
+          "Transfer pricing compliance and documentation",
+          "Corporate tax planning and structuring",
+          "Income tax litigation and dispute handling",
+          "Expat taxation and return filing services",
+          "DTAA advisory and cross-border compliance",
+          "Direct tax return filing and compliance",
+          "FEMA compliance and regulatory advisory",
+          "GST compliance and return filing",
+          "GST refund and litigation handling",
+          "GST advisory and technical opinion",
+          "GST audit and annual return filing",
+        ],
+      },
+      {
+        title: "Legal & Secretarial",
+        services: [
+          "Company incorporation and statutory registrations",
+          "Corporate secretarial compliance management",
+          "SEBI regulatory compliance services",
+          "Intellectual property rights (IPR) advisory",
+          "Labour law compliance and advisory",
+          "Contract drafting and management services",
+          "Corporate legal advisory support",
+        ],
+      },
+    ],
+  },
 ]
 
 export default function Page() {
-
-  const preRef = useRef<HTMLDivElement>(null)
-  const incRef = useRef<HTMLDivElement>(null)
-  const postRef = useRef<HTMLDivElement>(null)
-
-  const scrollTo = (ref: any) => {
-    ref.current?.scrollIntoView({ behavior: "smooth" })
-  }
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openService, setOpenService] = useState<number | null>(null)
+  const [openSub, setOpenSub] = useState<string | null>(null)
 
   return (
-    <div className="bg-white">
+    <div className="min-h-screen bg-white">
 
-      {/* ---------------- HERO ---------------- */}
-      <section className="relative h-[65vh] flex items-center">
+      {/* HERO */}
+      <section className="relative min-h-[65vh] flex items-center">
+
         <Image
           src="https://cdn.corenexis.com/files/c/3298128720.jpg"
           alt="India Business"
           fill
           className="object-cover"
         />
+
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative max-w-6xl mx-auto px-6 text-white">
-          <h1 className="text-5xl font-bold">
-            Doing Business in India
-          </h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl">
-            India offers a compelling mix of scale, talent, and regulatory evolution,
-            making it a preferred destination for global expansion.
-          </p>
+        <div className="relative max-w-6xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
+            <h1 className="text-5xl font-bold text-white">
+              Doing Business in India
+            </h1>
+            <p className="mt-4 text-white/80 text-lg">
+              End-to-end support for global businesses entering and expanding in India.
+            </p>
+          </motion.div>
+        </div>
+
+      </section>
+
+      {/* WHY INDIA */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-4">
+
+          {sections.map((sec, i) => {
+            const isOpen = openIndex === i
+
+            return (
+              <div key={sec.title} className="border rounded-xl overflow-hidden">
+
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  className="w-full flex justify-between p-5"
+                >
+                  <span className="font-semibold">{sec.title}</span>
+                  <ChevronDown className={`${isOpen ? "rotate-180" : ""}`} />
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      className="overflow-hidden bg-gray-50"
+                    >
+                      <div className="p-5 whitespace-pre-line text-sm">
+                        {sec.content}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </div>
+            )
+          })}
+
         </div>
       </section>
 
-      {/* ---------------- WHY INDIA ---------------- */}
-      <section className="py-20 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-6 text-[#081a42]">
-          Why Do Business in India?
-        </h2>
-
-        <p className="text-gray-700 leading-relaxed mb-4">
-          India is one of the fastest-growing major economies globally, supported by strong domestic demand,
-          a growing middle class, and continuous government reforms. It offers significant opportunities across
-          manufacturing, technology, services, and infrastructure sectors.
-        </p>
-
-        <p className="text-gray-700 leading-relaxed mb-4">
-          With over 1.4 billion people, India provides access to one of the largest consumer markets in the world.
-          Combined with a highly skilled workforce and rapidly expanding digital ecosystem, it enables businesses
-          to scale efficiently.
-        </p>
-
-        <ul className="mt-6 space-y-2 text-gray-700">
-          <li>• Large and growing consumer market</li>
-          <li>• Strong talent pool across industries</li>
-          <li>• Liberal FDI policies</li>
-          <li>• Digital and infrastructure growth</li>
-          <li>• Strategic export and manufacturing hub</li>
-        </ul>
-      </section>
-
-      {/* ---------------- HOW AU HELPS ---------------- */}
+      {/* SERVICES */}
       <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#081a42]">
+        <div className="max-w-5xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold text-center mb-10">
             How AU Corporate Helps You
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          {serviceSections.map((sec, i) => {
+            const isOpen = openService === i
 
-            <div className="p-6 bg-white border rounded-xl shadow-sm">
-              <h3 className="font-semibold mb-3">Pre-Incorporation</h3>
-              <p className="text-sm text-gray-600">
-                Strategic planning, feasibility analysis, and structuring advisory for smooth market entry.
-              </p>
-            </div>
+            return (
+              <div key={sec.title} className="mb-4 border rounded-xl bg-white">
 
-            <div className="p-6 bg-white border rounded-xl shadow-sm">
-              <h3 className="font-semibold mb-3">Incorporation</h3>
-              <p className="text-sm text-gray-600">
-                End-to-end company setup, regulatory approvals, and compliance implementation.
-              </p>
-            </div>
+                <button
+                  onClick={() => setOpenService(isOpen ? null : i)}
+                  className="w-full flex justify-between p-5 font-semibold"
+                >
+                  {sec.title}
+                  <ChevronDown className={`${isOpen ? "rotate-180" : ""}`} />
+                </button>
 
-            <div className="p-6 bg-white border rounded-xl shadow-sm">
-              <h3 className="font-semibold mb-3">Post-Incorporation</h3>
-              <p className="text-sm text-gray-600">
-                Ongoing accounting, taxation, compliance, and operational support services.
-              </p>
-            </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0 }}
+                      animate={{ height: "auto" }}
+                      exit={{ height: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="p-5 space-y-4">
 
-          </div>
+                        {/* NORMAL SERVICES */}
+                        {sec.services && (
+                          <ul className="space-y-2 text-sm">
+                            {sec.services.map((s) => (
+                              <li key={s}>• {s}</li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {/* SUB SECTIONS */}
+                        {sec.subSections?.map((sub) => {
+                          const key = sec.title + sub.title
+                          const isSubOpen = openSub === key
+
+                          return (
+                            <div key={sub.title} className="border rounded-lg">
+
+                              <button
+                                onClick={() => setOpenSub(isSubOpen ? null : key)}
+                                className="w-full flex justify-between p-4 bg-gray-50"
+                              >
+                                {sub.title}
+                                <ChevronDown className={`${isSubOpen ? "rotate-180" : ""}`} />
+                              </button>
+
+                              <AnimatePresence>
+                                {isSubOpen && (
+                                  <motion.div
+                                    initial={{ height: 0 }}
+                                    animate={{ height: "auto" }}
+                                    exit={{ height: 0 }}
+                                  >
+                                    <ul className="p-4 space-y-2 text-sm">
+                                      {sub.services.map((s) => (
+                                        <li key={s}>• {s}</li>
+                                      ))}
+                                    </ul>
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+
+                            </div>
+                          )
+                        })}
+
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </div>
+            )
+          })}
 
         </div>
       </section>
 
-      {/* ---------------- NAVIGATION ---------------- */}
-      <div className="sticky top-20 bg-white border-b z-40">
-        <div className="max-w-6xl mx-auto flex gap-6 px-6 py-4 text-sm font-medium">
-
-          <button onClick={() => scrollTo(preRef)}>Pre-Incorporation</button>
-          <button onClick={() => scrollTo(incRef)}>Incorporation</button>
-          <button onClick={() => scrollTo(postRef)}>Post-Incorporation</button>
-
-        </div>
-      </div>
-
-      {/* ---------------- PRE ---------------- */}
-      <section ref={preRef} className="py-20 max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
-          Pre-Incorporation Support
+      {/* CTA */}
+      <section className="py-20 text-center bg-[#081a42] text-white">
+        <h2 className="text-3xl font-bold mb-4">
+          Start Your India Expansion Journey
         </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {preServices.map((item) => (
-            <motion.div
-              key={item}
-              whileHover={{ y: -5 }}
-              className="p-5 border rounded-xl shadow-sm hover:shadow-lg"
-            >
-              {item}
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- INC ---------------- */}
-      <section ref={incRef} className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
-            Incorporation
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {incorporationServices.map((item) => (
-              <motion.div
-                key={item}
-                whileHover={{ y: -5 }}
-                className="p-5 border rounded-xl bg-white shadow-sm hover:shadow-lg"
-              >
-                {item}
-              </motion.div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ---------------- POST ---------------- */}
-      <section ref={postRef} className="py-20 max-w-6xl mx-auto px-6">
-
-        <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
-          Post-Incorporation
-        </h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {postServices.map((item) => (
-            <motion.div
-              key={item}
-              whileHover={{ y: -5 }}
-              className="p-5 border rounded-xl shadow-sm hover:shadow-lg"
-            >
-              {item}
-            </motion.div>
-          ))}
-        </div>
-
+        <p className="mb-6 text-white/70">
+          We simplify your market entry with complete advisory and compliance support.
+        </p>
+        <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
+          Talk to Experts
+        </button>
       </section>
 
     </div>
