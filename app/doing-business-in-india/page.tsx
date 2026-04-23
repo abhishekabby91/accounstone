@@ -1,243 +1,147 @@
 "use client"
 
-import { useState } from "react"
+import { useRef } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
 
-/* MAIN SECTIONS */
-const sections = [
-  {
-    title: "Why India?",
-    content: `
-India is one of the most attractive global investment destinations due to its large consumer base, skilled workforce, and evolving regulatory framework.
+/* ---------------- SERVICES ---------------- */
 
-Key considerations include:
-• Entry structure selection
-• Regulatory approvals (RBI / FEMA / MCA)
-• Tax and compliance planning
-• Operational feasibility
-    `,
-  },
-  {
-    title: "Entry Process Overview",
-    content: `
-1. Business evaluation
-2. Structure selection
-3. Regulatory approvals
-4. Incorporation and setup
-    `,
-  },
-  {
-    title: "Business Structures in India",
-    content: `
-Wholly Owned Subsidiary – 100% foreign ownership
-
-LLP – Flexible low compliance structure
-
-Joint Venture – Strategic Indian partnership
-    `,
-  },
+const preServices = [
+  "Business feasibility analysis & strategy planning",
+  "Market entry strategy",
+  "Competition & industry analysis",
+  "FDI policy assessment",
+  "Tax structure planning",
+  "Joint venture structuring",
+  "Profit optimisation",
+  "Industrial park advisory",
 ]
 
-/* UPDATED HELP STRUCTURE */
-const helpSections = [
-  {
-    title: "Pre-Incorporation Support",
-    services: [
-      "Business feasibility analysis & strategic planning",
-      "Market entry strategy development",
-      "Competition assessment & industry benchmarking",
-      "FDI policy assessment",
-      "Tax structure planning",
-      "Product diversification strategies",
-      "Joint venture & collaboration structuring",
-      "Profit optimisation solutions",
-      "Industrial parks & zones development advisory",
-    ],
-  },
-
-  {
-    title: "Incorporation",
-    services: [
-      "Company incorporation",
-      "SEBI compliance setup",
-      "FEMA & FDI compliance",
-      "GST & trade license registration",
-      "Accounting system setup",
-      "MIS reporting framework",
-      "GST & other statutory registrations",
-      "Initial board setup & secretarial compliance",
-      "Initial audit compliance",
-      "Expatriate solutions",
-    ],
-  },
-
-  {
-    title: "Post-Incorporation",
-    services: [
-      /* ACCOUNTING */
-      "Bookkeeping & financial statement preparation",
-      "Management reporting & MIS dashboards",
-      "Budgeting & financial analysis support",
-
-      /* TAXATION */
-      "Direct & indirect tax compliance",
-      "GST return filing & advisory",
-      "Tax planning & optimization support",
-
-      /* HR SERVICES */
-      "Payroll processing & compliance",
-      "Employee onboarding & HR policy setup",
-      "Labour law compliance & advisory",
-    ],
-  },
+const incorporationServices = [
+  "Company incorporation",
+  "FEMA & FDI compliance",
+  "GST & trade license",
+  "Accounting system setup",
+  "MIS reporting framework",
+  "Board setup & secretarial compliance",
+  "Initial audit compliance",
+  "Expatriate solutions",
 ]
 
-export default function WhyIndiaPage() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+const postServices = [
+  "Accounting & bookkeeping",
+  "MIS reporting",
+  "Financial statements",
+  "Payroll management",
+  "Corporate tax advisory",
+  "Transfer pricing",
+  "GST compliance & litigation",
+  "FEMA compliance",
+  "Corporate secretarial services",
+  "Labour law & HR compliance",
+]
 
-  const toggle = (i: number) => {
-    setOpenIndex(openIndex === i ? null : i)
+export default function Page() {
+
+  const preRef = useRef<HTMLDivElement>(null)
+  const incRef = useRef<HTMLDivElement>(null)
+  const postRef = useRef<HTMLDivElement>(null)
+
+  const scrollTo = (ref: any) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
 
       {/* HERO */}
-      <section className="relative min-h-[65vh] flex items-center">
-
+      <section className="relative h-[60vh] flex items-center">
         <Image
           src="https://cdn.corenexis.com/files/c/3298128720.jpg"
-          alt="India Business"
+          alt="India"
           fill
           className="object-cover"
-          priority
         />
-
         <div className="absolute inset-0 bg-black/60" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-white">
-              Doing Business in India
-            </h1>
-
-            <p className="mt-4 text-white/80 text-lg">
-              Structured entry routes, regulatory clarity & scalable growth opportunities.
-            </p>
-          </motion.div>
-
+        <div className="relative max-w-6xl mx-auto px-6 text-white">
+          <h1 className="text-5xl font-bold">Doing Business in India</h1>
+          <p className="mt-4 text-lg text-white/80">
+            Structured approach for market entry, setup & compliance.
+          </p>
         </div>
       </section>
 
-      {/* ACCORDION */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-6 space-y-4">
+      {/* NAVIGATION */}
+      <div className="sticky top-20 z-40 bg-white border-b">
+        <div className="max-w-6xl mx-auto flex gap-6 px-6 py-4 text-sm font-medium">
 
-          {sections.map((sec, i) => {
-            const isOpen = openIndex === i
+          <button onClick={() => scrollTo(preRef)}>Pre-Incorporation</button>
+          <button onClick={() => scrollTo(incRef)}>Incorporation</button>
+          <button onClick={() => scrollTo(postRef)}>Post-Incorporation</button>
 
-            return (
-              <div
-                key={sec.title}
-                className="border rounded-2xl overflow-hidden shadow-sm"
-              >
+        </div>
+      </div>
 
-                <button
-                  onClick={() => toggle(i)}
-                  className="w-full flex justify-between items-center p-5 hover:bg-gray-50 transition"
-                >
-                  <span className="font-semibold text-[#081a42]">
-                    {sec.title}
-                  </span>
+      {/* PRE */}
+      <section ref={preRef} className="py-20 max-w-6xl mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
+          Pre-Incorporation Support
+        </h2>
 
-                  <ChevronDown
-                    className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""
-                      }`}
-                  />
-                </button>
-
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: isOpen ? "auto" : 0,
-                    opacity: isOpen ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.35, ease: "easeInOut" }}
-                  className="overflow-hidden bg-gray-50"
-                >
-                  <div className="p-5 text-sm text-gray-700 whitespace-pre-line leading-relaxed">
-                    {sec.content}
-                  </div>
-                </motion.div>
-
-              </div>
-            )
-          })}
-
+        <div className="grid md:grid-cols-3 gap-6">
+          {preServices.map((item) => (
+            <motion.div
+              key={item}
+              whileHover={{ y: -5 }}
+              className="p-5 border rounded-xl bg-white shadow-sm hover:shadow-lg"
+            >
+              <p className="text-sm text-gray-700">{item}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* HOW AU HELPS */}
-      <section className="py-24 bg-gray-50">
+      {/* INCORPORATION */}
+      <section ref={incRef} className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
 
-        <div className="max-w-5xl mx-auto px-6">
-
-          <h2 className="text-3xl font-bold text-center mb-12 text-[#081a42]">
-            How AU Corporate Helps You
+          <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
+            Incorporation
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6">
-
-            {helpSections.map((sec) => (
-              <div
-                key={sec.title}
-                className="bg-white border rounded-xl p-6 shadow-sm hover:shadow-md transition"
+            {incorporationServices.map((item) => (
+              <motion.div
+                key={item}
+                whileHover={{ y: -5 }}
+                className="p-5 border rounded-xl bg-white shadow-sm hover:shadow-lg"
               >
-
-                <h3 className="font-semibold mb-4 text-[#081a42]">
-                  {sec.title}
-                </h3>
-
-                <ul className="space-y-2 text-sm text-gray-700">
-                  {sec.services.map((s) => (
-                    <li key={s} className="flex gap-2">
-                      <span className="text-yellow-500">•</span>
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-
-              </div>
+                <p className="text-sm text-gray-700">{item}</p>
+              </motion.div>
             ))}
-
           </div>
 
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-[#081a42] text-white text-center">
+      {/* POST */}
+      <section ref={postRef} className="py-20 max-w-6xl mx-auto px-6">
 
-        <div className="max-w-3xl mx-auto px-6">
+        <h2 className="text-3xl font-bold mb-8 text-[#081a42]">
+          Post-Incorporation
+        </h2>
 
-          <h2 className="text-3xl font-bold mb-4">
-            Start Your India Expansion Journey
-          </h2>
-
-          <p className="text-white/70 mb-6">
-            End-to-end advisory for seamless market entry, structuring & compliance.
-          </p>
-
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium">
-            Talk to Experts
-          </button>
-
+        <div className="grid md:grid-cols-3 gap-6">
+          {postServices.map((item) => (
+            <motion.div
+              key={item}
+              whileHover={{ y: -5 }}
+              className="p-5 border rounded-xl bg-white shadow-sm hover:shadow-lg"
+            >
+              <p className="text-sm text-gray-700">{item}</p>
+            </motion.div>
+          ))}
         </div>
 
       </section>
