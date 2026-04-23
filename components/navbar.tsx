@@ -10,11 +10,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
-  const [servicesOpen, setServicesOpen] = useState(false)
-  const [activeMenu, setActiveMenu] = useState<string | null>(null)
-
   const [indiaMenuOpen, setIndiaMenuOpen] = useState(false)
-  const [indiaSubMenu, setIndiaSubMenu] = useState<string | null>(null)
+  const [activeIndiaMenu, setActiveIndiaMenu] = useState<string | null>(null)
 
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
@@ -25,7 +22,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  /* HOVER FIX (IMPORTANT) */
+  /* HOVER FIX */
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
     setIndiaMenuOpen(true)
@@ -34,8 +31,8 @@ export function Navbar() {
   const handleLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setIndiaMenuOpen(false)
-      setIndiaSubMenu(null)
-    }, 200) // delay prevents flicker
+      setActiveIndiaMenu(null)
+    }, 250)
   }
 
   /* NAV LINKS */
@@ -47,29 +44,11 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  /* SERVICES */
-  const mainServices = [
-    { label: "Risk Management Services", key: "risk" },
-    { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
-    { label: "Taxation & Regulatory Services", key: "tax" },
-    { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
-  ]
-
-  const riskSubServices = [
-    { label: "Risk Management", href: "/services/risk-management" },
-    { label: "Forensic Services", href: "/services/risk-management" },
-    { label: "Special Audit / Review", href: "/services/risk-management" },
-  ]
-
-  const taxSubServices = [
-    { label: "Direct Taxation", href: "/services/taxation-regulatory" },
-    { label: "Goods & Service Tax", href: "/services/taxation-regulatory" },
-    { label: "Regulatory Services", href: "/services/taxation-regulatory" },
-    { label: "Secretarial & Legal", href: "/services/taxation-regulatory" },
-  ]
-
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""
+        }`}
+    >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex h-20 items-center justify-between">
@@ -82,18 +61,20 @@ export function Navbar() {
               width={40}
               height={40}
             />
-            <div className="flex flex-col leading-tight">
-              <span className="text-2xl font-bold text-gold">AU Corporate</span>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
+            <div>
+              <div className="text-2xl font-bold text-gold">
+                AU Corporate
+              </div>
+              <div className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
                 Growing Together
-              </span>
+              </div>
             </div>
           </Link>
 
-          {/* DESKTOP */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* DESKTOP MENU */}
+          <div className="hidden lg:flex items-center gap-2">
 
-            {/* DOING BUSINESS MENU */}
+            {/* DOING BUSINESS */}
             <div
               className="relative"
               onMouseEnter={handleEnter}
@@ -104,63 +85,88 @@ export function Navbar() {
               </button>
 
               {indiaMenuOpen && (
-                <div className="absolute top-full left-0 mt-0 w-[320px] bg-white border shadow-xl rounded-xl z-50">
+                <div className="absolute top-full left-0 flex bg-white border shadow-xl rounded-xl z-50">
 
-                  <Link href="/doing-business-in-india#why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                    Why India
-                  </Link>
+                  {/* LEVEL 1 */}
+                  <div className="w-[320px] border-r">
 
-                  <Link href="/doing-business-in-india#entry" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                    Entry Process & Business Structures
-                  </Link>
+                    <Link
+                      href="/doing-business-in-india#why-india"
+                      className="block px-4 py-3 text-sm hover:bg-gray-100"
+                    >
+                      Why India
+                    </Link>
 
-                  {/* LEVEL 2 */}
-                  <div
-                    onMouseEnter={() => setIndiaSubMenu("help")}
-                    className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
-                  >
-                    <span>How AU Corporate Can Help You</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <Link
+                      href="/doing-business-in-india#entry"
+                      className="block px-4 py-3 text-sm hover:bg-gray-100"
+                    >
+                      Entry Process & Business Structures
+                    </Link>
+
+                    <div
+                      onMouseEnter={() => setActiveIndiaMenu("help")}
+                      className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                    >
+                      <span>How AU Corporate Can Help You</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </div>
+
                   </div>
 
-                  {/* LEVEL 3 */}
-                  {indiaSubMenu === "help" && (
-                    <div className="absolute top-0 left-full -ml-1 w-[280px] bg-white border shadow-xl rounded-xl">
+                  {/* LEVEL 2 */}
+                  {activeIndiaMenu === "help" && (
+                    <div className="w-[260px] border-r">
 
-                      <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                      <Link
+                        href="/doing-business-in-india/pre-incorporation"
+                        className="block px-4 py-3 text-sm hover:bg-gray-100"
+                      >
                         Pre-Incorporation
                       </Link>
 
-                      <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                      <Link
+                        href="/doing-business-in-india/incorporation"
+                        className="block px-4 py-3 text-sm hover:bg-gray-100"
+                      >
                         Incorporation
                       </Link>
 
-                      {/* LEVEL 4 */}
                       <div
-                        onMouseEnter={() => setIndiaSubMenu("post")}
+                        onMouseEnter={() => setActiveIndiaMenu("post")}
                         className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
                       >
                         <span>Post-Incorporation</span>
                         <ChevronRight className="w-4 h-4" />
                       </div>
 
-                      {indiaSubMenu === "post" && (
-                        <div className="absolute top-0 left-full -ml-1 w-[260px] bg-white border shadow-xl rounded-xl">
+                    </div>
+                  )}
 
-                          <Link href="/doing-business-in-india/post-incorporation#accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                            Accounting
-                          </Link>
+                  {/* LEVEL 3 */}
+                  {activeIndiaMenu === "post" && (
+                    <div className="w-[240px]">
 
-                          <Link href="/doing-business-in-india/post-incorporation#taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                            Taxation
-                          </Link>
+                      <Link
+                        href="/doing-business-in-india/post-incorporation#accounting"
+                        className="block px-4 py-3 text-sm hover:bg-gray-100"
+                      >
+                        Accounting
+                      </Link>
 
-                          <Link href="/doing-business-in-india/post-incorporation#hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                            HR
-                          </Link>
+                      <Link
+                        href="/doing-business-in-india/post-incorporation#taxation"
+                        className="block px-4 py-3 text-sm hover:bg-gray-100"
+                      >
+                        Taxation
+                      </Link>
 
-                        </div>
-                      )}
+                      <Link
+                        href="/doing-business-in-india/post-incorporation#hr"
+                        className="block px-4 py-3 text-sm hover:bg-gray-100"
+                      >
+                        HR
+                      </Link>
 
                     </div>
                   )}
@@ -169,62 +175,13 @@ export function Navbar() {
               )}
             </div>
 
-            {/* SERVICES */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => {
-                setServicesOpen(false)
-                setActiveMenu(null)
-              }}
-            >
-              <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
-                Services ▾
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
-
-                  <div className="w-1/2 border-r py-2">
-                    {mainServices.map((service) => (
-                      <div
-                        key={service.label}
-                        onMouseEnter={() => setActiveMenu(service.key || null)}
-                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
-                      >
-                        {service.href ? (
-                          <Link href={service.href}>{service.label}</Link>
-                        ) : (
-                          <span>{service.label}</span>
-                        )}
-                        {service.key && <ChevronRight className="w-4 h-4" />}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="w-1/2 p-4">
-                    {activeMenu === "risk" &&
-                      riskSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
-
-                    {activeMenu === "tax" &&
-                      taxSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
-                  </div>
-
-                </div>
-              )}
-            </div>
-
             {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm">
+              <Link
+                key={link.label}
+                href={link.href}
+                className="px-4 py-2 text-sm"
+              >
                 {link.label}
               </Link>
             ))}
@@ -239,7 +196,10 @@ export function Navbar() {
           </div>
 
           {/* MOBILE */}
-          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+          <button
+            className="lg:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X /> : <Menu />}
           </button>
 
