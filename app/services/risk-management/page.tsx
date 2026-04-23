@@ -1,192 +1,327 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useRef } from "react"
+import { useState } from "react"
+import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
+import { ChevronDown } from "lucide-react"
 
-export default function Page() {
-  const riskRef = useRef<HTMLDivElement>(null)
-  const forensicRef = useRef<HTMLDivElement>(null)
-  const auditRef = useRef<HTMLDivElement>(null)
+/* ---------------- MAIN SECTIONS ---------------- */
+const sections = [
+  {
+    title: "Doing Business in India",
+    content: `
+India is one of the fastest-growing global economies offering scale, talent, and long-term investment opportunities.
 
-  const scrollTo = (ref: React.RefObject<HTMLDivElement>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth" })
-    }
+Key advantages:
+• Large consumer market
+• Skilled workforce
+• Strong digital ecosystem
+• Pro-FDI reforms
+• Expanding infrastructure base
+    `,
+  },
+  {
+    title: "Entry Process Overview",
+    content: `
+1. Business feasibility analysis  
+2. Entry structure selection  
+3. Regulatory approvals (RBI / FEMA / MCA)  
+4. Incorporation & setup  
+5. Operational launch & compliance framework
+    `,
+  },
+  {
+    title: "Business Structures in India",
+    content: `
+Wholly Owned Subsidiary – 100% foreign ownership  
+LLP – Flexible low compliance structure  
+Joint Venture – Strategic Indian partnership  
+Branch / Liaison / Project Office – Limited presence model
+    `,
+  },
+]
+
+/* ---------------- HELP STRUCTURE ---------------- */
+const helpSections = [
+  {
+    title: "Pre-Incorporation Support",
+    services: [
+      "Business feasibility analysis & strategic planning",
+      "Market entry strategy development",
+      "Competition assessment & industry benchmarking",
+      "FDI policy assessment",
+      "Tax structure planning",
+      "Product diversification strategies",
+      "Joint venture & collaboration structuring",
+      "Profit optimisation solutions",
+      "Industrial parks & zones development advisory",
+    ],
+  },
+
+  {
+    title: "Incorporation",
+    services: [
+      "Company incorporation",
+      "SEBI compliance",
+      "FEMA & FDI compliance",
+      "GST & trade license registration",
+      "Accounting system setup",
+      "MIS reporting framework",
+      "GST & statutory registrations",
+      "Initial board setup & secretarial compliance",
+      "Initial audit compliance",
+      "Expatriate solutions",
+    ],
+  },
+
+  {
+    title: "Post Incorporation",
+    subSections: [
+      {
+        title: "Accounting",
+        items: [
+          "Accounting Services – end-to-end accounting support ensuring accurate financial records and compliance",
+          "MIS Reporting for Management – insights for strategic decision-making",
+          "Financial Statement Preparation – compliant financial reporting",
+          "Monthly Payroll Management – payroll processing & statutory compliance",
+        ],
+      },
+
+      {
+        title: "Taxation",
+        items: [
+          "International Taxation Litigation & Advisory",
+          "Advance Pricing Agreement (APA)",
+          "Transfer Pricing Services",
+          "Corporate Tax advisory",
+          "Income Tax Litigation handling",
+          "Expat Taxation & Return Filing",
+          "DTAA Advisory & Compliance",
+          "Direct Tax Return & Compliance",
+          "GST Compliance",
+          "GST Refund",
+          "GST Annual Return & Audit",
+          "GST Litigation",
+          "GST Advisory & Opinions",
+          "GST APA support",
+          "FEMA Compliance Services",
+        ],
+      },
+
+      {
+        title: "HR, Legal & Secretarial",
+        items: [
+          "Corporate Secretarial Services",
+          "Company Incorporation & Statutory Registrations",
+          "SEBI Compliance Services",
+          "IPR Services",
+          "Labour Law Compliance",
+          "Contract Management Services",
+          "Corporate Legal Advisory Services",
+          "SEMA / FEMA / FDI Compliance support",
+          "GST & Trade License support",
+          "Initial Board Setup & Secretarial Compliance",
+          "Initial Audit Compliance",
+          "Expatriate Solutions",
+        ],
+      },
+    ],
+  },
+]
+
+export default function WhyIndiaPage() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const [openPost, setOpenPost] = useState<string | null>(null)
+
+  const toggleMain = (i: number) => {
+    setOpenIndex(openIndex === i ? null : i)
   }
 
-  const sections = [
-    {
-      title: "Risk Management Services",
-      ref: riskRef,
-      items: [
-        {
-          title: "Internal Audit",
-          desc: "Independent evaluation of internal controls, risk frameworks, and governance systems.",
-        },
-        {
-          title: "Internal Audit Transformation",
-          desc: "Modernizing internal audit functions using technology and risk-based approaches.",
-        },
-        {
-          title: "Enterprise Risk Management",
-          desc: "Identifying and managing enterprise-wide risks aligned with strategic objectives.",
-        },
-        {
-          title: "Risk and Control Registers",
-          desc: "Designing structured risk registers with mapped controls for effective monitoring.",
-        },
-        {
-          title: "Process Designing and Documentation",
-          desc: "Developing standardized processes with detailed documentation for operational efficiency.",
-        },
-        {
-          title: "IFC / ICFR Design and Testing",
-          desc: "Evaluating internal financial controls for compliance and reliability in financial reporting.",
-        },
-      ],
-    },
-
-    {
-      title: "Forensic Services",
-      ref: forensicRef,
-      items: [
-        {
-          title: "Fraud Risk Assessments & Investigations",
-          desc: "Identifying fraud risks and conducting detailed investigations to detect irregularities.",
-        },
-        {
-          title: "Enforcement Agencies Assistance (CBI, SFIO)",
-          desc: "Supporting organizations in matters involving regulatory and enforcement authorities.",
-        },
-        {
-          title: "Forensic Audit under RBI Guidelines",
-          desc: "Conducting forensic audits as per RBI norms to identify financial discrepancies.",
-        },
-        {
-          title: "IBC Transaction Audit",
-          desc: "Reviewing transactions to detect preferential, undervalued, or fraudulent dealings.",
-        },
-        {
-          title: "Digital Forensic",
-          desc: "Analyzing digital data to uncover evidence of financial or operational misconduct.",
-        },
-        {
-          title: "Anti-Bribery & Corruption",
-          desc: "Assessing and strengthening frameworks to prevent bribery and corruption risks.",
-        },
-        {
-          title: "Assets Tracing",
-          desc: "Identifying and tracking assets in cases of fraud, disputes, or recovery proceedings.",
-        },
-        {
-          title: "AML & KYC Review",
-          desc: "Evaluating compliance with anti-money laundering and customer due diligence norms.",
-        },
-      ],
-    },
-
-    {
-      title: "Special Audit / Review",
-      ref: auditRef,
-      items: [
-        {
-          title: "Project Audit",
-          desc: "Reviewing project execution, costs, and controls to ensure efficiency and compliance.",
-        },
-        {
-          title: "Concurrent Audit / Pre-Audit",
-          desc: "Real-time audit checks to ensure transactions comply with policies and regulations.",
-        },
-        {
-          title: "Fixed Asset Management & Verification",
-          desc: "Physical verification and control assessment of fixed assets for accuracy and safeguarding.",
-        },
-        {
-          title: "Inventory Control & Stock Audit",
-          desc: "Evaluating inventory systems and conducting stock audits to ensure accuracy and control.",
-        },
-        {
-          title: "Agency for Specialized Monitoring (ASM)",
-          desc: "Providing monitoring services under ASM frameworks to ensure regulatory compliance.",
-        },
-      ],
-    },
-  ]
+  const togglePost = (title: string) => {
+    setOpenPost(openPost === title ? null : title)
+  }
 
   return (
-    <div className="min-h-screen pt-24 px-6 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-white">
 
-        {/* TITLE */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-4xl font-bold text-[#081a42] mb-6"
-        >
-          Risk Advisory Services
-        </motion.h1>
+      {/* ---------------- HERO ---------------- */}
+      <section className="relative min-h-[70vh] flex items-center">
 
-        {/* DESCRIPTION */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-gray-600 max-w-3xl mb-10"
-        >
-          Comprehensive advisory services covering risk management, forensic investigations,
-          and specialized audit reviews to strengthen governance and compliance.
-        </motion.p>
+        <Image
+          src="https://cdn.corenexis.com/files/c/3298128720.jpg"
+          alt="India Business"
+          fill
+          className="object-cover"
+          priority
+        />
 
-        {/* NAV BUTTONS */}
-        <div className="flex gap-4 mb-12 flex-wrap">
-          {sections.map((sec) => (
-            <button
-              key={sec.title}
-              onClick={() => scrollTo(sec.ref)}
-              className="px-5 py-2 border rounded-full text-sm font-medium bg-white hover:bg-yellow-400 hover:text-black transition shadow-sm"
-            >
-              {sec.title}
-            </button>
-          ))}
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative max-w-6xl mx-auto px-6">
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+          >
+            <h1 className="text-4xl md:text-5xl font-bold text-white">
+              Doing Business in India
+            </h1>
+
+            <p className="mt-4 text-white/80 text-lg max-w-2xl">
+              Structured entry routes, regulatory framework, incorporation process & full lifecycle compliance support.
+            </p>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ---------------- MAIN ACCORDION ---------------- */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-6 space-y-4">
+
+          {sections.map((sec, i) => {
+            const isOpen = openIndex === i
+
+            return (
+              <div key={sec.title} className="border rounded-2xl overflow-hidden">
+
+                <button
+                  onClick={() => toggleMain(i)}
+                  className="w-full flex justify-between items-center p-5 hover:bg-gray-50"
+                >
+                  <span className="font-semibold text-[#081a42]">
+                    {sec.title}
+                  </span>
+
+                  <ChevronDown
+                    className={`transition-transform ${isOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-gray-50"
+                    >
+                      <div className="p-5 text-sm text-gray-700 whitespace-pre-line">
+                        {sec.content}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+              </div>
+            )
+          })}
+
+        </div>
+      </section>
+
+      {/* ---------------- AU HELP ---------------- */}
+      <section className="py-24 bg-gray-50">
+
+        <div className="max-w-6xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold text-center mb-12 text-[#081a42]">
+            How AU Corporate Helps You
+          </h2>
+
+          <div className="space-y-6">
+
+            {helpSections.map((sec) => {
+
+              const isPost = sec.subSections
+
+              return (
+                <div
+                  key={sec.title}
+                  className="bg-white border rounded-xl shadow-sm"
+                >
+
+                  <button
+                    onClick={() => togglePost(sec.title)}
+                    className="w-full flex justify-between items-center p-5 font-semibold text-[#081a42]"
+                  >
+                    {sec.title}
+                    <ChevronDown
+                      className={`transition-transform ${openPost === sec.title ? "rotate-180" : ""}`}
+                    />
+                  </button>
+
+                  <AnimatePresence>
+                    {openPost === sec.title && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="p-5 space-y-6">
+
+                          {!isPost &&
+                            sec.services.map((s) => (
+                              <div key={s} className="text-sm flex gap-2">
+                                <span className="text-yellow-500">•</span>
+                                {s}
+                              </div>
+                            ))}
+
+                          {isPost &&
+                            sec.subSections!.map((sub) => (
+                              <div key={sub.title}>
+                                <h4 className="font-semibold mb-2 text-[#081a42]">
+                                  {sub.title}
+                                </h4>
+
+                                <ul className="space-y-2 text-sm text-gray-700">
+                                  {sub.items.map((item) => (
+                                    <li key={item} className="flex gap-2">
+                                      <span className="text-yellow-500">•</span>
+                                      {item}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ))}
+
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                </div>
+              )
+            })}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ---------------- CTA ---------------- */}
+      <section className="py-20 bg-[#081a42] text-white text-center">
+
+        <div className="max-w-3xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold mb-4">
+            Start Your India Expansion Journey
+          </h2>
+
+          <p className="text-white/70 mb-6">
+            End-to-end advisory for incorporation, compliance & taxation in India.
+          </p>
+
+          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium hover:scale-105 transition">
+            Talk to Experts
+          </button>
+
         </div>
 
-        {/* SECTIONS */}
-        {sections.map((section, i) => (
-          <motion.div
-            key={section.title}
-            ref={section.ref}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className="mb-20"
-          >
-            <h2 className="text-2xl font-semibold mb-8 text-[#081a42]">
-              {section.title}
-            </h2>
+      </section>
 
-            <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {section.items.map((item) => (
-                <motion.div
-                  key={item.title}
-                  whileHover={{ y: -5 }}
-                  className="p-6 bg-white border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
-                >
-                  <h3 className="font-semibold text-lg mb-3 text-[#081a42]">
-                    {item.title}
-                  </h3>
-
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-          </motion.div>
-        ))}
-
-      </div>
     </div>
   )
 }
