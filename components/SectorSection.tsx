@@ -72,7 +72,7 @@ const sectors = [
   },
   {
     title: "Renewable Energy",
-    image: "https://cdn.corenexis.com/files/c/7454887720.jpg",
+    image: "https://cdn.corenexis.com/files/c/6554291720.jpg",
     points: [
       "1000+ GW potential",
       "Strong government push",
