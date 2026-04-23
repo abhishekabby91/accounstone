@@ -51,8 +51,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Training & Workshops",
-    description:
-      "Training programs for skills, compliance and performance.",
+    description: "Training programs for skills, compliance and performance.",
     href: "/services/training-workshops",
   },
 ]
@@ -91,10 +90,24 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 }
 
 export default function HomePage() {
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: (i = 1) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: i * 0.15,
+        duration: 0.7,
+        ease: "easeOut",
+      },
+    }),
+  }
+
   return (
     <div className="min-h-screen">
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
         <Image
@@ -102,43 +115,77 @@ export default function HomePage() {
           alt="AU Corporate Hero"
           fill
           priority
-          className="object-cover"
+          className="object-cover scale-105"
         />
 
-        <div className="absolute inset-0 bg-black/50" />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+
+        {/* GLOW EFFECTS */}
+        <div className="absolute w-[450px] h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px] animate-pulse" />
+        <div className="absolute w-[350px] h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px] animate-pulse" />
 
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
-            <span className="text-yellow-400">AU Corporate</span>
-          </h1>
+          {/* TITLE */}
+          <motion.h1
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9 }}
+            className="text-5xl md:text-7xl font-bold text-white mb-4"
+          >
+            <span className="text-yellow-400 drop-shadow-lg">
+              AU Corporate
+            </span>
+          </motion.h1>
 
-          <p className="text-white/80 mb-8">
-            AU Corporate is your trusted advisory and professional services firm delivering integrated solutions across consulting, taxation, HR, outsourcing, and dispute resolution.
-          </p>
+          {/* SUBTITLE */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-white/80 mb-8 text-lg max-w-3xl mx-auto"
+          >
+            Growing Together
+          </motion.p>
 
-          <Button asChild className="bg-yellow-400 text-black">
-            <Link href="/contact">Get Started</Link>
-          </Button>
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+          >
+            <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+              <Link href="/contact">Get Started</Link>
+            </Button>
+          </motion.div>
 
           {/* STATS */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label}>
+          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                custom={i}
+                variants={fadeUp}
+                initial="hidden"
+                animate="show"
+              >
                 <div className="text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
                 <div className="text-white/70 text-sm">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
+
           </div>
 
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* ================= SERVICES ================= */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
 
@@ -155,12 +202,13 @@ export default function HomePage() {
                 key={service.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
+                transition={{ delay: i * 0.12, duration: 0.6 }}
                 viewport={{ once: true }}
+                whileHover={{ y: -10, scale: 1.02 }}
               >
                 <Link
                   href={service.href}
-                  className="group block p-8 bg-white border rounded-xl hover:shadow-2xl transition-all hover:-translate-y-2"
+                  className="group block p-8 bg-white border rounded-xl hover:shadow-2xl transition-all"
                 >
                   <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
                     <service.icon className="text-yellow-500 h-7 w-7" />
@@ -183,14 +231,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DOING BUSINESS IN INDIA */}
+      {/* ================= INDIA SECTION ================= */}
       <section className="relative py-24 text-white overflow-hidden">
 
         <Image
           src="https://cdn.corenexis.com/files/c/5753696720.jpg"
           alt="Doing Business in India"
           fill
-          priority
           className="object-cover"
         />
 
@@ -198,9 +245,14 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-bold mb-6"
+          >
             Doing Business in India
-          </h2>
+          </motion.h2>
 
           <p className="text-white/80 text-lg max-w-3xl mx-auto mb-10">
             AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and compliance support.
@@ -208,30 +260,38 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
 
-            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Why India</h3>
-              <p className="text-white/70 text-sm">
-                Structured entry into India’s fast-growing economy.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Company Incorporation</h3>
-              <p className="text-white/70 text-sm">
-                Seamless business setup and regulatory compliance support in India.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md">
-              <h3 className="text-yellow-400 font-semibold mb-2">Market Entry & Growth</h3>
-              <p className="text-white/70 text-sm">
-                Partner with AU Corporate for long-term growth, operational scalability, and strategic expansion.
-              </p>
-            </div>
+            {[
+              {
+                title: "Why India",
+                desc: "High-growth economy with global opportunities.",
+              },
+              {
+                title: "Incorporation",
+                desc: "Seamless setup & compliance in India.",
+              },
+              {
+                title: "Growth Strategy",
+                desc: "Long-term expansion & advisory support.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
+                className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md hover:scale-105 transition"
+              >
+                <h3 className="text-yellow-400 font-semibold mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-white/70 text-sm">{item.desc}</p>
+              </motion.div>
+            ))}
 
           </div>
 
-          <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-500">
+          <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
             <Link href="/why-india">
               Explore India Opportunity
               <ArrowRight className="ml-2 h-4 w-4" />
