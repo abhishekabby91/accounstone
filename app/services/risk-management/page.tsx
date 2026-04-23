@@ -20,7 +20,7 @@ export default function Page() {
       ref: riskRef,
       items: [
         {
-          title: "Risk Management",
+          title: "Internal Audit",
           desc: "Independent evaluation of internal controls, risk frameworks, and governance systems.",
         },
         {
