@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Globe, Users, TrendingUp, Landmark, Cpu, Briefcase } from "lucide-react"
+import Image from "next/image"
 
 export default function WhyIndiaPage() {
   return (
@@ -64,7 +65,7 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* STATS SECTION */}
+      {/* STATS */}
       <section className="bg-gray-50 py-20">
         <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-4 text-center gap-8">
 
@@ -79,7 +80,7 @@ export default function WhyIndiaPage() {
           </div>
 
           <div>
-            <h2 className="text-3xl font-bold text-[#081a42]#">Top 5</h2>
+            <h2 className="text-3xl font-bold text-[#081a42]">Top 5</h2>
             <p className="text-sm text-gray-600">Global Economy</p>
           </div>
 
@@ -91,7 +92,101 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE INDIA */}
+      {/* SECTOR OPPORTUNITIES (NEW SECTION) */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold text-center mb-4">
+            Sector Wise Opportunities
+          </h2>
+
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            India offers strong growth opportunities across diverse sectors driven by demand,
+            policy support, and global competitiveness.
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {[
+              {
+                title: "Pharmaceuticals",
+                image: "/images/pharma.jpg",
+                points: [
+                  "20% global generic medicine supply",
+                  "USD 130 Bn market by 2030",
+                ],
+              },
+              {
+                title: "IT - BPM",
+                image: "/images/it.jpg",
+                points: [
+                  "8% contribution to GDP",
+                  "USD 350 Bn expected size",
+                ],
+              },
+              {
+                title: "Automobile / EV",
+                image: "/images/auto.jpg",
+                points: [
+                  "4th largest automotive market",
+                  "Growing EV ecosystem",
+                ],
+              },
+              {
+                title: "Construction",
+                image: "/images/construction.jpg",
+                points: [
+                  "USD 1Tn market by 2025",
+                  "Major GDP contributor",
+                ],
+              },
+              {
+                title: "Renewable Energy",
+                image: "/images/renewable.jpg",
+                points: [
+                  "1000+ GW potential",
+                  "Strong policy push",
+                ],
+              },
+              {
+                title: "Healthcare",
+                image: "/images/health.jpg",
+                points: [
+                  "Fastest growing sector",
+                  "USD 372 Bn opportunity",
+                ],
+              },
+            ].map((sector) => (
+              <div key={sector.title} className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition">
+
+                <div className="relative h-48">
+                  <Image
+                    src={sector.image}
+                    alt={sector.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+
+                <div className="p-6">
+                  <h3 className="font-semibold text-lg mb-3">{sector.title}</h3>
+
+                  <ul className="text-sm text-gray-600 space-y-2">
+                    {sector.points.map((p, i) => (
+                      <li key={i}>• {p}</li>
+                    ))}
+                  </ul>
+                </div>
+
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* WHY INDIA CONTENT */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
 
@@ -101,9 +196,8 @@ export default function WhyIndiaPage() {
             </h2>
             <p className="text-gray-600 leading-relaxed">
               India offers a unique combination of market size, talent availability,
-              policy reforms, and cost efficiency. Businesses across sectors such as
-              manufacturing, technology, services, and retail are leveraging India
-              as a global hub for operations and innovation.
+              policy reforms, and cost efficiency, making it a preferred destination
+              for global expansion.
             </p>
           </div>
 
@@ -111,37 +205,35 @@ export default function WhyIndiaPage() {
             <div className="p-4 border rounded-lg">
               <h4 className="font-semibold">Skilled Workforce</h4>
               <p className="text-sm text-gray-600">
-                Access to a large pool of qualified professionals across industries.
+                Large pool of qualified professionals across industries.
               </p>
             </div>
 
             <div className="p-4 border rounded-lg">
               <h4 className="font-semibold">Ease of Doing Business</h4>
               <p className="text-sm text-gray-600">
-                Continuous regulatory improvements and digitalisation of processes.
+                Continuous regulatory improvements and digitisation.
               </p>
             </div>
 
             <div className="p-4 border rounded-lg">
               <h4 className="font-semibold">FDI Friendly Policies</h4>
               <p className="text-sm text-gray-600">
-                Liberalised foreign investment norms across key sectors.
+                Liberalised foreign investment norms across sectors.
               </p>
             </div>
-
           </div>
 
         </div>
       </section>
 
-      {/* WHY AU CORPORATE */}
+      {/* CTA */}
       <section className="bg-[#081a42] text-white py-20 text-center">
         <h2 className="text-3xl font-bold mb-4">
-          How AU Corporate Supports Your India Entry
+          Expand Your Business in India with Confidence
         </h2>
         <p className="max-w-2xl mx-auto text-white/80 mb-6">
-          From market entry strategy to compliance and ongoing support, we provide
-          end-to-end advisory to ensure a seamless business setup in India.
+          We provide end-to-end advisory and compliance support for seamless entry and growth.
         </p>
 
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
