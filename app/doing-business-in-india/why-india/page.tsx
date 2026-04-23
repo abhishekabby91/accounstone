@@ -46,6 +46,118 @@ export default function WhyIndiaPage() {
           </p>
         </motion.div>
       </section>
+      {/* WHY INDIA - DEEP INSIGHT SECTION */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl font-bold">
+              Why India is Becoming a Global Business Growth Engine
+            </h2>
+
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              India is no longer viewed only as an emerging market — it is now a
+              structural pillar in global supply chains, digital transformation,
+              and long-term capital deployment strategies.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  1. Structural Economic Transformation
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  India is undergoing a long-term shift from a consumption-heavy economy
+                  to a balanced model driven by manufacturing, services exports, and digital infrastructure.
+                  This transformation is supported by policy reforms, capital inflows, and rising private investment.
+                </p>
+              </div>
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  2. Shift in Global Supply Chains
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Global companies are actively diversifying away from single-country dependency strategies.
+                  India is emerging as a key alternative manufacturing and sourcing destination under the
+                  “China + 1” and “China + India + ASEAN” strategy frameworks.
+                </p>
+              </div>
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  3. Policy-Led Investment Environment
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  India has introduced one of the most aggressive FDI liberalisation frameworks globally,
+                  allowing automatic approvals in most sectors, reducing entry barriers, and promoting ease of doing business
+                  through digital compliance systems.
+                </p>
+              </div>
+
+            </motion.div>
+
+            {/* RIGHT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  4. Capital Market & Investor Confidence
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  India has consistently ranked among the top destinations for FDI inflows in Asia.
+                  Strong IPO activity, private equity participation, and sovereign wealth fund investments
+                  reflect long-term confidence in India’s economic trajectory.
+                </p>
+              </div>
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  5. Digital & Innovation Ecosystem
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  India has built one of the world’s largest digital public infrastructure systems
+                  (UPI, Aadhaar, GSTN), enabling rapid scaling of fintech, SaaS, AI, and platform-based businesses.
+                  This makes India a natural hub for digital-first global expansion.
+                </p>
+              </div>
+
+              <div className="p-6 border rounded-xl hover:shadow-md transition">
+                <h3 className="font-semibold text-lg mb-2">
+                  6. Long-Term Demographic Advantage
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Unlike aging developed economies, India offers a long runway of workforce expansion,
+                  consumption growth, and urbanisation — making it one of the few large-scale markets
+                  with sustained demand visibility over the next 20–30 years.
+                </p>
+              </div>
+
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
 
       {/* INVESTMENT THESIS */}
       <section className="py-24">
