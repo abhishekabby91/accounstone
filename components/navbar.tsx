@@ -3,15 +3,18 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronRight, ChevronDown } from "lucide-react"
+import { Menu, X, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+
   const [servicesOpen, setServicesOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
-  const [indiaOpen, setIndiaOpen] = useState(false)
+
+  const [indiaMenuOpen, setIndiaMenuOpen] = useState(false)
+  const [indiaSubMenu, setIndiaSubMenu] = useState<string | null>(null)
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -19,6 +22,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  /* NAV LINKS (REMOVED DOING BUSINESS) */
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
     { label: "HR Services", href: "/hr-services" },
@@ -27,14 +31,7 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
-  /* DOING BUSINESS DROPDOWN */
-  const indiaMenu = [
-    { label: "Why India", href: "/doing-business-in-india#why" },
-    { label: "Entry Process & Structures", href: "/doing-business-in-india#process" },
-    { label: "How AU Corporate Helps You", href: "/doing-business-in-india#services" },
-  ]
-
-  /* SERVICES MENU */
+  /* SERVICES */
   const mainServices = [
     { label: "Risk Management Services", key: "risk" },
     { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
@@ -78,34 +75,88 @@ export function Navbar() {
           </Link>
 
           {/* DESKTOP */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-1">
 
             {/* DOING BUSINESS DROPDOWN */}
             <div
               className="relative"
-              onMouseEnter={() => setIndiaOpen(true)}
-              onMouseLeave={() => setIndiaOpen(false)}
+              onMouseEnter={() => setIndiaMenuOpen(true)}
+              onMouseLeave={() => {
+                setIndiaMenuOpen(false)
+                setIndiaSubMenu(null)
+              }}
             >
-              <button className="px-4 py-2 text-sm flex items-center gap-1 text-gray-600 hover:text-black">
-                Doing Business in India <ChevronDown className="w-4 h-4" />
+              <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
+                Doing Business in India ▾
               </button>
 
-              {indiaOpen && (
-                <div className="absolute top-10 left-0 w-64 bg-white border shadow-lg rounded-xl py-2">
-                  {indiaMenu.map((item) => (
-                    <Link
-                      key={item.label}
-                      href={item.href}
-                      className="block px-4 py-3 text-sm hover:bg-gray-100"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+              {indiaMenuOpen && (
+                <div className="absolute top-10 left-0 w-[320px] bg-white border shadow-xl rounded-xl">
+
+                  <Link href="/doing-business-in-india#why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                    Why India
+                  </Link>
+
+                  <Link href="/doing-business-in-india#entry" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                    Entry Process & Business Structures
+                  </Link>
+
+                  {/* LEVEL 2 */}
+                  <div
+                    onMouseEnter={() => setIndiaSubMenu("help")}
+                    className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                  >
+                    <span>How AU Corporate Can Help You</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+
+                  {/* LEVEL 3 */}
+                  {indiaSubMenu === "help" && (
+                    <div className="absolute top-0 left-full w-[280px] bg-white border shadow-xl rounded-xl">
+
+                      <Link href="/doing-business-in-india#pre" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                        Pre-Incorporation
+                      </Link>
+
+                      <Link href="/doing-business-in-india#inc" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                        Incorporation
+                      </Link>
+
+                      {/* LEVEL 4 */}
+                      <div
+                        onMouseEnter={() => setIndiaSubMenu("post")}
+                        className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                      >
+                        <span>Post-Incorporation</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </div>
+
+                      {indiaSubMenu === "post" && (
+                        <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
+
+                          <Link href="/doing-business-in-india#accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                            Accounting
+                          </Link>
+
+                          <Link href="/doing-business-in-india#taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                            Taxation
+                          </Link>
+
+                          <Link href="/doing-business-in-india#hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                            HR
+                          </Link>
+
+                        </div>
+                      )}
+
+                    </div>
+                  )}
+
                 </div>
               )}
             </div>
 
-            {/* SERVICES DROPDOWN */}
+            {/* SERVICES (UNCHANGED) */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
@@ -121,7 +172,6 @@ export function Navbar() {
               {servicesOpen && (
                 <div className="absolute top-10 left-0 w-[650px] bg-white border shadow-xl rounded-xl flex">
 
-                  {/* LEVEL 2 */}
                   <div className="w-1/2 border-r py-2">
                     {mainServices.map((service) => (
                       <div
@@ -139,31 +189,20 @@ export function Navbar() {
                     ))}
                   </div>
 
-                  {/* LEVEL 3 */}
                   <div className="w-1/2 p-4">
+                    {activeMenu === "risk" &&
+                      riskSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
 
-                    {activeMenu === "risk" && (
-                      <>
-                        <p className="text-xs uppercase mb-3">Risk Management</p>
-                        {riskSubServices.map((item) => (
-                          <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                            {item.label}
-                          </Link>
-                        ))}
-                      </>
-                    )}
-
-                    {activeMenu === "tax" && (
-                      <>
-                        <p className="text-xs uppercase mb-3">Taxation</p>
-                        {taxSubServices.map((item) => (
-                          <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                            {item.label}
-                          </Link>
-                        ))}
-                      </>
-                    )}
-
+                    {activeMenu === "tax" &&
+                      taxSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
                   </div>
 
                 </div>
@@ -172,7 +211,7 @@ export function Navbar() {
 
             {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm text-gray-600 hover:text-black">
+              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm">
                 {link.label}
               </Link>
             ))}
