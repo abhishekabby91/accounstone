@@ -46,6 +46,103 @@ export default function WhyIndiaPage() {
           </p>
         </motion.div>
       </section>
+      {/* WHY INDIA - INSIGHT SECTION */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold">
+              Why Global Businesses Are Choosing India
+            </h2>
+
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              India has emerged as a preferred global investment destination due to its strong
+              economic fundamentals, regulatory reforms, digital transformation, and cost efficiency.
+              Leading advisory firms such as global accounting and consulting networks highlight India
+              as a key strategic hub for expansion across Asia.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            {/* LEFT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-5"
+            >
+
+              <div className="p-5 border rounded-xl hover:shadow-lg transition">
+                <h3 className="font-semibold text-lg">Strong Economic Fundamentals</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  India is among the fastest-growing major economies, supported by strong domestic demand,
+                  expanding manufacturing base, and robust service sector contribution.
+                </p>
+              </div>
+
+              <div className="p-5 border rounded-xl hover:shadow-lg transition">
+                <h3 className="font-semibold text-lg">FDI Liberalisation & Policy Reforms</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  Continuous reforms in FDI policy, GST implementation, and digitisation have significantly
+                  improved ease of doing business in India.
+                </p>
+              </div>
+
+              <div className="p-5 border rounded-xl hover:shadow-lg transition">
+                <h3 className="font-semibold text-lg">Global Capability & Outsourcing Hub</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  India is a global leader in IT services, BPM, and shared service centres, offering
+                  cost-efficient and highly skilled talent pools.
+                </p>
+              </div>
+
+            </motion.div>
+
+            {/* RIGHT CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-5"
+            >
+
+              <div className="p-5 bg-[#081a42] text-white rounded-xl">
+                <h3 className="font-semibold text-lg">
+                  Strategic Market Opportunity
+                </h3>
+                <p className="text-sm text-white/80 mt-2">
+                  With a population exceeding 1.4 billion and a rapidly expanding middle class,
+                  India offers one of the largest consumer markets globally.
+                </p>
+              </div>
+
+              <div className="p-5 border rounded-xl hover:shadow-lg transition">
+                <h3 className="font-semibold text-lg">Digital & Infrastructure Growth</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  India’s digital ecosystem, fintech adoption, and infrastructure investments
+                  are driving long-term sustainable growth opportunities.
+                </p>
+              </div>
+
+              <div className="p-5 border rounded-xl hover:shadow-lg transition">
+                <h3 className="font-semibold text-lg">Strategic Geographic Advantage</h3>
+                <p className="text-sm text-gray-600 mt-1">
+                  Positioned between Middle East and Southeast Asia, India serves as a natural
+                  hub for global supply chains and regional expansion.
+                </p>
+              </div>
+
+            </motion.div>
+
+          </div>
+        </div>
+      </section>
 
       {/* KEY DRIVERS */}
       <section className="py-20">
