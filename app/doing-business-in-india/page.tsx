@@ -150,7 +150,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Healthcare",
-                image: "/images/health.jpg",
+                image: "https://cdn.corenexis.com/files/c/7454887720.jpg",
                 points: [
                   "Fastest growing sector",
                   "USD 372 Bn opportunity",
