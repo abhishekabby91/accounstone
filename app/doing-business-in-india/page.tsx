@@ -134,7 +134,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Construction",
-                image: "/images/construction.jpg",
+                image: "https://cdn.corenexis.com/files/c/3438374720.jpg",
                 points: [
                   "USD 1Tn market by 2025",
                   "Major GDP contributor",
@@ -142,7 +142,7 @@ export default function WhyIndiaPage() {
               },
               {
                 title: "Renewable Energy",
-                image: "/images/renewable.jpg",
+                image: "https://cdn.corenexis.com/files/c/3934283720.jpg",
                 points: [
                   "1000+ GW potential",
                   "Strong policy push",
