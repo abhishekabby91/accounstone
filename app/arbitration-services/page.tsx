@@ -168,7 +168,7 @@ export default function ArbitrationServicesPage() {
           </h2>
 
           <p className="text-muted-foreground mb-10">
-            We bring a multidisciplinary approach to dispute resolution ensuring
+            AU bring a multidisciplinary approach to dispute resolution ensuring
             efficiency, confidentiality and strong execution.
           </p>
 

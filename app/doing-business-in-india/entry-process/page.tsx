@@ -184,7 +184,7 @@ export default function EntryProcessPage() {
             </h2>
 
             <p className="text-white/80 mb-6">
-              We provide structured advisory solutions for seamless India entry and long-term compliance success.
+              AU provide structured advisory solutions for seamless India entry and long-term compliance success.
             </p>
 
             <ul className="space-y-3 text-white/80 text-sm">

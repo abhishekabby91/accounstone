@@ -233,7 +233,7 @@ export default function WhyIndiaPage() {
           Expand Your Business in India with Confidence
         </h2>
         <p className="max-w-2xl mx-auto text-white/80 mb-6">
-          We provide end-to-end advisory and compliance support for seamless entry and growth.
+          AU provide end-to-end advisory and compliance support for seamless entry and growth.
         </p>
 
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
