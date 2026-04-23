@@ -48,7 +48,7 @@ const sectors = [
   },
   {
     title: "Construction",
-    image: "/images/sectors/construction.jpg",
+    image: "https://cdn.corenexis.com/files/c/7788446720.jpg",
     points: [
       "USD 1 Trillion market by 2025",
       "Major GDP contributor",
@@ -56,7 +56,7 @@ const sectors = [
   },
   {
     title: "Food Processing",
-    image: "/images/sectors/food.jpg",
+    image: "https://cdn.corenexis.com/files/c/2612556720.jpg",
     points: [
       "2nd largest food producer globally",
       "Mega food parks boosting investment",
@@ -64,7 +64,7 @@ const sectors = [
   },
   {
     title: "Healthcare",
-    image: "/images/sectors/healthcare.jpg",
+    image: "https://cdn.corenexis.com/files/c/4785839720.jpg",
     points: [
       "Fast-growing sector",
       "Expected to reach USD 372 Bn",
