@@ -5,7 +5,7 @@ import Image from "next/image"
 const sectors = [
   {
     title: "Chemicals",
-    image: "/images/sectors/chemicals.jpg",
+    image: "https://cdn.corenexis.com/files/c/1846253720.jpg",
     points: [
       "USD 304 Bn market size by 2025",
       "Contributes ~3% to global chemical industry",
@@ -13,7 +13,7 @@ const sectors = [
   },
   {
     title: "Pharmaceuticals",
-    image: "/images/sectors/pharma.jpg",
+    image: "https://cdn.corenexis.com/files/c/8581953720.jpg",
     points: [
       "20% of global generic medicine supply",
       "Market expected to reach USD 130 Bn by 2030",
@@ -22,7 +22,7 @@ const sectors = [
   },
   {
     title: "IT - BPM",
-    image: "/images/sectors/it.jpg",
+    image: "https://cdn.corenexis.com/files/c/4374972720.jpg",
     points: [
       "Accounts for ~8% of GDP",
       "Expected to reach USD 350 Bn by 2025",
