@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, ChevronRight } from "lucide-react"
@@ -16,11 +16,27 @@ export function Navbar() {
   const [indiaMenuOpen, setIndiaMenuOpen] = useState(false)
   const [indiaSubMenu, setIndiaSubMenu] = useState<string | null>(null)
 
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  /* SCROLL */
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  /* HOVER FIX (IMPORTANT) */
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setIndiaMenuOpen(true)
+  }
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setIndiaMenuOpen(false)
+      setIndiaSubMenu(null)
+    }, 200) // delay prevents flicker
+  }
 
   /* NAV LINKS */
   const navLinks = [
@@ -77,28 +93,24 @@ export function Navbar() {
           {/* DESKTOP */}
           <div className="hidden lg:flex items-center gap-1">
 
-            {/* DOING BUSINESS DROPDOWN */}
+            {/* DOING BUSINESS MENU */}
             <div
               className="relative"
-              onMouseEnter={() => setIndiaMenuOpen(true)}
-              onMouseLeave={() => {
-                setIndiaMenuOpen(false)
-                setIndiaSubMenu(null)
-              }}
+              onMouseEnter={handleEnter}
+              onMouseLeave={handleLeave}
             >
               <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
                 Doing Business in India ▾
               </button>
 
               {indiaMenuOpen && (
-                <div className="absolute top-10 left-0 w-[320px] bg-white border shadow-xl rounded-xl">
+                <div className="absolute top-full left-0 mt-0 w-[320px] bg-white border shadow-xl rounded-xl z-50">
 
-                  {/* LEVEL 1 */}
-                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  <Link href="/doing-business-in-india#why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Why India
                   </Link>
 
-                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  <Link href="/doing-business-in-india#entry" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Entry Process & Business Structures
                   </Link>
 
@@ -113,7 +125,7 @@ export function Navbar() {
 
                   {/* LEVEL 3 */}
                   {indiaSubMenu === "help" && (
-                    <div className="absolute top-0 left-full w-[280px] bg-white border shadow-xl rounded-xl">
+                    <div className="absolute top-0 left-full -ml-1 w-[280px] bg-white border shadow-xl rounded-xl">
 
                       <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Pre-Incorporation
@@ -133,17 +145,17 @@ export function Navbar() {
                       </div>
 
                       {indiaSubMenu === "post" && (
-                        <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
+                        <div className="absolute top-0 left-full -ml-1 w-[260px] bg-white border shadow-xl rounded-xl">
 
-                          <Link href="/doing-business-in-india/post-incorporation/accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation#accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             Accounting
                           </Link>
 
-                          <Link href="/doing-business-in-india/post-incorporation/taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation#taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             Taxation
                           </Link>
 
-                          <Link href="/doing-business-in-india/post-incorporation/hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation#hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             HR
                           </Link>
 
@@ -171,7 +183,7 @@ export function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-10 left-0 w-[650px] bg-white border shadow-xl rounded-xl flex">
+                <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
 
                   <div className="w-1/2 border-r py-2">
                     {mainServices.map((service) => (
