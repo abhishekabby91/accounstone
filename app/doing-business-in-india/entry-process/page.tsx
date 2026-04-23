@@ -9,10 +9,15 @@ export default function EntryProcessPage() {
 
       {/* HERO */}
       <section className="bg-[#081a42] text-white py-24 text-center">
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           <h1 className="text-5xl font-bold">
             Entry Process & Business Structures in India
           </h1>
+
           <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
             A step-by-step guide for global businesses to establish and operate in India
             with the right structure and regulatory compliance.
@@ -32,35 +37,38 @@ export default function EntryProcessPage() {
 
             {[
               {
-                step: "1. Market Research & Feasibility",
-                desc: "Evaluate market demand, competition, regulatory landscape, and sector-specific opportunities before entering India.",
+                step: "Market Research & Feasibility",
+                desc: "Evaluate demand, competition, regulatory landscape, and sector opportunities before entering India.",
               },
               {
-                step: "2. Entry Strategy & Structure Selection",
-                desc: "Choose the right business structure such as subsidiary, LLP, or joint venture based on control, tax, and operational requirements.",
+                step: "Entry Strategy & Structure Selection",
+                desc: "Choose subsidiary, LLP, JV, or branch office based on business goals.",
               },
               {
-                step: "3. Regulatory Approvals",
-                desc: "Obtain approvals under FEMA, RBI, and sector-specific regulators where applicable.",
+                step: "Regulatory Approvals",
+                desc: "Obtain RBI/FEMA approvals wherever applicable.",
               },
               {
-                step: "4. Company Incorporation",
-                desc: "Register the entity with MCA and complete statutory registrations including PAN, TAN, and GST.",
+                step: "Company Incorporation",
+                desc: "Register with MCA and obtain PAN, TAN, GST registrations.",
               },
               {
-                step: "5. Bank Account & Capital Infusion",
-                desc: "Open bank accounts and bring in foreign investment in compliance with FEMA regulations.",
+                step: "Bank Account & Capital Infusion",
+                desc: "Open bank account and bring foreign investment compliantly.",
               },
               {
-                step: "6. Operational Setup",
-                desc: "Set up office, hire employees, implement accounting systems, and establish internal processes.",
+                step: "Operational Setup",
+                desc: "Office setup, hiring, accounting systems, and compliance framework.",
               },
               {
-                step: "7. Ongoing Compliance",
-                desc: "Ensure regular compliance with tax laws, labour laws, FEMA, and corporate regulations.",
+                step: "Ongoing Compliance",
+                desc: "Tax filings, ROC compliance, FEMA reporting, audits.",
               },
             ].map((item) => (
-              <div key={item.step} className="flex gap-4 p-5 border rounded-xl">
+              <div
+                key={item.step}
+                className="flex gap-4 p-5 border rounded-xl hover:shadow-md transition"
+              >
                 <CheckCircle className="text-green-600 mt-1" />
                 <div>
                   <h4 className="font-semibold">{item.step}</h4>
@@ -70,7 +78,6 @@ export default function EntryProcessPage() {
             ))}
 
           </div>
-
         </div>
       </section>
 
@@ -84,64 +91,40 @@ export default function EntryProcessPage() {
 
           <div className="grid md:grid-cols-2 gap-8">
 
-            {/* WOS */}
             <div className="p-6 bg-white border rounded-xl">
               <h3 className="font-semibold text-lg mb-2">
                 Wholly Owned Subsidiary
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                A private limited company fully owned by a foreign entity.
+              <p className="text-sm text-gray-600">
+                100% foreign-owned company with full operational control in India.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Full control over operations</li>
-                <li>• Limited liability structure</li>
-                <li>• Most preferred route for foreign companies</li>
-              </ul>
             </div>
 
-            {/* LLP */}
             <div className="p-6 bg-white border rounded-xl">
               <h3 className="font-semibold text-lg mb-2">
-                Limited Liability Partnership (LLP)
+                LLP
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Hybrid structure combining flexibility of partnership with limited liability.
+              <p className="text-sm text-gray-600">
+                Flexible structure with limited liability and lower compliance.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Lower compliance burden</li>
-                <li>• Suitable for service-based businesses</li>
-                <li>• Restricted FDI in certain sectors</li>
-              </ul>
             </div>
 
-            {/* JV */}
             <div className="p-6 bg-white border rounded-xl">
               <h3 className="font-semibold text-lg mb-2">
                 Joint Venture
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Partnership with an Indian company for market access and local expertise.
+              <p className="text-sm text-gray-600">
+                Partnership with Indian entity for market access and expertise.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• Shared ownership and risk</li>
-                <li>• Access to local network</li>
-                <li>• Strategic collaboration benefits</li>
-              </ul>
             </div>
 
-            {/* BRANCH */}
             <div className="p-6 bg-white border rounded-xl">
               <h3 className="font-semibold text-lg mb-2">
                 Branch / Liaison / Project Office
               </h3>
-              <p className="text-sm text-gray-600 mb-3">
-                Extension of foreign company without separate legal entity.
+              <p className="text-sm text-gray-600">
+                Extension of foreign company with limited permitted activities.
               </p>
-              <ul className="text-sm text-gray-600 space-y-1">
-                <li>• RBI approval required</li>
-                <li>• Limited activities allowed</li>
-                <li>• Suitable for specific business purposes</li>
-              </ul>
             </div>
 
           </div>
@@ -176,6 +159,7 @@ export default function EntryProcessPage() {
         <p className="text-white/80 mb-6 max-w-xl mx-auto">
           We guide you through every step—from strategy to incorporation and compliance.
         </p>
+
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
           Talk to Experts
         </button>
