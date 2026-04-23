@@ -22,7 +22,7 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  /* NAV LINKS (REMOVED DOING BUSINESS) */
+  /* NAV LINKS */
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
     { label: "HR Services", href: "/hr-services" },
@@ -93,11 +93,12 @@ export function Navbar() {
               {indiaMenuOpen && (
                 <div className="absolute top-10 left-0 w-[320px] bg-white border shadow-xl rounded-xl">
 
-                  <Link href="/doing-business-in-india#why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  {/* LEVEL 1 */}
+                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Why India
                   </Link>
 
-                  <Link href="/doing-business-in-india#entry" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Entry Process & Business Structures
                   </Link>
 
@@ -114,11 +115,11 @@ export function Navbar() {
                   {indiaSubMenu === "help" && (
                     <div className="absolute top-0 left-full w-[280px] bg-white border shadow-xl rounded-xl">
 
-                      <Link href="/doing-business-in-india#pre" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                      <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Pre-Incorporation
                       </Link>
 
-                      <Link href="/doing-business-in-india#inc" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                      <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Incorporation
                       </Link>
 
@@ -134,15 +135,15 @@ export function Navbar() {
                       {indiaSubMenu === "post" && (
                         <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
 
-                          <Link href="/doing-business-in-india#accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation/accounting" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             Accounting
                           </Link>
 
-                          <Link href="/doing-business-in-india#taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation/taxation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             Taxation
                           </Link>
 
-                          <Link href="/doing-business-in-india#hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                          <Link href="/doing-business-in-india/post-incorporation/hr" className="block px-4 py-3 text-sm hover:bg-gray-100">
                             HR
                           </Link>
 
@@ -156,7 +157,7 @@ export function Navbar() {
               )}
             </div>
 
-            {/* SERVICES (UNCHANGED) */}
+            {/* SERVICES */}
             <div
               className="relative"
               onMouseEnter={() => setServicesOpen(true)}
