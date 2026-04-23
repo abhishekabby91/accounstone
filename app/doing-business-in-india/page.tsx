@@ -58,7 +58,7 @@ const helpSections = [
   },
 
   {
-    title: "Incorporation Support",
+    title: "Incorporation",
     services: [
       "Company incorporation",
       "SEBI compliance setup",
@@ -74,12 +74,22 @@ const helpSections = [
   },
 
   {
-    title: "Post-Incorporation Support & Services",
+    title: "Post-Incorporation",
     services: [
-      "PAN, TAN & GST registrations",
-      "Accounting & bookkeeping setup",
-      "Payroll & HR compliance support",
-      "Ongoing regulatory compliance management",
+      /* ACCOUNTING */
+      "Bookkeeping & financial statement preparation",
+      "Management reporting & MIS dashboards",
+      "Budgeting & financial analysis support",
+
+      /* TAXATION */
+      "Direct & indirect tax compliance",
+      "GST return filing & advisory",
+      "Tax planning & optimization support",
+
+      /* HR SERVICES */
+      "Payroll processing & compliance",
+      "Employee onboarding & HR policy setup",
+      "Labour law compliance & advisory",
     ],
   },
 ]
