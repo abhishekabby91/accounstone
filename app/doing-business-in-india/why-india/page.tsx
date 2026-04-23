@@ -266,7 +266,115 @@ export default function WhyIndiaPage() {
           </div>
         </div>
       </section>
+      {/* SECTOR OPPORTUNITIES WITH IMAGES */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl font-bold">
+              High-Growth Sector Opportunities in India
+            </h2>
+
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              India offers diversified investment opportunities across sectors driven by
+              policy support, digital transformation, and global supply chain realignment.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {[
+              {
+                title: "Pharmaceuticals & Life Sciences",
+                image: "https://cdn.corenexis.com/files/c/8581953720.jpg",
+                desc: "Global leader in generics, vaccines and contract manufacturing.",
+                stat: "20% global supply share",
+              },
+              {
+                title: "IT Services & SaaS",
+                image: "https://cdn.corenexis.com/files/c/4374972720.jpg",
+                desc: "India dominates global IT outsourcing and digital services delivery.",
+                stat: "$350B+ industry",
+              },
+              {
+                title: "Automobile & EV",
+                image: "https://cdn.corenexis.com/files/c/3863859720.jpg",
+                desc: "Rapid EV adoption and manufacturing ecosystem expansion.",
+                stat: "4th largest auto market",
+              },
+              {
+                title: "Renewable Energy",
+                image: "https://cdn.corenexis.com/files/c/6554291720.jpg",
+                desc: "Massive solar, wind and green hydrogen expansion pipeline.",
+                stat: "500+ GW target",
+              },
+              {
+                title: "Infrastructure & Construction",
+                image: "https://cdn.corenexis.com/files/c/7788446720.jpg",
+                desc: "Smart cities, highways, logistics and real estate boom.",
+                stat: "$1T+ pipeline",
+              },
+              {
+                title: "Financial Services & Fintech",
+                image: "https://cdn.corenexis.com/files/c/4785839720.jpg",
+                desc: "UPI-driven digital economy transforming financial systems.",
+                stat: "1B+ monthly transactions",
+              },
+            ].map((sector, i) => (
+              <motion.div
+                key={sector.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className="group bg-white border rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300"
+              >
+
+                {/* IMAGE */}
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={sector.image}
+                    alt={sector.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+
+                  {/* overlay */}
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition" />
+                </div>
+
+                {/* CONTENT */}
+                <div className="p-6">
+
+                  <span className="text-xs bg-[#081a42] text-white px-3 py-1 rounded-full">
+                    {sector.stat}
+                  </span>
+
+                  <h3 className="font-semibold text-lg mt-3 group-hover:text-[#081a42] transition">
+                    {sector.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-600 mt-2">
+                    {sector.desc}
+                  </p>
+
+                  <div className="mt-4 text-sm text-yellow-600 font-medium opacity-0 group-hover:opacity-100 transition">
+                    Explore opportunity →
+                  </div>
+
+                </div>
+
+              </motion.div>
+            ))}
+
+          </div>
+        </div>
+      </section>
       {/* INDIA VS GLOBAL MARKETS */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
