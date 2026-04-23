@@ -223,7 +223,7 @@ export default function EntryProcessPage() {
           >
             <h2 className="text-3xl font-bold">
               How{" "}
-              <span className="text-[#D4AF37]">AU Corporate</span>{" "}
+              <span className="text-[#FFD700]">AU Corporate</span>{" "}
               Mitigates Entry Risks
             </h2>
 
