@@ -195,24 +195,6 @@ export default function EntryProcessPage() {
               <li>• Ongoing compliance management</li>
             </ul>
           </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="bg-white text-black p-8 rounded-xl shadow-xl"
-          >
-            <h3 className="text-xl font-semibold mb-4">
-              Why Companies Choose India
-            </h3>
-
-            <div className="space-y-4 text-sm text-gray-700">
-              <p>• Large consumer market with strong demand growth</p>
-              <p>• Cost-efficient global outsourcing destination</p>
-              <p>• Strong legal and regulatory framework</p>
-              <p>• Rapidly expanding digital and industrial ecosystem</p>
-            </div>
-          </motion.div>
-
         </div>
       </section>
 
