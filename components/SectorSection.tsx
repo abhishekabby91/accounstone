@@ -31,7 +31,7 @@ const sectors = [
   },
   {
     title: "Automobile / EV",
-    image: "/images/sectors/auto.jpg",
+    image: "https://cdn.corenexis.com/files/c/3863859720.jpg",
     points: [
       "4th largest automotive market globally",
       "Largest 2-wheeler manufacturer",
@@ -40,7 +40,7 @@ const sectors = [
   },
   {
     title: "Electronics",
-    image: "/images/sectors/electronics.jpg",
+    image: "https://cdn.corenexis.com/files/c/8554366720.jpg",
     points: [
       "268+ manufacturing units established",
       "Rapid growth in mobile production",
