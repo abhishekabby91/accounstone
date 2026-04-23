@@ -37,7 +37,7 @@ export default function WhyIndiaPage() {
           className="relative z-10 max-w-4xl px-6"
         >
           <h1 className="text-5xl font-bold">
-            Why India
+            Why India?
           </h1>
 
           <p className="mt-5 text-lg text-white/80">
