@@ -1,126 +1,145 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { CheckCircle, Building2, Landmark, Globe, TrendingUp } from "lucide-react"
+import { TrendingUp, Globe, Users, Shield, Landmark, Cpu, Briefcase, BarChart3 } from "lucide-react"
+import Image from "next/image"
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: (i = 1) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
+    transition: { delay: i * 0.1, duration: 0.6 },
   }),
-}
-
-const container = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.12,
-    },
-  },
 }
 
 export default function EntryProcessPage() {
   return (
     <div className="bg-white">
 
-      {/* HERO */}
-      <section className="bg-[#081a42] text-white py-28 text-center relative overflow-hidden">
+      {/* HERO (FIXED - NO WHY INDIA) */}
+      <section className="relative h-[85vh] flex items-center justify-center text-center text-white">
 
-        <div className="absolute inset-0 opacity-20 bg-gradient-to-r from-blue-500 via-transparent to-yellow-400 blur-3xl animate-pulse" />
+        <Image
+          src="https://cdn.corenexis.com/files/c/7719595720.jpg"
+          alt="India Business Entry"
+          fill
+          className="object-cover"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-[#081a42]/60" />
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="relative"
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+          className="relative z-10 max-w-4xl px-6"
         >
           <h1 className="text-5xl font-bold">
-            Entry Process & Business Structures in India
+            India Entry Process & Business Structures
           </h1>
 
-          <p className="mt-5 text-lg text-white/80 max-w-3xl mx-auto">
-            Strategic end-to-end advisory for global businesses entering India —
-            covering structuring, regulatory approvals, taxation, compliance and operational setup.
+          <p className="mt-5 text-lg text-white/80">
+            A structured roadmap for global companies entering India — covering market evaluation,
+            regulatory approvals, entity setup, taxation, and operational launch strategy.
           </p>
         </motion.div>
       </section>
 
-      {/* INTRO */}
-      <section className="py-20 text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={container}
-          className="max-w-4xl mx-auto px-6"
-        >
-          <motion.h2 variants={fadeUp} custom={1} className="text-3xl font-bold">
-            A Complete India Entry Framework
-          </motion.h2>
-
-          <motion.p variants={fadeUp} custom={2} className="text-gray-600 mt-4">
-            AU Corporate assists multinational businesses in designing compliant,
-            tax-efficient and scalable entry structures into India.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* TIMELINE */}
-      <section className="py-24 bg-gray-50">
+      {/* STRATEGIC CONTEXT (FROM WHY INDIA INSIGHT BUT REPOSITIONED) */}
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
 
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-bold text-center mb-16"
+            className="text-center mb-14"
           >
-            India Entry Journey
-          </motion.h2>
+            <h2 className="text-3xl font-bold">
+              Why India is a Strategic Entry Market
+            </h2>
+
+            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
+              India’s economic transformation, digital infrastructure, and supply chain integration
+              make it a key destination for global expansion strategies.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-10">
+
+            <div className="p-6 border rounded-xl hover:shadow-md transition">
+              <h3 className="font-semibold text-lg mb-2">Market Scale Advantage</h3>
+              <p className="text-sm text-gray-600">
+                India offers one of the largest consumer bases globally, enabling long-term demand visibility.
+              </p>
+            </div>
+
+            <div className="p-6 border rounded-xl hover:shadow-md transition">
+              <h3 className="font-semibold text-lg mb-2">Policy & Reform Ecosystem</h3>
+              <p className="text-sm text-gray-600">
+                Liberal FDI regime, GST implementation, and digital compliance systems simplify entry.
+              </p>
+            </div>
+
+            <div className="p-6 border rounded-xl hover:shadow-md transition">
+              <h3 className="font-semibold text-lg mb-2">Digital Infrastructure</h3>
+              <p className="text-sm text-gray-600">
+                UPI, Aadhaar, GSTN enable efficient business operations and scalability.
+              </p>
+            </div>
+
+            <div className="p-6 border rounded-xl hover:shadow-md transition">
+              <h3 className="font-semibold text-lg mb-2">Global Supply Chain Shift</h3>
+              <p className="text-sm text-gray-600">
+                India is a key beneficiary of China+1 manufacturing diversification strategy.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ENTRY PROCESS */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6">
+
+          <h2 className="text-3xl font-bold text-center mb-16">
+            Step-by-Step Entry Process
+          </h2>
 
           <div className="relative">
 
             <div className="absolute left-1/2 top-0 h-full w-[2px] bg-gray-300 hidden md:block" />
 
             {[
-              { title: "Market Feasibility Study", desc: "Evaluate business potential, competition, and regulatory landscape." },
-              { title: "Entry Structure Selection", desc: "Subsidiary, JV, LLP, Branch or Liaison Office." },
-              { title: "Regulatory Planning", desc: "FEMA, RBI and FDI compliance mapping." },
-              { title: "Entity Incorporation", desc: "MCA registration, PAN, TAN, GST setup." },
-              { title: "Capital Setup", desc: "Banking and foreign investment structuring." },
-              { title: "Operations Launch", desc: "HR, accounting and internal systems setup." },
-              { title: "Ongoing Compliance", desc: "Tax, ROC, FEMA filings and audits." },
+              "Market Feasibility & Entry Strategy",
+              "Business Structure Selection",
+              "Regulatory & FDI Compliance Review",
+              "Entity Incorporation in India",
+              "Tax & Banking Setup",
+              "Operational Launch",
+              "Ongoing Compliance & Reporting"
             ].map((step, i) => (
               <motion.div
-                key={step.title}
+                key={step}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative flex md:items-center mb-14 ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"
-                  }`}
+                transition={{ delay: i * 0.1 }}
+                className={`relative flex md:items-center mb-14 ${i % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}
               >
 
-                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-[#081a42] rounded-full border-4 border-white shadow-lg" />
+                <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 w-5 h-5 bg-[#081a42] rounded-full border-4 border-white" />
 
-                <div className="bg-white border rounded-2xl shadow-sm hover:shadow-xl transition p-6 md:w-[45%]">
-
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-8 h-8 flex items-center justify-center bg-[#081a42] text-white rounded-full text-sm">
-                      {i + 1}
-                    </span>
-
-                    <h3 className="font-semibold text-lg">
-                      {step.title}
-                    </h3>
-                  </div>
-
+                <div className="bg-white border rounded-2xl p-6 md:w-[45%] shadow-sm hover:shadow-lg transition">
+                  <h3 className="font-semibold text-lg mb-2">
+                    {i + 1}. {step}
+                  </h3>
                   <p className="text-sm text-gray-600">
-                    {step.desc}
+                    Structured execution with regulatory compliance and business alignment.
                   </p>
-
                 </div>
 
               </motion.div>
@@ -130,7 +149,7 @@ export default function EntryProcessPage() {
         </div>
       </section>
 
-      {/* STRUCTURES */}
+      {/* BUSINESS STRUCTURES */}
       <section className="py-24">
         <div className="max-w-6xl mx-auto px-6">
 
@@ -141,115 +160,172 @@ export default function EntryProcessPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {[
-              { title: "Wholly Owned Subsidiary", desc: "Full control with limited liability structure." },
-              { title: "LLP Structure", desc: "Flexible compliance model." },
-              { title: "Joint Venture", desc: "Local partnership for market access." },
-              { title: "Branch / Liaison Office", desc: "RBI approved foreign presence." },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="p-6 border rounded-xl hover:shadow-xl transition"
-              >
+              { title: "Wholly Owned Subsidiary", desc: "Full control with independent legal entity structure." },
+              { title: "LLP Structure", desc: "Flexible partnership-based model with lower compliance." },
+              { title: "Joint Venture", desc: "Strategic partnership with Indian entity." },
+              { title: "Branch Office", desc: "Foreign company presence under RBI approval." },
+            ].map((item) => (
+              <div key={item.title} className="p-6 border rounded-xl hover:shadow-lg transition">
                 <h3 className="font-semibold mb-2">{item.title}</h3>
                 <p className="text-sm text-gray-600">{item.desc}</p>
-              </motion.div>
+              </div>
             ))}
 
           </div>
         </div>
       </section>
 
-      {/* ===================== NEW EXPANDED SECTION 1 ===================== */}
+      {/* RISKS */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
 
           <h2 className="text-3xl font-bold text-center mb-12">
-            Detailed Entry Process Explained
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-
-            <div className="p-6 bg-white border rounded-xl">
-              <h3 className="font-semibold mb-2">Market & Feasibility Analysis</h3>
-              <p className="text-sm text-gray-600">
-                Includes sector study, competitor benchmarking, pricing models,
-                regulatory restrictions and profitability mapping before entry decision.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white border rounded-xl">
-              <h3 className="font-semibold mb-2">Entry Strategy Design</h3>
-              <p className="text-sm text-gray-600">
-                Structuring based on control, risk exposure, tax efficiency and capital deployment strategy.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white border rounded-xl">
-              <h3 className="font-semibold mb-2">Regulatory Clearance Mapping</h3>
-              <p className="text-sm text-gray-600">
-                FEMA, RBI approvals, sectoral caps and foreign investment compliance assessment.
-              </p>
-            </div>
-
-            <div className="p-6 bg-white border rounded-xl">
-              <h3 className="font-semibold mb-2">Post Incorporation Setup</h3>
-              <p className="text-sm text-gray-600">
-                Banking, accounting systems, payroll, HR onboarding and internal governance setup.
-              </p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      {/* ===================== NEW EXPANDED SECTION 2 ===================== */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Choosing the Right Business Structure
+            Key Entry Risks to Consider
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold mb-2">Subsidiary Model</h3>
+            <div className="p-6 bg-white border rounded-xl">
+              <h3 className="font-semibold mb-2">Regulatory Complexity</h3>
               <p className="text-sm text-gray-600">
-                Best for full operational control and long-term market expansion in India.
+                Multiple approvals under FEMA, RBI and tax laws.
               </p>
             </div>
 
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold mb-2">Joint Venture Model</h3>
+            <div className="p-6 bg-white border rounded-xl">
+              <h3 className="font-semibold mb-2">Tax Exposure</h3>
               <p className="text-sm text-gray-600">
-                Suitable for local partnerships and regulatory-sensitive industries.
+                Improper structuring may lead to double taxation.
               </p>
             </div>
 
-            <div className="p-6 border rounded-xl">
-              <h3 className="font-semibold mb-2">Branch / Liaison Office</h3>
+            <div className="p-6 bg-white border rounded-xl">
+              <h3 className="font-semibold mb-2">Compliance Burden</h3>
               <p className="text-sm text-gray-600">
-                Ideal for market research, branding presence and limited operations.
+                Ongoing reporting and audit obligations.
               </p>
             </div>
 
           </div>
+        </div>
+      </section>
+      {/* AU SUPPORT AGAINST ENTRY RISKS */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+
+          {/* HEADER */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl font-bold">
+              How{" "}
+              <span className="text-[#D4AF37]">AU Corporate</span>{" "}
+              Mitigates Entry Risks
+            </h2>
+
+            <p className="text-gray-600 max-w-3xl mx-auto mt-4">
+              We transform regulatory complexity into a structured, compliant and predictable
+              India entry journey for global businesses.
+            </p>
+          </motion.div>
+
+          {/* GRID */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.12
+                }
+              }
+            }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+
+            {[
+              {
+                title: "Regulatory Navigation",
+                desc: "End-to-end handling of FEMA, RBI and MCA approvals with compliance accuracy.",
+              },
+              {
+                title: "Optimal Structuring",
+                desc: "Tax-efficient entity structuring aligned with long-term business goals.",
+              },
+              {
+                title: "Tax Risk Management",
+                desc: "Transfer pricing, DTAA planning and corporate tax optimization.",
+              },
+              {
+                title: "Faster Market Entry",
+                desc: "Reduced incorporation timelines through structured execution planning.",
+              },
+              {
+                title: "Ongoing Compliance Support",
+                desc: "Accounting, payroll, ROC filings and FEMA reporting managed end-to-end.",
+              },
+              {
+                title: "Strategic Advisory",
+                desc: "Beyond compliance — supporting expansion, scaling and investment strategy.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                variants={{
+                  hidden: { opacity: 0, y: 40, scale: 0.95 },
+                  visible: {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      duration: 0.5,
+                      ease: "easeOut"
+                    }
+                  }
+                }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0px 10px 30px rgba(212, 175, 55, 0.25)"
+                }}
+                className="p-6 border rounded-xl bg-white cursor-pointer relative overflow-hidden"
+              >
+
+                {/* GOLD ACCENT BAR */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-[#FFD700]" />
+
+                {/* HOVER GLOW EFFECT */}
+                <div className="absolute inset-0 opacity-0 hover:opacity-10 bg-[#FFD700] transition" />
+
+                <h3 className="font-semibold mb-2 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#FFD700]" />
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-gray-600">
+                  {item.desc}
+                </p>
+
+              </motion.div>
+            ))}
+
+          </motion.div>
 
         </div>
       </section>
-
       {/* CTA */}
       <section className="bg-[#081a42] text-white py-24 text-center">
         <h2 className="text-3xl font-bold mb-4">
-          Start Your India Entry with Experts
+          Start Your India Entry Journey
         </h2>
 
         <p className="text-white/80 max-w-2xl mx-auto mb-6">
-          Build a compliant and scalable structure with AU Corporate advisory.
+          Build a compliant and scalable business structure in India with expert guidance.
         </p>
 
         <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
