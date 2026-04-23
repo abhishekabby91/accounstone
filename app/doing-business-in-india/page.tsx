@@ -110,7 +110,7 @@ export default function WhyIndiaPage() {
             {[
               {
                 title: "Pharmaceuticals",
-                image: "/images/pharma.jpg",
+                image: "https://cdn.corenexis.com/files/c/4291696720.jpg",
                 points: [
                   "20% global generic medicine supply",
                   "USD 130 Bn market by 2030",
