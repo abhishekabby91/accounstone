@@ -87,6 +87,58 @@ export function Navbar() {
             </div>
           </Link>
 
+          {/* SERVICES */}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => {
+              setServicesOpen(false)
+              setActiveMenu(null)
+            }}
+          >
+            <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
+              Services ▾
+            </button>
+
+            {servicesOpen && (
+              <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
+
+                <div className="w-1/2 border-r py-2">
+                  {mainServices.map((service) => (
+                    <div
+                      key={service.label}
+                      onMouseEnter={() => setActiveMenu(service.key || null)}
+                      className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                    >
+                      {service.href ? (
+                        <Link href={service.href}>{service.label}</Link>
+                      ) : (
+                        <span>{service.label}</span>
+                      )}
+                      {service.key && <ChevronRight className="w-4 h-4" />}
+                    </div>
+                  ))}
+                </div>
+
+                <div className="w-1/2 p-4">
+                  {activeMenu === "risk" &&
+                    riskSubServices.map((item) => (
+                      <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                        {item.label}
+                      </Link>
+                    ))}
+
+                  {activeMenu === "tax" &&
+                    taxSubServices.map((item) => (
+                      <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                        {item.label}
+                      </Link>
+                    ))}
+                </div>
+
+              </div>
+            )}
+          </div>
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-2">
 
@@ -147,58 +199,6 @@ export function Navbar() {
               )}
             </div>
 
-            {/* SERVICES */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesOpen(true)}
-              onMouseLeave={() => {
-                setServicesOpen(false)
-                setActiveMenu(null)
-              }}
-            >
-              <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
-                Services ▾
-              </button>
-
-              {servicesOpen && (
-                <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
-
-                  <div className="w-1/2 border-r py-2">
-                    {mainServices.map((service) => (
-                      <div
-                        key={service.label}
-                        onMouseEnter={() => setActiveMenu(service.key || null)}
-                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
-                      >
-                        {service.href ? (
-                          <Link href={service.href}>{service.label}</Link>
-                        ) : (
-                          <span>{service.label}</span>
-                        )}
-                        {service.key && <ChevronRight className="w-4 h-4" />}
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="w-1/2 p-4">
-                    {activeMenu === "risk" &&
-                      riskSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
-
-                    {activeMenu === "tax" &&
-                      taxSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
-                  </div>
-
-                </div>
-              )}
-            </div>
 
             {/* OTHER LINKS */}
             {navLinks.map((link) => (
