@@ -1,25 +1,15 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  Globe,
-  Users,
-  TrendingUp,
-  Landmark,
-  Cpu,
-  Briefcase,
-  ShieldCheck,
-  Building2,
-  FileCheck2,
-} from "lucide-react"
+import { Globe, Users, TrendingUp, Landmark, Cpu, Briefcase, CheckCircle } from "lucide-react"
 import Image from "next/image"
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: (i = 1) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.1, duration: 0.6 },
+    transition: { delay: i * 0.12, duration: 0.6 },
   }),
 }
 
@@ -27,137 +17,105 @@ export default function WhyIndiaPage() {
   return (
     <div className="bg-white">
 
-      {/* HERO */}
-      <section className="bg-[#081a42] text-white py-28 text-center">
+      {/* HERO WITH BACKGROUND IMAGE */}
+      <section className="relative text-white py-28 text-center overflow-hidden">
+
+        {/* BACKGROUND IMAGE */}
+        <Image
+          src="https://cdn.corenexis.com/files/c/7719595720.jpg"
+          alt="India Global Business Skyline"
+          fill
+          className="object-cover z-0"
+          priority
+        />
+
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+
+        {/* CONTENT */}
         <motion.div
           initial="hidden"
           animate="visible"
-          variants={fadeUp}
+          className="relative z-20 max-w-4xl mx-auto px-6"
         >
           <h1 className="text-5xl font-bold">
-            Why India for Global Expansion
+            Why India is a Global Business Hub
           </h1>
 
-          <p className="mt-5 text-lg text-white/80 max-w-3xl mx-auto">
-            India is one of the most attractive global destinations for foreign investment,
-            offering scale, stability, and strategic growth opportunities across industries.
-            AU Corporate supports international businesses in seamless entry, compliance,
-            and long-term operations in India.
+          <p className="mt-5 text-lg text-white/80">
+            India stands as one of the fastest-growing major economies,
+            offering unmatched opportunities for foreign direct investment,
+            expansion, and strategic global positioning.
           </p>
         </motion.div>
       </section>
-      {/* WHY INDIA - INSIGHT SECTION */}
-      <section className="py-20 bg-white">
+
+      {/* INTRO ADVISORY SECTION (NEW - AU CORPORATE STYLE) */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-3xl font-bold text-center"
           >
-            <h2 className="text-3xl font-bold">
-              Why Global Businesses Are Choosing India
-            </h2>
+            India – A Strategic Destination for Global Expansion
+          </motion.h2>
 
-            <p className="text-gray-600 mt-4 max-w-3xl mx-auto">
-              India has emerged as a preferred global investment destination due to its strong
-              economic fundamentals, regulatory reforms, digital transformation, and cost efficiency.
-              Leading advisory firms such as global accounting and consulting networks highlight India
-              as a key strategic hub for expansion across Asia.
-            </p>
-          </motion.div>
+          <p className="text-center text-gray-600 mt-4 max-w-3xl mx-auto">
+            As highlighted by global advisory firms such as EY, Deloitte, and RSM,
+            India continues to emerge as a preferred destination for multinational
+            corporations due to its scale, reforms, and economic resilience.
+          </p>
 
-          <div className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-3 gap-6 mt-10">
 
-            {/* LEFT CONTENT */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-5"
-            >
-
-              <div className="p-5 border rounded-xl hover:shadow-lg transition">
-                <h3 className="font-semibold text-lg">Strong Economic Fundamentals</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  India is among the fastest-growing major economies, supported by strong domestic demand,
-                  expanding manufacturing base, and robust service sector contribution.
-                </p>
-              </div>
-
-              <div className="p-5 border rounded-xl hover:shadow-lg transition">
-                <h3 className="font-semibold text-lg">FDI Liberalisation & Policy Reforms</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  Continuous reforms in FDI policy, GST implementation, and digitisation have significantly
-                  improved ease of doing business in India.
-                </p>
-              </div>
-
-              <div className="p-5 border rounded-xl hover:shadow-lg transition">
-                <h3 className="font-semibold text-lg">Global Capability & Outsourcing Hub</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  India is a global leader in IT services, BPM, and shared service centres, offering
-                  cost-efficient and highly skilled talent pools.
-                </p>
-              </div>
-
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-5"
-            >
-
-              <div className="p-5 bg-[#081a42] text-white rounded-xl">
-                <h3 className="font-semibold text-lg">
-                  Strategic Market Opportunity
-                </h3>
-                <p className="text-sm text-white/80 mt-2">
-                  With a population exceeding 1.4 billion and a rapidly expanding middle class,
-                  India offers one of the largest consumer markets globally.
-                </p>
-              </div>
-
-              <div className="p-5 border rounded-xl hover:shadow-lg transition">
-                <h3 className="font-semibold text-lg">Digital & Infrastructure Growth</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  India’s digital ecosystem, fintech adoption, and infrastructure investments
-                  are driving long-term sustainable growth opportunities.
-                </p>
-              </div>
-
-              <div className="p-5 border rounded-xl hover:shadow-lg transition">
-                <h3 className="font-semibold text-lg">Strategic Geographic Advantage</h3>
-                <p className="text-sm text-gray-600 mt-1">
-                  Positioned between Middle East and Southeast Asia, India serves as a natural
-                  hub for global supply chains and regional expansion.
-                </p>
-              </div>
-
-            </motion.div>
+            {[
+              {
+                title: "Global Market Access",
+                desc: "Gateway to 1.4 billion consumers and rapidly expanding middle class.",
+              },
+              {
+                title: "Regulatory Reforms",
+                desc: "Ease of doing business improvements and digital governance transformation.",
+              },
+              {
+                title: "Investment Growth",
+                desc: "Consistent FDI inflows across manufacturing, IT, and services sectors.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                variants={fadeUp}
+                className="p-6 bg-white border rounded-xl hover:shadow-lg"
+              >
+                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-600">{item.desc}</p>
+              </motion.div>
+            ))}
 
           </div>
+
         </div>
       </section>
 
-      {/* KEY DRIVERS */}
+      {/* KEY HIGHLIGHTS */}
       <section className="py-20">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
 
           {[
             {
               icon: <Users />,
-              title: "Massive Consumer Base",
-              desc: "1.4+ billion population with rising consumption and urbanization.",
+              title: "Large Consumer Market",
+              desc: "Access to over 1.4 billion consumers with rising purchasing power.",
             },
             {
               icon: <TrendingUp />,
               title: "High Growth Economy",
-              desc: "Among the fastest-growing large economies globally.",
+              desc: "One of the fastest growing major economies globally.",
             },
             {
               icon: <Cpu />,
@@ -167,29 +125,27 @@ export default function WhyIndiaPage() {
             {
               icon: <Briefcase />,
               title: "Cost Efficiency",
-              desc: "Competitive talent and operational cost advantage.",
+              desc: "Competitive labor and operational cost advantages.",
             },
             {
               icon: <Landmark />,
-              title: "Policy Reforms",
-              desc: "FDI liberalization, GST, ease of doing business reforms.",
+              title: "Policy Support",
+              desc: "FDI liberalisation and business-friendly reforms.",
             },
             {
               icon: <Globe />,
               title: "Global Connectivity",
-              desc: "Strategic gateway to Asia, Middle East & global supply chains.",
+              desc: "Strategic access to Asia, Middle East, and global trade routes.",
             },
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="p-6 border rounded-xl hover:shadow-xl transition bg-white"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="p-6 border rounded-xl hover:shadow-lg"
             >
-              <div className="text-[#081a42] mb-4">{item.icon}</div>
+              <div className="text-[#081a42] mb-3">{item.icon}</div>
               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
               <p className="text-sm text-gray-600">{item.desc}</p>
             </motion.div>
@@ -210,15 +166,11 @@ export default function WhyIndiaPage() {
           ].map((stat, i) => (
             <motion.div
               key={stat.label}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUp}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ delay: i * 0.1 }}
             >
-              <h2 className="text-3xl font-bold text-[#081a42]">
-                {stat.value}
-              </h2>
+              <h2 className="text-3xl font-bold text-[#081a42]">{stat.value}</h2>
               <p className="text-sm text-gray-600">{stat.label}</p>
             </motion.div>
           ))}
@@ -226,132 +178,55 @@ export default function WhyIndiaPage() {
         </div>
       </section>
 
-      {/* SECTOR OPPORTUNITIES */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl font-bold">
-              Key Investment Sectors in India
-            </h2>
-            <p className="text-gray-600 mt-3 max-w-2xl mx-auto">
-              High-growth sectors attracting global investors with strong policy support
-              and long-term potential.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {[
-              {
-                title: "Pharmaceuticals",
-                image: "https://cdn.corenexis.com/files/c/8581953720.jpg",
-                points: ["Global leader in generics", "USD 130B+ projected market"],
-              },
-              {
-                title: "IT & BPM",
-                image: "https://cdn.corenexis.com/files/c/4374972720.jpg",
-                points: ["Global IT hub", "Strong outsourcing destination"],
-              },
-              {
-                title: "Automobile & EV",
-                image: "https://cdn.corenexis.com/files/c/3863859720.jpg",
-                points: ["Fast-growing EV ecosystem", "Global manufacturing base"],
-              },
-              {
-                title: "Construction",
-                image: "https://cdn.corenexis.com/files/c/7788446720.jpg",
-                points: ["Infrastructure boom", "Urban development growth"],
-              },
-              {
-                title: "Renewable Energy",
-                image: "https://cdn.corenexis.com/files/c/6554291720.jpg",
-                points: ["Net zero target", "Massive solar/wind capacity"],
-              },
-              {
-                title: "Healthcare",
-                image: "https://cdn.corenexis.com/files/c/4785839720.jpg",
-                points: ["Rapid expansion", "Medical tourism hub"],
-              },
-            ].map((sector, i) => (
-              <motion.div
-                key={sector.title}
-                custom={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeUp}
-                className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition"
-              >
-                <div className="relative h-48 w-full">
-                  <Image
-                    src={sector.image}
-                    alt={sector.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">
-                    {sector.title}
-                  </h3>
-
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    {sector.points.map((p) => (
-                      <li key={p}>• {p}</li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-      {/* WHY AU CORPORATE */}
-      <section className="py-24">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+      {/* WHY INDIA INSIGHT (ADVISORY CONTENT ADDED) */}
+      <section className="py-20">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
 
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
           >
             <h2 className="text-3xl font-bold mb-4">
-              Why AU Corporate for India Entry
+              Why Global Companies Choose India
             </h2>
 
-            <p className="text-gray-600 mb-6">
-              We act as a trusted advisory partner for foreign companies entering India,
-              ensuring regulatory compliance, tax efficiency, and smooth business setup.
+            <p className="text-gray-600 leading-relaxed">
+              India is increasingly becoming a preferred hub for global capability
+              centers (GCCs), manufacturing units, shared service centers, and
+              strategic outsourcing due to its skilled workforce and policy stability.
             </p>
 
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex gap-2"><ShieldCheck className="w-5 h-5 text-green-600" /> End-to-end compliance support</li>
-              <li className="flex gap-2"><Building2 className="w-5 h-5 text-green-600" /> Entity structuring advisory</li>
-              <li className="flex gap-2"><FileCheck2 className="w-5 h-5 text-green-600" /> Regulatory approvals assistance</li>
-            </ul>
+            <div className="mt-6 space-y-3 text-gray-600">
+              {[
+                "Strong legal & regulatory framework",
+                "Stable democratic governance",
+                "Rapid infrastructure development",
+                "Talent availability across industries",
+              ].map((item) => (
+                <div key={item} className="flex gap-2 items-start">
+                  <CheckCircle className="w-5 h-5 text-green-600 mt-0.5" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            className="p-8 bg-[#081a42] text-white rounded-xl"
           >
-            <Image
-              src="https://cdn.corenexis.com/files/c/4374972720.jpg"
-              alt="India Business Advisory"
-              width={600}
-              height={400}
-              className="rounded-xl"
-            />
+            <h3 className="text-xl font-semibold mb-4">
+              AU Corporate Advisory Advantage
+            </h3>
+
+            <ul className="space-y-3 text-white/80 text-sm">
+              <li>• Entry strategy & structuring support</li>
+              <li>• Regulatory & FEMA advisory</li>
+              <li>• Tax efficient structuring</li>
+              <li>• Entity incorporation support</li>
+              <li>• End-to-end compliance management</li>
+            </ul>
           </motion.div>
 
         </div>
@@ -359,22 +234,17 @@ export default function WhyIndiaPage() {
 
       {/* CTA */}
       <section className="bg-[#081a42] text-white py-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl font-bold mb-4">
-            Start Your India Expansion Journey
-          </h2>
-          <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-            Speak with our experts for structuring, compliance, and entry strategy advisory.
-          </p>
+        <h2 className="text-3xl font-bold mb-4">
+          Expand into India with Strategic Clarity
+        </h2>
+        <p className="max-w-2xl mx-auto text-white/80 mb-6">
+          AU Corporate assists global businesses in seamless India entry, structuring,
+          and compliance management.
+        </p>
 
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:scale-105 transition">
-            Talk to Experts
-          </button>
-        </motion.div>
+        <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:scale-105 transition">
+          Talk to Experts
+        </button>
       </section>
 
     </div>
