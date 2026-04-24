@@ -174,6 +174,15 @@ export default function HRServicesPage() {
                 <p>
                   Our mission is to drive business success for our clients while supporting the career growth and aspirations of candidates across industries.
                 </p>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  className="mt-6 p-5 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg"
+                >
+                  <p className="text-sm italic text-gray-700">
+                    “Human is not a resource. A human being is a tremendous possibility.”
+                  </p>
+                </motion.div>
               </div>
             </p>
           </motion.div>
