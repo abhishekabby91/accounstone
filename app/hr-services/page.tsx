@@ -164,7 +164,7 @@ export default function HRServicesPage() {
                 </p>
                 <p>
                   We provide customized recruitment solutions across diverse sectors including accounts & finance, IT consulting, healthcare, construction, oil & gas, manufacturing, infrastructure, hospitality, and higher education.
-                  Our expertise spans a wide range of roles—from chartered accountants, MBAs, medical professionals, and engineers to skilled and unskilled workforce.
+                  Our expertise spans a wide range of roles-from chartered accountants, MBAs, medical professionals, and engineers to skilled and unskilled workforce.
                 </p>
                 <p>
                   Our end-to-end recruitment approach ensures a seamless experience for both clients and candidates while building long-term partnerships through quality, integrity, and professionalism.
