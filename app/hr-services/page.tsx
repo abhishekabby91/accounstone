@@ -205,6 +205,15 @@ export default function HRServicesPage() {
           <Link href="/contact">Contact Us</Link>
         </Button>
       </section>
+      {/* FLOATING BROCHURE BUTTON */}
+      <a
+        href="http://digil.ink/l/23507UkphJE"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 flex items-center gap-2 bg-yellow-400 text-black px-5 py-3 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 z-50"
+      >
+        📄 <span className="font-medium">View Brochure</span>
+      </a>
 
     </div>
   )
