@@ -189,109 +189,204 @@ export default function HRServicesPage() {
 
         </div>
       </section>
-      {/* RECRUITMENT SOLUTIONS SECTION */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 space-y-20">
+      {/* RECRUITMENT SOLUTIONS - PREMIUM */}
+      <section className="py-24 bg-gray-50 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 space-y-28">
 
           {/* PERMANENT RECRUITMENT */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid lg:grid-cols-2 gap-12 items-center group"
           >
-            <img
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978"
-              className="rounded-2xl shadow-lg"
-            />
 
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                className="rounded-2xl shadow-lg transform group-hover:scale-105 transition duration-700"
+              />
+            </div>
+
+            {/* CONTENT */}
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+              <motion.h2
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold mb-4 text-[#081a42]"
+              >
                 Permanent Recruitment
-              </h2>
+              </motion.h2>
+
               <p className="text-yellow-500 font-semibold mb-4">
                 Connecting You with Top Talent
               </p>
 
-              <p className="text-gray-600 mb-4">
-                In today’s competitive job market, finding and retaining top talent is critical.
-                We focus on selecting the right candidates aligned with your business goals.
+              <p className="text-gray-600 mb-6">
+                We help businesses identify, attract, and retain top talent aligned
+                with their long-term strategic goals.
               </p>
 
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Advanced hiring tools & assessment techniques</li>
-                <li>• Industry-specific recruitment expertise</li>
-                <li>• End-to-end recruitment lifecycle management</li>
-                <li>• Culture-fit and skill-based hiring approach</li>
-              </ul>
+              <div className="space-y-3">
+                {[
+                  "Advanced hiring tools & assessments",
+                  "Industry-specific recruitment expertise",
+                  "End-to-end hiring lifecycle",
+                  "Culture-fit candidate selection",
+                ].map((item, i) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full" />
+                    {item}
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="mt-6 px-5 py-2 bg-yellow-400 text-black rounded-lg font-medium shadow hover:shadow-lg"
+              >
+                Learn More →
+              </motion.button>
             </div>
           </motion.div>
 
+
           {/* CONTRACT STAFFING */}
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 80 }}
             whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
+            className="grid lg:grid-cols-2 gap-12 items-center group"
           >
+
+            {/* CONTENT */}
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+              <motion.h2
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold mb-4 text-[#081a42]"
+              >
                 Contract Staffing & Third-Party Payroll
-              </h2>
+              </motion.h2>
+
               <p className="text-yellow-500 font-semibold mb-4">
                 Flexible Workforce Solutions
               </p>
 
-              <p className="text-gray-600 mb-4">
-                We provide skilled professionals for temporary and project-based roles,
-                helping businesses scale efficiently with flexibility.
+              <p className="text-gray-600 mb-6">
+                Scale your workforce with flexible contract staffing solutions
+                designed for agility and efficiency.
               </p>
 
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Quick deployment of contract workforce</li>
-                <li>• Project-based & short-term staffing</li>
-                <li>• Access to diverse talent pool</li>
-                <li>• End-to-end staffing lifecycle support</li>
-              </ul>
+              <div className="space-y-3">
+                {[
+                  "Quick deployment of skilled professionals",
+                  "Project-based staffing solutions",
+                  "Access to diverse talent pool",
+                  "Full staffing lifecycle support",
+                ].map((item, i) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full" />
+                    {item}
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="mt-6 px-5 py-2 bg-yellow-400 text-black rounded-lg font-medium shadow hover:shadow-lg"
+              >
+                Explore Services →
+              </motion.button>
             </div>
 
-            <img
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
-              className="rounded-2xl shadow-lg"
-            />
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                className="rounded-2xl shadow-lg transform group-hover:scale-105 transition duration-700"
+              />
+            </div>
           </motion.div>
 
-          {/* PAYROLL OUTSOURCING */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid lg:grid-cols-2 gap-12 items-center"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
-              className="rounded-2xl shadow-lg"
-            />
 
+          {/* PAYROLL & HR */}
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12 items-center group"
+          >
+
+            {/* IMAGE */}
+            <div className="overflow-hidden rounded-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
+                className="rounded-2xl shadow-lg transform group-hover:scale-105 transition duration-700"
+              />
+            </div>
+
+            {/* CONTENT */}
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+              <motion.h2
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="text-3xl font-bold mb-4 text-[#081a42]"
+              >
                 Payroll & HR Outsourcing
-              </h2>
+              </motion.h2>
+
               <p className="text-yellow-500 font-semibold mb-4">
                 Streamlining HR Operations
               </p>
 
-              <p className="text-gray-600 mb-4">
-                Our payroll and HR outsourcing solutions help businesses manage operations
-                efficiently while ensuring full compliance and accuracy.
+              <p className="text-gray-600 mb-6">
+                Simplify payroll, compliance, and HR operations with our
+                end-to-end outsourcing solutions.
               </p>
 
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Accurate payroll processing & compliance</li>
-                <li>• Employee onboarding & HR management</li>
-                <li>• Labour law & statutory compliance</li>
-                <li>• End-to-end HR outsourcing support</li>
-              </ul>
+              <div className="space-y-3">
+                {[
+                  "Accurate payroll & tax compliance",
+                  "Employee lifecycle management",
+                  "Labour law compliance",
+                  "Scalable HR outsourcing",
+                ].map((item, i) => (
+                  <motion.div
+                    key={item}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-gray-600"
+                  >
+                    <span className="w-2 h-2 bg-yellow-400 rounded-full" />
+                    {item}
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                className="mt-6 px-5 py-2 bg-yellow-400 text-black rounded-lg font-medium shadow hover:shadow-lg"
+              >
+                Get Started →
+              </motion.button>
             </div>
           </motion.div>
 
