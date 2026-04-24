@@ -189,6 +189,114 @@ export default function HRServicesPage() {
 
         </div>
       </section>
+      {/* RECRUITMENT SOLUTIONS SECTION */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 space-y-20">
+
+          {/* PERMANENT RECRUITMENT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+              className="rounded-2xl shadow-lg"
+            />
+
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+                Permanent Recruitment
+              </h2>
+              <p className="text-yellow-500 font-semibold mb-4">
+                Connecting You with Top Talent
+              </p>
+
+              <p className="text-gray-600 mb-4">
+                In today’s competitive job market, finding and retaining top talent is critical.
+                We focus on selecting the right candidates aligned with your business goals.
+              </p>
+
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Advanced hiring tools & assessment techniques</li>
+                <li>• Industry-specific recruitment expertise</li>
+                <li>• End-to-end recruitment lifecycle management</li>
+                <li>• Culture-fit and skill-based hiring approach</li>
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* CONTRACT STAFFING */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+                Contract Staffing & Third-Party Payroll
+              </h2>
+              <p className="text-yellow-500 font-semibold mb-4">
+                Flexible Workforce Solutions
+              </p>
+
+              <p className="text-gray-600 mb-4">
+                We provide skilled professionals for temporary and project-based roles,
+                helping businesses scale efficiently with flexibility.
+              </p>
+
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Quick deployment of contract workforce</li>
+                <li>• Project-based & short-term staffing</li>
+                <li>• Access to diverse talent pool</li>
+                <li>• End-to-end staffing lifecycle support</li>
+              </ul>
+            </div>
+
+            <img
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+              className="rounded-2xl shadow-lg"
+            />
+          </motion.div>
+
+          {/* PAYROLL OUTSOURCING */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
+              className="rounded-2xl shadow-lg"
+            />
+
+            <div>
+              <h2 className="text-3xl font-bold mb-4 text-[#081a42]">
+                Payroll & HR Outsourcing
+              </h2>
+              <p className="text-yellow-500 font-semibold mb-4">
+                Streamlining HR Operations
+              </p>
+
+              <p className="text-gray-600 mb-4">
+                Our payroll and HR outsourcing solutions help businesses manage operations
+                efficiently while ensuring full compliance and accuracy.
+              </p>
+
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>• Accurate payroll processing & compliance</li>
+                <li>• Employee onboarding & HR management</li>
+                <li>• Labour law & statutory compliance</li>
+                <li>• End-to-end HR outsourcing support</li>
+              </ul>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
 
       {/* STATS */}
       <section className="py-16 bg-yellow-50 text-center grid grid-cols-2 md:grid-cols-4 gap-8">
