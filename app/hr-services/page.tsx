@@ -207,7 +207,7 @@ export default function HRServicesPage() {
       </section>
       {/* FLOATING BROCHURE BUTTON */}
       <a
-        href="http://digil.ink/l/23507UkphJE"
+        href="https://www.image2url.com/r2/default/documents/1777026304947-6e16b4f8-c2df-4c55-8d68-8d47a460bda0.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 flex items-center gap-2 bg-yellow-400 text-black px-5 py-3 rounded-full shadow-lg hover:scale-110 hover:shadow-xl transition-all duration-300 z-50"
