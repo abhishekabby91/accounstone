@@ -158,8 +158,23 @@ export default function HRServicesPage() {
           <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }}>
             <h2 className="text-3xl font-bold mb-4">Growing Together</h2>
             <p className="text-gray-600">
-              AU Corporate is your trusted HR partner providing recruitment,
-              payroll and outsourcing services across industries.
+              <div className="space-y-5 text-gray-600 leading-relaxed">
+                <p>
+                  AU Corporate is a leading human resource consulting firm specializing in manpower solutions and comprehensive recruitment services. Established in 2016, we have grown into a trusted partner committed to fulfilling the hiring needs of both clients and candidates.
+                </p>
+                <p>
+                  We provide customized recruitment solutions across diverse sectors including accounts & finance, IT consulting, healthcare, construction, oil & gas, manufacturing, infrastructure, hospitality, and higher education.
+                </p>
+                <p>
+                  Our expertise spans a wide range of roles—from chartered accountants, MBAs, medical professionals, and engineers to skilled and unskilled workforce.
+                </p>
+                <p>
+                  Our end-to-end recruitment approach ensures a seamless experience for both clients and candidates while building long-term partnerships through quality, integrity, and professionalism.
+                </p>
+                <p>
+                  Our mission is to drive business success for our clients while supporting the career growth and aspirations of candidates across industries.
+                </p>
+              </div>
             </p>
           </motion.div>
 
