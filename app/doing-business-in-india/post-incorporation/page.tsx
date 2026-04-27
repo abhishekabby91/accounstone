@@ -30,6 +30,29 @@ const sections = [
       },
     ],
   },
+  {
+    title: "HR & Expatriate Support",
+    description:
+      "Managing workforce and expatriate employees effectively is key for smooth business operations in India.",
+    services: [
+      {
+        title: "Expatriate Taxation & Compliance",
+        desc: "Managing tax filings and compliance for foreign employees in India.",
+      },
+      {
+        title: "HR Compliance",
+        desc: "Ensuring compliance with Indian employment laws and regulations.",
+      },
+      {
+        title: "Payroll Structuring",
+        desc: "Designing tax-efficient salary structures for employees.",
+      },
+      {
+        title: "Employee Lifecycle Management",
+        desc: "Support across hiring, onboarding, and exit processes.",
+      },
+    ],
+  },
 
   {
     title: "Taxation & Regulatory Compliance",
@@ -123,30 +146,6 @@ const sections = [
       {
         title: "Corporate Legal Advisory",
         desc: "Ongoing legal support for business operations and structuring.",
-      },
-    ],
-  },
-
-  {
-    title: "HR & Expatriate Support",
-    description:
-      "Managing workforce and expatriate employees effectively is key for smooth business operations in India.",
-    services: [
-      {
-        title: "Expatriate Taxation & Compliance",
-        desc: "Managing tax filings and compliance for foreign employees in India.",
-      },
-      {
-        title: "HR Compliance",
-        desc: "Ensuring compliance with Indian employment laws and regulations.",
-      },
-      {
-        title: "Payroll Structuring",
-        desc: "Designing tax-efficient salary structures for employees.",
-      },
-      {
-        title: "Employee Lifecycle Management",
-        desc: "Support across hiring, onboarding, and exit processes.",
       },
     ],
   },
