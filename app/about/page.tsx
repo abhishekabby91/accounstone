@@ -61,7 +61,7 @@ export default function AboutHero() {
             animate={{ opacity: 1, scale: 1 }}
           >
             <Image
-              src="/about-image.jpg"
+              src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
               alt="About AU Corporate"
               width={600}
               height={400}
@@ -88,7 +88,7 @@ export default function AboutHero() {
 
           <motion.div variants={fadeIn} initial="hidden" whileInView="visible">
             <Image
-              src="/about2.jpg"
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
               alt="Team work"
               width={500}
               height={350}
@@ -105,7 +105,7 @@ export default function AboutHero() {
 
           {/* Vision */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
-            <Image src="/vision.jpg" alt="Vision" width={400} height={200} className="rounded mb-4" />
+            <Image src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Vision" width={400} height={200} className="rounded mb-4" />
             <Eye className="text-gold mb-3" />
             <h3 className="font-bold text-lg mb-2">Our Vision</h3>
             <p className="text-sm text-muted-foreground">
@@ -115,7 +115,7 @@ export default function AboutHero() {
 
           {/* Mission */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
-            <Image src="/mission.jpg" alt="Mission" width={400} height={200} className="rounded mb-4" />
+            <Image src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="Mission" width={400} height={200} className="rounded mb-4" />
             <Target className="text-gold mb-3" />
             <h3 className="font-bold text-lg mb-2">Our Mission</h3>
             <p className="text-sm text-muted-foreground">
@@ -125,7 +125,7 @@ export default function AboutHero() {
 
           {/* Why AU */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
-            <Image src="/whyau.jpg" alt="Why AU" width={400} height={200} className="rounded mb-4" />
+            <Image src="https://images.unsplash.com/photo-1492724441997-5dc865305da7" alt="Why AU" width={400} height={200} className="rounded mb-4" />
             <Award className="text-gold mb-3" />
             <h3 className="font-bold text-lg mb-2">Why AU?</h3>
             <p className="text-sm text-muted-foreground">
@@ -164,7 +164,7 @@ export default function AboutHero() {
       {/* IMAGE GALLERY */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6">
-          {["/about1.jpg", "/about2.jpg", "/about3.jpg"].map((img, i) => (
+          {["https://images.unsplash.com/photo-1521737604893-d14cc237f11d", "https://images.unsplash.com/photo-1552664730-d307ca884978", "https://images.unsplash.com/photo-1522202176988-66273c2fd55f"].map((img, i) => (
             <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
               <Image src={img} alt="About visuals" width={400} height={300} className="rounded-xl object-cover" />
             </motion.div>
