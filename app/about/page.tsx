@@ -19,6 +19,11 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
+const fadeIn = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.8 } },
+}
+
 export default function AboutHero() {
   return (
     <div className="min-h-screen pt-20">
@@ -37,11 +42,11 @@ export default function AboutHero() {
             </h1>
 
             <p className="text-muted-foreground mb-4">
-              AU Corporate is a multidisciplinary consultancy firm based in New Delhi, offering end-to-end business advisory, taxation, compliance, and strategic solutions.
+              AU Corporate is an esteemed multidisciplinary consultancy firm based in New Delhi with a diversified team of Chartered Accountants, CPAs, Company Secretaries, Cost Accountants, Lawyers, Industry Specialists, Ex-Bankers, and MBAs.
             </p>
 
             <p className="text-muted-foreground mb-6">
-              With a strong team of professionals including Chartered Accountants, Lawyers, and Industry Experts, we help businesses navigate complex regulatory landscapes and scale efficiently.
+              Established in 2016, we provide innovative solutions to complex business challenges and act as a catalyst for the business growth of our clients across India and globally.
             </p>
 
             <Link href="/contact">
@@ -67,64 +72,66 @@ export default function AboutHero() {
         </div>
       </section>
 
-      {/* ABOUT DETAILS */}
+      {/* WHO WE ARE */}
       <section className="py-24 bg-gray-50">
-        <div className="mx-auto max-w-5xl px-4 text-center">
+        <div className="mx-auto max-w-6xl px-4 grid md:grid-cols-2 gap-12 items-center">
 
-          <motion.h2
-            className="text-3xl md:text-4xl font-bold mb-6"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-          >
-            Who We Are
-          </motion.h2>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible">
+            <h2 className="text-3xl font-bold mb-6">Who We Are</h2>
+            <p className="text-muted-foreground mb-4">
+              AU Corporate was established with a vision to provide innovative, practical, and result-oriented solutions to businesses facing complex regulatory and operational challenges.
+            </p>
+            <p className="text-muted-foreground">
+              With deep domain expertise and a client-first approach, we serve as a strategic partner for businesses looking to establish, operate, and scale in India.
+            </p>
+          </motion.div>
 
-          <motion.p
-            className="text-muted-foreground"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-          >
-            Established in 2016, AU Corporate was founded with a vision to provide innovative and practical solutions to businesses. We act as a catalyst for growth by combining technical expertise with deep industry insights.
-          </motion.p>
+          <motion.div variants={fadeIn} initial="hidden" whileInView="visible">
+            <Image
+              src="/about2.jpg"
+              alt="Team work"
+              width={500}
+              height={350}
+              className="rounded-xl shadow"
+            />
+          </motion.div>
 
         </div>
       </section>
 
-      {/* VISION / MISSION / WHY */}
+      {/* VISION MISSION WHY */}
       <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-8">
+        <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-10">
 
-          {[
-            {
-              icon: Eye,
-              title: "Our Vision",
-              text: "To be a one-stop solution for businesses by delivering tailored advisory while maintaining the highest ethical standards.",
-            },
-            {
-              icon: Target,
-              title: "Our Mission",
-              text: "To maximize client value through high-quality services, innovation, and long-term partnerships.",
-            },
-            {
-              icon: Award,
-              title: "Why AU?",
-              text: "We combine expertise, integrity, and a client-first approach to deliver reliable and impactful solutions.",
-            },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              className="p-8 border rounded-xl hover:shadow-xl"
-            >
-              <item.icon className="text-gold mb-4" />
-              <h3 className="font-bold text-lg mb-2">{item.title}</h3>
-              <p className="text-sm text-muted-foreground">{item.text}</p>
-            </motion.div>
-          ))}
+          {/* Vision */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
+            <Image src="/vision.jpg" alt="Vision" width={400} height={200} className="rounded mb-4" />
+            <Eye className="text-gold mb-3" />
+            <h3 className="font-bold text-lg mb-2">Our Vision</h3>
+            <p className="text-sm text-muted-foreground">
+              Our Vision is to fulfil the requirements of every customer by offering them individually tailored solutions for their businesses. Our primary objective is to become an all-encompassing resource for each of our clients' accounting, taxation, and various other needs while simultaneously evolving our company necessary for maintaining up with constantly changing trends in the market. We enthusiastically endorse ethical business conduct and continuous professional development.
+            </p>
+          </motion.div>
+
+          {/* Mission */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
+            <Image src="/mission.jpg" alt="Mission" width={400} height={200} className="rounded mb-4" />
+            <Target className="text-gold mb-3" />
+            <h3 className="font-bold text-lg mb-2">Our Mission</h3>
+            <p className="text-sm text-muted-foreground">
+              Our mission is to maximise our clients' value while simultaneously helping them enhance their future business opportunities. We accomplish this by adding professional value to every service we execute while ensuring strong alignment, ethics, quality, and long-term relationships.
+            </p>
+          </motion.div>
+
+          {/* Why AU */}
+          <motion.div variants={fadeUp} initial="hidden" whileInView="visible" className="p-8 border rounded-xl hover:shadow-xl">
+            <Image src="/whyau.jpg" alt="Why AU" width={400} height={200} className="rounded mb-4" />
+            <Award className="text-gold mb-3" />
+            <h3 className="font-bold text-lg mb-2">Why AU?</h3>
+            <p className="text-sm text-muted-foreground">
+              As a leading multidisciplinary consultancy, AU Corporate upholds the highest levels of integrity, independence, and confidentiality. Our dedicated experts ensure excellence, while our long-standing client relationships reflect our commitment to quality and reliability.
+            </p>
+          </motion.div>
 
         </div>
       </section>
@@ -144,7 +151,7 @@ export default function AboutHero() {
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
-              className="p-6 bg-white rounded-xl border text-center"
+              className="p-6 bg-white rounded-xl border text-center hover:shadow-lg"
             >
               <item.icon className="text-gold mx-auto mb-3" />
               <p className="font-medium">{item.title}</p>
@@ -154,22 +161,12 @@ export default function AboutHero() {
         </div>
       </section>
 
-      {/* IMAGE BAND */}
+      {/* IMAGE GALLERY */}
       <section className="py-16 bg-white">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-6">
           {["/about1.jpg", "/about2.jpg", "/about3.jpg"].map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-            >
-              <Image
-                src={img}
-                alt="About visuals"
-                width={400}
-                height={300}
-                className="rounded-xl object-cover"
-              />
+            <motion.div key={i} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
+              <Image src={img} alt="About visuals" width={400} height={300} className="rounded-xl object-cover" />
             </motion.div>
           ))}
         </div>
@@ -177,19 +174,11 @@ export default function AboutHero() {
 
       {/* CTA */}
       <section className="py-24 bg-white text-center">
-        <motion.h2
-          className="text-3xl font-bold mb-4"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
+        <motion.h2 className="text-3xl font-bold mb-4" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}>
           Let’s Build Your India Presence
         </motion.h2>
 
-        <motion.p
-          className="text-muted-foreground mb-8 max-w-xl mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
+        <motion.p className="text-muted-foreground mb-8 max-w-xl mx-auto" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
           Partner with AU Corporate for seamless advisory, compliance, and execution support.
         </motion.p>
 
