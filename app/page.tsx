@@ -110,25 +110,50 @@ export default function HomePage() {
       {/* ================= HERO ================= */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
-        <Image
-          src="https://cdn.corenexis.com/files/c/5473521720.jpg"
-          alt="AU Corporate Hero"
-          fill
-          priority
-          className="object-cover scale-105"
+        {/* Animated Background Image */}
+        <motion.div
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 8, ease: "easeOut" }}
+          className="absolute inset-0"
+        >
+          <Image
+            src="https://cdn.corenexis.com/files/c/5473521720.jpg"
+            alt="AU Corporate Hero"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+
+        {/* Gradient Overlay Animation */}
+        <motion.div
+          initial={{ opacity: 0.6 }}
+          animate={{ opacity: [0.6, 0.75, 0.6] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+        {/* Floating Blur Effects */}
+        <motion.div
+          animate={{ y: [0, -30, 0] }}
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute w-[450px] h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px]"
+        />
 
-        <div className="absolute w-[450px] h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px] animate-pulse" />
-        <div className="absolute w-[350px] h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px] animate-pulse" />
+        <motion.div
+          animate={{ y: [0, 30, 0] }}
+          transition={{ duration: 7, repeat: Infinity }}
+          className="absolute w-[350px] h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px]"
+        />
 
+        {/* Content */}
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
           <motion.h1
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.9 }}
+            initial={{ opacity: 0, scale: 0.85, y: 40 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 1 }}
             className="text-5xl md:text-7xl font-bold text-white mb-4"
           >
             <span className="text-yellow-400 drop-shadow-lg">
@@ -137,7 +162,7 @@ export default function HomePage() {
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
             className="text-white/80 mb-8 text-lg max-w-3xl mx-auto"
@@ -146,23 +171,23 @@ export default function HomePage() {
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+            <Button asChild className="bg-yellow-400 text-black hover:scale-110 transition">
               <Link href="/contact">Get Started</Link>
             </Button>
           </motion.div>
 
+          {/* STATS */}
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
-                custom={i}
-                variants={fadeUp}
-                initial="hidden"
-                animate="show"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
               >
                 <div className="text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
