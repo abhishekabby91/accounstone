@@ -17,13 +17,52 @@ const stats = [
   { value: 15, suffix: "+", label: "Years Experience" },
 ]
 
-/* COMMON VARIANTS */
+/* BASE ANIMATION */
 const fadeUp = {
   hidden: { opacity: 0, y: 60 },
   show: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.8, ease: "easeOut" },
+  },
+}
+
+/* CUSTOM TRANSITIONS */
+const imageLeft = {
+  hidden: { opacity: 0, x: -120, scale: 0.95 },
+  show: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+}
+
+const imageRight = {
+  hidden: { opacity: 0, x: 120, scale: 0.95 },
+  show: {
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: { duration: 0.9, ease: "easeOut" },
+  },
+}
+
+const textLeft = {
+  hidden: { opacity: 0, x: -80 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
+  },
+}
+
+const textRight = {
+  hidden: { opacity: 0, x: 80 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.8, ease: "easeOut", delay: 0.2 },
   },
 }
 
@@ -60,7 +99,7 @@ export default function HRServicesPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* HERO */}
+      {/* ================= HERO ================= */}
       <section className="relative py-24 min-h-[80vh] flex items-center overflow-hidden">
 
         <div className="absolute inset-0">
@@ -114,35 +153,25 @@ export default function HRServicesPage() {
         </motion.div>
       </section>
 
-      {/* MAIN SECTIONS */}
+      {/* ================= MAIN SECTIONS ================= */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 space-y-32">
 
-          {/* ================= PERMANENT (SLIDE LEFT/RIGHT) ================= */}
+          {/* PERMANENT */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <motion.div
-              initial={{ opacity: 0, x: -100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              className="overflow-hidden rounded-2xl"
-            >
+            <motion.div variants={imageLeft} whileHover={{ scale: 1.05 }}>
               <img
                 src="https://images.unsplash.com/photo-1552664730-d307ca884978"
                 className="rounded-2xl shadow-lg"
               />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9 }}
-            >
+            <motion.div variants={textRight}>
               <h2 className="text-3xl font-bold mb-4">Permanent Recruitment</h2>
               <p className="text-yellow-500 font-semibold mb-4">
                 Connecting You with Top Talent
@@ -161,15 +190,14 @@ export default function HRServicesPage() {
             </motion.div>
           </motion.div>
 
-          {/* ================= CONTRACT (FADE + ROTATE) ================= */}
+          {/* CONTRACT (MATCHED WITH PAYROLL STYLE) */}
           <motion.div
-            initial={{ opacity: 0, rotate: -2, scale: 0.95 }}
-            whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
-            transition={{ duration: 0.8 }}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <div>
+            <motion.div variants={textLeft}>
               <h2 className="text-3xl font-bold mb-4">
                 Contract Staffing & Third-Party Payroll
               </h2>
@@ -187,9 +215,9 @@ export default function HRServicesPage() {
                 <li>✔ Project staffing</li>
                 <li>✔ Diverse talent pool</li>
               </ul>
-            </div>
+            </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }}>
+            <motion.div variants={imageRight} whileHover={{ scale: 1.05 }}>
               <img
                 src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
                 className="rounded-2xl shadow-lg"
@@ -197,50 +225,45 @@ export default function HRServicesPage() {
             </motion.div>
           </motion.div>
 
-          {/* ================= PAYROLL (BOTTOM UP + STAGGER TEXT) ================= */}
+          {/* PAYROLL */}
           <motion.div
-            initial={{ opacity: 0, y: 120 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
+            initial="hidden"
+            whileInView="show"
             viewport={{ once: true }}
             className="grid lg:grid-cols-2 gap-12 items-center"
           >
-            <motion.div whileHover={{ scale: 1.05 }}>
+            <motion.div variants={imageLeft} whileHover={{ scale: 1.05 }}>
               <img
                 src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
                 className="rounded-2xl shadow-lg"
               />
             </motion.div>
 
-            <motion.div
-              variants={stagger}
-              initial="hidden"
-              whileInView="show"
-            >
-              <motion.h2 variants={fadeUp} className="text-3xl font-bold mb-4">
+            <motion.div variants={textRight}>
+              <h2 className="text-3xl font-bold mb-4">
                 Payroll & HR Outsourcing
-              </motion.h2>
+              </h2>
 
-              <motion.p variants={fadeUp} className="text-yellow-500 font-semibold mb-4">
+              <p className="text-yellow-500 font-semibold mb-4">
                 Streamlining HR Operations
-              </motion.p>
+              </p>
 
-              <motion.p variants={fadeUp} className="text-gray-600 mb-4">
+              <p className="text-gray-600 mb-4">
                 Accurate payroll, compliance, and HR lifecycle management solutions tailored for business growth.
-              </motion.p>
+              </p>
 
-              <motion.ul variants={stagger} className="space-y-2 text-sm text-gray-600">
-                <motion.li variants={fadeUp}>✔ Payroll processing</motion.li>
-                <motion.li variants={fadeUp}>✔ Compliance</motion.li>
-                <motion.li variants={fadeUp}>✔ HR lifecycle</motion.li>
-              </motion.ul>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li>✔ Payroll processing</li>
+                <li>✔ Compliance</li>
+                <li>✔ HR lifecycle</li>
+              </ul>
             </motion.div>
           </motion.div>
 
         </div>
       </section>
 
-      {/* STATS */}
+      {/* ================= STATS ================= */}
       <section className="py-16 bg-yellow-50 text-center grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s) => (
           <motion.div
@@ -257,7 +280,7 @@ export default function HRServicesPage() {
         ))}
       </section>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <motion.section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
