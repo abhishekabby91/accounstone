@@ -24,7 +24,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  /* FIXED HOVER HANDLING */
   const openMenu = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current)
     setIndiaMenuOpen(true)
@@ -72,18 +71,20 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3 min-w-max">
             <Image
               src="https://user8396.na.imgto.link/public/20260417/au.avif"
               alt="AU Corporate Logo"
               width={40}
               height={40}
             />
-            <div>
-              <div className="text-2xl font-bold text-gold">AU Corporate</div>
-              <div className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
+            <div className="flex flex-col leading-tight whitespace-nowrap">
+              <span className="text-2xl font-bold text-gold">
+                AU Corporate
+              </span>
+              <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
                 Growing Together
-              </div>
+              </span>
             </div>
           </Link>
 
@@ -139,6 +140,7 @@ export function Navbar() {
               </div>
             )}
           </div>
+
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-2">
 
@@ -155,18 +157,11 @@ export function Navbar() {
               {indiaMenuOpen && (
                 <div className="absolute top-full left-0 w-[320px] bg-white border shadow-xl rounded-xl z-50">
 
-                  <Link
-                    href="/doing-business-in-india/why-india"
-                    className="block px-4 py-3 text-sm hover:bg-gray-100"
-                  >
+                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Why India
                   </Link>
 
-                  {/* ✅ FIXED ROUTE */}
-                  <Link
-                    href="/doing-business-in-india/entry-process"
-                    className="block px-4 py-3 text-sm hover:bg-gray-100"
-                  >
+                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
                     Entry Process & Business Structures
                   </Link>
 
@@ -180,7 +175,6 @@ export function Navbar() {
 
                   {indiaSubMenu === "help" && (
                     <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
-
                       <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Pre-Incorporation
                       </Link>
@@ -192,13 +186,11 @@ export function Navbar() {
                       <Link href="/doing-business-in-india/post-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
                         Post-Incorporation
                       </Link>
-
                     </div>
                   )}
                 </div>
               )}
             </div>
-
 
             {/* OTHER LINKS */}
             {navLinks.map((link) => (
