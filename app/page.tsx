@@ -253,7 +253,7 @@ export default function HomePage() {
             {[
               { title: "Why India", desc: "High-growth economy with global opportunities." },
               { title: "Incorporation", desc: "Seamless setup & compliance in India." },
-              { title: "Growth Strategy", desc: "Long-term expansion & advisory support." },
+              { title: "Market Entry & Growth", desc: "Long-term expansion & advisory support." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
