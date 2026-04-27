@@ -1,200 +1,267 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+"use client"
+
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+
 import {
   ArrowRight,
+  CheckCircle2,
   Scale,
   FileText,
-  Globe,
-  CheckCircle2,
-  Gavel,
-  Handshake,
-  Shield
-} from 'lucide-react'
-import type { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'Arbitration & Expert Services | AU Corporate',
-  description:
-    'Specialized arbitration, dispute resolution, and expert advisory services for domestic and cross-border commercial matters.',
-}
-
-const services = [
-  {
-    icon: Gavel,
-    title: 'Commercial Arbitration',
-    description:
-      'Advisory and representation in complex commercial disputes across industries.',
-    features: [
-      'Contractual dispute advisory',
-      'Arbitration proceedings support',
-      'Tribunal documentation',
-      'Award enforcement',
-    ],
-  },
-  {
-    icon: Globe,
-    title: 'International Arbitration',
-    description:
-      'Handling cross-border disputes across jurisdictions and international forums.',
-    features: [
-      'Cross-border dispute handling',
-      'Foreign award enforcement',
-      'International arbitration forums',
-      'Multi-jurisdiction advisory',
-    ],
-  },
-  {
-    icon: Handshake,
-    title: 'Mediation & Settlement',
-    description:
-      'Efficient dispute resolution through structured negotiation and mediation.',
-    features: [
-      'Pre-arbitration mediation',
-      'Settlement structuring',
-      'Negotiation strategy',
-      'Conflict resolution advisory',
-    ],
-  },
-  {
-    icon: FileText,
-    title: 'Expert & Forensic Services',
-    description:
-      'Independent expert reports and financial analysis for dispute proceedings.',
-    features: [
-      'Forensic accounting',
-      'Damage assessment',
-      'Expert witness support',
-      'Financial dispute evaluation',
-    ],
-  },
-]
-
-const whyChoose = [
-  'Integrated legal, financial and advisory expertise',
-  'Experience in cross-border dispute handling',
-  'Strong focus on enforceable outcomes',
-  'Confidential and commercially driven approach',
-]
+  Shield,
+} from "lucide-react"
 
 export default function ArbitrationServicesPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* HERO */}
-      <section className="py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* ================= HERO ================= */}
+      <section className="relative py-24 min-h-[80vh] flex items-center">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
 
-          <div className="max-w-3xl">
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
-              Arbitration & Expert Services
-            </span>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
 
-            <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-              <span className="text-[#081a42]">Expert Dispute Resolution</span>
-              <span className="text-gold"> in India & Globally</span>
-            </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl font-bold mb-4"
+          >
+            Arbitration Services
+          </motion.h1>
 
-            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-              AU Corporate provides arbitration, mediation, and expert advisory services for domestic and international disputes, ensuring structured and effective resolution of complex commercial conflicts.
-            </p>
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-white/80 max-w-2xl"
+          >
+            Structured financial expertise to support claims, disputes, and arbitration proceedings with clarity and precision.
+          </motion.p>
 
-            <p className="text-muted-foreground mb-8">
-              Our team combines legal, compliance and regulatory expertise to deliver efficient,
-              enforceable and commercially viable dispute resolution solutions.
-            </p>
-
-            <Button asChild className="bg-gold text-black">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-6"
+          >
+            <Button asChild className="bg-yellow-400 text-black">
               <Link href="/contact">
                 Request Consultation <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-24 bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-4">
+      {/* ================= INTRO ================= */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-4">
 
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Our Arbitration Expertise
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-gray-700 leading-relaxed mb-6"
+          >
+            Disputes involving contracts, accounts, valuations, delayed payments, partnerships, commercial transactions, and financial claims often require clear financial analysis and structured presentation of facts.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-gray-700 leading-relaxed mb-6"
+          >
+            Our Arbitration Services are designed to support businesses, professionals, and legal teams with accurate financial expertise during arbitration proceedings.
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-700 leading-relaxed"
+          >
+            We provide independent, professional, and well-documented assistance to help clients present claims, defend positions, and strengthen their case with credible financial evidence.
+          </motion.p>
+
+        </div>
+      </section>
+
+      {/* ================= SERVICE 1 ================= */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1554224154-26032ffc0d07"
+              className="rounded-2xl shadow-lg"
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h2 className="text-3xl font-bold mb-4">
+              1. Arbitration Claim Preparation
             </h2>
-            <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-              Comprehensive dispute resolution services across industries and jurisdictions.
+
+            <p className="text-gray-600 mb-4">
+              A well-prepared claim is critical in any arbitration matter. We assist clients in organizing financial records, quantifying losses, and preparing a clear claim supported by facts and calculations.
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="p-8 bg-white rounded-xl border hover:shadow-lg transition"
-              >
-                <div className="w-12 h-12 bg-gold/10 rounded-lg flex items-center justify-center mb-4">
-                  <service.icon className="text-gold" />
-                </div>
+            <ul className="space-y-2 text-sm text-gray-600">
+              {[
+                "Review of contracts, invoices, ledgers",
+                "Quantification of claims & damages",
+                "Interest & delayed payment analysis",
+                "Reconciliation of accounts",
+                "Claim statements & schedules",
+                "Breach-related financial impact",
+                "Response to counterclaims",
+                "Coordination with legal counsel",
+              ].map((item) => (
+                <li key={item} className="flex gap-2">
+                  <CheckCircle2 className="text-yellow-500 w-4 h-4 mt-1" />
+                  {item}
+                </li>
+              ))}
+            </ul>
 
-                <h3 className="text-xl font-semibold mb-3">
-                  {service.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm mb-4">
-                  {service.description}
-                </p>
-
-                <ul className="space-y-2">
-                  {service.features.map((f) => (
-                    <li key={f} className="flex gap-2 text-sm">
-                      <CheckCircle2 className="text-gold h-4 w-4 mt-1" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
+      {/* ================= SERVICE 2 ================= */}
       <section className="py-24 bg-white">
-        <div className="mx-auto max-w-5xl px-4 text-center">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
 
-          <h2 className="text-3xl font-bold mb-6">
-            Why Choose AU Corporate
+          <motion.div
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h2 className="text-3xl font-bold mb-4">
+              2. Arbitration Expert Witness Services
+            </h2>
+
+            <p className="text-gray-600 mb-4">
+              Financial disputes often require expert opinion on accounting, valuation, damages, or commercial losses.
+            </p>
+
+            <ul className="space-y-2 text-sm text-gray-600">
+              {[
+                "Independent expert reports",
+                "Loss of profit & damages",
+                "Business & asset valuation",
+                "Review of opposing claims",
+                "Transaction analysis",
+                "Accounting opinions",
+                "Hearing assistance",
+                "Oral testimony support",
+              ].map((item) => (
+                <li key={item} className="flex gap-2">
+                  <CheckCircle2 className="text-yellow-500 w-4 h-4 mt-1" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <img
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85"
+              className="rounded-2xl shadow-lg"
+            />
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-24 bg-gray-50 text-center">
+        <div className="max-w-5xl mx-auto px-4">
+
+          <h2 className="text-3xl font-bold mb-10">
+            Why Choose Us
           </h2>
 
-          <p className="text-muted-foreground mb-10">
-            AU bring a multidisciplinary approach to dispute resolution ensuring
-            efficiency, confidentiality and strong execution.
-          </p>
-
           <div className="grid md:grid-cols-2 gap-6 text-left">
-            {whyChoose.map((point) => (
-              <div key={point} className="flex items-start gap-3">
-                <Shield className="text-gold mt-1" />
+
+            {[
+              "Strong expertise in accounting & finance",
+              "Practical dispute understanding",
+              "Independent & objective approach",
+              "Evidence-backed financial analysis",
+              "Confidential handling",
+              "Timely execution",
+            ].map((point) => (
+              <div key={point} className="flex gap-3">
+                <Shield className="text-yellow-500 mt-1" />
                 <p>{point}</p>
               </div>
             ))}
+
           </div>
 
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 bg-gray-50 text-center">
+      {/* ================= INDUSTRIES ================= */}
+      <section className="py-24 bg-white text-center">
+        <div className="max-w-6xl mx-auto px-4">
+
+          <h2 className="text-3xl font-bold mb-10">
+            Industries We Serve
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-6">
+
+            {[
+              "Manufacturing",
+              "Real Estate & Construction",
+              "Trading & Distribution",
+              "Professional Services",
+              "Infrastructure",
+              "Partnership Disputes",
+              "MSMEs",
+              "Growing Businesses",
+            ].map((item) => (
+              <div key={item} className="p-4 border rounded-lg">
+                {item}
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="py-24 text-center bg-gray-50">
         <h2 className="text-3xl font-bold mb-4">
-          Need Arbitration Support?
+          Confidential & Professional Support
         </h2>
 
-        <p className="text-muted-foreground mb-8">
-          Connect with our experts for strategic dispute resolution advisory.
+        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          We work closely with clients and legal professionals while maintaining strict confidentiality and high professional standards.
         </p>
 
-        <Button asChild className="bg-gold text-black px-6 py-3">
+        <Button asChild className="bg-yellow-400 text-black">
           <Link href="/contact">
             Speak to an Expert <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
