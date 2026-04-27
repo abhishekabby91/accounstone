@@ -18,13 +18,11 @@ import {
   BarChart3
 } from 'lucide-react'
 
-/* ANIMATION */
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
   show: { opacity: 1, y: 0, transition: { duration: 0.7 } }
 }
 
-/* EXISTING DATA (UNCHANGED) */
 const services = [
   {
     icon: Calculator,
@@ -115,7 +113,7 @@ export default function OutsourcingPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="relative py-24 min-h-[80vh] flex items-center overflow-hidden">
 
         <div className="absolute inset-0">
@@ -156,7 +154,7 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= BENEFITS (UNCHANGED) ================= */}
+      {/* BENEFITS */}
       <section className="py-16 bg-secondary/50">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
 
@@ -179,7 +177,7 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= NEW: HOW WE WORK ================= */}
+      {/* HOW WE WORK */}
       <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
 
@@ -209,7 +207,7 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= SERVICES (UNCHANGED) ================= */}
+      {/* SERVICES */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
 
@@ -250,7 +248,7 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= NEW: WHY CHOOSE US ================= */}
+      {/* WHY CHOOSE US */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
 
@@ -281,7 +279,41 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= INDUSTRIES (UNCHANGED) ================= */}
+      {/* ================= GLOBAL LOCATIONS (ADDED) ================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+
+          <h2 className="text-3xl font-bold mb-6">Our Global Presence</h2>
+
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
+            We serve clients across multiple regions worldwide with seamless outsourcing and advisory support.
+          </p>
+
+          <div className="grid md:grid-cols-4 gap-6">
+
+            {[
+              { title: "Gulf Region", desc: "UAE, Saudi Arabia, Qatar, Oman, Kuwait" },
+              { title: "USA", desc: "North America operations & advisory" },
+              { title: "UK & Europe", desc: "Compliance & financial outsourcing" },
+              { title: "Australia", desc: "Business & accounting support" },
+              { title: "APAC Region", desc: "Singapore, Hong Kong, SE Asia" },
+              { title: "India Hub", desc: "Delivery & execution center" },
+              { title: "Global Coverage", desc: "Multi-country business support" },
+              { title: "Emerging Markets", desc: "Expanding global reach" },
+            ].map((r, i) => (
+              <div key={r.title} className="p-6 border rounded-xl bg-gray-50 hover:shadow-lg transition">
+                <Globe className="text-gold mx-auto mb-3" />
+                <h3 className="font-semibold">{r.title}</h3>
+                <p className="text-sm text-muted-foreground mt-1">{r.desc}</p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* INDUSTRIES */}
       <section className="py-24 bg-secondary/50">
         <div className="max-w-7xl mx-auto px-4">
 
@@ -303,7 +335,7 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* ================= CTA ================= */}
+      {/* CTA */}
       <section className="py-24 text-center">
         <h2 className="text-3xl font-bold mb-4">
           Ready to Optimize Your Operations?
