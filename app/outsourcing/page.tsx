@@ -153,13 +153,6 @@ export default function OutsourcingPage() {
                 </Button>
               </div>
             </div>
-
-            <div className="hidden lg:block">
-              <div className="aspect-square rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center">
-                <Building2 className="w-32 h-32 text-gold/70" />
-              </div>
-            </div>
-
           </div>
 
         </div>
