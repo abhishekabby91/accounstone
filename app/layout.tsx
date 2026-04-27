@@ -63,10 +63,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-background">
-      <body className={`${inter.variable} font-sans antialiased`}>
+
+      {/* 🔴 CRITICAL FIX: REMOVE IMPLICIT SPACING ISSUES */}
+      <body className={`${inter.variable} font-sans antialiased m-0 p-0`}>
+
         <Navbar />
-        <main>{children}</main>
+
+        {/* ✅ FIX: prevents navbar overlap & removes “mysterious top gap” */}
+        <main className="pt-20 min-h-screen">
+          {children}
+        </main>
+
         <Footer />
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
