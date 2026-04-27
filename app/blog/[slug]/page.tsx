@@ -6,14 +6,13 @@ export default function BlogPage() {
   return (
     <main className="max-w-4xl mx-auto px-6 pb-16">
 
-      {/* HERO IMAGE (FIXED - NO CONFIG REQUIRED) */}
+      {/* HERO IMAGE */}
       <div className="mt-4 relative w-full h-[320px] md:h-[420px] overflow-hidden rounded-2xl">
         <Image
           src="https://images.unsplash.com/photo-1581091012184-7c4c0b3a6a12?auto=format&fit=crop&w=1600&q=80"
           alt="Construction Arbitration India"
           fill
           priority
-          unoptimized
           className="object-cover"
         />
       </div>
@@ -41,9 +40,8 @@ export default function BlogPage() {
       <div className="mt-10 relative w-full h-[300px] overflow-hidden rounded-2xl">
         <Image
           src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1600&q=80"
-          alt="Arbitration Tribunal"
+          alt="Arbitration Tribunal Discussion"
           fill
-          unoptimized
           className="object-cover"
         />
       </div>
@@ -51,14 +49,14 @@ export default function BlogPage() {
       {/* PART 1 */}
       <section className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">
-          How Arbitration Outcomes Are Decided
+          How Arbitration Outcomes Are Actually Decided
         </h2>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Rejected inflated reconstruction costs</li>
-          <li>Examined surveyor reports critically</li>
-          <li>Applied commercial proportionality</li>
-          <li>Delivered balanced award</li>
+          <li>Rejected inflated reconstruction cost claims</li>
+          <li>Critically examined surveyor reports</li>
+          <li>Applied commercial proportionality principles</li>
+          <li>Delivered balanced evidence-based award</li>
         </ul>
       </section>
 
@@ -66,9 +64,8 @@ export default function BlogPage() {
       <div className="mt-10 relative w-full h-[300px] overflow-hidden rounded-2xl">
         <Image
           src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=1600&q=80"
-          alt="Construction Site"
+          alt="Construction Site Infrastructure"
           fill
-          unoptimized
           className="object-cover"
         />
       </div>
@@ -76,14 +73,14 @@ export default function BlogPage() {
       {/* KEY LESSONS */}
       <section className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">
-          Key Lessons
+          Key Lessons for Construction Companies
         </h2>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>Evidence matters more than claims</li>
-          <li>Surveyor reports are not final</li>
-          <li>Overvaluation reduces credibility</li>
-          <li>Arbitration is not a court retrial</li>
+          <li>Evidence is more important than contractual claims</li>
+          <li>Surveyor reports are not final or binding</li>
+          <li>Overstated claims reduce credibility</li>
+          <li>Arbitration is not a second court trial</li>
         </ul>
       </section>
 
@@ -91,9 +88,8 @@ export default function BlogPage() {
       <div className="mt-10 relative w-full h-[300px] overflow-hidden rounded-2xl">
         <Image
           src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80"
-          alt="Court Enforcement"
+          alt="Court Enforcement Legal System"
           fill
-          unoptimized
           className="object-cover"
         />
       </div>
@@ -101,14 +97,14 @@ export default function BlogPage() {
       {/* PART 2 */}
       <section className="mt-10">
         <h2 className="text-2xl font-semibold mb-4">
-          When Winning Is Not Enough
+          When Winning Arbitration Is Not Enough
         </h2>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>₹1.81 crore awarded in arbitration</li>
-          <li>Government challenged under Section 34</li>
-          <li>Execution delayed significantly</li>
-          <li>High Court imposed timelines</li>
+          <li>₹1.81 crore awarded in arbitration (2014)</li>
+          <li>Government challenged award under Section 34</li>
+          <li>Execution delayed for years</li>
+          <li>High Court imposed strict timelines</li>
         </ul>
       </section>
 
@@ -119,7 +115,7 @@ export default function BlogPage() {
         </h2>
 
         <p className="text-lg leading-relaxed">
-          Arbitration success is not about winning alone — enforcement defines real outcome.
+          Arbitration success is not about winning alone — enforcement defines the real outcome.
         </p>
       </section>
 
