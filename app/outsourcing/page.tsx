@@ -2,9 +2,10 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { motion } from "framer-motion"
+
 import {
   ArrowRight,
-  Building2,
   Calculator,
   Headphones,
   Database,
@@ -16,8 +17,14 @@ import {
   Zap,
   BarChart3
 } from 'lucide-react'
-import type { Metadata } from 'next'
 
+/* ANIMATION */
+const fadeUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.7 } }
+}
+
+/* EXISTING DATA (UNCHANGED) */
 const services = [
   {
     icon: Calculator,
@@ -108,114 +115,173 @@ export default function OutsourcingPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* HERO WITH BACKGROUND IMAGE */}
+      {/* ================= HERO ================= */}
       <section className="relative py-24 min-h-[80vh] flex items-center overflow-hidden">
 
-        {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 6 }}
             src="https://cdn.corenexis.com/files/c/6433487720.jpg"
-            alt="Global Support Services"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        {/* Content */}
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 text-white">
+          <motion.div initial="hidden" animate="show" variants={fadeUp}>
+            <span className="text-gold text-sm font-semibold uppercase">
+              Business Process
+            </span>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center text-white">
+            <h1 className="text-5xl font-bold mt-4 mb-6">
+              Outsourcing <span className="text-gold">Solutions</span>
+            </h1>
 
-            <div>
-              <span className="text-gold text-sm font-semibold uppercase tracking-wider">
-                Business Process
-              </span>
+            <p className="text-white/80 mb-8 max-w-2xl">
+              Scalable outsourcing solutions to optimize operations, reduce costs, and drive efficiency.
+            </p>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-4 mb-6">
-                <span className="text-white">Outsourcing</span>{' '}
-                <span className="text-gold">Solutions</span>
-              </h1>
+            <div className="flex gap-4">
+              <Button asChild className="bg-gold text-black">
+                <Link href="/contact">Start Outsourcing</Link>
+              </Button>
 
-              <p className="text-white/80 leading-relaxed mb-8">
-                Scalable business process outsourcing solutions that optimize operations,
-                reduce costs and drive efficiency. Focus on your core business while we handle the rest.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild size="lg" className="bg-gold text-black font-semibold">
-                  <Link href="/contact">
-                    Start Outsourcing <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-
-                <Button asChild size="lg" className="bg-gold text-black font-semibold">
-                  <Link href="/why-india">Why India</Link>
-                </Button>
-              </div>
+              <Button asChild className="bg-gold text-black">
+                <Link href="/why-india">Why India</Link>
+              </Button>
             </div>
-          </div>
-
+          </motion.div>
         </div>
       </section>
 
-      {/* BENEFITS */}
+      {/* ================= BENEFITS (UNCHANGED) ================= */}
       <section className="py-16 bg-secondary/50">
-        <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6">
 
-          {benefits.map((benefit) => (
-            <div key={benefit.title} className="p-6 bg-white border rounded-xl text-center">
-              <div className="w-12 h-12 bg-gold/10 flex items-center justify-center mx-auto mb-4 rounded-xl">
-                <benefit.icon className="text-gold w-6 h-6" />
-              </div>
-
-              <div className="text-3xl font-bold text-gold">{benefit.value}</div>
-              <div className="text-sm font-medium">{benefit.title}</div>
-              <p className="text-xs text-muted-foreground mt-1">{benefit.description}</p>
-            </div>
+          {benefits.map((b, i) => (
+            <motion.div
+              key={b.title}
+              initial="hidden"
+              whileInView="show"
+              variants={fadeUp}
+              transition={{ delay: i * 0.1 }}
+              className="p-6 bg-white border rounded-xl text-center"
+            >
+              <b.icon className="text-gold mx-auto mb-3" />
+              <div className="text-2xl font-bold text-gold">{b.value}</div>
+              <div>{b.title}</div>
+              <p className="text-xs text-muted-foreground">{b.description}</p>
+            </motion.div>
           ))}
 
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* ================= NEW: HOW WE WORK ================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+
+          <h2 className="text-3xl font-bold mb-12">How We Work</h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              "Understand Requirements",
+              "Design Process",
+              "Execute & Manage",
+              "Optimize Continuously"
+            ].map((step, i) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+              >
+                <div className="text-gold font-bold text-lg mb-2">
+                  0{i + 1}
+                </div>
+                <p>{step}</p>
+              </motion.div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= SERVICES (UNCHANGED) ================= */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
 
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">Comprehensive Outsourcing Services</h2>
-          </div>
+          <h2 className="text-3xl font-bold text-center mb-16">
+            Comprehensive Outsourcing Services
+          </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
 
-            {services.map((service) => (
-              <div key={service.title} className="p-8 border rounded-xl bg-secondary">
+            {services.map((s, i) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="p-8 border rounded-xl bg-secondary"
+              >
+                <s.icon className="text-gold mb-4" />
 
-                <service.icon className="text-gold mb-4" />
-
-                <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+                <h3 className="text-xl font-semibold">{s.title}</h3>
 
                 <p className="text-sm text-muted-foreground mb-4">
-                  {service.description}
+                  {s.description}
                 </p>
 
                 <ul className="space-y-2 text-sm">
-                  {service.features.map((f) => (
+                  {s.features.map(f => (
                     <li key={f} className="flex gap-2">
                       <CheckCircle2 className="text-gold w-4 h-4 mt-1" />
                       {f}
                     </li>
                   ))}
                 </ul>
-
-              </div>
+              </motion.div>
             ))}
 
           </div>
+        </div>
+      </section>
+
+      {/* ================= NEW: WHY CHOOSE US ================= */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+
+          <motion.img
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692"
+            className="rounded-2xl shadow-lg"
+          />
+
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+          >
+            <h2 className="text-3xl font-bold mb-6">
+              Why Global Companies Choose Us
+            </h2>
+
+            <ul className="space-y-3">
+              <li>✔ Process-driven execution</li>
+              <li>✔ Dedicated account managers</li>
+              <li>✔ Strong compliance framework</li>
+              <li>✔ Scalable delivery model</li>
+              <li>✔ Cost-effective global support</li>
+            </ul>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* INDUSTRIES */}
+      {/* ================= INDUSTRIES (UNCHANGED) ================= */}
       <section className="py-24 bg-secondary/50">
         <div className="max-w-7xl mx-auto px-4">
 
@@ -225,10 +291,10 @@ export default function OutsourcingPage() {
 
           <div className="grid md:grid-cols-5 gap-4 text-center">
 
-            {industries.map((i) => (
+            {industries.map(i => (
               <div key={i} className="p-4 bg-white border rounded-lg">
                 <Globe className="mx-auto text-gold mb-2" />
-                <span className="text-sm">{i}</span>
+                {i}
               </div>
             ))}
 
@@ -237,19 +303,15 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
       <section className="py-24 text-center">
         <h2 className="text-3xl font-bold mb-4">
           Ready to Optimize Your Operations?
         </h2>
 
-        <p className="text-muted-foreground mb-8">
-          Let AU Corporate help you achieve operational excellence.
-        </p>
-
         <Button asChild className="bg-gold text-black">
           <Link href="/contact">
-            Get Started <ArrowRight className="ml-2 w-4 h-4" />
+            Get Started <ArrowRight className="ml-2" />
           </Link>
         </Button>
       </section>
