@@ -26,7 +26,7 @@ const services = [
   },
   {
     icon: FileCheck,
-    title: "Accounting & Assurance",
+    title: "Accounting Services",
     description: "Comprehensive accounting services and financial assurance.",
     href: "/services/accounting-assurance",
   },
