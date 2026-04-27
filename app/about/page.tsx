@@ -1,15 +1,4 @@
-import type { Metadata } from 'next'
-import AboutContent from '@/components/AboutContent'
-
-export const metadata: Metadata = {
-  title: 'About Us | AU Corporate',
-  description:
-    'AU Corporate helps foreign companies establish and operate in India with compliance, taxation, and advisory services.',
-}
-
-export default function AboutPage() {
-  return <AboutContent />
-}
+"use client"
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -24,6 +13,13 @@ import {
   Lightbulb,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us | AU Corporate',
+  description:
+    'AU Corporate helps foreign companies establish and operate in India with compliance, taxation, and advisory services.',
+}
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
