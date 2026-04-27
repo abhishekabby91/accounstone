@@ -1,4 +1,5 @@
-import type { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
@@ -11,26 +12,19 @@ import {
   Shield,
   Lightbulb,
 } from 'lucide-react'
-import AboutHero from '@/components/AboutHero'
+import { motion } from 'framer-motion'
 
-export const metadata: Metadata = {
-  title: 'About Us | AU Corporate',
-  description:
-    'AU Corporate helps foreign companies establish and operate in India with compliance, taxation, and advisory services.',
+const fadeUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 }
 
-export default function AboutPage() {
-  return <AboutHero />
-}
-
-export default function AboutPage() {
+export default function AboutHero() {
   return (
     <div className="min-h-screen pt-20">
-
       {/* Hero */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-12 items-center">
-
           <motion.div
             initial="hidden"
             animate="visible"
@@ -73,14 +67,12 @@ export default function AboutPage() {
               className="rounded-2xl shadow-lg"
             />
           </motion.div>
-
         </div>
       </section>
 
       {/* Vision Mission Why */}
       <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-3 gap-8">
-
           {[{
             icon: Eye,
             title: 'Our Vision',
@@ -107,14 +99,12 @@ export default function AboutPage() {
               <p className="text-muted-foreground text-sm">{item.text}</p>
             </motion.div>
           ))}
-
         </div>
       </section>
 
       {/* Services Overview */}
       <section className="py-24 bg-white">
         <div className="mx-auto max-w-5xl px-4 text-center">
-
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6"
             variants={fadeUp}
@@ -132,14 +122,12 @@ export default function AboutPage() {
           >
             Our services include India Entry Strategy, Business Setup, Accounting, Virtual CFO, Tax Advisory, FEMA & RBI Compliance, Transaction Advisory, Audit, M&A, and Litigation Support.
           </motion.p>
-
         </div>
       </section>
 
       {/* Values */}
       <section className="py-24 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-4 gap-8">
-
           {[{
             icon: Shield,
             title: 'Integrity',
@@ -169,7 +157,6 @@ export default function AboutPage() {
               <p className="text-sm text-muted-foreground">{v.desc}</p>
             </motion.div>
           ))}
-
         </div>
       </section>
 
@@ -180,7 +167,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          Let’s Build Your India Presence
+          Let's Build Your India Presence
         </motion.h2>
 
         <motion.p
@@ -197,7 +184,6 @@ export default function AboutPage() {
           </Link>
         </Button>
       </section>
-
     </div>
   )
 }
