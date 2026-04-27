@@ -72,11 +72,36 @@ const services = [
   },
 ]
 
+/* ✅ PAGE ANIMATION (KEY FIX - SAME AS TAX PAGE STYLE) */
+const pageVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
+  },
+}
+
+const childVariant = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0 },
+}
+
 export default function RiskManagementPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <div className="min-h-screen bg-white">
+    <motion.div
+      className="min-h-screen bg-white"
+      initial="hidden"
+      animate="show"
+      variants={pageVariants}
+    >
 
       {/* HERO */}
       <section className="relative min-h-[60vh] flex items-center">
@@ -90,10 +115,7 @@ export default function RiskManagementPage() {
         <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <motion.div variants={childVariant}>
             <h1 className="text-4xl md:text-5xl font-bold text-white">
               Risk Management Services
             </h1>
@@ -112,7 +134,7 @@ export default function RiskManagementPage() {
             const isOpen = openIndex === i
 
             return (
-              <div key={section.title} className="border rounded-xl shadow-sm">
+              <motion.div key={section.title} variants={childVariant} className="border rounded-xl shadow-sm">
 
                 {/* HEADER */}
                 <button
@@ -158,7 +180,7 @@ export default function RiskManagementPage() {
                   )}
                 </AnimatePresence>
 
-              </div>
+              </motion.div>
             )
           })}
 
@@ -167,19 +189,21 @@ export default function RiskManagementPage() {
 
       {/* CTA */}
       <section className="py-20 bg-[#081a42] text-white text-center">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-4">
-            Strengthen Your Risk Framework
-          </h2>
-          <p className="text-white/70 mb-6">
-            AU Corporate helps you build resilient systems and proactive risk strategies.
-          </p>
-          <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium">
-            Talk to Experts
-          </button>
-        </div>
+        <motion.div variants={childVariant}>
+          <div className="max-w-3xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-4">
+              Strengthen Your Risk Framework
+            </h2>
+            <p className="text-white/70 mb-6">
+              AU Corporate helps you build resilient systems and proactive risk strategies.
+            </p>
+            <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-medium">
+              Talk to Experts
+            </button>
+          </div>
+        </motion.div>
       </section>
 
-    </div>
+    </motion.div>
   )
 }
