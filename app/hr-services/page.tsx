@@ -7,15 +7,7 @@ import { useEffect, useRef, useState } from "react"
 
 import {
   ArrowRight,
-  CheckCircle2,
 } from "lucide-react"
-
-/* HERO POINTS */
-const heroPoints = [
-  "End-to-end HR outsourcing solutions",
-  "Payroll & statutory compliance management",
-  "Scalable workforce solutions for India operations",
-]
 
 /* STATS */
 const stats = [
@@ -24,6 +16,25 @@ const stats = [
   { value: 99.9, suffix: "%", label: "Payroll Accuracy" },
   { value: 15, suffix: "+", label: "Years Experience" },
 ]
+
+/* ANIMATION VARIANTS */
+const fadeUp = {
+  hidden: { opacity: 0, y: 60 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" },
+  },
+}
+
+const stagger = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+}
 
 function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef(null)
@@ -50,135 +61,175 @@ export default function HRServicesPage() {
     <div className="min-h-screen pt-20">
 
       {/* HERO */}
-      <section className="relative py-24 min-h-[80vh] flex items-center">
+      <section className="relative py-24 min-h-[80vh] flex items-center overflow-hidden">
+
         <div className="absolute inset-0">
-          <img src="https://cdn.corenexis.com/files/c/8589382720.jpg" className="w-full h-full object-cover" />
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 6 }}
+            src="https://cdn.corenexis.com/files/c/8589382720.jpg"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
-          <h1 className="text-5xl font-bold mb-4">HR & Payroll Services</h1>
-          <p className="mb-6 text-white/80">
+        <motion.div
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+          className="relative z-10 max-w-7xl mx-auto px-4 text-white"
+        >
+
+          <motion.h1
+            variants={fadeUp}
+            className="text-5xl font-bold mb-4"
+          >
+            HR & Payroll Services
+          </motion.h1>
+
+          <motion.p
+            variants={fadeUp}
+            className="mb-6 text-white/80"
+          >
             End-to-end HR outsourcing, payroll processing, and compliance solutions.
-          </p>
+          </motion.p>
 
-          <Button asChild className="bg-yellow-400 text-black">
-            <Link href="/contact">Get Started</Link>
-          </Button>
+          <motion.div variants={fadeUp}>
+            <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+              <Link href="/contact">Get Started</Link>
+            </Button>
+          </motion.div>
 
-          <div className="mt-6 space-y-2">
-            {heroPoints.map((p) => (
-              <div key={p} className="flex gap-2">
-                <CheckCircle2 className="text-yellow-400" />
-                {p}
-              </div>
-            ))}
-          </div>
-        </div>
+          {/* QUOTE */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 border-l-4 border-yellow-400 pl-6 max-w-2xl"
+          >
+            <p className="text-lg md:text-xl italic text-white/90 leading-relaxed">
+              “Human is not a resource. A human being is a tremendous possibility.
+              If we approach human beings as resources, then we will never unfold
+              their innate genius.”
+            </p>
+
+            <p className="mt-3 text-yellow-400 font-semibold">
+              — Sadhguru
+            </p>
+          </motion.div>
+
+        </motion.div>
       </section>
 
       {/* MAIN SECTIONS */}
       <section className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 space-y-32">
 
-          {/* PERMANENT RECRUITMENT */}
-          <motion.div initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div className="overflow-hidden rounded-2xl">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" className="rounded-2xl shadow-lg hover:scale-105 transition duration-700" />
-            </div>
+          {/* PERMANENT */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="overflow-hidden rounded-2xl"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                className="rounded-2xl shadow-lg transition duration-700"
+              />
+            </motion.div>
 
             <div>
               <h2 className="text-3xl font-bold mb-4">Permanent Recruitment</h2>
-              <p className="text-yellow-500 font-semibold mb-4">Connecting You with Top Talent</p>
+              <p className="text-yellow-500 font-semibold mb-4">
+                Connecting You with Top Talent
+              </p>
 
               <p className="text-gray-600 mb-4">
                 In today’s competitive job market, finding and retaining top talent is critical.
                 We focus on selecting candidates who align with your business goals rather than just filling positions.
               </p>
 
-              <p className="text-gray-600 mb-4">
-                Our innovative recruitment solutions leverage modern tools and industry insights to ensure efficient hiring.
-                We match candidates based on both technical expertise and cultural fit.
-              </p>
-
-              <p className="text-gray-600 mb-4">
-                We provide end-to-end recruitment support including access to a diverse talent pool and flexible hiring models.
-              </p>
-
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>✔ Advanced recruitment tools & assessments</li>
-                <li>✔ Industry-specific hiring expertise</li>
-                <li>✔ Culture-fit candidate selection</li>
-                <li>✔ End-to-end recruitment lifecycle</li>
-                <li>✔ Long-term talent engagement</li>
+                <li>✔ Advanced recruitment tools</li>
+                <li>✔ Industry-specific hiring</li>
+                <li>✔ Culture-fit selection</li>
+                <li>✔ End-to-end lifecycle</li>
               </ul>
             </div>
           </motion.div>
 
-          {/* CONTRACT STAFFING */}
-          <motion.div initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} className="grid lg:grid-cols-2 gap-12 items-center">
-
+          {/* CONTRACT */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
             <div>
-              <h2 className="text-3xl font-bold mb-4">Contract Staffing & Third-Party Payroll</h2>
-              <p className="text-yellow-500 font-semibold mb-4">Flexible Workforce Solutions</p>
+              <h2 className="text-3xl font-bold mb-4">
+                Contract Staffing & Third-Party Payroll
+              </h2>
 
-              <p className="text-gray-600 mb-4">
-                In a dynamic business environment, having access to the right talent at the right time is essential.
-                We provide skilled professionals for temporary and project-based roles.
+              <p className="text-yellow-500 font-semibold mb-4">
+                Flexible Workforce Solutions
               </p>
 
               <p className="text-gray-600 mb-4">
-                Our tailored staffing solutions ensure quick deployment and alignment with your business requirements.
-              </p>
-
-              <p className="text-gray-600 mb-4">
-                We offer continuous support and maintain strong relationships with contract staff to ensure performance and satisfaction.
+                We provide skilled professionals for temporary and project-based roles ensuring flexibility and efficiency.
               </p>
 
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>✔ Quick deployment of skilled professionals</li>
-                <li>✔ Project-based staffing solutions</li>
-                <li>✔ Access to diverse talent pool</li>
-                <li>✔ End-to-end staffing lifecycle</li>
-                <li>✔ Ongoing workforce support</li>
+                <li>✔ Quick deployment</li>
+                <li>✔ Project staffing</li>
+                <li>✔ Diverse talent pool</li>
               </ul>
             </div>
 
-            <div className="overflow-hidden rounded-2xl">
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" className="rounded-2xl shadow-lg hover:scale-105 transition duration-700" />
-            </div>
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <img
+                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+                className="rounded-2xl shadow-lg"
+              />
+            </motion.div>
           </motion.div>
 
           {/* PAYROLL */}
-          <motion.div initial={{ opacity: 0, y: 80 }} whileInView={{ opacity: 1, y: 0 }} className="grid lg:grid-cols-2 gap-12 items-center">
-
-            <div className="overflow-hidden rounded-2xl">
-              <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f" className="rounded-2xl shadow-lg hover:scale-105 transition duration-700" />
-            </div>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={fadeUp}
+            className="grid lg:grid-cols-2 gap-12 items-center"
+          >
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <img
+                src="https://images.unsplash.com/photo-1554224155-6726b3ff858f"
+                className="rounded-2xl shadow-lg"
+              />
+            </motion.div>
 
             <div>
-              <h2 className="text-3xl font-bold mb-4">Payroll & HR Outsourcing</h2>
-              <p className="text-yellow-500 font-semibold mb-4">Streamlining HR Operations</p>
+              <h2 className="text-3xl font-bold mb-4">
+                Payroll & HR Outsourcing
+              </h2>
 
-              <p className="text-gray-600 mb-4">
-                Our payroll services ensure accurate and timely processing including salary calculations, compliance, and benefits.
+              <p className="text-yellow-500 font-semibold mb-4">
+                Streamlining HR Operations
               </p>
 
               <p className="text-gray-600 mb-4">
-                We act as an extension of your HR team, handling recruitment, onboarding, compliance, and performance management.
-              </p>
-
-              <p className="text-gray-600 mb-4">
-                Our flexible outsourcing solutions are designed to enhance efficiency and support business growth.
+                Accurate payroll, compliance, and HR lifecycle management solutions tailored for business growth.
               </p>
 
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>✔ Accurate payroll processing</li>
-                <li>✔ Tax & statutory compliance</li>
-                <li>✔ HR lifecycle management</li>
-                <li>✔ Scalable outsourcing solutions</li>
-                <li>✔ Expert HR support</li>
+                <li>✔ Payroll processing</li>
+                <li>✔ Compliance</li>
+                <li>✔ HR lifecycle</li>
               </ul>
             </div>
           </motion.div>
@@ -189,23 +240,39 @@ export default function HRServicesPage() {
       {/* STATS */}
       <section className="py-16 bg-yellow-50 text-center grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((s) => (
-          <div key={s.label}>
+          <motion.div
+            key={s.label}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
             <div className="text-3xl font-bold">
               <CountUp value={s.value} suffix={s.suffix} />
             </div>
             <p>{s.label}</p>
-          </div>
+          </motion.div>
         ))}
       </section>
 
       {/* CTA */}
-      <section className="py-24 text-center">
-        <h2 className="text-3xl font-bold mb-4">Simplify Your HR Operations</h2>
-        <Button asChild className="bg-yellow-400 text-black">
-          <Link href="/contact">Contact Us</Link>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="py-24 text-center"
+      >
+        <h2 className="text-3xl font-bold mb-4">
+          Simplify Your HR Operations
+        </h2>
+
+        <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+          <Link href="/contact">
+            Contact Us <ArrowRight className="ml-2 w-4 h-4" />
+          </Link>
         </Button>
-      </section>
-      {/* FLOATING BROCHURE BUTTON */}
+      </motion.section>
+
+      {/* FLOATING BUTTON */}
       <a
         href="https://www.image2url.com/r2/default/documents/1777026304947-6e16b4f8-c2df-4c55-8d68-8d47a460bda0.pdf"
         target="_blank"
