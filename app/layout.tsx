@@ -1,58 +1,58 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import './globals.css'
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import "./globals.css"
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
+  subsets: ["latin"],
+  variable: "--font-inter",
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.theaucorp.com'),
+  metadataBase: new URL("https://www.theaucorp.com"),
 
   title: {
-    default: 'AU Corporate | Assurance, Tax and Consulting Services',
-    template: '%s | AU Corporate',
+    default: "AU Corporate | Assurance, Tax and Consulting Services",
+    template: "%s | AU Corporate",
   },
 
   description:
-    'AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Compliance.',
+    "AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Compliance.",
 
   keywords: [
-    'Assurance services',
-    'Taxation services',
-    'Consulting firm India',
-    'Risk management',
-    'Transaction advisory',
-    'Corporate advisory',
-    'Business consulting India',
+    "Assurance services",
+    "Taxation services",
+    "Consulting firm India",
+    "Risk management",
+    "Transaction advisory",
+    "Corporate advisory",
+    "Business consulting India",
   ],
 
-  authors: [{ name: 'AU Corporate' }],
+  authors: [{ name: "AU Corporate" }],
 
   openGraph: {
-    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    title: "AU Corporate | Assurance, Tax and Consulting Services",
     description:
-      'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
-    url: 'https://www.theaucorp.com',
-    siteName: 'AU Corporate',
-    type: 'website',
+      "Professional services in Assurance, Taxation, Risk Management, and Compliance.",
+    url: "https://www.theaucorp.com",
+    siteName: "AU Corporate",
+    type: "website",
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'AU Corporate | Assurance, Tax and Consulting Services',
+    card: "summary_large_image",
+    title: "AU Corporate | Assurance, Tax and Consulting Services",
     description:
-      'Professional services in Assurance, Taxation, Risk Management, and Compliance.',
+      "Professional services in Assurance, Taxation, Risk Management, and Compliance.",
   },
 }
 
 export const viewport = {
-  themeColor: '#ffffff',
-  width: 'device-width',
+  themeColor: "#ffffff",
+  width: "device-width",
   initialScale: 1,
 }
 
@@ -63,20 +63,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-background">
-
-      {/* 🔴 CRITICAL FIX: REMOVE IMPLICIT SPACING ISSUES */}
-      <body className={`${inter.variable} font-sans antialiased m-0 p-0`}>
-
+      <body
+        className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden`}
+      >
+        {/* NAVBAR */}
         <Navbar />
 
-        {/* ✅ FIX: prevents navbar overlap & removes “mysterious top gap” */}
-        <main className="pt-20 min-h-screen">
-          {children}
-        </main>
+        {/* MAIN LAYOUT WRAPPER */}
+        <div className="flex flex-col min-h-screen">
 
-        <Footer />
+          {/* 
+            IMPORTANT FIX:
+            pt-20 = reserves space for fixed navbar globally
+            No page will now create random top gaps
+          */}
+          <main className="flex-1 pt-20">
+            {children}
+          </main>
 
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+          {/* FOOTER */}
+          <Footer />
+        </div>
+
+        {/* ANALYTICS (PRODUCTION ONLY) */}
+        {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
   )
