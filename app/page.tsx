@@ -118,16 +118,13 @@ export default function HomePage() {
           className="object-cover scale-105"
         />
 
-        {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
 
-        {/* GLOW EFFECTS */}
         <div className="absolute w-[450px] h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px] animate-pulse" />
         <div className="absolute w-[350px] h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px] animate-pulse" />
 
         <div className="relative z-10 text-center px-4 max-w-5xl">
 
-          {/* TITLE */}
           <motion.h1
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -139,7 +136,6 @@ export default function HomePage() {
             </span>
           </motion.h1>
 
-          {/* SUBTITLE */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -149,7 +145,6 @@ export default function HomePage() {
             Growing Together
           </motion.p>
 
-          {/* CTA */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,9 +155,7 @@ export default function HomePage() {
             </Button>
           </motion.div>
 
-          {/* STATS */}
           <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
-
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -179,7 +172,6 @@ export default function HomePage() {
                 </div>
               </motion.div>
             ))}
-
           </div>
 
         </div>
@@ -248,7 +240,6 @@ export default function HomePage() {
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
             Doing Business in India
@@ -259,27 +250,16 @@ export default function HomePage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-
             {[
-              {
-                title: "Why India",
-                desc: "High-growth economy with global opportunities.",
-              },
-              {
-                title: "Incorporation",
-                desc: "Seamless setup & compliance in India.",
-              },
-              {
-                title: "Growth Strategy",
-                desc: "Long-term expansion & advisory support.",
-              },
+              { title: "Why India", desc: "High-growth economy with global opportunities." },
+              { title: "Incorporation", desc: "Seamless setup & compliance in India." },
+              { title: "Growth Strategy", desc: "Long-term expansion & advisory support." },
             ].map((item, i) => (
               <motion.div
                 key={item.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
-                viewport={{ once: true }}
                 className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md hover:scale-105 transition"
               >
                 <h3 className="text-yellow-400 font-semibold mb-2">
@@ -288,7 +268,6 @@ export default function HomePage() {
                 <p className="text-white/70 text-sm">{item.desc}</p>
               </motion.div>
             ))}
-
           </div>
 
           <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
@@ -299,6 +278,32 @@ export default function HomePage() {
           </Button>
 
         </div>
+      </section>
+
+      {/* ================= BLOG CTA ================= */}
+      <section className="py-20 bg-gray-50 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto px-4"
+        >
+          <h2 className="text-3xl font-bold mb-4">
+            Insights & Knowledge Hub
+          </h2>
+
+          <p className="text-gray-500 mb-8">
+            Stay updated with expert insights on taxation, compliance, and business strategies in India.
+          </p>
+
+          <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+            <Link href="/blog">
+              Explore Our Blog
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </motion.div>
       </section>
 
     </div>
