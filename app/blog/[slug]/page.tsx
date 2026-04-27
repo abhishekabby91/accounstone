@@ -9,7 +9,7 @@ export default function BlogPage() {
       {/* HERO IMAGE */}
       <div className="mb-10">
         <Image
-          src="/construction-arbitration.jpg"
+          src="https://images.unsplash.com/photo-1581091012184-7c4c0b3a6a12"
           alt="Construction Arbitration India"
           width={1200}
           height={600}
@@ -18,7 +18,7 @@ export default function BlogPage() {
       </div>
 
       {/* TITLE */}
-      <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-6">
+      <h1 className="text-3xl md:text-4xl font-bold leading-tight mb-4">
         Construction Arbitration in India: From Winning Claims to Enforcing Awards
       </h1>
 
@@ -27,7 +27,7 @@ export default function BlogPage() {
       </p>
 
       {/* INTRO */}
-      <section className="mb-10">
+      <section className="mb-12">
         <p className="text-lg leading-relaxed">
           In construction and infrastructure projects, disputes are almost inevitable.
           But what many companies often realize—sometimes too late—is that arbitration is not a single event,
@@ -35,11 +35,11 @@ export default function BlogPage() {
         </p>
       </section>
 
-      {/* PART 1 IMAGE */}
-      <div className="my-10">
+      {/* IMAGE 2 */}
+      <div className="mb-10">
         <Image
-          src="/arbitration-tribunal.jpg"
-          alt="Arbitration Tribunal Process"
+          src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+          alt="Arbitration Tribunal Discussion"
           width={1200}
           height={600}
           className="rounded-2xl"
@@ -60,7 +60,7 @@ export default function BlogPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>Rejected inflated reconstruction cost claims</li>
           <li>Critically examined surveyor reports</li>
-          <li>Applied commercial proportionality</li>
+          <li>Applied commercial proportionality principles</li>
           <li>Delivered balanced, evidence-based award</li>
         </ul>
 
@@ -69,6 +69,17 @@ export default function BlogPage() {
           if the arbitrator’s view is plausible.
         </p>
       </section>
+
+      {/* IMAGE 3 */}
+      <div className="mb-10">
+        <Image
+          src="https://images.unsplash.com/photo-1505664194779-8beaceb93744"
+          alt="Construction Site Infrastructure"
+          width={1200}
+          height={600}
+          className="rounded-2xl"
+        />
+      </div>
 
       {/* KEY LESSONS */}
       <section className="mb-12">
@@ -84,11 +95,11 @@ export default function BlogPage() {
         </ul>
       </section>
 
-      {/* PART 2 IMAGE */}
-      <div className="my-10">
+      {/* IMAGE 4 */}
+      <div className="mb-10">
         <Image
-          src="/court-enforcement.jpg"
-          alt="Arbitration Enforcement Court Process"
+          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
+          alt="Court Enforcement Legal System"
           width={1200}
           height={600}
           className="rounded-2xl"
@@ -109,8 +120,8 @@ export default function BlogPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>₹1.81 crore awarded in arbitration (2014)</li>
           <li>Government challenged award under Section 34</li>
-          <li>Execution initiated but delayed due to legal proceedings</li>
-          <li>High Court stayed execution and imposed timelines</li>
+          <li>Execution initiated but delayed significantly</li>
+          <li>High Court imposed strict timelines for disposal</li>
         </ul>
 
         <p className="mt-4">
@@ -124,9 +135,9 @@ export default function BlogPage() {
           What This Means for Construction Companies
         </h2>
 
-        <p className="text-lg">
+        <p className="text-lg leading-relaxed">
           Arbitration success is not just about winning—it is about ensuring recovery.
-          Evidence wins claims, but enforcement determines real outcomes.
+          Evidence wins claims, but enforcement determines real commercial outcomes.
         </p>
       </section>
 
@@ -134,7 +145,7 @@ export default function BlogPage() {
       <section className="border-t pt-8 mt-10">
         <h2 className="text-xl font-semibold mb-3">AU Corporate Perspective</h2>
 
-        <p>
+        <p className="text-gray-700">
           At AU Corporate, arbitration is treated as a full-cycle strategic process—from contract structuring
           to enforcement. Our focus is simple: legal victory must translate into commercial recovery.
         </p>
@@ -142,7 +153,7 @@ export default function BlogPage() {
 
       {/* CTA */}
       <div className="mt-10 p-6 bg-gray-100 rounded-xl">
-        <p className="font-medium">
+        <p className="font-semibold">
           Facing a construction dispute or arbitration issue?
         </p>
         <p className="text-gray-700 mt-2">

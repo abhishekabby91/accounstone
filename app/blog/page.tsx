@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 
 const blogs = [
   {
-    title: "Doing Business in India: Key Considerations",
+    title: "Construction Arbitration in India: From Winning Claims to Enforcing Awards",
     desc: "Understand regulatory, tax, and compliance landscape before entering India.",
     slug: "doing-business-in-india",
   },
