@@ -33,11 +33,11 @@ export default function AboutHero() {
         <div className="mx-auto max-w-7xl px-4 grid md:grid-cols-2 gap-12 items-center">
 
           <motion.div initial="hidden" animate="visible" variants={fadeUp}>
-            <span className="text-gold text-sm font-semibold uppercase tracking-wider">
+            <span className="text-black text-sm font-semibold uppercase tracking-wider">
               About Us
             </span>
 
-            <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
+            <h1 className="text-gold text-4xl md:text-5xl font-bold mt-4 mb-6">
               AU Corporate
             </h1>
 
