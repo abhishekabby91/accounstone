@@ -38,7 +38,7 @@ export default function AboutHero() {
             </span>
 
             <h1 className="text-4xl md:text-5xl font-bold mt-4 mb-6">
-              AU Corporate – Trusted Advisory Partner
+              AU Corporate
             </h1>
 
             <p className="text-muted-foreground mb-4">
