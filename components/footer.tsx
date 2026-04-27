@@ -6,7 +6,7 @@ const quickLinks = [
   { label: 'Why India', href: '/why-india' },
   { label: 'Arbitration Services', href: '/arbitration-services' },
   { label: 'HR Services', href: '/hr-services' },
-  { label: 'Outsourcing', href: '/outsourcing' },
+  { label: 'Global Support', href: '/outsourcing' },
 ]
 
 const companyLinks = [
