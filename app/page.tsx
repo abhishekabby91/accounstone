@@ -91,26 +91,13 @@ function CountUp({ value, suffix = "" }: { value: number; suffix?: string }) {
 
 export default function HomePage() {
 
-  const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    show: (i = 1) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.15,
-        duration: 0.7,
-        ease: "easeOut",
-      },
-    }),
-  }
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24">
 
-        {/* Animated Background Image */}
+        {/* Background */}
         <motion.div
           initial={{ scale: 1.2 }}
           animate={{ scale: 1 }}
@@ -126,25 +113,24 @@ export default function HomePage() {
           />
         </motion.div>
 
-        {/* Gradient Overlay Animation */}
+        {/* Overlay */}
         <motion.div
-          initial={{ opacity: 0.6 }}
           animate={{ opacity: [0.6, 0.75, 0.6] }}
           transition={{ duration: 6, repeat: Infinity }}
           className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"
         />
 
-        {/* Floating Blur Effects */}
+        {/* Glow effects */}
         <motion.div
           animate={{ y: [0, -30, 0] }}
           transition={{ duration: 6, repeat: Infinity }}
-          className="absolute w-[450px] h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px]"
+          className="absolute w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-yellow-400/10 blur-3xl rounded-full top-[-120px] left-[-120px]"
         />
 
         <motion.div
           animate={{ y: [0, 30, 0] }}
           transition={{ duration: 7, repeat: Infinity }}
-          className="absolute w-[350px] h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px]"
+          className="absolute w-[250px] sm:w-[350px] h-[250px] sm:h-[350px] bg-blue-400/10 blur-3xl rounded-full bottom-[-100px] right-[-100px]"
         />
 
         {/* Content */}
@@ -154,7 +140,7 @@ export default function HomePage() {
             initial={{ opacity: 0, scale: 0.85, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            className="text-3xl sm:text-5xl md:text-7xl font-bold text-white mb-4"
           >
             <span className="text-yellow-400 drop-shadow-lg">
               AU Corporate
@@ -165,7 +151,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-white/80 mb-8 text-lg max-w-3xl mx-auto"
+            className="text-base sm:text-lg text-white/80 mb-8 max-w-3xl mx-auto px-2"
           >
             Growing Together
           </motion.p>
@@ -175,13 +161,13 @@ export default function HomePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
-            <Button asChild className="bg-yellow-400 text-black hover:scale-110 transition">
+            <Button asChild className="bg-yellow-400 text-black hover:scale-105 active:scale-95 transition">
               <Link href="/contact">Get Started</Link>
             </Button>
           </motion.div>
 
           {/* STATS */}
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={stat.label}
@@ -189,10 +175,10 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
               >
-                <div className="text-3xl font-bold text-yellow-400">
+                <div className="text-2xl sm:text-3xl font-bold text-yellow-400">
                   <CountUp value={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/70 text-sm">
+                <div className="text-white/70 text-xs sm:text-sm">
                   {stat.label}
                 </div>
               </motion.div>
@@ -203,16 +189,16 @@ export default function HomePage() {
       </section>
 
       {/* ================= SERVICES ================= */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
 
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl font-bold">
               Comprehensive Business Solutions
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
             {services.map((service, i) => (
               <motion.div
@@ -221,21 +207,21 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.12, duration: 0.6 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -8, scale: 1.02 }}
               >
                 <Link
                   href={service.href}
-                  className="group block p-8 bg-white border rounded-xl hover:shadow-2xl transition-all"
+                  className="group block p-5 sm:p-8 bg-white border rounded-xl hover:shadow-2xl transition-all"
                 >
-                  <div className="w-14 h-14 bg-yellow-400/10 flex items-center justify-center mb-6 rounded-lg">
-                    <service.icon className="text-yellow-500 h-7 w-7" />
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-yellow-400/10 flex items-center justify-center mb-5 sm:mb-6 rounded-lg">
+                    <service.icon className="text-yellow-500 h-6 w-6 sm:h-7 sm:w-7" />
                   </div>
 
-                  <h3 className="font-semibold group-hover:text-yellow-500">
+                  <h3 className="font-semibold group-hover:text-yellow-500 text-sm sm:text-base">
                     {service.title}
                   </h3>
 
-                  <p className="text-sm text-gray-500 mt-2">
+                  <p className="text-xs sm:text-sm text-gray-500 mt-2">
                     {service.description}
                   </p>
 
@@ -249,7 +235,7 @@ export default function HomePage() {
       </section>
 
       {/* ================= INDIA SECTION ================= */}
-      <section className="relative py-24 text-white overflow-hidden">
+      <section className="relative py-16 sm:py-24 text-white overflow-hidden">
 
         <Image
           src="https://cdn.corenexis.com/files/c/5753696720.jpg"
@@ -262,19 +248,15 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 text-center">
 
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-3xl md:text-5xl font-bold mb-6"
-          >
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6">
             Doing Business in India
-          </motion.h2>
+          </h2>
 
-          <p className="text-white/80 text-lg max-w-3xl mx-auto mb-10">
+          <p className="text-white/80 text-sm sm:text-lg max-w-3xl mx-auto mb-10 px-2">
             AU Corporate enables global businesses to enter, establish, and scale in India with complete regulatory, tax, and compliance support.
           </p>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
             {[
               { title: "Why India", desc: "High-growth economy with global opportunities." },
               { title: "Incorporation", desc: "Seamless setup & compliance in India." },
@@ -285,17 +267,17 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.2 }}
-                className="p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md hover:scale-105 transition"
+                className="p-5 sm:p-6 bg-white/10 border border-white/20 rounded-xl backdrop-blur-md"
               >
-                <h3 className="text-yellow-400 font-semibold mb-2">
+                <h3 className="text-yellow-400 font-semibold mb-2 text-sm sm:text-base">
                   {item.title}
                 </h3>
-                <p className="text-white/70 text-sm">{item.desc}</p>
+                <p className="text-white/70 text-xs sm:text-sm">{item.desc}</p>
               </motion.div>
             ))}
           </div>
 
-          <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+          <Button asChild className="bg-yellow-400 text-black hover:scale-105 active:scale-95 transition">
             <Link href="/why-india">
               Explore India Opportunity
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -306,29 +288,25 @@ export default function HomePage() {
       </section>
 
       {/* ================= BLOG CTA ================= */}
-      <section className="py-20 bg-gray-50 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-3xl mx-auto px-4"
-        >
-          <h2 className="text-3xl font-bold mb-4">
+      <section className="py-16 sm:py-20 bg-gray-50 text-center">
+        <div className="max-w-3xl mx-auto px-4">
+
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Insights & Knowledge Hub
           </h2>
 
-          <p className="text-gray-500 mb-8">
+          <p className="text-gray-500 text-sm sm:text-base mb-8">
             Stay updated with expert insights on taxation, compliance, and business strategies in India.
           </p>
 
-          <Button asChild className="bg-yellow-400 text-black hover:scale-105 transition">
+          <Button asChild className="bg-yellow-400 text-black hover:scale-105 active:scale-95 transition">
             <Link href="/blog">
               Explore Our Blog
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
-        </motion.div>
+
+        </div>
       </section>
 
     </div>

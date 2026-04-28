@@ -24,18 +24,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const openMenu = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current)
-    setIndiaMenuOpen(true)
-  }
-
-  const closeMenu = () => {
-    timeoutRef.current = setTimeout(() => {
-      setIndiaMenuOpen(false)
-      setIndiaSubMenu(null)
-    }, 250)
-  }
-
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
     { label: "HR Services", href: "/hr-services" },
@@ -66,43 +54,41 @@ export function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white border-b ${isScrolled ? "shadow-sm" : ""}`}>
+
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 sm:h-20 items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-3 min-w-max">
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 min-w-max">
             <Image
               src="https://user8396.na.imgto.link/public/20260417/au.avif"
               alt="AU Corporate Logo"
-              width={40}
-              height={40}
+              width={36}
+              height={36}
+              className="sm:w-10 sm:h-10"
             />
-            <div className="flex flex-col leading-tight whitespace-nowrap">
-              <span className="text-2xl font-bold text-gold">
+
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg sm:text-2xl font-bold text-gold">
                 AU Corporate
               </span>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-[#081a42]">
+              <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#081a42]">
                 Growing Together
               </span>
             </div>
           </Link>
 
-          {/* SERVICES */}
-          <div
-            className="relative"
-            onMouseEnter={() => setServicesOpen(true)}
-            onMouseLeave={() => {
-              setServicesOpen(false)
-              setActiveMenu(null)
-            }}
-          >
-            <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
-              Services ▾
-            </button>
+          {/* DESKTOP MENU */}
+          <div className="hidden lg:flex items-center gap-2">
 
-            {servicesOpen && (
-              <div className="absolute top-full left-0 w-[650px] bg-white border shadow-xl rounded-xl flex z-50">
+            {/* SERVICES */}
+            <div className="relative group">
+              <button className="px-3 py-2 text-sm text-gray-600 hover:text-black">
+                Services ▾
+              </button>
+
+              <div className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl hidden group-hover:flex z-50">
 
                 <div className="w-1/2 border-r py-2">
                   {mainServices.map((service) => (
@@ -138,63 +124,33 @@ export function Navbar() {
                 </div>
 
               </div>
-            )}
-          </div>
+            </div>
 
-          {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center gap-2">
-
-            {/* DOING BUSINESS */}
-            <div
-              className="relative"
-              onMouseEnter={openMenu}
-              onMouseLeave={closeMenu}
-            >
-              <button className="px-4 py-2 text-sm text-gray-600 hover:text-black">
+            {/* INDIA */}
+            <div className="relative group">
+              <button className="px-3 py-2 text-sm text-gray-600 hover:text-black">
                 Doing Business in India ▾
               </button>
 
-              {indiaMenuOpen && (
-                <div className="absolute top-full left-0 w-[320px] bg-white border shadow-xl rounded-xl z-50">
+              <div className="absolute top-full left-0 w-[300px] bg-white border shadow-xl rounded-xl hidden group-hover:block z-50">
 
-                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                    Why India
-                  </Link>
+                <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  Why India
+                </Link>
 
-                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                    Entry Process & Business Structures
-                  </Link>
+                <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  Entry Process
+                </Link>
 
-                  <div
-                    onMouseEnter={() => setIndiaSubMenu("help")}
-                    className="flex justify-between items-center px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
-                  >
-                    <span>How AU Corporate Can Help You</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </div>
+                <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
+                  Incorporation Support
+                </Link>
 
-                  {indiaSubMenu === "help" && (
-                    <div className="absolute top-0 left-full w-[260px] bg-white border shadow-xl rounded-xl">
-                      <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                        Pre-Incorporation
-                      </Link>
-
-                      <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                        Incorporation
-                      </Link>
-
-                      <Link href="/doing-business-in-india/post-incorporation" className="block px-4 py-3 text-sm hover:bg-gray-100">
-                        Post-Incorporation
-                      </Link>
-                    </div>
-                  )}
-                </div>
-              )}
+              </div>
             </div>
 
-            {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="px-4 py-2 text-sm">
+              <Link key={link.label} href={link.href} className="px-3 py-2 text-sm">
                 {link.label}
               </Link>
             ))}
@@ -208,12 +164,36 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE */}
-          <button className="lg:hidden" onClick={() => setIsOpen(!isOpen)}>
+          {/* MOBILE BUTTON */}
+          <button
+            className="lg:hidden"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             {isOpen ? <X /> : <Menu />}
           </button>
 
         </div>
+
+        {/* MOBILE MENU */}
+        {isOpen && (
+          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col p-4 space-y-3">
+
+            <Link href="/services" onClick={() => setIsOpen(false)}>Services</Link>
+            <Link href="/outsourcing" onClick={() => setIsOpen(false)}>Global Support</Link>
+            <Link href="/about" onClick={() => setIsOpen(false)}>About</Link>
+            <Link href="/career" onClick={() => setIsOpen(false)}>Career</Link>
+            <Link href="/arbitration-services" onClick={() => setIsOpen(false)}>Arbitration</Link>
+            <Link href="/hr-services" onClick={() => setIsOpen(false)}>HR Services</Link>
+
+            <div className="pt-2 border-t">
+              <Link href="/contact" className="block">
+                <Button className="w-full">Get Started</Button>
+              </Link>
+            </div>
+
+          </div>
+        )}
+
       </nav>
     </header>
   )
