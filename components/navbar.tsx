@@ -58,9 +58,116 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* DESKTOP (UNCHANGED) */}
+          {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-3">
-            {/* keep your existing desktop code exactly same */}
+
+            {/* SERVICES */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setActiveMenu(activeMenu === "services" ? null : "services")
+                  setActiveSubMenu(null)
+                }}
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black"
+              >
+                Services ▾
+              </button>
+
+              {activeMenu === "services" && (
+                <div className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl flex z-50">
+
+                  <div className="w-1/2 border-r py-2">
+                    {mainServices.map((service) => (
+                      <div
+                        key={service.label}
+                        onMouseEnter={() =>
+                          service.key && setActiveSubMenu(service.key)
+                        }
+                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                      >
+                        {service.href ? (
+                          <Link href={service.href}>{service.label}</Link>
+                        ) : (
+                          <span>{service.label}</span>
+                        )}
+                        {service.key && <ChevronRight className="w-4 h-4" />}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="w-1/2 p-4">
+                    {activeSubMenu === "risk" &&
+                      riskSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
+
+                    {activeSubMenu === "tax" &&
+                      taxSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
+                  </div>
+
+                </div>
+              )}
+            </div>
+
+            {/* INDIA */}
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setActiveMenu(activeMenu === "india" ? null : "india")
+                  setActiveSubMenu(null)
+                }}
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black"
+              >
+                Doing Business in India ▾
+              </button>
+
+              {activeMenu === "india" && (
+                <div className="absolute top-full left-0 w-[260px] bg-white border shadow-xl rounded-xl z-50">
+
+                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 hover:bg-gray-100">
+                    Why India
+                  </Link>
+
+                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 hover:bg-gray-100">
+                    Entry Process
+                  </Link>
+
+                  <div className="relative group">
+                    <div className="flex justify-between items-center px-4 py-3 hover:bg-gray-100 cursor-pointer">
+                      <span>Incorporation</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </div>
+
+                    <div className="absolute top-0 left-full w-[240px] bg-white border shadow-xl rounded-xl hidden group-hover:block">
+                      <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 hover:bg-gray-100">
+                        Pre-Incorporation
+                      </Link>
+                      <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 hover:bg-gray-100">
+                        Incorporation
+                      </Link>
+                      <Link href="/doing-business-in-india/post-incorporation" className="block px-4 py-3 hover:bg-gray-100">
+                        Post-Incorporation
+                      </Link>
+                    </div>
+                  </div>
+
+                </div>
+              )}
+            </div>
+
+            {/* OTHER LINKS */}
+            {navLinks.map((link) => (
+              <Link key={link.label} href={link.href} className="px-3 py-2 text-sm">
+                {link.label}
+              </Link>
+            ))}
+
           </div>
 
           {/* CTA */}
@@ -70,7 +177,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE */}
+          {/* MOBILE BUTTON */}
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -79,120 +186,145 @@ export function Navbar() {
 
         {/* MOBILE MENU */}
         {isOpen && (
-          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col p-4 space-y-4">
+          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6">
 
             {/* SERVICES */}
-            <button
-              onClick={() =>
-                setActiveMenu(activeMenu === "services" ? null : "services")
-              }
-              className="text-left font-semibold flex justify-between"
-            >
-              Services
-              <span>{activeMenu === "services" ? "−" : "+"}</span>
-            </button>
+            <div className="mb-4">
+              <button
+                onClick={() =>
+                  setActiveMenu(activeMenu === "services" ? null : "services")
+                }
+                className="w-full flex justify-between items-center text-base font-semibold py-2"
+              >
+                Services
+                <span>{activeMenu === "services" ? "−" : "+"}</span>
+              </button>
 
-            {activeMenu === "services" && (
-              <div className="pl-3 space-y-2 border-l">
-                {mainServices.map((service) => (
-                  <div key={service.label}>
-                    {service.href ? (
-                      <Link href={service.href} className="block text-gray-700">
-                        {service.label}
-                      </Link>
-                    ) : (
-                      <p className="text-gray-800 font-medium">{service.label}</p>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+              {activeMenu === "services" && (
+                <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
 
-            {/* DOING BUSINESS */}
-            <button
-              onClick={() =>
-                setActiveMenu(activeMenu === "india" ? null : "india")
-              }
-              className="text-left font-semibold border-t pt-3 flex justify-between"
-            >
-              Doing Business in India
-              <span>{activeMenu === "india" ? "−" : "+"}</span>
-            </button>
+                  {mainServices.map((service) => (
+                    <div key={service.label}>
 
-            {activeMenu === "india" && (
-              <div className="pl-3 space-y-3 border-l">
+                      {service.href && (
+                        <Link href={service.href} className="block py-1">
+                          {service.label}
+                        </Link>
+                      )}
 
-                <Link
-                  href="/doing-business-in-india/why-india"
-                  className="block text-gray-700"
-                >
-                  Why India
-                </Link>
+                      {service.key && (
+                        <>
+                          <button
+                            onClick={() =>
+                              setActiveSubMenu(
+                                activeSubMenu === service.key ? null : service.key
+                              )
+                            }
+                            className="w-full flex justify-between items-center py-1 font-medium"
+                          >
+                            {service.label}
+                            <span>{activeSubMenu === service.key ? "−" : "+"}</span>
+                          </button>
 
-                <Link
-                  href="/doing-business-in-india/entry-process"
-                  className="block text-gray-700"
-                >
-                  Entry Process
-                </Link>
+                          {activeSubMenu === service.key && (
+                            <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
 
-                {/* INCORPORATION */}
-                <div>
-                  <button
-                    onClick={() =>
-                      setActiveSubMenu(
-                        activeSubMenu === "incorporation" ? null : "incorporation"
-                      )
-                    }
-                    className="w-full flex justify-between items-center text-left font-medium"
-                  >
-                    Incorporation
-                    <span>{activeSubMenu === "incorporation" ? "−" : "+"}</span>
-                  </button>
+                              {service.key === "risk" &&
+                                riskSubServices.map((item) => (
+                                  <Link key={item.label} href={item.href} className="block py-1">
+                                    {item.label}
+                                  </Link>
+                                ))}
 
-                  {activeSubMenu === "incorporation" && (
-                    <div className="pl-4 mt-2 space-y-2 border-l">
+                              {service.key === "tax" &&
+                                taxSubServices.map((item) => (
+                                  <Link key={item.label} href={item.href} className="block py-1">
+                                    {item.label}
+                                  </Link>
+                                ))}
 
-                      <Link
-                        href="/doing-business-in-india/pre-incorporation"
-                        className="block text-gray-600"
-                      >
-                        Pre-Incorporation
-                      </Link>
-
-                      <Link
-                        href="/doing-business-in-india/incorporation"
-                        className="block text-gray-600"
-                      >
-                        Incorporation
-                      </Link>
-
-                      <Link
-                        href="/doing-business-in-india/post-incorporation"
-                        className="block text-gray-600"
-                      >
-                        Post-Incorporation
-                      </Link>
+                            </div>
+                          )}
+                        </>
+                      )}
 
                     </div>
-                  )}
-                </div>
+                  ))}
 
-              </div>
-            )}
+                </div>
+              )}
+            </div>
+
+            {/* INDIA */}
+            <div className="mb-4 border-t pt-4">
+              <button
+                onClick={() =>
+                  setActiveMenu(activeMenu === "india" ? null : "india")
+                }
+                className="w-full flex justify-between items-center text-base font-semibold py-2"
+              >
+                Doing Business in India
+                <span>{activeMenu === "india" ? "−" : "+"}</span>
+              </button>
+
+              {activeMenu === "india" && (
+                <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
+
+                  <Link href="/doing-business-in-india/why-india" className="block py-1">
+                    Why India
+                  </Link>
+
+                  <Link href="/doing-business-in-india/entry-process" className="block py-1">
+                    Entry Process
+                  </Link>
+
+                  <div>
+                    <button
+                      onClick={() =>
+                        setActiveSubMenu(
+                          activeSubMenu === "incorporation" ? null : "incorporation"
+                        )
+                      }
+                      className="w-full flex justify-between items-center py-1"
+                    >
+                      Incorporation
+                      <span>{activeSubMenu === "incorporation" ? "−" : "+"}</span>
+                    </button>
+
+                    {activeSubMenu === "incorporation" && (
+                      <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
+                        <Link href="/doing-business-in-india/pre-incorporation" className="block py-1">
+                          Pre-Incorporation
+                        </Link>
+                        <Link href="/doing-business-in-india/incorporation" className="block py-1">
+                          Incorporation
+                        </Link>
+                        <Link href="/doing-business-in-india/post-incorporation" className="block py-1">
+                          Post-Incorporation
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+
+                </div>
+              )}
+            </div>
 
             {/* OTHER LINKS */}
-            <div className="border-t pt-3 space-y-2">
+            <div className="border-t pt-4 space-y-3">
               {navLinks.map((link) => (
-                <Link key={link.label} href={link.href} className="block">
+                <Link key={link.label} href={link.href} className="block text-sm">
                   {link.label}
                 </Link>
               ))}
             </div>
 
-            <Button asChild>
-              <Link href="/contact">Get Started</Link>
-            </Button>
+            {/* CTA */}
+            <div className="mt-6">
+              <Button asChild className="w-full">
+                <Link href="/contact">Get Started</Link>
+              </Button>
+            </div>
 
           </div>
         )}
