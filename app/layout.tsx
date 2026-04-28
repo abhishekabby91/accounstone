@@ -54,6 +54,7 @@ export const viewport = {
   themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
+  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -62,30 +63,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-background">
+    <html lang="en" className="bg-white">
       <body
-        className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden`}
+        className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden scroll-smooth`}
       >
-        {/* NAVBAR */}
         <Navbar />
 
-        {/* MAIN LAYOUT WRAPPER */}
         <div className="flex flex-col min-h-screen">
-
-          {/* 
-            IMPORTANT FIX:
-            pt-20 = reserves space for fixed navbar globally
-            No page will now create random top gaps
-          */}
-          <main className="flex-1 pt-20">
+          <main className="flex-1 pt-16 sm:pt-20">
             {children}
           </main>
 
-          {/* FOOTER */}
           <Footer />
         </div>
 
-        {/* ANALYTICS (PRODUCTION ONLY) */}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
