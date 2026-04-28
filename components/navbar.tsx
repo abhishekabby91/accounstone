@@ -53,11 +53,18 @@ export function Navbar() {
               width={36}
               height={36}
             />
-            <span className="text-lg sm:text-2xl font-bold text-gold">
-              AU Corporate
-            </span>
-          </Link>
 
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg sm:text-2xl font-bold text-gold">
+                AU Corporate
+              </span>
+
+              {/* ✅ TAGLINE (VISIBLE IN MOBILE ALSO) */}
+              <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#081a42]">
+                Growing Together
+              </span>
+            </div>
+          </Link>
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-3">
 
