@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button"
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [indiaOpen, setIndiaOpen] = useState(false)
+  const [servicesOpen, setServicesOpen] = useState(false)
+  const [activeMenu, setActiveMenu] = useState<string | null>(null)
 
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
@@ -18,6 +20,26 @@ export function Navbar() {
     { label: "Career", href: "/career" },
   ]
 
+  const mainServices = [
+    { label: "Risk Management Services", key: "risk" },
+    { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
+    { label: "Taxation & Regulatory Services", key: "tax" },
+    { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
+  ]
+
+  const riskSubServices = [
+    { label: "Risk Management", href: "/services/risk-management" },
+    { label: "Forensic Services", href: "/services/risk-management" },
+    { label: "Special Audit / Review", href: "/services/risk-management" },
+  ]
+
+  const taxSubServices = [
+    { label: "Direct Taxation", href: "/services/taxation-regulatory" },
+    { label: "Goods & Service Tax", href: "/services/taxation-regulatory" },
+    { label: "Regulatory Services", href: "/services/taxation-regulatory" },
+    { label: "Secretarial & Legal", href: "/services/taxation-regulatory" },
+  ]
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -25,7 +47,7 @@ export function Navbar() {
         <div className="flex h-16 sm:h-20 items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2 sm:gap-3">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="https://user8396.na.imgto.link/public/20260417/au.avif"
               alt="AU Corporate Logo"
@@ -40,7 +62,56 @@ export function Navbar() {
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-3">
 
-            {/* INDIA DROPDOWN */}
+            {/* SERVICES */}
+            <div className="relative">
+              <button
+                onClick={() => setServicesOpen(!servicesOpen)}
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black"
+              >
+                Services ▾
+              </button>
+
+              {servicesOpen && (
+                <div className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl flex z-50">
+
+                  <div className="w-1/2 border-r py-2">
+                    {mainServices.map((service) => (
+                      <div
+                        key={service.label}
+                        onMouseEnter={() => setActiveMenu(service.key || null)}
+                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                      >
+                        {service.href ? (
+                          <Link href={service.href}>{service.label}</Link>
+                        ) : (
+                          <span>{service.label}</span>
+                        )}
+                        {service.key && <ChevronRight className="w-4 h-4" />}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="w-1/2 p-4">
+                    {activeMenu === "risk" &&
+                      riskSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
+
+                    {activeMenu === "tax" &&
+                      taxSubServices.map((item) => (
+                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
+                          {item.label}
+                        </Link>
+                      ))}
+                  </div>
+
+                </div>
+              )}
+            </div>
+
+            {/* INDIA */}
             <div className="relative">
               <button
                 onClick={() => setIndiaOpen(!indiaOpen)}
@@ -60,7 +131,6 @@ export function Navbar() {
                     Entry Process
                   </Link>
 
-                  {/* SUB MENU */}
                   <div className="relative group">
                     <div className="flex justify-between items-center px-4 py-3 hover:bg-gray-100 cursor-pointer">
                       <span>Incorporation</span>
@@ -115,33 +185,20 @@ export function Navbar() {
         {isOpen && (
           <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col p-4 space-y-3">
 
-            {/* INDIA MOBILE */}
+            <Link href="/services">Services</Link>
+
             <div className="border-b pb-3">
               <p className="font-semibold mb-2">Doing Business in India</p>
 
-              <Link href="/doing-business-in-india/why-india" onClick={() => setIsOpen(false)}>
-                Why India
-              </Link>
-
-              <Link href="/doing-business-in-india/entry-process" onClick={() => setIsOpen(false)}>
-                Entry Process
-              </Link>
-
-              <Link href="/doing-business-in-india/pre-incorporation" onClick={() => setIsOpen(false)}>
-                Pre-Incorporation
-              </Link>
-
-              <Link href="/doing-business-in-india/incorporation" onClick={() => setIsOpen(false)}>
-                Incorporation
-              </Link>
-
-              <Link href="/doing-business-in-india/post-incorporation" onClick={() => setIsOpen(false)}>
-                Post-Incorporation
-              </Link>
+              <Link href="/doing-business-in-india/why-india">Why India</Link>
+              <Link href="/doing-business-in-india/entry-process">Entry Process</Link>
+              <Link href="/doing-business-in-india/pre-incorporation">Pre-Incorporation</Link>
+              <Link href="/doing-business-in-india/incorporation">Incorporation</Link>
+              <Link href="/doing-business-in-india/post-incorporation">Post-Incorporation</Link>
             </div>
 
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} onClick={() => setIsOpen(false)}>
+              <Link key={link.label} href={link.href}>
                 {link.label}
               </Link>
             ))}
