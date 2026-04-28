@@ -9,20 +9,17 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "cdn.corenexis.com",
-        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "user8396.na.imgto.link",
-        pathname: "/**",
       },
       {
         protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**", // ✅ IMPORTANT
+        hostname: "images.unsplash.com", // ✅ added for About page images
       },
     ],
   },
 }
 
-module.exports = nextConfig
+export default nextConfig
