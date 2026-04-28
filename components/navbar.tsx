@@ -8,9 +8,10 @@ import { Button } from "@/components/ui/button"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [indiaOpen, setIndiaOpen] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
+
+  // ✅ MAIN + SUB MENU STATE
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
 
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
@@ -59,26 +60,33 @@ export function Navbar() {
             </span>
           </Link>
 
-          {/* DESKTOP MENU */}
+          {/* DESKTOP */}
           <div className="hidden lg:flex items-center gap-3">
 
             {/* SERVICES */}
             <div className="relative">
               <button
-                onClick={() => setServicesOpen(!servicesOpen)}
+                onClick={() => {
+                  setActiveMenu(activeMenu === "services" ? null : "services")
+                  setActiveSubMenu(null)
+                }}
                 className="px-3 py-2 text-sm text-gray-600 hover:text-black"
               >
                 Services ▾
               </button>
 
-              {servicesOpen && (
-                <div className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl flex z-50">
-
+              {activeMenu === "services" && (
+                <div
+                  className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl flex z-50"
+                  onMouseLeave={() => setActiveSubMenu(null)}
+                >
                   <div className="w-1/2 border-r py-2">
                     {mainServices.map((service) => (
                       <div
                         key={service.label}
-                        onMouseEnter={() => setActiveMenu(service.key || null)}
+                        onMouseEnter={() =>
+                          service.key && setActiveSubMenu(service.key)
+                        }
                         className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
                       >
                         {service.href ? (
@@ -92,21 +100,20 @@ export function Navbar() {
                   </div>
 
                   <div className="w-1/2 p-4">
-                    {activeMenu === "risk" &&
+                    {activeSubMenu === "risk" &&
                       riskSubServices.map((item) => (
                         <Link key={item.label} href={item.href} className="block py-2 text-sm">
                           {item.label}
                         </Link>
                       ))}
 
-                    {activeMenu === "tax" &&
+                    {activeSubMenu === "tax" &&
                       taxSubServices.map((item) => (
                         <Link key={item.label} href={item.href} className="block py-2 text-sm">
                           {item.label}
                         </Link>
                       ))}
                   </div>
-
                 </div>
               )}
             </div>
@@ -114,13 +121,16 @@ export function Navbar() {
             {/* INDIA */}
             <div className="relative">
               <button
-                onClick={() => setIndiaOpen(!indiaOpen)}
+                onClick={() => {
+                  setActiveMenu(activeMenu === "india" ? null : "india")
+                  setActiveSubMenu(null)
+                }}
                 className="px-3 py-2 text-sm text-gray-600 hover:text-black"
               >
                 Doing Business in India ▾
               </button>
 
-              {indiaOpen && (
+              {activeMenu === "india" && (
                 <div className="absolute top-full left-0 w-[260px] bg-white border shadow-xl rounded-xl z-50">
 
                   <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 hover:bg-gray-100">
@@ -138,19 +148,15 @@ export function Navbar() {
                     </div>
 
                     <div className="absolute top-0 left-full w-[240px] bg-white border shadow-xl rounded-xl hidden group-hover:block">
-
                       <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 hover:bg-gray-100">
                         Pre-Incorporation
                       </Link>
-
                       <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 hover:bg-gray-100">
                         Incorporation
                       </Link>
-
                       <Link href="/doing-business-in-india/post-incorporation" className="block px-4 py-3 hover:bg-gray-100">
                         Post-Incorporation
                       </Link>
-
                     </div>
                   </div>
 
@@ -174,7 +180,7 @@ export function Navbar() {
             </Button>
           </div>
 
-          {/* MOBILE BUTTON */}
+          {/* MOBILE */}
           <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -189,7 +195,6 @@ export function Navbar() {
 
             <div className="border-b pb-3">
               <p className="font-semibold mb-2">Doing Business in India</p>
-
               <Link href="/doing-business-in-india/why-india">Why India</Link>
               <Link href="/doing-business-in-india/entry-process">Entry Process</Link>
               <Link href="/doing-business-in-india/pre-incorporation">Pre-Incorporation</Link>
