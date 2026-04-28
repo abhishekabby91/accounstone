@@ -1,40 +1,42 @@
-import Link from 'next/link'
-import { Linkedin, Mail, MapPin } from 'lucide-react'
+import Link from "next/link"
+import { Linkedin, Mail, MapPin } from "lucide-react"
 
 const quickLinks = [
-  { label: 'Services', href: '/services' },
-  { label: 'Why India', href: '/why-india' },
-  { label: 'Arbitration Services', href: '/arbitration-services' },
-  { label: 'HR Services', href: '/hr-services' },
-  { label: 'Global Support', href: '/outsourcing' },
+  { label: "Services", href: "/services" },
+  { label: "Why India", href: "/why-india" },
+  { label: "Arbitration Services", href: "/arbitration-services" },
+  { label: "HR Services", href: "/hr-services" },
+  { label: "Global Support", href: "/outsourcing" },
 ]
 
 const companyLinks = [
-  { label: 'About Us', href: '/about' },
-  { label: 'Careers', href: '/career' },
-  { label: 'Contact', href: '/contact' },
+  { label: "About Us", href: "/about" },
+  { label: "Careers", href: "/career" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-border">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="bg-white border-t border-gray-200">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
+        {/* TOP GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
 
-            <Link href="/" className="flex flex-col mb-6">
-              <span className="text-2xl font-bold tracking-wide text-gold">
+          {/* BRAND */}
+          <div className="sm:col-span-2 lg:col-span-1">
+
+            <Link href="/" className="flex flex-col mb-4">
+              <span className="text-xl sm:text-2xl font-bold tracking-wide text-gold">
                 AU Corporate
               </span>
-              <span className="text-[10px] text-blue tracking-[0.25em] uppercase font-medium">
+              <span className="text-[10px] sm:text-[11px] text-blue tracking-[0.25em] uppercase font-medium">
                 Growing Together
               </span>
             </Link>
 
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+            <p className="text-gray-500 text-sm leading-relaxed mb-5">
               Supporting global businesses in establishing and operating in India through expert advisory, compliance, and outsourcing solutions.
             </p>
 
@@ -42,23 +44,26 @@ export function Footer() {
               href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-gold transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-gray-500 hover:text-yellow-500 transition"
             >
               <Linkedin className="h-5 w-5" />
-              <span className="text-sm">Follow us on LinkedIn</span>
+              <span className="text-sm">LinkedIn</span>
             </a>
 
           </div>
 
-          {/* Quick Links */}
+          {/* QUICK LINKS */}
           <div>
-            <h3 className="text-gold font-semibold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+            <h3 className="text-yellow-500 font-semibold mb-4 text-sm sm:text-base">
+              Quick Links
+            </h3>
+
+            <ul className="space-y-2 sm:space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-gold hover:pl-2 transition-all duration-200 text-sm"
+                    className="text-gray-500 hover:text-yellow-500 text-sm transition"
                   >
                     {link.label}
                   </Link>
@@ -67,15 +72,18 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* COMPANY */}
           <div>
-            <h3 className="text-gold font-semibold mb-6">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-yellow-500 font-semibold mb-4 text-sm sm:text-base">
+              Company
+            </h3>
+
+            <ul className="space-y-2 sm:space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-muted-foreground hover:text-gold hover:pl-2 transition-all duration-200 text-sm"
+                    className="text-gray-500 hover:text-yellow-500 text-sm transition"
                   >
                     {link.label}
                   </Link>
@@ -84,63 +92,61 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* CONTACT */}
           <div>
-            <h3 className="text-gold font-semibold mb-6">Contact Us</h3>
+            <h3 className="text-yellow-500 font-semibold mb-4 text-sm sm:text-base">
+              Contact
+            </h3>
 
-            <ul className="space-y-4">
+            <div className="space-y-4">
 
-              <li className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+              <div className="flex items-start gap-3">
+                <Mail className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
                 <a
                   href="mailto:partner@theaucorp.com"
-                  className="text-muted-foreground hover:text-gold transition-colors duration-200 text-sm"
+                  className="text-gray-500 hover:text-yellow-500 text-sm break-all"
                 >
                   partner@theaucorp.com
                 </a>
-              </li>
+              </div>
 
-              {/* LOCATION UPDATED */}
-              <li className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
-                <span className="text-muted-foreground text-sm">
+              <div className="flex items-start gap-3">
+                <MapPin className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
+                <span className="text-gray-500 text-sm">
                   New Delhi & Gurugram, India
                 </span>
-              </li>
+              </div>
 
-            </ul>
+            </div>
           </div>
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+        {/* BOTTOM BAR */}
+        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200">
 
-            <p className="text-muted-foreground text-sm">
-              &copy; {new Date().getFullYear()} AU Corporate. All rights reserved.
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+
+            <p className="text-gray-400 text-xs sm:text-sm">
+              © {new Date().getFullYear()} AU Corporate. All rights reserved.
             </p>
 
-            <div className="flex gap-6">
-              <Link
-                href="/privacy"
-                className="text-muted-foreground hover:text-gold text-sm"
-              >
-                Privacy Policy
+            <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
+              <Link href="/privacy" className="text-gray-400 hover:text-yellow-500 text-xs sm:text-sm">
+                Privacy
               </Link>
 
-              <Link
-                href="/terms"
-                className="text-muted-foreground hover:text-gold text-sm"
-              >
-                Terms of Service
+              <Link href="/terms" className="text-gray-400 hover:text-yellow-500 text-xs sm:text-sm">
+                Terms
               </Link>
             </div>
 
           </div>
+
         </div>
 
       </div>
+
     </footer>
   )
 }
