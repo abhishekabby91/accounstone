@@ -11,9 +11,9 @@ const blogs = [
     slug: "doing-business-in-india",
   },
   {
-    title: "Transfer Pricing Trends in 2025",
-    desc: "Explore latest TP regulations and global compliance requirements.",
-    slug: "transfer-pricing-trends",
+    title: "Arbitration Enforcement India",
+    desc: "Lessons from Executive Engineer (CCW), All India Radio v. M/s B Prasad & Co. (2026)",
+    slug: "arbitration-enforcement-india",
   },
   {
     title: "Payroll Compliance in India",
