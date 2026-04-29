@@ -129,7 +129,7 @@ export default function BlogPage() {
       {/* IMAGE */}
       <div className="mt-8 relative w-full aspect-[16/9] overflow-hidden rounded-xl">
         <Image
-          src="https://images.unsplash.com/photo-1581091012184-7c4c0b3a6a12?auto=format&fit=crop&w=1600&q=80"
+          src="https://cdn.corenexis.com/files/c/6121698720.jpg"
           alt="Court Judgment"
           fill
           unoptimized
