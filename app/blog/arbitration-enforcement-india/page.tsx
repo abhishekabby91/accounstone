@@ -9,7 +9,7 @@ export default function BlogPage() {
       {/* HERO IMAGE */}
       <div className="mt-4 relative w-full aspect-[16/9] overflow-hidden rounded-2xl">
         <Image
-          src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=80"
+          src="https://cdn.corenexis.com/files/c/2863224720.jpg"
           alt="Arbitration Enforcement India"
           fill
           priority
