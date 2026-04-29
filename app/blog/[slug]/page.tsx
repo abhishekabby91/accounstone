@@ -22,26 +22,18 @@ export default function BlogPage() {
       {/* TITLE */}
       <div className="mt-6 sm:mt-8">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-          Construction Arbitration in India: From Winning Claims to Enforcing Awards
+          Construction Arbitration in India: Strategic Lessons from a Recent High Court Ruling
         </h1>
-
-        <p className="text-gray-500 mt-3 text-sm sm:text-base">
-          Strategic lessons from recent High Court rulings for construction and infrastructure companies.
-        </p>
       </div>
 
       {/* INTRO */}
-      <section className="mt-8 space-y-4">
-        <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-          In India’s rapidly growing infrastructure sector, disputes are not exceptions — they are part of the process.
+      <section className="mt-8 space-y-4 text-gray-800">
+        <p>
+          A recent judgment of the High Court of Himachal Pradesh in M/s United India Insurance Company vs. M/s Kishan Singh & Others (April 2026) offers important strategic guidance for construction companies navigating disputes in large infrastructure projects.
         </p>
 
-        <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-          Large-scale construction projects involve multiple stakeholders, tight timelines, insurance coverage, and evolving site conditions — naturally creating disagreements.
-        </p>
-
-        <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-          Arbitration is not just about winning — it is about how well the claim is built, how evidence is presented, and whether the award can actually be enforced.
+        <p>
+          Beyond its legal significance, the ruling highlights a practical reality: in complex construction disputes, arbitration outcomes are driven by evidence strategy, not merely contractual entitlement.
         </p>
       </section>
 
@@ -57,25 +49,20 @@ export default function BlogPage() {
         />
       </div>
 
-      {/* SECTION */}
-      <section className="mt-8 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-semibold">
-          How Arbitration Outcomes Are Actually Determined
-        </h2>
+      {/* BACKGROUND */}
+      <section className="mt-8 space-y-4 text-gray-700">
+        <h2 className="text-xl sm:text-2xl font-semibold">Background of the Case</h2>
 
-        <p className="text-gray-700">
-          A recent High Court judgment highlights a key truth: arbitral tribunals focus on commercial reality, not exaggerated claims.
+        <p>
+          The dispute arose from the collapse of a bridge span during execution of a hydro-electric project—an incident that led to severe financial loss and human casualties.
         </p>
 
-        <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm sm:text-base">
-          <li>Reject inflated claims without evidence</li>
-          <li>Critically evaluate surveyor reports</li>
-          <li>Apply proportionality in loss assessment</li>
-          <li>Focus on commercially reasonable outcomes</li>
-        </ul>
+        <p>
+          The contractor’s claim ran into crores, while the insurer, United India Insurance Company, relied on a surveyor’s report to approve a significantly lower amount.
+        </p>
 
-        <p className="text-gray-700">
-          Courts typically uphold such awards unless they are irrational or legally flawed.
+        <p>
+          This divergence—common in EPC and infrastructure projects—triggered arbitration.
         </p>
       </section>
 
@@ -91,19 +78,20 @@ export default function BlogPage() {
         />
       </div>
 
-      {/* LESSONS */}
-      <section className="mt-8 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-semibold">
-          Key Lessons for Companies
-        </h2>
+      {/* TRIBUNAL */}
+      <section className="mt-8 space-y-4 text-gray-700">
+        <h2 className="text-xl sm:text-2xl font-semibold">What the Tribunal Did Differently</h2>
 
-        <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm sm:text-base">
-          <li>Documentation is more powerful than aggressive claims</li>
-          <li>Surveyor reports are influential but not final</li>
-          <li>Overstated claims reduce credibility</li>
-          <li>Actual loss matters more than projections</li>
-          <li>Arbitration decisions are rarely revisited</li>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>It rejected inflated reconstruction costs and focused on actual loss valuation</li>
+          <li>It scrutinized and partially disregarded the surveyor’s findings where they lacked clarity</li>
+          <li>It applied proportionality principles under the insurance framework</li>
+          <li>It delivered a balanced award—higher than the insurer’s offer, but lower than the contractor’s claim</li>
         </ul>
+
+        <p>
+          The result: a defensible, reasoned award that survived judicial scrutiny at all levels.
+        </p>
       </section>
 
       {/* IMAGE */}
@@ -118,51 +106,56 @@ export default function BlogPage() {
         />
       </div>
 
-      {/* ENFORCEMENT */}
-      <section className="mt-8 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-semibold">
-          Winning Is Not Enough
-        </h2>
+      {/* COURT VIEW */}
+      <section className="mt-8 space-y-4 text-gray-700">
+        <h2 className="text-xl sm:text-2xl font-semibold">The Court’s Position: Arbitration is Final—Almost</h2>
 
-        <p className="text-gray-700">
-          Even after winning arbitration, enforcement can take years due to legal challenges.
-        </p>
-
-        <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm sm:text-base">
-          <li>Awards are often challenged in court</li>
-          <li>Execution may be delayed</li>
-          <li>Courts balance enforcement with fairness</li>
-          <li>Timelines are improving but still slow</li>
+        <ul className="list-disc pl-5 space-y-2">
+          <li>No re-evaluation of evidence: Courts will not re-assess facts or substitute their own interpretation</li>
+          <li>“Plausible view” standard: If the arbitrator’s conclusion is reasonable, it stands—even if alternatives exist</li>
+          <li>Expert reports are not binding: Surveyor assessments are relevant, but not conclusive</li>
         </ul>
 
-        <p className="text-gray-700">
-          This makes enforcement strategy just as important as winning the dispute.
+        <p>
+          This reflects India’s consistent shift toward arbitration finality and minimal judicial intervention.
         </p>
       </section>
 
-      {/* FINAL */}
-      <section className="mt-8 space-y-4">
-        <h2 className="text-xl sm:text-2xl font-semibold">
-          Industry Insight
-        </h2>
+      {/* LESSONS */}
+      <section className="mt-8 space-y-4 text-gray-700">
+        <h2 className="text-xl sm:text-2xl font-semibold">What This Means for Construction Companies</h2>
 
-        <p className="text-gray-800 text-base sm:text-lg">
-          Arbitration success depends on preparation, documentation, and execution — but real value comes from converting awards into recovery.
-        </p>
+        <ol className="list-decimal pl-5 space-y-2">
+          <li><strong>Evidence is Your Strongest Asset</strong> – Claims unsupported by robust evidence are likely to be discounted.</li>
+          <li><strong>Don’t Over-Rely on Surveyor Reports</strong> – These can be challenged if inconsistencies exist.</li>
+          <li><strong>Valuation Strategy Matters</strong> – Tribunals prioritize actual loss over inflated claims.</li>
+          <li><strong>Arbitration is Not a Second Trial</strong> – Appeals are extremely limited.</li>
+          <li><strong>Risk Allocation Must Be Understood Early</strong> – Contracts and insurance must align from the outset.</li>
+        </ol>
       </section>
 
       {/* AU BLOCK */}
-      <section className="border-t mt-10 pt-6 space-y-3">
-        <h2 className="text-lg sm:text-xl font-semibold">
-          AU Corporate Perspective
-        </h2>
+      <section className="border-t mt-10 pt-6 space-y-3 text-gray-700">
+        <h2 className="text-lg sm:text-xl font-semibold">AU Corporate Perspective: Moving from Dispute to Strategy</h2>
 
-        <p className="text-gray-700">
-          We treat arbitration as a full lifecycle — from contract structuring to enforcement.
+        <ul className="list-disc pl-5 space-y-2">
+          <li>Structuring contracts and insurance frameworks to minimize ambiguity</li>
+          <li>Building claim-ready documentation systems during project execution</li>
+          <li>Conducting pre-arbitration risk assessments to strengthen case positioning</li>
+          <li>Representing clients with a commercially aligned, evidence-first approach</li>
+        </ul>
+      </section>
+
+      {/* CONCLUSION */}
+      <section className="mt-8 space-y-4 text-gray-800">
+        <h2 className="text-xl sm:text-2xl font-semibold">Conclusion</h2>
+
+        <p>
+          Arbitration rewards preparation, precision, and credibility—not just contractual claims.
         </p>
 
-        <p className="text-gray-700">
-          Our focus is not just winning disputes, but ensuring clients actually recover value.
+        <p>
+          As infrastructure projects grow in scale and complexity, companies that integrate legal strategy with project execution will be best positioned to protect value and manage risk effectively.
         </p>
       </section>
 
@@ -173,7 +166,7 @@ export default function BlogPage() {
         </p>
 
         <p className="mt-2 text-sm text-white/80">
-          AU Corporate provides end-to-end arbitration strategy, claim management, and enforcement support.
+          AU Corporate provides end-to-end arbitration strategy, claim management, and dispute support.
         </p>
       </div>
 
