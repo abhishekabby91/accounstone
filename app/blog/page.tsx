@@ -8,7 +8,7 @@ const blogs = [
   {
     title: "Construction Arbitration in India: From Winning Claims to Enforcing Awards",
     desc: "Understand regulatory, tax, and compliance landscape before entering India.",
-    slug: "doing-business-in-india",
+    slug: "construction-arbitration-in-India",
   },
   {
     title: "Arbitration Enforcement India",
