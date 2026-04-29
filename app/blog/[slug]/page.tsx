@@ -6,16 +6,15 @@ export default function BlogPage() {
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 pb-16">
 
-      {/* HERO IMAGE */}
-      <div className="mt-4 relative w-full aspect-[16/9] overflow-hidden rounded-2xl">
+      <div className="mt-4">
         <Image
           src="https://images.unsplash.com/photo-1581091012184-7c4c0b3a6a12?auto=format&fit=crop&w=1600&q=80"
           alt="Construction Arbitration India"
-          fill
+          width={1200}
+          height={675}
           priority
           unoptimized
-          sizes="(max-width: 768px) 100vw, 1200px"
-          className="object-cover"
+          className="rounded-2xl object-cover w-full h-auto"
         />
       </div>
 
