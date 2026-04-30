@@ -41,7 +41,7 @@ const offices = [
   {
     region: "India (HQ)",
 city: "New Delhi",
-address: "SURYA KIRAN BUILDING, 408, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001",
+address: "SURYA KIRAN BUILDING, 4O8, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001",
   },
 ] 
 
