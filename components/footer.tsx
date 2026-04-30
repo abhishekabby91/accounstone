@@ -113,7 +113,7 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
                 <span className="text-gray-500 text-sm">
-                  SURYA KIRAN BUILDING, 408, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001
+                  SURYA KIRAN BUILDING, 4O8, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001
                 </span>
               </div>
 
