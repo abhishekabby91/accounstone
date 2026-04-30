@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -64,6 +65,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-white">
+      <head>
+        {/* Apollo Tracking Script */}
+        <Script id="apollo" strategy="afterInteractive">
+          {`function initApollo(){
+            var n = Math.random().toString(36).substring(7),
+                o = document.createElement("script");
+            o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
+            o.async = true;
+            o.defer = true;
+            o.onload = function(){
+              window.trackingFunctions.onLoad({
+                appId: "69ef2f72e61a0c000d596f8e"
+              });
+            };
+            document.head.appendChild(o);
+          }
+          initApollo();`}
+        </Script>
+      </head>
+
       <body
         className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden scroll-smooth`}
       >
