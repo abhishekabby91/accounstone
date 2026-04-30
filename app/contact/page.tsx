@@ -31,10 +31,10 @@ const contactInfo = [
   },
   {
     icon: MapPin,
-    title: "Visit Us",
-    description: "Our main office",
-    value: "New Delhi & Haryana, India",
-    href: "#",
+title: "Visit Us",
+description: "Our main office",
+value: "222, First Floor, World Trade Tower, Barakhamba Road, Connaught Place, New Delhi – 110001",
+href: "https://maps.google.com/?q=World+Trade+Tower+Barakhamba+Road+Connaught+Place+New+Delhi+110001",
   },
 ]
 
