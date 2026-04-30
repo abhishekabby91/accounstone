@@ -40,9 +40,10 @@ value: "SURYA KIRAN BUILDING, 4O8, KG Marg, Atul Grove Road, Janpath, Connaught 
 const offices = [
   {
     region: "India (HQ)",
-    city: "222, First Floor, World Trade Tower, Barakhamba Road, Connaught Place, New Delhi – 110001",
+city: "New Delhi",
+address: "SURYA KIRAN BUILDING, 408, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001",
   },
-]
+] 
 
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormState>({
