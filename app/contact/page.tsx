@@ -41,7 +41,7 @@ href: "https://maps.google.com/?q=World+Trade+Tower+Barakhamba+Road+Connaught+Pl
 const offices = [
   {
     region: "India (HQ)",
-    city: "New Delhi & Haryana",
+    city: "222, First Floor, World Trade Tower, Barakhamba Road, Connaught Place, New Delhi – 110001",
   },
 ]
 
