@@ -95,14 +95,14 @@ export default function HomePage() {
     <div className="min-h-screen overflow-x-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-50">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-24">
 
         {/* Background - UPDATED WITH LOOP ANIMATION */}
         <motion.div
           animate={{
             scale: [1.1, 1.15, 1.1],
             x: ["-2%", "2%", "-2%"],
-            y: ["-2%", "2%", "-2%"], 
+            y: ["-2%", "2%", "-2%"],
           }}
           transition={{
             duration: 20,
