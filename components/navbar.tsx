@@ -41,12 +41,12 @@ export function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
 
         <div className="flex h-16 sm:h-20 items-center justify-between">
 
           {/* LOGO */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2" aria-label="AU Corporate Home">
             <Image
               src="https://user8396.na.imgto.link/public/20260417/au.avif"
               alt="AU Corporate Logo"
@@ -185,7 +185,13 @@ export function Navbar() {
           </div>
 
           {/* MOBILE BUTTON */}
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="lg:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
+          >
             {isOpen ? <X /> : <Menu />}
           </button>
 
@@ -193,7 +199,12 @@ export function Navbar() {
 
         {/* MOBILE MENU */}
         {isOpen && (
-          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6">
+          <div 
+            className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6"
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation"
+          >
 
             {/* SERVICES */}
             <div className="mb-4">
