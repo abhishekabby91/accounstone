@@ -1,27 +1,9 @@
-import type { MetadataRoute } from "next"
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default function sitemap() {
   const baseUrl = "https://theaucorp.com"
 
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/outsourcing`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/contact`,
       lastModified: new Date(),
     },
     {
@@ -32,5 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/why-india`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/services`,
+      lastModified: new Date(),
+    },
   ]
-} 
+}
