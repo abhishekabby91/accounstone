@@ -94,7 +94,7 @@ export function Footer() {
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-yellow-500 font-semibold mb-4 text-sm sm:text-base">
+            <h3 className="text-yellow-400 font-semibold mb-4 text-sm sm:text-base">
               Contact
             </h3>
 
