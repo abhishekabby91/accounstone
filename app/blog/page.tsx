@@ -16,7 +16,7 @@ const blogs = [
     slug: "arbitration-enforcement-india",
   },
   {
-    title: "Payroll Compliance in India",
+    title: "Doing Business in India",
     desc: "Key statutory requirements every company must follow in India.",
     slug: "payroll-compliance",
   },
