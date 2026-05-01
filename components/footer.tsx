@@ -74,7 +74,7 @@ export function Footer() {
 
           {/* COMPANY */}
           <div>
-            <h3 className="text-yellow-500 font-semibold mb-4 text-sm sm:text-base">
+            <h3 className="text-yellow-400 font-semibold mb-4 text-sm sm:text-base">
               Company
             </h3>
 
