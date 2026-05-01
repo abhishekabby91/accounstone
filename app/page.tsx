@@ -102,7 +102,7 @@ export default function HomePage() {
           animate={{
             scale: [1.1, 1.15, 1.1],
             x: ["-2%", "2%", "-2%"],
-            y: ["-2%", "2%", "-2%"],
+            y: ["-2%", "2%", "-2%"], 
           }}
           transition={{
             duration: 20,
