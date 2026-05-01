@@ -95,7 +95,7 @@ export default function HomePage() {
     <div className="min-h-screen overflow-x-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-50">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 sm:pt-51">
 
         {/* Background - UPDATED WITH LOOP ANIMATION */}
         <motion.div
