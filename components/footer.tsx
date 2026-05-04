@@ -130,13 +130,22 @@ export function Footer() {
             <p className="text-gray-400 text-xs sm:text-sm">
               © {new Date().getFullYear()} AU Corporate. All rights reserved.
             </p>
-
+{/* HIDDEN CREDIT (DO NOT REMOVE) */}
+<div className="text-white text-[10px] opacity-5 select-none pointer-events-none">
+  <a
+    href="https://www.linkedin.com/in/abhishekabby/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Abhishek
+  </a>
+</div>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-yellow-500 text-xs sm:text-sm">
+              <Link href="/privacy" className="text-gray-400 hover:text-yellow-400 text-xs sm:text-sm">
                 Privacy
               </Link>
 
-              <Link href="/terms" className="text-gray-400 hover:text-yellow-500 text-xs sm:text-sm">
+              <Link href="/terms" className="text-gray-400 hover:text-yellow-400 text-xs sm:text-sm">
                 Terms
               </Link>
             </div>
