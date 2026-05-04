@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+
 export const metadata = {
   title: "FDI in India: Green Channel vs Brown Channel | AU Corporate",
   description:
@@ -208,8 +212,20 @@ export default function BlogPage() {
       {/* AUTHOR CREDIT WITH LINKEDIN */}
       <div className="mt-12 pt-6 border-t text-sm text-gray-600">
         <p>
-          <strong>Author:</strong> Anamika Ahirwar
+          <strong>Author:</strong>{" "}
+          <motion.span
+            animate={{ opacity: [0.6, 1, 0.6], y: [0, -2, 0] }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="inline-block font-medium text-gray-800"
+          >
+            Anamika Ahirwar
+          </motion.span>
         </p>
+
         <p>
           <a
             href="https://www.linkedin.com/in/anamika-ahirwar-47a406379/"
