@@ -224,4 +224,4 @@ export default function BlogPage() {
 
     </main>
   );
-} full code
+}
