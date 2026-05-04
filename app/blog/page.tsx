@@ -12,7 +12,7 @@ const blogs = [
   },
   {
     title: "Arbitration Enforcement India",
-    desc: "Lessons from Executive Engineer (CCW), All India Radio v. M/s B Prasad & Co. (2026)",
+    desc: "A Practical Overview of Legal Procedures, Challenges, and Strategic Considerations in India",
     slug: "arbitration-enforcement-india",
   },
   {
