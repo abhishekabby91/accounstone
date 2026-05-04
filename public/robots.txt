@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://theaucorp.com/sitemap.xml
-
-Host: https://theaucorp.com
+Sitemap: https://theaucorp.com/sitemap_index.xml
