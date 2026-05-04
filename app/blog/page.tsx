@@ -17,7 +17,7 @@ const blogs = [
   },
   {
     title: "Doing Business in India",
-    desc: "Key statutory requirements every company must follow in India.",
+    desc: "A Structured Approach to Navigating India’s Regulatory, Tax, and Compliance Landscape",
     slug: "doing-business-india",
   },
 ]
