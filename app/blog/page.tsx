@@ -21,8 +21,8 @@ const blogs = [
     slug: "doing-business-india",
   },
   {
-    title: "Doing Business in India",
-    desc: "A Structured Approach to Navigating India’s Regulatory, Tax, and Compliance Landscape",
+    title: "FDI in India: Green Channel vs Brown Channel",
+    desc: "Explore FDI in India, including regulatory framework, automatic vs government route, and Green Channel vs Brown Channel approvals. Expert insights by AU Corporate.",
     slug: "fdi",
   },
 ]
