@@ -208,7 +208,7 @@ export default function BlogPage() {
       {/* AUTHOR CREDIT WITH LINKEDIN */}
       <div className="mt-12 pt-6 border-t text-sm text-gray-600">
         <p>
-          <strong>Author:</strong> Anamika Ahirwar
+          <strong>Credit:</strong> Anamika Ahirwar
         </p>
         <p>
           <a
