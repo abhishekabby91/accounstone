@@ -32,13 +32,20 @@ export default function BlogPage() {
     <div className="min-h-screen py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="text-center mb-16">
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h1 className="text-4xl font-bold">Our Blog</h1>
           <p className="text-gray-500 mt-2">
             Insights on taxation, compliance, and global business
           </p>
-        </div>
+        </motion.div>
 
+        {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-6">
 
           {blogs.map((blog, i) => (
@@ -46,18 +53,25 @@ export default function BlogPage() {
               key={blog.slug}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ y: -6 }}
+              className="p-6 bg-white rounded-xl shadow-md hover:shadow-xl transition-all"
             >
               <h3 className="font-semibold mb-2">{blog.title}</h3>
               <p className="text-sm text-gray-500 mb-4">{blog.desc}</p>
 
               <Link
                 href={`/blog/${blog.slug}`}
-                className="text-yellow-400 text-sm flex items-center gap-1 hover:gap-2 transition-all"
+                className="text-yellow-500 text-sm flex items-center gap-1 group"
               >
-                Read More <ArrowRight className="h-4 w-4" />
+                Read More
+                <motion.span
+                  whileHover={{ x: 4 }}
+                  className="inline-flex"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </motion.span>
               </Link>
             </motion.div>
           ))}
