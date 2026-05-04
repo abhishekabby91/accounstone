@@ -20,6 +20,11 @@ const blogs = [
     desc: "A Structured Approach to Navigating India’s Regulatory, Tax, and Compliance Landscape",
     slug: "doing-business-india",
   },
+  {
+    title: "Doing Business in India",
+    desc: "A Structured Approach to Navigating India’s Regulatory, Tax, and Compliance Landscape",
+    slug: "fdi",
+  },
 ]
 
 export default function BlogPage() {
