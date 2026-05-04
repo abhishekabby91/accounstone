@@ -8,7 +8,7 @@ const blogs = [
   {
     title: "Construction Arbitration in India: From Winning Claims to Enforcing Awards",
     desc: "Understand regulatory, tax, and compliance landscape before entering India.",
-    slug: "construction-arbitration-in-India",
+    slug: "construction-arbitration-in-india",
   },
   {
     title: "Arbitration Enforcement India",
@@ -23,7 +23,7 @@ const blogs = [
   {
     title: "FDI in India: Green Channel vs Brown Channel",
     desc: "Explore FDI in India, including regulatory framework, automatic vs government route, and Green Channel vs Brown Channel approvals. Expert insights by AU Corporate.",
-    slug: "fdi",
+    slug: "fdi-green-vs-brown-channel",
   },
 ]
 
@@ -32,7 +32,6 @@ export default function BlogPage() {
     <div className="min-h-screen py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
 
-        {/* Heading */}
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold">Our Blog</h1>
           <p className="text-gray-500 mt-2">
@@ -40,14 +39,14 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {/* Blog Grid */}
         <div className="grid md:grid-cols-3 gap-6">
 
           {blogs.map((blog, i) => (
             <motion.div
               key={blog.slug}
               initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
               className="p-6 bg-white rounded-xl shadow hover:shadow-lg transition"
             >
@@ -56,7 +55,7 @@ export default function BlogPage() {
 
               <Link
                 href={`/blog/${blog.slug}`}
-                className="text-yellow-500 text-sm flex items-center gap-1"
+                className="text-yellow-400 text-sm flex items-center gap-1 hover:gap-2 transition-all"
               >
                 Read More <ArrowRight className="h-4 w-4" />
               </Link>
