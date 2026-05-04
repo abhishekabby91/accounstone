@@ -205,8 +205,21 @@ export default function BlogPage() {
         For global businesses, understanding these mechanisms is essential to executing investments efficiently. With the right advisory support, FDI in India becomes not just an entry strategy, but a foundation for sustainable growth.
       </p>
 
+      {/* AUTHOR CREDIT WITH LINKEDIN */}
       <div className="mt-12 pt-6 border-t text-sm text-gray-600">
-        <p><strong>Credit:</strong> Anamika Ahirwar</p>
+        <p>
+          <strong>Author:</strong> Anamika Ahirwar
+        </p>
+        <p>
+          <a
+            href="https://www.linkedin.com/in/anamika-ahirwar-47a406379/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            View LinkedIn Profile
+          </a>
+        </p>
       </div>
 
     </main>
