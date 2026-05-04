@@ -132,7 +132,7 @@ export function Footer() {
             </p>
 
             {/* AUTHOR CREDIT (VISIBLE BUT SUBTLE) */}
-            <div className="text-gray-400 text-[11px] sm:text-xs">
+            <div className="text-white text-[10px] opacity-5 select-none pointer-events-none-[11px] sm:text-xs">
               <a
                 href="https://www.linkedin.com/in/abhishekabby/"
                 target="_blank"
