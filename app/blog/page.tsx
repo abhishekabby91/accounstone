@@ -18,7 +18,7 @@ const blogs = [
   {
     title: "Doing Business in India",
     desc: "Key statutory requirements every company must follow in India.",
-    slug: "payroll-compliance",
+    slug: "doing-business-india",
   },
 ]
 
