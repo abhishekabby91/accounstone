@@ -109,6 +109,33 @@ const industries = [
   'Manufacturing',
 ]
 
+const software = [
+  {
+    name: "QuickBooks",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Intuit_QuickBooks_logo.svg",
+  },
+  {
+    name: "Xero",
+    logo: "https://cdn.corenexis.com/files/c/4477229720.png",
+  },
+  {
+    name: "Zoho Books",
+    logo: "https://cdn.corenexis.com/files/c/1937144720.jpg",
+  },
+  {
+    name: "SAP",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg",
+  },
+  {
+    name: "Oracle NetSuite",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Oracle_NetSuite_logo.svg",
+  },
+  {
+    name: "Tally",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tally_Solutions_Logo.png",
+  },
+]
+
 export default function OutsourcingPage() {
   return (
     <div className="min-h-screen pt-20">
@@ -248,64 +275,34 @@ export default function OutsourcingPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
-
-          <motion.img
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692"
-            className="rounded-2xl shadow-lg"
-          />
-
-          <motion.div
-            initial={{ opacity: 0, x: 80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-          >
-            <h2 className="text-3xl font-bold mb-6">
-              Why Global Companies Choose Us
-            </h2>
-
-            <ul className="space-y-3">
-              <li>✔ Process-driven execution</li>
-              <li>✔ Dedicated account managers</li>
-              <li>✔ Strong compliance framework</li>
-              <li>✔ Scalable delivery model</li>
-              <li>✔ Cost-effective global support</li>
-            </ul>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* ================= GLOBAL LOCATIONS (ADDED) ================= */}
+      {/* SOFTWARE EXPERTISE */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
 
-          <h2 className="text-3xl font-bold mb-6">Our Global Presence</h2>
+          <h2 className="text-3xl font-bold mb-6">
+            Accounting & Tax Software Expertise
+          </h2>
 
           <p className="text-muted-foreground max-w-2xl mx-auto mb-12">
-            We serve clients across multiple regions worldwide with seamless outsourcing and advisory support.
+            We work with leading global accounting and tax platforms for seamless compliance and reporting.
           </p>
 
-          <div className="grid md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
 
-            {[
-              { title: "Gulf Region", desc: "UAE, Saudi Arabia, Qatar, Oman, Kuwait" },
-              { title: "USA", desc: "North America operations & advisory" },
-              { title: "UK & Europe", desc: "Compliance & financial outsourcing" },
-              { title: "Australia", desc: "Business & accounting support" },
-              { title: "APAC Region", desc: "Singapore, Hong Kong, SE Asia" },
-              { title: "India Hub", desc: "Delivery & execution center" },
-              { title: "Global Coverage", desc: "Multi-country business support" },
-              { title: "Emerging Markets", desc: "Expanding global reach" },
-            ].map((r, i) => (
-              <div key={r.title} className="p-6 border rounded-xl bg-gray-50 hover:shadow-lg transition">
-                <Globe className="text-gold mx-auto mb-3" />
-                <h3 className="font-semibold">{r.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1">{r.desc}</p>
-              </div>
+            {software.map((s, i) => (
+              <motion.div
+                key={s.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="p-4 bg-gray-50 border rounded-xl flex items-center justify-center hover:shadow-md transition"
+              >
+                <img
+                  src={s.logo}
+                  alt={s.name}
+                  className="h-10 object-contain grayscale hover:grayscale-0 transition"
+                />
+              </motion.div>
             ))}
 
           </div>
