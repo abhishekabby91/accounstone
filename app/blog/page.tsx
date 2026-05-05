@@ -25,15 +25,15 @@ const blogs = [
     desc: "Explore FDI in India, including regulatory framework, automatic vs government route, and Green Channel vs Brown Channel approvals. Expert insights by AU Corporate.",
     slug: "fdi-green-vs-brown-channel",
   },
+   {
+    title: "Wholly Owned Subsidiary in India: Incorporation Process & Compliance",
+    desc: "Learn how to set up a wholly owned subsidiary in India. Step-by-step incorporation process, FEMA compliance, RBI reporting, and regulatory requirements explained.",
+    slug: "wholly-owned-subsidiary",
+  },
   {
     title: "Mailbox Companies & DTAA Benefits in India | Tiger Global Supreme Court Ruling 2026",
     desc: "Supreme Court of India in the Tiger Global case reshapes DTAA interpretation, denying treaty benefits to mailbox companies lacking substance. Learn implications for foreign investors and GAAR framework.",
     slug: "mehak",
-  },
-  {
-    title: "Wholly Owned Subsidiary in India: Incorporation Process & Compliance",
-    desc: "Learn how to set up a wholly owned subsidiary in India. Step-by-step incorporation process, FEMA compliance, RBI reporting, and regulatory requirements explained.",
-    slug: "wholly-owned-subsidiary",
   },
 ]
 
