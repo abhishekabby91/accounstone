@@ -112,7 +112,7 @@ const industries = [
 const software = [
   {
     name: "QuickBooks",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Intuit_QuickBooks_logo.svg",
+    logo: "https://cdn.corenexis.com/files/c/6948898720.png",
   },
   {
     name: "Xero",
@@ -128,7 +128,7 @@ const software = [
   },
   {
     name: "Oracle NetSuite",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Oracle_NetSuite_logo.svg",
+    logo: "https://cdn.corenexis.com/files/c/9951218720.png",
   },
   {
     name: "Tally",
