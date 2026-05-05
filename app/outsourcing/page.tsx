@@ -132,7 +132,7 @@ const software = [
   },
   {
     name: "Tally",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Tally_Solutions_Logo.png",
+    logo: "https://cdn.corenexis.com/files/c/7416121720.png",
   },
 ]
 
