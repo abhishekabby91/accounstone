@@ -151,7 +151,7 @@ export default function OutsourcingPage() {
             src="https://cdn.corenexis.com/files/c/6433487720.jpg"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/60" /> 
         </div>
 
         <div className="relative z-10 mx-auto max-w-7xl px-4 text-white">
