@@ -1,6 +1,6 @@
 export const metadata = {
   title:
-    "Wholly Owned Subsidiary in India: Incorporation Process & Compliance | AU Corporate",
+    "Wholly Owned Subsidiary in India: Incorporation Process & Compliance",
   description:
     "Step-by-step guide for foreign companies to set up a wholly owned subsidiary in India, including incorporation process, FEMA compliance, and regulatory requirements.",
   keywords:
