@@ -4,7 +4,6 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { MessageCircle, Linkedin } from "lucide-react"
 import "./globals.css"
 
 const inter = Inter({
@@ -65,7 +64,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="bg-white">
+    <html lang="en" className="bg-white scroll-smooth">
       <head>
         <Script id="apollo" strategy="afterInteractive">
           {`function initApollo(){
@@ -86,37 +85,15 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden scroll-smooth`}
+        className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden`}
       >
-        {/* HEADER (FIXED TOP + MAX Z) */}
-        <Navbar />
-
-        {/* LEFT FLOATING SOCIAL ICONS */}
-        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-[50]">
-
-          <a
-            href="https://wa.me/919999010513"
-            target="_blank"
-            className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
-          >
-            <MessageCircle className="w-5 h-5" />
-          </a>
-
-          <a
-            href="https://www.linkedin.com/company/28753559"
-            target="_blank"
-            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-
+        {/* FIX: ensure navbar always stays above everything */}
+        <div className="relative z-50">
+          <Navbar />
         </div>
 
-        {/* MAIN WRAPPER */}
         <div className="flex flex-col min-h-screen">
-
-          {/* 🔥 FIX: increased padding so fixed navbar never overlaps */}
-          <main className="flex-1 pt-24 sm:pt-28 lg:pt-32">
+          <main className="flex-1 pt-16 sm:pt-20">
             {children}
           </main>
 
