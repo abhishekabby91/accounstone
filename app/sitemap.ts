@@ -1,22 +1,22 @@
 export default function sitemap() {
-  const baseUrl = "https://theaucorp.com"
-
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/why-india`,
-      lastModified: new Date(),
-    },
-    {
-      url: `${baseUrl}/services`,
-      lastModified: new Date(),
-    },
+  const baseUrls = [
+    "https://theaucorp.com",
+    "https://www.theaucorp.com",
   ]
+
+  const routes = [
+    "",
+    "/blog",
+    "/why-india",
+    "/services",
+  ]
+
+  const urls = baseUrls.flatMap((baseUrl) =>
+    routes.map((route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date(),
+    }))
+  )
+
+  return urls
 }
