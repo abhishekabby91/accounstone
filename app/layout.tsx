@@ -4,6 +4,7 @@ import Script from "next/script"
 import { Analytics } from "@vercel/analytics/next"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { MessageCircle, Linkedin, Mail } from "lucide-react"
 import "./globals.css"
 
 const inter = Inter({
@@ -87,11 +88,45 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden`}
       >
-        {/* FIX: ensure navbar always stays above everything */}
-        <div className="relative z-50">
+        {/* NAVBAR (fixed z-index safe) */}
+        <div className="relative z-[60]">
           <Navbar />
         </div>
 
+        {/* ================= FLOATING SOCIAL SIDEBAR ================= */}
+        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-[50]">
+
+          {/* WhatsApp */}
+          <a
+            href="https://wa.me/919999010513"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
+          >
+            <MessageCircle className="w-5 h-5" />
+          </a>
+
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/company/28753559"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
+          >
+            <Linkedin className="w-5 h-5" />
+          </a>
+
+          {/* Email */}
+          <a
+            href="mailto:info@theaucorp.com"
+            className="bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
+          >
+            <Mail className="w-5 h-5" />
+          </a>
+
+        </div>
+
+        {/* MAIN CONTENT */}
         <div className="flex flex-col min-h-screen">
           <main className="flex-1 pt-16 sm:pt-20">
             {children}

@@ -5,6 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, ChevronRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { MessageCircle, Linkedin, Mail } from "lucide-react"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
