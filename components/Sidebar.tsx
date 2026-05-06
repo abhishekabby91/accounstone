@@ -22,7 +22,7 @@ export function Sidebar() {
 
       {/* LinkedIn */}
       <a
-        href="https://www.linkedin.com/company/28753559"
+        href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
