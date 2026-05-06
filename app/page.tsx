@@ -51,7 +51,7 @@ const services = [
   {
     icon: GraduationCap,
     title: "Training & Workshops",
-    description: "Training programs for skills, compliance and performance.",
+    description: "Training programs for skills, compliance & performance.",
     href: "/services/training-workshops",
   },
 ]
