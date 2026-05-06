@@ -344,7 +344,7 @@ export function Navbar() {
 
   {/* WhatsApp */}
   <a
-    href="https://wa.me/0000000000"
+    href="https://wa.me/+91- 09999010513"
     target="_blank"
     className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
   >
@@ -353,7 +353,7 @@ export function Navbar() {
 
   {/* LinkedIn */}
   <a
-    href="https://www.linkedin.com"
+    href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
     target="_blank"
     className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
   >
@@ -362,7 +362,7 @@ export function Navbar() {
 
   {/* Email */}
   <a
-    href="mailto:info@theaucorp.com"
+    href="mailto:partner@theaucorp.com"
     className="bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
   >
     <Mail size={18} />
