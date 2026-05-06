@@ -89,16 +89,17 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden scroll-smooth`}
       >
+        {/* HEADER (should already be z-[60]) */}
         <Navbar />
 
-        {/* 🔥 LEFT FLOATING SOCIAL SIDEBAR */}
-        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-50">
+        {/* 🔥 LEFT FLOATING SOCIAL SIDEBAR (FIXED SAFE LAYER) */}
+        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-[45]">
 
           {/* WhatsApp */}
           <a
             href="https://wa.me/919999010513"
             target="_blank"
-            className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition"
+            className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
           >
             <MessageCircle className="w-5 h-5" />
           </a>
@@ -107,13 +108,14 @@ export default function RootLayout({
           <a
             href="https://www.linkedin.com/company/28753559"
             target="_blank"
-            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition"
+            className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition hover:scale-110"
           >
             <Linkedin className="w-5 h-5" />
           </a>
 
         </div>
 
+        {/* MAIN CONTENT */}
         <div className="flex flex-col min-h-screen">
           <main className="flex-1 pt-16 sm:pt-20">
             {children}

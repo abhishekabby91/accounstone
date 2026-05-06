@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X, ChevronRight } from "lucide-react"
@@ -10,6 +10,11 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
+
+  /* 🔒 Prevent background scroll when mobile menu is open */
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto"
+  }, [isOpen])
 
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
@@ -40,7 +45,7 @@ export function Navbar() {
   ]
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
+    <header className="fixed top-0 left-0 right-0 z-[60] bg-white border-b">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="flex h-16 sm:h-20 items-center justify-between">
@@ -83,9 +88,9 @@ export function Navbar() {
 
         </div>
 
-        {/* ================= MOBILE MENU OPTIMIZED ================= */}
+        {/* ================= MOBILE MENU (FIXED) ================= */}
         {isOpen && (
-          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6 max-h-[85vh] overflow-y-auto">
+          <div className="lg:hidden fixed left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6 max-h-[85vh] overflow-y-auto z-[55]">
 
             {/* SERVICES */}
             <div className="mb-4">
@@ -183,19 +188,11 @@ export function Navbar() {
               {activeMenu === "india" && (
                 <div className="mt-3 ml-3 pl-3 border-l space-y-2 text-sm text-gray-700">
 
-                  <Link
-                    href="/doing-business-in-india/why-india"
-                    className="block py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link href="/doing-business-in-india/why-india" className="block py-2" onClick={() => setIsOpen(false)}>
                     Why India
                   </Link>
 
-                  <Link
-                    href="/doing-business-in-india/entry-process"
-                    className="block py-2"
-                    onClick={() => setIsOpen(false)}
-                  >
+                  <Link href="/doing-business-in-india/entry-process" className="block py-2" onClick={() => setIsOpen(false)}>
                     Entry Process
                   </Link>
 
