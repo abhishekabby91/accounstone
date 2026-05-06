@@ -338,6 +338,36 @@ export function Navbar() {
         )}
 
       </nav>
+      {/* RIGHT FLOATING SIDEBAR */}
+<div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-[60]">
+
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/0000000000"
+    target="_blank"
+    className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+  >
+    <MessageCircle size={18} />
+  </a>
+
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com"
+    target="_blank"
+    className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+  >
+    <Linkedin size={18} />
+  </a>
+
+  {/* Email */}
+  <a
+    href="mailto:info@theaucorp.com"
+    className="bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+  >
+    <Mail size={18} />
+  </a>
+
+</div>
     </header>
   )
 }
