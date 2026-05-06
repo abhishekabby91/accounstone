@@ -344,7 +344,7 @@ export function Navbar() {
 
   {/* WhatsApp */}
   <a
-    href="https://wa.me/+91-9999010513"
+    href="https://wa.me/+919999010513"
     target="_blank"
     className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
   >
