@@ -340,32 +340,38 @@ export function Navbar() {
 
       </nav>
       {/* RIGHT FLOATING SIDEBAR */}
-<div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-3 z-[60]">
+<div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[60]">
 
   {/* WhatsApp */}
   <a
-    href="https://wa.me/+919999010513"
+    href="https://wa.me/919999010513"
     target="_blank"
-    className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+    className="relative group bg-green-500 text-white p-3 rounded-full shadow-lg 
+    animate-pulse-slow hover:scale-110 transition"
   >
-    <MessageCircle size={18} />
+    <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
+    <MessageCircle size={18} className="relative z-10" />
   </a>
 
   {/* LinkedIn */}
   <a
     href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
     target="_blank"
-    className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+    className="relative group bg-blue-600 text-white p-3 rounded-full shadow-lg 
+    animate-pulse-medium hover:scale-110 transition"
   >
-    <Linkedin size={18} />
+    <span className="absolute inset-0 rounded-full bg-blue-400 opacity-40 animate-ping"></span>
+    <Linkedin size={18} className="relative z-10" />
   </a>
 
   {/* Email */}
   <a
     href="mailto:partner@theaucorp.com"
-    className="bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+    className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg 
+    animate-pulse-fast hover:scale-110 transition"
   >
-    <Mail size={18} />
+    <span className="absolute inset-0 rounded-full bg-red-400 opacity-40 animate-ping"></span>
+    <Mail size={18} className="relative z-10" />
   </a>
 
 </div>
