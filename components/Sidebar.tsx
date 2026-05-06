@@ -12,9 +12,12 @@ export function Sidebar() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
-        className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+        className="group bg-green-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-green-400/50 animate-bounce-slow"
       >
-        <MessageCircle size={18} />
+        <MessageCircle
+          size={18}
+          className="group-hover:rotate-12 transition-transform duration-300"
+        />
       </a>
 
       {/* LinkedIn */}
@@ -23,19 +26,41 @@ export function Sidebar() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn"
-        className="bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+        className="group bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-blue-400/50"
       >
-        <Linkedin size={18} />
+        <Linkedin
+          size={18}
+          className="group-hover:-rotate-12 transition-transform duration-300"
+        />
       </a>
 
       {/* Email */}
       <a
         href="mailto:partner@theaucorp.com"
         aria-label="Email"
-        className="bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
+        className="group bg-red-500 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-red-400/50"
       >
-        <Mail size={18} />
+        <Mail
+          size={18}
+          className="group-hover:rotate-12 transition-transform duration-300"
+        />
       </a>
+
+      {/* Floating pulse ring effect */}
+      <style jsx>{`
+        @keyframes bounceSlow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-6px);
+          }
+        }
+
+        .animate-bounce-slow {
+          animation: bounceSlow 3s infinite ease-in-out;
+        }
+      `}</style>
 
     </div>
   )
