@@ -67,7 +67,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-white">
       <head>
-        {/* Apollo Tracking Script */}
         <Script id="apollo" strategy="afterInteractive">
           {`function initApollo(){
             var n = Math.random().toString(36).substring(7),
@@ -89,13 +88,12 @@ export default function RootLayout({
       <body
         className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden scroll-smooth`}
       >
-        {/* HEADER (should already be z-[60]) */}
+        {/* HEADER (FIXED TOP + MAX Z) */}
         <Navbar />
 
-        {/* 🔥 LEFT FLOATING SOCIAL SIDEBAR (FIXED SAFE LAYER) */}
-        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-[45]">
+        {/* LEFT FLOATING SOCIAL ICONS */}
+        <div className="hidden lg:flex fixed left-4 top-1/2 -translate-y-1/2 flex-col gap-3 z-[50]">
 
-          {/* WhatsApp */}
           <a
             href="https://wa.me/919999010513"
             target="_blank"
@@ -104,7 +102,6 @@ export default function RootLayout({
             <MessageCircle className="w-5 h-5" />
           </a>
 
-          {/* LinkedIn */}
           <a
             href="https://www.linkedin.com/company/28753559"
             target="_blank"
@@ -115,9 +112,11 @@ export default function RootLayout({
 
         </div>
 
-        {/* MAIN CONTENT */}
+        {/* MAIN WRAPPER */}
         <div className="flex flex-col min-h-screen">
-          <main className="flex-1 pt-16 sm:pt-20">
+
+          {/* 🔥 FIX: increased padding so fixed navbar never overlaps */}
+          <main className="flex-1 pt-24 sm:pt-28 lg:pt-32">
             {children}
           </main>
 
