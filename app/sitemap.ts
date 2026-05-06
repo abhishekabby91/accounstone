@@ -1,22 +1,34 @@
 export default function sitemap() {
-  const baseUrls = [
-    "https://theaucorp.com",
-    "https://www.theaucorp.com",
-  ]
+  const baseUrl = "https://www.theaucorp.com"
 
-  const routes = [
+  const staticRoutes = [
     "",
     "/blog",
     "/why-india",
     "/services",
   ]
 
-  const urls = baseUrls.flatMap((baseUrl) =>
-    routes.map((route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: new Date(),
-    }))
-  )
+  const serviceRoutes = [
+    "/services/company-formation-india",
+    "/services/gst-registration",
+    "/services/fema-compliance",
+    "/services/foreign-subsidiary-india",
+  ]
 
-  return urls
+  const blogRoutes = [
+    "/blog/company-formation-india-guide",
+    "/blog/fema-compliance-explained",
+    "/blog/gst-for-foreign-companies",
+  ]
+
+  const allRoutes = [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...blogRoutes,
+  ]
+
+  return allRoutes.map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+  }))
 }
