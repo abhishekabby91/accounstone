@@ -179,6 +179,49 @@ export default function OutsourcingPage() {
             </div>
           </motion.div>
         </div>
+        {/* WHY CHOOSE US */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-4 text-center">
+
+    <motion.h2
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="text-3xl font-bold mb-12"
+    >
+      Why Choose AU Corporate
+    </motion.h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {[
+        {
+          title: "Domain Expertise",
+          desc: "Deep specialization across finance, tax, and operations.",
+        },
+        {
+          title: "Global Delivery",
+          desc: "Seamless execution across multiple geographies.",
+        },
+        {
+          title: "Technology Driven",
+          desc: "Automation-first approach using modern tools.",
+        },
+      ].map((item, i) => (
+        <motion.div
+          key={item.title}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: i * 0.2 }}
+          className="p-6 border rounded-xl"
+        >
+          <h3 className="font-semibold mb-2">{item.title}</h3>
+          <p className="text-sm text-muted-foreground">{item.desc}</p>
+        </motion.div>
+      ))}
+
+    </div>
+  </div>
+</section>
       </section>
 
       {/* BENEFITS */}
@@ -274,6 +317,42 @@ export default function OutsourcingPage() {
           </div>
         </div>
       </section>
+      {/* DELIVERY MODEL */}
+<section className="py-24 bg-secondary/50">
+  <div className="max-w-7xl mx-auto px-4 text-center">
+
+    <motion.h2
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      className="text-3xl font-bold mb-12"
+    >
+      Our Delivery Model
+    </motion.h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {[
+        "Strategy & Consulting",
+        "Execution & Processing",
+        "Monitoring & Optimization",
+      ].map((step, i) => (
+        <motion.div
+          key={step}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: i * 0.2 }}
+          className="p-8 bg-white border rounded-xl"
+        >
+          <div className="text-gold font-bold text-xl mb-2">
+            0{i + 1}
+          </div>
+          <p>{step}</p>
+        </motion.div>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       {/* SOFTWARE EXPERTISE */}
       <section className="py-24 bg-white">
@@ -331,7 +410,42 @@ export default function OutsourcingPage() {
 
         </div>
       </section>
+{/* RESULTS */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-4 text-center">
 
+    <motion.h2
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      className="text-3xl font-bold mb-12"
+    >
+      Proven Results
+    </motion.h2>
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {[
+        { value: "60%", label: "Cost Reduction" },
+        { value: "3x", label: "Efficiency Increase" },
+        { value: "99%", label: "Accuracy" },
+      ].map((item, i) => (
+        <motion.div
+          key={item.label}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: i * 0.2 }}
+          className="p-8 border rounded-xl"
+        >
+          <div className="text-3xl font-bold text-gold mb-2">
+            {item.value}
+          </div>
+          <p>{item.label}</p>
+        </motion.div>
+      ))}
+
+    </div>
+  </div>
+</section>
       {/* CTA */}
       <section className="py-24 text-center">
         <h2 className="text-3xl font-bold mb-4">
