@@ -140,7 +140,7 @@ export default function OutsourcingPage() {
   return (
     <div className="min-h-screen pt-20">
 
-      {/* HERO */}
+            {/* HERO */}
       <section className="relative py-24 min-h-[80vh] flex items-center overflow-hidden">
 
         <div className="absolute inset-0">
@@ -179,49 +179,52 @@ export default function OutsourcingPage() {
             </div>
           </motion.div>
         </div>
-        {/* WHY CHOOSE US */}
-<section className="py-24 bg-white">
-  <div className="max-w-7xl mx-auto px-4 text-center">
 
-    <motion.h2
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      className="text-3xl font-bold mb-12"
-    >
-      Why Choose AU Corporate
-    </motion.h2>
+      </section> {/* ✅ HERO CLOSED HERE */}
 
-    <div className="grid md:grid-cols-3 gap-8">
 
-      {[
-        {
-          title: "Domain Expertise",
-          desc: "Deep specialization across finance, tax, and operations.",
-        },
-        {
-          title: "Global Delivery",
-          desc: "Seamless execution across multiple geographies.",
-        },
-        {
-          title: "Technology Driven",
-          desc: "Automation-first approach using modern tools.",
-        },
-      ].map((item, i) => (
-        <motion.div
-          key={item.title}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: i * 0.2 }}
-          className="p-6 border rounded-xl"
-        >
-          <h3 className="font-semibold mb-2">{item.title}</h3>
-          <p className="text-sm text-muted-foreground">{item.desc}</p>
-        </motion.div>
-      ))}
+      {/* WHY CHOOSE US */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
 
-    </div>
-  </div>
-</section>
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-3xl font-bold mb-12"
+          >
+            Why Choose AU Corporate
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-8">
+
+            {[
+              {
+                title: "Domain Expertise",
+                desc: "Deep specialization across finance, tax, and operations.",
+              },
+              {
+                title: "Global Delivery",
+                desc: "Seamless execution across multiple geographies.",
+              },
+              {
+                title: "Technology Driven",
+                desc: "Automation-first approach using modern tools.",
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.2 }}
+                className="p-6 border rounded-xl"
+              >
+                <h3 className="font-semibold mb-2">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </motion.div>
+            ))}
+
+          </div>
+        </div>
       </section>
 
       {/* BENEFITS */}
