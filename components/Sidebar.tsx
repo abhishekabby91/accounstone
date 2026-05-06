@@ -11,14 +11,12 @@ export function Sidebar() {
         href="https://wa.me/919999010513"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="WhatsApp"
         className="group bg-green-500 text-white p-3 rounded-full shadow-lg
-        animate-float-slow hover:scale-110 hover:shadow-green-400/50 transition-all duration-300"
+        hover:shadow-green-400/50 transition-all duration-300"
       >
-        <MessageCircle
-          size={18}
-          className="group-hover:rotate-12 transition-transform duration-300"
-        />
+        <div className="animate-float-slow group-hover:scale-110 transition-transform">
+          <MessageCircle size={18} className="group-hover:rotate-12 transition" />
+        </div>
       </a>
 
       {/* LinkedIn */}
@@ -26,43 +24,39 @@ export function Sidebar() {
         href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="LinkedIn"
         className="group bg-blue-600 text-white p-3 rounded-full shadow-lg
-        animate-float-medium hover:scale-110 hover:shadow-blue-400/50 transition-all duration-300"
+        hover:shadow-blue-400/50 transition-all duration-300"
       >
-        <Linkedin
-          size={18}
-          className="group-hover:-rotate-12 transition-transform duration-300"
-        />
+        <div className="animate-float-medium group-hover:scale-110 transition-transform">
+          <Linkedin size={18} className="group-hover:-rotate-12 transition" />
+        </div>
       </a>
 
       {/* Email */}
       <a
         href="mailto:partner@theaucorp.com"
-        aria-label="Email"
         className="group bg-red-500 text-white p-3 rounded-full shadow-lg
-        animate-float-fast hover:scale-110 hover:shadow-red-400/50 transition-all duration-300"
+        hover:shadow-red-400/50 transition-all duration-300"
       >
-        <Mail
-          size={18}
-          className="group-hover:rotate-12 transition-transform duration-300"
-        />
+        <div className="animate-float-fast group-hover:scale-110 transition-transform">
+          <Mail size={18} className="group-hover:rotate-12 transition" />
+        </div>
       </a>
 
-      {/* ANIMATIONS */}
+      {/* GLOBAL ANIMATIONS */}
       <style jsx>{`
         @keyframes floatSlow {
-          0%, 100% { transform: translateY(0px); }
+          0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-6px); }
         }
 
         @keyframes floatMedium {
-          0%, 100% { transform: translateY(0px); }
+          0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-8px); }
         }
 
         @keyframes floatFast {
-          0%, 100% { transform: translateY(0px); }
+          0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-5px); }
         }
 
