@@ -34,20 +34,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     lastModified: new Date(),
 
-    changeFrequency:
-      route.includes("/blog")
-        ? "weekly"
-        : route.includes("/services")
-        ? "monthly"
-        : "weekly",
+    changeFrequency: "weekly" as const,
 
-    priority:
-      route === ""
-        ? 1
-        : route.includes("/services")
-        ? 0.9
-        : route.includes("/blog")
-        ? 0.8
-        : 0.7,
+    priority: route === "" ? 1 : 0.8,
   }))
 }
