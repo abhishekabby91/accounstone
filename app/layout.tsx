@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.theaucorp.com"),
 
   title: {
-    default: "AU Corporate | Assurance, Tax and Consulting Services",
+    default: "AU Corporate",
     template: "%s | AU Corporate",
   },
 
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "AU Corporate | Assurance, Tax and Consulting Services",
+    title: "AU Corporate",
 
     description:
       "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting, Payroll and Compliance.",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "AU Corporate | Assurance, Tax and Consulting Services",
+    title: "AU Corporate",
 
     description:
       "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting and Compliance.",
@@ -115,15 +115,43 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
+
               "@type": "Organization",
+
               name: "AU Corporate",
+
+              alternateName: "AU Corporate",
+
               url: "https://www.theaucorp.com",
+
               logo: "https://www.theaucorp.com/logo.png",
+
               description:
                 "Professional services firm providing assurance, taxation, compliance, FEMA, accounting and advisory services.",
+
               sameAs: [
                 "https://www.linkedin.com/company/au-corporate",
               ],
+            }),
+          }}
+        />
+
+        {/* WEBSITE SCHEMA FOR GOOGLE SITE NAME */}
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+
+              "@type": "WebSite",
+
+              name: "AU Corporate",
+
+              alternateName: "AU Corporate",
+
+              url: "https://www.theaucorp.com",
             }),
           }}
         />
@@ -136,14 +164,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
+
               "@type": "ProfessionalService",
+
               name: "AU Corporate",
+
               image: "https://www.theaucorp.com/logo.png",
+
               url: "https://www.theaucorp.com",
+
               address: {
                 "@type": "PostalAddress",
+
                 addressCountry: "IN",
               },
+
               areaServed: "India",
             }),
           }}
