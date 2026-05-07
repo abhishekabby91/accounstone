@@ -1,15 +1,19 @@
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { MessageCircle, Linkedin, Mail } from "lucide-react"
+
 import "./globals.css"
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -21,7 +25,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, and Compliance.",
+    "AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, FEMA, Accounting, Payroll, and Compliance services for Indian and foreign companies.",
 
   keywords: [
     "Assurance services",
@@ -31,32 +35,70 @@ export const metadata: Metadata = {
     "Transaction advisory",
     "Corporate advisory",
     "Business consulting India",
+    "Foreign company registration India",
+    "India entry services",
+    "Accounting outsourcing India",
+    "FEMA compliance",
+    "GST registration India",
+    "Payroll services India",
+    "Virtual CFO India",
   ],
+
+  alternates: {
+    canonical: "https://www.theaucorp.com",
+  },
 
   authors: [{ name: "AU Corporate" }],
 
+  creator: "AU Corporate",
+
+  publisher: "AU Corporate",
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
   openGraph: {
     title: "AU Corporate | Assurance, Tax and Consulting Services",
+
     description:
-      "Professional services in Assurance, Taxation, Risk Management, and Compliance.",
+      "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting, Payroll and Compliance.",
+
     url: "https://www.theaucorp.com",
+
     siteName: "AU Corporate",
+
+    locale: "en_US",
+
     type: "website",
   },
 
   twitter: {
     card: "summary_large_image",
+
     title: "AU Corporate | Assurance, Tax and Consulting Services",
+
     description:
-      "Professional services in Assurance, Taxation, Risk Management, and Compliance.",
+      "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting and Compliance.",
   },
+
+  category: "Business Consulting",
 }
 
-export const viewport = {
+export const viewport: Viewport = {
   themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
 }
 
 export default function RootLayout({
@@ -67,28 +109,54 @@ export default function RootLayout({
   return (
     <html lang="en" className="bg-white scroll-smooth">
       <head>
-        <Script id="apollo" strategy="afterInteractive">
-          {`function initApollo(){
-            var n = Math.random().toString(36).substring(7),
-                o = document.createElement("script");
-            o.src = "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" + n;
-            o.async = true;
-            o.defer = true;
-            o.onload = function(){
-              window.trackingFunctions.onLoad({
-                appId: "69ef2f72e61a0c000d596f8e"
-              });
-            };
-            document.head.appendChild(o);
-          }
-          initApollo();`}
-        </Script>
+        {/* ORGANIZATION SCHEMA */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "AU Corporate",
+              url: "https://www.theaucorp.com",
+              logo: "https://www.theaucorp.com/logo.png",
+              description:
+                "Professional services firm providing assurance, taxation, compliance, FEMA, accounting and advisory services.",
+              sameAs: [
+                "https://www.linkedin.com/company/au-corporate",
+              ],
+            }),
+          }}
+        />
+
+        {/* LOCAL BUSINESS SCHEMA */}
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "AU Corporate",
+              image: "https://www.theaucorp.com/logo.png",
+              url: "https://www.theaucorp.com",
+              telephone: "+91-XXXXXXXXXX",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN",
+              },
+              areaServed: "India",
+            }),
+          }}
+        />
       </head>
 
       <body
         className={`${inter.variable} font-sans antialiased m-0 p-0 overflow-x-hidden`}
       >
-        {/* NAVBAR (fixed z-index safe) */}
+        {/* NAVBAR */}
         <div className="relative z-[60]">
           <Navbar />
         </div>
@@ -102,7 +170,40 @@ export default function RootLayout({
           <Footer />
         </div>
 
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        {/* APOLLO TRACKER */}
+        <Script id="apollo" strategy="lazyOnload">
+          {`
+            function initApollo() {
+              var n = Math.random().toString(36).substring(7),
+                  o = document.createElement("script");
+
+              o.src =
+                "https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=" +
+                n;
+
+              o.async = true;
+              o.defer = true;
+
+              o.onload = function () {
+                window.trackingFunctions.onLoad({
+                  appId: "69ef2f72e61a0c000d596f8e",
+                });
+              };
+
+              document.head.appendChild(o);
+            }
+
+            initApollo();
+          `}
+        </Script>
+
+        {/* ANALYTICS */}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Analytics />
+            <SpeedInsights />
+          </>
+        )}
       </body>
     </html>
   )
