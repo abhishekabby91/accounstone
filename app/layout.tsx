@@ -1,12 +1,9 @@
 import type { Metadata, Viewport } from "next"
 import { Inter } from "next/font/google"
 import Script from "next/script"
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
 
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { MessageCircle, Linkedin, Mail } from "lucide-react"
 
 import "./globals.css"
 
@@ -58,6 +55,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     nocache: false,
+
     googleBot: {
       index: true,
       follow: true,
@@ -142,7 +140,6 @@ export default function RootLayout({
               name: "AU Corporate",
               image: "https://www.theaucorp.com/logo.png",
               url: "https://www.theaucorp.com",
-              telephone: "+91-XXXXXXXXXX",
               address: {
                 "@type": "PostalAddress",
                 addressCountry: "IN",
@@ -185,9 +182,11 @@ export default function RootLayout({
               o.defer = true;
 
               o.onload = function () {
-                window.trackingFunctions.onLoad({
-                  appId: "69ef2f72e61a0c000d596f8e",
-                });
+                if (window.trackingFunctions) {
+                  window.trackingFunctions.onLoad({
+                    appId: "69ef2f72e61a0c000d596f8e",
+                  });
+                }
               };
 
               document.head.appendChild(o);
@@ -196,14 +195,6 @@ export default function RootLayout({
             initApollo();
           `}
         </Script>
-
-        {/* ANALYTICS */}
-        {process.env.NODE_ENV === "production" && (
-          <>
-            <Analytics />
-            <SpeedInsights />
-          </>
-        )}
       </body>
     </html>
   )
