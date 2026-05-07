@@ -19,7 +19,9 @@ const nextConfig = {
         hostname: "images.unsplash.com",
       },
     ],
+
     formats: ["image/avif", "image/webp"],
+
     minimumCacheTTL: 60 * 60 * 24 * 365,
   },
 
@@ -27,21 +29,25 @@ const nextConfig = {
     return [
       {
         source: "/(.*)",
+
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=3600, stale-while-revalidate=86400",
+            value:
+              "public, max-age=3600, stale-while-revalidate=86400",
           },
 
-          // ✅ SECURITY + SEO TRUST SIGNALS
+          // SECURITY + SEO TRUST SIGNALS
           {
             key: "X-Content-Type-Options",
             value: "nosniff",
           },
+
           {
             key: "X-Frame-Options",
             value: "SAMEORIGIN",
           },
+
           {
             key: "Referrer-Policy",
             value: "strict-origin-when-cross-origin",
@@ -51,10 +57,30 @@ const nextConfig = {
     ]
   },
 
-  // ✅ SEO: ensure trailing slash consistency (important for indexing)
+  // NON-WWW → WWW REDIRECT
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+
+        has: [
+          {
+            type: "host",
+            value: "theaucorp.com",
+          },
+        ],
+
+        destination: "https://www.theaucorp.com/:path*",
+
+        permanent: true,
+      },
+    ]
+  },
+
+  // SEO consistency
   trailingSlash: false,
 
-  // ✅ helps performance on Vercel
+  // performance
   poweredByHeader: false,
 }
 
