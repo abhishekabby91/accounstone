@@ -1,4 +1,6 @@
-export default function sitemap() {
+import { MetadataRoute } from "next"
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.theaucorp.com"
 
   const staticRoutes = [
@@ -29,6 +31,23 @@ export default function sitemap() {
 
   return allRoutes.map((route) => ({
     url: `${baseUrl}${route}`,
+
     lastModified: new Date(),
+
+    changeFrequency:
+      route.includes("/blog")
+        ? "weekly"
+        : route.includes("/services")
+        ? "monthly"
+        : "weekly",
+
+    priority:
+      route === ""
+        ? 1
+        : route.includes("/services")
+        ? 0.9
+        : route.includes("/blog")
+        ? 0.8
+        : 0.7,
   }))
 }
