@@ -3,7 +3,15 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronRight, MessageCircle, Linkedin, Mail } from "lucide-react"
+import {
+  Menu,
+  X,
+  ChevronRight,
+  MessageCircle,
+  Linkedin,
+  Mail,
+} from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 
 export function Navbar() {
@@ -81,15 +89,15 @@ export function Navbar() {
                   setActiveMenu("services")
                   setActiveSubMenu(null)
                 }}
-                className="px-3 py-2 text-sm text-gray-600 hover:text-black"
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
               >
                 Services ▾
               </button>
 
               {activeMenu === "services" && (
-                <div className="absolute top-full left-0 mt-2 w-[520px] bg-white border shadow-2xl rounded-2xl flex z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-2 w-[540px] bg-white border shadow-2xl rounded-2xl flex z-50 overflow-hidden">
 
-                  {/* LEFT MENU */}
+                  {/* LEFT PANEL */}
                   <div className="w-1/2 border-r bg-gray-50 py-2">
 
                     {mainServices.map((service) => (
@@ -124,7 +132,7 @@ export function Navbar() {
                     ))}
                   </div>
 
-                  {/* RIGHT SUBMENU */}
+                  {/* RIGHT PANEL */}
                   <div className="w-1/2 p-5 bg-white min-h-[220px]">
 
                     {!activeSubMenu && (
@@ -160,6 +168,7 @@ export function Navbar() {
                         ))}
                       </div>
                     )}
+
                   </div>
                 </div>
               )}
@@ -178,7 +187,7 @@ export function Navbar() {
                   setActiveMenu("india")
                   setActiveSubMenu(null)
                 }}
-                className="px-3 py-2 text-sm text-gray-600 hover:text-black"
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
               >
                 Doing Business in India ▾
               </button>
@@ -213,7 +222,6 @@ export function Navbar() {
                         <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
                       </div>
 
-                      {/* SUBMENU */}
                       {activeSubMenu === "incorporation" && (
                         <div className="absolute top-0 left-full ml-1 w-[250px] bg-white border shadow-2xl rounded-2xl overflow-hidden">
 
@@ -263,7 +271,9 @@ export function Navbar() {
           {/* CTA */}
           <div className="hidden lg:block">
             <Button asChild>
-              <Link href="/contact">Get Started</Link>
+              <Link href="/contact">
+                Get Started
+              </Link>
             </Button>
           </div>
 
@@ -310,13 +320,18 @@ export function Navbar() {
                           <button
                             onClick={() =>
                               setActiveSubMenu(
-                                activeSubMenu === service.key ? null : service.key
+                                activeSubMenu === service.key
+                                  ? null
+                                  : service.key
                               )
                             }
                             className="w-full flex justify-between items-center py-1 font-medium"
                           >
                             {service.label}
-                            <span>{activeSubMenu === service.key ? "−" : "+"}</span>
+
+                            <span>
+                              {activeSubMenu === service.key ? "−" : "+"}
+                            </span>
                           </button>
 
                           {activeSubMenu === service.key && (
@@ -324,14 +339,22 @@ export function Navbar() {
 
                               {service.key === "risk" &&
                                 riskSubServices.map((item) => (
-                                  <Link key={item.label} href={item.href} className="block py-1">
+                                  <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className="block py-1"
+                                  >
                                     {item.label}
                                   </Link>
                                 ))}
 
                               {service.key === "tax" &&
                                 taxSubServices.map((item) => (
-                                  <Link key={item.label} href={item.href} className="block py-1">
+                                  <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className="block py-1"
+                                  >
                                     {item.label}
                                   </Link>
                                 ))}
@@ -350,6 +373,7 @@ export function Navbar() {
 
             {/* INDIA */}
             <div className="mb-4 border-t pt-4">
+
               <button
                 onClick={() =>
                   setActiveMenu(activeMenu === "india" ? null : "india")
@@ -357,17 +381,26 @@ export function Navbar() {
                 className="w-full flex justify-between items-center text-base font-semibold py-2"
               >
                 Doing Business in India
-                <span>{activeMenu === "india" ? "−" : "+"}</span>
+
+                <span>
+                  {activeMenu === "india" ? "−" : "+"}
+                </span>
               </button>
 
               {activeMenu === "india" && (
                 <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
 
-                  <Link href="/doing-business-in-india/why-india" className="block py-1">
+                  <Link
+                    href="/doing-business-in-india/why-india"
+                    className="block py-1"
+                  >
                     Why India
                   </Link>
 
-                  <Link href="/doing-business-in-india/entry-process" className="block py-1">
+                  <Link
+                    href="/doing-business-in-india/entry-process"
+                    className="block py-1"
+                  >
                     Entry Process
                   </Link>
 
@@ -375,28 +408,44 @@ export function Navbar() {
                     <button
                       onClick={() =>
                         setActiveSubMenu(
-                          activeSubMenu === "incorporation" ? null : "incorporation"
+                          activeSubMenu === "incorporation"
+                            ? null
+                            : "incorporation"
                         )
                       }
                       className="w-full flex justify-between items-center py-1"
                     >
                       Incorporation
-                      <span>{activeSubMenu === "incorporation" ? "−" : "+"}</span>
+
+                      <span>
+                        {activeSubMenu === "incorporation" ? "−" : "+"}
+                      </span>
                     </button>
 
                     {activeSubMenu === "incorporation" && (
                       <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
-                        <Link href="/doing-business-in-india/pre-incorporation" className="block py-1">
+
+                        <Link
+                          href="/doing-business-in-india/pre-incorporation"
+                          className="block py-1"
+                        >
                           Pre-Incorporation
                         </Link>
 
-                        <Link href="/doing-business-in-india/incorporation" className="block py-1">
+                        <Link
+                          href="/doing-business-in-india/incorporation"
+                          className="block py-1"
+                        >
                           Incorporation
                         </Link>
 
-                        <Link href="/doing-business-in-india/post-incorporation" className="block py-1">
+                        <Link
+                          href="/doing-business-in-india/post-incorporation"
+                          className="block py-1"
+                        >
                           Post-Incorporation
                         </Link>
+
                       </div>
                     )}
                   </div>
@@ -408,7 +457,11 @@ export function Navbar() {
             {/* OTHER LINKS */}
             <div className="border-t pt-4 space-y-3">
               {navLinks.map((link) => (
-                <Link key={link.label} href={link.href} className="block text-sm">
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="block text-sm"
+                >
                   {link.label}
                 </Link>
               ))}
@@ -417,7 +470,9 @@ export function Navbar() {
             {/* CTA */}
             <div className="mt-6">
               <Button asChild className="w-full">
-                <Link href="/contact">Get Started</Link>
+                <Link href="/contact">
+                  Get Started
+                </Link>
               </Button>
             </div>
 
@@ -426,16 +481,17 @@ export function Navbar() {
 
       </nav>
 
-      {/* RIGHT FLOATING SIDEBAR */}
+      {/* FLOATING SIDEBAR */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[60]">
 
         {/* WhatsApp */}
         <a
           href="https://wa.me/919999010513"
           target="_blank"
-          className="relative group bg-green-500 text-white p-3 rounded-full shadow-lg animate-pulse-slow hover:scale-110 transition"
+          className="relative group bg-green-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
         >
           <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
+
           <MessageCircle size={18} className="relative z-10" />
         </a>
 
@@ -443,18 +499,20 @@ export function Navbar() {
         <a
           href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
           target="_blank"
-          className="relative group bg-blue-600 text-white p-3 rounded-full shadow-lg animate-pulse-medium hover:scale-110 transition"
+          className="relative group bg-blue-600 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
         >
           <span className="absolute inset-0 rounded-full bg-blue-400 opacity-40 animate-ping"></span>
+
           <Linkedin size={18} className="relative z-10" />
         </a>
 
         {/* Email */}
         <a
           href="mailto:partner@theaucorp.com"
-          className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg animate-pulse-fast hover:scale-110 transition"
+          className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
         >
           <span className="absolute inset-0 rounded-full bg-red-400 opacity-40 animate-ping"></span>
+
           <Mail size={18} className="relative z-10" />
         </a>
 
