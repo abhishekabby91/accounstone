@@ -134,12 +134,12 @@ export function Footer() {
             {/* AUTHOR CREDIT (VISIBLE BUT SUBTLE) */}
             <div className="text-white text-[10px] opacity-5 select-none pointer-events-none-[11px] sm:text-xs">
               <a
-                href="https://www.linkedin.com/in/abhishekabby/"
+                href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gray-600 transition"
               >
-                Abhishek
+                
               </a>
             </div>
 
