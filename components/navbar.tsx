@@ -3,10 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronRight } from "lucide-react"
+import { Menu, X, ChevronRight, MessageCircle, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Sidebar } from "@/components/Sidebar"
-import { MessageCircle, Linkedin, Mail } from "lucide-react"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -61,20 +59,26 @@ export function Navbar() {
                 AU Corporate
               </span>
 
-              {/* ✅ TAGLINE (VISIBLE IN MOBILE ALSO) */}
               <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#081a42]">
                 Growing Together
               </span>
             </div>
           </Link>
+
           {/* DESKTOP MENU */}
           <div className="hidden lg:flex items-center gap-3">
 
             {/* SERVICES */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseLeave={() => {
+                setActiveMenu(null)
+                setActiveSubMenu(null)
+              }}
+            >
               <button
-                onClick={() => {
-                  setActiveMenu(activeMenu === "services" ? null : "services")
+                onMouseEnter={() => {
+                  setActiveMenu("services")
                   setActiveSubMenu(null)
                 }}
                 className="px-3 py-2 text-sm text-gray-600 hover:text-black"
@@ -83,52 +87,95 @@ export function Navbar() {
               </button>
 
               {activeMenu === "services" && (
-                <div className="absolute top-full left-0 w-[520px] bg-white border shadow-xl rounded-xl flex z-50">
+                <div className="absolute top-full left-0 mt-2 w-[520px] bg-white border shadow-2xl rounded-2xl flex z-50 overflow-hidden">
 
-                  <div className="w-1/2 border-r py-2">
+                  {/* LEFT MENU */}
+                  <div className="w-1/2 border-r bg-gray-50 py-2">
+
                     {mainServices.map((service) => (
                       <div
                         key={service.label}
                         onMouseEnter={() =>
                           service.key && setActiveSubMenu(service.key)
                         }
-                        className="flex justify-between px-4 py-3 text-sm hover:bg-gray-100 cursor-pointer"
+                        className="group flex items-center justify-between px-5 py-3 text-sm hover:bg-white transition cursor-pointer"
                       >
                         {service.href ? (
-                          <Link href={service.href}>{service.label}</Link>
+                          <Link
+                            href={service.href}
+                            className="w-full flex justify-between items-center"
+                          >
+                            <span>{service.label}</span>
+
+                            {service.key && (
+                              <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
+                            )}
+                          </Link>
                         ) : (
-                          <span>{service.label}</span>
+                          <>
+                            <span>{service.label}</span>
+
+                            {service.key && (
+                              <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
+                            )}
+                          </>
                         )}
-                        {service.key && <ChevronRight className="w-4 h-4" />}
                       </div>
                     ))}
                   </div>
 
-                  <div className="w-1/2 p-4">
-                    {activeSubMenu === "risk" &&
-                      riskSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
+                  {/* RIGHT SUBMENU */}
+                  <div className="w-1/2 p-5 bg-white min-h-[220px]">
 
-                    {activeSubMenu === "tax" &&
-                      taxSubServices.map((item) => (
-                        <Link key={item.label} href={item.href} className="block py-2 text-sm">
-                          {item.label}
-                        </Link>
-                      ))}
+                    {!activeSubMenu && (
+                      <div className="text-sm text-gray-400">
+                        Select a category
+                      </div>
+                    )}
+
+                    {activeSubMenu === "risk" && (
+                      <div className="space-y-3">
+                        {riskSubServices.map((item) => (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            className="block text-sm text-gray-700 hover:text-black hover:translate-x-1 transition"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                    {activeSubMenu === "tax" && (
+                      <div className="space-y-3">
+                        {taxSubServices.map((item) => (
+                          <Link
+                            key={item.label}
+                            href={item.href}
+                            className="block text-sm text-gray-700 hover:text-black hover:translate-x-1 transition"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </div>
-
                 </div>
               )}
             </div>
 
             {/* INDIA */}
-            <div className="relative">
+            <div
+              className="relative"
+              onMouseLeave={() => {
+                setActiveMenu(null)
+                setActiveSubMenu(null)
+              }}
+            >
               <button
-                onClick={() => {
-                  setActiveMenu(activeMenu === "india" ? null : "india")
+                onMouseEnter={() => {
+                  setActiveMenu("india")
                   setActiveSubMenu(null)
                 }}
                 className="px-3 py-2 text-sm text-gray-600 hover:text-black"
@@ -137,42 +184,76 @@ export function Navbar() {
               </button>
 
               {activeMenu === "india" && (
-                <div className="absolute top-full left-0 w-[260px] bg-white border shadow-xl rounded-xl z-50">
+                <div className="absolute top-full left-0 mt-2 w-[280px] bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
 
-                  <Link href="/doing-business-in-india/why-india" className="block px-4 py-3 hover:bg-gray-100">
-                    Why India
-                  </Link>
+                  <div className="py-2">
 
-                  <Link href="/doing-business-in-india/entry-process" className="block px-4 py-3 hover:bg-gray-100">
-                    Entry Process
-                  </Link>
+                    <Link
+                      href="/doing-business-in-india/why-india"
+                      className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                    >
+                      Why India
+                    </Link>
 
-                  <div className="relative group">
-                    <div className="flex justify-between items-center px-4 py-3 hover:bg-gray-100 cursor-pointer">
-                      <span>Incorporation</span>
-                      <ChevronRight className="w-4 h-4" />
+                    <Link
+                      href="/doing-business-in-india/entry-process"
+                      className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                    >
+                      Entry Process
+                    </Link>
+
+                    {/* INCORPORATION */}
+                    <div
+                      className="relative group"
+                      onMouseEnter={() => setActiveSubMenu("incorporation")}
+                    >
+                      <div className="flex justify-between items-center px-5 py-3 text-sm hover:bg-gray-50 cursor-pointer transition">
+                        <span>Incorporation</span>
+
+                        <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
+                      </div>
+
+                      {/* SUBMENU */}
+                      {activeSubMenu === "incorporation" && (
+                        <div className="absolute top-0 left-full ml-1 w-[250px] bg-white border shadow-2xl rounded-2xl overflow-hidden">
+
+                          <Link
+                            href="/doing-business-in-india/pre-incorporation"
+                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                          >
+                            Pre-Incorporation
+                          </Link>
+
+                          <Link
+                            href="/doing-business-in-india/incorporation"
+                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                          >
+                            Incorporation
+                          </Link>
+
+                          <Link
+                            href="/doing-business-in-india/post-incorporation"
+                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                          >
+                            Post-Incorporation
+                          </Link>
+
+                        </div>
+                      )}
                     </div>
 
-                    <div className="absolute top-0 left-full w-[240px] bg-white border shadow-xl rounded-xl hidden group-hover:block">
-                      <Link href="/doing-business-in-india/pre-incorporation" className="block px-4 py-3 hover:bg-gray-100">
-                        Pre-Incorporation
-                      </Link>
-                      <Link href="/doing-business-in-india/incorporation" className="block px-4 py-3 hover:bg-gray-100">
-                        Incorporation
-                      </Link>
-                      <Link href="/doing-business-in-india/post-incorporation" className="block px-4 py-3 hover:bg-gray-100">
-                        Post-Incorporation
-                      </Link>
-                    </div>
                   </div>
-
                 </div>
               )}
             </div>
 
             {/* OTHER LINKS */}
             {navLinks.map((link) => (
-              <Link key={link.label} href={link.href} className="px-3 py-2 text-sm">
+              <Link
+                key={link.label}
+                href={link.href}
+                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
+              >
                 {link.label}
               </Link>
             ))}
@@ -187,7 +268,10 @@ export function Navbar() {
           </div>
 
           {/* MOBILE BUTTON */}
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden">
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden"
+          >
             {isOpen ? <X /> : <Menu />}
           </button>
 
@@ -305,9 +389,11 @@ export function Navbar() {
                         <Link href="/doing-business-in-india/pre-incorporation" className="block py-1">
                           Pre-Incorporation
                         </Link>
+
                         <Link href="/doing-business-in-india/incorporation" className="block py-1">
                           Incorporation
                         </Link>
+
                         <Link href="/doing-business-in-india/post-incorporation" className="block py-1">
                           Post-Incorporation
                         </Link>
@@ -339,42 +425,40 @@ export function Navbar() {
         )}
 
       </nav>
+
       {/* RIGHT FLOATING SIDEBAR */}
-<div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[60]">
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[60]">
 
-  {/* WhatsApp */}
-  <a
-    href="https://wa.me/919999010513"
-    target="_blank"
-    className="relative group bg-green-500 text-white p-3 rounded-full shadow-lg 
-    animate-pulse-slow hover:scale-110 transition"
-  >
-    <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
-    <MessageCircle size={18} className="relative z-10" />
-  </a>
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/919999010513"
+          target="_blank"
+          className="relative group bg-green-500 text-white p-3 rounded-full shadow-lg animate-pulse-slow hover:scale-110 transition"
+        >
+          <span className="absolute inset-0 rounded-full bg-green-400 opacity-40 animate-ping"></span>
+          <MessageCircle size={18} className="relative z-10" />
+        </a>
 
-  {/* LinkedIn */}
-  <a
-    href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
-    target="_blank"
-    className="relative group bg-blue-600 text-white p-3 rounded-full shadow-lg 
-    animate-pulse-medium hover:scale-110 transition"
-  >
-    <span className="absolute inset-0 rounded-full bg-blue-400 opacity-40 animate-ping"></span>
-    <Linkedin size={18} className="relative z-10" />
-  </a>
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
+          target="_blank"
+          className="relative group bg-blue-600 text-white p-3 rounded-full shadow-lg animate-pulse-medium hover:scale-110 transition"
+        >
+          <span className="absolute inset-0 rounded-full bg-blue-400 opacity-40 animate-ping"></span>
+          <Linkedin size={18} className="relative z-10" />
+        </a>
 
-  {/* Email */}
-  <a
-    href="mailto:partner@theaucorp.com"
-    className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg 
-    animate-pulse-fast hover:scale-110 transition"
-  >
-    <span className="absolute inset-0 rounded-full bg-red-400 opacity-40 animate-ping"></span>
-    <Mail size={18} className="relative z-10" />
-  </a>
+        {/* Email */}
+        <a
+          href="mailto:partner@theaucorp.com"
+          className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg animate-pulse-fast hover:scale-110 transition"
+        >
+          <span className="absolute inset-0 rounded-full bg-red-400 opacity-40 animate-ping"></span>
+          <Mail size={18} className="relative z-10" />
+        </a>
 
-</div>
+      </div>
     </header>
   )
 }
