@@ -372,87 +372,89 @@ export function Navbar() {
             </div>
 
             {/* INDIA */}
-            <div className="mb-4 border-t pt-4">
+<div className="mb-4 border-t pt-4">
+  <button
+    onClick={() =>
+      setActiveMenu(activeMenu === "india" ? null : "india")
+    }
+    className="w-full flex justify-between items-center text-base font-semibold py-2"
+  >
+    Doing Business in India
 
-              <button
-                onClick={() =>
-                  setActiveMenu(activeMenu === "india" ? null : "india")
-                }
-                className="w-full flex justify-between items-center text-base font-semibold py-2"
-              >
-                Doing Business in India
+    <span>
+      {activeMenu === "india" ? "−" : "+"}
+    </span>
+  </button>
 
-                <span>
-                  {activeMenu === "india" ? "−" : "+"}
-                </span>
-              </button>
+  {activeMenu === "india" && (
+    <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
 
-              {activeMenu === "india" && (
-                <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
+      <Link
+        href="/doing-business-in-india/why-india"
+        className="block py-1"
+      >
+        Why India
+      </Link>
 
-                  <Link
-                    href="/doing-business-in-india/why-india"
-                    className="block py-1"
-                  >
-                    Why India
-                  </Link>
+      <Link
+        href="/doing-business-in-india/entry-process"
+        className="block py-1"
+      >
+        Entry Process
+      </Link>
 
-                  <Link
-                    href="/doing-business-in-india/entry-process"
-                    className="block py-1"
-                  >
-                    Entry Process
-                  </Link>
+      {/* INCORPORATION */}
+      <div>
 
-                  <div>
-                    <button
-                      onClick={() =>
-                        setActiveSubMenu(
-                          activeSubMenu === "incorporation"
-                            ? null
-                            : "incorporation"
-                        )
-                      }
-                      className="w-full flex justify-between items-center py-1"
-                    >
-                      Incorporation
+        <button
+          onClick={() =>
+            setActiveSubMenu(
+              activeSubMenu === "incorporation"
+                ? null
+                : "incorporation"
+            )
+          }
+          className="w-full flex justify-between items-center py-1"
+        >
+          Incorporation
 
-                      <span>
-                        {activeSubMenu === "incorporation" ? "−" : "+"}
-                      </span>
-                    </button>
+          <span>
+            {activeSubMenu === "incorporation" ? "−" : "+"}
+          </span>
+        </button>
 
-                    {activeSubMenu === "incorporation" && (
-                      <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
+        {activeSubMenu === "incorporation" && (
+          <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
 
-                        <Link
-                          href="/doing-business-in-india/pre-incorporation"
-                          className="block py-1"
-                        >
-                          Pre-Incorporation
-                        </Link>
+            <Link
+              href="/doing-business-in-india/pre-incorporation"
+              className="block py-1"
+            >
+              Pre-Incorporation
+            </Link>
 
-                        <Link
-                          href="/doing-business-in-india/incorporation"
-                          className="block py-1"
-                        >
-                          Incorporation
-                        </Link>
+            <Link
+              href="/doing-business-in-india/incorporation"
+              className="block py-1"
+            >
+              Incorporation
+            </Link>
 
-                        <Link
-                          href="/doing-business-in-india/post-incorporation"
-                          className="block py-1"
-                        >
-                          Post-Incorporation
-                        </Link>
+            <Link
+              href="/doing-business-in-india/post-incorporation"
+              className="block py-1"
+            >
+              Post-Incorporation
+            </Link>
 
-                      </div>
-                    )}
-                  </div>
+          </div>
+        )}
 
-                </div>
-              )}
-            </div>
+      </div>
+
+    </div>
+  )}
+</div>
 
             {/* OTHER LINKS */}
             <div className="border-t pt-4 space-y-3">
