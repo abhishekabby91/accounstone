@@ -7,6 +7,7 @@ import {
   Menu,
   X,
   ChevronRight,
+  ChevronDown,
   MessageCircle,
   Linkedin,
   Mail,
@@ -16,8 +17,14 @@ import { Button } from "@/components/ui/button"
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+
+  // DESKTOP
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null)
+
+  // MOBILE
+  const [mobileMenu, setMobileMenu] = useState<string | null>(null)
+  const [mobileSubMenu, setMobileSubMenu] = useState<string | null>(null)
 
   const navLinks = [
     { label: "Arbitration Services", href: "/arbitration-services" },
@@ -29,28 +36,56 @@ export function Navbar() {
 
   const mainServices = [
     { label: "Risk Management Services", key: "risk" },
-    { label: "Accounting & Assurance", href: "/services/accounting-assurance" },
+    {
+      label: "Accounting & Assurance",
+      href: "/services/accounting-assurance",
+    },
     { label: "Taxation & Regulatory Services", key: "tax" },
-    { label: "Transaction Advisory Services", href: "/services/transaction-advisory" },
+    {
+      label: "Transaction Advisory Services",
+      href: "/services/transaction-advisory",
+    },
   ]
 
   const riskSubServices = [
-    { label: "Risk Management", href: "/services/risk-management" },
-    { label: "Forensic Services", href: "/services/risk-management" },
-    { label: "Special Audit / Review", href: "/services/risk-management" },
+    {
+      label: "Risk Management",
+      href: "/services/risk-management",
+    },
+    {
+      label: "Forensic Services",
+      href: "/services/risk-management",
+    },
+    {
+      label: "Special Audit / Review",
+      href: "/services/risk-management",
+    },
   ]
 
   const taxSubServices = [
-    { label: "Direct Taxation", href: "/services/taxation-regulatory" },
-    { label: "Goods & Service Tax", href: "/services/taxation-regulatory" },
-    { label: "Regulatory Services", href: "/services/taxation-regulatory" },
-    { label: "Secretarial & Legal", href: "/services/taxation-regulatory" },
+    {
+      label: "Direct Taxation",
+      href: "/services/taxation-regulatory",
+    },
+    {
+      label: "Goods & Service Tax",
+      href: "/services/taxation-regulatory",
+    },
+    {
+      label: "Regulatory Services",
+      href: "/services/taxation-regulatory",
+    },
+    {
+      label: "Secretarial & Legal",
+      href: "/services/taxation-regulatory",
+    },
   ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
+        {/* TOP BAR */}
         <div className="flex h-16 sm:h-20 items-center justify-between">
 
           {/* LOGO */}
@@ -58,8 +93,8 @@ export function Navbar() {
             <Image
               src="https://user8396.na.imgto.link/public/20260417/au.avif"
               alt="AU Corporate Logo"
-              width={36}
-              height={36}
+              width={38}
+              height={38}
             />
 
             <div className="flex flex-col leading-tight">
@@ -74,7 +109,7 @@ export function Navbar() {
           </Link>
 
           {/* DESKTOP MENU */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-2">
 
             {/* SERVICES */}
             <div
@@ -89,16 +124,17 @@ export function Navbar() {
                   setActiveMenu("services")
                   setActiveSubMenu(null)
                 }}
-                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
+                className="px-3 py-2 text-sm text-gray-700 hover:text-black flex items-center gap-1 transition"
               >
-                Services ▾
+                Services
+                <ChevronDown className="w-4 h-4" />
               </button>
 
               {activeMenu === "services" && (
-                <div className="absolute top-full left-0 mt-2 w-[540px] bg-white border shadow-2xl rounded-2xl flex z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-2 w-[560px] bg-white border shadow-2xl rounded-2xl flex overflow-hidden z-50">
 
-                  {/* LEFT PANEL */}
-                  <div className="w-1/2 border-r bg-gray-50 py-2">
+                  {/* LEFT */}
+                  <div className="w-1/2 bg-gray-50 border-r py-2">
 
                     {mainServices.map((service) => (
                       <div
@@ -106,34 +142,28 @@ export function Navbar() {
                         onMouseEnter={() =>
                           service.key && setActiveSubMenu(service.key)
                         }
-                        className="group flex items-center justify-between px-5 py-3 text-sm hover:bg-white transition cursor-pointer"
+                        className="group flex justify-between items-center px-5 py-3 text-sm hover:bg-white transition cursor-pointer"
                       >
                         {service.href ? (
                           <Link
                             href={service.href}
-                            className="w-full flex justify-between items-center"
+                            className="w-full flex items-center justify-between"
                           >
                             <span>{service.label}</span>
-
-                            {service.key && (
-                              <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
-                            )}
                           </Link>
                         ) : (
                           <>
                             <span>{service.label}</span>
 
-                            {service.key && (
-                              <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
-                            )}
+                            <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
                           </>
                         )}
                       </div>
                     ))}
                   </div>
 
-                  {/* RIGHT PANEL */}
-                  <div className="w-1/2 p-5 bg-white min-h-[220px]">
+                  {/* RIGHT */}
+                  <div className="w-1/2 p-5 bg-white min-h-[240px]">
 
                     {!activeSubMenu && (
                       <div className="text-sm text-gray-400">
@@ -143,6 +173,10 @@ export function Navbar() {
 
                     {activeSubMenu === "risk" && (
                       <div className="space-y-3">
+                        <h3 className="text-sm font-semibold text-[#081a42]">
+                          Risk Management Services
+                        </h3>
+
                         {riskSubServices.map((item) => (
                           <Link
                             key={item.label}
@@ -157,6 +191,10 @@ export function Navbar() {
 
                     {activeSubMenu === "tax" && (
                       <div className="space-y-3">
+                        <h3 className="text-sm font-semibold text-[#081a42]">
+                          Taxation & Regulatory Services
+                        </h3>
+
                         {taxSubServices.map((item) => (
                           <Link
                             key={item.label}
@@ -174,7 +212,7 @@ export function Navbar() {
               )}
             </div>
 
-            {/* INDIA */}
+            {/* DOING BUSINESS */}
             <div
               className="relative"
               onMouseLeave={() => {
@@ -187,70 +225,94 @@ export function Navbar() {
                   setActiveMenu("india")
                   setActiveSubMenu(null)
                 }}
-                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
+                className="px-3 py-2 text-sm text-gray-700 hover:text-black flex items-center gap-1 transition"
               >
-                Doing Business in India ▾
+                Doing Business in India
+                <ChevronDown className="w-4 h-4" />
               </button>
 
               {activeMenu === "india" && (
-                <div className="absolute top-full left-0 mt-2 w-[280px] bg-white border shadow-2xl rounded-2xl z-50 overflow-hidden">
+                <div className="absolute top-full left-0 mt-2 flex z-50">
 
-                  <div className="py-2">
+                  {/* LEFT PANEL */}
+                  <div className="w-[290px] bg-white border shadow-2xl rounded-l-2xl overflow-hidden">
 
-                    <Link
-                      href="/doing-business-in-india/why-india"
-                      className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
-                    >
-                      Why India
-                    </Link>
+                    <div className="py-2">
 
-                    <Link
-                      href="/doing-business-in-india/entry-process"
-                      className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
-                    >
-                      Entry Process
-                    </Link>
+                      <Link
+                        href="/doing-business-in-india/why-india"
+                        className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                      >
+                        Why India
+                      </Link>
 
-                    {/* INCORPORATION */}
-                    <div
-                      className="relative group"
-                      onMouseEnter={() => setActiveSubMenu("incorporation")}
-                    >
-                      <div className="flex justify-between items-center px-5 py-3 text-sm hover:bg-gray-50 cursor-pointer transition">
+                      <Link
+                        href="/doing-business-in-india/entry-process"
+                        className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                      >
+                        Entry Process
+                      </Link>
+
+                      {/* INCORPORATION */}
+                      <div
+                        onMouseEnter={() =>
+                          setActiveSubMenu("incorporation")
+                        }
+                        className="group flex justify-between items-center px-5 py-3 text-sm hover:bg-gray-50 cursor-pointer transition"
+                      >
                         <span>Incorporation</span>
 
                         <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
                       </div>
 
-                      {activeSubMenu === "incorporation" && (
-                        <div className="absolute top-0 left-full ml-1 w-[250px] bg-white border shadow-2xl rounded-2xl overflow-hidden">
-
-                          <Link
-                            href="/doing-business-in-india/pre-incorporation"
-                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
-                          >
-                            Pre-Incorporation
-                          </Link>
-
-                          <Link
-                            href="/doing-business-in-india/incorporation"
-                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
-                          >
-                            Incorporation
-                          </Link>
-
-                          <Link
-                            href="/doing-business-in-india/post-incorporation"
-                            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
-                          >
-                            Post-Incorporation
-                          </Link>
-
-                        </div>
-                      )}
                     </div>
-
                   </div>
+
+                  {/* RIGHT PANEL */}
+                  {activeSubMenu === "incorporation" && (
+                    <div
+                      className="w-[280px] bg-white border-y border-r shadow-2xl rounded-r-2xl overflow-hidden"
+                      onMouseEnter={() =>
+                        setActiveSubMenu("incorporation")
+                      }
+                    >
+                      <div className="px-5 py-4 border-b bg-gray-50">
+                        <h3 className="text-sm font-semibold text-[#081a42]">
+                          Incorporation Services
+                        </h3>
+
+                        <p className="text-xs text-gray-500 mt-1">
+                          End-to-end India business setup assistance
+                        </p>
+                      </div>
+
+                      <div className="py-2">
+
+                        <Link
+                          href="/doing-business-in-india/pre-incorporation"
+                          className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                        >
+                          Pre-Incorporation
+                        </Link>
+
+                        <Link
+                          href="/doing-business-in-india/incorporation"
+                          className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                        >
+                          Incorporation
+                        </Link>
+
+                        <Link
+                          href="/doing-business-in-india/post-incorporation"
+                          className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+                        >
+                          Post-Incorporation
+                        </Link>
+
+                      </div>
+                    </div>
+                  )}
+
                 </div>
               )}
             </div>
@@ -260,7 +322,7 @@ export function Navbar() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
+                className="px-3 py-2 text-sm text-gray-700 hover:text-black transition"
               >
                 {link.label}
               </Link>
@@ -289,28 +351,39 @@ export function Navbar() {
 
         {/* MOBILE MENU */}
         {isOpen && (
-          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg flex flex-col px-5 py-6">
+          <div className="lg:hidden absolute left-0 top-16 w-full bg-white border-t shadow-lg px-5 py-6">
 
             {/* SERVICES */}
             <div className="mb-4">
+
               <button
                 onClick={() =>
-                  setActiveMenu(activeMenu === "services" ? null : "services")
+                  setMobileMenu(
+                    mobileMenu === "services"
+                      ? null
+                      : "services"
+                  )
                 }
                 className="w-full flex justify-between items-center text-base font-semibold py-2"
               >
                 Services
-                <span>{activeMenu === "services" ? "−" : "+"}</span>
+
+                <span>
+                  {mobileMenu === "services" ? "−" : "+"}
+                </span>
               </button>
 
-              {activeMenu === "services" && (
+              {mobileMenu === "services" && (
                 <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
 
                   {mainServices.map((service) => (
                     <div key={service.label}>
 
                       {service.href && (
-                        <Link href={service.href} className="block py-1">
+                        <Link
+                          href={service.href}
+                          className="block py-1"
+                        >
                           {service.label}
                         </Link>
                       )}
@@ -319,23 +392,25 @@ export function Navbar() {
                         <>
                           <button
                             onClick={() =>
-                              setActiveSubMenu(
-                                activeSubMenu === service.key
+                              setMobileSubMenu(
+                                mobileSubMenu === service.key
                                   ? null
                                   : service.key
                               )
                             }
-                            className="w-full flex justify-between items-center py-1 font-medium"
+                            className="w-full flex justify-between items-center py-1"
                           >
                             {service.label}
 
                             <span>
-                              {activeSubMenu === service.key ? "−" : "+"}
+                              {mobileSubMenu === service.key
+                                ? "−"
+                                : "+"}
                             </span>
                           </button>
 
-                          {activeSubMenu === service.key && (
-                            <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
+                          {mobileSubMenu === service.key && (
+                            <div className="mt-2 ml-3 pl-3 border-l space-y-2">
 
                               {service.key === "risk" &&
                                 riskSubServices.map((item) => (
@@ -372,92 +447,100 @@ export function Navbar() {
             </div>
 
             {/* INDIA */}
-<div className="mb-4 border-t pt-4">
-  <button
-    onClick={() =>
-      setActiveMenu(activeMenu === "india" ? null : "india")
-    }
-    className="w-full flex justify-between items-center text-base font-semibold py-2"
-  >
-    Doing Business in India
+            <div className="mb-4 border-t pt-4">
 
-    <span>
-      {activeMenu === "india" ? "−" : "+"}
-    </span>
-  </button>
+              <button
+                onClick={() =>
+                  setMobileMenu(
+                    mobileMenu === "india"
+                      ? null
+                      : "india"
+                  )
+                }
+                className="w-full flex justify-between items-center text-base font-semibold py-2"
+              >
+                Doing Business in India
 
-  {activeMenu === "india" && (
-    <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
+                <span>
+                  {mobileMenu === "india" ? "−" : "+"}
+                </span>
+              </button>
 
-      <Link
-        href="/doing-business-in-india/why-india"
-        className="block py-1"
-      >
-        Why India
-      </Link>
+              {mobileMenu === "india" && (
+                <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
 
-      <Link
-        href="/doing-business-in-india/entry-process"
-        className="block py-1"
-      >
-        Entry Process
-      </Link>
+                  <Link
+                    href="/doing-business-in-india/why-india"
+                    className="block py-1"
+                  >
+                    Why India
+                  </Link>
 
-      {/* INCORPORATION */}
-      <div>
+                  <Link
+                    href="/doing-business-in-india/entry-process"
+                    className="block py-1"
+                  >
+                    Entry Process
+                  </Link>
 
-        <button
-          onClick={() =>
-            setActiveSubMenu(
-              activeSubMenu === "incorporation"
-                ? null
-                : "incorporation"
-            )
-          }
-          className="w-full flex justify-between items-center py-1"
-        >
-          Incorporation
+                  {/* INCORPORATION */}
+                  <div>
 
-          <span>
-            {activeSubMenu === "incorporation" ? "−" : "+"}
-          </span>
-        </button>
+                    <button
+                      onClick={() =>
+                        setMobileSubMenu(
+                          mobileSubMenu === "incorporation"
+                            ? null
+                            : "incorporation"
+                        )
+                      }
+                      className="w-full flex justify-between items-center py-1"
+                    >
+                      Incorporation
 
-        {activeSubMenu === "incorporation" && (
-          <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
+                      <span>
+                        {mobileSubMenu === "incorporation"
+                          ? "−"
+                          : "+"}
+                      </span>
+                    </button>
 
-            <Link
-              href="/doing-business-in-india/pre-incorporation"
-              className="block py-1"
-            >
-              Pre-Incorporation
-            </Link>
+                    {mobileSubMenu === "incorporation" && (
+                      <div className="mt-2 ml-3 pl-3 border-l space-y-2">
 
-            <Link
-              href="/doing-business-in-india/incorporation"
-              className="block py-1"
-            >
-              Incorporation
-            </Link>
+                        <Link
+                          href="/doing-business-in-india/pre-incorporation"
+                          className="block py-1"
+                        >
+                          Pre-Incorporation
+                        </Link>
 
-            <Link
-              href="/doing-business-in-india/post-incorporation"
-              className="block py-1"
-            >
-              Post-Incorporation
-            </Link>
+                        <Link
+                          href="/doing-business-in-india/incorporation"
+                          className="block py-1"
+                        >
+                          Incorporation
+                        </Link>
 
-          </div>
-        )}
+                        <Link
+                          href="/doing-business-in-india/post-incorporation"
+                          className="block py-1"
+                        >
+                          Post-Incorporation
+                        </Link>
 
-      </div>
+                      </div>
+                    )}
 
-    </div>
-  )}
-</div>
+                  </div>
+
+                </div>
+              )}
+            </div>
 
             {/* OTHER LINKS */}
             <div className="border-t pt-4 space-y-3">
+
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
@@ -467,15 +550,18 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+
             </div>
 
             {/* CTA */}
             <div className="mt-6">
+
               <Button asChild className="w-full">
                 <Link href="/contact">
                   Get Started
                 </Link>
               </Button>
+
             </div>
 
           </div>
@@ -486,7 +572,7 @@ export function Navbar() {
       {/* FLOATING SIDEBAR */}
       <div className="fixed right-4 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-[60]">
 
-        {/* WhatsApp */}
+        {/* WHATSAPP */}
         <a
           href="https://wa.me/919999010513"
           target="_blank"
@@ -497,7 +583,7 @@ export function Navbar() {
           <MessageCircle size={18} className="relative z-10" />
         </a>
 
-        {/* LinkedIn */}
+        {/* LINKEDIN */}
         <a
           href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
           target="_blank"
@@ -508,7 +594,7 @@ export function Navbar() {
           <Linkedin size={18} className="relative z-10" />
         </a>
 
-        {/* Email */}
+        {/* EMAIL */}
         <a
           href="mailto:partner@theaucorp.com"
           className="relative group bg-red-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition"
