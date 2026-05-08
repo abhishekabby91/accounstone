@@ -372,88 +372,106 @@ export function Navbar() {
             </div>
 
             {/* INDIA */}
-            <div className="mb-4 border-t pt-4">
+<div
+  className="relative"
+  onMouseLeave={() => {
+    setActiveMenu(null)
+    setActiveSubMenu(null)
+  }}
+>
+  <button
+    onMouseEnter={() => {
+      setActiveMenu("india")
+      setActiveSubMenu(null)
+    }}
+    className="px-3 py-2 text-sm text-gray-600 hover:text-black transition"
+  >
+    Doing Business in India ▾
+  </button>
 
-              <button
-                onClick={() =>
-                  setActiveMenu(activeMenu === "india" ? null : "india")
-                }
-                className="w-full flex justify-between items-center text-base font-semibold py-2"
-              >
-                Doing Business in India
+  {activeMenu === "india" && (
+    <div className="absolute top-full left-0 mt-2 flex z-50">
 
-                <span>
-                  {activeMenu === "india" ? "−" : "+"}
-                </span>
-              </button>
+      {/* LEFT PANEL */}
+      <div className="w-[280px] bg-white border shadow-2xl rounded-l-2xl overflow-hidden">
 
-              {activeMenu === "india" && (
-                <div className="mt-3 ml-3 pl-3 border-l space-y-3 text-sm text-gray-700">
+        <div className="py-2">
 
-                  <Link
-                    href="/doing-business-in-india/why-india"
-                    className="block py-1"
-                  >
-                    Why India
-                  </Link>
+          <Link
+            href="/doing-business-in-india/why-india"
+            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+          >
+            Why India
+          </Link>
 
-                  <Link
-                    href="/doing-business-in-india/entry-process"
-                    className="block py-1"
-                  >
-                    Entry Process
-                  </Link>
+          <Link
+            href="/doing-business-in-india/entry-process"
+            className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+          >
+            Entry Process
+          </Link>
 
-                  <div>
-                    <button
-                      onMouseEnter={() =>
-                        setActiveSubMenu(
-                          activeSubMenu === "incorporation"
-                            ? null
-                            : "incorporation"
-                        )
-                      }
-                      className="w-full flex justify-between items-center py-1"
-                    >
-                      Incorporation
+          {/* INCORPORATION HEADING */}
+          <div
+            onMouseEnter={() => setActiveSubMenu("incorporation")}
+            className="group flex justify-between items-center px-5 py-3 text-sm hover:bg-gray-50 cursor-pointer transition"
+          >
+            <span>Incorporation</span>
 
-                      <span>
-                        {activeSubMenu === "incorporation" ? "−" : "+"}
-                      </span>
-                    </button>
+            <ChevronRight className="w-4 h-4 opacity-60 group-hover:translate-x-1 transition" />
+          </div>
 
-                    {activeSubMenu === "incorporation" && (
-                      <div className="mt-2 ml-3 pl-3 border-l space-y-2 text-gray-600">
+        </div>
+      </div>
 
-                        <Link
-                          href="/doing-business-in-india/pre-incorporation"
-                          className="block py-1"
-                        >
-                          Pre-Incorporation
-                        </Link>
+      {/* RIGHT PANEL */}
+      {activeSubMenu === "incorporation" && (
+        <div className="w-[280px] bg-white border-y border-r shadow-2xl rounded-r-2xl overflow-hidden">
 
-                        <Link
-                          href="/doing-business-in-india/incorporation"
-                          className="block py-1"
-                        >
-                          Incorporation
-                        </Link>
+          {/* HEADING */}
+          <div className="px-5 py-4 border-b bg-gray-50">
 
-                        <Link
-                          href="/doing-business-in-india/post-incorporation"
-                          className="block py-1"
-                        >
-                          Post-Incorporation
-                        </Link>
+            <h3 className="text-sm font-semibold text-[#081a42]">
+              Incorporation Services
+            </h3>
 
-                      </div>
-                    )}
-                  </div>
+            <p className="text-xs text-gray-500 mt-1">
+              End-to-end India entry assistance
+            </p>
 
-                </div>
-              )}
-            </div>
+          </div>
 
+          {/* LINKS */}
+          <div className="py-2">
+
+            <Link
+              href="/doing-business-in-india/pre-incorporation"
+              className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+            >
+              Pre-Incorporation
+            </Link>
+
+            <Link
+              href="/doing-business-in-india/incorporation"
+              className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+            >
+              Incorporation
+            </Link>
+
+            <Link
+              href="/doing-business-in-india/post-incorporation"
+              className="block px-5 py-3 text-sm hover:bg-gray-50 transition"
+            >
+              Post-Incorporation
+            </Link>
+
+          </div>
+        </div>
+      )}
+
+    </div>
+  )}
+</div>
             {/* OTHER LINKS */}
             <div className="border-t pt-4 space-y-3">
               {navLinks.map((link) => (
