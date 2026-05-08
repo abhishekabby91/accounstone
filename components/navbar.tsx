@@ -406,7 +406,7 @@ export function Navbar() {
 
                   <div>
                     <button
-                      onClick={() =>
+                      onMouseEnter={() =>
                         setActiveSubMenu(
                           activeSubMenu === "incorporation"
                             ? null
