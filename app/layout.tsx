@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.theaucorp.com"),
 
   title: {
-    default: "AU Corporate",
-    template: "%s | AU Corporate",
+    default: "GrowthVerse",
+    template: "%s | Growthverse",
   },
 
   description:
