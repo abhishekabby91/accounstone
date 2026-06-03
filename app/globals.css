@@ -3,60 +3,66 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* =========================
-   GrowthVerse DESIGN SYSTEM
-========================= */
+/* ==========================================
+   808 STRATEGY DESIGN SYSTEM
+========================================== */
 
 :root {
   /* Brand Colors */
-  --gold: #FFD700;
-  --gold-light: #FFE766;
-  --gold-dark: #D4AF37;
 
-  --blue: #081a42;
-  --blue-light: #102a66;
+  --primary-blue: #0072BC;
+  --primary-blue-light: #1E88E5;
+  --primary-blue-dark: #005A94;
+
+  --navy: #0B1445;
+  --navy-light: #16205E;
+
+  --orange: #F97316;
+  --orange-dark: #EA580C;
 
   --gray-dark: #111827;
+  --gray-medium: #64748B;
   --gray-light: #E5E7EB;
 
-  /* Base Theme */
-  --background: #ffffff;
+  /* Theme */
+
+  --background: #FFFFFF;
   --foreground: #111827;
 
-  --card: #ffffff;
+  --card: #FFFFFF;
   --card-foreground: #111827;
 
-  --popover: #ffffff;
+  --popover: #FFFFFF;
   --popover-foreground: #111827;
 
-  --primary: #FFD700;
-  --primary-foreground: #111827;
+  --primary: #0072BC;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: #f3f4f6;
+  --secondary: #F8FAFC;
   --secondary-foreground: #111827;
 
-  --muted: #f3f4f6;
-  --muted-foreground: #6b7280;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
 
-  --accent: #FFD700;
-  --accent-foreground: #111827;
+  --accent: #F97316;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
 
   --border: #E5E7EB;
   --input: #E5E7EB;
-  --ring: #FFD700;
+  --ring: #0072BC;
 
-  --radius: 0.5rem;
+  --radius: 0.75rem;
 }
 
-/* =========================
-   TAILWIND THEME MAPPING
-========================= */
+/* ==========================================
+   THEME MAPPING
+========================================== */
 
 @theme inline {
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, sans-serif;
   --font-mono: monospace;
 
   --color-background: var(--background);
@@ -92,42 +98,101 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* Custom AU Colors */
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-gold-dark: var(--gold-dark);
+  /* 808 Strategy Colors */
 
-  --color-blue: var(--blue);
-  --color-blue-light: var(--blue-light);
+  --color-primary-blue: var(--primary-blue);
+  --color-primary-blue-light: var(--primary-blue-light);
+  --color-primary-blue-dark: var(--primary-blue-dark);
+
+  --color-navy: var(--navy);
+  --color-navy-light: var(--navy-light);
+
+  --color-orange: var(--orange);
+  --color-orange-dark: var(--orange-dark);
 }
 
-/* =========================
+/* ==========================================
    BASE STYLES
-========================= */
+========================================== */
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
   }
 }
 
-/* =========================
-   GLOBAL UTILITIES
-========================= */
+/* ==========================================
+   PREMIUM GRADIENTS
+========================================== */
 
-html {
-  scroll-behavior: smooth;
+.hero-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #0B1445 0%,
+      #0072BC 50%,
+      #0B1445 100%
+    );
 }
 
-/* =========================
-   ANIMATIONS (NEW - IMPORTANT)
-========================= */
+.section-gradient {
+  background:
+    linear-gradient(
+      180deg,
+      #F8FAFC 0%,
+      #FFFFFF 100%
+    );
+}
+
+.cta-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #0072BC 0%,
+      #0B1445 100%
+    );
+}
+
+/* ==========================================
+   GLASS EFFECT
+========================================== */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-dark {
+  background: rgba(11, 20, 69, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ==========================================
+   ANIMATIONS
+========================================== */
 
 @keyframes fadeUp {
   from {
@@ -161,32 +226,78 @@ html {
   animation-delay: 500ms;
 }
 
-/* =========================
-   SCROLLBAR (PREMIUM LOOK)
-========================= */
+.delay-700 {
+  animation-delay: 700ms;
+}
+
+/* ==========================================
+   HOVER EFFECTS
+========================================== */
+
+.hover-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
 
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #F1F5F9;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 8px;
+  background: #0072BC;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #005A94;
 }
 
-/* =========================
-   SELECTION COLOR
-========================= */
+/* ==========================================
+   TEXT UTILITIES
+========================================== */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    #0072BC,
+    #0B1445
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+/* ==========================================
+   SELECTION
+========================================== */
 
 ::selection {
-  background: var(--gold);
-  color: #111827;
+  background: #0072BC;
+  color: white;
+}
+
+/* ==========================================
+   IMAGE OPTIMIZATION
+========================================== */
+
+img {
+  max-width: 100%;
+  height: auto;
 }
