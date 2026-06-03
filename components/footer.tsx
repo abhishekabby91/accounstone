@@ -1,156 +1,211 @@
 import Link from "next/link"
-import { Linkedin, Mail, MapPin } from "lucide-react"
+import Image from "next/image"
+import { Linkedin, Mail, MapPin, Phone } from "lucide-react"
 
 const quickLinks = [
-  { label: "Services", href: "/services" },
-  { label: "Why India", href: "/doing-business-in-india" },
-  { label: "Arbitration Services", href: "/arbitration-services" },
-  { label: "HR Services", href: "/hr-services" },
-  { label: "Global Support", href: "/outsourcing" },
+  {
+    label: "About",
+    href: "/about",
+  },
+  {
+    label: "Offshore Staffing",
+    href: "/offshore-staffing",
+  },
+  {
+    label: "Operational Excellence",
+    href: "/operational-excellence",
+  },
+  {
+    label: "India Expansion",
+    href: "/india-expansion",
+  },
+  {
+    label: "Insights",
+    href: "/blog",
+  },
 ]
 
 const companyLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Careers", href: "/career" },
-  { label: "Contact", href: "/contact" },
+  {
+    label: "Contact",
+    href: "/contact",
+  },
+  {
+    label: "Privacy Policy",
+    href: "/privacy",
+  },
+  {
+    label: "Terms & Conditions",
+    href: "/terms",
+  },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-[#0B1445] text-white">
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
-        {/* TOP GRID */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* BRAND */}
-          <div className="sm:col-span-2 lg:col-span-1">
+          <div>
 
-            <Link href="/" className="flex flex-col mb-4">
-              <span className="text-xl sm:text-2xl font-bold tracking-wide text-gold">
-                AU Corporate
-              </span>
-              <span className="text-[10px] sm:text-[11px] text-blue tracking-[0.25em] uppercase font-medium">
-                Growing Together
-              </span>
+            <Link href="/" className="inline-block mb-6">
+
+              <Image
+                src="/logo.png"
+                alt="808 Strategy"
+                width={220}
+                height={70}
+                className="h-auto"
+              />
+
             </Link>
 
-            <p className="text-gray-500 text-sm leading-relaxed mb-5">
-              Supporting global businesses in establishing and operating in India through expert advisory, compliance, and outsourcing solutions.
+            <p className="text-white/70 text-sm leading-relaxed mb-6">
+              Helping accounting firms scale through offshore staffing,
+              operational excellence, and strategic expansion into India.
             </p>
 
             <a
-              href="https://www.linkedin.com/company/a-u-corporate/?viewAsMember=true"
+              href="https://www.linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-gray-500 hover:text-yellow-500 transition"
+              className="inline-flex items-center gap-2 text-white/70 hover:text-[#F97316] transition"
             >
               <Linkedin className="h-5 w-5" />
-              <span className="text-sm">LinkedIn</span>
+              <span>LinkedIn</span>
             </a>
 
           </div>
 
           {/* QUICK LINKS */}
           <div>
-            <h3 className="text-yellow-400 font-semibold mb-4 text-sm sm:text-base">
-              Quick Links
+
+            <h3 className="text-lg font-semibold mb-6 text-[#F97316]">
+              Solutions
             </h3>
 
-            <ul className="space-y-2 sm:space-y-3">
+            <ul className="space-y-3">
+
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-500 hover:text-yellow-500 text-sm transition"
+                    className="text-white/70 hover:text-white transition"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+
             </ul>
+
           </div>
 
           {/* COMPANY */}
           <div>
-            <h3 className="text-yellow-400 font-semibold mb-4 text-sm sm:text-base">
+
+            <h3 className="text-lg font-semibold mb-6 text-[#F97316]">
               Company
             </h3>
 
-            <ul className="space-y-2 sm:space-y-3">
+            <ul className="space-y-3">
+
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-gray-500 hover:text-yellow-500 text-sm transition"
+                    className="text-white/70 hover:text-white transition"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
+
             </ul>
+
           </div>
 
           {/* CONTACT */}
           <div>
-            <h3 className="text-yellow-400 font-semibold mb-4 text-sm sm:text-base">
+
+            <h3 className="text-lg font-semibold mb-6 text-[#F97316]">
               Contact
             </h3>
 
-            <div className="space-y-4">
+            <div className="space-y-5">
 
               <div className="flex items-start gap-3">
-                <Mail className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
+
+                <Mail className="h-5 w-5 text-[#F97316] shrink-0 mt-0.5" />
+
                 <a
-                  href="mailto:partner@theaucorp.com"
-                  className="text-gray-500 hover:text-yellow-500 text-sm break-all"
+                  href="mailto:hello@808strategy.com"
+                  className="text-white/70 hover:text-white transition"
                 >
-                  partner@theaucorp.com
+                  hello@808strategy.com
                 </a>
+
               </div>
 
               <div className="flex items-start gap-3">
-                <MapPin className="h-5 w-5 text-yellow-500 shrink-0 mt-0.5" />
-                <span className="text-gray-500 text-sm">
-                  SURYA KIRAN BUILDING, 4O8, KG Marg, Atul Grove Road, Janpath, Connaught Place, New Delhi - 110001
+
+                <Phone className="h-5 w-5 text-[#F97316] shrink-0 mt-0.5" />
+
+                <span className="text-white/70">
+                  +91 99990 10513
                 </span>
+
+              </div>
+
+              <div className="flex items-start gap-3">
+
+                <MapPin className="h-5 w-5 text-[#F97316] shrink-0 mt-0.5" />
+
+                <span className="text-white/70 text-sm">
+                  New Delhi, India
+                  <br />
+                  Serving Clients Across
+                  USA, UK, Australia & Canada
+                </span>
+
               </div>
 
             </div>
+
           </div>
 
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200">
 
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+        <div className="mt-14 pt-8 border-t border-white/10">
 
-            <p className="text-gray-400 text-xs sm:text-sm">
-              © {new Date().getFullYear()} AU Corporate. All rights reserved.
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+
+            <p className="text-white/50 text-sm">
+              © {new Date().getFullYear()} 808 Strategy.
+              All Rights Reserved.
             </p>
 
-            {/* AUTHOR CREDIT (VISIBLE BUT SUBTLE) */}
-            <div className="text-white text-[10px] opacity-5 select-none pointer-events-none-[11px] sm:text-xs">
-              <a
-                href="https://www.linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-gray-600 transition"
+            <div className="flex items-center gap-6">
+
+              <Link
+                href="/privacy"
+                className="text-white/50 hover:text-white text-sm transition"
               >
-                
-              </a>
-            </div>
-
-            <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6">
-              <Link href="/privacy" className="text-gray-400 hover:text-yellow-400 text-xs sm:text-sm">
-                Privacy
+                Privacy Policy
               </Link>
 
-              <Link href="/terms" className="text-gray-400 hover:text-yellow-400 text-xs sm:text-sm">
-                Terms
+              <Link
+                href="/terms"
+                className="text-white/50 hover:text-white text-sm transition"
+              >
+                Terms & Conditions
               </Link>
+
             </div>
 
           </div>
