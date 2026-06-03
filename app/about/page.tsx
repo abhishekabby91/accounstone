@@ -1,194 +1,211 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import {
-  ArrowRight,
-  Target,
-  Eye,
-  Award,
-  Users,
-  Building,
-  Globe,
-} from "lucide-react"
-import { motion } from "framer-motion"
+import { ArrowRight, Users, Globe, Briefcase, TrendingUp } from "lucide-react"
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn about 808 Strategy and how we help accounting firms scale through offshore staffing, operational excellence, and India expansion.",
 }
 
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.8 } },
-}
-
-export default function AboutHero() {
+export default function AboutPage() {
   return (
-    <div className="min-h-screen pt-16 sm:pt-20">
+    <div className="bg-white">
 
       {/* HERO */}
-      <section className="py-12 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-center">
+      <section className="relative py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B1445] via-[#0072BC] to-[#0B1445]" />
 
-          <motion.div initial="hidden" animate="visible" variants={fadeUp}>
+        <div className="relative max-w-7xl mx-auto px-4 text-center text-white">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            About 808 Strategy
+          </h1>
 
-            <span className="text-black text-xs sm:text-sm font-semibold uppercase tracking-wider">
-              About Us
-            </span>
-
-            <h1 className="text-gold text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:mt-4 mb-4 sm:mb-6">
-              AU Corporate
-            </h1>
-
-            <p className="text-gray-500 text-sm sm:text-base mb-4">
-              AU Corporate is an esteemed multidisciplinary consultancy firm based in New Delhi with a diversified team of Chartered Accountants, CPAs, Company Secretaries, Cost Accountants, Lawyers, Industry Specialists, Ex-Bankers, and MBAs.
-            </p>
-
-            <p className="text-gray-500 text-sm sm:text-base mb-6">
-              Established in 2016, we provide innovative solutions to complex business challenges and act as a catalyst for the business growth of our clients across India and globally.
-            </p>
-
-            <Link href="/contact">
-              <Button className="bg-gold text-black px-5 sm:px-6 py-2 sm:py-3">
-                Get in Touch <ArrowRight className="ml-2" />
-              </Button>
-            </Link>
-
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72"
-              alt="About AU Corporate"
-              width={600}
-              height={400}
-              className="rounded-2xl shadow-lg w-full h-auto"
-            />
-          </motion.div>
-
+          <p className="max-w-3xl mx-auto text-lg text-white/80">
+            Helping accounting firms unlock scalable growth through
+            offshore talent, operational excellence, and strategic
+            expansion into India.
+          </p>
         </div>
       </section>
 
       {/* WHO WE ARE */}
-      <section className="py-12 sm:py-24 bg-gray-50">
-        <div className="mx-auto max-w-6xl px-4 grid grid-cols-1 md:grid-cols-2 gap-10 sm:gap-12 items-center">
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4">
 
-          <motion.div variants={fadeUp} initial="hidden" whileInView="visible">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">
-              Who We Are
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1445] mb-6">
+                Who We Are
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed mb-6">
+                808 Strategy is a growth-focused consulting firm helping
+                accounting practices build sustainable and scalable
+                businesses through strategic offshore staffing and
+                operational transformation.
+              </p>
+
+              <p className="text-gray-600 leading-relaxed mb-6">
+                We partner with firms across the United States, United
+                Kingdom, Australia, and Canada to create efficient
+                operating models that support growth without increasing
+                operational complexity.
+              </p>
+
+              <p className="text-gray-600 leading-relaxed">
+                Our approach combines talent strategy, process
+                optimization, and practical execution to help firms
+                improve profitability and scale confidently.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden shadow-xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                  alt="808 Strategy Team"
+                  width={900}
+                  height={700}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="py-24 bg-slate-50">
+
+        <div className="max-w-7xl mx-auto px-4">
+
+          <div className="text-center mb-16">
+
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0B1445] mb-4">
+              What Drives Us
             </h2>
 
-            <p className="text-gray-500 text-sm sm:text-base mb-4">
-              AU Corporate was established with a vision to provide innovative, practical, and result-oriented solutions to businesses facing complex regulatory and operational challenges.
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              We believe growth should be strategic, sustainable, and
+              supported by the right people and systems.
             </p>
 
-            <p className="text-gray-500 text-sm sm:text-base">
-              With deep domain expertise and a client-first approach, we serve as a strategic partner for businesses looking to establish, operate, and scale in India.
-            </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeIn} initial="hidden" whileInView="visible">
-            <Image
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-              alt="Team work"
-              width={500}
-              height={350}
-              className="rounded-xl shadow w-full h-auto"
-            />
-          </motion.div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-        </div>
-      </section>
-
-      {/* VISION / MISSION / WHY */}
-      <section className="py-12 sm:py-24 bg-white">
-        <div className="mx-auto max-w-7xl px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-10">
-
-          {[
-            {
-              icon: Eye,
-              title: "Our Vision",
-              text: "Our Vision is to fulfil client requirements with tailored solutions while maintaining ethical practices and continuous growth."
-            },
-            {
-              icon: Target,
-              title: "Our Mission",
-              text: "Maximize client value through quality service, ethics, and long-term relationships."
-            },
-            {
-              icon: Award,
-              title: "Why AU?",
-              text: "Integrity, independence, confidentiality, and expert-driven execution define our approach."
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              className="p-5 sm:p-8 border rounded-xl hover:shadow-xl bg-white"
-            >
-              <item.icon className="text-gold mb-3" />
-              <h3 className="font-bold text-base sm:text-lg mb-2">
-                {item.title}
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <Users className="h-10 w-10 text-[#0072BC] mb-4" />
+              <h3 className="font-semibold text-xl mb-3">
+                People First
               </h3>
-              <p className="text-gray-500 text-sm">
-                {item.text}
+              <p className="text-gray-600">
+                Building exceptional teams that support long-term
+                business success.
               </p>
-            </motion.div>
-          ))}
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <TrendingUp className="h-10 w-10 text-[#0072BC] mb-4" />
+              <h3 className="font-semibold text-xl mb-3">
+                Growth Focused
+              </h3>
+              <p className="text-gray-600">
+                Helping firms achieve scalable and profitable growth.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <Globe className="h-10 w-10 text-[#0072BC] mb-4" />
+              <h3 className="font-semibold text-xl mb-3">
+                Global Mindset
+              </h3>
+              <p className="text-gray-600">
+                Connecting international firms with world-class talent.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 shadow-sm">
+              <Briefcase className="h-10 w-10 text-[#0072BC] mb-4" />
+              <h3 className="font-semibold text-xl mb-3">
+                Execution Excellence
+              </h3>
+              <p className="text-gray-600">
+                Practical strategies backed by measurable outcomes.
+              </p>
+            </div>
+
+          </div>
 
         </div>
       </section>
 
-      {/* SERVICES SNAPSHOT */}
-      <section className="py-12 sm:py-24 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8">
+      {/* FOUNDER */}
+      <section className="py-24">
 
-          {[
-            { icon: Building, title: "Business Setup" },
-            { icon: Globe, title: "Global Expansion" },
-            { icon: Users, title: "Advisory Services" },
-            { icon: Award, title: "Compliance & Tax" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              className="p-4 sm:p-6 bg-white rounded-xl border text-center hover:shadow-lg"
-            >
-              <item.icon className="text-gold mx-auto mb-2 sm:mb-3" />
-              <p className="font-medium text-sm sm:text-base">
-                {item.title}
+        <div className="max-w-6xl mx-auto px-4">
+
+          <div className="bg-white border rounded-3xl p-10 md:p-14 shadow-lg">
+
+            <div className="text-center">
+
+              <h2 className="text-3xl md:text-4xl font-bold text-[#0B1445] mb-6">
+                Leadership
+              </h2>
+
+              <h3 className="text-2xl font-semibold mb-4">
+                Gaurav Dhawan
+              </h3>
+
+              <p className="text-[#0072BC] font-medium mb-6">
+                Founder & Strategic Advisor
               </p>
-            </motion.div>
-          ))}
+
+              <p className="text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                Gaurav works with accounting firms to design scalable
+                growth strategies through offshore staffing, operational
+                excellence, and international expansion. His focus is on
+                helping firms build stronger teams, streamline
+                operations, and create sustainable growth models.
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
+
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-24 bg-white text-center px-4">
+      <section className="py-24 bg-[#0B1445]">
 
-        <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-          Let’s Build Your India Presence
-        </h2>
+        <div className="max-w-5xl mx-auto px-4 text-center text-white">
 
-        <p className="text-gray-500 mb-8 max-w-xl mx-auto text-sm sm:text-base">
-          Partner with AU Corporate for seamless advisory, compliance, and execution support.
-        </p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Ready to Scale Your Accounting Firm?
+          </h2>
 
-        <Link href="/contact">
-          <Button className="bg-gold text-black px-6 py-3">
-            Get Started <ArrowRight className="ml-2" />
+          <p className="text-white/80 max-w-2xl mx-auto mb-8">
+            Discover how offshore talent, operational excellence,
+            and strategic growth planning can transform your firm.
+          </p>
+
+          <Button
+            asChild
+            className="bg-[#F97316] hover:bg-[#EA580C] text-white"
+          >
+            <Link href="/contact">
+              Schedule a Consultation
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
           </Button>
-        </Link>
+
+        </div>
 
       </section>
 
