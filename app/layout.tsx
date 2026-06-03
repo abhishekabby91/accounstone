@@ -14,42 +14,49 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.theaucorp.com"),
+  metadataBase: new URL("https://www.808strategy.com"),
 
   title: {
-    default: "GrowthVerse",
-    template: "%s | Growthverse",
+    default: "808 Strategy",
+    template: "%s | 808 Strategy",
   },
 
   description:
-    "AU Corporate provides premium services in Assurance, Taxation, Risk Management, Transaction Advisory, FEMA, Accounting, Payroll, and Compliance services for Indian and foreign companies.",
+    "808 Strategy helps accounting firms scale through offshore staffing, operational excellence, global talent solutions, and India expansion strategies.",
 
   keywords: [
-    "Assurance services",
-    "Taxation services",
-    "Consulting firm India",
-    "Risk management",
-    "Transaction advisory",
-    "Corporate advisory",
-    "Business consulting India",
-    "Foreign company registration India",
-    "India entry services",
+    "808 Strategy",
+    "Accounting firm growth",
+    "Offshore staffing",
     "Accounting outsourcing India",
-    "FEMA compliance",
-    "GST registration India",
-    "Payroll services India",
-    "Virtual CFO India",
+    "CPA firm staffing",
+    "Bookkeeping outsourcing",
+    "Tax preparation support",
+    "India offshore team",
+    "Operational excellence",
+    "Accounting practice growth",
+    "Global talent solutions",
+    "Accounting workflow optimization",
+    "India expansion",
+    "Remote accounting teams",
+    "Finance and accounting outsourcing",
+    "Accounting consulting",
+    "Business process outsourcing",
   ],
 
   alternates: {
-    canonical: "https://www.theaucorp.com",
+    canonical: "https://www.808strategy.com",
   },
 
-  authors: [{ name: "AU Corporate" }],
+  authors: [
+    {
+      name: "808 Strategy",
+    },
+  ],
 
-  creator: "AU Corporate",
+  creator: "808 Strategy",
 
-  publisher: "AU Corporate",
+  publisher: "808 Strategy",
 
   robots: {
     index: true,
@@ -67,14 +74,14 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "AU Corporate",
+    title: "808 Strategy",
 
     description:
-      "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting, Payroll and Compliance.",
+      "Helping accounting firms scale through offshore staffing, operational excellence, and India expansion.",
 
-    url: "https://www.theaucorp.com",
+    url: "https://www.808strategy.com",
 
-    siteName: "AU Corporate",
+    siteName: "808 Strategy",
 
     locale: "en_US",
 
@@ -84,13 +91,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "AU Corporate",
+    title: "808 Strategy",
 
     description:
-      "Professional services in Assurance, Taxation, Risk Management, FEMA, Accounting and Compliance.",
+      "Helping accounting firms scale through offshore staffing and operational excellence.",
   },
 
-  category: "Business Consulting",
+  category: "Accounting Consulting",
 }
 
 export const viewport: Viewport = {
@@ -118,25 +125,25 @@ export default function RootLayout({
 
               "@type": "Organization",
 
-              name: "AU Corporate",
+              name: "808 Strategy",
 
-              alternateName: "AU Corporate",
+              alternateName: "808 Strategy",
 
-              url: "https://www.theaucorp.com",
+              url: "https://www.808strategy.com",
 
-              logo: "https://www.theaucorp.com/logo.png",
+              logo: "https://www.808strategy.com/logo.png",
 
               description:
-                "Professional services firm providing assurance, taxation, compliance, FEMA, accounting and advisory services.",
+                "Strategic consulting firm helping accounting firms scale through offshore staffing, operational excellence, and India expansion.",
 
               sameAs: [
-                "https://www.linkedin.com/company/au-corporate",
+                "https://www.linkedin.com/company/808-strategy",
               ],
             }),
           }}
         />
 
-        {/* WEBSITE SCHEMA FOR GOOGLE SITE NAME */}
+        {/* WEBSITE SCHEMA */}
         <Script
           id="website-schema"
           type="application/ld+json"
@@ -147,18 +154,18 @@ export default function RootLayout({
 
               "@type": "WebSite",
 
-              name: "AU Corporate",
+              name: "808 Strategy",
 
-              alternateName: "AU Corporate",
+              alternateName: "808 Strategy",
 
-              url: "https://www.theaucorp.com",
+              url: "https://www.808strategy.com",
             }),
           }}
         />
 
-        {/* LOCAL BUSINESS SCHEMA */}
+        {/* PROFESSIONAL SERVICE SCHEMA */}
         <Script
-          id="local-business-schema"
+          id="professional-service-schema"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -167,11 +174,14 @@ export default function RootLayout({
 
               "@type": "ProfessionalService",
 
-              name: "AU Corporate",
+              name: "808 Strategy",
 
-              image: "https://www.theaucorp.com/logo.png",
+              image: "https://www.808strategy.com/logo.png",
 
-              url: "https://www.theaucorp.com",
+              url: "https://www.808strategy.com",
+
+              description:
+                "Helping accounting firms build scalable operations through offshore staffing, global talent solutions, and strategic growth consulting.",
 
               address: {
                 "@type": "PostalAddress",
@@ -179,7 +189,13 @@ export default function RootLayout({
                 addressCountry: "IN",
               },
 
-              areaServed: "India",
+              areaServed: [
+                "United States",
+                "United Kingdom",
+                "Australia",
+                "Canada",
+                "India",
+              ],
             }),
           }}
         />
