@@ -124,7 +124,7 @@ export default function OperationalExcellencePage() {
             whileInView={{ opacity: 1, x: 0 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <TrendingUp className="w-8 h-8 text-yellow-500" />
+              <TrendingUp className="w-8 h-8 text-orange-400" />
               <h2 className="text-3xl font-bold">
                 Business Process Optimization
               </h2>
@@ -148,7 +148,7 @@ export default function OperationalExcellencePage() {
                 "Performance improvement plans",
               ].map((item) => (
                 <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-yellow-500 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -168,7 +168,7 @@ export default function OperationalExcellencePage() {
             whileInView={{ opacity: 1, x: 0 }}
           >
             <div className="flex items-center gap-3 mb-4">
-              <Target className="w-8 h-8 text-yellow-500" />
+              <Target className="w-8 h-8 text-orange-400" />
               <h2 className="text-3xl font-bold">
                 Performance & Continuous Improvement
               </h2>
@@ -192,7 +192,7 @@ export default function OperationalExcellencePage() {
                 "Operational governance frameworks",
               ].map((item) => (
                 <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-yellow-500 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-orange-400 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -241,7 +241,7 @@ export default function OperationalExcellencePage() {
                 key={step}
                 className="bg-white rounded-xl p-6 shadow-sm border"
               >
-                <div className="w-12 h-12 rounded-full bg-yellow-400 text-black font-bold flex items-center justify-center mx-auto mb-4">
+                <div className="w-12 h-12 rounded-full bg-orange-300 text-black font-bold flex items-center justify-center mx-auto mb-4">
                   {index + 1}
                 </div>
                 <h3 className="font-semibold">{step}</h3>
@@ -272,7 +272,7 @@ export default function OperationalExcellencePage() {
               "Sustainable improvement strategies",
             ].map((point) => (
               <div key={point} className="flex gap-3">
-                <Shield className="text-yellow-500 mt-1" />
+                <Shield className="text-orange-400 mt-1" />
                 <p>{point}</p>
               </div>
             ))}
@@ -329,7 +329,7 @@ export default function OperationalExcellencePage() {
             Operational Excellence Services.
           </p>
 
-          <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-300">
+          <Button asChild className="bg-orange-400 text-black hover:bg-orange-300">
             <Link href="/contact">
               Speak to an Expert
               <ArrowRight className="ml-2 h-4 w-4" />
