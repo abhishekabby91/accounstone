@@ -1,3 +1,4 @@
+```tsx
 "use client"
 
 import Link from "next/link"
@@ -7,12 +8,12 @@ import { motion } from "framer-motion"
 import {
   ArrowRight,
   CheckCircle2,
-  Scale,
-  FileText,
   Shield,
+  TrendingUp,
+  Target,
 } from "lucide-react"
 
-export default function ArbitrationServicesPage() {
+export default function OperationalExcellencePage() {
   return (
     <div className="min-h-screen pt-20">
 
@@ -20,44 +21,46 @@ export default function ArbitrationServicesPage() {
       <section className="relative py-24 min-h-[80vh] flex items-center">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2000"
+            alt="Operational Excellence"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-black/65" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 text-white">
-
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-5xl font-bold mb-4"
+            className="text-5xl md:text-6xl font-bold mb-6"
           >
-            Arbitration Services
+            Operational Excellence Services
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-white/80 max-w-2xl"
+            className="text-white/80 max-w-3xl text-lg"
           >
-            Structured financial expertise to support claims, disputes, and arbitration proceedings with clarity and precision.
+            Helping organizations improve efficiency, optimize processes,
+            reduce operational costs, and build sustainable business
+            performance through structured operational excellence initiatives.
           </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="mt-6"
+            className="mt-8"
           >
-            <Button asChild className="bg-yellow-400 text-black">
+            <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-300">
               <Link href="/contact">
-                Request Consultation <ArrowRight className="ml-2 h-4 w-4" />
+                Request Consultation
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
-
         </div>
       </section>
 
@@ -66,29 +69,36 @@ export default function ArbitrationServicesPage() {
         <div className="max-w-5xl mx-auto px-4">
 
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             className="text-gray-700 leading-relaxed mb-6"
           >
-            Disputes involving contracts, accounts, valuations, delayed payments, partnerships, commercial transactions, and financial claims often require clear financial analysis and structured presentation of facts.
+            In today’s competitive business environment, organizations must
+            continuously improve processes, eliminate inefficiencies, and
+            maximize value delivered to customers and stakeholders.
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             className="text-gray-700 leading-relaxed mb-6"
           >
-            Our Arbitration Services are designed to support businesses, professionals, and legal teams with accurate financial expertise during arbitration proceedings.
+            Our Operational Excellence Services help businesses streamline
+            operations, strengthen internal systems, improve productivity,
+            and create a culture of continuous improvement across the
+            organization.
           </motion.p>
 
           <motion.p
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
             className="text-gray-700 leading-relaxed"
           >
-            We provide independent, professional, and well-documented assistance to help clients present claims, defend positions, and strengthen their case with credible financial evidence.
+            We work closely with leadership teams to identify improvement
+            opportunities, implement practical solutions, and achieve
+            measurable operational results.
           </motion.p>
 
         </div>
@@ -99,40 +109,46 @@ export default function ArbitrationServicesPage() {
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
 
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1554224154-26032ffc0d07"
-              className="rounded-2xl shadow-lg"
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200"
+              alt="Business Process Optimization"
+              className="rounded-2xl shadow-xl"
             />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
-            <h2 className="text-3xl font-bold mb-4">
-              1. Arbitration Claim Preparation
-            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <TrendingUp className="w-8 h-8 text-yellow-500" />
+              <h2 className="text-3xl font-bold">
+                Business Process Optimization
+              </h2>
+            </div>
 
-            <p className="text-gray-600 mb-4">
-              A well-prepared claim is critical in any arbitration matter. We assist clients in organizing financial records, quantifying losses, and preparing a clear claim supported by facts and calculations.
+            <p className="text-gray-600 mb-6">
+              We evaluate existing business processes and identify
+              opportunities to improve efficiency, reduce waste,
+              optimize resources, and strengthen operational performance.
             </p>
 
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-3 text-gray-600">
               {[
-                "Review of contracts, invoices, ledgers",
-                "Quantification of claims & damages",
-                "Interest & delayed payment analysis",
-                "Reconciliation of accounts",
-                "Claim statements & schedules",
-                "Breach-related financial impact",
-                "Response to counterclaims",
-                "Coordination with legal counsel",
+                "Business process mapping",
+                "Workflow redesign",
+                "Process efficiency assessment",
+                "Cost reduction initiatives",
+                "Resource optimization",
+                "Bottleneck identification",
+                "Standard Operating Procedures (SOPs)",
+                "Performance improvement plans",
               ].map((item) => (
                 <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="text-yellow-500 w-4 h-4 mt-1" />
+                  <CheckCircle2 className="w-5 h-5 text-yellow-500 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -148,30 +164,35 @@ export default function ArbitrationServicesPage() {
         <div className="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
 
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
-            <h2 className="text-3xl font-bold mb-4">
-              2. Arbitration Expert Witness Services
-            </h2>
+            <div className="flex items-center gap-3 mb-4">
+              <Target className="w-8 h-8 text-yellow-500" />
+              <h2 className="text-3xl font-bold">
+                Performance & Continuous Improvement
+              </h2>
+            </div>
 
-            <p className="text-gray-600 mb-4">
-              Financial disputes often require expert opinion on accounting, valuation, damages, or commercial losses.
+            <p className="text-gray-600 mb-6">
+              Sustainable operational excellence requires continuous
+              monitoring, accountability, and performance improvement
+              across all business functions.
             </p>
 
-            <ul className="space-y-2 text-sm text-gray-600">
+            <ul className="space-y-3 text-gray-600">
               {[
-                "Independent expert reports",
-                "Loss of profit & damages",
-                "Business & asset valuation",
-                "Review of opposing claims",
-                "Transaction analysis",
-                "Accounting opinions",
-                "Hearing assistance",
-                "Oral testimony support",
+                "KPI development and monitoring",
+                "Operational performance reviews",
+                "Continuous improvement frameworks",
+                "Risk and control enhancement",
+                "Productivity measurement",
+                "Management reporting systems",
+                "Change management support",
+                "Operational governance frameworks",
               ].map((item) => (
                 <li key={item} className="flex gap-2">
-                  <CheckCircle2 className="text-yellow-500 w-4 h-4 mt-1" />
+                  <CheckCircle2 className="w-5 h-5 text-yellow-500 mt-0.5" />
                   {item}
                 </li>
               ))}
@@ -180,35 +201,75 @@ export default function ArbitrationServicesPage() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85"
-              className="rounded-2xl shadow-lg"
+              src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200"
+              alt="Performance Improvement"
+              className="rounded-2xl shadow-xl"
             />
           </motion.div>
 
         </div>
       </section>
 
-      {/* ================= WHY CHOOSE US ================= */}
-      <section className="py-24 bg-gray-50 text-center">
-        <div className="max-w-5xl mx-auto px-4">
+      {/* ================= FRAMEWORK ================= */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 text-center">
 
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-4xl font-bold mb-4">
+            Our Operational Excellence Framework
+          </h2>
+
+          <p className="text-gray-600 max-w-3xl mx-auto mb-16">
+            A structured methodology focused on continuous improvement
+            and measurable business outcomes.
+          </p>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+            {[
+              "Assess",
+              "Analyze",
+              "Improve",
+              "Implement",
+              "Monitor",
+              "Sustain",
+            ].map((step, index) => (
+              <div
+                key={step}
+                className="bg-white rounded-xl p-6 shadow-sm border"
+              >
+                <div className="w-12 h-12 rounded-full bg-yellow-400 text-black font-bold flex items-center justify-center mx-auto mb-4">
+                  {index + 1}
+                </div>
+                <h3 className="font-semibold">{step}</h3>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ================= WHY CHOOSE US ================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-5xl mx-auto px-4 text-center">
+
+          <h2 className="text-4xl font-bold mb-12">
             Why Choose Us
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-6 text-left">
+          <div className="grid md:grid-cols-2 gap-8 text-left">
 
             {[
-              "Strong expertise in accounting & finance",
-              "Practical dispute understanding",
-              "Independent & objective approach",
-              "Evidence-backed financial analysis",
-              "Confidential handling",
-              "Timely execution",
+              "Practical business improvement expertise",
+              "Data-driven decision making",
+              "Focus on measurable outcomes",
+              "Industry-specific operational insights",
+              "Process and performance optimization",
+              "Sustainable improvement strategies",
             ].map((point) => (
               <div key={point} className="flex gap-3">
                 <Shield className="text-yellow-500 mt-1" />
@@ -222,10 +283,10 @@ export default function ArbitrationServicesPage() {
       </section>
 
       {/* ================= INDUSTRIES ================= */}
-      <section className="py-24 bg-white text-center">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 text-center">
 
-          <h2 className="text-3xl font-bold mb-10">
+          <h2 className="text-4xl font-bold mb-12">
             Industries We Serve
           </h2>
 
@@ -233,15 +294,18 @@ export default function ArbitrationServicesPage() {
 
             {[
               "Manufacturing",
-              "Real Estate & Construction",
-              "Trading & Distribution",
-              "Professional Services",
               "Infrastructure",
-              "Partnership Disputes",
-              "MSMEs",
+              "Construction",
+              "Retail & Distribution",
+              "Healthcare",
+              "Technology",
+              "Professional Services",
               "Growing Businesses",
             ].map((item) => (
-              <div key={item} className="p-4 border rounded-lg">
+              <div
+                key={item}
+                className="bg-white p-5 rounded-xl border shadow-sm hover:shadow-md transition"
+              >
                 {item}
               </div>
             ))}
@@ -252,22 +316,30 @@ export default function ArbitrationServicesPage() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-24 text-center bg-gray-50">
-        <h2 className="text-3xl font-bold mb-4">
-          Confidential & Professional Support
-        </h2>
+      <section className="py-24 text-center bg-white">
+        <div className="max-w-3xl mx-auto px-4">
 
-        <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-          We work closely with clients and legal professionals while maintaining strict confidentiality and high professional standards.
-        </p>
+          <h2 className="text-4xl font-bold mb-4">
+            Build a High-Performance Organization
+          </h2>
 
-        <Button asChild className="bg-yellow-400 text-black">
-          <Link href="/contact">
-            Speak to an Expert <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
+          <p className="text-gray-600 mb-8">
+            Unlock operational efficiency, improve business performance,
+            and create sustainable competitive advantage through our
+            Operational Excellence Services.
+          </p>
+
+          <Button asChild className="bg-yellow-400 text-black hover:bg-yellow-300">
+            <Link href="/contact">
+              Speak to an Expert
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+
+        </div>
       </section>
 
     </div>
   )
 }
+```
