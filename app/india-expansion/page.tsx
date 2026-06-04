@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import {
   ArrowRight,
@@ -55,33 +54,6 @@ export default function IndiaExpansionPage() {
     "Ensure Regulatory Compliance",
     "Build Local Operations",
     "Scale & Grow",
-  ]
-
-  const industries = [
-    {
-      title: "Technology & SaaS",
-      image: "/images/india-expansion/technology.jpg",
-    },
-    {
-      title: "Manufacturing",
-      image: "/images/india-expansion/manufacturing.jpg",
-    },
-    {
-      title: "Healthcare",
-      image: "/images/india-expansion/healthcare.jpg",
-    },
-    {
-      title: "Financial Services",
-      image: "/images/india-expansion/finance.jpg",
-    },
-    {
-      title: "Renewable Energy",
-      image: "/images/india-expansion/renewable.jpg",
-    },
-    {
-      title: "Consumer & Retail",
-      image: "/images/india-expansion/retail.jpg",
-    },
   ]
 
   const benefits = [
@@ -149,8 +121,7 @@ export default function IndiaExpansionPage() {
               How We Help
             </h2>
             <p className="text-gray-600 max-w-3xl mx-auto">
-              End-to-end support for international businesses entering and
-              expanding in India.
+              End-to-end support for international businesses entering and expanding in India.
             </p>
           </div>
 
@@ -188,8 +159,7 @@ export default function IndiaExpansionPage() {
           </h2>
 
           <p className="text-gray-600 max-w-3xl mx-auto mb-14">
-            A structured approach designed to reduce risk and accelerate
-            successful market entry and growth.
+            A structured approach designed to reduce risk and accelerate successful market entry and growth.
           </p>
 
           <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -215,52 +185,6 @@ export default function IndiaExpansionPage() {
 
       </section>
 
-      {/* INDUSTRIES */}
-      <section className="py-24">
-
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold mb-4">
-              Industries Driving Growth in India
-            </h2>
-
-            <p className="text-gray-600 max-w-3xl mx-auto">
-              We support organizations across high-growth sectors that continue
-              to attract investment and expansion opportunities.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {industries.map((industry) => (
-              <div
-                key={industry.title}
-                className="rounded-2xl overflow-hidden border hover:shadow-xl transition"
-              >
-                <div className="relative h-56">
-                  <Image
-                    src={industry.image}
-                    alt={industry.title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg">
-                    {industry.title}
-                  </h3>
-                </div>
-              </div>
-            ))}
-
-          </div>
-
-        </div>
-
-      </section>
-
       {/* WHY 808 STRATEGY */}
       <section className="py-24 bg-gray-50">
 
@@ -273,12 +197,8 @@ export default function IndiaExpansionPage() {
           <div className="grid md:grid-cols-2 gap-8">
 
             {benefits.map((benefit) => (
-              <div
-                key={benefit}
-                className="flex items-start gap-3"
-              >
+              <div key={benefit} className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-[#081a42] mt-1" />
-
                 <p>{benefit}</p>
               </div>
             ))}
@@ -299,9 +219,7 @@ export default function IndiaExpansionPage() {
           </h2>
 
           <p className="text-white/80 max-w-2xl mx-auto mb-8">
-            From market assessment and business setup to compliance,
-            partnerships, and growth execution, 808 Strategy provides
-            the expertise needed to build a successful presence in India.
+            From market assessment, entity setup, compliance, partnerships, to growth execution — we help you succeed in India.
           </p>
 
           <Link
@@ -319,4 +237,3 @@ export default function IndiaExpansionPage() {
     </div>
   )
 }
-```
