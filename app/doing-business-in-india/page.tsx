@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { Globe, Users, TrendingUp, Landmark, Cpu, Briefcase } from "lucide-react"
 import Image from "next/image"
 
-export default function WhyIndiaPage() {
+export default function indiaexpansion() {
   return (
     <div className="bg-white">
 
