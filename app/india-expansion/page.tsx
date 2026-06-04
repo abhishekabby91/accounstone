@@ -1,246 +1,323 @@
+```tsx
 "use client"
 
-import { motion } from "framer-motion"
-import { Globe, Users, TrendingUp, Landmark, Cpu, Briefcase } from "lucide-react"
+import Link from "next/link"
 import Image from "next/image"
+import { motion } from "framer-motion"
+import {
+  ArrowRight,
+  Globe,
+  Briefcase,
+  Building2,
+  ShieldCheck,
+  Users,
+  TrendingUp,
+  CheckCircle2,
+} from "lucide-react"
 
-export default function indiaexpansionpage() {
+export default function IndiaExpansionPage() {
+  const services = [
+    {
+      icon: <Globe className="w-8 h-8" />,
+      title: "Market Entry Strategy",
+      desc: "Evaluate market opportunities, competition, customer demand, and go-to-market models.",
+    },
+    {
+      icon: <Building2 className="w-8 h-8" />,
+      title: "Entity Setup & Structuring",
+      desc: "Support for subsidiaries, branch offices, liaison offices, and joint ventures.",
+    },
+    {
+      icon: <ShieldCheck className="w-8 h-8" />,
+      title: "Regulatory & Compliance",
+      desc: "Guidance on FEMA, RBI, GST, taxation, registrations, and ongoing compliance.",
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: "Partner & Distributor Search",
+      desc: "Identify strategic partners, distributors, suppliers, and local alliances.",
+    },
+    {
+      icon: <Briefcase className="w-8 h-8" />,
+      title: "Investment Advisory",
+      desc: "Support for foreign investors, acquisitions, strategic investments, and expansion planning.",
+    },
+    {
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Growth & Scaling",
+      desc: "Operational setup, workforce planning, growth strategies, and business scaling support.",
+    },
+  ]
+
+  const framework = [
+    "Assess Market Opportunity",
+    "Develop Entry Strategy",
+    "Establish Legal Structure",
+    "Ensure Regulatory Compliance",
+    "Build Local Operations",
+    "Scale & Grow",
+  ]
+
+  const industries = [
+    {
+      title: "Technology & SaaS",
+      image: "/images/india-expansion/technology.jpg",
+    },
+    {
+      title: "Manufacturing",
+      image: "/images/india-expansion/manufacturing.jpg",
+    },
+    {
+      title: "Healthcare",
+      image: "/images/india-expansion/healthcare.jpg",
+    },
+    {
+      title: "Financial Services",
+      image: "/images/india-expansion/finance.jpg",
+    },
+    {
+      title: "Renewable Energy",
+      image: "/images/india-expansion/renewable.jpg",
+    },
+    {
+      title: "Consumer & Retail",
+      image: "/images/india-expansion/retail.jpg",
+    },
+  ]
+
+  const benefits = [
+    "Integrated strategic and execution support",
+    "Deep understanding of Indian regulations",
+    "Cross-border business advisory expertise",
+    "Market entry and expansion specialists",
+    "Investor and stakeholder alignment",
+    "Long-term growth and scaling support",
+  ]
+
   return (
     <div className="bg-white">
 
       {/* HERO */}
-      <section className="bg-[#081a42] text-white py-24 text-center">
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }}>
-          <h1 className="text-5xl font-bold">Why India</h1>
-          <p className="mt-4 text-lg text-white/80 max-w-2xl mx-auto">
-            India is one of the world’s fastest-growing economies, offering unmatched
-            opportunities for global businesses to expand, innovate, and scale.
-          </p>
-        </motion.div>
-      </section>
+      <section className="relative overflow-hidden bg-[#081a42] text-white py-28">
 
-      {/* KEY HIGHLIGHTS */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#081a42] via-[#0b245c] to-[#081a42]" />
 
-          {[
-            {
-              icon: <Users />,
-              title: "Large Consumer Market",
-              desc: "Access to over 1.4 billion consumers with rapidly growing middle class demand.",
-            },
-            {
-              icon: <TrendingUp />,
-              title: "Fastest Growing Economy",
-              desc: "India continues to be among the top GDP growth economies globally.",
-            },
-            {
-              icon: <Cpu />,
-              title: "Digital & Tech Ecosystem",
-              desc: "Strong digital infrastructure and startup ecosystem driving innovation.",
-            },
-            {
-              icon: <Briefcase />,
-              title: "Cost Advantage",
-              desc: "Competitive labor and operational costs compared to global markets.",
-            },
-            {
-              icon: <Landmark />,
-              title: "Government Support",
-              desc: "Business-friendly reforms, FDI liberalisation, and tax incentives.",
-            },
-            {
-              icon: <Globe />,
-              title: "Strategic Location",
-              desc: "Gateway to Asia, Middle East, and global supply chains.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="p-6 border rounded-xl hover:shadow-lg transition">
-              <div className="text-[#081a42] mb-4">{item.icon}</div>
-              <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-sm text-gray-600">{item.desc}</p>
-            </div>
-          ))}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl font-bold mb-6"
+          >
+            India Expansion Services
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="max-w-3xl mx-auto text-lg text-white/80"
+          >
+            Helping global businesses establish, expand, and succeed in India
+            through strategic advisory, market entry planning, regulatory
+            support, and execution-focused growth solutions.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mt-10"
+          >
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 bg-white text-[#081a42] px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition"
+            >
+              Schedule a Consultation
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-gray-50 py-20">
-        <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-4 text-center gap-8">
-
-          <div>
-            <h2 className="text-3xl font-bold text-[#081a42]">1.4B+</h2>
-            <p className="text-sm text-gray-600">Population</p>
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-bold text-[#081a42]">$3.7T+</h2>
-            <p className="text-sm text-gray-600">GDP Size</p>
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-bold text-[#081a42]">Top 5</h2>
-            <p className="text-sm text-gray-600">Global Economy</p>
-          </div>
-
-          <div>
-            <h2 className="text-3xl font-bold text-[#081a42]">100K+</h2>
-            <p className="text-sm text-gray-600">Startups</p>
-          </div>
-
-        </div>
-      </section>
-
-      {/* SECTOR OPPORTUNITIES (NEW SECTION) */}
-      <section className="py-20 bg-gray-50">
+      {/* HOW WE HELP */}
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-6">
 
-          <h2 className="text-3xl font-bold text-center mb-4">
-            Sector Wise Opportunities
-          </h2>
-
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            India offers strong growth opportunities across diverse sectors driven by demand,
-            policy support, and global competitiveness.
-          </p>
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold mb-4">
+              How We Help
+            </h2>
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              End-to-end support for international businesses entering and
+              expanding in India.
+            </p>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            {[
-              {
-                title: "Pharmaceuticals",
-                image: "https://cdn.corenexis.com/files/c/4291696720.jpg",
-                points: [
-                  "20% global generic medicine supply",
-                  "USD 130 Bn market by 2030",
-                ],
-              },
-              {
-                title: "IT - BPM",
-                image: "https://cdn.corenexis.com/files/c/3221391720.jpg",
-                points: [
-                  "8% contribution to GDP",
-                  "USD 350 Bn expected size",
-                ],
-              },
-              {
-                title: "Automobile / EV",
-                image: "https://cdn.corenexis.com/files/c/9266523720.jpg",
-                points: [
-                  "4th largest automotive market",
-                  "Growing EV ecosystem",
-                ],
-              },
-              {
-                title: "Construction",
-                image: "https://cdn.corenexis.com/files/c/3438374720.jpg",
-                points: [
-                  "USD 1Tn market by 2025",
-                  "Major GDP contributor",
-                ],
-              },
-              {
-                title: "Renewable Energy",
-                image: "https://cdn.corenexis.com/files/c/3934283720.jpg",
-                points: [
-                  "1000+ GW potential",
-                  "Strong policy push",
-                ],
-              },
-              {
-                title: "Healthcare",
-                image: "https://cdn.corenexis.com/files/c/7454887720.jpg",
-                points: [
-                  "Fastest growing sector",
-                  "USD 372 Bn opportunity",
-                ],
-              },
-            ].map((sector) => (
-              <div key={sector.title} className="bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition">
-
-                <div className="relative h-48">
-                  <Image
-                    src={sector.image}
-                    alt={sector.title}
-                    fill
-                    className="object-cover"
-                  />
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="border rounded-2xl p-8 hover:shadow-lg transition"
+              >
+                <div className="text-[#081a42] mb-5">
+                  {service.icon}
                 </div>
 
-                <div className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">{sector.title}</h3>
+                <h3 className="font-semibold text-xl mb-3">
+                  {service.title}
+                </h3>
 
-                  <ul className="text-sm text-gray-600 space-y-2">
-                    {sector.points.map((p, i) => (
-                      <li key={i}>• {p}</li>
-                    ))}
-                  </ul>
+                <p className="text-gray-600">
+                  {service.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* FRAMEWORK */}
+      <section className="py-24 bg-gray-50">
+
+        <div className="max-w-7xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-4">
+            Our India Expansion Framework
+          </h2>
+
+          <p className="text-gray-600 max-w-3xl mx-auto mb-14">
+            A structured approach designed to reduce risk and accelerate
+            successful market entry and growth.
+          </p>
+
+          <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+            {framework.map((step, index) => (
+              <div
+                key={step}
+                className="bg-white rounded-xl border p-6 shadow-sm"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#081a42] text-white flex items-center justify-center mx-auto mb-4 font-bold">
+                  {index + 1}
                 </div>
 
+                <h3 className="font-medium text-sm">
+                  {step}
+                </h3>
               </div>
             ))}
 
           </div>
 
         </div>
+
       </section>
 
-      {/* WHY INDIA CONTENT */}
-      <section className="py-20">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+      {/* INDUSTRIES */}
+      <section className="py-24">
 
-          <div>
-            <h2 className="text-3xl font-bold mb-4">
-              A Strategic Hub for Global Expansion
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold mb-4">
+              Industries Driving Growth in India
             </h2>
-            <p className="text-gray-600 leading-relaxed">
-              India offers a unique combination of market size, talent availability,
-              policy reforms, and cost efficiency, making it a preferred destination
-              for global expansion.
+
+            <p className="text-gray-600 max-w-3xl mx-auto">
+              We support organizations across high-growth sectors that continue
+              to attract investment and expansion opportunities.
             </p>
           </div>
 
-          <div className="space-y-4">
-            <div className="p-4 border rounded-lg">
-              <h4 className="font-semibold">Skilled Workforce</h4>
-              <p className="text-sm text-gray-600">
-                Large pool of qualified professionals across industries.
-              </p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="p-4 border rounded-lg">
-              <h4 className="font-semibold">Ease of Doing Business</h4>
-              <p className="text-sm text-gray-600">
-                Continuous regulatory improvements and digitisation.
-              </p>
-            </div>
+            {industries.map((industry) => (
+              <div
+                key={industry.title}
+                className="rounded-2xl overflow-hidden border hover:shadow-xl transition"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src={industry.image}
+                    alt={industry.title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
 
-            <div className="p-4 border rounded-lg">
-              <h4 className="font-semibold">FDI Friendly Policies</h4>
-              <p className="text-sm text-gray-600">
-                Liberalised foreign investment norms across sectors.
-              </p>
-            </div>
+                <div className="p-6">
+                  <h3 className="font-semibold text-lg">
+                    {industry.title}
+                  </h3>
+                </div>
+              </div>
+            ))}
+
           </div>
 
         </div>
+
+      </section>
+
+      {/* WHY 808 STRATEGY */}
+      <section className="py-24 bg-gray-50">
+
+        <div className="max-w-5xl mx-auto px-6">
+
+          <h2 className="text-4xl font-bold text-center mb-14">
+            Why 808 Strategy
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+
+            {benefits.map((benefit) => (
+              <div
+                key={benefit}
+                className="flex items-start gap-3"
+              >
+                <CheckCircle2 className="w-5 h-5 text-[#081a42] mt-1" />
+
+                <p>{benefit}</p>
+              </div>
+            ))}
+
+          </div>
+
+        </div>
+
       </section>
 
       {/* CTA */}
-      <section className="bg-[#081a42] text-white py-20 text-center">
-        <h2 className="text-3xl font-bold mb-4">
-          Expand Your Business in India with Confidence
-        </h2>
-        <p className="max-w-2xl mx-auto text-white/80 mb-6">
-          AU provide end-to-end advisory and compliance support for seamless entry and growth.
-        </p>
+      <section className="bg-[#081a42] text-white py-24">
 
-        <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg">
-          Talk to Experts
-        </button>
+        <div className="max-w-4xl mx-auto px-6 text-center">
+
+          <h2 className="text-4xl font-bold mb-4">
+            Expand into India with Confidence
+          </h2>
+
+          <p className="text-white/80 max-w-2xl mx-auto mb-8">
+            From market assessment and business setup to compliance,
+            partnerships, and growth execution, 808 Strategy provides
+            the expertise needed to build a successful presence in India.
+          </p>
+
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-white text-[#081a42] px-7 py-3 rounded-lg font-medium hover:bg-gray-100 transition"
+          >
+            Schedule a Consultation
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+
+        </div>
+
       </section>
 
     </div>
   )
 }
+```
