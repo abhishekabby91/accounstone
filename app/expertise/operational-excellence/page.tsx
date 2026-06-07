@@ -52,7 +52,7 @@ export default function OperationalExcellencePage() {
     <main className="min-h-screen bg-white text-slate-900">
 
       {/* HERO */}
-      <section className="relative overflow-hidden bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 text-white">
+      <section className="relative overflow-hidden bg-linear-to-r from-slate-950 via-slate-900 to-blue-950 text-white">
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.4),transparent_60%)]" />
 
         <div className="max-w-7xl mx-auto px-6 py-24 relative">
