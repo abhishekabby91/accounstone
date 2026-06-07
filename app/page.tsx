@@ -208,14 +208,14 @@ export default function HomePage() {
             and global expansion strategies.
           </p>
 
-          <a
-  href="https://www.youtube.com/@OneGlobalDream"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
->
-  Explore Podcast
-</a>
+          import Link from "next/link"
+import { Button } from "@/components/ui/button"
+
+<Link href="/podcast">
+  <Button className="mt-8 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold">
+    Explore Podcast
+  </Button>
+</Link>
 
         </div>
 
