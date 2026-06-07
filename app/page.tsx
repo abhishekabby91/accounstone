@@ -281,7 +281,7 @@ export default function HomePage() {
 
       {/* CTA */}
 
-      <section className="py-24 bg-gradient-to-r from-blue-600 to-cyan-600 text-white">
+      <section className="py-24 bg-linear-to-r from-blue-600 to-cyan-600 text-white">
 
         <div className="max-w-4xl mx-auto px-6 text-center">
 
