@@ -1,64 +1,62 @@
-import Link from "next/link"
-
-const services = [
-  {
-    title: "Firm Growth Strategy",
-    href: "/expertise/firm-growth",
-    description:
-      "Scale profitability, improve operations and optimize firm performance.",
-  },
-  {
-    title: "Global Delivery Strategy",
-    href: "/expertise/global-delivery",
-    description:
-      "Build and manage high-performing offshore teams.",
-  },
-  {
-    title: "India Expansion & GCC",
-    href: "/expertise/india-expansion",
-    description:
-      "Launch and scale operations in India.",
-  },
-  {
-    title: "Operational Excellence",
-    href: "/expertise/operational-excellence",
-    description:
-      "Improve process maturity, governance and execution.",
-  },
-]
-
-export default function ExpertisePage() {
+export default function OperationalExcellencePage() {
   return (
-    <main className="py-24">
+    <main className="min-h-screen">
+      <section className="max-w-7xl mx-auto px-6 py-24">
 
-      <div className="container mx-auto px-6">
+        <span className="text-blue-600 font-semibold uppercase tracking-wider">
+          Operational Excellence
+        </span>
 
-        <h1 className="text-5xl font-bold">
-          Expertise
+        <h1 className="text-5xl font-bold mt-4 mb-6">
+          Scale Through Better Operations
         </h1>
 
-        <div className="grid lg:grid-cols-2 gap-8 mt-16">
+        <p className="text-xl text-slate-600 max-w-3xl">
+          Create predictable growth through process optimization,
+          workflow management, automation, and performance systems.
+        </p>
 
-          {services.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className="border rounded-2xl p-8 hover:shadow-xl transition"
-            >
-              <h2 className="text-2xl font-bold">
-                {item.title}
-              </h2>
+        <div className="grid md:grid-cols-4 gap-6 mt-16">
 
-              <p className="mt-4 text-slate-600">
-                {item.description}
-              </p>
-            </Link>
-          ))}
+          <div className="border rounded-xl p-6">
+            <h3 className="font-bold mb-3">
+              SOPs
+            </h3>
+            <p className="text-slate-600">
+              Standardized operating procedures.
+            </p>
+          </div>
+
+          <div className="border rounded-xl p-6">
+            <h3 className="font-bold mb-3">
+              Automation
+            </h3>
+            <p className="text-slate-600">
+              Reduce manual work and improve efficiency.
+            </p>
+          </div>
+
+          <div className="border rounded-xl p-6">
+            <h3 className="font-bold mb-3">
+              KPIs
+            </h3>
+            <p className="text-slate-600">
+              Measure performance and accountability.
+            </p>
+          </div>
+
+          <div className="border rounded-xl p-6">
+            <h3 className="font-bold mb-3">
+              Governance
+            </h3>
+            <p className="text-slate-600">
+              Build scalable management systems.
+            </p>
+          </div>
 
         </div>
 
-      </div>
-
+      </section>
     </main>
   )
 }
