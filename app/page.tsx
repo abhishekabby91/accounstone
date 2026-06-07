@@ -208,12 +208,14 @@ export default function HomePage() {
             and global expansion strategies.
           </p>
 
-          <Link
-            href="/podcast"
-            className="inline-block mt-8 bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-xl font-semibold"
-          >
-            Explore Podcast
-          </Link>
+          <a
+  href="https://www.youtube.com/@OneGlobalDream"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
+>
+  Explore Podcast
+</a>
 
         </div>
 
