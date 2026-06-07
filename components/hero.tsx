@@ -6,7 +6,7 @@ import { ArrowRight, PlayCircle } from "lucide-react"
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
+    <section className="relative overflow-hidden bg-linear-to-br from-slate-950 via-slate-900 to-blue-950 text-white">
 
       {/* Background Glow */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
@@ -136,7 +136,7 @@ export default function Hero() {
 
               </div>
 
-              <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 to-cyan-600 p-6">
+              <div className="mt-10 rounded-2xl bg-linear-to-r from-blue-600 to-cyan-600 p-6">
 
                 <div className="flex items-center justify-between">
 
