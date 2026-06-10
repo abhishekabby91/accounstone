@@ -1,279 +1,171 @@
 import Link from "next/link"
-import Hero from "@/components/hero"
 import {
   ArrowRight,
-  Globe,
+  Shield,
   Users,
-  Building2,
-  TrendingUp,
-  Mic,
-  BookOpen,
+  Globe,
+  CheckCircle,
 } from "lucide-react"
 
 export default function HomePage() {
   return (
     <main>
 
-      <Hero />
+      {/* HERO */}
 
-      {/* Expertise Pillars */}
-      <section className="py-24 bg-slate-50">
+      <section className="hero-gradient text-white">
+        <div className="max-w-7xl mx-auto px-6 py-28">
 
-        <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-4xl">
 
-          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm mb-6">
+              Serving USA • UK • Australia
+            </div>
 
-            <span className="text-blue-600 font-semibold uppercase tracking-wider">
-              Expertise
-            </span>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight">
+              Offshore Accounting &
+              <span className="text-orange-400">
+                {" "}Staffing Solutions
+              </span>
+            </h1>
 
-            <h2 className="text-4xl md:text-5xl font-bold mt-4">
-              Strategic Growth Areas
-            </h2>
-
-            <p className="text-slate-600 mt-6">
-              Helping accounting firms scale through operational excellence,
-              global delivery, and India expansion strategies.
+            <p className="mt-8 text-xl text-slate-200 max-w-3xl">
+              Dedicated accounting professionals supporting
+              CPA firms, accounting practices and businesses
+              with bookkeeping, tax, payroll and financial
+              reporting services.
             </p>
 
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-
-            <Link
-              href="/expertise/firm-growth"
-              className="group bg-white rounded-2xl border p-8 hover:shadow-xl transition"
-            >
-              <TrendingUp className="h-10 w-10 text-blue-600 mb-5" />
-
-              <h3 className="text-xl font-bold">
-                CPA Firm Growth
-              </h3>
-
-              <p className="text-slate-600 mt-3">
-                Improve profitability, staffing,
-                client acquisition and firm operations.
-              </p>
-
-              <span className="flex items-center mt-5 text-blue-600">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Link>
-
-            <Link
-              href="/expertise/global-delivery"
-              className="group bg-white rounded-2xl border p-8 hover:shadow-xl transition"
-            >
-              <Users className="h-10 w-10 text-blue-600 mb-5" />
-
-              <h3 className="text-xl font-bold">
-                Global Delivery
-              </h3>
-
-              <p className="text-slate-600 mt-3">
-                Build scalable offshore teams and
-                modern delivery capabilities.
-              </p>
-
-              <span className="flex items-center mt-5 text-blue-600">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Link>
-
-            <Link
-              href="/expertise/india-expansion"
-              className="group bg-white rounded-2xl border p-8 hover:shadow-xl transition"
-            >
-              <Globe className="h-10 w-10 text-blue-600 mb-5" />
-
-              <h3 className="text-xl font-bold">
-                India Expansion
-              </h3>
-
-              <p className="text-slate-600 mt-3">
-                Establish GCCs, captive centers
-                and long-term India operations.
-              </p>
-
-              <span className="flex items-center mt-5 text-blue-600">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Link>
-
-            <Link
-              href="/expertise/operational-excellence"
-              className="group bg-white rounded-2xl border p-8 hover:shadow-xl transition"
-            >
-              <Building2 className="h-10 w-10 text-blue-600 mb-5" />
-
-              <h3 className="text-xl font-bold">
-                Operational Excellence
-              </h3>
-
-              <p className="text-slate-600 mt-3">
-                Streamline workflows, governance,
-                systems and performance.
-              </p>
-
-              <span className="flex items-center mt-5 text-blue-600">
-                Learn More
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </span>
-            </Link>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* ONEGD Section */}
-
-      <section className="py-24 bg-white">
-
-        <div className="max-w-7xl mx-auto px-6">
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-
-            <div>
-
-              <span className="text-blue-600 font-semibold uppercase">
-                ONEGD™ Framework
-              </span>
-
-              <h2 className="text-5xl font-bold mt-4">
-                One Global Delivery Framework
-              </h2>
-
-              <p className="text-slate-600 mt-6 text-lg">
-                A proven framework helping accounting firms
-                build sustainable global delivery models through
-                Talent, Operations, Technology and Governance.
-              </p>
+            <div className="mt-10 flex flex-wrap gap-4">
 
               <Link
-                href="/onegd"
-                className="inline-flex items-center mt-8 text-blue-600 font-semibold"
+                href="/contact"
+                className="bg-orange-500 hover:bg-orange-600 px-6 py-4 rounded-xl font-semibold flex items-center gap-2"
               >
-                Explore Framework
-                <ArrowRight className="ml-2 h-4 w-4" />
+                Schedule Consultation
+                <ArrowRight size={18} />
+              </Link>
+
+              <Link
+                href="/services"
+                className="border border-white/20 px-6 py-4 rounded-xl"
+              >
+                Explore Services
               </Link>
 
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
+          </div>
+        </div>
+      </section>
 
-              {[
-                "Talent",
-                "Operations",
-                "Technology",
-                "Governance",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-2xl border p-8 text-center bg-slate-50 hover:bg-blue-50 transition"
-                >
-                  <h3 className="font-bold text-xl">
-                    {item}
-                  </h3>
-                </div>
-              ))}
+      {/* TRUST BAR */}
 
-            </div>
+      <section className="bg-slate-50 border-y">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+
+          <div className="text-center text-sm font-medium text-slate-500 mb-6">
+            SOFTWARE EXPERTISE
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-10 font-semibold text-slate-700">
+            <span>QuickBooks</span>
+            <span>Xero</span>
+            <span>NetSuite</span>
+            <span>Sage</span>
+            <span>MYOB</span>
+            <span>Drake Tax</span>
+            <span>CCH</span>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SOLUTIONS */}
+
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold">
+              Flexible Engagement Models
+            </h2>
+
+            <p className="text-slate-600 mt-4">
+              Scale your accounting operations with confidence.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            {[
+              "Offshore Accounting Support",
+              "Staff Augmentation",
+              "Dedicated Accounting Teams",
+              "Back Office Support",
+            ].map((item) => (
+              <div
+                key={item}
+                className="border rounded-2xl p-6 hover-lift"
+              >
+                <h3 className="font-semibold text-lg">
+                  {item}
+                </h3>
+              </div>
+            ))}
 
           </div>
 
         </div>
-
       </section>
 
-      {/* Coffee With Dhawan */}
+      {/* WHY ACCOUNSTONE */}
 
-      <section className="py-24 bg-slate-900 text-white">
-
-        <div className="max-w-7xl mx-auto px-6 text-center">
-
-          <Mic className="mx-auto h-14 w-14 text-orange-400" />
-
-          <h2 className="text-5xl font-bold mt-6">
-            Coffee With Dhawan
-          </h2>
-
-          <p className="text-slate-300 mt-6 max-w-3xl mx-auto">
-            Conversations on accounting firm growth,
-            offshore staffing, leadership, technology,
-            and global expansion strategies.
-          </p>
-
-          <a
-  href="https://www.youtube.com/@OneGlobalDream"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700"
->
-  Explore Podcast
-</a>
-
-        </div>
-
-      </section>
-
-      {/* Insights */}
-
-      <section className="py-24 bg-white">
+      <section className="section-gradient py-24">
 
         <div className="max-w-7xl mx-auto px-6">
 
-          <div className="flex items-center justify-between">
+          <div className="text-center mb-16">
 
-            <div>
+            <h2 className="text-4xl font-bold">
+              Why Accounstone
+            </h2>
 
-              <span className="text-blue-600 font-semibold uppercase">
-                Insights & Intelligence
-              </span>
-
-              <h2 className="text-4xl font-bold mt-3">
-                Latest Thinking
-              </h2>
-
-            </div>
-
-            <Link
-              href="/insights"
-              className="text-blue-600 font-semibold"
-            >
-              View All
-            </Link>
+            <p className="text-slate-600 mt-4">
+              Trusted offshore accounting partner for modern firms.
+            </p>
 
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mt-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            {[
-              "CPA Firm Growth Strategies",
-              "Building Offshore Teams",
-              "India GCC Expansion Guide",
-            ].map((article) => (
-              <div
-                key={article}
-                className="border rounded-2xl p-8 hover:shadow-lg transition"
-              >
-                <BookOpen className="h-8 w-8 text-blue-600 mb-4" />
+            <div className="text-center">
+              <Users className="mx-auto text-orange-500 mb-4" />
+              <h3 className="font-semibold">
+                Skilled Professionals
+              </h3>
+            </div>
 
-                <h3 className="font-bold text-xl">
-                  {article}
-                </h3>
+            <div className="text-center">
+              <Shield className="mx-auto text-orange-500 mb-4" />
+              <h3 className="font-semibold">
+                Data Security
+              </h3>
+            </div>
 
-                <p className="text-slate-600 mt-3">
-                  Strategic insights and practical
-                  frameworks for growth.
-                </p>
+            <div className="text-center">
+              <Globe className="mx-auto text-orange-500 mb-4" />
+              <h3 className="font-semibold">
+                Global Delivery
+              </h3>
+            </div>
 
-              </div>
-            ))}
+            <div className="text-center">
+              <CheckCircle className="mx-auto text-orange-500 mb-4" />
+              <h3 className="font-semibold">
+                Quality Assurance
+              </h3>
+            </div>
 
           </div>
 
@@ -283,24 +175,24 @@ export default function HomePage() {
 
       {/* CTA */}
 
-      <section className="py-24 bg-linear-to-r from-blue-600 to-cyan-600 text-white">
+      <section className="cta-gradient text-white py-24">
 
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-5xl mx-auto px-6 text-center">
 
           <h2 className="text-5xl font-bold">
-            Ready to Scale Your Firm?
+            Build Your Offshore Accounting Team
           </h2>
 
-          <p className="mt-6 text-xl">
-            Build a stronger global delivery model and unlock
-            sustainable growth with 808 Strategy.
+          <p className="mt-6 text-xl text-white/80">
+            Access skilled accounting professionals
+            while reducing operational costs.
           </p>
 
           <Link
             href="/contact"
-            className="inline-block mt-8 bg-white text-blue-700 px-8 py-4 rounded-xl font-bold"
+            className="inline-flex mt-10 bg-white text-slate-900 px-8 py-4 rounded-xl font-semibold"
           >
-            Schedule Strategy Call
+            Schedule Consultation
           </Link>
 
         </div>
