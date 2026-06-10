@@ -4,42 +4,50 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================
-   808 STRATEGY DESIGN SYSTEM
+   ACCOUNSTONE DESIGN SYSTEM
 ========================================== */
 
 :root {
-  /* Brand Colors */
+  /* ==========================================
+     BRAND COLORS
+  ========================================== */
 
-  --primary-blue: #0072BC;
-  --primary-blue-light: #1E88E5;
-  --primary-blue-dark: #005A94;
+  --primary-blue: #0D5BFF;
+  --primary-blue-light: #3B82F6;
+  --primary-blue-dark: #0047CC;
 
-  --navy: #0B1445;
-  --navy-light: #16205E;
+  --navy: #001B5E;
+  --navy-light: #0A2D82;
 
-  --orange: #F97316;
-  --orange-dark: #EA580C;
+  /* Accent Orange */
 
-  --gray-dark: #111827;
+  --accent-orange: #F97316;
+  --accent-orange-dark: #EA580C;
+
+  /* Neutral Colors */
+
+  --gray-dark: #0F172A;
   --gray-medium: #64748B;
-  --gray-light: #E5E7EB;
+  --gray-light: #E2E8F0;
 
-  /* Theme */
+  /* ==========================================
+     THEME COLORS
+  ========================================== */
 
   --background: #FFFFFF;
-  --foreground: #111827;
+  --foreground: #0F172A;
 
   --card: #FFFFFF;
-  --card-foreground: #111827;
+  --card-foreground: #0F172A;
 
   --popover: #FFFFFF;
-  --popover-foreground: #111827;
+  --popover-foreground: #0F172A;
 
-  --primary: #0072BC;
+  --primary: #0D5BFF;
   --primary-foreground: #FFFFFF;
 
   --secondary: #F8FAFC;
-  --secondary-foreground: #111827;
+  --secondary-foreground: #0F172A;
 
   --muted: #F1F5F9;
   --muted-foreground: #64748B;
@@ -50,9 +58,9 @@
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
 
-  --border: #E5E7EB;
-  --input: #E5E7EB;
-  --ring: #0072BC;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #0D5BFF;
 
   --radius: 0.75rem;
 }
@@ -98,7 +106,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  /* 808 Strategy Colors */
+  /* Brand */
 
   --color-primary-blue: var(--primary-blue);
   --color-primary-blue-light: var(--primary-blue-light);
@@ -107,8 +115,8 @@
   --color-navy: var(--navy);
   --color-navy-light: var(--navy-light);
 
-  --color-orange: var(--orange);
-  --color-orange-dark: var(--orange-dark);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-orange-dark: var(--accent-orange-dark);
 }
 
 /* ==========================================
@@ -149,9 +157,9 @@
   background:
     linear-gradient(
       135deg,
-      #0B1445 0%,
-      #0072BC 50%,
-      #0B1445 100%
+      #001B5E 0%,
+      #0D5BFF 50%,
+      #001B5E 100%
     );
 }
 
@@ -168,24 +176,27 @@
   background:
     linear-gradient(
       135deg,
-      #0072BC 0%,
-      #0B1445 100%
+      #F97316 0%,
+      #EA580C 100%
     );
 }
 
 /* ==========================================
-   GLASS EFFECT
+   GLASS EFFECTS
 ========================================== */
 
 .glass-card {
   background: rgba(255, 255, 255, 0.08);
+
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .glass-dark {
-  background: rgba(11, 20, 69, 0.85);
+  background: rgba(0, 27, 94, 0.85);
+
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
@@ -242,8 +253,45 @@
 
 .hover-lift:hover {
   transform: translateY(-6px);
+
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================
+   PREMIUM BUTTONS
+========================================== */
+
+.btn-primary {
+  background: #0D5BFF;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0047CC;
+}
+
+.btn-orange {
+  background: #F97316;
+  color: white;
+}
+
+.btn-orange:hover {
+  background: #EA580C;
+}
+
+/* ==========================================
+   BADGES
+========================================== */
+
+.badge-orange {
+  background: rgba(249, 115, 22, 0.1);
+  color: #EA580C;
+}
+
+.badge-blue {
+  background: rgba(13, 91, 255, 0.1);
+  color: #0D5BFF;
 }
 
 /* ==========================================
@@ -259,12 +307,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #0072BC;
+  background: #0D5BFF;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #005A94;
+  background: #001B5E;
 }
 
 /* ==========================================
@@ -272,11 +320,26 @@
 ========================================== */
 
 .text-gradient {
-  background: linear-gradient(
-    135deg,
-    #0072BC,
-    #0B1445
-  );
+  background:
+    linear-gradient(
+      135deg,
+      #0D5BFF,
+      #001B5E
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+}
+
+.text-orange-gradient {
+  background:
+    linear-gradient(
+      135deg,
+      #F97316,
+      #EA580C
+    );
 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -289,7 +352,7 @@
 ========================================== */
 
 ::selection {
-  background: #0072BC;
+  background: #0D5BFF;
   color: white;
 }
 
