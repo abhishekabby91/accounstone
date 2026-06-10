@@ -5,9 +5,16 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Accounstone",
+  metadataBase: new URL("https://www.accounstone.com"),
+
+  title: {
+    default:
+      "Accounstone | Offshore Accounting & Staffing Solutions",
+    template: "%s | Accounstone",
+  },
+
   description:
-    "Offshore Accounting & Staffing Solutions for CPA Firms, Accounting Practices and Businesses in the USA, UK and Australia.",
+    "Offshore Accounting & Staffing Solutions for CPA Firms, Accounting Practices and Businesses.",
 };
 
 export default function RootLayout({
