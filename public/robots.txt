@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /private
 
-Sitemap: https://theaucorp.com/sitemap.xml
+Sitemap: https://accounstone.com/sitemap.xml
+
+# Crawl-delay in seconds
+Crawl-delay: 1
+
+# Request rate (pages per second)
+Request-rate: 1/1s

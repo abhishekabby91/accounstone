@@ -1,5 +1,25 @@
 @import "tailwindcss";
 
+@theme {
+  /* Premium Accounstone Brand Palette */
+  --color-background: #faf8f3; /* Warm cream/off-white */
+  --color-foreground: #1a1410; /* Deep charcoal */
+  --color-primary: #1e3a5f; /* Navy blue - trust, professionalism */
+  --color-primary-light: #2d5a8c;
+  --color-primary-dark: #0f1f35;
+  --color-accent: #2d6a3e; /* Forest green - growth, stability */
+  --color-accent-light: #3d8a4e;
+  --color-secondary: #c9a876; /* Warm gold - premium, wealth */
+  --color-muted: #9b8b7e; /* Muted taupe */
+  --color-muted-light: #d4cfc7;
+  --color-border: #e5ddd4;
+  --color-input: #f5f2ed;
+  
+  --font-sans: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-serif: "Georgia", "Garamond", serif;
+  --radius: 0.5rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,16 +27,65 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: Inter, Arial, sans-serif;
-  background: white;
-  color: #0f172a;
+  font-family: var(--font-sans);
+  background: var(--color-background);
+  color: var(--color-foreground);
 }
 
 .hero-gradient {
   background: linear-gradient(
     135deg,
-    #001B5E 0%,
-    #0D5BFF 50%,
-    #001B5E 100%
+    var(--color-primary) 0%,
+    var(--color-primary-light) 50%,
+    var(--color-primary-dark) 100%
   );
+}
+
+.accent-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-light) 100%
+  );
+}
+
+/* Typography Scale */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+/* Utility Classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
 }
