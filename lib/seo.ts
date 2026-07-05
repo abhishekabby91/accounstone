@@ -19,7 +19,6 @@ export function generateMetadata(config: {
     title: `${config.title} | ${siteName}`,
     description: config.description,
     robots: config.noindex ? 'noindex' : 'index, follow',
-    canonical: config.canonical || url,
     openGraph: {
       title: config.title,
       description: config.description,
@@ -42,7 +41,7 @@ export function generateMetadata(config: {
       images: [ogImage],
     },
     alternates: {
-      canonical: url,
+      canonical: config.canonical || url,
     },
   };
 }
