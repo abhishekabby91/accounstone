@@ -7,18 +7,51 @@ export default function Footer() {
     {
       title: 'Solutions',
       links: [
-        { name: 'Back-Office Support', href: '/solutions/back-office-support' },
+        { name: 'Offshore Accounting Support', href: '/solutions/offshore-accounting-support' },
+        { name: 'Staff Augmentation', href: '/solutions/staff-augmentation' },
         { name: 'Dedicated Teams', href: '/solutions/dedicated-accounting-teams' },
-        { name: 'Offshore Support', href: '/solutions/offshore-accounting-support' },
+        { name: 'Back Office Support', href: '/solutions/back-office-support' },
       ],
     },
     {
       title: 'Services',
       links: [
-        { name: 'Accounting', href: '/services' },
-        { name: 'Tax Planning', href: '/services' },
-        { name: 'HR & Compliance', href: '/services' },
-        { name: 'Financial Advisory', href: '/services' },
+        { name: 'Bookkeeping', href: '/services/bookkeeping' },
+        { name: 'Accounting', href: '/services/accounting' },
+        { name: 'Tax Preparation', href: '/services/tax-preparation' },
+        { name: 'Payroll', href: '/services/payroll' },
+        { name: 'Accounts Payable', href: '/services/accounts-payable' },
+        { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
+        { name: 'CFO Support', href: '/services/cfo-support' },
+        { name: 'Audit Support', href: '/services/audit-support' },
+      ],
+    },
+    {
+      title: 'Markets',
+      links: [
+        { name: 'United States', href: '/markets/united-states' },
+        { name: 'United Kingdom', href: '/markets/united-kingdom' },
+        { name: 'Australia', href: '/markets/australia' },
+      ],
+    },
+    {
+      title: 'Technology',
+      links: [
+        { name: 'QuickBooks', href: '/technology/quickbooks' },
+        { name: 'Xero', href: '/technology/xero' },
+        { name: 'Sage', href: '/technology/sage' },
+        { name: 'NetSuite', href: '/technology/netsuite' },
+        { name: 'Drake Tax', href: '/technology/drake-tax' },
+        { name: 'CCH', href: '/technology/cch' },
+        { name: 'MYOB', href: '/technology/myob' },
+      ],
+    },
+    {
+      title: 'Resources',
+      links: [
+        { name: 'Case Studies', href: '/resources/case-studies' },
+        { name: 'Guides', href: '/resources/guides' },
+        { name: 'Insights', href: '/resources/insights' },
       ],
     },
     {
@@ -26,14 +59,15 @@ export default function Footer() {
       links: [
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
-        { name: 'Careers', href: '/careers' },
+        { name: 'LinkedIn', href: 'https://linkedin.com/company/accounstone' },
       ],
     },
     {
-      title: 'Legal',
+      title: 'Trust & Compliance',
       links: [
         { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms of Service', href: '/terms' },
+        { name: 'Terms & Conditions', href: '/terms' },
+        { name: 'Data Security', href: '/security' },
         { name: 'Compliance', href: '/compliance' },
       ],
     },
@@ -43,9 +77,9 @@ export default function Footer() {
     <footer className="bg-primary text-white">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
+          <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <h3 className="text-2xl font-bold">Accounstone</h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Professional accounting and finance solutions for growing businesses.

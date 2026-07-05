@@ -53,16 +53,16 @@ export default function HomePage() {
     <main>
       {/* Hero Section */}
       <PremiumHero
-        subtitle="Trusted by 500+ Businesses"
-        title="Outsourced Accounting & Finance Solutions"
-        description="Expert accounting services, dedicated teams, and strategic financial guidance. Scale your business without the overhead."
+        subtitle="For CPA Firms & Accounting Professionals"
+        title="Build Dedicated Offshore Accounting Teams"
+        description="Scale your accounting operations with experienced offshore professionals specializing in bookkeeping, accounting, tax preparation, payroll, accounts payable, accounts receivable, financial reporting, audit support, and CFO support."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',
           variant: 'primary',
         }}
         ctaSecondary={{
-          text: 'Explore Services',
+          text: 'Explore Solutions',
           href: '/solutions',
         }}
         background="primary-gradient"
@@ -72,13 +72,19 @@ export default function HomePage() {
       <section className="w-full py-12 px-6 md:px-8 bg-white border-t-2 border-border">
         <div className="max-w-7xl mx-auto">
           <p className="text-center text-sm text-muted mb-6 uppercase tracking-wide font-semibold">
-            Trusted by Leading Firms
+            Enterprise-Grade Security & Compliance
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {trustBadges.map((badge, i) => (
-              <div key={i} className="flex flex-col items-center gap-2">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+            {[
+              { name: 'ISO 27001 Certified', icon: '🔒' },
+              { name: 'SOC 2 Type II', icon: '✓' },
+              { name: 'GDPR Compliant', icon: '📋' },
+              { name: 'Secure Infrastructure', icon: '🛡️' },
+              { name: 'Dedicated Teams', icon: '👥' },
+            ].map((badge, i) => (
+              <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-lg bg-input hover:bg-border transition-colors">
                 <div className="text-3xl">{badge.icon}</div>
-                <span className="text-xs md:text-sm font-semibold text-center text-primary">
+                <span className="text-xs md:text-sm font-semibold text-center text-primary leading-tight">
                   {badge.name}
                 </span>
               </div>

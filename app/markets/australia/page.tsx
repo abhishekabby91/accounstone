@@ -1,0 +1,166 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import PremiumHero from '@/components/premium-hero';
+import CTABanner from '@/components/cta-banner';
+import FAQSection from '@/components/faq-section';
+import { generateMetadata } from '@/lib/seo';
+
+export const metadata: Metadata = generateMetadata({
+  title: 'Australian Accounting & Bookkeeping Services',
+  description:
+    'Expert Australian accounting services. IFRS compliance, ATO requirements, GST management, and ASIC reporting. Scale your Australian operations.',
+  path: '/markets/australia',
+});
+
+export default function AustraliaMarketPage() {
+  const faqs = [
+    {
+      question: 'Do you understand IFRS and ASIC requirements?',
+      answer:
+        'Yes, we ensure compliance with IFRS accounting standards and ASIC reporting requirements for Australian companies and large proprietary companies.',
+    },
+    {
+      question: 'Can you handle GST compliance?',
+      answer:
+        'Absolutely. We manage GST registration, monthly/quarterly GST returns to the ATO, and optimization of GST positions.',
+    },
+    {
+      question: 'What about PAYG withholding and Super?',
+      answer:
+        'We handle PAYG tax witholding, superannuation guarantee compliance, and SuperStream reporting for payroll.',
+    },
+    {
+      question: 'Are you familiar with ABN and registration?',
+      answer:
+        'Yes, we assist with ABN registration, business activity statements (BAS), and full ATO compliance requirements.',
+    },
+    {
+      question: 'Do you support both companies and sole traders?',
+      answer:
+        'Yes, we serve companies, sole traders, partnerships, and trusts with specialized knowledge of each entity type.',
+    },
+    {
+      question: 'Can you help with tax planning?',
+      answer:
+        'Absolutely. We provide strategic tax planning including capital gains strategies, negative gearing optimization, and salary sacrificing.',
+    },
+  ];
+
+  return (
+    <main>
+      <PremiumHero
+        subtitle="Australian Market Expertise"
+        title="Accounting Services for Australian Businesses"
+        description="Expert accounting, bookkeeping, and tax services tailored to Australian regulations. ATO, GST, and ASIC compliance included."
+        cta={{ text: 'Get Started', href: '/contact' }}
+        ctaSecondary={{ text: 'View Services', href: '/services' }}
+        background="primary-gradient"
+      />
+
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto space-y-12">
+          <div className="space-y-6">
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Australian Market</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+              Australian Accounting Expertise
+            </h2>
+            <p className="text-lg text-muted leading-relaxed">
+              Australian accounting requires specialized knowledge of ATO requirements, ASIC standards, GST compliance, and superannuation rules. Our Australian-focused team brings expertise in regulatory requirements, tax optimization, and industry practices. Whether you're managing Australian operations or expanding to Australia, we provide expert accounting and compliance services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-primary">Our Australian Expertise</h3>
+              <ul className="space-y-3">
+                {[
+                  'IFRS and ASIC compliance',
+                  'ATO tax compliance',
+                  'Income tax returns and lodgement',
+                  'GST management and optimization',
+                  'PAYG withholding and remittance',
+                  'Superannuation guarantee compliance',
+                  'Business activity statements (BAS)',
+                  'Fringe benefits tax (FBT)',
+                  'Capital gains tax planning',
+                  'Audit and assurance services',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-accent font-bold">✓</span>
+                    <span className="text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-primary">Industries We Serve</h3>
+              <ul className="space-y-3">
+                {[
+                  'Technology and software',
+                  'Financial services',
+                  'Mining and resources',
+                  'Agriculture and farming',
+                  'Construction and contracting',
+                  'Property and real estate',
+                  'Professional services',
+                  'Healthcare and medical',
+                  'Retail and e-commerce',
+                  'Tourism and hospitality',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-accent font-bold">✓</span>
+                    <span className="text-foreground">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+              Services for Australian Markets
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              { name: 'Bookkeeping', slug: 'bookkeeping' },
+              { name: 'Accounting Services', slug: 'accounting' },
+              { name: 'Tax Preparation', slug: 'tax-preparation' },
+              { name: 'Payroll Processing', slug: 'payroll' },
+              { name: 'Accounts Payable', slug: 'accounts-payable' },
+              { name: 'Accounts Receivable', slug: 'accounts-receivable' },
+              { name: 'CFO Support', slug: 'cfo-support' },
+              { name: 'Audit Support', slug: 'audit-support' },
+            ].map((service, i) => (
+              <Link
+                key={i}
+                href={`/services/${service.slug}`}
+                className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
+              >
+                <h3 className="font-bold text-primary text-lg group-hover:text-primary-light transition-colors">
+                  {service.name}
+                </h3>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FAQSection subtitle="Australian Market FAQs" items={faqs} columns={2} />
+
+      <CTABanner
+        title="Ready to Expand Your Australian Accounting Capabilities?"
+        description="Let our Australian experts help you navigate compliance and scale your operations."
+        cta={{ text: 'Schedule Consultation', href: '/contact' }}
+        background="primary"
+      />
+    </main>
+  );
+}

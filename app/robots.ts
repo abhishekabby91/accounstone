@@ -1,12 +1,14 @@
-import { MetadataRoute } from "next"
+import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-    },
-
-    sitemap: "https://www.theaucorp.com/sitemap.xml",
-  }
+    rules: [
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/admin', '/private', '/internal'],
+      },
+    ],
+    sitemap: 'https://accounstone.vercel.app/sitemap.xml',
+  };
 }
