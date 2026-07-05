@@ -89,3 +89,12 @@ p {
 .text-pretty {
   text-wrap: pretty;
 }
+
+/* Hide v0 Built With Badge */
+[id*="v0-built-with-button"],
+[id*="v0-built-with"],
+.v0-built-with {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
