@@ -6,9 +6,9 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="font-bold text-2xl text-primary hover:text-primary-light transition-colors">
-          Accounstone
+        {/* Logo - Letter A */}
+        <Link href="/" className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary hover:bg-primary-light transition-colors shadow-md">
+          <span className="font-bold text-2xl text-white">A</span>
         </Link>
 
         {/* Desktop Navigation */}
