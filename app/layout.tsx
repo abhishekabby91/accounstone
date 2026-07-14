@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import HeaderBar from "@/components/header-bar";
 import CustomCursor from "@/components/custom-cursor";
 import TouchRipple from "@/components/touch-ripple";
 import MobileGestures from "@/components/mobile-gestures";
@@ -84,6 +85,7 @@ export default function RootLayout({
         <CustomCursor />
         <TouchRipple />
         <MobileGestures />
+        <HeaderBar />
         <Navbar />
         {children}
         <Footer />

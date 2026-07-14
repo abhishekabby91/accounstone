@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -21,9 +22,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
-        {/* Logo - Letter A */}
-        <Link href="/" className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary hover:bg-primary-light transition-colors shadow-md flex-shrink-0">
-          <span className="font-bold text-2xl text-white">A</span>
+        {/* Logo */}
+        <Link href="/" className="flex items-center justify-center h-16 flex-shrink-0 hover:opacity-80 transition-opacity">
+          <Image
+            src="/accounstone-logo.png"
+            alt="Accounstone"
+            width={48}
+            height={48}
+            className="h-12 w-auto"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}

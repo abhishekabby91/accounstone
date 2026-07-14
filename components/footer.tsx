@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -80,8 +81,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
-            <Link href="/" className="inline-flex items-center justify-center w-12 h-12 rounded-lg bg-white text-primary hover:bg-muted-light transition-colors">
-              <span className="font-bold text-2xl">A</span>
+            <Link href="/" className="inline-flex items-center justify-center h-12 hover:opacity-80 transition-opacity">
+              <Image
+                src="/accounstone-logo.png"
+                alt="Accounstone"
+                width={48}
+                height={48}
+                className="h-12 w-auto"
+              />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed">
               Professional accounting and finance solutions for growing businesses.
