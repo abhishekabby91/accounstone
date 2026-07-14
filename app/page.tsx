@@ -52,6 +52,7 @@ export default function HomePage() {
   return (
     <main>
       {/* Hero Section */}
+      <section data-section="hero">
       <PremiumHero
         subtitle="For CPA Firms & Accounting Professionals"
         title="Build Dedicated Offshore Accounting Teams"
@@ -67,6 +68,7 @@ export default function HomePage() {
         }}
         background="primary-gradient"
       />
+      </section>
 
       {/* Trust Badges */}
       <section className="w-full py-12 px-6 md:px-8 bg-white border-t-2 border-border">
@@ -94,6 +96,7 @@ export default function HomePage() {
       </section>
 
       {/* Solutions Section */}
+      <section data-section="services">
       <SectionGrid
         subtitle="Our Offerings"
         title="Flexible Service Solutions"
@@ -103,8 +106,10 @@ export default function HomePage() {
         columns={3}
         variant="default"
       />
+      </section>
 
       {/* Services Section */}
+      <section data-section="services">
       <SectionGrid
         subtitle="What We Do"
         title="Comprehensive Accounting Services"
@@ -114,6 +119,7 @@ export default function HomePage() {
         columns={3}
         variant="default"
       />
+      </section>
 
       {/* Why Accounstone Section */}
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
@@ -167,12 +173,15 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
+      <section data-section="technology">
       <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
 
       {/* FAQ */}
       <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
+      </section>
 
       {/* Final CTA */}
+      <section data-section="contact">
       <CTABanner
         title="Ready to Transform Your Finance Operations?"
         description="Let us handle the accounting while you focus on growing your business."
@@ -186,6 +195,7 @@ export default function HomePage() {
         }}
         background="primary"
       />
+      </section>
     </main>
   );
 }

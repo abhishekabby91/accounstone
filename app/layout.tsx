@@ -3,6 +3,7 @@ import "./globals.css";
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import CustomCursor from "@/components/custom-cursor";
 import { generateOrganizationSchema } from "@/lib/seo";
 
 export const viewport: Viewport = {
@@ -78,6 +79,7 @@ export default function RootLayout({
         />
       </head>
       <body className="text-foreground">
+        <CustomCursor />
         <Navbar />
         {children}
         <Footer />
