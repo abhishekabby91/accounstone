@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import CustomCursor from "@/components/custom-cursor";
+import TouchRipple from "@/components/touch-ripple";
+import MobileGestures from "@/components/mobile-gestures";
 import { generateOrganizationSchema } from "@/lib/seo";
 
 export const viewport: Viewport = {
@@ -80,6 +82,8 @@ export default function RootLayout({
       </head>
       <body className="text-foreground">
         <CustomCursor />
+        <TouchRipple />
+        <MobileGestures />
         <Navbar />
         {children}
         <Footer />
