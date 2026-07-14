@@ -98,3 +98,71 @@ p {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+
+/* Premium Cursor Animations */
+@keyframes cursorFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes cursorGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(45, 90, 140, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(45, 90, 140, 0.5));
+  }
+}
+
+@keyframes ringRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes smooth-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes smooth-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+/* Button hover enhancement for cursor */
+button, a[href], [role="button"] {
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+button:hover, a[href]:hover, [role="button"]:hover {
+  transform: translateY(-1px);
+}
