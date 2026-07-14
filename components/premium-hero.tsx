@@ -68,11 +68,11 @@ export default function PremiumHero({
 
             {/* CTAs */}
             {(cta || ctaSecondary) && (
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
                 {cta && (
                   <a
                     href={cta.href}
-                    className={`inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                    className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base ${
                       cta.variant === 'secondary'
                         ? 'bg-white/10 hover:bg-white/20 text-white border border-white/20'
                         : 'bg-white hover:bg-gray-100 text-primary shadow-lg hover:shadow-xl'
@@ -84,7 +84,7 @@ export default function PremiumHero({
                 {ctaSecondary && (
                   <a
                     href={ctaSecondary.href}
-                    className={`inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold transition-all duration-300 ${
+                    className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base ${
                       background === 'default'
                         ? 'border-2 border-primary text-primary hover:bg-primary/5'
                         : 'border-2 border-white/30 text-white hover:bg-white/10'
