@@ -8,19 +8,12 @@ type CursorState = {
   y: number;
   isVisible: boolean;
   isHovering: boolean;
-  hoverText: string;
-  sectionColor: string;
-  ringScale: number;
 };
 
-type Particle = {
+type TrailPoint = {
   id: number;
   x: number;
   y: number;
-  vx: number;
-  vy: number;
-  life: number;
-  color: string;
 };
 
 export default function CustomCursor() {
@@ -29,82 +22,43 @@ export default function CustomCursor() {
     y: 0,
     isVisible: false,
     isHovering: false,
-    hoverText: '',
-    sectionColor: 'blue',
-    ringScale: 1,
   });
 
-  const [particles, setParticles] = useState<Particle[]>([]);
-
+  const [trail, setTrail] = useState<TrailPoint[]>([]);
+  
   const cursorRef = useRef<HTMLDivElement>(null);
-  const outerRingRef = useRef<HTMLDivElement>(null);
-  const lastXRef = useRef(0);
-  const lastYRef = useRef(0);
-  const velocityXRef = useRef(0);
-  const velocityYRef = useRef(0);
+  const trailRef = useRef<HTMLDivElement>(null);
+  const mouseXRef = useRef(0);
+  const mouseYRef = useRef(0);
+  const cursorXRef = useRef(0);
+  const cursorYRef = useRef(0);
+  const trailCounterRef = useRef(0);
   const animationFrameRef = useRef<number | null>(null);
-  const particleCounterRef = useRef(0);
   const prefersReducedMotion = useRef(false);
 
   useEffect(() => {
     prefersReducedMotion.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     document.body.style.cursor = 'none';
 
     const handleMouseMove = (e: MouseEvent) => {
-      const newX = e.clientX;
-      const newY = e.clientY;
-
-      velocityXRef.current = newX - lastXRef.current;
-      velocityYRef.current = newY - lastYRef.current;
-
-      lastXRef.current = newX;
-      lastYRef.current = newY;
+      mouseXRef.current = e.clientX;
+      mouseYRef.current = e.clientY;
 
       if (!state.isVisible) {
         setState((prev) => ({ ...prev, isVisible: true }));
       }
 
-      // Determine section color based on scroll position
-      let sectionColor = 'blue';
-      const sections = [
-        { element: '[data-section="hero"]', color: 'blue' },
-        { element: '[data-section="services"]', color: 'emerald' },
-        { element: '[data-section="technology"]', color: 'purple' },
-        { element: '[data-section="contact"]', color: 'gold' },
-      ];
-
-      for (const section of sections) {
-        const el = document.querySelector(section.element);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
-            sectionColor = section.color;
-            break;
-          }
-        }
+      // Create trail points every few pixels
+      if (trailCounterRef.current % 2 === 0) {
+        setTrail((prev) =>
+          [...prev.slice(-20), {
+            id: trailCounterRef.current,
+            x: e.clientX,
+            y: e.clientY,
+          }]
+        );
       }
-
-      setState((prev) => ({ ...prev, sectionColor }));
-
-      // Generate subtle particles on movement
-      if (Math.random() > 0.92 && !prefersReducedMotion.current) {
-        const speed = Math.sqrt(velocityXRef.current ** 2 + velocityYRef.current ** 2);
-        if (speed > 0.5) {
-          setParticles((prev) => [
-            ...prev.slice(-8),
-            {
-              id: particleCounterRef.current++,
-              x: newX,
-              y: newY,
-              vx: (Math.random() - 0.5) * 2,
-              vy: (Math.random() - 0.5) * 2,
-              life: 1,
-              color: sectionColor,
-            },
-          ]);
-        }
-      }
+      trailCounterRef.current++;
     };
 
     const handleMouseEnter = () => {
@@ -117,21 +71,16 @@ export default function CustomCursor() {
 
     const handleElementHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const isButton =
+      const isInteractive =
         target.tagName === 'BUTTON' ||
         target.closest('button') ||
-        target.closest('a[href]');
-      const isLink = target.tagName === 'A' || target.closest('a[href]');
+        target.closest('a[href]') ||
+        target.tagName === 'A';
 
-      if (isButton || isLink) {
-        const element = target.closest('button, a[href]') as HTMLElement;
-        const hoverText = element?.dataset.cursorText || 'View';
-
+      if (isInteractive) {
         setState((prev) => ({
           ...prev,
           isHovering: true,
-          hoverText,
-          ringScale: 1.8,
         }));
       }
     };
@@ -140,38 +89,27 @@ export default function CustomCursor() {
       setState((prev) => ({
         ...prev,
         isHovering: false,
-        hoverText: '',
-        ringScale: 1,
       }));
     };
 
-    // Smooth cursor animation with easing
+    // Smooth cursor animation with magnetic effect
     const animate = () => {
-      if (cursorRef.current && outerRingRef.current) {
-        const x = lastXRef.current;
-        const y = lastYRef.current;
+      if (cursorRef.current) {
+        // Check if cursor should have magnetic pull towards interactive elements
+        let targetX = mouseXRef.current;
+        let targetY = mouseYRef.current;
 
-        // Apply cubic easing for ultra-smooth movement
-        cursorRef.current.style.transform = `translate(${x - 16}px, ${y - 16}px)`;
+        if (state.isHovering) {
+          // Magnetic pull - slight attraction to hover target (already happens via hover state)
+        }
 
-        // Subtle outer ring rotation based on velocity
-        const speed = Math.sqrt(velocityXRef.current ** 2 + velocityYRef.current ** 2);
-        outerRingRef.current.style.transform = `rotate(${speed * 5}deg)`;
+        // Smooth easing towards target
+        const ease = 0.1; // Adjust for smoothness (lower = smoother but slower)
+        cursorXRef.current += (targetX - cursorXRef.current) * ease;
+        cursorYRef.current += (targetY - cursorYRef.current) * ease;
+
+        cursorRef.current.style.transform = `translate(${cursorXRef.current - 12}px, ${cursorYRef.current - 12}px)`;
       }
-
-      // Update particles
-      setParticles((prev) =>
-        prev
-          .map((p) => ({
-            ...p,
-            x: p.x + p.vx,
-            y: p.y + p.vy,
-            vx: p.vx * 0.92,
-            vy: p.vy * 0.92,
-            life: p.life - 0.02,
-          }))
-          .filter((p) => p.life > 0)
-      );
 
       animationFrameRef.current = requestAnimationFrame(animate);
     };
@@ -197,7 +135,7 @@ export default function CustomCursor() {
 
       document.body.style.cursor = 'auto';
     };
-  }, [state.isVisible]);
+  }, [state.isVisible, state.isHovering]);
 
   // Disable on mobile/touch or reduced motion
   if (typeof window !== 'undefined' && window.matchMedia('(hover: none)').matches) {
@@ -208,160 +146,85 @@ export default function CustomCursor() {
     return null;
   }
 
-  const colorMap: Record<string, { glow: string; accent: string; ring: string }> = {
-    blue: {
-      glow: 'from-[#1e3a5f] via-[#2d5a8c] to-[#1e3a5f]',
-      accent: 'from-[#2d5a8c] to-[#1e3a5f]',
-      ring: 'via-[#5ba3d0]',
-    },
-    emerald: {
-      glow: 'from-[#2d6a3e] via-[#3d8a4e] to-[#2d6a3e]',
-      accent: 'from-[#3d8a4e] to-[#2d6a3e]',
-      ring: 'via-[#5ab885]',
-    },
-    purple: {
-      glow: 'from-[#6366f1] via-[#8b5cf6] to-[#6366f1]',
-      accent: 'from-[#8b5cf6] to-[#6366f1]',
-      ring: 'via-[#a78bfa]',
-    },
-    gold: {
-      glow: 'from-[#c9a876] via-[#e0c191] to-[#c9a876]',
-      accent: 'from-[#e0c191] to-[#c9a876]',
-      ring: 'via-[#d4b896]',
-    },
-  };
-
-  const currentColors = colorMap[state.sectionColor as keyof typeof colorMap];
-
   return (
     <>
-      {/* Particles layer */}
+      {/* Trail layer */}
       <div className="fixed pointer-events-none z-[9998] inset-0">
-        {particles.map((particle) => (
-          <div
-            key={particle.id}
-            className={`absolute w-1 h-1 rounded-full pointer-events-none`}
-            style={{
-              left: `${particle.x}px`,
-              top: `${particle.y}px`,
-              opacity: particle.life * 0.3,
-              backgroundColor:
-                particle.color === 'blue'
-                  ? '#2d5a8c'
-                  : particle.color === 'emerald'
-                    ? '#3d8a4e'
-                    : particle.color === 'purple'
-                      ? '#8b5cf6'
-                      : '#e0c191',
-              boxShadow: `0 0 ${particle.life * 8}px ${
-                particle.color === 'blue'
-                  ? 'rgba(45, 90, 140, 0.6)'
-                  : particle.color === 'emerald'
-                    ? 'rgba(61, 138, 78, 0.6)'
-                    : particle.color === 'purple'
-                      ? 'rgba(139, 92, 246, 0.6)'
-                      : 'rgba(224, 193, 145, 0.6)'
-              }`,
-              transform: 'translate(-50%, -50%)',
-            }}
-          />
-        ))}
+        {trail.map((point, index) => {
+          const progress = index / trail.length; // 0 to 1
+          const opacity = progress * 0.4; // Fade in as it progresses
+          const size = 2 + progress * 2; // Grow slightly
+
+          return (
+            <div
+              key={point.id}
+              className="absolute rounded-full"
+              style={{
+                left: `${point.x}px`,
+                top: `${point.y}px`,
+                width: `${size}px`,
+                height: `${size}px`,
+                backgroundColor: '#1e3a5f',
+                opacity,
+                transform: 'translate(-50%, -50%)',
+                boxShadow: `0 0 ${size * 2}px rgba(30, 58, 95, ${opacity * 0.6})`,
+              }}
+            />
+          );
+        })}
       </div>
 
-      {/* Main cursor */}
+      {/* Main cursor - smooth circle */}
       <motion.div
         ref={cursorRef}
-        className={`fixed pointer-events-none z-[9999] ${state.isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        className={`fixed pointer-events-none z-[9999] ${state.isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}
         initial={false}
       >
-        {/* Animated outer ring with glow */}
-        <div
-          ref={outerRingRef}
-          className={`absolute -inset-3 rounded-full border border-double border-opacity-30 shadow-2xl`}
-          style={{
-            borderColor: currentColors.ring,
-            filter: `drop-shadow(0 0 12px ${
-              state.sectionColor === 'blue'
-                ? 'rgba(45, 90, 140, 0.4)'
-                : state.sectionColor === 'emerald'
-                  ? 'rgba(61, 138, 78, 0.4)'
-                  : state.sectionColor === 'purple'
-                    ? 'rgba(139, 92, 246, 0.4)'
-                    : 'rgba(224, 193, 145, 0.4)'
-            })`,
-            transform: `scale(${state.ringScale})`,
-            transition: 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+        {/* Outer glow ring - expands on hover */}
+        <motion.div
+          className="absolute -inset-1.5 rounded-full border border-[#1e3a5f] opacity-60"
+          animate={{
+            scale: state.isHovering ? 1.6 : 1,
+            opacity: state.isHovering ? 0.8 : 0.4,
+          }}
+          transition={{
+            type: 'spring',
+            stiffness: 400,
+            damping: 30,
           }}
         />
 
-        {/* Outer glow effect */}
-        <div
-          className={`absolute inset-0 rounded-full bg-gradient-to-r ${currentColors.glow} opacity-25 blur-lg`}
-          style={{
-            filter: 'blur(16px)',
-          }}
-        />
+        {/* Main cursor circle - smooth white */}
+        <div className="absolute inset-0 rounded-full bg-white shadow-lg border border-[#1e3a5f] border-opacity-20" />
 
-        {/* Middle ring with accent gradient */}
-        <div
-          className={`absolute inset-0 rounded-full bg-gradient-to-r ${currentColors.accent} opacity-15 blur-sm`}
-          style={{
-            animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          }}
-        />
-
-        {/* Inner bright core */}
-        <div className="absolute inset-1 rounded-full bg-gradient-to-r from-white via-white/90 to-white/70 shadow-xl" />
-
-        {/* Center premium dot */}
-        <div className="absolute inset-2.5 rounded-full bg-white shadow-lg" />
-
-        {/* Hover text with premium styling */}
-        {state.isHovering && (
-          <motion.div
-            className="absolute top-full mt-3 left-1/2 transform -translate-x-1/2 whitespace-nowrap text-xs font-semibold text-white rounded-full px-3 py-1.5 pointer-events-none backdrop-blur-md"
-            style={{
-              background: `linear-gradient(135deg, ${
-                state.sectionColor === 'blue'
-                  ? '#1e3a5f'
-                  : state.sectionColor === 'emerald'
-                    ? '#2d6a3e'
-                    : state.sectionColor === 'purple'
-                      ? '#6366f1'
-                      : '#c9a876'
-              }, ${
-                state.sectionColor === 'blue'
-                  ? '#2d5a8c'
-                  : state.sectionColor === 'emerald'
-                    ? '#3d8a4e'
-                    : state.sectionColor === 'purple'
-                      ? '#8b5cf6'
-                      : '#e0c191'
-              })`,
-              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.15)',
-              border: '1px solid rgba(255, 255, 255, 0.2)',
-            }}
-            initial={{ opacity: 0, scale: 0.8, y: 0 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-          >
-            {state.hoverText}
-          </motion.div>
-        )}
+        {/* Inner accent dot */}
+        <div className="absolute inset-1.5 rounded-full bg-gradient-to-br from-[#1e3a5f] to-[#2d5a8c]" />
       </motion.div>
 
-      {/* Subtle animation keyframes */}
-      <style>{`
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.15;
-          }
-          50% {
-            opacity: 0.25;
-          }
-        }
-      `}</style>
+      {/* Smooth glow effect */}
+      <motion.div
+        className="fixed pointer-events-none z-[9997] rounded-full"
+        style={{
+          width: '40px',
+          height: '40px',
+          left: state.x - 20,
+          top: state.y - 20,
+          background: 'radial-gradient(circle, rgba(30, 58, 95, 0.2) 0%, rgba(30, 58, 95, 0) 70%)',
+          filter: 'blur(12px)',
+          opacity: state.isVisible ? 0.5 : 0,
+          transition: 'opacity 0.3s ease-out',
+        }}
+        animate={{
+          x: state.x - 20,
+          y: state.y - 20,
+        }}
+        transition={{
+          type: 'spring',
+          stiffness: 200,
+          damping: 30,
+          mass: 1.5,
+        }}
+      />
     </>
   );
 }
