@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import PremiumHero from '@/components/premium-hero';
+import HeroCarousel from '@/components/hero-carousel';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
 import TestimonialsSection from '@/components/testimonials-section';
@@ -49,25 +49,59 @@ const homePageFAQs = [
 ];
 
 export default function HomePage() {
+  const carouselSlides = [
+    {
+      id: 'accounting-team',
+      image: '/carousel-accounting-team.png',
+      alt: 'Professional accounting team collaborating in modern office with financial data on screens',
+      title: 'Build Dedicated Offshore Accounting Teams',
+      subtitle: 'For CPA Firms & Accounting Professionals',
+    },
+    {
+      id: 'global-team',
+      image: '/carousel-global-team.png',
+      alt: 'Global distributed accounting team working virtually across different countries and time zones',
+      title: 'Scale Your Operations Globally',
+      subtitle: 'Connect with expertise worldwide',
+    },
+    {
+      id: 'financial-analysis',
+      image: '/carousel-financial-analysis.png',
+      alt: 'Accountant analyzing financial data and reports on multiple monitors displaying real-time metrics',
+      title: 'Expert Financial Solutions',
+      subtitle: 'Data-driven insights for growth',
+    },
+  ];
+
   return (
     <main>
-      {/* Hero Section */}
+      {/* Hero Carousel Section */}
       <section data-section="hero">
-      <PremiumHero
-        subtitle="For CPA Firms & Accounting Professionals"
-        title="Build Dedicated Offshore Accounting Teams"
-        description="Scale your accounting operations with experienced offshore professionals specializing in bookkeeping, accounting, tax preparation, payroll, accounts payable, accounts receivable, financial reporting, audit support, and CFO support."
-        cta={{
-          text: 'Schedule Consultation',
-          href: '/contact',
-          variant: 'primary',
-        }}
-        ctaSecondary={{
-          text: 'Explore Solutions',
-          href: '/solutions',
-        }}
-        background="primary-gradient"
-      />
+        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} />
+      </section>
+
+      {/* CTA Banner */}
+      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-gradient-to-r from-primary to-primary-light">
+        <div className="max-w-7xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Transform Your Accounting Operations?</h2>
+          <p className="text-lg text-white/90 max-w-2xl mx-auto">
+            Let our expert team help you scale efficiently with dedicated offshore accounting professionals.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all"
+            >
+              Schedule Consultation
+            </a>
+            <a
+              href="/solutions"
+              className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white/10 transition-all"
+            >
+              Explore Solutions
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Solutions Section */}
