@@ -23,13 +23,13 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
         {/* Logo with background */}
-        <Link href="/" className="flex items-center h-16 px-4 sm:px-6 -mx-4 sm:-mx-6 flex-shrink-0 bg-gradient-to-r from-primary/5 to-primary/0 hover:from-primary/10 hover:to-primary/0 transition-colors">
+        <Link href="/" className="flex items-center h-20 px-3 sm:px-5 -mx-4 sm:-mx-6 -my-2 flex-shrink-0 bg-gradient-to-r from-primary/8 to-transparent hover:from-primary/15 hover:to-transparent transition-colors rounded-r-lg">
           <Image
             src="/accounstone-logo-horizontal.png"
             alt="Accounstone"
             width={280}
             height={60}
-            className="h-12 w-auto"
+            className="h-16 w-auto"
             priority
           />
         </Link>

@@ -81,13 +81,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
-            <Link href="/" className="inline-flex items-center h-12 hover:opacity-90 transition-opacity">
+            <Link href="/" className="inline-flex items-center h-14 hover:opacity-90 transition-opacity">
               <Image
                 src="/accounstone-logo-horizontal.png"
                 alt="Accounstone"
                 width={280}
                 height={60}
-                className="h-12 w-auto brightness-0 invert"
+                className="h-14 w-auto"
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed">
