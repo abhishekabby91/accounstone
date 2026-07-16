@@ -81,14 +81,30 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
-            <Link href="/" className="inline-flex items-center justify-center h-12 hover:opacity-80 transition-opacity">
-              <Image
-                src="/accounstone-logo.png"
-                alt="Accounstone"
-                width={48}
-                height={48}
+            <Link href="/" className="inline-flex items-center h-12 hover:opacity-90 transition-opacity">
+              <svg
+                viewBox="0 0 300 100"
                 className="h-12 w-auto"
-              />
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {/* Nested Squares */}
+                <rect x="15" y="15" width="50" height="50" fill="none" stroke="#ffffff" strokeWidth="3"/>
+                <rect x="22" y="22" width="40" height="40" fill="none" stroke="#ffffff" strokeWidth="3" opacity="0.7"/>
+                
+                {/* A Triangle */}
+                <polygon points="38,25 44,40 32,40" fill="#ffffff"/>
+                
+                {/* S Shape */}
+                <path d="M 40 42 Q 44 44 42 48 Q 40 50 35 48 Q 33 46 37 44 Q 42 42 40 40" fill="#ffffff" opacity="0.8"/>
+                
+                {/* Curved line accent */}
+                <path d="M 28 48 Q 35 52 44 50" stroke="#ff6600" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                
+                {/* Text - ACCOUNSTONE */}
+                <text x="75" y="50" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="700" fill="#ffffff">ACCOUN</text>
+                <circle cx="238" cy="42" r="6" fill="#ff6600"/>
+                <text x="250" y="50" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="700" fill="#ffffff">NE</text>
+              </svg>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed">
               Professional accounting and finance solutions for growing businesses.

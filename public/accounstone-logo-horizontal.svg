@@ -1,0 +1,20 @@
+<svg viewBox="0 0 1000 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Horizontal Logo with Text -->
+  <!-- Nested Squares -->
+  <rect x="60" y="50" width="160" height="160" fill="none" stroke="#001f5c" stroke-width="12"/>
+  <rect x="90" y="80" width="130" height="130" fill="none" stroke="#0052cc" stroke-width="12"/>
+  
+  <!-- A Triangle -->
+  <polygon points="140,90 160,140 120,140" fill="#001f5c"/>
+  
+  <!-- S Shape -->
+  <path d="M 145 160 Q 155 165 150 175 Q 145 180 135 175 Q 130 170 140 165 Q 150 160 145 155" fill="#0052cc"/>
+  
+  <!-- Curved line accent -->
+  <path d="M 100 180 Q 120 200 160 190" stroke="#ff6600" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Text -->
+  <text x="280" y="130" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="#001f5c">ACCOUN</text>
+  <text x="835" y="130" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="#ff6600">O</text>
+  <text x="920" y="130" font-family="Arial, sans-serif" font-size="80" font-weight="700" fill="#0052cc">NE</text>
+</svg>

@@ -23,15 +23,30 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center justify-center h-16 flex-shrink-0 hover:opacity-80 transition-opacity">
-          <Image
-            src="/accounstone-logo.png"
-            alt="Accounstone"
-            width={48}
-            height={48}
+        <Link href="/" className="flex items-center h-16 flex-shrink-0 hover:opacity-90 transition-opacity">
+          <svg
+            viewBox="0 0 300 100"
             className="h-12 w-auto"
-            priority
-          />
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Nested Squares */}
+            <rect x="15" y="15" width="50" height="50" fill="none" stroke="#001f5c" strokeWidth="3"/>
+            <rect x="22" y="22" width="40" height="40" fill="none" stroke="#0052cc" strokeWidth="3"/>
+            
+            {/* A Triangle */}
+            <polygon points="38,25 44,40 32,40" fill="#001f5c"/>
+            
+            {/* S Shape */}
+            <path d="M 40 42 Q 44 44 42 48 Q 40 50 35 48 Q 33 46 37 44 Q 42 42 40 40" fill="#0052cc"/>
+            
+            {/* Curved line accent */}
+            <path d="M 28 48 Q 35 52 44 50" stroke="#ff6600" strokeWidth="2" fill="none" strokeLinecap="round"/>
+            
+            {/* Text - ACCOUNSTONE */}
+            <text x="75" y="50" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="700" fill="#001f5c">ACCOUN</text>
+            <circle cx="238" cy="42" r="6" fill="#ff6600"/>
+            <text x="250" y="50" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="700" fill="#0052cc">NE</text>
+          </svg>
         </Link>
 
         {/* Desktop Navigation */}

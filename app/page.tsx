@@ -70,31 +70,6 @@ export default function HomePage() {
       />
       </section>
 
-      {/* Trust Badges */}
-      <section className="w-full py-12 px-6 md:px-8 bg-white border-t-2 border-border">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-center text-sm text-muted mb-6 uppercase tracking-wide font-semibold">
-            Enterprise-Grade Security & Compliance
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
-            {[
-              { name: 'ISO 27001 Certified', icon: '🔒' },
-              { name: 'SOC 2 Type II', icon: '✓' },
-              { name: 'GDPR Compliant', icon: '📋' },
-              { name: 'Secure Infrastructure', icon: '🛡️' },
-              { name: 'Dedicated Teams', icon: '👥' },
-            ].map((badge, i) => (
-              <div key={i} className="flex flex-col items-center gap-3 p-4 rounded-lg bg-input hover:bg-border transition-colors">
-                <div className="text-3xl">{badge.icon}</div>
-                <span className="text-xs md:text-sm font-semibold text-center text-primary leading-tight">
-                  {badge.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Solutions Section */}
       <section data-section="services">
       <SectionGrid
