@@ -22,14 +22,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center h-16 flex-shrink-0 hover:opacity-90 transition-opacity">
+        {/* Logo with background */}
+        <Link href="/" className="flex items-center h-16 px-4 sm:px-6 -mx-4 sm:-mx-6 flex-shrink-0 bg-gradient-to-r from-primary/5 to-primary/0 hover:from-primary/10 hover:to-primary/0 transition-colors">
           <Image
-            src="/accounstone-logo.png"
+            src="/accounstone-logo-horizontal.png"
             alt="Accounstone"
-            width={200}
-            height={80}
-            className="h-14 w-auto"
+            width={280}
+            height={60}
+            className="h-12 w-auto"
             priority
           />
         </Link>

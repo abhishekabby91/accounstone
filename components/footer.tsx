@@ -83,10 +83,10 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <Link href="/" className="inline-flex items-center h-12 hover:opacity-90 transition-opacity">
               <Image
-                src="/accounstone-logo.png"
+                src="/accounstone-logo-horizontal.png"
                 alt="Accounstone"
-                width={200}
-                height={80}
+                width={280}
+                height={60}
                 className="h-12 w-auto brightness-0 invert"
               />
             </Link>
