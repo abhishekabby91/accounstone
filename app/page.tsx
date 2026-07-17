@@ -148,7 +148,7 @@ export default function HomePage() {
 
               <div className="space-y-4 pt-4">
                 {[
-                  'Expert CPAs with 10+ years of experience',
+                  'Expert Professionals with 10+ years of experience',
                   'Dedicated support during critical periods',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
