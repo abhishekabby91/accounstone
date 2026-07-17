@@ -148,7 +148,7 @@ export default function Footer() {
             © {currentYear} Accounstone. All rights reserved.
           </p>
           <p className="text-white/60 text-sm">
-            Trusted by 500+ businesses. ISO 27001 | SOC 2 Type II | GDPR Compliant
+            Security-focused with NDA-backed engagements. Pursuing industry certifications.
           </p>
         </div>
       </div>

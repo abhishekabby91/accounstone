@@ -243,36 +243,14 @@ export const expertise = [
 ];
 
 // Testimonials/Case Studies
-export const testimonials = [
-  {
-    name: 'Sarah Johnson',
-    title: 'CFO, TechStart Inc.',
-    company: 'TechStart Inc.',
-    text: 'Accounstone transformed our financial operations. Their offshore team seamlessly integrated with our systems and provided expert insights that helped us optimize cash flow.',
-    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Sarah',
-  },
-  {
-    name: 'Michael Chen',
-    title: 'Owner, Chen Healthcare Clinic',
-    company: 'Chen Healthcare',
-    text: 'As a growing medical practice, regulatory compliance was critical. Accounstone\'s healthcare expertise gave us peace of mind and freed up our time to focus on patient care.',
-    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Michael',
-  },
-  {
-    name: 'Emma Rodriguez',
-    title: 'Managing Director, Global Logistics',
-    company: 'Global Logistics Corp',
-    text: 'The dedicated accounting team approach was perfect for our multi-entity structure. Their knowledge of our business made a real difference in our financial strategy.',
-    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Emma',
-  },
-];
+// [TESTIMONIAL PLACEHOLDER - Awaiting client-approved quotes and permission to use]
+export const testimonials = [];
 
 // Trust & Compliance badges
+// [PLACEHOLDER - Add verified certifications only. Currently pursuing SOC 2 certification]
 export const trustBadges = [
-  { name: 'ISO 27001 Certified', icon: '🔒' },
-  { name: 'SOC 2 Type II', icon: '✓' },
-  { name: 'GDPR Compliant', icon: '📋' },
-  { name: 'HIPAA Ready', icon: '🏥' },
+  { name: 'NDA-Backed Engagements', icon: '🔒' },
+  { name: 'Security-First Data Handling', icon: '✓' },
 ];
 
 // Company info

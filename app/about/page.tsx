@@ -75,20 +75,15 @@ export default function AboutPage() {
             Trusted by Hundreds of Businesses
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: '500+', label: 'Active Clients' },
-              { number: '$2B+', label: 'Transactions Managed' },
-              { number: '15+', label: 'Years of Experience' },
-              { number: '100%', label: 'Client Satisfaction' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center space-y-2">
-                <div className="text-4xl md:text-5xl font-bold text-primary text-balance">
-                  {stat.number}
-                </div>
-                <p className="text-sm md:text-base text-muted font-medium">{stat.label}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+            <div className="text-center space-y-3 p-6 rounded-lg bg-muted/30">
+              <h3 className="text-xl font-semibold text-primary">Growing Impact</h3>
+              <p className="text-sm text-muted">We're building trusted partnerships with CPA firms and accounting professionals. Real results from real clients.</p>
+            </div>
+            <div className="text-center space-y-3 p-6 rounded-lg bg-muted/30">
+              <h3 className="text-xl font-semibold text-primary">Focused on Quality</h3>
+              <p className="text-sm text-muted">Every engagement reflects our commitment to excellence, reliability, and your long-term success.</p>
+            </div>
           </div>
         </div>
       </section>

@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.accounstone.com"),
 
   title: {
-    default: "Accounstone | Outsourced Accounting & Finance Solutions",
+    default: "Accounstone | Outsourced Accounting & Bookkeeping for CPA Firms",
     template: "%s | Accounstone",
   },
 
   description:
-    "Professional outsourced accounting, finance, and HR services for growing businesses. Expert CPAs and trusted partnerships.",
+    "Outsourced accounting, bookkeeping, and finance solutions for CPA firms and accounting professionals. Scalable support from experienced accountants.",
 
   keywords: [
     "accounting services",

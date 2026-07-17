@@ -24,7 +24,7 @@ const homePageFAQs = [
   {
     question: 'How do you ensure data security?',
     answer:
-      'We maintain ISO 27001 certification, SOC 2 Type II compliance, and implement enterprise-grade security measures including encryption, access controls, and regular security audits.',
+      'We implement security-first practices including encryption, secure access controls, NDA-backed engagements, and regular security reviews. We are actively pursuing SOC 2 certification and maintain strict data handling protocols.',
   },
   {
     question: 'Can you work with our existing software?',
@@ -54,22 +54,22 @@ export default function HomePage() {
       id: 'accounting-team',
       image: '/carousel-accounting-team.png',
       alt: 'Professional accounting team collaborating in modern office with financial data on screens',
-      title: 'Build Dedicated Offshore Accounting Teams',
-      subtitle: 'For CPA Firms & Accounting Professionals',
+      title: 'Build Your Dedicated Accounting Team',
+      subtitle: 'Scalable Accounting Support Built for CPA Firms',
     },
     {
       id: 'worldwide',
       image: '/carousel-worldwide.jpg',
       alt: 'Wooden globe sculpture with worldwide text demonstrating global reach and international accounting services',
-      title: 'Scale Your Operations Globally',
-      subtitle: 'Connect with expertise worldwide',
+      title: 'Reliable Expertise, On Your Timeline',
+      subtitle: 'Expert accountants ready to support your growth',
     },
     {
       id: 'tax-returns',
       image: '/carousel-tax-returns.jpg',
       alt: 'Blue tax returns document folder with gold text and financial documents showing professional tax preparation services',
-      title: 'Expert Tax & Financial Solutions',
-      subtitle: 'Professional guidance for growth',
+      title: 'Trusted Partner for Your Accounting Needs',
+      subtitle: 'Comprehensive solutions for CPA firms and accountants',
     },
   ];
 
@@ -83,9 +83,9 @@ export default function HomePage() {
       {/* CTA Banner */}
       <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-gradient-to-r from-primary to-primary-light">
         <div className="max-w-7xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Transform Your Accounting Operations?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            Let our expert team help you scale efficiently with dedicated offshore accounting professionals.
+            Partner with us for reliable, experienced accounting support designed specifically for CPA firms and accounting professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
