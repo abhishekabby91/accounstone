@@ -81,7 +81,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Banner */}
-      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-gradient-to-r from-primary to-primary-light">
+      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light">
         <div className="max-w-7xl mx-auto text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
