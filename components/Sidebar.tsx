@@ -8,7 +8,7 @@ export function Sidebar() {
 
       {/* WhatsApp */}
       <a
-        href="https://wa.me/910000000000"
+        href="https://wa.me/919990597192"
         target="_blank"
         rel="noopener noreferrer"
         className="group bg-blue-500 text-white p-3 rounded-full shadow-lg
