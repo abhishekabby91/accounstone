@@ -34,7 +34,7 @@ export function Sidebar() {
 
       {/* Email */}
       <a
-        href="mailto:partner@theaucorp.com"
+        href="mailto:partner@accounstone.com"
         className="group bg-red-500 text-white p-3 rounded-full shadow-lg
         hover:shadow-red-400/50 transition-all duration-300"
       >
