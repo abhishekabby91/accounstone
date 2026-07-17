@@ -51,11 +51,11 @@ const homePageFAQs = [
 export default function HomePage() {
   const carouselSlides = [
     {
-      id: 'accounting-team',
-      image: '/carousel-accounting-team.png',
-      alt: 'Professional accounting team collaborating in modern office with financial data on screens',
-      title: 'Build Your Dedicated Accounting Team',
-      subtitle: 'Scalable Accounting Support Built for CPA Firms',
+      id: 'budget-planning',
+      image: '/carousel-budget-planning.jpg',
+      alt: 'Budget planning workspace with calculator, financial charts, graphs, colorful markers, and monthly budget spreadsheet showing data analysis and financial planning',
+      title: 'Professional Financial Planning Support',
+      subtitle: 'Expert accounting solutions for your firm',
     },
     {
       id: 'worldwide',
