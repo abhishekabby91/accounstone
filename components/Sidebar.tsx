@@ -4,7 +4,7 @@ import { MessageCircle, Linkedin, Mail } from "lucide-react"
 
 export function Sidebar() {
   return (
-    <div className="hidden sm:flex fixed right-4 top-1/2 -translate-y-1/2 flex-col gap-4 z-[60]">
+    <div className="hidden sm:flex fixed right-4 top-1/2 -translate-y-1/2 flex-col gap-4 z-60">
 
       {/* WhatsApp */}
       <a

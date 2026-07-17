@@ -156,14 +156,14 @@ export default function HomePage() {
                   'Flexible engagement models',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="text-accent text-2xl flex-shrink-0">✓</div>
+                    <div className="text-accent text-2xl shrink-0">✓</div>
                     <p className="text-foreground font-medium">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
+            <div className="bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
               <div className="space-y-2">
                 <div className="text-5xl font-bold">500+</div>
                 <p className="text-white/80 text-lg">Active Clients</p>
