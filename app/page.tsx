@@ -58,18 +58,18 @@ export default function HomePage() {
       subtitle: 'For CPA Firms & Accounting Professionals',
     },
     {
-      id: 'global-team',
-      image: '/carousel-global-team.png',
-      alt: 'Global distributed accounting team working virtually across different countries and time zones',
+      id: 'worldwide',
+      image: '/carousel-worldwide.jpg',
+      alt: 'Wooden globe sculpture with worldwide text demonstrating global reach and international accounting services',
       title: 'Scale Your Operations Globally',
       subtitle: 'Connect with expertise worldwide',
     },
     {
-      id: 'financial-analysis',
-      image: '/carousel-financial-analysis.png',
-      alt: 'Accountant analyzing financial data and reports on multiple monitors displaying real-time metrics',
-      title: 'Expert Financial Solutions',
-      subtitle: 'Data-driven insights for growth',
+      id: 'tax-returns',
+      image: '/carousel-tax-returns.jpg',
+      alt: 'Blue tax returns document folder with gold text and financial documents showing professional tax preparation services',
+      title: 'Expert Tax & Financial Solutions',
+      subtitle: 'Professional guidance for growth',
     },
   ];
 
