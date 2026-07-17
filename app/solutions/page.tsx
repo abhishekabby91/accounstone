@@ -46,7 +46,7 @@ export default function SolutionsPage() {
           text: 'Get Started Today',
           href: '/contact',
         }}
-        background="accent"
+        background="primary"
       />
     </main>
   );
