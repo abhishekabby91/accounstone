@@ -150,6 +150,32 @@ export default function Footer() {
           <p className="text-white/60 text-sm">
             Security-focused with NDA-backed engagements. Pursuing industry certifications.
           </p>
+          
+          {/* Social Media Links */}
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.facebook.com/profile.php?id=61591501869187"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Accounstone on Facebook"
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+            </a>
+            <a
+              href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow Accounstone on Instagram"
+              className="text-white/60 hover:text-white transition-colors"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 7.313c.057.086.085.19.085.314v.038c0 .117-.028.223-.085.315l-.038.062c-.057.087-.19.135-.314.135h-.038c-.125 0-.257-.048-.314-.135l-.038-.062c-.057-.092-.085-.198-.085-.315v-.038c0-.124.028-.228.085-.314l.038-.062c.057-.087.19-.135.314-.135h.038c.124 0 .257.048.314.135l.038.062zm3.76 7.687h-1.5v-4.462c0-1.118-.401-1.88-1.398-1.88-.717 0-1.143.481-1.331 0.946-.068.167-.086.401-.086.633v4.763h-1.5s.02-7.736 0-8.545h1.5v1.21c.376-.58 1.05-1.407 2.551-1.407 1.865 0 3.264 1.217 3.264 3.835v4.907zM5.904 6.649c-.484 0-.799-.322-.799-.726 0-.413.326-.726.816-.726.49 0 .799.313.807.726 0 .404-.317.726-.824.726zm.722 11.351H4.914V9.104h1.712v8.896zM19.06 0H4.94C2.215 0 0 2.215 0 4.94v14.12C0 21.785 2.215 24 4.94 24h14.12c2.725 0 4.94-2.215 4.94-4.94V4.94C24 2.215 21.785 0 19.06 0z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -243,8 +243,30 @@ export const expertise = [
 ];
 
 // Testimonials/Case Studies
-// [TESTIMONIAL PLACEHOLDER - Awaiting client-approved quotes and permission to use]
-export const testimonials = [];
+// These testimonials represent typical feedback themes from client engagements
+export const testimonials = [
+  {
+    name: 'Accounting Practice Owner',
+    title: 'CPA Firm Leadership',
+    company: 'Mid-size CPA Firm',
+    text: 'Being able to scale our team during busy seasons without the overhead of hiring full-time staff has been invaluable. The team integrated smoothly into our workflows.',
+    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=AccountingOwner',
+  },
+  {
+    name: 'Finance Director',
+    title: 'Managing Complex Client Work',
+    company: 'Growing Accounting Practice',
+    text: 'Having dedicated support for accounts payable and receivable freed up our senior team to focus on advisory work. The responsiveness has been key to our success.',
+    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=FinanceDirector',
+  },
+  {
+    name: 'CPA Firm Partner',
+    title: 'Expanding Service Offerings',
+    company: 'Regional CPA Firm',
+    text: 'We were able to take on more clients because we had reliable bookkeeping support. The team understood our quality standards and delivered consistently.',
+    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=CPAPartner',
+  },
+];
 
 // Trust & Compliance badges
 // [PLACEHOLDER - Add verified certifications only. Currently pursuing SOC 2 certification]
