@@ -11,8 +11,8 @@ export function Sidebar() {
         href="https://wa.me/910000000000"
         target="_blank"
         rel="noopener noreferrer"
-        className="group bg-green-500 text-white p-3 rounded-full shadow-lg
-        hover:shadow-green-400/50 transition-all duration-300"
+        className="group bg-blue-500 text-white p-3 rounded-full shadow-lg
+        hover:shadow-blue-400/50 transition-all duration-300"
       >
         <div className="animate-float-slow group-hover:scale-110 transition-transform">
           <MessageCircle size={18} className="group-hover:rotate-12 transition" />
