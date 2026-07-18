@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  FaLinkedinIn,
-  FaFacebookF,
-  FaInstagram,
-  FaYoutube,
-} from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+  Linkedin,
+  Facebook,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
