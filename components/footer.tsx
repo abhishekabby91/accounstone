@@ -120,14 +120,17 @@ export default function Footer() {
   </a>
 
   <a
-    href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110"
-  >
-    <Instagram size={18} />
-  </a>
+  href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram"
+  className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]"
+>
+  <Instagram
+    size={18}
+    className="text-white/70 group-hover:text-white transition-colors"
+  />
+</a>
 
   <a
     href="https://www.youtube.com/@accounstone"
