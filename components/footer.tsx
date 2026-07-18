@@ -130,16 +130,6 @@ export default function Footer() {
   </a>
 
   <a
-    href="https://x.com/accounstone"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="X"
-    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-black hover:text-white transition-all duration-300 hover:scale-110"
-  >
-    <XTwitter size={18} />
-  </a>
-
-  <a
     href="https://www.youtube.com/@accounstone"
     target="_blank"
     rel="noopener noreferrer"
