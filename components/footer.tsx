@@ -106,7 +106,7 @@ export default function Footer() {
     aria-label="LinkedIn"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FaLinkedinIn size={18} />
+    <Linkedin size={18} />
   </a>
 
   <a
@@ -116,7 +116,7 @@ export default function Footer() {
     aria-label="Facebook"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FaFacebookF size={18} />
+    <FacebookF size={18} />
   </a>
 
   <a
@@ -126,7 +126,7 @@ export default function Footer() {
     aria-label="Instagram"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FaInstagram size={18} />
+    <Instagram size={18} />
   </a>
 
   <a
@@ -136,7 +136,7 @@ export default function Footer() {
     aria-label="X"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-black hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FaXTwitter size={18} />
+    <XTwitter size={18} />
   </a>
 
   <a
@@ -146,7 +146,7 @@ export default function Footer() {
     aria-label="YouTube"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FaYoutube size={18} />
+    <Youtube size={18} />
   </a>
 </div>
           </div>
