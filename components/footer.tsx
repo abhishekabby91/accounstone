@@ -116,7 +116,7 @@ export default function Footer() {
     aria-label="Facebook"
     className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110"
   >
-    <FacebookF size={18} />
+    <Facebook size={18} />
   </a>
 
   <a
