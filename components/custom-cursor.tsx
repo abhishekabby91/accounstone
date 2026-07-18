@@ -113,7 +113,7 @@ export default function CustomCursor() {
   return (
     <>
       {/* Trail layer */}
-      <div className="fixed pointer-events-none z-[9998] inset-0">
+      <div className="fixed pointer-events-none z-9998 inset-0">
         {trail.map((point, index) => {
           const progress = index / trail.length;
           const opacity = progress * 0.4;
