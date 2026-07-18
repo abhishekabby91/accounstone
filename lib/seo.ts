@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { companyInfo } from './data';
 
-const baseUrl = 'https://accounstone.com';
+export const baseUrl = 'https://accounstone.com';
 const siteName = companyInfo.name;
 
 export function generateMetadata(config: {
@@ -18,7 +18,9 @@ export function generateMetadata(config: {
   return {
     title: `${config.title} | ${siteName}`,
     description: config.description,
-    robots: config.noindex ? 'noindex' : 'index, follow',
+    robots: config.noindex
+      ? { index: false, follow: false }
+      : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
     openGraph: {
       title: config.title,
       description: config.description,
@@ -47,10 +49,12 @@ export function generateMetadata(config: {
 }
 
 // Schema.org structured data generators
+
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `${baseUrl}/#organization`,
     name: companyInfo.name,
     description: companyInfo.description,
     url: baseUrl,
@@ -60,12 +64,33 @@ export function generateOrganizationSchema() {
       'https://twitter.com/accounstone',
       'https://facebook.com/accounstone',
     ],
-    contact: {
+    // Fixed: schema.org uses "contactPoint", not "contact" — the previous
+    // key meant this block was not valid structured data at all.
+    contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
       email: companyInfo.contact.email,
       telephone: companyInfo.contact.phone,
-      areaServed: 'US',
+      areaServed: ['US', 'GB', 'AU', 'CA'],
+      availableLanguage: ['English'],
+    },
+  };
+}
+
+// New — needed for the sitelinks search box and for AI answer engines to
+// resolve the site as a distinct entity separate from any single page.
+export function generateWebsiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${baseUrl}/#website`,
+    url: baseUrl,
+    name: siteName,
+    publisher: { '@id': `${baseUrl}/#organization` },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${baseUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
     },
   };
 }
@@ -74,6 +99,11 @@ export function generateServiceSchema(service: {
   name: string;
   description: string;
   slug: string;
+  // Was hardcoded to 'US' before — every UK/AU/CA service page was
+  // claiming US-only coverage regardless of actual content. Now
+  // defaults to all four markets but can be overridden per page.
+  areaServed?: string[];
+  basePath?: string; // defaults to /services/, override for other route groups
 }) {
   return {
     '@context': 'https://schema.org',
@@ -85,8 +115,11 @@ export function generateServiceSchema(service: {
       name: companyInfo.name,
       url: baseUrl,
     },
-    areaServed: 'US',
-    url: `${baseUrl}/services/${service.slug}`,
+    areaServed: (service.areaServed ?? ['US', 'GB', 'AU', 'CA']).map((code) => ({
+      '@type': 'Country',
+      name: code,
+    })),
+    url: `${baseUrl}${service.basePath ?? '/services/'}${service.slug}`,
   };
 }
 
@@ -139,4 +172,19 @@ export function generateArticleSchema(article: {
     },
     url: `${baseUrl}/resources/${article.slug}`,
   };
+}
+
+// New — for testimonials, since the brief calls for Review schema and
+// none existed here yet.
+export function generateReviewSchema(
+  reviews: Array<{ author: string; reviewBody: string; rating: number }>
+) {
+  return reviews.map((r) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    author: { '@type': 'Person', name: r.author },
+    reviewBody: r.reviewBody,
+    reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
+    itemReviewed: { '@id': `${baseUrl}/#organization` },
+  }));
 }
