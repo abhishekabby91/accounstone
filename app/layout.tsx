@@ -38,6 +38,27 @@ export const metadata: Metadata = {
 
   authors: [{ name: "Accounstone" }],
 
+  // Was missing — without this, some crawlers fall back to page-level
+  // defaults inconsistently. Explicit is safer for an enterprise site.
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // Was missing — canonical should be set globally as a fallback, then
+  // overridden per-page via each page's own metadata.alternates.canonical.
+  alternates: {
+    canonical: "https://www.accounstone.com",
+  },
+
+  manifest: "/manifest.webmanifest",
+
   openGraph: {
     type: "website",
     locale: "en_US",
