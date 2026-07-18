@@ -1,5 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import {
+  FaLinkedinIn,
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,13 +63,12 @@ export default function Footer() {
       ],
     },
     {
-      title: 'Company',
-      links: [
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' },
-        { name: 'LinkedIn', href: 'https://linkedin.com/company/accounstone' },
-      ],
-    },
+  title: 'Company',
+  links: [
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+  ],
+},
     {
       title: 'Trust & Compliance',
       links: [
@@ -93,30 +99,57 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed">
               Professional accounting and finance solutions for growing businesses.
             </p>
-            <div className="flex gap-4 pt-4">
-              <a
-                href="https://linkedin.com/company/accounstone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z" />
-                </svg>
-              </a>
-              <a
-                href="https://twitter.com/accounstone"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/60 hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-                </svg>
-              </a>
-            </div>
+            <div className="flex items-center gap-3 pt-5">
+  <a
+    href="https://www.linkedin.com/company/accounstone/"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="LinkedIn"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110"
+  >
+    <FaLinkedinIn size={18} />
+  </a>
+
+  <a
+    href="https://www.facebook.com/profile.php?id=61591501869187"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Facebook"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110"
+  >
+    <FaFacebookF size={18} />
+  </a>
+
+  <a
+    href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Instagram"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#E4405F] hover:border-[#E4405F] hover:text-white transition-all duration-300 hover:scale-110"
+  >
+    <FaInstagram size={18} />
+  </a>
+
+  <a
+    href="https://x.com/accounstone"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="X"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-black hover:text-white transition-all duration-300 hover:scale-110"
+  >
+    <FaXTwitter size={18} />
+  </a>
+
+  <a
+    href="https://www.youtube.com/@accounstone"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="YouTube"
+    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110"
+  >
+    <FaYoutube size={18} />
+  </a>
+</div>
           </div>
 
           {/* Footer Links */}
@@ -150,32 +183,6 @@ export default function Footer() {
           <p className="text-white/60 text-sm">
             Security-focused with NDA-backed engagements. Pursuing industry certifications.
           </p>
-          
-          {/* Social Media Links */}
-          <div className="flex items-center gap-4">
-            <a
-              href="https://www.facebook.com/profile.php?id=61591501869187"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Accounstone on Facebook"
-              className="text-white/60 hover:text-white transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </a>
-            <a
-              href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Follow Accounstone on Instagram"
-              className="text-white/60 hover:text-white transition-colors"
-            >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm4.441 7.313c.057.086.085.19.085.314v.038c0 .117-.028.223-.085.315l-.038.062c-.057.087-.19.135-.314.135h-.038c-.125 0-.257-.048-.314-.135l-.038-.062c-.057-.092-.085-.198-.085-.315v-.038c0-.124.028-.228.085-.314l.038-.062c.057-.087.19-.135.314-.135h.038c.124 0 .257.048.314.135l.038.062zm3.76 7.687h-1.5v-4.462c0-1.118-.401-1.88-1.398-1.88-.717 0-1.143.481-1.331 0.946-.068.167-.086.401-.086.633v4.763h-1.5s.02-7.736 0-8.545h1.5v1.21c.376-.58 1.05-1.407 2.551-1.407 1.865 0 3.264 1.217 3.264 3.835v4.907zM5.904 6.649c-.484 0-.799-.322-.799-.726 0-.413.326-.726.816-.726.49 0 .799.313.807.726 0 .404-.317.726-.824.726zm.722 11.351H4.914V9.104h1.712v8.896zM19.06 0H4.94C2.215 0 0 2.215 0 4.94v14.12C0 21.785 2.215 24 4.94 24h14.12c2.725 0 4.94-2.215 4.94-4.94V4.94C24 2.215 21.785 0 19.06 0z" />
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
     </footer>
