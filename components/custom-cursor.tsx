@@ -141,7 +141,7 @@ export default function CustomCursor() {
       {/* Main cursor - smooth circle */}
       <motion.div
         ref={cursorRef}
-        className={`fixed pointer-events-none z-[9999] ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}
+        className={`fixed pointer-events-none z-9999 ${isVisible ? 'opacity-100' : 'opacity-0'} transition-opacity duration-200`}
         initial={false}
       >
         <motion.div
@@ -167,7 +167,7 @@ export default function CustomCursor() {
 
       {/* Ambient glow — now correctly follows the actual cursor position */}
       <motion.div
-        className="fixed pointer-events-none z-[9997] rounded-full"
+        className="fixed pointer-events-none z-9997 rounded-full"
         style={{
           width: '40px',
           height: '40px',
