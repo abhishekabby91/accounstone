@@ -21,7 +21,7 @@ export function Sidebar() {
 
       {/* LinkedIn */}
       <a
-        href="https://www.linkedin.com/company/au-corporate/?viewAsMember=true"
+        href="https://www.linkedin.com/company/accounstone/?viewAsMember=true"
         target="_blank"
         rel="noopener noreferrer"
         className="group bg-blue-600 text-white p-3 rounded-full shadow-lg
