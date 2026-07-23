@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function AuditSupportPage() {
   return (
     <ServicePageTemplate
+    path="/services/audit-support"
       service={{
         name: 'Audit Support Services',
         description:
