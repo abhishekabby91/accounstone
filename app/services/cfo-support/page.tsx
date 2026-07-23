@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function CFOSupportPage() {
   return (
     <ServicePageTemplate
+    path="/services/cfo-support"
       service={{
         name: 'CFO Support Services',
         description:
