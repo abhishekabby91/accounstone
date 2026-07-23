@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import HeaderBar from "@/components/header-bar";
 import TouchRipple from "@/components/touch-ripple";
 import MobileGestures from "@/components/mobile-gestures";
-import { generateOrganizationSchema } from "@/lib/seo";
+import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -16,7 +16,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.accounstone.com"),
+  // DECISION: non-www (accounstone.com) is canonical everywhere.
+  // baseUrl in lib/seo.ts is the single source of truth — never
+  // hardcode the domain in any other file.
+  metadataBase: new URL(baseUrl),
 
   title: {
     default: "Accounstone | Outsourced Accounting & Bookkeeping for CPA Firms",
@@ -38,8 +41,6 @@ export const metadata: Metadata = {
 
   authors: [{ name: "Accounstone" }],
 
-  // Was missing — without this, some crawlers fall back to page-level
-  // defaults inconsistently. Explicit is safer for an enterprise site.
   robots: {
     index: true,
     follow: true,
@@ -51,10 +52,13 @@ export const metadata: Metadata = {
     },
   },
 
-  // Was missing — canonical should be set globally as a fallback, then
-  // overridden per-page via each page's own metadata.alternates.canonical.
+  // FALLBACK ONLY. Every individual page (services/*, solutions/*,
+  // markets/*, resources/*) MUST call generateMetadata() from lib/seo.ts,
+  // which sets its own canonical automatically. If a page sets metadata
+  // manually instead of using that helper, it will silently inherit
+  // this homepage canonical and Google may drop it from the index.
   alternates: {
-    canonical: "https://www.accounstone.com",
+    canonical: baseUrl,
   },
 
   manifest: "/manifest.webmanifest",
@@ -62,13 +66,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.accounstone.com",
+    url: baseUrl,
     siteName: "Accounstone",
     title: "Accounstone | Outsourced Accounting & Finance Solutions",
-    description: "Professional outsourced accounting, finance, and HR services for growing businesses.",
+    description:
+      "Professional outsourced accounting, finance, and HR services for growing businesses.",
     images: [
       {
-        url: "https://www.accounstone.com/og-image.png",
+        url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "Accounstone",
@@ -79,7 +84,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Accounstone | Outsourced Accounting & Finance Solutions",
-    description: "Professional outsourced accounting, finance, and HR services for growing businesses.",
+    description:
+      "Professional outsourced accounting, finance, and HR services for growing businesses.",
+    // TODO confirm: remove this line if @accounstone is not a real,
+    // active X/Twitter account.
     creator: "@accounstone",
   },
 };
@@ -90,6 +98,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const organizationSchema = generateOrganizationSchema();
+  const websiteSchema = generateWebsiteSchema();
 
   return (
     <html lang="en" className="bg-background">
@@ -98,6 +107,12 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
           }}
         />
       </head>
