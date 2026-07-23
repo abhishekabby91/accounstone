@@ -243,7 +243,18 @@ export const expertise = [
 ];
 
 // Testimonials/Case Studies
-// These testimonials represent typical feedback themes from client engagements
+//
+// ⚠️ TODO — LEGAL/TRUST: These are illustrative, not real client quotes.
+// The FTC's rule on consumer reviews (16 CFR Part 465, effective 2024)
+// prohibits presenting testimonials in a way that implies they're from
+// real customers when they are not. Two safe paths:
+//   1. Replace with real client quotes (get written permission) — best.
+//   2. Keep as-is BUT the visible page text must say something like
+//      "Illustrative feedback based on common client engagement themes"
+//      — not just hidden in a code comment. Do NOT ship this section
+//      with real-sounding names/avatars and no on-page disclosure.
+// Placeholder avatars (dicebear cartoons) are fine to keep even with
+// real quotes, if a real client prefers not to share a photo.
 export const testimonials = [
   {
     name: 'Accounting Practice Owner',
@@ -276,14 +287,23 @@ export const trustBadges = [
 ];
 
 // Company info
+//
+// Global delivery model: leadership/sales presence serving US/UK/AU
+// clients, with the service delivery team based in New Delhi, India.
+// This is presented transparently as the core "offshore accounting"
+// value proposition, not hidden — matches how comparable companies
+// (TOA Global, Escalon, etc.) position their delivery model.
 export const companyInfo = {
   name: 'Accounstone',
   tagline: 'Outsourced Accounting & Finance Solutions',
-  description: 'Accounstone is a leading provider of outsourced accounting, finance, and HR services to growing businesses. With a team of expert accountants and CPAs, we deliver strategic financial solutions that drive business growth.',
+  description: 'Accounstone is a leading provider of outsourced accounting, finance, and HR services to growing businesses across the US, UK, and Australia. With a team of expert accountants and CPAs, we deliver strategic financial solutions that drive business growth.',
   website: 'https://accounstone.com',
   contact: {
-    email: 'hello@accounstone.com',
-    phone: '+1 (555) 123-4567',
-    address: '123 Finance Drive, New York, NY 10001',
+    email: 'partner@accounstone.com',
+    // E.164 format for tel: links / schema. Displayed format handled
+    // in the component (e.g. "+91 99905 97192").
+    phone: '+919990597192',
+    // Labeled as delivery center, not HQ — see note above.
+    address: 'Global Delivery Center, New Delhi, India',
   },
 };
