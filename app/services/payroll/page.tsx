@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function PayrollPage() {
   return (
     <ServicePageTemplate
+    path="/services/payroll-processing"
       service={{
         name: 'Payroll Processing Services',
         description:
