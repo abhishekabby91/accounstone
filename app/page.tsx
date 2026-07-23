@@ -193,7 +193,7 @@ export default function HomePage() {
                 <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
               <div className="space-y-2">
-                {/* TODO: replace "X+" with the real confirmed number */}
+                {/* TODO: replace "24+" with the real confirmed number */}
                 <div className="text-5xl font-bold">X+</div>
                 <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
