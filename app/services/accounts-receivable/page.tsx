@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function ARPage() {
   return (
     <ServicePageTemplate
+    path="/services/accounts-receivable"
       service={{
         name: 'Accounts Receivable Services',
         description:
