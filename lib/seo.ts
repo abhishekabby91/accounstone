@@ -60,10 +60,11 @@ export function generateOrganizationSchema() {
     url: baseUrl,
     logo: `${baseUrl}/logo.svg`,
     sameAs: [
-      'https://linkedin.com/company/accounstone',
-      'https://twitter.com/accounstone',
-      'https://facebook.com/accounstone',
-    ],
+  'https://www.linkedin.com/company/accounstone/',
+  'https://www.facebook.com/profile.php?id=61591501869187',
+  'https://www.instagram.com/accounstone',
+  'https://www.youtube.com/@accounstone',
+],
     // Fixed: schema.org uses "contactPoint", not "contact" — the previous
     // key meant this block was not valid structured data at all.
     contactPoint: {
