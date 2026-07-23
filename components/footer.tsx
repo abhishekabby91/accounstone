@@ -5,7 +5,11 @@ import {
   Facebook,
   Instagram,
   Youtube,
-} from "lucide-react";
+  Mail,
+  Phone,
+  MapPin,
+} from 'lucide-react';
+import { companyInfo } from '@/lib/data';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -62,12 +66,12 @@ export default function Footer() {
       ],
     },
     {
-  title: 'Company',
-  links: [
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ],
-},
+      title: 'Company',
+      links: [
+        { name: 'About', href: '/about' },
+        { name: 'Contact', href: '/contact' },
+      ],
+    },
     {
       title: 'Trust & Compliance',
       links: [
@@ -81,10 +85,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
-          {/* Brand Column */}
           <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
             <Link href="/" className="inline-flex items-center h-14 hover:opacity-90 transition-opacity">
               <Image
@@ -96,78 +98,64 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/70 text-sm leading-relaxed">
-              Professional accounting and finance solutions for growing businesses.
+              {companyInfo.tagline}
             </p>
-            <div className="flex items-center gap-3 pt-5">
-  <a
-    href="https://www.linkedin.com/company/accounstone/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110"
-  >
-    <Linkedin size={18} />
-  </a>
 
-  <a
-    href="https://www.facebook.com/profile.php?id=61591501869187"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110"
-  >
-    <Facebook size={18} />
-  </a>
+            <ul className="space-y-2 pt-2 text-sm text-white/70">
+              <li className="flex items-start gap-2">
+                <Mail size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                <a href={`mailto:${companyInfo.contact.email}`} className="hover:text-white transition-colors">
+                  {companyInfo.contact.email}
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Phone size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                <a href={`tel:${companyInfo.contact.phone}`} className="hover:text-white transition-colors">
+                  +91 99905 97192
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
+                <span>{companyInfo.contact.address}</span>
+              </li>
+            </ul>
 
-  <a
-  href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy"
-  target="_blank"
-  rel="noopener noreferrer"
-  aria-label="Instagram"
-  className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]"
->
-  <Instagram
-    size={18}
-    className="text-white/70 group-hover:text-white transition-colors"
-  />
-</a>
-
-  <a
-    href="https://www.youtube.com/@accounstone"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="YouTube"
-    className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110"
-  >
-    <Youtube size={18} />
-  </a>
-</div>
+            <div className="flex items-center gap-3 pt-3">
+              <a href="https://www.linkedin.com/company/accounstone/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110">
+                <Linkedin size={18} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61591501869187" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]">
+                <Instagram size={18} className="text-white/70 group-hover:text-white transition-colors" />
+              </a>
+              <a href="https://www.youtube.com/@accounstone" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110">
+                <Youtube size={18} />
+              </a>
+            </div>
           </div>
 
-          {/* Footer Links */}
-          {footerSections.map((section) => (
-            <div key={section.title} className="space-y-4">
-              <h4 className="font-semibold text-white">{section.title}</h4>
-              <ul className="space-y-2">
-                {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.href}
-                      className="text-white/70 hover:text-white transition-colors text-sm"
-                    >
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <nav aria-label="Footer" className="col-span-2 md:col-span-2 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
+            {footerSections.map((section) => (
+              <div key={section.title} className="space-y-4">
+                <h3 className="font-semibold text-white">{section.title}</h3>
+                <ul className="space-y-2">
+                  {section.links.map((link) => (
+                    <li key={link.name}>
+                      <Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
 
-        {/* Divider */}
         <div className="border-t border-white/10 my-12" />
 
-        {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-white/60 text-sm">
             © {currentYear} Accounstone. All rights reserved.
