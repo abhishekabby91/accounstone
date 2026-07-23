@@ -88,7 +88,11 @@ export default function HomePage() {
 
       {/* Hero Carousel Section */}
       <section data-section="hero">
-        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} />
+        <HeroCarousel
+  slides={carouselSlides}
+  autoPlayInterval={5000}
+  pageHeading="Outsourced Accounting & Finance Solutions for CPA Firms | Accounstone"
+/>
       </section>
 
       {/* CTA Banner */}
