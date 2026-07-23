@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function BookkeepingPage() {
   return (
     <ServicePageTemplate
+    path="/services/bookkeeping"
       service={{
         name: 'Bookkeeping Services',
         description:
