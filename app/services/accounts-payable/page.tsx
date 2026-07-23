@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function APPage() {
   return (
     <ServicePageTemplate
+    path="/services/accounts-payable"
       service={{
         name: 'Accounts Payable Services',
         description:
