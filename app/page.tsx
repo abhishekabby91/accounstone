@@ -163,7 +163,7 @@ export default function HomePage() {
 
               <div className="space-y-4 pt-4">
                 {[
-                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "X+ years" once confirmed
+                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "24+ years" once confirmed
                   'Dedicated support during critical periods',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
