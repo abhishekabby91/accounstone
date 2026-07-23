@@ -1,6 +1,5 @@
-'use client';
-
 import { ReactNode } from 'react';
+import Link from 'next/link';
 
 interface PremiumHeroProps {
   title: string;
@@ -40,7 +39,6 @@ export default function PremiumHero({
     <section className={`relative w-full py-24 md:py-32 lg:py-40 px-6 md:px-8 ${bgClass}`}>
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 ${image ? 'md:grid-cols-2' : ''} gap-12 md:gap-16 items-center`}>
-          {/* Content */}
           <div className="space-y-8">
             {subtitle && (
               <div className="inline-block">
@@ -66,11 +64,10 @@ export default function PremiumHero({
               </p>
             )}
 
-            {/* CTAs */}
             {(cta || ctaSecondary) && (
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 w-full sm:w-auto">
                 {cta && (
-                  <a
+                  <Link
                     href={cta.href}
                     className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base ${
                       cta.variant === 'secondary'
@@ -79,10 +76,10 @@ export default function PremiumHero({
                     }`}
                   >
                     {cta.text}
-                  </a>
+                  </Link>
                 )}
                 {ctaSecondary && (
-                  <a
+                  <Link
                     href={ctaSecondary.href}
                     className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto text-sm sm:text-base ${
                       background === 'default'
@@ -91,7 +88,7 @@ export default function PremiumHero({
                     }`}
                   >
                     {ctaSecondary.text}
-                  </a>
+                  </Link>
                 )}
               </div>
             )}
@@ -99,7 +96,6 @@ export default function PremiumHero({
             {children}
           </div>
 
-          {/* Image */}
           {image && (
             <div className="hidden md:flex items-center justify-center">
               {image}
