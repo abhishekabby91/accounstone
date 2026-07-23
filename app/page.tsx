@@ -5,8 +5,8 @@ import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
 import TestimonialsSection from '@/components/testimonials-section';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
-import { services, solutions, testimonials, trustBadges } from '@/lib/data';
+import { generateMetadata, generateFAQSchema } from '@/lib/seo';
+import { services, solutions, testimonials } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Outsourced Accounting & Finance Solutions',
@@ -44,9 +44,14 @@ const homePageFAQs = [
   {
     question: 'Do you provide offshore accounting services?',
     answer:
-      'Yes, we have offshore teams in multiple countries providing cost-effective accounting support while maintaining the same high standards as onshore services.',
+      'Yes, our service delivery team operates from our Global Delivery Center in New Delhi, India, providing cost-effective accounting support to US, UK, and Australian clients while maintaining the same high standards as onshore services.',
   },
 ];
+
+// JSON-LD for the FAQ block above. This is what makes FAQ rich results
+// (expandable Q&A snippets in Google search results) possible — without
+// this schema, the FAQPage content is just plain text to Google.
+const faqSchema = generateFAQSchema(homePageFAQs);
 
 export default function HomePage() {
   const carouselSlides = [
@@ -75,6 +80,12 @@ export default function HomePage() {
 
   return (
     <main>
+      {/* FAQ structured data for this page */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       {/* Hero Carousel Section */}
       <section data-section="hero">
         <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} />
@@ -88,46 +99,46 @@ export default function HomePage() {
             Partner with us for reliable, experienced accounting support designed specifically for CPA firms and accounting professionals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all"
             >
               Schedule Consultation
-            </a>
-            <a
+            </Link>
+            <Link
               href="/solutions"
               className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white/10 transition-all"
             >
               Explore Solutions
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section data-section="services">
-      <SectionGrid
-        subtitle="Our Offerings"
-        title="Flexible Service Solutions"
-        description="Choose the right engagement model for your business needs."
-        items={solutions}
-        baseUrl="/solutions"
-        columns={3}
-        variant="default"
-      />
+      <section data-section="solutions">
+        <SectionGrid
+          subtitle="Our Offerings"
+          title="Flexible Service Solutions"
+          description="Choose the right engagement model for your business needs."
+          items={solutions}
+          baseUrl="/solutions"
+          columns={3}
+          variant="default"
+        />
       </section>
 
       {/* Services Section */}
       <section data-section="services">
-      <SectionGrid
-        subtitle="What We Do"
-        title="Comprehensive Accounting Services"
-        description="Expert services across all areas of accounting and finance."
-        items={services}
-        baseUrl="/services"
-        columns={3}
-        variant="default"
-      />
+        <SectionGrid
+          subtitle="What We Do"
+          title="Comprehensive Accounting Services"
+          description="Expert services across all areas of accounting and finance."
+          items={services}
+          baseUrl="/services"
+          columns={3}
+          variant="default"
+        />
       </section>
 
       {/* Why Accounstone Section */}
@@ -148,7 +159,7 @@ export default function HomePage() {
 
               <div className="space-y-4 pt-4">
                 {[
-                  'Expert Professionals with 10+ years of experience',
+                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "X+ years" once confirmed
                   'Dedicated support during critical periods',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
@@ -163,18 +174,28 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/*
+              STATS PANEL — REWRITTEN.
+              Original had unverifiable claims ("500+ Active Clients",
+              "$2B+ Transactions Managed", "15+ Years of Experience" for a
+              pre-launch company). Replaced with true, verifiable facts:
+              service breadth, market coverage, and delivery model. Swap
+              the "X+ Years" line for a real number once confirmed — do
+              not restore client/transaction counts until they're real.
+            */}
             <div className="bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
               <div className="space-y-2">
-                <div className="text-5xl font-bold">500+</div>
-                <p className="text-white/80 text-lg">Active Clients</p>
+                <div className="text-5xl font-bold">3</div>
+                <p className="text-white/80 text-lg">Markets Served — US, UK & Australia</p>
               </div>
               <div className="space-y-2">
-                <div className="text-5xl font-bold">$2B+</div>
-                <p className="text-white/80 text-lg">Transactions Managed</p>
+                <div className="text-5xl font-bold">8</div>
+                <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
               <div className="space-y-2">
-                <div className="text-5xl font-bold">15+</div>
-                <p className="text-white/80 text-lg">Years of Experience</p>
+                {/* TODO: replace "X+" with the real confirmed number */}
+                <div className="text-5xl font-bold">X+</div>
+                <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
             </div>
           </div>
@@ -182,28 +203,30 @@ export default function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section data-section="technology">
-      <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
+      <section data-section="testimonials">
+        <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
+      </section>
 
       {/* FAQ */}
-      <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
+      <section data-section="faq">
+        <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
       </section>
 
       {/* Final CTA */}
       <section data-section="contact">
-      <CTABanner
-        title="Ready to Transform Your Finance Operations?"
-        description="Let us handle the accounting while you focus on growing your business."
-        cta={{
-          text: 'Start Your Free Consultation',
-          href: '/contact',
-        }}
-        ctaSecondary={{
-          text: 'Learn More',
-          href: '/about',
-        }}
-        background="primary"
-      />
+        <CTABanner
+          title="Ready to Transform Your Finance Operations?"
+          description="Let us handle the accounting while you focus on growing your business."
+          cta={{
+            text: 'Start Your Free Consultation',
+            href: '/contact',
+          }}
+          ctaSecondary={{
+            text: 'Learn More',
+            href: '/about',
+          }}
+          background="primary"
+        />
       </section>
     </main>
   );
