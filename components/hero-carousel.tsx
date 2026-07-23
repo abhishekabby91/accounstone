@@ -14,22 +14,21 @@ interface CarouselSlide {
 interface HeroCarouselProps {
   slides: CarouselSlide[];
   autoPlayInterval?: number;
+  // The single, real, page-level H1. This is what Google treats as the
+  // page's primary topic — keep it accurate and keyword-relevant. It's
+  // visually hidden (sr-only) so it doesn't disturb the carousel design,
+  // but it is present in the HTML and read by screen readers/crawlers.
+  pageHeading: string;
 }
 
 export default function HeroCarousel({
   slides,
   autoPlayInterval = 5000,
+  pageHeading,
 }: HeroCarouselProps) {
   const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Preload images for smooth carousel
-  useEffect(() => {
-    slides.forEach((slide) => {
-      const img = new window.Image();
-      img.src = slide.image;
-    });
-  }, [slides]);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -43,51 +42,55 @@ export default function HeroCarousel({
     setCurrent(index);
   }, []);
 
-  // Auto-play functionality
+  // Auto-play — stops entirely if the user prefers reduced motion, and
+  // pauses (without resetting) on hover/focus so the content is easy to
+  // read and WCAG 2.2.2 compliant.
   useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || isPaused) {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+      return;
+    }
+
     autoPlayRef.current = setInterval(next, autoPlayInterval);
 
     return () => {
-      if (autoPlayRef.current) {
-        clearInterval(autoPlayRef.current);
-      }
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [next, autoPlayInterval]);
+  }, [next, autoPlayInterval, isPaused]);
 
-  // Reset interval on manual interaction
-  const resetAutoPlay = useCallback(() => {
-    if (autoPlayRef.current) {
-      clearInterval(autoPlayRef.current);
-    }
-    autoPlayRef.current = setInterval(next, autoPlayInterval);
-  }, [next, autoPlayInterval]);
-
-  const handlePrev = () => {
-    prev();
-    resetAutoPlay();
-  };
-
-  const handleNext = () => {
-    next();
-    resetAutoPlay();
-  };
-
-  const handleDot = (index: number) => {
-    goTo(index);
-    resetAutoPlay();
-  };
+  const handlePrev = () => prev();
+  const handleNext = () => next();
+  const handleDot = (index: number) => goTo(index);
 
   if (!slides || slides.length === 0) {
     return null;
   }
 
   return (
-    <div className="relative w-full h-96 md:h-screen max-h-[600px] md:max-h-full overflow-hidden bg-background">
-      {/* Slides */}
+    <div
+      className="relative w-full h-96 md:h-screen max-h-[600px] md:max-h-full overflow-hidden bg-background"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={pageHeading}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+    >
+      <h1 className="sr-only">{pageHeading}</h1>
+
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${slides.length}`}
+            aria-hidden={index !== current}
             className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
               index === current ? 'opacity-100' : 'opacity-0'
             }`}
@@ -98,12 +101,10 @@ export default function HeroCarousel({
               fill
               priority={index === current}
               className="object-cover w-full h-full"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+              sizes="100vw"
             />
-            {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
 
-            {/* Content overlay */}
             <div className="absolute inset-0 flex items-center px-6 md:px-12">
               <div className="max-w-2xl space-y-4 text-white">
                 {slide.subtitle && (
@@ -111,16 +112,15 @@ export default function HeroCarousel({
                     {slide.subtitle}
                   </p>
                 )}
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
+                <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance">
                   {slide.title}
-                </h1>
+                </h2>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Navigation Arrows */}
       <button
         onClick={handlePrev}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-10 p-2 md:p-3 rounded-full bg-white/20 hover:bg-white/40 transition-colors backdrop-blur-sm"
@@ -141,7 +141,6 @@ export default function HeroCarousel({
         </svg>
       </button>
 
-      {/* Dots Navigation */}
       <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2 flex-wrap justify-center max-w-xs">
         {slides.map((_, index) => (
           <button
