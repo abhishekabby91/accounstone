@@ -12,6 +12,7 @@ export const metadata: Metadata = generateMetadata({
 export default function TaxPreparationPage() {
   return (
     <ServicePageTemplate
+    path="/services/tax-preparation"
       service={{
         name: 'Tax Preparation Services',
         description:
