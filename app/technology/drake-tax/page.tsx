@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Drake Tax Software Solutions',
@@ -10,9 +10,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/technology/drake-tax',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+  { name: 'Drake Tax', url: `${baseUrl}/technology/drake-tax` },
+]);
+
 export default function DrakeTaxPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Tax Preparation Platform"
         title="Drake Tax Software Solutions"

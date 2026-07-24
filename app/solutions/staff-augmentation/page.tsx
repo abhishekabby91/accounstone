@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Staff Augmentation',
@@ -33,9 +33,20 @@ const faqs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(faqs);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Solutions', url: `${baseUrl}/solutions` },
+  { name: 'Staff Augmentation', url: `${baseUrl}/solutions/staff-augmentation` },
+]);
+
 export default function StaffAugmentationPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Staff Augmentation"
         title="Extend Your Team On-Demand"

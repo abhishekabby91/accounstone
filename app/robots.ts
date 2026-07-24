@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { baseUrl } from '@/lib/seo';
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -6,9 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/private', '/internal'],
+        disallow: ['/admin', '/private', '/internal', '/api'],
       },
     ],
-    sitemap: 'https://accounstone.vercel.app/sitemap.xml',
+    // FIXED: was pointing to accounstone.vercel.app (the staging URL).
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

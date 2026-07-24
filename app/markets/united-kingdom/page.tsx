@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'UK Accounting & Bookkeeping Services',
@@ -46,8 +46,19 @@ export default function UKMarketPage() {
     },
   ];
 
+const faqSchema = generateFAQSchema(faqs);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Markets', url: `${baseUrl}/markets` },
+  { name: 'United Kingdom', url: `${baseUrl}/markets/united-kingdom` },
+]);
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="UK Market Expertise"
         title="Accounting Services for UK Businesses"

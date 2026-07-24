@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Xero Accounting Services',
@@ -46,8 +46,19 @@ export default function XeroPage() {
     },
   ];
 
+const faqSchema = generateFAQSchema(faqs);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+  { name: 'Xero', url: `${baseUrl}/technology/xero` },
+]);
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Platform Expertise"
         title="Xero Cloud Accounting Services"

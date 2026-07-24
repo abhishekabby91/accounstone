@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'CCH Axcess Tax Software Solutions',
@@ -9,9 +9,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/technology/cch',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+  { name: 'CCH Axcess', url: `${baseUrl}/technology/cch` },
+]);
+
 export default function CCHPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Tax & Accounting Software"
         title="CCH Axcess Solutions"

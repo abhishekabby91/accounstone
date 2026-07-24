@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'MYOB Accounting Software Solutions',
@@ -9,9 +9,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/technology/myob',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+  { name: 'MYOB', url: `${baseUrl}/technology/myob` },
+]);
+
 export default function MYOBPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="ANZ Accounting Platform"
         title="MYOB Accounting Solutions"

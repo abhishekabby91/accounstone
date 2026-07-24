@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Dedicated Accounting Teams',
@@ -37,9 +37,20 @@ const faqs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(faqs);
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Solutions', url: `${baseUrl}/solutions` },
+  { name: 'Dedicated Accounting Teams', url: `${baseUrl}/solutions/dedicated-accounting-teams` },
+]);
+
 export default function DedicatedTeamsPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Dedicated Teams"
         title="Your Strategic Accounting Partner"

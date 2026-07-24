@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'NetSuite ERP Solutions & Support',
@@ -11,9 +11,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/technology/netsuite',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+  { name: 'NetSuite', url: `${baseUrl}/technology/netsuite` },
+]);
+
 export default function NetSuitePage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Enterprise ERP Platform"
         title="NetSuite ERP Solutions"
