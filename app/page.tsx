@@ -164,7 +164,7 @@ export default function HomePage() {
               <div className="space-y-4 pt-4">
                 {[
                   'Fully white-labeled — your clients never know we\'re involved',
-                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "24+ years" once confirmed
+                  'Experienced professionals with hands-on accounting expertise',
                   'Dedicated support during critical periods, including busy season',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
@@ -180,13 +180,10 @@ export default function HomePage() {
             </div>
 
             {/*
-              STATS PANEL — REWRITTEN.
-              Original had unverifiable claims ("500+ Active Clients",
-              "$2B+ Transactions Managed", "15+ Years of Experience" for a
-              pre-launch company). Replaced with true, verifiable facts:
-              service breadth, market coverage, and delivery model. Swap
-              the "X+ Years" line for a real number once confirmed — do
-              not restore client/transaction counts until they're real.
+              STATS PANEL — Original had unverifiable claims ("500+ Active
+              Clients", "$2B+ Transactions Managed" for a pre-launch
+              company). Replaced with true, verifiable facts: service
+              breadth, market coverage, and confirmed team experience.
             */}
             <div className="bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
               <div className="space-y-2">
@@ -198,8 +195,7 @@ export default function HomePage() {
                 <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
               <div className="space-y-2">
-                {/* TODO: replace "24+" with the real confirmed number */}
-                <div className="text-5xl font-bold">X+</div>
+                <div className="text-5xl font-bold">25+</div>
                 <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
             </div>
