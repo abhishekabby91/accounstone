@@ -5,6 +5,8 @@ import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
 import TestimonialsSection from '@/components/testimonials-section';
 import FAQSection from '@/components/faq-section';
+import Reveal from '@/components/reveal';
+import AnimatedFigure from '@/components/animated-figure';
 import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials } from '@/lib/data';
 
@@ -97,7 +99,8 @@ export default function HomePage() {
 
       {/* CTA Banner */}
       <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light">
-        <div className="max-w-7xl mx-auto text-center space-y-6">
+        <Reveal className="max-w-7xl mx-auto text-center space-y-6">
+          <>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Partner with us for reliable, experienced accounting support designed specifically for CPA firms and accounting professionals.
@@ -116,7 +119,8 @@ export default function HomePage() {
               Explore Solutions
             </Link>
           </div>
-        </div>
+          </>
+        </Reveal>
       </section>
 
       {/* Solutions Section */}
@@ -149,7 +153,8 @@ export default function HomePage() {
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
+            <Reveal className="space-y-6">
+              <>
               <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                 Why Choose Us
               </span>
@@ -176,7 +181,8 @@ export default function HomePage() {
                   </div>
                 ))}
               </div>
-            </div>
+              </>
+            </Reveal>
 
             {/*
               STATS PANEL — REWRITTEN.
@@ -187,33 +193,59 @@ export default function HomePage() {
               the "X+ Years" line for a real number once confirmed — do
               not restore client/transaction counts until they're real.
             */}
-            <div className="bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
-              <div className="space-y-2">
-                <div className="text-5xl font-bold">3</div>
+            <Reveal
+              delay={0.15}
+              className="relative overflow-hidden bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6"
+            >
+              <>
+              {/*
+                Faint ledger-line texture, contained to this one panel —
+                the numbers/figures context is exactly where the ruled-
+                paper motif belongs. Kept subtle: opacity-[0.06] only.
+              */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-[0.06]"
+                style={{
+                  backgroundImage:
+                    'repeating-linear-gradient(to bottom, white 0, white 1px, transparent 1px, transparent 28px)',
+                }}
+              />
+              <div className="relative space-y-2">
+                <div className="text-5xl font-bold">
+                  <AnimatedFigure value={3} />
+                </div>
                 <p className="text-white/80 text-lg">Markets Served — US, UK & Australia</p>
               </div>
-              <div className="space-y-2">
-                <div className="text-5xl font-bold">8</div>
+              <div className="relative space-y-2">
+                <div className="text-5xl font-bold">
+                  <AnimatedFigure value={8} />
+                </div>
                 <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
-              <div className="space-y-2">
-                {/* TODO: replace "24+" with the real confirmed number */}
-                <div className="text-5xl font-bold">X+</div>
+              <div className="relative space-y-2">
+                {/* TODO: replace "X+" with the real confirmed number, then switch to <AnimatedFigure value={N} suffix="+" /> */}
+                <div className="text-5xl font-bold figure">X+</div>
                 <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
-            </div>
+              </>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
       <section data-section="testimonials">
-        <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
+        <Reveal>
+          <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
+        </Reveal>
       </section>
 
       {/* FAQ */}
       <section data-section="faq">
-        <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
+        <Reveal>
+          <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
+        </Reveal>
       </section>
 
       {/* Final CTA */}

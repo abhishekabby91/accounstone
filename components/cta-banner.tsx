@@ -1,5 +1,8 @@
 'use client';
 
+import Link from 'next/link';
+import Reveal from './reveal';
+
 interface CTABannerProps {
   title: string;
   description?: string;
@@ -29,7 +32,8 @@ export default function CTABanner({
 
   return (
     <section className={`relative w-full py-16 md:py-24 px-6 md:px-8 ${bgClass}`}>
-      <div className="max-w-5xl mx-auto text-center space-y-8">
+      <Reveal className="max-w-5xl mx-auto text-center space-y-8">
+        <>
         <div className="space-y-4">
           <h2 className="text-3xl md:text-5xl font-bold text-balance">
             {title}
@@ -42,22 +46,23 @@ export default function CTABanner({
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <a
+          <Link
             href={cta.href}
             className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold bg-white hover:bg-gray-100 text-primary transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             {cta.text}
-          </a>
+          </Link>
           {ctaSecondary && (
-            <a
+            <Link
               href={ctaSecondary.href}
               className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold border-2 border-white/30 hover:bg-white/10 text-white transition-all duration-300"
             >
               {ctaSecondary.text}
-            </a>
+            </Link>
           )}
         </div>
-      </div>
+        </>
+      </Reveal>
     </section>
   );
 }

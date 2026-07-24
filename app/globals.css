@@ -114,6 +114,42 @@ body {
   border-top: 1px solid var(--color-primary);
 }
 
+/* Hero background: a slow, barely-there zoom on the active slide.
+   Subtle by design — this should read as cinematic depth, not a
+   "moving background" gimmick. Reduced-motion users get the global
+   0.01ms override above, which effectively disables it. */
+@keyframes kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.animate-kenburns {
+  animation: kenburns 6s ease-out forwards;
+}
+
+/* Hero autoplay progress — a ledger row filling in, matching the
+   .ledger-rule hairline signature rather than a generic dot indicator
+   or progress bar. Duration is set inline per-instance via the
+   autoPlayInterval prop. */
+@keyframes ledger-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-ledger-fill {
+  animation-name: ledger-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
 .figure {
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.01em;
