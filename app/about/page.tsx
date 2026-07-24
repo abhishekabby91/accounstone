@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PremiumHero
         subtitle="Our Story"
         title="Building Better Financial Futures"
-        description="Founded in 2009, Accounstone has been helping businesses of all sizes manage their finances with expertise, integrity, and dedication."
+        description="We help CPA firms deliver more without expanding headcount — white-labeled bookkeeping, tax, and dedicated staff that plug into your existing workflow. We also work directly with growing businesses that need full-service accounting support."
         background="primary-gradient"
       />
 
@@ -34,10 +34,10 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted leading-relaxed">
-                We believe that small and mid-size businesses deserve access to world-class accounting services. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
+                We believe CPA firms deserve an outsourcing partner that works inside their brand, not around it. Our mission is to handle the delivery work so your firm can focus on advising clients, not processing transactions.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                By combining deep expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth.
+                By combining deep expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth — for CPA firms and the businesses we support directly.
               </p>
             </div>
 
@@ -72,7 +72,7 @@ export default function AboutPage() {
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-primary text-center text-balance mb-16">
-            Trusted by Hundreds of Businesses
+            Built for the Long Haul
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
@@ -96,7 +96,7 @@ export default function AboutPage() {
               What Sets Us Apart
             </span>
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-              Why Businesses Choose Accounstone
+              Why CPA Firms & Businesses Choose Accounstone
             </h2>
           </div>
 
@@ -105,7 +105,7 @@ export default function AboutPage() {
               {
                 icon: '🎓',
                 title: 'Expert Team',
-                desc: 'CPAs and accountants with 10+ years of industry experience and certifications.',
+                desc: '25+ years of combined team accounting experience across CPAs and accountants.',
               },
               {
                 icon: '🚀',
@@ -115,7 +115,7 @@ export default function AboutPage() {
               {
                 icon: '🔒',
                 title: 'Security & Compliance',
-                desc: 'Enterprise-grade security, ISO 27001 certified, and fully compliant.',
+                desc: 'NDA-backed engagements, strict access controls, and actively pursuing SOC 2 certification.',
               },
               {
                 icon: '⚡',

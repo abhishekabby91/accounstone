@@ -11,7 +11,7 @@ import { services, solutions, testimonials } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   title: 'Outsourced Accounting & Finance Solutions',
   description:
-    'Professional outsourced accounting, finance, and HR services for growing businesses. Expert CPAs, dedicated teams, and strategic financial solutions.',
+    'Outsourced accounting delivery for CPA firms and finance teams — white-labeled bookkeeping, tax, and dedicated staff that plug into your existing workflow. Also trusted by growing businesses for full-service accounting support.',
   path: '/',
 });
 
@@ -19,7 +19,7 @@ const homePageFAQs = [
   {
     question: 'What services does Accounstone provide?',
     answer:
-      'We provide comprehensive accounting services including bookkeeping, tax planning, financial advisory, HR compliance, audit and assurance, and dedicated accounting teams. Our solutions are tailored to businesses of all sizes.',
+      'We provide white-labeled accounting delivery for CPA firms — bookkeeping, tax preparation, audit support, and dedicated staff that work inside your existing systems and client relationships. We also work directly with growing businesses that need full-service accounting, finance, and HR support.',
   },
   {
     question: 'How do you ensure data security?',
@@ -163,8 +163,9 @@ export default function HomePage() {
 
               <div className="space-y-4 pt-4">
                 {[
-                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "24+ years" once confirmed
-                  'Dedicated support during critical periods',
+                  'Fully white-labeled — your clients never know we\'re involved',
+                  'Experienced professionals with hands-on accounting expertise',
+                  'Dedicated support during critical periods, including busy season',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
                   'Transparent reporting and communication',
@@ -179,13 +180,10 @@ export default function HomePage() {
             </div>
 
             {/*
-              STATS PANEL — REWRITTEN.
-              Original had unverifiable claims ("500+ Active Clients",
-              "$2B+ Transactions Managed", "15+ Years of Experience" for a
-              pre-launch company). Replaced with true, verifiable facts:
-              service breadth, market coverage, and delivery model. Swap
-              the "X+ Years" line for a real number once confirmed — do
-              not restore client/transaction counts until they're real.
+              STATS PANEL — Original had unverifiable claims ("500+ Active
+              Clients", "$2B+ Transactions Managed" for a pre-launch
+              company). Replaced with true, verifiable facts: service
+              breadth, market coverage, and confirmed team experience.
             */}
             <div className="bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6">
               <div className="space-y-2">
@@ -197,11 +195,52 @@ export default function HomePage() {
                 <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
               <div className="space-y-2">
-                {/* TODO: replace "24+" with the real confirmed number */}
-                <div className="text-5xl font-bold">X+</div>
+                <div className="text-5xl font-bold">25+</div>
                 <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* White-Label Trust Section — addresses the #1 objection CPA firms have before outsourcing */}
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+            <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
+              Built for CPA Firms
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+              We Work Inside Your Firm, Not Alongside It
+            </h2>
+            <p className="text-lg text-muted leading-relaxed">
+              Your clients see your firm's name on every deliverable. Ours stays out of sight.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Fully White-Labeled',
+                description:
+                  'All work product, communication templates, and client-facing documents carry your firm\'s branding — never ours. Your clients work with your firm, full stop.',
+              },
+              {
+                title: 'NDA-Backed, Security-First',
+                description:
+                  'Every engagement is covered by signed NDAs and strict access controls. We are actively pursuing SOC 2 certification to formalize what we already practice.',
+              },
+              {
+                title: 'Your Systems, Your Process',
+                description:
+                  'We work inside QuickBooks, Xero, NetSuite, Sage, and your existing workflow — no forcing your firm onto our tools or process.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-xl p-8 space-y-4 border border-border">
+                <h3 className="text-xl font-bold text-primary">{item.title}</h3>
+                <p className="text-muted leading-relaxed">{item.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

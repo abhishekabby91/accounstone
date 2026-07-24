@@ -32,6 +32,9 @@ export default function TestimonialsSection({
           <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
             {title}
           </h2>
+          <p className="text-sm text-muted max-w-2xl mx-auto pt-2">
+            Illustrative feedback based on common client engagement themes.
+          </p>
         </div>
 
         {/* Grid */}

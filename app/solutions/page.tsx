@@ -8,7 +8,7 @@ import { solutions } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   title: 'Service Solutions',
   description:
-    'Explore our flexible engagement models and service packages designed for growing businesses.',
+    'Flexible engagement models for CPA firms and finance teams — white-labeled outsourcing, dedicated staff, and back-office support. Also available for growing businesses.',
   path: '/solutions',
 });
 
@@ -17,8 +17,8 @@ export default function SolutionsPage() {
     <main>
       <PremiumHero
         subtitle="Flexible Engagement"
-        title="Service Solutions for Every Business Stage"
-        description="Choose the engagement model that fits your needs. From back-office support to dedicated teams, we deliver exceptional results."
+        title="Engagement Models Built for CPA Firms"
+        description="From white-labeled back-office support to dedicated accounting teams, choose the model that plugs into your firm's workflow. Also available for growing businesses that need full-service support."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',
