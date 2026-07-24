@@ -177,7 +177,7 @@ export default function YardiTexasPage() {
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, i) => (
               <li key={i} className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                <div className="text-2xl flex-shrink-0 text-accent" aria-hidden="true">✓</div>
+                <div className="text-2xl shrink-0 text-accent" aria-hidden="true">✓</div>
                 <p className="text-foreground leading-relaxed">{benefit}</p>
               </li>
             ))}
@@ -196,12 +196,12 @@ export default function YardiTexasPage() {
           <ol className="space-y-6">
             {process.map((item, i) => (
               <li key={i} className="flex gap-6">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg" aria-hidden="true">
                     {item.step}
                   </div>
                 </div>
-                <div className="flex-grow">
+                <div className="grow">
                   <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
                   <p className="text-muted leading-relaxed">{item.description}</p>
                 </div>
