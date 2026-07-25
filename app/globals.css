@@ -15,7 +15,7 @@
   --color-border: #e5ddd4;
   --color-input: #f5f2ed;
 
-  --font-sans: "Inter", "Helvetica Neue", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "Helvetica Neue", system-ui, sans-serif;
   --font-serif: "Georgia", "Garamond", serif;
   --radius: 0.5rem;
 }
@@ -23,6 +23,28 @@
 html {
   scroll-behavior: smooth;
   font-size: clamp(14px, 2vw, 16px);
+}
+
+/*
+ * iOS fixes
+ * ---------
+ * 1. Safari auto-zooms the whole page when a focused input's
+ *    computed font-size is under 16px. The html-level clamp above
+ *    drops to 14px on phone-width viewports, so form fields need an
+ *    explicit override regardless of the broader type scale.
+ * 2. touch-action: manipulation removes the ~300ms double-tap-to-zoom
+ *    delay on tappable elements, making taps feel immediate on iOS
+ *    Safari and Android Chrome alike.
+ */
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+button,
+a {
+  touch-action: manipulation;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -112,38 +134,6 @@ body {
 
 .ledger-rule-strong {
   border-top: 1px solid var(--color-primary);
-}
-
-/* Hero background: a slow, barely-there zoom on the active slide.
-   Subtle by design — this should read as cinematic depth, not a
-   "moving background" gimmick. Reduced-motion users get the global
-   0.01ms override above, which effectively disables it. */
-@keyframes kenburns {
-  from {
-    transform: scale(1);
-  }
-  to {
-    transform: scale(1.06);
-  }
-}
-
-.animate-kenburns {
-  animation: kenburns 6s ease-out forwards;
-}
-
-/* Mobile tuning: the hero is much shorter on phones (h-96, ~384px vs
-   full-screen on desktop), so the same 1.06 zoom reads as more
-   noticeable movement in that smaller frame. Dial it back slightly
-   rather than using one scale value for both. */
-@media (max-width: 767px) {
-  @keyframes kenburns {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.03);
-    }
-  }
 }
 
 /* Hero autoplay progress — a ledger row filling in, matching the

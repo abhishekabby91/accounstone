@@ -88,14 +88,7 @@ export default function HeroCarousel({
                 isActive ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              {/*
-                Ken Burns zoom — a slow, barely-there scale on the active
-                slide only. The class is added/removed as the slide
-                becomes active/inactive, which reliably restarts the CSS
-                animation from 0% each time (see globals.css for the
-                @keyframes and the reduced-motion override).
-              */}
-              <div className={`w-full h-full ${isActive ? 'animate-kenburns' : ''}`}>
+              <div className="w-full h-full">
                 <Image
                   src={slide.image}
                   alt={slide.alt}
