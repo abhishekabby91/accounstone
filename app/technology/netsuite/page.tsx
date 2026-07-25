@@ -2,7 +2,9 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import FAQSection from '@/components/faq-section';
+import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'NetSuite ERP Solutions & Support',
@@ -10,6 +12,31 @@ export const metadata: Metadata = generateMetadata({
     'Expert NetSuite implementation, optimization, and support for enterprise accounting and financial operations.',
   path: '/technology/netsuite',
 });
+
+const faqs = [
+  {
+    question: 'Can you help migrate us from QuickBooks or Xero to NetSuite?',
+    answer:
+      'Yes, we support migrations from small-business platforms to NetSuite as companies outgrow them, including chart of accounts redesign and historical data migration planning.',
+  },
+  {
+    question: 'Do you support multi-subsidiary and multi-currency consolidation?',
+    answer:
+      'Yes, multi-subsidiary, multi-currency, and intercompany consolidation is one of the main reasons companies move to NetSuite, and it\'s a core part of what we support.',
+  },
+  {
+    question: 'Can you handle ASC 606 revenue recognition within NetSuite?',
+    answer:
+      "Yes, we configure and manage revenue recognition workflows in NetSuite aligned with ASC 606 for multi-period and subscription-based revenue.",
+  },
+  {
+    question: 'How long does a typical NetSuite implementation take?',
+    answer:
+      'It depends on complexity — a straightforward single-entity setup can take a few weeks, while multi-subsidiary or heavily customized implementations take longer. We scope this specifically during initial review.',
+  },
+];
+
+const faqSchema = generateFAQSchema(faqs);
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
@@ -21,6 +48,7 @@ export default function NetSuitePage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PremiumHero
         subtitle="Enterprise ERP Platform"
@@ -35,9 +63,9 @@ export default function NetSuitePage() {
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">NetSuite ERP</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               NetSuite Enterprise Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               NetSuite is the leading cloud-based ERP solution for mid-market and enterprise organizations. Our team brings expertise in NetSuite implementation, configuration, optimization, and ongoing support for complex financial operations including multi-entity, multi-currency, and multi-subsidiary scenarios.
             </p>
@@ -97,9 +125,9 @@ export default function NetSuitePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services We Deliver in NetSuite
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -124,6 +152,8 @@ export default function NetSuitePage() {
           </div>
         </div>
       </section>
+
+      <FAQSection subtitle="NetSuite Questions" items={faqs} columns={2} />
 
       <CTABanner
         title="Ready to Implement or Optimize NetSuite?"

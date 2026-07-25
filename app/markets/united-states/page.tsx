@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'U.S. Accounting & Bookkeeping Services',
@@ -72,9 +73,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">United States Market</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               U.S. Accounting Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               The U.S. market requires expertise in federal taxes, state and local compliance, and industry-specific regulations. Our team brings deep knowledge of GAAP accounting standards, complex tax rules, and evolving regulatory requirements. Whether you're a CPA firm, accounting practice, or business, we provide reliable support to grow your U.S. operations.
             </p>
@@ -134,9 +135,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services for U.S. Markets
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

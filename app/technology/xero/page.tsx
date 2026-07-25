@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Xero Accounting Services',
@@ -72,9 +73,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Xero Accounting</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Xero Cloud Accounting Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               Xero is the world's most popular cloud accounting software for small to medium-sized businesses. With flexible features, powerful automation, and global support, Xero enables businesses to manage accounting efficiently from anywhere. Our team brings deep expertise in Xero setup, optimization, and support across all regions and industries.
             </p>
@@ -134,9 +135,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Related Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services We Deliver in Xero
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

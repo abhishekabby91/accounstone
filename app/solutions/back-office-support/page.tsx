@@ -3,6 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Back Office Support',
@@ -70,7 +71,7 @@ export default function BackOfficeSupportPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary">Full Back-Office Operations Outsourced</h2>
+              <Reveal><h2 className="text-4xl font-bold text-primary">Full Back-Office Operations Outsourced</h2></Reveal>
               <p className="text-lg text-muted leading-relaxed">Back-office support removes the burden of administrative operations from your team. We handle all the operational details so you can focus on strategy, sales, and growth.</p>
               
               <div className="space-y-4 pt-4">
@@ -109,7 +110,7 @@ export default function BackOfficeSupportPage() {
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">Back Office Service Model</h2>
+          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Back Office Service Model</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white rounded-lg p-8 space-y-4">
               <h3 className="text-2xl font-bold text-primary">Benefits</h3>

@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'UK Accounting & Bookkeeping Services',
@@ -72,9 +73,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">United Kingdom Market</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               UK Accounting Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               UK accounting requires expertise in IFRS standards, VAT compliance, Companies House requirements, and corporation tax. Our UK-focused team brings deep knowledge of regulatory requirements and industry-specific practices. Whether you're expanding to the UK or supporting existing operations, we provide expert accounting and compliance services.
             </p>
@@ -134,9 +135,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services for UK Markets
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

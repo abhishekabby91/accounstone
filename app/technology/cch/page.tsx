@@ -1,13 +1,37 @@
 import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import FAQSection from '@/components/faq-section';
+import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'CCH Axcess Tax Software Solutions',
   description: 'Expert CCH tax and accounting software setup, integration, and support for comprehensive tax compliance.',
   path: '/technology/cch',
 });
+
+const faqs = [
+  {
+    question: 'Do you support CCH Axcess Workflow and document management?',
+    answer: 'Yes, we work within CCH Axcess Workflow and document management tools to keep engagements organized alongside the tax and audit modules.',
+  },
+  {
+    question: 'Can you support multiple engagements across different clients in CCH?',
+    answer: 'Yes, we support multi-client, multi-engagement work within CCH Axcess, which is common for firms managing a large book of clients.',
+  },
+  {
+    question: 'Do you work with both the tax and audit modules in CCH Axcess?',
+    answer: 'Yes, we support both tax preparation workflows and audit documentation/testing support within the CCH Axcess platform.',
+  },
+  {
+    question: 'Is CCH Axcess cloud-based, and do you support remote access setups?',
+    answer: "Yes, CCH Axcess is cloud-based, and we work within your firm's existing access and security setup rather than requiring a separate environment.",
+  },
+];
+
+const faqSchema = generateFAQSchema(faqs);
+
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
@@ -19,6 +43,7 @@ export default function CCHPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PremiumHero
         subtitle="Tax & Accounting Software"
@@ -33,9 +58,9 @@ export default function CCHPage() {
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">CCH Axcess</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               CCH Axcess Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               CCH Axcess is the leading integrated tax, accounting, and compliance software. We provide expert setup, optimization, and ongoing support for efficient tax preparation and financial reporting.
             </p>
@@ -68,6 +93,12 @@ export default function CCHPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection subtitle="CCH Axcess Questions" items={faqs} columns={2} />
+
+
+      
+
 
       <CTABanner title="Ready to Optimize Your CCH Operations?" description="Let our CCH experts support your tax and accounting practice." cta={{ text: 'Get Started', href: '/contact' }} background="primary" />
     </main>

@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Sage Accounting Software Services',
@@ -66,9 +67,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Sage Software</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Sage Accounting Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               Sage is a powerful accounting platform for businesses of all sizes. Our team brings deep expertise in Sage implementation, configuration, and support. We help you leverage Sage's capabilities to streamline accounting, improve reporting, and gain financial insights.
             </p>
@@ -128,9 +129,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Related Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services We Deliver in Sage
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

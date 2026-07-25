@@ -3,6 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Staff Augmentation',
@@ -66,7 +67,7 @@ export default function StaffAugmentationPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary">Scale Your Team Without Long-Term Commitment</h2>
+              <Reveal><h2 className="text-4xl font-bold text-primary">Scale Your Team Without Long-Term Commitment</h2></Reveal>
               <p className="text-lg text-muted leading-relaxed">Staff augmentation provides access to qualified accounting professionals when you need them, without the overhead of permanent hiring. Perfect for managing seasonal peaks, special projects, or filling expertise gaps.</p>
               
               <div className="space-y-4 pt-4">
@@ -109,7 +110,7 @@ export default function StaffAugmentationPage() {
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">Use Cases for Staff Augmentation</h2>
+          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Use Cases for Staff Augmentation</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { title: 'Overflow Work', desc: 'Handle client projects and overflow that your team cannot accommodate.' },

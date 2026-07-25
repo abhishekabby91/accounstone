@@ -5,7 +5,6 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import HeaderBar from "@/components/header-bar";
 import TouchRipple from "@/components/touch-ripple";
-import MobileGestures from "@/components/mobile-gestures";
 import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
 
 export const viewport: Viewport = {
@@ -118,7 +117,6 @@ export default function RootLayout({
       </head>
       <body className="text-foreground">
         <TouchRipple />
-        <MobileGestures />
         <HeaderBar />
         <Navbar />
         {children}

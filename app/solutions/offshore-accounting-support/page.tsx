@@ -3,6 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Offshore Accounting Support',
@@ -66,7 +67,7 @@ export default function OffshoreSolutionPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary">Cost-Effective Without Compromising Quality</h2>
+              <Reveal><h2 className="text-4xl font-bold text-primary">Cost-Effective Without Compromising Quality</h2></Reveal>
               <p className="text-lg text-muted leading-relaxed">Our offshore accounting teams provide the same expertise and quality as onshore professionals, but at a fraction of the cost. We focus on delivering exceptional results while helping you manage your bottom line.</p>
               
               <div className="space-y-4 pt-4">
@@ -109,7 +110,7 @@ export default function OffshoreSolutionPage() {
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">How It Works</h2>
+          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">How It Works</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { step: '1', title: 'Consultation', desc: 'Understand your needs and requirements' },

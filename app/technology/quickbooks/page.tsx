@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'QuickBooks Online Accounting Services',
@@ -72,9 +73,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-6">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">QuickBooks Online</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               QuickBooks Online Expertise
-            </h2>
+            </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
               QuickBooks Online is the most popular cloud accounting software for small to mid-size businesses. Our team brings deep expertise in setup, configuration, optimization, and support. Whether you're new to QuickBooks or migrating from desktop, we ensure your accounting is properly structured, efficient, and provides the insights you need.
             </p>
@@ -134,9 +135,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Related Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
               Services We Deliver in QuickBooks
-            </h2>
+            </h2></Reveal>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

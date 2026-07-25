@@ -3,6 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Dedicated Accounting Teams',
@@ -70,7 +71,7 @@ export default function DedicatedTeamsPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-4xl font-bold text-primary">More Than Accounting - A True Partnership</h2>
+              <Reveal><h2 className="text-4xl font-bold text-primary">More Than Accounting - A True Partnership</h2></Reveal>
               <p className="text-lg text-muted leading-relaxed">A dedicated accounting team becomes an integral part of your organization. They understand your business deeply, anticipate your needs, and provide strategic financial guidance that drives growth.</p>
               
               <div className="space-y-4 pt-4">
@@ -113,7 +114,7 @@ export default function DedicatedTeamsPage() {
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">Build Your Dedicated Team</h2>
+          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Build Your Dedicated Team</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
               { step: '1', title: 'Discovery', desc: 'Understand your business and requirements' },
