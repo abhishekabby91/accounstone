@@ -159,6 +159,7 @@ export function generateArticleSchema(article: {
   publishedDate: string;
   author: string;
   slug: string;
+  basePath?: string; // defaults to /resources/, override for nested paths like /resources/guides/
 }) {
   return {
     '@context': 'https://schema.org',
@@ -171,7 +172,7 @@ export function generateArticleSchema(article: {
       '@type': 'Organization',
       name: companyInfo.name,
     },
-    url: `${baseUrl}/resources/${article.slug}`,
+    url: `${baseUrl}${article.basePath ?? '/resources/'}${article.slug}`,
   };
 }
 

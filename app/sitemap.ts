@@ -51,6 +51,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/bookkeeping/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/services/tax-preparation/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
     { path: '/services/audit-support/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/resources/guides/outsourced-bookkeeping-cost-guide', priority: 0.65, changeFrequency: 'monthly' as const },
+    { path: '/resources/guides/quickbooks-vs-xero-comparison', priority: 0.65, changeFrequency: 'monthly' as const },
+    { path: '/resources/guides/staff-augmentation-tax-season-guide', priority: 0.65, changeFrequency: 'monthly' as const },
+    { path: '/resources/insights/sales-tax-nexus-ecommerce-guide', priority: 0.6, changeFrequency: 'monthly' as const },
+    { path: '/resources/insights/asc-606-revenue-recognition-saas', priority: 0.6, changeFrequency: 'monthly' as const },
   ];
 
   const allRoutes = [...staticRoutes, ...dynamicRoutes, ...specializedRoutes];

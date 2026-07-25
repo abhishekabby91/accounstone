@@ -136,6 +136,57 @@ body {
   border-top: 1px solid var(--color-primary);
 }
 
+/* Article body typography — used by ArticleLayout (guides/insights).
+   No typography plugin installed, so this is a small hand-written
+   set of rules rather than pulling in a new dependency for a handful
+   of content pages. */
+.prose-content h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.prose-content p {
+  color: var(--color-muted);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.prose-content ul,
+.prose-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose-content li {
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.prose-content ul li {
+  list-style-type: disc;
+}
+
+.prose-content ol li {
+  list-style-type: decimal;
+}
+
+.prose-content strong {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
 /* Hero autoplay progress — a ledger row filling in, matching the
    .ledger-rule hairline signature rather than a generic dot indicator
    or progress bar. Duration is set inline per-instance via the
