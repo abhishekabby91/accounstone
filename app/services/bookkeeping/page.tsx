@@ -76,6 +76,7 @@ export default function BookkeepingPage() {
         { name: 'Accounts Receivable', slug: 'accounts-receivable' },
         { name: 'Accounting Services', slug: 'accounting' },
         { name: 'Payroll Processing', slug: 'payroll' },
+        { name: 'Bookkeeping for U.S. Businesses', slug: 'bookkeeping/united-states' },
       ]}
       faqs={[
         {

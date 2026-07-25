@@ -74,6 +74,7 @@ export default function AuditSupportPage() {
         { name: 'Accounting Services', slug: 'accounting' },
         { name: 'Bookkeeping', slug: 'bookkeeping' },
         { name: 'CFO Support Services', slug: 'cfo-support' },
+        { name: 'Audit Support for U.S. Businesses', slug: 'audit-support/united-states' },
       ]}
       faqs={[
         {

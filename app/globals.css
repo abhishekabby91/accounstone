@@ -131,6 +131,21 @@ body {
   animation: kenburns 6s ease-out forwards;
 }
 
+/* Mobile tuning: the hero is much shorter on phones (h-96, ~384px vs
+   full-screen on desktop), so the same 1.06 zoom reads as more
+   noticeable movement in that smaller frame. Dial it back slightly
+   rather than using one scale value for both. */
+@media (max-width: 767px) {
+  @keyframes kenburns {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.03);
+    }
+  }
+}
+
 /* Hero autoplay progress — a ledger row filling in, matching the
    .ledger-rule hairline signature rather than a generic dot indicator
    or progress bar. Duration is set inline per-instance via the

@@ -48,6 +48,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Add entries here as you build more of these specific long-tail pages.
   const specializedRoutes = [
     { path: '/industries/real-estate/yardi-accounting-outsourcing-texas', priority: 0.6, changeFrequency: 'monthly' as const },
+    { path: '/services/bookkeeping/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/tax-preparation/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/audit-support/united-states', priority: 0.7, changeFrequency: 'monthly' as const },
   ];
 
   const allRoutes = [...staticRoutes, ...dynamicRoutes, ...specializedRoutes];

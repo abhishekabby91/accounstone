@@ -2,6 +2,7 @@ import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
+import Reveal from '@/components/reveal';
 import {
   generateServiceSchema,
   generateFAQSchema,
@@ -77,27 +78,33 @@ export default function ServicePageTemplate({
       </nav>
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <div className="max-w-4xl mx-auto space-y-6">
+        <Reveal className="max-w-4xl mx-auto space-y-6">
+          <>
           <div className="space-y-2">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">{service.name} Solutions</h2>
           </div>
           <p className="text-lg text-muted leading-relaxed">{overview}</p>
-        </div>
+          </>
+        </Reveal>
       </section>
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
+          <Reveal className="text-center space-y-4 mb-16">
+            <>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Why Choose Our {service.name}</h2>
-          </div>
+            </>
+          </Reveal>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {benefits.map((benefit, i) => (
-              <li key={i} className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                <div className="text-2xl shrink-0 text-accent" aria-hidden="true">✓</div>
-                <p className="text-foreground leading-relaxed">{benefit}</p>
-              </li>
+              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
+                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
+                  <div className="text-2xl shrink-0 text-accent" aria-hidden="true">✓</div>
+                  <p className="text-foreground leading-relaxed">{benefit}</p>
+                </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -105,21 +112,25 @@ export default function ServicePageTemplate({
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
+          <Reveal className="text-center space-y-4 mb-16">
+            <>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Our Process</span>
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">How We Deliver {service.name}</h2>
-          </div>
+            </>
+          </Reveal>
           <ol className="space-y-6">
             {process.map((item, i) => (
-              <li key={i} className="flex gap-6">
-                <div className="shrink-0">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg" aria-hidden="true">{item.step}</div>
-                </div>
-                <div className="grow">
-                  <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
-                  <p className="text-muted leading-relaxed">{item.description}</p>
-                </div>
-              </li>
+              <Reveal key={i} delay={Math.min(i * 0.06, 0.3)}>
+                <li className="flex gap-6">
+                  <div className="shrink-0">
+                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white font-bold text-lg" aria-hidden="true">{item.step}</div>
+                  </div>
+                  <div className="grow">
+                    <h3 className="text-xl font-bold text-primary mb-2">{item.title}</h3>
+                    <p className="text-muted leading-relaxed">{item.description}</p>
+                  </div>
+                </li>
+              </Reveal>
             ))}
           </ol>
         </div>
@@ -127,15 +138,19 @@ export default function ServicePageTemplate({
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
+          <Reveal className="text-center space-y-4 mb-16">
+            <>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Deliverables</span>
             <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-          </div>
+            </>
+          </Reveal>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {deliverables.map((deliverable, i) => (
-              <li key={i} className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors">
-                <p className="text-foreground font-medium">{deliverable}</p>
-              </li>
+              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
+                <li className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors">
+                  <p className="text-foreground font-medium">{deliverable}</p>
+                </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -144,10 +159,12 @@ export default function ServicePageTemplate({
       {relatedServices.length > 0 && (
         <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
           <div className="max-w-5xl mx-auto">
-            <div className="space-y-4 mb-8">
+            <Reveal className="space-y-4 mb-8">
+              <>
               <span className="text-sm font-semibold tracking-wide uppercase text-accent">Related Services</span>
               <h2 className="text-3xl font-bold text-primary">Complementary Services</h2>
-            </div>
+              </>
+            </Reveal>
             <div className="flex flex-wrap gap-3">
               {relatedServices.map((rel, i) => (
                 <Link key={i} href={`/services/${rel.slug}`} className="px-4 py-2 bg-input rounded-lg text-primary hover:bg-border font-medium transition-colors">
