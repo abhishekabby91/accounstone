@@ -168,7 +168,7 @@ export default function HomePage() {
 
               <div className="space-y-4 pt-4">
                 {[
-                  'Experienced professionals with hands-on accounting expertise', // TODO: replace with real "24+ years" once confirmed
+                  'Experienced professionals with 24+ years of combined accounting expertise',
                   'Dedicated support during critical periods',
                   'Proactive tax planning and optimization',
                   'Advanced technology and automation',
@@ -224,8 +224,9 @@ export default function HomePage() {
                 <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
               </div>
               <div className="relative space-y-2">
-                {/* TODO: replace "X+" with the real confirmed number, then switch to <AnimatedFigure value={N} suffix="+" /> */}
-                <div className="text-5xl font-bold figure">X+</div>
+                <div className="text-5xl font-bold">
+                  <AnimatedFigure value={24} suffix="+" />
+                </div>
                 <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
               </div>
               </>

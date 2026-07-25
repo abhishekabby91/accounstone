@@ -20,6 +20,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const guides = [
   {
+    title: '9 Questions to Ask Before Outsourcing Your Bookkeeping',
+    href: '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping',
+    description: 'The real questions to ask before hiring — answered honestly, including the ones without a flattering answer.',
+  },
+  {
     title: 'Outsourced Bookkeeping Cost Guide for U.S. Businesses',
     href: '/resources/guides/outsourced-bookkeeping-cost-guide',
     description: 'What actually drives the price up or down, and how it compares to hiring in-house.',

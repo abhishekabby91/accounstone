@@ -1,0 +1,147 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import PremiumHero from '@/components/premium-hero';
+import CTABanner from '@/components/cta-banner';
+import FAQSection from '@/components/faq-section';
+import Reveal from '@/components/reveal';
+import {
+  generateMetadata as genMeta,
+  generateServiceSchema,
+  generateFAQSchema,
+  generateBreadcrumbSchema,
+  baseUrl,
+} from '@/lib/seo';
+
+const PATH = '/markets/united-states/florida';
+
+export const metadata: Metadata = genMeta({
+  title: 'Outsourced Accounting & Bookkeeping for Florida Businesses',
+  description:
+    'Bookkeeping and accounting support for Florida businesses — no state personal income tax, Florida corporate income tax for C-Corps, and sales tax administered by the Florida Department of Revenue.',
+  path: PATH,
+});
+
+const overview =
+  "Florida has no state personal income tax, which is a real advantage for pass-through entities like most LLCs and S-Corps — but C-Corporations still owe Florida corporate income tax, a distinction that trips up business owners who assume \"no income tax\" applies across the board. Sales tax is administered by the Florida Department of Revenue, with its own registration and filing rhythm. Florida's fast-growing business population, especially in real estate, e-commerce, and professional services, means bookkeeping needs to keep pace with rapid growth rather than just steady-state maintenance.";
+
+const benefits = [
+  'Clarity on which Florida entities owe corporate income tax vs. which pass-through structures don\'t',
+  'Sales tax tracking aligned with Florida Department of Revenue registration and filing requirements',
+  'Support built for Florida\'s high-growth industries: real estate, e-commerce, and professional services',
+  'Bookkeeping that scales with fast business growth rather than assuming steady-state volume',
+  'QuickBooks Online and Xero setup suited to Florida LLC and corporate structures',
+  'Coordination with your Florida CPA for corporate income tax filings where applicable',
+];
+
+const faqs = [
+  {
+    question: 'If Florida has no income tax, why would my business owe any?',
+    answer:
+      "Florida has no state personal income tax, which benefits pass-through entities like most LLCs and S-Corps. However, C-Corporations are still subject to Florida corporate income tax — we help make sure your books reflect which category your business falls into.",
+  },
+  {
+    question: 'How does Florida sales tax registration work?',
+    answer:
+      'Sales tax in Florida is administered by the Florida Department of Revenue, with its own registration and filing requirements. We structure your bookkeeping to track this correctly as your sales activity grows.',
+  },
+  {
+    question: 'Do you support fast-growing Florida businesses?',
+    answer:
+      "Yes, Florida's business growth rate means bookkeeping often needs to scale quickly — we build reporting and processes that can flex with growth rather than needing to be rebuilt every time volume jumps.",
+  },
+  {
+    question: 'Do you have experience with Florida real estate and e-commerce businesses?',
+    answer:
+      'Yes, these are two of the most common business types we support in Florida — see our dedicated real estate and e-commerce industry pages for more detail.',
+  },
+];
+
+const faqSchema = generateFAQSchema(faqs);
+
+const serviceSchema = generateServiceSchema({
+  name: 'Accounting Services for Florida Businesses',
+  description: overview,
+  slug: 'united-states/florida',
+  basePath: '/markets/',
+  areaServed: ['US'],
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Markets', url: `${baseUrl}/markets` },
+  { name: 'United States', url: `${baseUrl}/markets/united-states` },
+  { name: 'Florida', url: `${baseUrl}${PATH}` },
+]);
+
+export default function FloridaPage() {
+  return (
+    <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <PremiumHero
+        subtitle="Florida Businesses"
+        title="Accounting & Bookkeeping Built for Florida"
+        description="No personal income tax nuances, corporate income tax clarity, and support for Florida's fast-growing business market."
+        cta={{ text: 'Get Started', href: '/contact' }}
+        ctaSecondary={{ text: 'View U.S. Services', href: '/markets/united-states' }}
+        background="primary-gradient"
+      />
+
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
+          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+          <li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li>
+          <li aria-hidden="true">/</li>
+          <li><Link href="/markets/united-states" className="hover:text-primary transition-colors">United States</Link></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-primary font-medium">Florida</li>
+        </ol>
+      </nav>
+
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+        <Reveal className="max-w-4xl mx-auto space-y-6">
+          <>
+          <div className="space-y-2">
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What Makes Florida Different</h2>
+          </div>
+          <p className="text-lg text-muted leading-relaxed">{overview}</p>
+          </>
+        </Reveal>
+      </section>
+
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="text-center space-y-4 mb-16">
+            <>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Support</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Built Around Florida Specifics</h2>
+            </>
+          </Reveal>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {benefits.map((b, i) => (
+              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
+                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
+                  <div className="text-2xl shrink-0 text-accent" aria-hidden="true">✓</div>
+                  <p className="text-foreground leading-relaxed">{b}</p>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <FAQSection subtitle="Florida Questions" items={faqs} columns={2} />
+
+      <CTABanner
+        title="Running a Business in Florida?"
+        description="Let's talk about your entity structure and growth plans."
+        cta={{ text: 'Schedule Consultation', href: '/contact' }}
+        background="primary"
+      />
+    </main>
+  );
+}

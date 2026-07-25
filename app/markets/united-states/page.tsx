@@ -165,6 +165,35 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         </div>
       </section>
 
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center space-y-4 mb-16">
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">By State</span>
+            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+              State-Specific Considerations
+            </h2></Reveal>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: 'Texas', slug: 'texas', note: 'Franchise tax awareness, no state income tax' },
+              { name: 'California', slug: 'california', note: 'CDTFA sales tax, FTB coordination' },
+              { name: 'Florida', slug: 'florida', note: 'No personal income tax, corporate tax clarity' },
+            ].map((state, i) => (
+              <Reveal key={state.slug} delay={Math.min(i * 0.08, 0.24)}>
+                <Link
+                  href={`/markets/united-states/${state.slug}`}
+                  className="block h-full p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors"
+                >
+                  <h3 className="font-bold text-primary text-lg mb-2">{state.name}</h3>
+                  <p className="text-sm text-muted">{state.note}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <FAQSection subtitle="U.S. Market FAQs" items={faqs} columns={2} />
 
       <CTABanner
