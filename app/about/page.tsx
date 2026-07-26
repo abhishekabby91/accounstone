@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata } from '@/lib/seo';
+import { trustBadges } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
   title: 'About Us',
@@ -85,6 +86,18 @@ export default function AboutPage() {
               <p className="text-sm text-muted">We're a growing company and we'd rather earn trust with honest work than inflate our track record.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Trust Badges — only real, verified items */}
+      <section className="w-full py-12 px-6 md:px-8 bg-white border-y-2 border-border">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
+          {trustBadges.map((badge, i) => (
+            <div key={i} className="flex items-center gap-2 px-5 py-3 bg-input rounded-lg border-2 border-border">
+              <span className="text-xl" aria-hidden="true">{badge.icon}</span>
+              <span className="font-medium text-sm text-foreground">{badge.name}</span>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -280,8 +280,9 @@ export const testimonials = [
 ];
 
 // Trust & Compliance badges
-// [PLACEHOLDER - Add verified certifications only. Currently pursuing SOC 2 certification]
+// [Add further verified certifications here as they're achieved. Currently pursuing SOC 2 certification.]
 export const trustBadges = [
+  { name: 'QuickBooks Certified ProAdvisor (since 2022)', icon: '📱' },
   { name: 'NDA-Backed Engagements', icon: '🔒' },
   { name: 'Security-First Data Handling', icon: '✓' },
 ];

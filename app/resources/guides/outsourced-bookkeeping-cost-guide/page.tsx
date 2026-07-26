@@ -25,9 +25,23 @@ export default function OutsourcedBookkeepingCostGuide() {
       <p>
         "How much does outsourced bookkeeping cost?" is one of the first questions
         every business owner asks, and the honest answer is: it depends on a
-        handful of specific factors. This guide breaks down what actually drives
-        the price, so you can evaluate a quote (from us or anyone else) with real
-        context instead of guessing.
+        handful of specific factors. It's also a question a lot of business
+        owners ask reluctantly — a SCORE study found that 40% of small business
+        owners say bookkeeping and taxes are the worst part of owning a
+        business. This guide breaks down what actually drives the price, so
+        you can evaluate a quote (from us or anyone else) with real context
+        instead of guessing.
+      </p>
+
+      <h2>What Business Owners Are Actually Paying</h2>
+      <p>
+        Industry pricing data (including analysis of small business owner
+        discussions online) generally points to outsourced bookkeeping starting
+        around $300+ per month for straightforward small businesses, scaling up
+        with transaction volume and complexity. For comparison, the U.S. Bureau
+        of Labor Statistics puts the median in-house bookkeeper's pay at
+        roughly $49,000 per year before benefits and overhead — a useful anchor
+        when you're comparing options.
       </p>
 
       <h2>The Two Common Pricing Models</h2>

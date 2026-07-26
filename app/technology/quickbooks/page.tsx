@@ -41,6 +41,11 @@ export default function QuickBooksPage() {
         'Yes, we troubleshoot QuickBooks issues, reconcile accounts, fix data errors, and ensure your accounting is always accurate.',
     },
     {
+      question: 'Are you a certified QuickBooks ProAdvisor?',
+      answer:
+        'Yes, our team includes a QuickBooks Certified ProAdvisor, certified since 2022, which means direct access to QuickBooks-specific training, tools, and support channels for our clients.',
+    },
+    {
       question: 'Can you migrate from desktop to QuickBooks Online?',
       answer:
         'Yes, we manage the entire migration from QuickBooks Desktop to QuickBooks Online including data import and setup verification.',
@@ -63,7 +68,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <PremiumHero
         subtitle="Platform Expertise"
         title="QuickBooks Online Accounting Services"
-        description="Expert QuickBooks Online integration, setup, optimization, and support. Let us manage your accounting using the world's most popular platform."
+        description="Expert QuickBooks Online integration, setup, optimization, and support from a team including a QuickBooks Certified ProAdvisor."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services' }}
         background="primary-gradient"
@@ -79,6 +84,10 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             <p className="text-lg text-muted leading-relaxed">
               QuickBooks Online is the most popular cloud accounting software for small to mid-size businesses. Our team brings deep expertise in setup, configuration, optimization, and support. Whether you're new to QuickBooks or migrating from desktop, we ensure your accounting is properly structured, efficient, and provides the insights you need.
             </p>
+            <div className="inline-flex items-center gap-3 px-5 py-3 bg-input rounded-lg border-2 border-border">
+              <span className="text-2xl" aria-hidden="true">📱</span>
+              <span className="font-semibold text-primary">QuickBooks Certified ProAdvisor since 2022</span>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

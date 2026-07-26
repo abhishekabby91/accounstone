@@ -8,7 +8,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import AnimatedFigure from '@/components/animated-figure';
 import { generateMetadata, generateFAQSchema } from '@/lib/seo';
-import { services, solutions, testimonials } from '@/lib/data';
+import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Outsourced Accounting & Finance Solutions',
@@ -95,6 +95,18 @@ export default function HomePage() {
   autoPlayInterval={5000}
   pageHeading="Outsourced Accounting & Finance Solutions for CPA Firms | Accounstone"
 />
+      </section>
+
+      {/* Trust Badges — only real, verified items */}
+      <section className="w-full py-8 px-6 md:px-8 bg-white border-b-2 border-border">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
+          {trustBadges.map((badge, i) => (
+            <div key={i} className="flex items-center gap-2 px-5 py-2.5 bg-input rounded-lg border-2 border-border">
+              <span className="text-lg" aria-hidden="true">{badge.icon}</span>
+              <span className="font-medium text-sm text-foreground">{badge.name}</span>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* CTA Banner */}
