@@ -6,7 +6,7 @@ import { generateMetadata } from '@/lib/seo';
 export const metadata: Metadata = generateMetadata({
   title: 'About Us',
   description:
-    'Learn about Accounstone, our mission to provide expert accounting services, and our team of experienced professionals.',
+    'Learn about Accounstone, our mission to provide expert outsourced accounting services for CPA firms and growing businesses.',
   path: '/about',
 });
 
@@ -16,7 +16,7 @@ export default function AboutPage() {
       <PremiumHero
         subtitle="Our Story"
         title="Building Better Financial Futures"
-        description="Founded in 2009, Accounstone has been helping businesses of all sizes manage their finances with expertise, integrity, and dedication."
+        description="Accounstone helps CPA firms and growing businesses manage their finances with expertise, integrity, and dedication."
         background="primary-gradient"
       />
 
@@ -34,10 +34,10 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted leading-relaxed">
-                We believe that small and mid-size businesses deserve access to world-class accounting services. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
+                We believe that small and mid-size businesses deserve access to world-class accounting support. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                By combining deep expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth.
+                By combining hands-on expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth.
               </p>
             </div>
 
@@ -52,8 +52,8 @@ export default function AboutPage() {
               </div>
               <div className="space-y-4">
                 {[
-                  { title: 'Expertise', desc: 'Deep industry knowledge and accounting excellence' },
-                  { title: 'Integrity', desc: 'Transparent, ethical, and trustworthy relationships' },
+                  { title: 'Expertise', desc: 'Real, hands-on accounting knowledge, not just credentials on paper' },
+                  { title: 'Integrity', desc: 'Transparent, ethical, and trustworthy relationships — we say what\'s actually true' },
                   { title: 'Partnership', desc: 'Invested in your success, not just transactions' },
                   { title: 'Innovation', desc: 'Modern technology and forward-thinking solutions' },
                 ].map((value, i) => (
@@ -68,21 +68,21 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats */}
+      {/* Who We Are — honest, growing-company framing */}
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-primary text-center text-balance mb-16">
-            Trusted by Hundreds of Businesses
+            A Growing Team, Not a Faceless Vendor
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="text-center space-y-3 p-6 rounded-lg bg-muted/30">
-              <h3 className="text-xl font-semibold text-primary">Growing Impact</h3>
-              <p className="text-sm text-muted">We're building trusted partnerships with CPA firms and accounting professionals. Real results from real clients.</p>
+            <div className="text-center space-y-3 p-6 rounded-lg bg-white border-2 border-border">
+              <h3 className="text-xl font-semibold text-primary">Real Experience</h3>
+              <p className="text-sm text-muted">Our team brings 24+ years of combined hands-on accounting experience to every engagement.</p>
             </div>
-            <div className="text-center space-y-3 p-6 rounded-lg bg-muted/30">
-              <h3 className="text-xl font-semibold text-primary">Focused on Quality</h3>
-              <p className="text-sm text-muted">Every engagement reflects our commitment to excellence, reliability, and your long-term success.</p>
+            <div className="text-center space-y-3 p-6 rounded-lg bg-white border-2 border-border">
+              <h3 className="text-xl font-semibold text-primary">Building Deliberately</h3>
+              <p className="text-sm text-muted">We're a growing company and we'd rather earn trust with honest work than inflate our track record.</p>
             </div>
           </div>
         </div>
@@ -104,28 +104,28 @@ export default function AboutPage() {
             {[
               {
                 icon: '🎓',
-                title: 'Expert Team',
-                desc: 'CPAs and accountants with 10+ years of industry experience and certifications.',
+                title: 'Real Expertise',
+                desc: '24+ years of combined hands-on accounting experience across our team.',
               },
               {
                 icon: '🚀',
                 title: 'Growth Focus',
-                desc: 'We don\'t just manage finances; we provide strategic guidance to fuel growth.',
+                desc: 'We don\'t just manage finances; we provide practical guidance to fuel growth.',
               },
               {
                 icon: '🔒',
-                title: 'Security & Compliance',
-                desc: 'Enterprise-grade security, ISO 27001 certified, and fully compliant.',
+                title: 'Security-First, Honestly Stated',
+                desc: 'NDA-backed engagements and secure data handling practices. We\'re actively working toward SOC 2 certification and will tell you exactly where we stand.',
               },
               {
                 icon: '⚡',
                 title: 'Modern Technology',
-                desc: 'Cloud-based systems, automation, and real-time reporting tools.',
+                desc: 'Cloud-based systems (QuickBooks Online, Xero, and more), automation, and real-time reporting tools.',
               },
               {
                 icon: '🤝',
                 title: 'True Partnership',
-                desc: 'Dedicated teams invested in your success, not just another vendor.',
+                desc: 'A dedicated team invested in your success, not a rotating pool of vendors.',
               },
               {
                 icon: '💰',

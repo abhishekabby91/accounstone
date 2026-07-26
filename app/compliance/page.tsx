@@ -51,24 +51,24 @@ export default function CompliancePage() {
           </div>
 
           <div className="bg-primary text-white p-8 rounded-lg space-y-4">
-            <h2 className="text-2xl font-bold">Compliance Standards</h2>
-            <p>We maintain the highest standards of professional conduct and regulatory compliance:</p>
+            <h2 className="text-2xl font-bold">Our Approach to Compliance</h2>
+            <p>As a growing company, here is where we honestly stand today:</p>
             <ul className="space-y-2">
               <li className="flex items-start gap-3">
                 <span className="font-bold">✓</span>
-                <span>Regular compliance audits and certification renewals</span>
+                <span>NDA-backed engagements for every client relationship</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-bold">✓</span>
-                <span>Continuous monitoring of regulatory changes</span>
+                <span>Continuous monitoring of regulatory changes across the markets we serve</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-bold">✓</span>
-                <span>Team training on compliance requirements</span>
+                <span>Team training on relevant compliance requirements</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="font-bold">✓</span>
-                <span>Professional liability insurance coverage</span>
+                <span>Actively working toward formal certifications such as SOC 2 — ask us for our current status</span>
               </li>
             </ul>
           </div>

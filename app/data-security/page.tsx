@@ -5,7 +5,8 @@ import { generateMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Data Security & Protection',
-  description: 'Enterprise-grade security with ISO 27001, SOC 2 Type II compliance, and advanced encryption protecting your financial data.',
+  description:
+    'How Accounstone handles client financial data — NDA-backed engagements, security-conscious practices, and an honest account of our current certification status.',
   path: '/data-security',
 });
 
@@ -14,78 +15,70 @@ export default function DataSecurityPage() {
     <main>
       <PremiumHero
         subtitle="Trust & Compliance"
-        title="Enterprise-Grade Data Security"
-        description="ISO 27001 certified infrastructure with SOC 2 Type II compliance, advanced encryption, and continuous security monitoring."
+        title="How We Handle Your Data"
+        description="An honest account of our current security practices — not a list of certifications we don't yet hold."
         background="primary-gradient"
       />
 
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto space-y-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">Security Certifications</h2>
-              {[
-                { cert: 'ISO 27001', desc: 'Information Security Management System certification' },
-                { cert: 'SOC 2 Type II', desc: 'Service Organization Control audit and compliance' },
-                { cert: 'GDPR Compliant', desc: 'Full General Data Protection Regulation compliance' },
-                { cert: 'Data Residency Options', desc: 'Choose US, UK, or Australia data centers' },
-              ].map((item, i) => (
-                <div key={i} className="border-l-4 border-accent pl-4">
-                  <h4 className="font-bold text-primary">{item.cert}</h4>
-                  <p className="text-sm text-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">Security Measures</h2>
-              {[
-                { measure: 'End-to-End Encryption', desc: 'All data encrypted in transit and at rest' },
-                { measure: '256-Bit AES Encryption', desc: 'Military-grade encryption standards' },
-                { measure: 'Multi-Factor Authentication', desc: 'MFA required for all system access' },
-                { measure: 'Regular Security Audits', desc: 'Third-party security assessments quarterly' },
-              ].map((item, i) => (
-                <div key={i} className="border-l-4 border-secondary pl-4">
-                  <h4 className="font-bold text-primary">{item.measure}</h4>
-                  <p className="text-sm text-muted">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-input p-8 rounded-lg border-2 border-border">
-            <h2 className="text-2xl font-bold text-primary mb-4">Access Control</h2>
+          <div className="bg-input border-2 border-border rounded-lg p-8">
+            <h2 className="text-2xl font-bold text-primary mb-4">Where We Stand Today</h2>
+            <p className="text-muted leading-relaxed mb-4">
+              We're a growing company, and we'd rather be direct about our current
+              security posture than list certifications we don't hold yet. Here's
+              where we actually stand:
+            </p>
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3">
                 <span className="text-accent font-bold">✓</span>
-                <span>Role-based access control with granular permissions</span>
+                <span>Every client engagement is NDA-backed before any data is shared</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-accent font-bold">✓</span>
-                <span>Automatic session timeouts and activity logging</span>
+                <span>Your financial data stays in your own QuickBooks Online, Xero, or other accounting software — not a separate proprietary system you'd lose access to</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-accent font-bold">✓</span>
-                <span>IP whitelisting and geo-location restrictions available</span>
+                <span>We are actively working toward formal certification (SOC 2) — we'll tell you exactly where we are in that process if you ask, rather than claiming it's already complete</span>
               </li>
               <li className="flex items-start gap-3">
                 <span className="text-accent font-bold">✓</span>
-                <span>Comprehensive audit trails for all data access</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-accent font-bold">✓</span>
-                <span>Automated backup and disaster recovery protocols</span>
+                <span>Access to client systems is limited to the team members actually working on your account</span>
               </li>
             </ul>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-primary">What This Means Practically</h2>
+              <p className="text-muted leading-relaxed">
+                Because we work inside your own accounting platform rather than a
+                separate system, your data benefits from that platform's own
+                security infrastructure (QuickBooks Online and Xero both invest
+                heavily in this) in addition to our access controls and
+                confidentiality practices.
+              </p>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold text-primary">Questions We Expect</h2>
+              <p className="text-muted leading-relaxed">
+                If you're evaluating us for vendor security review, we'd expect
+                you to ask about our certification timeline, access control
+                practices, and incident response plan specifically. We'll answer
+                directly rather than pointing to generic marketing language.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       <CTABanner
-        title="Your Data is Secure with Accounstone"
-        description="Learn more about our security infrastructure and compliance certifications."
+        title="Have Specific Security Questions?"
+        description="Ask us directly — we'd rather answer honestly than guess what you want to hear."
         cta={{
-          text: 'Schedule Security Briefing',
+          text: 'Schedule Security Discussion',
           href: '/contact',
         }}
         background="primary"

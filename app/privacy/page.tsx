@@ -48,13 +48,13 @@ export default function PrivacyPage() {
         <div className="bg-input p-6 rounded-lg border border-border">
           <h2 className="text-2xl font-bold text-primary mb-4">4. Data Security</h2>
           <p className="text-muted">
-            We implement comprehensive security measures including ISO 27001 certification, SOC 2 Type II compliance, and end-to-end encryption to protect your data.
+            We handle client data under NDA-backed engagements with security-conscious practices. We are actively working toward formal certifications such as SOC 2, and we will clearly communicate our current certification status to any client who asks rather than overstating it.
           </p>
         </div>
 
         <div className="bg-input p-6 rounded-lg border border-border">
           <h2 className="text-2xl font-bold text-primary mb-4">5. Your Rights</h2>
-          <p className="text-muted mb-4">Under GDPR and applicable laws, you have rights to:</p>
+          <p className="text-muted mb-4">Depending on your location, you may have rights under applicable privacy laws (such as GDPR for UK/EU residents or the CCPA/CPRA for California residents), including the right to:</p>
           <ul className="list-disc list-inside space-y-2 text-muted">
             <li>Access your personal data</li>
             <li>Request correction of inaccurate data</li>
