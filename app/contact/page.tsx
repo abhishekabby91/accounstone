@@ -1,15 +1,53 @@
-import { Metadata } from 'next';
-import PremiumHero from '@/components/premium-hero';
-import { generateMetadata } from '@/lib/seo';
-import { companyInfo } from '@/lib/data';
+'use client';
 
-export const metadata: Metadata = generateMetadata({
-  title: 'Contact Us',
-  description: 'Get in touch with Accounstone to discuss your accounting and finance needs.',
-  path: '/contact',
-});
+import { useState, FormEvent } from 'react';
+import PremiumHero from '@/components/premium-hero';
+import { companyInfo, services } from '@/lib/data';
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
+
+  // NOTE: There is no backend/email API wired up yet, so this builds a
+  // mailto: link from the form fields and opens the user's email client
+  // as a functional fallback. This is a stopgap, not the ideal solution
+  // -- a proper form service (e.g. Formspree) or a Next.js API route
+  // with an email provider (e.g. Resend) would submit without leaving
+  // the page and wouldn't depend on the visitor having a configured
+  // email client. Swap this out once that decision is made.
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const name = data.get('name') as string;
+    const email = data.get('email') as string;
+    const company = data.get('company') as string;
+    const phone = data.get('phone') as string;
+    const service = data.get('service') as string;
+    const message = data.get('message') as string;
+
+    const subject = `Consultation Request from ${name || 'Website Visitor'}`;
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company: ${company}`,
+      phone ? `Phone: ${phone}` : null,
+      service ? `Service Interest: ${service}` : null,
+      '',
+      'Message:',
+      message || '(none provided)',
+    ]
+      .filter(Boolean)
+      .join('\n');
+
+    const mailtoLink = `mailto:${companyInfo.contact.email}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+    setStatus('sent');
+  };
+
   return (
     <main>
       <PremiumHero
@@ -33,7 +71,16 @@ export default function ContactPage() {
                 </h2>
               </div>
 
-              <form className="space-y-5">
+              {status === 'sent' && (
+                <div role="status" className="p-4 rounded-lg bg-accent/10 border-2 border-accent text-sm text-foreground">
+                  Your email client should have opened with your message ready to send. If it didn&apos;t open, please email us directly at{' '}
+                  <a href={`mailto:${companyInfo.contact.email}`} className="font-semibold text-primary hover:underline">
+                    {companyInfo.contact.email}
+                  </a>.
+                </div>
+              )}
+
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                     Full Name
@@ -99,11 +146,10 @@ export default function ContactPage() {
                     className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
                   >
                     <option value="">Select a service</option>
-                    <option value="accounting">Accounting Services</option>
-                    <option value="tax">Tax Planning</option>
-                    <option value="advisory">Financial Advisory</option>
-                    <option value="hr">HR & Compliance</option>
-                    <option value="other">Other</option>
+                    {services.map((s) => (
+                      <option key={s.id} value={s.name}>{s.name}</option>
+                    ))}
+                    <option value="Other">Other</option>
                   </select>
                 </div>
 
@@ -167,7 +213,7 @@ export default function ContactPage() {
                     href={`tel:${companyInfo.contact.phone}`}
                     className="text-primary hover:text-primary-light transition-colors"
                   >
-                    {companyInfo.contact.phone}
+                    +91 99905 97192
                   </a>
                 </div>
               </div>
@@ -183,7 +229,7 @@ export default function ContactPage() {
 
               {/* Hours */}
               <div className="bg-input rounded-xl p-6 border-2 border-border space-y-3">
-                <h4 className="font-semibold text-foreground">Business Hours</h4>
+                <h4 className="font-semibold text-foreground">Client Support Hours</h4>
                 <div className="space-y-2 text-sm text-muted">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
