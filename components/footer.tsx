@@ -73,6 +73,14 @@ export default function Footer() {
       ],
     },
     {
+      title: 'How We Work',
+      links: [
+        { name: 'Onboarding', href: '/delivery-framework/onboarding' },
+        { name: 'Communication', href: '/delivery-framework/communication' },
+        { name: 'Quality Assurance', href: '/delivery-framework/quality-assurance' },
+      ],
+    },
+    {
       title: 'Trust & Compliance',
       links: [
         { name: 'Privacy Policy', href: '/privacy' },

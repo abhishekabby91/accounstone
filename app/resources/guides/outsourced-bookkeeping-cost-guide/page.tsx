@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import CostEstimator from '@/components/cost-estimator';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 const PATH = '/resources/guides/outsourced-bookkeeping-cost-guide';
@@ -64,6 +65,8 @@ export default function OutsourcedBookkeepingCostGuide() {
 
       <h2>What Actually Drives the Price</h2>
       <p>Within either model, a few factors move the price the most:</p>
+
+      <CostEstimator />
       <ul>
         <li>
           <strong>Transaction volume</strong> — the number of bank and credit

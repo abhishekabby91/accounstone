@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata } from '@/lib/seo';
@@ -98,6 +99,27 @@ export default function AboutPage() {
               <span className="font-medium text-sm text-foreground">{badge.name}</span>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* How We Work — links to the previously orphaned delivery-framework pages */}
+      <section className="w-full py-16 px-6 md:px-8 bg-input">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl font-bold text-primary">Want to See How We Actually Work?</h2>
+          <p className="text-muted">
+            Evaluating a vendor for your firm or business means asking specifics, not just reading marketing copy. Here's exactly how we onboard, communicate, and review work:
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link href="/delivery-framework/onboarding" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
+              Onboarding Process
+            </Link>
+            <Link href="/delivery-framework/communication" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
+              Communication Standards
+            </Link>
+            <Link href="/delivery-framework/quality-assurance" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
+              Quality Assurance
+            </Link>
+          </div>
         </div>
       </section>
 

@@ -41,7 +41,7 @@ const homePageFAQs = [
   {
     question: 'What is your pricing model?',
     answer:
-      'We offer flexible pricing based on scope of services, volume of transactions, and engagement model. Contact us for a customized quote.',
+      'Pricing depends on transaction volume, number of accounts, and complexity. Use our quick cost estimator in the bookkeeping cost guide for an instant planning-purpose range, or contact us for an exact quote after a quick assessment.',
   },
   {
     question: 'Do you provide offshore accounting services?',
