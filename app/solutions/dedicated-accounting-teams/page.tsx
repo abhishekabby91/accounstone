@@ -14,7 +14,7 @@ export const metadata: Metadata = generateMetadata({
 const faqs = [
   {
     question: 'What is a dedicated accounting team?',
-    answer: 'A dedicated accounting team is a group of certified CPAs and accountants exclusively assigned to your business. They work as an extension of your team, handling all accounting and financial operations.',
+    answer: 'A dedicated accounting team is a group of experienced accounting professionals exclusively assigned to your business. They work as an extension of your team, handling all accounting and financial operations.',
   },
   {
     question: 'How large can a dedicated team be?',

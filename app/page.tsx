@@ -26,7 +26,7 @@ const homePageFAQs = [
   {
     question: 'How do you ensure data security?',
     answer:
-      'We implement security-first practices including encryption, secure access controls, NDA-backed engagements, and regular security reviews. We are actively pursuing SOC 2 certification and maintain strict data handling protocols.',
+      'Every engagement is NDA-backed, with system access limited to the team members actually working on your account. We are actively working toward formal certification (SOC 2) and will tell you exactly where we stand if you ask, rather than overstating it.',
   },
   {
     question: 'Can you work with our existing software?',

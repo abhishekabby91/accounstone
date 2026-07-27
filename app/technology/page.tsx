@@ -37,7 +37,7 @@ const techFAQs = [
   {
     question: 'How do you handle data security?',
     answer:
-      'We implement enterprise-grade security including encryption, access controls, regular backups, and compliance with SOC 2, ISO 27001, and other standards.',
+      'Every engagement is NDA-backed with access limited to the team members working on your account. We are actively working toward formal certification (SOC 2) and will share our current status directly if you ask.',
   },
   {
     question: 'What analytics and reporting tools do you use?',
@@ -110,8 +110,8 @@ export default function TechnologyPage() {
                 <li className="flex items-start gap-3">
                   <span className="text-secondary text-xl mt-1">→</span>
                   <div>
-                    <p className="font-semibold">99.9% Uptime Guarantee</p>
-                    <p className="text-white/70 text-sm">Enterprise-grade infrastructure</p>
+                    <p className="font-semibold">Built on Established Cloud Platforms</p>
+                    <p className="text-white/70 text-sm">QuickBooks Online, Xero, and other platforms with their own enterprise-grade infrastructure</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">

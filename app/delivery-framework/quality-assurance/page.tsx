@@ -43,9 +43,9 @@ export default function QAPage() {
               <h2 className="text-3xl font-bold text-primary">Quality Standards</h2>
               <div className="space-y-4">
                 {[
-                  { title: '99.5% Accuracy Rate', desc: 'Industry-leading accuracy in all accounting work' },
-                  { title: 'Zero Compliance Failures', desc: 'Perfect compliance record across all markets' },
-                  { title: 'On-Time Delivery', desc: '100% on-time delivery of monthly reports and filings' },
+                  { title: 'Thorough Review Process', desc: 'Every deliverable is reviewed before it reaches you, not just prepared once' },
+                  { title: 'Compliance-Focused', desc: 'We track regulatory requirements across the markets we serve and flag concerns early' },
+                  { title: 'On-Time Delivery Commitment', desc: 'Monthly reports and filings delivered on the schedule we agree to' },
                   { title: 'Continuous Training', desc: 'Ongoing professional development for all team members' },
                 ].map((item, i) => (
                   <div key={i} className="p-4 bg-accent/10 rounded-lg border border-accent">

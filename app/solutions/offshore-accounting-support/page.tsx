@@ -18,15 +18,15 @@ const faqs = [
   },
   {
     question: 'How is data security maintained with offshore teams?',
-    answer: 'We maintain ISO 27001 certification, SOC 2 Type II compliance, secure VPN connections, encrypted data transfer, and strict access controls. All team members sign NDAs and undergo background checks.',
+    answer: 'Every engagement is NDA-backed, with system access limited to the team members actually working on your account. We are actively working toward formal certification (SOC 2) and will share our exact current status if you ask.',
   },
   {
     question: 'What time zone coverage do you provide?',
-    answer: 'Our offshore teams span multiple time zones including US, UK, and Australia regions, providing extended coverage and faster turnaround times on deliverables.',
+    answer: 'Our service delivery team operates from our Global Delivery Center in New Delhi, India, and structures working hours to align with US, UK, and Australian business hours depending on the client.',
   },
   {
     question: 'What is the typical cost savings?',
-    answer: 'Offshore accounting support typically provides 30-50% cost savings compared to onshore staffing, while maintaining the same quality and expertise.',
+    answer: 'The real cost comparison depends on your transaction volume and current setup, but many businesses find outsourced support more cost-effective than a full in-house hire once salary, benefits, and payroll taxes are factored in. We can walk through the specific numbers for your situation.',
   },
   {
     question: 'How long does onboarding take?',
@@ -51,7 +51,7 @@ export default function OffshoreSolutionPage() {
       <PremiumHero
         subtitle="Offshore Accounting"
         title="Scale Your Operations Affordably"
-        description="Leverage experienced offshore accounting professionals to handle your financial operations while reducing costs by 30-50%. Maintain quality and security with our ISO 27001 certified teams."
+        description="Experienced offshore accounting professionals to handle your financial operations at a cost-effective rate. NDA-backed engagements, honest communication about our security certification timeline."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',
@@ -73,8 +73,8 @@ export default function OffshoreSolutionPage() {
               <div className="space-y-4 pt-4">
                 {[
                   'Experienced accounting professionals',
-                  'ISO 27001 & SOC 2 certified',
-                  '24+ hour turnaround on deliverables',
+                  'NDA-backed engagements on every project',
+                  '24-hour response commitment',
                   'Seamless integration with your systems',
                   'Dedicated account management',
                   'Flexible scaling up or down',
@@ -91,16 +91,16 @@ export default function OffshoreSolutionPage() {
               <h3 className="text-2xl font-bold">Key Benefits</h3>
               <div className="space-y-4">
                 <div>
-                  <div className="text-4xl font-bold mb-2">30-50%</div>
-                  <p className="text-white/80">Cost Savings vs Onshore Staffing</p>
+                  <div className="text-4xl font-bold mb-2">2-4</div>
+                  <p className="text-white/80">Weeks to Full Onboarding</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-2">24+</div>
-                  <p className="text-white/80">Hour Turnaround Times</p>
+                  <div className="text-4xl font-bold mb-2">24 hrs</div>
+                  <p className="text-white/80">Response Time Commitment</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold mb-2">99%</div>
-                  <p className="text-white/80">Uptime & Availability</p>
+                  <div className="text-4xl font-bold mb-2">100%</div>
+                  <p className="text-white/80">NDA-Backed Engagements</p>
                 </div>
               </div>
             </div>

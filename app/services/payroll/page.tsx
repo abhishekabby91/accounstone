@@ -95,7 +95,7 @@ export default function PayrollPage() {
         {
           question: 'Are payroll records secure?',
           answer:
-            'Absolutely. We use encryption, secure servers, and follow SOC 2 Type II standards for sensitive payroll data.',
+            'We handle payroll data under NDA-backed engagements with access limited to the team members working on your account. We are actively working toward SOC 2 certification and will tell you exactly where we stand if you ask.',
         },
         {
           question: 'How much does payroll processing cost?',

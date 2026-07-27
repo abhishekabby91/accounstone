@@ -97,7 +97,7 @@ export default function BookkeepingPage() {
         {
           question: 'How secure is our financial data?',
           answer:
-            'We maintain ISO 27001 certification and SOC 2 Type II compliance. All data is encrypted in transit and at rest with secure access controls.',
+            'We handle every engagement under NDA, limit system access to the team members actually working on your account, and are actively working toward formal certification (SOC 2). We\'ll share our exact current status if you ask, rather than overstating it.',
         },
         {
           question: 'What\'s the typical cost for bookkeeping services?',

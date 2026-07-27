@@ -116,9 +116,9 @@ export default function BackOfficeSupportPage() {
               <h3 className="text-2xl font-bold text-primary">Benefits</h3>
               <ul className="space-y-3">
                 {[
-                  'Reduce operational overhead by 40-60%',
+                  'Meaningfully reduce operational overhead vs. in-house staffing',
                   'Eliminate payroll tax headaches',
-                  'Ensure compliance across all regions',
+                  'Support compliance across the regions you operate in',
                   'Improve cash flow management',
                   'Access real-time financial data',
                   'Scale operations without hiring',
