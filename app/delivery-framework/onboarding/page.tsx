@@ -2,13 +2,19 @@ import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Client Onboarding Process',
   description: 'Our streamlined onboarding process ensures smooth transition and immediate productivity. Learn how we integrate with your team.',
   path: '/delivery-framework/onboarding',
 });
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'How We Work', url: `${baseUrl}/delivery-framework/onboarding` },
+  { name: 'Onboarding', url: `${baseUrl}/delivery-framework/onboarding` },
+]);
 
 export default function OnboardingPage() {
   const onboardingFAQs = [
@@ -26,8 +32,13 @@ export default function OnboardingPage() {
     },
   ];
 
+  const faqSchema = generateFAQSchema(onboardingFAQs);
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Delivery Framework"
         title="Seamless Client Onboarding"

@@ -41,13 +41,6 @@ export default function TestimonialsSection({
               key={index}
               className="bg-input border-2 border-border rounded-xl p-8 space-y-6 hover:border-accent transition-all duration-300"
             >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <span key={i} className="text-xl text-secondary">★</span>
-                ))}
-              </div>
-
               {/* Quote */}
               <p className="text-foreground leading-relaxed text-lg italic">
                 "{testimonial.text}"

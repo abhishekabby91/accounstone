@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { generateMetadata } from '@/lib/seo';
+import { companyInfo } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Privacy Policy',
@@ -66,7 +67,7 @@ export default function PrivacyPage() {
         <div className="bg-input p-6 rounded-lg border border-border">
           <h2 className="text-2xl font-bold text-primary mb-4">6. Contact Us</h2>
           <p className="text-muted">
-            For privacy inquiries, contact us at privacy@accounstone.com or through our contact form.
+            For privacy inquiries, contact us at {companyInfo.contact.email} or through our contact form.
           </p>
         </div>
       </div>

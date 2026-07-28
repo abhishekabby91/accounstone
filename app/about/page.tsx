@@ -36,7 +36,7 @@ export default function AboutPage() {
                 </h2>
               </div>
               <p className="text-lg text-muted leading-relaxed">
-                We believe that small and mid-size businesses deserve access to world-class accounting support. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
+                We believe that small and mid-size businesses deserve accounting support that actually works for them, not a one-size-fits-all package. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
               </p>
               <p className="text-lg text-muted leading-relaxed">
                 By combining hands-on expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth.

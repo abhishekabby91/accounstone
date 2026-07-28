@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Communication & Support',
@@ -9,9 +9,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/delivery-framework/communication',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'How We Work', url: `${baseUrl}/delivery-framework/communication` },
+  { name: 'Communication', url: `${baseUrl}/delivery-framework/communication` },
+]);
+
 export default function CommunicationPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Delivery Framework"
         title="Transparent Communication & Support"

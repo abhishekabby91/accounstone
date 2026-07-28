@@ -3,7 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import FAQSection from '@/components/faq-section';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { services } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
@@ -22,23 +22,32 @@ const serviceFAQs = [
   {
     question: 'Can I combine multiple services?',
     answer:
-      'Absolutely! Most of our clients use a combination of services. We can create a customized package that addresses all your accounting and finance needs.',
+      'Yes, most clients use a combination of services. We can put together a package that addresses your accounting and finance needs together rather than piecemeal.',
   },
   {
     question: 'How is pricing determined?',
     answer:
-      'Pricing is based on the scope of services, volume of transactions, and engagement model. We provide transparent, fixed-fee quotes whenever possible.',
+      'Pricing is based on the scope of services, volume of transactions, and engagement model. We provide transparent, fixed-fee quotes whenever possible. See our cost guide for an instant estimate.',
   },
   {
     question: 'What accounting software do you support?',
     answer:
-      'We work with QuickBooks Online, Xero, NetSuite, Sage, and custom systems. We can integrate with virtually any accounting platform.',
+      'We work with QuickBooks Online, Xero, NetSuite, Sage, and custom systems.',
   },
 ];
+
+const faqSchema = generateFAQSchema(serviceFAQs);
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Services', url: `${baseUrl}/services` },
+]);
 
 export default function ServicesPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Expertise at Every Level"
         title="Professional Accounting Services"

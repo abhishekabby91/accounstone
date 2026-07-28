@@ -3,7 +3,7 @@ import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import FAQSection from '@/components/faq-section';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { technologies } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
@@ -46,9 +46,17 @@ const techFAQs = [
   },
 ];
 
+const faqSchema = generateFAQSchema(techFAQs);
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Technology', url: `${baseUrl}/technology` },
+]);
+
 export default function TechnologyPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PremiumHero
         subtitle="Technology & Integration"
         title="Modern Systems & Integration"

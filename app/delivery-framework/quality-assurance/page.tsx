@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Quality Assurance & Controls',
@@ -9,9 +9,17 @@ export const metadata: Metadata = generateMetadata({
   path: '/delivery-framework/quality-assurance',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'How We Work', url: `${baseUrl}/delivery-framework/quality-assurance` },
+  { name: 'Quality Assurance', url: `${baseUrl}/delivery-framework/quality-assurance` },
+]);
+
 export default function QAPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Delivery Framework"
         title="Quality Assurance & Internal Controls"

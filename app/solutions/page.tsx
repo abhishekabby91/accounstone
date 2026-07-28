@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { solutions } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
@@ -12,9 +12,16 @@ export const metadata: Metadata = generateMetadata({
   path: '/solutions',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Solutions', url: `${baseUrl}/solutions` },
+]);
+
 export default function SolutionsPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Flexible Engagement"
         title="Service Solutions for Every Business Stage"
