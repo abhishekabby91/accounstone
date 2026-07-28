@@ -63,16 +63,16 @@ export default function FeatureCard({
 
       {href && (
         <div className="pt-4 mt-auto">
-          <a
+          <Link
             href={href}
             className={`inline-flex items-center text-sm font-semibold transition-colors ${
               variant === 'featured'
                 ? 'text-white hover:text-white/80'
-                : 'text-accent hover:text-accent-light'
+                : 'text-accent hover:text-primary'
             }`}
           >
             Learn more →
-          </a>
+          </Link>
         </div>
       )}
     </div>

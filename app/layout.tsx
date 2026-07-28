@@ -62,6 +62,14 @@ export const metadata: Metadata = {
 
   manifest: "/manifest.webmanifest",
 
+  // TODO once the domain is live: sign up for Google Search Console
+  // and Bing Webmaster Tools, choose the "HTML meta tag" verification
+  // method in each, and paste the codes they give you here. Example:
+  // verification: {
+  //   google: "paste-google-site-verification-code-here",
+  //   other: { "msvalidate.01": "paste-bing-verification-code-here" },
+  // },
+
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

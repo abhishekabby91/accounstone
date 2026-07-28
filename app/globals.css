@@ -7,10 +7,10 @@
   --color-primary: #1e3a5f; /* Navy — trust, professionalism */
   --color-primary-light: #2d5a8c;
   --color-primary-dark: #0f1f35;
-  --color-accent: #2d6a3e; /* Forest green — growth, stability */
-  --color-accent-light: #3d8a4e;
+  --color-accent: #b84408; /* Orange (from logo, darkened for WCAG AA text contrast — used as text-accent in 111+ places sitewide) */
+  --color-accent-light: #fb5d08; /* Orange — exact color sampled from the logo's swoosh accent, used for decorative/background/border/hover accents where text contrast isn't the constraint */
   --color-secondary: #c9a876; /* Warm gold — the single premium accent, used sparingly */
-  --color-muted: #9b8b7e; /* Muted taupe */
+  --color-muted: #716458; /* Warm taupe, darkened from the original #9b8b7e to pass WCAG AA (4.5:1) against white/cream backgrounds -- the original failed contrast at ~3:1 across 104 uses site-wide */
   --color-muted-light: #d4cfc7;
   --color-border: #e5ddd4;
   --color-input: #f5f2ed;

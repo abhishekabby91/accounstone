@@ -1,0 +1,60 @@
+# Accounstone
+
+> Outsourced accounting, bookkeeping, and finance solutions for CPA firms and growing businesses across the United States, United Kingdom, and Australia. Service delivery team based in New Delhi, India.
+
+Accounstone provides outsourced accounting support including bookkeeping, tax preparation support, payroll processing, accounts payable/receivable, CFO support, and audit support documentation. Solutions are offered as offshore accounting support, staff augmentation, dedicated accounting teams, and full back-office support, with flexible engagement models rather than one-size-fits-all packages.
+
+## Services
+
+- [Bookkeeping](/services/bookkeeping): Daily transaction recording, bank reconciliation, and financial record management.
+- [Accounting Services](/services/accounting): Financial statement preparation, month-end close, and financial analysis.
+- [Tax Preparation](/services/tax-preparation): Return preparation support working under CPA/EA review, not independent filing.
+- [Payroll Processing](/services/payroll): Payroll processing, tax withholding, and statutory reporting.
+- [Accounts Payable](/services/accounts-payable): Vendor management, invoice processing, and payment optimization.
+- [Accounts Receivable](/services/accounts-receivable): Customer billing, invoice tracking, and collections.
+- [CFO Support Services](/services/cfo-support): Financial planning, forecasting, and executive reporting.
+- [Audit Support](/services/audit-support): Documentation and testing support for external audits (does not issue audit opinions).
+
+## Solutions (Engagement Models)
+
+- [Offshore Accounting Support](/solutions/offshore-accounting-support)
+- [Staff Augmentation](/solutions/staff-augmentation)
+- [Dedicated Accounting Teams](/solutions/dedicated-accounting-teams)
+- [Back Office Support](/solutions/back-office-support)
+
+## Industries Served
+
+- [CPA Firms](/industries/cpa-firms): Overflow capacity, white-label work, tax-season support.
+- [Technology & SaaS](/industries/technology): MRR/ARR tracking, ASC 606 revenue recognition, investor reporting.
+- [Healthcare](/industries/healthcare): Insurance reimbursement reconciliation, payer mix reporting.
+- [E-Commerce](/industries/ecommerce): Multi-channel reconciliation, COGS, sales tax nexus tracking.
+- [Real Estate](/industries/real-estate): Trust accounting, owner statements, CAM reconciliation, Yardi platform experience.
+- [Professional Services](/industries/professional-services): Client trust fund accounting, work-in-progress tracking.
+
+## Markets
+
+- [United States](/markets/united-states) — including state-specific pages for [Texas](/markets/united-states/texas), [California](/markets/united-states/california), and [Florida](/markets/united-states/florida)
+- [United Kingdom](/markets/united-kingdom)
+- [Australia](/markets/australia)
+
+## Technology Platforms Supported
+
+QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, MYOB. See [/technology](/technology) for the full list.
+
+## Resources
+
+- [Guides](/resources/guides): In-depth articles including outsourced bookkeeping cost guide, QuickBooks vs. Xero comparison, and tax-season staff augmentation.
+- [Insights](/resources/insights): Shorter explainers on topics like sales tax nexus and ASC 606 revenue recognition.
+- [Case Studies](/resources/case-studies): Illustrative scenarios (not yet real named client case studies — the company is newly launched).
+
+## Company Notes
+
+- Accounstone is a newly launched company; team members bring 24+ years of combined accounting experience.
+- The team includes a QuickBooks Certified ProAdvisor (since 2022).
+- The company is actively working toward SOC 2 certification and does not currently hold ISO 27001 or SOC 2 certification.
+- Service delivery is based at a Global Delivery Center in New Delhi, India, serving clients in the US, UK, and Australia.
+
+## Contact
+
+- [Contact page](/contact)
+- [About](/about)
