@@ -2,6 +2,7 @@
 
 import FeatureCard from './feature-card';
 import Reveal from './reveal';
+import IconBadge from './icon-badge';
 
 interface GridItem {
   id: string;
@@ -63,22 +64,24 @@ export default function SectionGrid({
 
         {/* Grid */}
         <div className={`grid grid-cols-1 ${colsClass} gap-8`}>
-          {items.map((item, index) => (
-            <Reveal key={item.id} delay={Math.min(index * 0.06, 0.3)}>
-              <FeatureCard
-                icon={item.icon}
-                title={item.name}
-                description={item.description}
-                href={item.slug ? `${baseUrl}/${item.slug}` : undefined}
-                features={item.features}
-                variant={
-                  featuredItemIndex !== undefined && index === featuredItemIndex
-                    ? 'featured'
-                    : variant
-                }
-              />
-            </Reveal>
-          ))}
+          {items.map((item, index) => {
+            const cardVariant =
+              featuredItemIndex !== undefined && index === featuredItemIndex
+                ? 'featured'
+                : variant;
+            return (
+              <Reveal key={item.id} delay={Math.min(index * 0.06, 0.3)}>
+                <FeatureCard
+                  icon={<IconBadge name={item.id} fallback={item.icon} variant={cardVariant === 'featured' ? 'featured' : 'default'} />}
+                  title={item.name}
+                  description={item.description}
+                  href={item.slug ? `${baseUrl}/${item.slug}` : undefined}
+                  features={item.features}
+                  variant={cardVariant}
+                />
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

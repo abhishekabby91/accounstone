@@ -7,6 +7,7 @@ import TestimonialsSection from '@/components/testimonials-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import AnimatedFigure from '@/components/animated-figure';
+import GlobalDeliveryDiagram from '@/components/global-delivery-diagram';
 import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 
@@ -107,6 +108,26 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Global Delivery — bespoke visual, not a stock graphic */}
+      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-white">
+        <Reveal className="max-w-3xl mx-auto text-center space-y-4 mb-10">
+          <>
+          <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
+            How We Work
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">
+            One Team, Serving Three Markets
+          </h2>
+          <p className="text-muted leading-relaxed">
+            Our service delivery team operates from our Global Delivery Center in New Delhi, India — structured to serve businesses across the US, UK, and Australia.
+          </p>
+          </>
+        </Reveal>
+        <Reveal delay={0.15}>
+          <GlobalDeliveryDiagram />
+        </Reveal>
       </section>
 
       {/* CTA Banner */}
