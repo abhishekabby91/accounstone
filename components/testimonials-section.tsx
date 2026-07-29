@@ -1,5 +1,7 @@
 'use client';
 
+import { Quote } from 'lucide-react';
+
 interface Testimonial {
   name: string;
   title: string;
@@ -39,10 +41,19 @@ export default function TestimonialsSection({
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-input border-2 border-border rounded-xl p-8 space-y-6 hover:border-accent transition-all duration-300"
+              className="relative bg-input border-2 border-border rounded-xl p-8 space-y-6 hover:border-accent transition-all duration-300"
             >
+              {/* Quote mark — a deliberate design device, not a rating
+                  claim. Positioned as a subtle background accent. */}
+              <Quote
+                className="absolute top-6 right-6 w-10 h-10 text-primary/10"
+                aria-hidden="true"
+                fill="currentColor"
+                strokeWidth={0}
+              />
+
               {/* Quote */}
-              <p className="text-foreground leading-relaxed text-lg italic">
+              <p className="relative text-foreground leading-relaxed text-lg italic">
                 "{testimonial.text}"
               </p>
 

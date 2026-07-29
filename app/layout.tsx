@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import HeaderBar from "@/components/header-bar";
 import TouchRipple from "@/components/touch-ripple";
+import BackToTop from "@/components/back-to-top";
 import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
 
 export const viewport: Viewport = {
@@ -129,11 +130,18 @@ export default function RootLayout({
         />
       </head>
       <body className="text-foreground">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-5 focus:py-3 focus:rounded-lg focus:bg-primary focus:text-white focus:font-semibold focus:shadow-lg"
+        >
+          Skip to main content
+        </a>
         <TouchRipple />
         <HeaderBar />
         <Navbar />
-        {children}
+        <div id="main-content">{children}</div>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
