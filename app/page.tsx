@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import HeroCarousel from '@/components/hero-carousel';
 import SectionGrid from '@/components/section-grid';
@@ -209,7 +210,7 @@ export default function HomePage() {
                   'Flexible engagement models',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="text-accent text-2xl shrink-0">✓</div>
+                    <Check className="text-accent shrink-0 w-5 h-5" aria-hidden="true" />
                     <p className="text-foreground font-medium">{item}</p>
                   </div>
                 ))}

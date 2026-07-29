@@ -26,6 +26,17 @@ import {
   Briefcase,
   type LucideIcon,
 } from 'lucide-react';
+import { US, GB, AU } from 'country-flag-icons/react/3x2';
+
+// Real SVG flags for markets -- NOT emoji. Flag emoji render
+// inconsistently across platforms (many desktop Windows browsers show
+// plain two-letter country codes instead of an actual flag image,
+// since Windows' emoji font lacks regional-indicator flag glyphs).
+const FLAG_MAP: Record<string, React.ComponentType<{ title?: string; className?: string }>> = {
+  'united-states': US,
+  'united-kingdom': GB,
+  australia: AU,
+};
 
 // Semantic icon keys mapped to Lucide components -- replaces the
 // generic emoji icons that were used throughout (a common tell of
@@ -73,6 +84,15 @@ interface IconBadgeProps {
 }
 
 export default function IconBadge({ name, fallback, variant = 'default', size = 'md' }: IconBadgeProps) {
+  const Flag = FLAG_MAP[name];
+  if (Flag) {
+    return (
+      <div className={`inline-flex items-center justify-center ${size === 'sm' ? 'w-10' : 'w-14'}`}>
+        <Flag className="w-full h-auto rounded-md shadow-sm" />
+      </div>
+    );
+  }
+
   const Icon = ICON_MAP[name];
 
   const dimensions = size === 'sm' ? 'w-10 h-10' : 'w-14 h-14';

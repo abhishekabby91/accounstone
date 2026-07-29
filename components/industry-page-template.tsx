@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -101,7 +102,7 @@ export default function IndustryPageTemplate({
             {benefits.map((benefit, i) => (
               <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
                 <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <div className="text-2xl shrink-0 text-accent" aria-hidden="true">✓</div>
+                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
                   <p className="text-foreground leading-relaxed">{benefit}</p>
                 </li>
               </Reveal>

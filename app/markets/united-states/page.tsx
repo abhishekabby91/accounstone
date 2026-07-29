@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
@@ -98,7 +99,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'CFO and financial advisory services',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}
@@ -121,7 +122,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'Hospitality and restaurants',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

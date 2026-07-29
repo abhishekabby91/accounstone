@@ -1,36 +1,43 @@
 'use client';
 
 import { useReducedMotion } from 'framer-motion';
+import { US, GB, AU, IN } from 'country-flag-icons/react/3x2';
 
 /**
  * A bespoke visual specific to Accounstone's actual business model --
  * not a generic template graphic. Shows the real operating structure
  * (US/UK/Australia clients connected to the Global Delivery Center in
  * New Delhi) rather than an abstract stock illustration.
+ *
+ * Uses real SVG flag components (country-flag-icons) instead of flag
+ * emoji. Flag emoji render inconsistently across platforms -- notably,
+ * many desktop browsers on Windows show plain two-letter country
+ * codes instead of an actual flag image, since Windows' system emoji
+ * font doesn't include regional-indicator flag glyphs the way iOS/
+ * Android do. Real SVG flags render identically everywhere.
  */
 export default function GlobalDeliveryDiagram() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <div className="w-full max-w-3xl mx-auto">
+    <div className="relative w-full max-w-3xl mx-auto px-4">
+      {/* Connecting line + traveling pulse, as a background SVG overlay */}
       <svg
-        viewBox="0 0 800 260"
-        className="w-full h-auto"
-        role="img"
-        aria-label="Diagram showing client businesses in the US, UK, and Australia connected to Accounstone's Global Delivery Center in New Delhi, India"
+        viewBox="0 0 800 100"
+        preserveAspectRatio="none"
+        className="absolute inset-x-0 top-[52px] w-full h-[100px] pointer-events-none"
+        aria-hidden="true"
       >
-        {/* Connecting path */}
         <path
           id="delivery-path"
-          d="M 195 130 C 350 60, 450 200, 605 130"
+          d="M 130 50 C 300 5, 500 95, 670 50"
           fill="none"
           stroke="var(--color-accent-light)"
           strokeWidth="2"
           strokeDasharray="6 6"
           opacity="0.6"
+          vectorEffect="non-scaling-stroke"
         />
-
-        {/* Traveling pulse along the path (respects reduced motion) */}
         {!shouldReduceMotion && (
           <circle r="5" fill="var(--color-accent-light)">
             <animateMotion dur="3.5s" repeatCount="indefinite">
@@ -38,46 +45,38 @@ export default function GlobalDeliveryDiagram() {
             </animateMotion>
           </circle>
         )}
+      </svg>
 
+      {/* Nodes */}
+      <div
+        className="relative flex items-start justify-between"
+        role="img"
+        aria-label="Diagram showing client businesses in the US, UK, and Australia connected to Accounstone's Global Delivery Center in New Delhi, India"
+      >
         {/* Left node: client businesses */}
-        <g>
-          <circle cx="130" cy="130" r="75" fill="var(--color-primary)" opacity="0.06" />
-          <circle cx="130" cy="130" r="52" fill="var(--color-primary)" />
-          <text x="130" y="122" textAnchor="middle" fontSize="13" fontWeight="700" fill="white">
-            Your
-          </text>
-          <text x="130" y="140" textAnchor="middle" fontSize="13" fontWeight="700" fill="white">
-            Business
-          </text>
-          <text x="130" y="210" textAnchor="middle" fontSize="20" letterSpacing="4">
-            🇺🇸 🇬🇧 🇦🇺
-          </text>
-          <text x="130" y="235" textAnchor="middle" fontSize="12" fill="var(--color-muted)">
-            US · UK · Australia
-          </text>
-        </g>
+        <div className="flex flex-col items-center gap-4 w-40">
+          <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+            <span className="text-white font-bold text-sm leading-tight">Your Business</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <US title="United States" className="w-6 h-auto rounded-sm shadow-sm" />
+            <GB title="United Kingdom" className="w-6 h-auto rounded-sm shadow-sm" />
+            <AU title="Australia" className="w-6 h-auto rounded-sm shadow-sm" />
+          </div>
+          <p className="text-xs text-muted text-center">US · UK · Australia</p>
+        </div>
 
         {/* Right node: delivery center */}
-        <g>
-          <circle cx="670" cy="130" r="75" fill="var(--color-primary)" opacity="0.06" />
-          <circle cx="670" cy="130" r="52" fill="var(--color-primary)" />
-          <text x="670" y="115" textAnchor="middle" fontSize="12" fontWeight="700" fill="white">
-            Global
-          </text>
-          <text x="670" y="132" textAnchor="middle" fontSize="12" fontWeight="700" fill="white">
-            Delivery
-          </text>
-          <text x="670" y="149" textAnchor="middle" fontSize="12" fontWeight="700" fill="white">
-            Center
-          </text>
-          <text x="670" y="210" textAnchor="middle" fontSize="20">
-            🇮🇳
-          </text>
-          <text x="670" y="235" textAnchor="middle" fontSize="12" fill="var(--color-muted)">
-            New Delhi, India
-          </text>
-        </g>
-      </svg>
+        <div className="flex flex-col items-center gap-4 w-40">
+          <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+            <span className="text-white font-bold text-sm leading-tight">Global Delivery Center</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <IN title="India" className="w-6 h-auto rounded-sm shadow-sm" />
+          </div>
+          <p className="text-xs text-muted text-center">New Delhi, India</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -72,7 +73,7 @@ export default function MYOBPage() {
               <ul className="space-y-3">
                 {['MYOB setup and configuration', 'Bookkeeping and accounting', 'GST management and BAS', 'Payroll integration', 'ATO compliance', 'Bank reconciliation', 'Financial reporting', 'Multi-entity accounting'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}
@@ -84,7 +85,7 @@ export default function MYOBPage() {
               <ul className="space-y-3">
                 {['Built for Australian/NZ compliance', 'Integrated GST and tax', 'Payroll and PAYG ready', 'ATO e-lodgement', 'Mobile accessibility', 'Cloud-based operations', 'Local support', 'Industry expertise'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

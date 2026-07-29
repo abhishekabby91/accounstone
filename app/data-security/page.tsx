@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata } from '@/lib/seo';
@@ -31,19 +32,19 @@ export default function DataSecurityPage() {
             </p>
             <ul className="space-y-3 text-muted">
               <li className="flex items-start gap-3">
-                <span className="text-accent font-bold">✓</span>
+                <Check className="text-accent w-5 h-5" aria-hidden="true" />
                 <span>Every client engagement is NDA-backed before any data is shared</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent font-bold">✓</span>
+                <Check className="text-accent w-5 h-5" aria-hidden="true" />
                 <span>Your financial data stays in your own QuickBooks Online, Xero, or other accounting software — not a separate proprietary system you'd lose access to</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent font-bold">✓</span>
+                <Check className="text-accent w-5 h-5" aria-hidden="true" />
                 <span>We are actively working toward formal certification (SOC 2) — we'll tell you exactly where we are in that process if you ask, rather than claiming it's already complete</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent font-bold">✓</span>
+                <Check className="text-accent w-5 h-5" aria-hidden="true" />
                 <span>Access to client systems is limited to the team members actually working on your account</span>
               </li>
             </ul>

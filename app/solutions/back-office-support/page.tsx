@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -84,7 +85,7 @@ export default function BackOfficeSupportPage() {
                   'System and process management',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="text-accent text-xl flex-shrink-0">✓</span>
+                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </div>
                 ))}
@@ -94,14 +95,21 @@ export default function BackOfficeSupportPage() {
             <div className="bg-gradient-to-br from-secondary to-secondary-dark rounded-xl p-8 text-white space-y-6">
               <h3 className="text-2xl font-bold">What We Handle</h3>
               <div className="space-y-3 text-sm">
-                <p>✓ Daily transaction recording and reconciliation</p>
-                <p>✓ Monthly close and financial statements</p>
-                <p>✓ Payroll processing and tax withholding</p>
-                <p>✓ Invoice processing and vendor management</p>
-                <p>✓ Customer billing and collections</p>
-                <p>✓ Benefits administration</p>
-                <p>✓ Compliance reporting</p>
-                <p>✓ Financial analysis and forecasting</p>
+                {[
+                  'Daily transaction recording and reconciliation',
+                  'Monthly close and financial statements',
+                  'Payroll processing and tax withholding',
+                  'Invoice processing and vendor management',
+                  'Customer billing and collections',
+                  'Benefits administration',
+                  'Compliance reporting',
+                  'Financial analysis and forecasting',
+                ].map((item, i) => (
+                  <p key={i} className="flex items-start gap-2">
+                    <Check className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
+                    <span>{item}</span>
+                  </p>
+                ))}
               </div>
             </div>
           </div>

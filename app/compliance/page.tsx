@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata } from '@/lib/seo';
@@ -41,7 +42,7 @@ export default function CompliancePage() {
                 <ul className="space-y-2">
                   {region.items.map((item, j) => (
                     <li key={j} className="flex items-center gap-2 text-sm text-muted">
-                      <span className="text-accent font-bold">✓</span>
+                      <Check className="text-accent w-5 h-5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
@@ -55,19 +56,19 @@ export default function CompliancePage() {
             <p>As a growing company, here is where we honestly stand today:</p>
             <ul className="space-y-2">
               <li className="flex items-start gap-3">
-                <span className="font-bold">✓</span>
+                <Check className="w-5 h-5" aria-hidden="true" />
                 <span>NDA-backed engagements for every client relationship</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="font-bold">✓</span>
+                <Check className="w-5 h-5" aria-hidden="true" />
                 <span>Continuous monitoring of regulatory changes across the markets we serve</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="font-bold">✓</span>
+                <Check className="w-5 h-5" aria-hidden="true" />
                 <span>Team training on relevant compliance requirements</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="font-bold">✓</span>
+                <Check className="w-5 h-5" aria-hidden="true" />
                 <span>Actively working toward formal certifications such as SOC 2 — ask us for our current status</span>
               </li>
             </ul>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { Check, Mail, Phone, MapPin } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import { companyInfo, services } from '@/lib/data';
 
@@ -192,7 +193,7 @@ export default function ContactPage() {
 
               {/* Email */}
               <div className="flex gap-4">
-                <div className="text-2xl text-accent flex-shrink-0">✉</div>
+                <Mail className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
                   <a
@@ -206,7 +207,7 @@ export default function ContactPage() {
 
               {/* Phone */}
               <div className="flex gap-4">
-                <div className="text-2xl text-accent flex-shrink-0">📞</div>
+                <Phone className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Phone</h4>
                   <a
@@ -220,7 +221,7 @@ export default function ContactPage() {
 
               {/* Address */}
               <div className="flex gap-4">
-                <div className="text-2xl text-accent flex-shrink-0">📍</div>
+                <MapPin className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-1">Address</h4>
                   <p className="text-muted">{companyInfo.contact.address}</p>
@@ -254,7 +255,7 @@ export default function ContactPage() {
                   'Fast response within 24 hours',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="text-accent text-lg flex-shrink-0">✓</span>
+                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground text-sm">{item}</span>
                   </div>
                 ))}

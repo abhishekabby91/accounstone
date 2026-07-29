@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { User, BarChart3, Zap, MessageSquare, TrendingUp, ClipboardList } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
@@ -31,15 +32,15 @@ export default function CommunicationPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {[
-              { title: 'Dedicated Account Manager', desc: 'Single point of contact for all questions and issues', icon: '👤' },
-              { title: 'Weekly Status Updates', desc: 'Regular updates on project status and upcoming deliverables', icon: '📊' },
-              { title: '24-Hour Response Time', desc: 'Quick turnaround on urgent questions and issues', icon: '⚡' },
-              { title: 'Multiple Communication Channels', desc: 'Email, phone, Slack, Teams - choose what works for you', icon: '💬' },
-              { title: 'Monthly Business Reviews', desc: 'Strategic reviews of performance, metrics, and improvements', icon: '📈' },
-              { title: 'Transparent Reporting', desc: 'Detailed reports on work completed, metrics, and insights', icon: '📋' },
+              { title: 'Dedicated Account Manager', desc: 'Single point of contact for all questions and issues', icon: User },
+              { title: 'Weekly Status Updates', desc: 'Regular updates on project status and upcoming deliverables', icon: BarChart3 },
+              { title: '24-Hour Response Time', desc: 'Quick turnaround on urgent questions and issues', icon: Zap },
+              { title: 'Multiple Communication Channels', desc: 'Email, phone, Slack, Teams - choose what works for you', icon: MessageSquare },
+              { title: 'Monthly Business Reviews', desc: 'Strategic reviews of performance, metrics, and improvements', icon: TrendingUp },
+              { title: 'Transparent Reporting', desc: 'Detailed reports on work completed, metrics, and insights', icon: ClipboardList },
             ].map((item, i) => (
               <div key={i} className="flex gap-4 items-start p-6 bg-input rounded-lg border border-border">
-                <div className="text-3xl flex-shrink-0">{item.icon}</div>
+                <item.icon className="w-8 h-8 text-accent flex-shrink-0" aria-hidden="true" />
                 <div>
                   <h3 className="font-bold text-primary mb-1">{item.title}</h3>
                   <p className="text-sm text-muted">{item.desc}</p>

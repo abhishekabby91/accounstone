@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -80,7 +81,7 @@ export default function OffshoreSolutionPage() {
                   'Flexible scaling up or down',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
-                    <span className="text-accent text-xl flex-shrink-0">✓</span>
+                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </div>
                 ))}

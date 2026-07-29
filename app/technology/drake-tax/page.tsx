@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
@@ -73,7 +74,7 @@ export default function DrakeTaxPage() {
               <ul className="space-y-3">
                 {['Drake setup and configuration', 'Tax return preparation', 'E-filing and compliance', 'Multi-state tax returns', 'Tax planning and optimization', 'Quarterly estimated tax calculations'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}
@@ -85,7 +86,7 @@ export default function DrakeTaxPage() {
               <ul className="space-y-3">
                 {['Efficient tax preparation workflow', 'Built-in compliance checks', 'Multi-state capability', 'IRS e-file integration', 'Data security', 'Professional support'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

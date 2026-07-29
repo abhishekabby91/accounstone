@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -72,7 +73,7 @@ export default function CCHPage() {
               <ul className="space-y-3">
                 {['CCH setup and configuration', 'Tax return preparation', 'Accounting and bookkeeping', 'Compliance management', 'Financial reporting', 'Multi-entity support'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}
@@ -84,7 +85,7 @@ export default function CCHPage() {
               <ul className="space-y-3">
                 {['Integrated tax and accounting', 'Comprehensive compliance tools', 'Multi-state capability', 'Advanced reporting', 'Document management', 'Professional resources'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

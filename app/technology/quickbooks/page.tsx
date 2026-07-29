@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check, BadgeCheck } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
@@ -85,7 +86,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               QuickBooks Online is the most popular cloud accounting software for small to mid-size businesses. Our team brings deep expertise in setup, configuration, optimization, and support. Whether you're new to QuickBooks or migrating from desktop, we ensure your accounting is properly structured, efficient, and provides the insights you need.
             </p>
             <div className="inline-flex items-center gap-3 px-5 py-3 bg-input rounded-lg border-2 border-border">
-              <span className="text-2xl" aria-hidden="true">📱</span>
+              <BadgeCheck className="w-6 h-6 text-primary" aria-hidden="true" />
               <span className="font-semibold text-primary">QuickBooks Certified ProAdvisor since 2022</span>
             </div>
           </div>
@@ -107,7 +108,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'Custom report development',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}
@@ -130,7 +131,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'Competitive pricing for features',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <span className="text-accent font-bold">✓</span>
+                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground">{item}</span>
                   </li>
                 ))}

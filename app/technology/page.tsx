@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import FAQSection from '@/components/faq-section';
@@ -105,7 +106,7 @@ export default function TechnologyPage() {
                   'API integrations with your tools',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4">
-                    <div className="text-accent text-2xl flex-shrink-0">✓</div>
+                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
                     <p className="text-foreground font-medium">{item}</p>
                   </div>
                 ))}

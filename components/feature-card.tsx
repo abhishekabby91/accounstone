@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { Check } from 'lucide-react';
 
 interface FeatureCardProps {
   icon?: string | React.ReactNode;
@@ -54,7 +55,7 @@ export default function FeatureCard({
         <ul className={`space-y-2 text-sm ${variant === 'featured' ? 'text-white/80' : 'text-foreground'}`}>
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-2">
-              <span className={`mt-1 text-base ${variant === 'featured' ? '' : 'text-accent'}`}>✓</span>
+              <Check className={`w-4 h-4 mt-0.5 shrink-0 ${variant === 'featured' ? 'text-white' : 'text-accent'}`} aria-hidden="true" />
               <span>{feature}</span>
             </li>
           ))}

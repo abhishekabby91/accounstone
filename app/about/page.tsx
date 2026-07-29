@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { GraduationCap, Rocket, Lock, Zap, Handshake, DollarSign } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata } from '@/lib/seo';
@@ -138,38 +139,38 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                icon: '🎓',
+                icon: GraduationCap,
                 title: 'Real Expertise',
                 desc: '24+ years of combined hands-on accounting experience across our team.',
               },
               {
-                icon: '🚀',
+                icon: Rocket,
                 title: 'Growth Focus',
                 desc: 'We don\'t just manage finances; we provide practical guidance to fuel growth.',
               },
               {
-                icon: '🔒',
+                icon: Lock,
                 title: 'Security-First, Honestly Stated',
                 desc: 'NDA-backed engagements and secure data handling practices. We\'re actively working toward SOC 2 certification and will tell you exactly where we stand.',
               },
               {
-                icon: '⚡',
+                icon: Zap,
                 title: 'Modern Technology',
                 desc: 'Cloud-based systems (QuickBooks Online, Xero, and more), automation, and real-time reporting tools.',
               },
               {
-                icon: '🤝',
+                icon: Handshake,
                 title: 'True Partnership',
                 desc: 'A dedicated team invested in your success, not a rotating pool of vendors.',
               },
               {
-                icon: '💰',
+                icon: DollarSign,
                 title: 'Cost Effective',
                 desc: 'Flexible engagement models designed to fit your budget and needs.',
               },
             ].map((item, i) => (
               <div key={i} className="space-y-3 p-6 bg-input rounded-xl border-2 border-border">
-                <div className="text-4xl">{item.icon}</div>
+                <item.icon className="w-10 h-10 text-accent" aria-hidden="true" />
                 <h3 className="font-bold text-lg text-primary">{item.title}</h3>
                 <p className="text-muted text-sm leading-relaxed">{item.desc}</p>
               </div>

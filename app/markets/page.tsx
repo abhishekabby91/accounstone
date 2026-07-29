@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Check, Target, BarChart3 } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
@@ -59,17 +60,17 @@ export default function MarketsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
             <div className="space-y-3">
-              <div className="text-4xl">🎯</div>
+              <Target className="w-9 h-9 text-accent" aria-hidden="true" />
               <h3 className="font-bold text-lg text-primary">Country-Specific Knowledge</h3>
               <p className="text-muted text-sm">GAAP, IFRS, VAT, GST, and other market-specific accounting and tax conventions.</p>
             </div>
             <div className="space-y-3">
-              <div className="text-4xl">📊</div>
+              <BarChart3 className="w-9 h-9 text-accent" aria-hidden="true" />
               <h3 className="font-bold text-lg text-primary">Cross-Border Support</h3>
               <p className="text-muted text-sm">Support for businesses operating across more than one of these markets.</p>
             </div>
             <div className="space-y-3">
-              <div className="text-4xl">✓</div>
+              <Check className="w-9 h-9 text-accent" aria-hidden="true" />
               <h3 className="font-bold text-lg text-primary">Regulatory Awareness</h3>
               <p className="text-muted text-sm">Bookkeeping structured to stay aligned with each market's filing and reporting requirements.</p>
             </div>
