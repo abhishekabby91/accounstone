@@ -26,16 +26,16 @@ import {
   Briefcase,
   type LucideIcon,
 } from 'lucide-react';
-import { US, GB, AU } from 'country-flag-icons/react/3x2';
+import { USFlag, GBFlag, AUFlag } from './flags';
 
 // Real SVG flags for markets -- NOT emoji. Flag emoji render
 // inconsistently across platforms (many desktop Windows browsers show
 // plain two-letter country codes instead of an actual flag image,
 // since Windows' emoji font lacks regional-indicator flag glyphs).
 const FLAG_MAP: Record<string, React.ComponentType<{ title?: string; className?: string }>> = {
-  'united-states': US,
-  'united-kingdom': GB,
-  australia: AU,
+  'united-states': USFlag,
+  'united-kingdom': GBFlag,
+  australia: AUFlag,
 };
 
 // Semantic icon keys mapped to Lucide components -- replaces the

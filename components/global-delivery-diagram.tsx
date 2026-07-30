@@ -1,7 +1,7 @@
 'use client';
 
 import { useReducedMotion } from 'framer-motion';
-import { US, GB, AU, IN } from 'country-flag-icons/react/3x2';
+import { USFlag, GBFlag, AUFlag, INFlag } from './flags';
 
 /**
  * A bespoke visual specific to Accounstone's actual business model --
@@ -9,8 +9,9 @@ import { US, GB, AU, IN } from 'country-flag-icons/react/3x2';
  * (US/UK/Australia clients connected to the Global Delivery Center in
  * New Delhi) rather than an abstract stock illustration.
  *
- * Uses real SVG flag components (country-flag-icons) instead of flag
- * emoji. Flag emoji render inconsistently across platforms -- notably,
+ * Uses hand-embedded SVG flag components (components/flags.tsx, paths
+ * sourced from the MIT-licensed country-flag-icons project) instead of
+ * flag emoji or the npm package's React wrapper directly. Flag emoji render inconsistently across platforms -- notably,
  * many desktop browsers on Windows show plain two-letter country
  * codes instead of an actual flag image, since Windows' system emoji
  * font doesn't include regional-indicator flag glyphs the way iOS/
@@ -55,24 +56,30 @@ export default function GlobalDeliveryDiagram() {
       >
         {/* Left node: client businesses */}
         <div className="flex flex-col items-center gap-4 w-40">
-          <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+          <div className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
             <span className="text-white font-bold text-sm leading-tight">Your Business</span>
+            <span className="absolute -bottom-2 px-2 py-0.5 rounded-full bg-accent-light text-white text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">
+              Onshore
+            </span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <US title="United States" className="w-6 h-auto rounded-sm shadow-sm" />
-            <GB title="United Kingdom" className="w-6 h-auto rounded-sm shadow-sm" />
-            <AU title="Australia" className="w-6 h-auto rounded-sm shadow-sm" />
+          <div className="flex items-center gap-1.5 mt-1">
+            <USFlag className="rounded-sm shadow-sm" />
+            <GBFlag className="rounded-sm shadow-sm" />
+            <AUFlag className="rounded-sm shadow-sm" />
           </div>
           <p className="text-xs text-muted text-center">US · UK · Australia</p>
         </div>
 
         {/* Right node: delivery center */}
         <div className="flex flex-col items-center gap-4 w-40">
-          <div className="w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+          <div className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
             <span className="text-white font-bold text-sm leading-tight">Global Delivery Center</span>
+            <span className="absolute -bottom-2 px-2 py-0.5 rounded-full bg-accent-light text-white text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">
+              Offshore
+            </span>
           </div>
-          <div className="flex items-center gap-1.5">
-            <IN title="India" className="w-6 h-auto rounded-sm shadow-sm" />
+          <div className="flex items-center gap-1.5 mt-1">
+            <INFlag className="rounded-sm shadow-sm" />
           </div>
           <p className="text-xs text-muted text-center">New Delhi, India</p>
         </div>
