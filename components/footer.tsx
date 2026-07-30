@@ -14,6 +14,13 @@ import { companyInfo } from '@/lib/data';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  // Consolidated from 8 sections down to 6 -- "Company" now absorbs the
+  // former standalone "How We Work" section (both were small, related
+  // categories), and legal links moved to the bottom bar (the
+  // conventional place for them, and it removes an 8th column that was
+  // forcing uneven grid wrapping). 6 divides evenly into 2, 3, and 6
+  // columns, so this wraps cleanly at every breakpoint instead of the
+  // previous nested-grid math creating jagged, uneven rows.
   const footerSections = [
     {
       title: 'Solutions',
@@ -63,6 +70,7 @@ export default function Footer() {
         { name: 'Case Studies', href: '/resources/case-studies' },
         { name: 'Guides', href: '/resources/guides' },
         { name: 'Insights', href: '/resources/insights' },
+        { name: 'Industries We Serve', href: '/industries' },
       ],
     },
     {
@@ -70,32 +78,28 @@ export default function Footer() {
       links: [
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' },
-      ],
-    },
-    {
-      title: 'How We Work',
-      links: [
         { name: 'Onboarding', href: '/delivery-framework/onboarding' },
         { name: 'Communication', href: '/delivery-framework/communication' },
         { name: 'Quality Assurance', href: '/delivery-framework/quality-assurance' },
       ],
     },
-    {
-      title: 'Trust & Compliance',
-      links: [
-        { name: 'Privacy Policy', href: '/privacy' },
-        { name: 'Terms & Conditions', href: '/terms' },
-        { name: 'Data Security', href: '/security' },
-        { name: 'Compliance', href: '/compliance' },
-      ],
-    },
+  ];
+
+  const legalLinks = [
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms & Conditions', href: '/terms' },
+    { name: 'Data Security', href: '/security' },
+    { name: 'Compliance', href: '/compliance' },
   ];
 
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-24">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
-          <div className="col-span-2 md:col-span-1 lg:col-span-1 space-y-4">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20">
+        {/* Brand block — deliberately decoupled from the link grid below
+            (not sharing grid columns with it) so its width and the nav
+            grid's column count never conflict with each other. */}
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 pb-12 mb-12 border-b border-white/10">
+          <div className="max-w-sm space-y-4">
             <Link href="/" className="inline-flex items-center h-14 hover:opacity-90 transition-opacity">
               <Image
                 src="/accounstone-logo-horizontal.png"
@@ -108,27 +112,7 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed">
               {companyInfo.tagline}
             </p>
-
-            <ul className="space-y-2 pt-2 text-sm text-white/70">
-              <li className="flex items-start gap-2">
-                <Mail size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-                <a href={`mailto:${companyInfo.contact.email}`} className="hover:text-white transition-colors">
-                  {companyInfo.contact.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Phone size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-                <a href={`tel:${companyInfo.contact.phone}`} className="hover:text-white transition-colors">
-                  +91 99905 97192
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0" aria-hidden="true" />
-                <span>{companyInfo.contact.address}</span>
-              </li>
-            </ul>
-
-            <div className="flex items-center gap-3 pt-3">
+            <div className="flex items-center gap-3 pt-1">
               <a href="https://www.linkedin.com/company/accounstone/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
@@ -144,32 +128,72 @@ export default function Footer() {
             </div>
           </div>
 
-          <nav aria-label="Footer" className="col-span-2 md:col-span-2 lg:col-span-3 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-12">
-            {footerSections.map((section) => (
-              <div key={section.title} className="space-y-4">
-                <h3 className="font-semibold text-white">{section.title}</h3>
-                <ul className="space-y-2">
-                  {section.links.map((link) => (
-                    <li key={link.name}>
-                      <Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">
-                        {link.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </nav>
+          {/* Contact info — right-aligned on desktop, forming a clean
+              two-column top section rather than being buried inside
+              the brand column's vertical stack. */}
+          <ul className="space-y-3 text-sm text-white/70 shrink-0">
+            <li className="flex items-center gap-2.5">
+              <Mail size={16} className="shrink-0 text-white/50" aria-hidden="true" />
+              <a href={`mailto:${companyInfo.contact.email}`} className="hover:text-white transition-colors">
+                {companyInfo.contact.email}
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Phone size={16} className="shrink-0 text-white/50" aria-hidden="true" />
+              <a href={`tel:${companyInfo.contact.phone}`} className="hover:text-white transition-colors">
+                +91 99905 97192
+              </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <MapPin size={16} className="shrink-0 text-white/50" aria-hidden="true" />
+              <span>{companyInfo.contact.address}</span>
+            </li>
+          </ul>
         </div>
 
-        <div className="border-t border-white/10 my-12" />
+        {/* Link grid — a single, flat grid (no nesting). 6 sections
+            divide evenly at 2, 3, and 6 columns, so every breakpoint
+            wraps cleanly with no jagged, uneven rows. */}
+        <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10">
+          {footerSections.map((section) => (
+            <div key={section.title} className="space-y-4">
+              <h3 className="font-semibold text-white text-sm uppercase tracking-wide">{section.title}</h3>
+              <ul className="space-y-2.5">
+                {section.links.map((link) => (
+                  <li key={link.name}>
+                    <Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
 
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-white/60 text-sm">
-            © {currentYear} Accounstone. All rights reserved.
-          </p>
-          <p className="text-white/60 text-sm">
-            Security-focused with NDA-backed engagements. Pursuing industry certifications.
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="text-white/60 text-sm order-2 md:order-1">
+              © {currentYear} Accounstone. All rights reserved.
+            </p>
+
+            {/* Legal links — moved here from their own footer column.
+                This is the conventional placement for legal/compliance
+                links, and it removes a column that had very few items
+                compared to the others, which was contributing to the
+                uneven look. */}
+            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 order-1 md:order-2">
+              {legalLinks.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="text-white/50 text-xs text-center md:text-left mt-4">
+            Security-focused with NDA-backed engagements. Actively pursuing SOC 2 certification.
           </p>
         </div>
       </div>
