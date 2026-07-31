@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { companyInfo } from './data';
 
-export const baseUrl = 'https://accounstone.com';
+export const baseUrl = 'https://www.accounstone.com';
 const siteName = companyInfo.name;
 
 export function generateMetadata(config: {

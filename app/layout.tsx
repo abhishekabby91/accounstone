@@ -16,7 +16,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // DECISION: non-www (accounstone.com) is canonical everywhere.
+  // DECISION: www.accounstone.com is canonical everywhere (switched
+  // from non-www since www is more widely recognized/expected by users).
   // baseUrl in lib/seo.ts is the single source of truth — never
   // hardcode the domain in any other file.
   metadataBase: new URL(baseUrl),

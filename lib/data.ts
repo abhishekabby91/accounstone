@@ -298,7 +298,7 @@ export const companyInfo = {
   name: 'Accounstone',
   tagline: 'Outsourced Accounting & Finance Solutions',
   description: 'Accounstone is a leading provider of outsourced accounting, finance, and HR services to growing businesses across the US, UK, and Australia. With a team of expert accountants and CPAs, we deliver strategic financial solutions that drive business growth.',
-  website: 'https://accounstone.com',
+  website: 'https://www.accounstone.com',
   contact: {
     email: 'partner@accounstone.com',
     // E.164 format for tel: links / schema. Displayed format handled

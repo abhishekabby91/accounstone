@@ -1,6 +1,7 @@
 'use client';
 
 import { useReducedMotion } from 'framer-motion';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { USFlag, GBFlag, AUFlag, INFlag } from './flags';
 
 /**
@@ -9,42 +10,80 @@ import { USFlag, GBFlag, AUFlag, INFlag } from './flags';
  * (US/UK/Australia clients connected to the Global Delivery Center in
  * New Delhi) rather than an abstract stock illustration.
  *
- * Uses hand-embedded SVG flag components (components/flags.tsx, paths
- * sourced from the MIT-licensed country-flag-icons project) instead of
- * flag emoji or the npm package's React wrapper directly. Flag emoji render inconsistently across platforms -- notably,
- * many desktop browsers on Windows show plain two-letter country
- * codes instead of an actual flag image, since Windows' system emoji
- * font doesn't include regional-indicator flag glyphs the way iOS/
- * Android do. Real SVG flags render identically everywhere.
+ * The connecting path's endpoints are measured from the real DOM
+ * positions of the two node circles (via getBoundingClientRect),
+ * not hardcoded percentages. An earlier version used fixed path
+ * coordinates that only approximately matched a flex-justify-between
+ * layout with fixed-width (w-40) columns -- since fixed-pixel columns
+ * represent a larger fraction of a narrow container, the approximation
+ * broke down on mobile, causing the animated pulse to visibly overshoot
+ * past the right node. Measuring real positions and recalculating on
+ * resize eliminates that entirely, at any viewport width.
  */
 export default function GlobalDeliveryDiagram() {
   const shouldReduceMotion = useReducedMotion();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const leftNodeRef = useRef<HTMLDivElement>(null);
+  const rightNodeRef = useRef<HTMLDivElement>(null);
+  const [pathD, setPathD] = useState<string | null>(null);
+
+  const measure = useCallback(() => {
+    const container = containerRef.current;
+    const leftNode = leftNodeRef.current;
+    const rightNode = rightNodeRef.current;
+    if (!container || !leftNode || !rightNode) return;
+
+    const containerRect = container.getBoundingClientRect();
+    const leftRect = leftNode.getBoundingClientRect();
+    const rightRect = rightNode.getBoundingClientRect();
+
+    const startX = leftRect.left + leftRect.width / 2 - containerRect.left;
+    const endX = rightRect.left + rightRect.width / 2 - containerRect.left;
+    const y = leftRect.top + leftRect.height / 2 - containerRect.top;
+
+    const midX = (startX + endX) / 2;
+    setPathD(`M ${startX} ${y} C ${midX} ${y - 45}, ${midX} ${y + 45}, ${endX} ${y}`);
+  }, []);
+
+  useEffect(() => {
+    measure();
+    window.addEventListener('resize', measure);
+    // Re-measure after fonts/layout settle (icons/flags can shift width slightly on load)
+    const timeout = setTimeout(measure, 100);
+    return () => {
+      window.removeEventListener('resize', measure);
+      clearTimeout(timeout);
+    };
+  }, [measure]);
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto px-4">
-      {/* Connecting line + traveling pulse, as a background SVG overlay */}
+    <div ref={containerRef} className="relative w-full max-w-3xl mx-auto px-4">
+      {/* Connecting line + traveling pulse -- path is set dynamically
+          once real node positions are measured, so it's hidden (empty
+          path) until then rather than showing an incorrect guess. */}
       <svg
-        viewBox="0 0 800 100"
-        preserveAspectRatio="none"
-        className="absolute inset-x-0 top-[52px] w-full h-[100px] pointer-events-none"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
         aria-hidden="true"
       >
-        <path
-          id="delivery-path"
-          d="M 130 50 C 300 5, 500 95, 670 50"
-          fill="none"
-          stroke="var(--color-accent-light)"
-          strokeWidth="2"
-          strokeDasharray="6 6"
-          opacity="0.6"
-          vectorEffect="non-scaling-stroke"
-        />
-        {!shouldReduceMotion && (
-          <circle r="5" fill="var(--color-accent-light)">
-            <animateMotion dur="3.5s" repeatCount="indefinite">
-              <mpath href="#delivery-path" />
-            </animateMotion>
-          </circle>
+        {pathD && (
+          <>
+            <path
+              id="delivery-path"
+              d={pathD}
+              fill="none"
+              stroke="var(--color-accent-light)"
+              strokeWidth="2"
+              strokeDasharray="6 6"
+              opacity="0.6"
+            />
+            {!shouldReduceMotion && (
+              <circle r="5" fill="var(--color-accent-light)">
+                <animateMotion dur="3.5s" repeatCount="indefinite">
+                  <mpath href="#delivery-path" />
+                </animateMotion>
+              </circle>
+            )}
+          </>
         )}
       </svg>
 
@@ -56,7 +95,7 @@ export default function GlobalDeliveryDiagram() {
       >
         {/* Left node: client businesses */}
         <div className="flex flex-col items-center gap-4 w-40">
-          <div className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+          <div ref={leftNodeRef} className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
             <span className="text-white font-bold text-sm leading-tight">Your Business</span>
             <span className="absolute -bottom-2 px-2 py-0.5 rounded-full bg-accent-light text-white text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">
               Onshore
@@ -72,7 +111,7 @@ export default function GlobalDeliveryDiagram() {
 
         {/* Right node: delivery center */}
         <div className="flex flex-col items-center gap-4 w-40">
-          <div className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
+          <div ref={rightNodeRef} className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
             <span className="text-white font-bold text-sm leading-tight">Global Delivery Center</span>
             <span className="absolute -bottom-2 px-2 py-0.5 rounded-full bg-accent-light text-white text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">
               Offshore
