@@ -118,7 +118,7 @@ export default function HomePage() {
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
             How We Work
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
             One Team, Serving Three Markets
           </h2>
           <p className="text-muted leading-relaxed">
@@ -135,7 +135,7 @@ export default function HomePage() {
       <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light">
         <Reveal className="max-w-7xl mx-auto text-center space-y-6">
           <>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
           <p className="text-lg text-white/90 max-w-2xl mx-auto">
             Partner with us for reliable, experienced accounting support designed specifically for CPA firms and accounting professionals.
           </p>

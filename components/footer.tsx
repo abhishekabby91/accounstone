@@ -113,16 +113,16 @@ export default function Footer() {
               {companyInfo.tagline}
             </p>
             <div className="flex items-center gap-3 pt-1">
-              <a href="https://www.linkedin.com/company/accounstone/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110">
+              <a href="https://www.linkedin.com/company/accounstone/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110">
                 <Linkedin size={18} />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61591501869187" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110">
+              <a href="https://www.facebook.com/profile.php?id=61591501869187" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110">
                 <Facebook size={18} />
               </a>
-              <a href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]">
+              <a href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]">
                 <Instagram size={18} className="text-white/70 group-hover:text-white transition-colors" />
               </a>
-              <a href="https://www.youtube.com/@accounstone" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110">
+              <a href="https://www.youtube.com/@accounstone" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110">
                 <Youtube size={18} />
               </a>
             </div>
@@ -157,7 +157,7 @@ export default function Footer() {
         <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10">
           {footerSections.map((section) => (
             <div key={section.title} className="space-y-4">
-              <h3 className="font-semibold text-white text-sm uppercase tracking-wide">{section.title}</h3>
+              <h3 className="font-bold text-white text-[13px] md:text-sm uppercase tracking-wider pb-1">{section.title}</h3>
               <ul className="space-y-2.5">
                 {section.links.map((link) => (
                   <li key={link.name}>

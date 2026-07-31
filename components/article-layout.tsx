@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import CTABanner from '@/components/cta-banner';
 import Reveal from '@/components/reveal';
+import ShareButtons from '@/components/share-buttons';
 import {
   generateArticleSchema,
   generateBreadcrumbSchema,
@@ -74,9 +75,12 @@ export default function ArticleLayout({
       </nav>
 
       <article className="w-full py-12 md:py-16 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-3xl mx-auto prose-content space-y-8">
-          <>{children}</>
-        </Reveal>
+        <div className="max-w-3xl mx-auto">
+          <Reveal className="prose-content space-y-8">
+            <>{children}</>
+          </Reveal>
+          <ShareButtons url={`${baseUrl}${path}`} title={title} />
+        </div>
       </article>
 
       <CTABanner

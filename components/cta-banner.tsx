@@ -35,7 +35,7 @@ export default function CTABanner({
       <Reveal className="max-w-5xl mx-auto text-center space-y-8">
         <>
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-balance">
+          <h2 className="text-4xl md:text-5xl font-bold text-balance">
             {title}
           </h2>
           {description && (

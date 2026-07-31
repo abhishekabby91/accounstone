@@ -42,7 +42,12 @@ export default function GlobalDeliveryDiagram() {
     const y = leftRect.top + leftRect.height / 2 - containerRect.top;
 
     const midX = (startX + endX) / 2;
-    setPathD(`M ${startX} ${y} C ${midX} ${y - 45}, ${midX} ${y + 45}, ${endX} ${y}`);
+    // Single quadratic arc bulging upward only (was a cubic S-curve
+    // that bulged up then dipped down, which read as the motion going
+    // downward before recovering -- especially exaggerated on short
+    // mobile widths where the curve amplitude is a larger fraction of
+    // the total path length).
+    setPathD(`M ${startX} ${y} Q ${midX} ${y - 40}, ${endX} ${y}`);
   }, []);
 
   useEffect(() => {
