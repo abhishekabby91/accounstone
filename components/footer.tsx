@@ -88,7 +88,7 @@ export default function Footer() {
   const legalLinks = [
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Terms & Conditions', href: '/terms' },
-    { name: 'Data Security', href: '/security' },
+    { name: 'Data Security', href: '/data-security' },
     { name: 'Compliance', href: '/compliance' },
   ];
 

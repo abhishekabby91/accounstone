@@ -74,6 +74,37 @@ export default function GuidesPage() {
           ))}
         </div>
       </section>
+
+      {/* Cross-links to the state-specific market pages -- these live
+          under /markets/united-states/*, not duplicated here, just
+          linked so they're discoverable from Resources too. */}
+      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <Reveal>
+            <div className="text-center space-y-2 mb-8">
+              <span className="text-sm font-semibold tracking-wide uppercase text-accent">State-Specific Guides</span>
+              <h2 className="text-2xl md:text-3xl font-bold text-primary">Accounting Rules by U.S. State</h2>
+            </div>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { name: 'Texas', href: '/markets/united-states/texas', note: 'Franchise tax, no state income tax' },
+              { name: 'California', href: '/markets/united-states/california', note: 'CDTFA sales tax, FTB coordination' },
+              { name: 'Florida', href: '/markets/united-states/florida', note: 'No personal income tax, corporate tax clarity' },
+            ].map((state, i) => (
+              <Reveal key={state.href} delay={Math.min(i * 0.08, 0.24)}>
+                <Link
+                  href={state.href}
+                  className="block h-full p-6 bg-input rounded-lg border-2 border-border hover:border-primary transition-colors"
+                >
+                  <h3 className="font-bold text-primary mb-1">{state.name}</h3>
+                  <p className="text-sm text-muted">{state.note}</p>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   );
 }

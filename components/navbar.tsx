@@ -11,11 +11,53 @@ interface NavChild {
   href: string;
 }
 
+interface NavGroup {
+  label: string;
+  items: NavChild[];
+}
+
 interface NavItem {
   label: string;
   href: string;
   children?: NavChild[];
+  groups?: NavGroup[];
 }
+
+// Region-specific service pages, built from the same slug pattern as
+// the global services list. Grouped separately from the flat
+// `children` pattern used by other nav items, since Services is the
+// one dropdown that needs region sub-sections rather than a single
+// flat list.
+const regionServiceGroups: NavGroup[] = [
+  {
+    label: 'Global',
+    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
+  },
+  {
+    label: 'USA',
+    items: [
+      { label: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+      { label: 'Tax Preparation', href: '/services/tax-preparation/united-states' },
+      { label: 'Audit Support', href: '/services/audit-support/united-states' },
+    ],
+  },
+  {
+    label: 'UK',
+    items: [
+      { label: 'Bookkeeping', href: '/services/bookkeeping/united-kingdom' },
+      { label: 'Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
+      { label: 'Audit Support', href: '/services/audit-support/united-kingdom' },
+    ],
+  },
+  {
+    label: 'Australia',
+    items: [
+      { label: 'Bookkeeping', href: '/services/bookkeeping/australia' },
+      { label: 'Tax Preparation', href: '/services/tax-preparation/australia' },
+      { label: 'Audit Support', href: '/services/audit-support/australia' },
+    ],
+  },
+];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -41,7 +83,7 @@ export default function Navbar() {
     {
       label: 'Services',
       href: '/services',
-      children: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
+      groups: regionServiceGroups,
     },
     {
       label: 'Industries',
@@ -73,27 +115,21 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
-  // Close mobile menu on Escape + lock body scroll while open.
   useEffect(() => {
     if (!mobileMenuOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setMobileMenuOpen(false);
     };
-
     document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
-
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
 
-  // Desktop dropdowns: close on click-outside, and on Escape.
   useEffect(() => {
     if (!openDropdown) return;
-
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
@@ -102,7 +138,6 @@ export default function Navbar() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setOpenDropdown(null);
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -111,8 +146,6 @@ export default function Navbar() {
     };
   }, [openDropdown]);
 
-  // Small delay on mouse-leave so moving the cursor from the label to
-  // the dropdown panel doesn't close it prematurely.
   const scheduleClose = () => {
     closeTimeoutRef.current = setTimeout(() => setOpenDropdown(null), 150);
   };
@@ -138,9 +171,11 @@ export default function Navbar() {
         <nav ref={navRef} aria-label="Primary" className="hidden md:flex items-center gap-6 lg:gap-8">
           {menuItems.map((item) => {
             const hasChildren = !!item.children?.length;
+            const hasGroups = !!item.groups?.length;
+            const isDropdown = hasChildren || hasGroups;
             const isOpen = openDropdown === item.label;
 
-            if (!hasChildren) {
+            if (!isDropdown) {
               return (
                 <Link
                   key={item.href}
@@ -185,7 +220,48 @@ export default function Navbar() {
                   </svg>
                 </button>
 
-                {isOpen && (
+                {isOpen && hasGroups && (
+                  // Wider, multi-column panel for Services: Global
+                  // services alongside region-specific groups (USA/UK/
+                  // Australia), so region pages sit beside the global
+                  // ones instead of replacing them.
+                  <div
+                    className="absolute left-0 top-full mt-2 w-[640px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50"
+                    style={{ WebkitOverflowScrolling: 'touch' }}
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setOpenDropdown(null)}
+                      className="block px-3 py-2 mb-3 text-sm font-semibold text-primary hover:bg-input rounded-lg transition-colors border-b border-border"
+                    >
+                      View All {item.label} →
+                    </Link>
+                    <div className="grid grid-cols-4 gap-4">
+                      {item.groups!.map((group) => (
+                        <div key={group.label}>
+                          <p className="text-xs font-bold uppercase tracking-wider text-muted mb-2 px-3">
+                            {group.label}
+                          </p>
+                          <ul className="space-y-0.5">
+                            {group.items.map((child) => (
+                              <li key={child.href}>
+                                <Link
+                                  href={child.href}
+                                  onClick={() => setOpenDropdown(null)}
+                                  className="block px-3 py-1.5 rounded-lg text-sm text-foreground hover:bg-input hover:text-primary transition-colors"
+                                >
+                                  {child.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {isOpen && hasChildren && (
                   <div
                     className="absolute left-0 top-full mt-2 w-64 max-h-[70vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl py-2 z-50"
                     style={{ WebkitOverflowScrolling: 'touch' }}
@@ -239,7 +315,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu — accordion for items with children */}
+      {/* Mobile Menu — accordion for items with children/groups */}
       {mobileMenuOpen && (
         <nav
           id="mobile-menu"
@@ -250,9 +326,11 @@ export default function Navbar() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
             {menuItems.map((item) => {
               const hasChildren = !!item.children?.length;
+              const hasGroups = !!item.groups?.length;
+              const isDropdown = hasChildren || hasGroups;
               const isSectionOpen = openMobileSection === item.label;
 
-              if (!hasChildren) {
+              if (!isDropdown) {
                 return (
                   <Link
                     key={item.href}
@@ -301,7 +379,29 @@ export default function Navbar() {
                     </button>
                   </div>
 
-                  {isSectionOpen && (
+                  {isSectionOpen && hasGroups && (
+                    <div className="pl-4 py-1 space-y-3 border-l-2 border-border ml-4 mb-1">
+                      {item.groups!.map((group) => (
+                        <div key={group.label}>
+                          <p className="text-xs font-bold uppercase tracking-wider text-muted mb-1 px-4">
+                            {group.label}
+                          </p>
+                          {group.items.map((child) => (
+                            <Link
+                              key={child.href}
+                              href={child.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block px-4 py-2 rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors"
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {isSectionOpen && hasChildren && (
                     <div className="pl-4 py-1 space-y-1 border-l-2 border-border ml-4 mb-1">
                       {item.children!.map((child) => (
                         <Link

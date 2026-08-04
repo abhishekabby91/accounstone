@@ -16,7 +16,17 @@ export function generateMetadata(config: {
   const ogImage = config.ogImage || `${baseUrl}/og-image.png`;
 
   return {
-    title: `${config.title} | ${siteName}`,
+    // BUG FIX: the root layout's metadata.title.template ("%s | Accounstone")
+    // automatically appends the site name to every CHILD route segment's
+    // title -- but this function was ALSO manually appending "| Accounstone"
+    // below, causing every non-home page to render as "X | Accounstone |
+    // Accounstone". The homepage is the one exception: Next.js's template
+    // inheritance does NOT apply a layout's template to the page.tsx at
+    // that same root segment, only to descendant segments -- so the
+    // homepage still needs the manual suffix here, or it would lose its
+    // brand name entirely once the duplicate-suffix bug is fixed for
+    // every other page.
+    title: config.path === '/' ? `${config.title} | ${siteName}` : config.title,
     description: config.description,
     robots: config.noindex
       ? { index: false, follow: false }

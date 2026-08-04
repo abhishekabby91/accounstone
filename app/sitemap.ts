@@ -60,6 +60,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/markets/united-states/texas', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/california', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/florida', priority: 0.65, changeFrequency: 'monthly' as const },
+    { path: '/services/bookkeeping/united-kingdom', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/tax-preparation/united-kingdom', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/audit-support/united-kingdom', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/bookkeeping/australia', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/tax-preparation/australia', priority: 0.7, changeFrequency: 'monthly' as const },
+    { path: '/services/audit-support/australia', priority: 0.7, changeFrequency: 'monthly' as const },
   ];
 
   const allRoutes = [...staticRoutes, ...dynamicRoutes, ...specializedRoutes];

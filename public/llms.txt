@@ -15,6 +15,14 @@ Accounstone provides outsourced accounting support including bookkeeping, tax pr
 - [CFO Support Services](/services/cfo-support): Financial planning, forecasting, and executive reporting.
 - [Audit Support](/services/audit-support): Documentation and testing support for external audits (does not issue audit opinions).
 
+## Region-Specific Service Pages
+
+Bookkeeping, Tax Preparation, and Audit Support each have dedicated pages for the three core markets, with genuinely region-specific regulatory content (not shared boilerplate):
+
+- United States: [Bookkeeping](/services/bookkeeping/united-states), [Tax Preparation](/services/tax-preparation/united-states), [Audit Support](/services/audit-support/united-states)
+- United Kingdom: [Bookkeeping](/services/bookkeeping/united-kingdom) (Making Tax Digital, VAT, Companies House), [Tax Preparation](/services/tax-preparation/united-kingdom) (Self Assessment, Corporation Tax), [Audit Support](/services/audit-support/united-kingdom) (Companies Act 2006)
+- Australia: [Bookkeeping](/services/bookkeeping/australia) (BAS, GST, Single Touch Payroll), [Tax Preparation](/services/tax-preparation/australia) (ATO, EOFY), [Audit Support](/services/audit-support/australia) (ASIC, Australian Auditing Standards)
+
 ## Solutions (Engagement Models)
 
 - [Offshore Accounting Support](/solutions/offshore-accounting-support)
@@ -43,7 +51,7 @@ QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, MYOB. See [/tech
 
 ## Resources
 
-- [Guides](/resources/guides): In-depth articles including outsourced bookkeeping cost guide, QuickBooks vs. Xero comparison, and tax-season staff augmentation.
+- [Guides](/resources/guides): In-depth articles including outsourced bookkeeping cost guide, QuickBooks vs. Xero comparison, and tax-season staff augmentation, plus cross-links to the [Texas](/markets/united-states/texas), [California](/markets/united-states/california), and [Florida](/markets/united-states/florida) state pages.
 - [Insights](/resources/insights): Shorter explainers on topics like sales tax nexus and ASC 606 revenue recognition.
 - [Case Studies](/resources/case-studies): Illustrative scenarios (not yet real named client case studies — the company is newly launched).
 

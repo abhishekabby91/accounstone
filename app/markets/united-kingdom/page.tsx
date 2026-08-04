@@ -66,7 +66,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
         title="Accounting Services for UK Businesses"
         description="Expert accounting, bookkeeping, and tax services tailored to UK regulations. IFRS, VAT, and Companies House compliance included."
         cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View Services', href: '/services' }}
+        ctaSecondary={{ text: 'View Services', href: '/services/bookkeeping/united-kingdom' }}
         background="primary-gradient"
       />
 
@@ -143,18 +143,18 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { name: 'Bookkeeping', slug: 'bookkeeping' },
-              { name: 'Accounting Services', slug: 'accounting' },
-              { name: 'Tax Preparation', slug: 'tax-preparation' },
-              { name: 'Payroll Processing', slug: 'payroll' },
-              { name: 'Accounts Payable', slug: 'accounts-payable' },
-              { name: 'Accounts Receivable', slug: 'accounts-receivable' },
-              { name: 'CFO Support', slug: 'cfo-support' },
-              { name: 'Audit Support', slug: 'audit-support' },
+              { name: 'Bookkeeping', href: '/services/bookkeeping/united-kingdom' },
+              { name: 'Accounting Services', href: '/services/accounting' },
+              { name: 'Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
+              { name: 'Payroll Processing', href: '/services/payroll' },
+              { name: 'Accounts Payable', href: '/services/accounts-payable' },
+              { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
+              { name: 'CFO Support', href: '/services/cfo-support' },
+              { name: 'Audit Support', href: '/services/audit-support/united-kingdom' },
             ].map((service, i) => (
               <Link
                 key={i}
-                href={`/services/${service.slug}`}
+                href={service.href}
                 className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
               >
                 <h3 className="font-bold text-primary text-lg group-hover:text-primary-light transition-colors">
