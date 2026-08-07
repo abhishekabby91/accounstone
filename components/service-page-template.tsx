@@ -43,6 +43,13 @@ export default function ServicePageTemplate({
     description: service.description,
     slug,
     basePath: '/services/',
+    // These base pages are the USA-tier services (see navbar's "USA"
+    // group) -- UK and Australia each have their own dedicated pages
+    // with genuinely different regulatory content. Previously this
+    // defaulted to claiming US+GB+AU+CA all at once, which no longer
+    // matches the site's actual structure now that each region has
+    // its own real, distinct pages.
+    areaServed: ['US'],
   });
 
   const faqSchema = generateFAQSchema(faqs);

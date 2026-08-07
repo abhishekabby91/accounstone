@@ -30,16 +30,13 @@ interface NavItem {
 // flat list.
 const regionServiceGroups: NavGroup[] = [
   {
-    label: 'Global',
-    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
-  },
-  {
+    // The 8 base service pages ARE the USA services -- not a separate
+    // "global" tier. The dedicated /united-states deep-dive pages for
+    // bookkeeping/tax-preparation/audit-support still exist and are
+    // cross-linked from these base pages' Related Services sections
+    // and included in the sitemap -- just not duplicated here.
     label: 'USA',
-    items: [
-      { label: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
-      { label: 'Tax Preparation', href: '/services/tax-preparation/united-states' },
-      { label: 'Audit Support', href: '/services/audit-support/united-states' },
-    ],
+    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
   },
   {
     label: 'UK',
