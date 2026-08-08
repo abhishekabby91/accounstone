@@ -30,16 +30,25 @@ export default function AnimatedFigure({
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-40px' });
   const shouldReduceMotion = useReducedMotion();
-  const [display, setDisplay] = useState(0);
+  // BUG FIX: this was useState(0), which is what Next.js renders into
+  // the actual static HTML during SSR -- useEffect never runs on the
+  // server, so every visitor without working JS (crawlers, slow
+  // connections, JS-disabled browsers) saw literal "0" as the real
+  // page content instead of the actual stat. Confirmed live on
+  // production: the homepage was serving "0 Markets Served", "0 Core
+  // Service Lines", "0+ Years of Experience". Initializing to the
+  // real value means the correct number is always in the HTML by
+  // default; the count-up is now purely a client-side enhancement
+  // layered on top for users who get there with working JS, never the
+  // fallback state itself.
+  const [display, setDisplay] = useState(value);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    if (!isInView || hasAnimatedRef.current || shouldReduceMotion) return;
+    hasAnimatedRef.current = true;
 
-    if (shouldReduceMotion) {
-      setDisplay(value);
-      return;
-    }
-
+    setDisplay(0);
     let start: number | null = null;
     let frameId: number;
 
