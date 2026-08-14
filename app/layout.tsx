@@ -17,30 +17,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-
   title: {
     default: "Accounstone | Outsourced Accounting & Bookkeeping",
     template: "%s | Accounstone",
   },
-
   description:
-    "Outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses.",
-
-  keywords: [
-    "outsourced accounting",
-    "accounting outsourcing",
-    "bookkeeping services",
-    "CPA firm support",
-    "tax preparation support",
-    "payroll processing",
-    "accounts payable outsourcing",
-    "accounts receivable outsourcing",
-    "audit support",
-    "dedicated accounting teams",
-  ],
-
+    "Accounting and bookkeeping support for CPA firms and growing businesses, including tax preparation, payroll, payables, receivables, and audit support.",
   authors: [{ name: "Accounstone" }],
-
   robots: {
     index: true,
     follow: true,
@@ -51,18 +34,14 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-
   alternates: {
     canonical: baseUrl,
   },
-
   manifest: "/manifest.webmanifest",
-
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -70,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Accounstone",
     title: "Accounstone | Outsourced Accounting & Bookkeeping",
     description:
-      "Reliable outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses.",
+      "Accounting and bookkeeping support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
@@ -80,39 +59,24 @@ export const metadata: Metadata = {
       },
     ],
   },
-
   twitter: {
     card: "summary_large_image",
     title: "Accounstone | Outsourced Accounting & Bookkeeping",
     description:
-      "Reliable outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support.",
-    creator: "@accounstone",
+      "Accounting and bookkeeping support for CPA firms and growing businesses.",
+    images: [`${baseUrl}/og-image.png`],
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const organizationSchema = generateOrganizationSchema();
   const websiteSchema = generateWebsiteSchema();
 
   return (
     <html lang="en" className="bg-background">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(websiteSchema),
-          }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
       <body className="text-foreground">
         <a
