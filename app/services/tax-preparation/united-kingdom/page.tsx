@@ -5,144 +5,34 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
-import {
-  generateMetadata as genMeta,
-  generateServiceSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  baseUrl,
-} from '@/lib/seo';
+import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/united-kingdom';
+export const metadata: Metadata = genMeta({ title: 'UK Tax Preparation Support for Accounting Teams | Accounstone', description: 'UK tax preparation support for Self Assessment and Corporation Tax workflows, with organised workpapers, reconciliations and review-ready files for UK accountants and tax agents.', path: PATH });
 
-export const metadata: Metadata = genMeta({
-  title: 'UK Tax Preparation Support Services',
-  description:
-    'Tax preparation support for UK businesses — Self Assessment and Corporation Tax documentation, working under your accountant or tax agent\'s review, aligned with HMRC requirements.',
-  path: PATH,
-});
-
-const overview =
-  "UK tax preparation splits into two main tracks: Self Assessment for sole traders and individuals, and Corporation Tax for limited companies, both filed through HMRC's online systems. We support the preparation and documentation work — organising records, reconciling figures, and preparing supporting schedules — working under the review of your UK accountant or tax agent, who retains final sign-off and filing responsibility.";
-
-const benefits = [
-  'Self Assessment documentation preparation for sole traders and individuals',
-  'Corporation Tax return preparation support for limited companies',
-  'Records organised and reconciled ahead of your accountant\'s review',
-  'HMRC online filing-ready documentation',
-  'Support during UK tax season capacity crunches (January Self Assessment deadline)',
-  'Coordination with your UK accountant or registered tax agent for final review and filing',
-];
-
+const overview = "Tax season rarely becomes difficult because one return is impossible to prepare. It becomes difficult when source documents arrive late, records need cleaning, workpapers are incomplete and the same review questions keep appearing across a growing queue. We support the preparation and organisation underneath UK Self Assessment and Corporation Tax work so the accountant or tax agent responsible for the client can spend more time reviewing and advising.";
+const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Self Assessment preparation support for individuals and sole traders', 'Corporation Tax preparation support for companies', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the UK accountant or tax agent responsible for advice and filing'];
+const retained = ['Final tax advice and professional judgement', 'Final review and approval of returns', 'Client-facing tax decisions and explanations', 'Statutory filing and sign-off responsibilities', 'Decisions on unusual or uncertain tax treatment'];
 const faqs = [
-  {
-    question: 'Do you file tax returns directly with HMRC?',
-    answer:
-      'No — we support the preparation and documentation process, but final review, sign-off, and filing is handled by your UK accountant or registered tax agent, consistent with how UK tax practice works.',
-  },
-  {
-    question: 'Can you help before the January Self Assessment deadline?',
-    answer:
-      'Yes, this is one of the most common ways firms and businesses use our support — absorbing preparation workload ahead of the 31 January Self Assessment deadline so your accountant can focus on review and client conversations.',
-  },
-  {
-    question: 'Do you support Corporation Tax preparation for limited companies?',
-    answer:
-      'Yes, we prepare supporting documentation and reconciliations for Corporation Tax returns, working alongside your accountant for the actual CT600 filing.',
-  },
-  {
-    question: 'What accounting software do you work within?',
-    answer:
-      'We work within Xero and other MTD-compatible platforms, fitting into however your accountant or firm already operates.',
-  },
+  { question: 'Can you help with Self Assessment preparation?', answer: 'Yes. We can organise source records, supporting schedules and preparation work for Self Assessment while your accountant or authorised tax professional retains final review, advice and filing responsibility.' },
+  { question: 'Can you support Corporation Tax work?', answer: 'Yes. We can prepare defined schedules, reconciliations and documentation that feed into Corporation Tax work, with the responsible UK tax professional retaining final judgement and filing responsibility.' },
+  { question: 'Can you help before the January Self Assessment deadline?', answer: 'Yes. Deadline pressure often comes from the size of the review queue rather than the preparation of a single return. Defined preparation support can help firms move work forward before final review.' },
+  { question: 'Will you give tax advice to our clients?', answer: 'No. The scope can be structured around preparation, documentation and workflow support. Tax advice and professional judgement remain with the responsible UK accountant or tax adviser.' },
 ];
-
 const faqSchema = generateFAQSchema(faqs);
-
-const serviceSchema = generateServiceSchema({
-  name: 'Tax Preparation Support for UK Businesses',
-  description: overview,
-  slug: 'tax-preparation/united-kingdom',
-  basePath: '/services/',
-  areaServed: ['GB'],
-});
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl },
-  { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Tax Preparation', url: `${baseUrl}/services/tax-preparation` },
-  { name: 'United Kingdom', url: `${baseUrl}${PATH}` },
-]);
+const serviceSchema = generateServiceSchema({ name: 'Tax Preparation Support for UK Businesses', description: overview, slug: 'tax-preparation/united-kingdom', basePath: '/services/', areaServed: ['GB'] });
+const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Tax Preparation', url: `${baseUrl}/services/tax-preparation` }, { name: 'United Kingdom', url: `${baseUrl}${PATH}` }]);
 
 export default function TaxPrepUKPage() {
-  return (
-    <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <PremiumHero
-        subtitle="Tax Preparation Support for UK Businesses"
-        title="UK Tax Preparation Support Services"
-        description="Self Assessment and Corporation Tax preparation support, working under your accountant or tax agent's review."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View All Services', href: '/services' }}
-        background="primary-gradient"
-      />
-
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
-        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services/tax-preparation" className="hover:text-primary transition-colors">Tax Preparation</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
-        </ol>
-      </nav>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-4xl mx-auto space-y-6">
-          <>
-          <div className="space-y-2">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Support for UK Tax Preparation Workflows</h2>
-          </div>
-          <p className="text-lg text-muted leading-relaxed">{overview}</p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center space-y-4 mb-16">
-            <>
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-            </>
-          </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((b, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <FAQSection subtitle="Questions" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Preparing for Self Assessment or Corporation Tax?"
-        description="Let's talk about your capacity needs before the next filing deadline."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
-    </main>
-  );
+  return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <PremiumHero subtitle="Tax Preparation Support for UK Businesses" title="UK Tax Preparation Support Services" description="Preparation and workpaper support for Self Assessment and Corporation Tax workflows, built around your firm's review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+    <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/tax-preparation">Tax Preparation</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United Kingdom</li></ol></nav>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">More Prepared Work. Less Review-Queue Friction.</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What Can Move Before Your Final Review</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((b, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{b}</p></li></Reveal>)}</ul></div></section>
+    <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto rounded-2xl bg-primary text-white p-8 md:p-10"><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained by your firm</span><h2 className="text-3xl font-bold mt-3 mb-6">Judgement, advice and final approval</h2><ul className="grid md:grid-cols-2 gap-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></div></section>
+    <section className="w-full py-16 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto text-center"><h2 className="text-3xl font-bold text-primary mb-5">Keep the UK workflow connected</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/bookkeeping/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Bookkeeping</Link><Link href="/services/audit-support/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Audit Support</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Xero</Link></div></div></section>
+    <FAQSection subtitle="Questions" items={faqs} columns={2} />
+    <CTABanner title="Where Is the UK Tax Queue Getting Stuck?" description="Tell us whether the pressure is source documents, bookkeeping cleanup, preparation or review capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
+  </main>;
 }
