@@ -23,9 +23,9 @@ export default function FeatureCard({
   const baseClasses = `group h-full p-7 md:p-8 rounded-2xl transition-all duration-300 ${className}`;
 
   const variantClasses = {
-    default: 'bg-white border border-border/80 shadow-sm hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl',
+    default: 'bg-white border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:border-primary/15 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]',
     featured: 'bg-primary text-white border border-primary shadow-xl hover:-translate-y-1 hover:shadow-2xl',
-    minimal: 'bg-transparent border border-border hover:-translate-y-1 hover:border-accent hover:bg-white hover:shadow-lg',
+    minimal: 'bg-transparent border border-border hover:-translate-y-1 hover:border-accent/50 hover:bg-white hover:shadow-lg',
   }[variant];
 
   const content = (
@@ -53,10 +53,10 @@ export default function FeatureCard({
       )}
 
       {href && (
-        <div className="pt-2 mt-auto">
-          <span className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-transform duration-300 group-hover:gap-2.5 ${variant === 'featured' ? 'text-white' : 'text-accent'}`}>
-            Explore service
-            <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+        <div className="pt-3 mt-auto">
+          <span className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${variant === 'featured' ? 'text-white' : 'text-primary'} group-hover:gap-3`}>
+            View details
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
           </span>
         </div>
       )}
