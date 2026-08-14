@@ -13,9 +13,9 @@ import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Outsourced Accounting & Finance Solutions',
+  title: 'Outsourced Accounting & Bookkeeping for CPA Firms',
   description:
-    'Professional outsourced accounting, finance, and HR services for growing businesses. Expert CPAs, dedicated teams, and strategic financial solutions.',
+    'Reliable outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses.',
   path: '/',
 });
 
@@ -23,107 +23,100 @@ const homePageFAQs = [
   {
     question: 'What services does Accounstone provide?',
     answer:
-      'We provide comprehensive accounting services including bookkeeping, tax planning, financial advisory, HR compliance, audit and assurance, and dedicated accounting teams. Our solutions are tailored to businesses of all sizes.',
+      'We provide bookkeeping, accounting operations, tax preparation, payroll processing, accounts payable, accounts receivable, audit support, and dedicated accounting teams. Engagements are tailored to your workflow and workload.',
   },
   {
     question: 'How do you ensure data security?',
     answer:
-      'Every engagement is NDA-backed, with system access limited to the team members actually working on your account. We are actively working toward formal certification (SOC 2) and will tell you exactly where we stand if you ask, rather than overstating it.',
+      'Every engagement is NDA-backed, with system access limited to the team members working on your account. We use controlled access, documented workflows, and security-first handling practices, and we are transparent about the certifications we do and do not hold.',
   },
   {
     question: 'Can you work with our existing software?',
     answer:
-      'Yes, we integrate with QuickBooks, Xero, NetSuite, Sage, and custom systems. Our team is experienced with all major accounting platforms.',
+      'Yes. Our team works with platforms including QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, and MYOB, along with client-specific systems and workflows.',
   },
   {
     question: 'How quickly can you get started?',
     answer:
-      'Most clients are onboarded within 2-4 weeks. We work closely with your team to understand your processes, requirements, and goals before beginning work.',
+      'Most engagements begin with a structured discovery and knowledge-transfer process. The exact timeline depends on your workflows, systems, documentation, and scope of work.',
   },
   {
-    question: 'What is your pricing model?',
+    question: 'How is pricing determined?',
     answer:
-      'Pricing depends on transaction volume, number of accounts, and complexity. Use our quick cost estimator in the bookkeeping cost guide for an instant planning-purpose range, or contact us for an exact quote after a quick assessment.',
+      'Pricing depends on transaction volume, workflow complexity, systems, service scope, and the engagement model. We first understand the work and then provide a clear proposal.',
   },
   {
-    question: 'Do you provide offshore accounting services?',
+    question: 'Do you provide offshore accounting support?',
     answer:
-      'Yes, our service delivery team operates from our Global Delivery Center in New Delhi, India, providing cost-effective accounting support to US, UK, and Australian clients while maintaining the same high standards as onshore services.',
+      'Yes. Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting practices and businesses across the US, UK, and Australia.',
   },
 ];
 
-// JSON-LD for the FAQ block above. This is what makes FAQ rich results
-// (expandable Q&A snippets in Google search results) possible — without
-// this schema, the FAQPage content is just plain text to Google.
 const faqSchema = generateFAQSchema(homePageFAQs);
 
 export default function HomePage() {
   const carouselSlides = [
     {
-      id: 'budget-planning',
-      image: '/carousel-budget-planning.jpg',
-      alt: 'Budget planning workspace with calculator, financial charts, graphs, colorful markers, and monthly budget spreadsheet showing data analysis and financial planning',
-      title: 'Professional Financial Planning Support',
-      subtitle: 'Expert accounting solutions for your firm',
+      id: 'accounting-team',
+      image: '/carousel-accounting-team.png',
+      alt: 'Professional accounting team collaborating on client work',
+      title: 'Accounting Support That Fits Your Workflow',
+      subtitle: 'Experienced professionals working as an extension of your team',
     },
     {
-      id: 'worldwide',
-      image: '/carousel-worldwide.jpg',
-      alt: 'Wooden globe sculpture with worldwide text demonstrating global reach and international accounting services',
-      title: 'Reliable Expertise, On Your Timeline',
-      subtitle: 'Expert accountants ready to support your growth',
+      id: 'global-team',
+      image: '/carousel-global-team.png',
+      alt: 'Global accounting team working together',
+      title: 'Reliable Support Across Three Markets',
+      subtitle: 'US, UK, and Australia support from one delivery team',
     },
     {
       id: 'tax-returns',
       image: '/carousel-tax-returns.jpg',
-      alt: 'Blue tax returns document folder with gold text and financial documents showing professional tax preparation services',
-      title: 'Trusted Partner for Your Accounting Needs',
-      subtitle: 'Comprehensive solutions for CPA firms and accountants',
+      alt: 'Organized tax return documents prepared for professional review',
+      title: 'Built for Accounting Practices',
+      subtitle: 'Bookkeeping, tax preparation, payroll, and audit support',
     },
   ];
 
   return (
     <main>
-      {/* FAQ structured data for this page */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* Hero Carousel Section */}
       <section data-section="hero">
         <HeroCarousel
-  slides={carouselSlides}
-  autoPlayInterval={5000}
-  pageHeading="Outsourced Accounting & Finance Solutions for CPA Firms | Accounstone"
-/>
+          slides={carouselSlides}
+          autoPlayInterval={5000}
+          pageHeading="Outsourced Accounting & Bookkeeping for CPA Firms | Accounstone"
+        />
       </section>
 
-      {/* Trust Badges — only real, verified items */}
-      <section className="w-full py-8 px-6 md:px-8 bg-white border-b-2 border-border">
-        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-4">
+      <section className="w-full py-7 md:py-8 px-6 md:px-8 bg-white border-b border-border">
+        <div className="max-w-6xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4">
           {trustBadges.map((badge, i) => (
-            <div key={i} className="flex items-center gap-2 px-5 py-2.5 bg-input rounded-lg border-2 border-border">
-              <span className="text-lg" aria-hidden="true">{badge.icon}</span>
+            <div key={i} className="flex items-center gap-2 px-4 md:px-5 py-2.5 bg-input rounded-full border border-border">
+              <span className="text-base" aria-hidden="true">{badge.icon}</span>
               <span className="font-medium text-sm text-foreground">{badge.name}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Global Delivery — bespoke visual, not a stock graphic */}
       <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-4 mb-10">
           <>
-          <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-            How We Work
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-            One Team, Serving Three Markets
-          </h2>
-          <p className="text-muted leading-relaxed">
-            Our service delivery team operates from our Global Delivery Center in New Delhi, India — structured to serve businesses across the US, UK, and Australia.
-          </p>
+            <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
+              How We Work
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+              One Delivery Team. Three Markets.
+            </h2>
+            <p className="text-muted leading-relaxed">
+              Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting businesses and accounting practices across the US, UK, and Australia.
+            </p>
           </>
         </Reveal>
         <Reveal delay={0.15}>
@@ -131,38 +124,30 @@ export default function HomePage() {
         </Reveal>
       </section>
 
-      {/* CTA Banner */}
       <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light">
         <Reveal className="max-w-7xl mx-auto text-center space-y-6">
           <>
-          <h2 className="text-4xl md:text-5xl font-bold text-white">Ready to Scale Your Accounting Operations?</h2>
-          <p className="text-lg text-white/90 max-w-2xl mx-auto">
-            Partner with us for reliable, experienced accounting support designed specifically for CPA firms and accounting professionals.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all"
-            >
-              Schedule Consultation
-            </Link>
-            <Link
-              href="/solutions"
-              className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white/10 transition-all"
-            >
-              Explore Solutions
-            </Link>
-          </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">
+              Add experienced accounting professionals to your workflow without rebuilding your entire team.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">
+                Talk to Our Team
+              </Link>
+              <Link href="/solutions" className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white/10 transition-all">
+                Explore Solutions
+              </Link>
+            </div>
           </>
         </Reveal>
       </section>
 
-      {/* Solutions Section */}
       <section data-section="solutions">
         <SectionGrid
-          subtitle="Our Offerings"
-          title="Flexible Service Solutions"
-          description="Choose the right engagement model for your business needs."
+          subtitle="Our Engagement Models"
+          title="Support Built Around Your Team"
+          description="Choose the delivery model that matches your workload, processes, and growth plans."
           items={solutions}
           baseUrl="/solutions"
           columns={3}
@@ -170,12 +155,11 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Services Section */}
       <section data-section="services">
         <SectionGrid
           subtitle="What We Do"
-          title="Comprehensive Accounting Services"
-          description="Expert services across all areas of accounting and finance."
+          title="Accounting Services That Keep Work Moving"
+          description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support."
           items={services}
           baseUrl="/services"
           columns={3}
@@ -183,119 +167,78 @@ export default function HomePage() {
         />
       </section>
 
-      {/* Why Accounstone Section */}
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <Reveal className="space-y-6">
               <>
-              <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                Why Choose Us
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-                Beyond Accounting, Strategic Partnership
-              </h2>
-              <p className="text-lg text-muted leading-relaxed">
-                We don&apos;t just handle the numbers. We become an extension of your team,
-                providing strategic guidance to help your business grow profitably.
-              </p>
+                <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
+                  Why Accounstone
+                </span>
+                <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+                  A Delivery Partner, Not Just Extra Hands
+                </h2>
+                <p className="text-lg text-muted leading-relaxed">
+                  We work inside your processes, follow your review standards, and become a dependable extension of your team.
+                </p>
 
-              <div className="space-y-4 pt-4">
-                {[
-                  'Experienced professionals with 24+ years of combined accounting expertise',
-                  'Dedicated support during critical periods',
-                  'Proactive tax planning and optimization',
-                  'Advanced technology and automation',
-                  'Transparent reporting and communication',
-                  'Flexible engagement models',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <Check className="text-accent shrink-0 w-5 h-5" aria-hidden="true" />
-                    <p className="text-foreground font-medium">{item}</p>
-                  </div>
-                ))}
-              </div>
+                <div className="space-y-4 pt-4">
+                  {[
+                    'Experienced accounting professionals',
+                    'Dedicated support during busy periods',
+                    'Documented onboarding and knowledge transfer',
+                    'Quality review before work reaches your team',
+                    'Clear communication and defined ownership',
+                    'Flexible engagement models as workload changes',
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4">
+                      <Check className="text-accent shrink-0 w-5 h-5" aria-hidden="true" />
+                      <p className="text-foreground font-medium">{item}</p>
+                    </div>
+                  ))}
+                </div>
               </>
             </Reveal>
 
-            {/*
-              STATS PANEL — REWRITTEN.
-              Original had unverifiable claims ("500+ Active Clients",
-              "$2B+ Transactions Managed", "15+ Years of Experience" for a
-              pre-launch company). Replaced with true, verifiable facts:
-              service breadth, market coverage, and delivery model. Swap
-              the "X+ Years" line for a real number once confirmed — do
-              not restore client/transaction counts until they're real.
-            */}
-            <Reveal
-              delay={0.15}
-              className="relative overflow-hidden bg-linear-to-br from-primary to-primary-dark rounded-xl p-8 md:p-12 text-white space-y-6"
-            >
+            <Reveal delay={0.15} className="relative overflow-hidden bg-linear-to-br from-primary to-primary-dark rounded-2xl p-8 md:p-12 text-white space-y-7 shadow-xl">
               <>
-              {/*
-                Faint ledger-line texture, contained to this one panel —
-                the numbers/figures context is exactly where the ruled-
-                paper motif belongs. Kept subtle: opacity-[0.06] only.
-              */}
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute inset-0 opacity-[0.06]"
-                style={{
-                  backgroundImage:
-                    'repeating-linear-gradient(to bottom, white 0, white 1px, transparent 1px, transparent 28px)',
-                }}
-              />
-              <div className="relative space-y-2">
-                <div className="text-5xl font-bold">
-                  <AnimatedFigure value={3} />
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'repeating-linear-gradient(to bottom, white 0, white 1px, transparent 1px, transparent 28px)' }} />
+                <div className="relative space-y-2">
+                  <div className="text-5xl font-bold"><AnimatedFigure value={3} /></div>
+                  <p className="text-white/80 text-lg">Markets Served — US, UK & Australia</p>
                 </div>
-                <p className="text-white/80 text-lg">Markets Served — US, UK & Australia</p>
-              </div>
-              <div className="relative space-y-2">
-                <div className="text-5xl font-bold">
-                  <AnimatedFigure value={8} />
+                <div className="relative space-y-2">
+                  <div className="text-5xl font-bold"><AnimatedFigure value={7} /></div>
+                  <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
                 </div>
-                <p className="text-white/80 text-lg">Core Accounting Service Lines</p>
-              </div>
-              <div className="relative space-y-2">
-                <div className="text-5xl font-bold">
-                  <AnimatedFigure value={24} suffix="+" />
+                <div className="relative space-y-2">
+                  <div className="text-5xl font-bold"><AnimatedFigure value={24} suffix="+" /></div>
+                  <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
                 </div>
-                <p className="text-white/80 text-lg">Years of Team Accounting Experience</p>
-              </div>
               </>
             </Reveal>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
       <section data-section="testimonials">
         <Reveal>
-          <TestimonialsSection testimonials={testimonials} subtitle="Client Stories" />
+          <TestimonialsSection testimonials={testimonials} subtitle="Engagement Themes" />
         </Reveal>
       </section>
 
-      {/* FAQ */}
       <section data-section="faq">
         <Reveal>
           <FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} />
         </Reveal>
       </section>
 
-      {/* Final CTA */}
       <section data-section="contact">
         <CTABanner
-          title="Ready to Transform Your Finance Operations?"
-          description="Let us handle the accounting while you focus on growing your business."
-          cta={{
-            text: 'Start Your Free Consultation',
-            href: '/contact',
-          }}
-          ctaSecondary={{
-            text: 'Learn More',
-            href: '/about',
-          }}
+          title="Ready to Strengthen Your Accounting Operations?"
+          description="Tell us what is slowing your team down. We can help you build a practical support model around the work that needs to get done."
+          cta={{ text: 'Start a Conversation', href: '/contact' }}
+          ctaSecondary={{ text: 'Learn About Accounstone', href: '/about' }}
           background="primary"
         />
       </section>
