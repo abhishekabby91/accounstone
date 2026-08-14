@@ -102,7 +102,7 @@ export default function HeroCarousel({
               <div className="absolute inset-0 bg-gradient-to-r from-primary/60 to-transparent" />
 
               <div className="absolute inset-0 flex items-center px-6 md:px-12">
-                <div className="max-w-2xl space-y-4 text-white">
+                <div className="max-w-2xl space-y-4 text-white pl-5 md:pl-7 margin-rule">
                   {slide.subtitle && (
                     <motion.p
                       key={`subtitle-${slide.id}-${isActive}`}
@@ -158,7 +158,14 @@ export default function HeroCarousel({
         already used for dividers elsewhere on the site (see
         .ledger-rule in globals.css) instead of a generic dot indicator.
       */}
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2 w-full max-w-xs px-6">
+      <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 w-full max-w-xs px-6">
+        <div
+          className="self-end text-white/70 text-xs font-semibold tabular-nums tracking-wider"
+          aria-hidden="true"
+        >
+          {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+        </div>
+        <div className="flex gap-2 w-full">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -180,6 +187,7 @@ export default function HeroCarousel({
             {index < current && <div className="absolute inset-0 bg-white/70" />}
           </button>
         ))}
+        </div>
       </div>
     </div>
   );

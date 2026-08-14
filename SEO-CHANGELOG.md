@@ -1,5 +1,27 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (homepage: visual decoration pass)
+
+Purely visual work — no content, metadata, or URL changes on this pass.
+
+### Signature direction
+
+The site already had the seed of a "ledger" motif (`.ledger-rule` hairline dividers, an `animate-ledger-fill` progress-bar animation named for it, and an inline ruled-paper texture used once on the homepage's stats panel). Extended this into a proper, reusable signature system instead of inventing an unrelated decorative language: a bookkeeping ledger's own visual vocabulary (ruled lines, a margin rule with tick marks, a page-break tick) is specific to an accounting company in a way generic gradients/blobs aren't.
+
+### `app/globals.css`
+
+**Added:** Three new reusable utility classes building on the existing `.ledger-rule`: `.ledger-lines` / `.ledger-lines-dark` (a faint repeating horizontal-line texture echoing ruled ledger paper, light and dark variants), `.margin-rule` (a vertical accent-colored rule with soft opacity, echoing the ruled margin column of a paper ledger — used as a left-border treatment, not a claim of any kind), and `.ledger-divider` (a hairline section divider with a small centered accent dot, replacing plain empty gaps between homepage sections). All additive — nothing existing was changed, so this doesn't affect any other page.
+
+### `components/hero-carousel.tsx` (homepage-only component, confirmed no other usages)
+
+**Changed:** Added the `.margin-rule` accent beside the hero's text content, and replaced the plain progress-dot row with a small ledger-style slide counter ("01 / 03", tabular-nums) above it — an appropriate use of numbering here since it's a real sequence (slide position), unlike a decorative 01/02/03 badge on non-sequential content.
+
+### `app/page.tsx`
+
+**Changed:** Applied the new texture/divider classes across the homepage: `.ledger-lines` on the trust-badge strip, `.ledger-lines-dark` on the primary-colored capacity CTA band (matching the texture already used once on the stats panel, now consistent across all primary-colored sections), `.ledger-divider` between three major section transitions, `.margin-rule` on the "Why Accounstone" checklist, and a small accent-tick treatment (a short horizontal line before the uppercase text) applied consistently to the two eyebrow labels that didn't already have one, matching the pattern already used in shared components elsewhere on the site.  
+**Verification:** Ran a full production build and served it locally; confirmed via the rendered HTML and compiled CSS that all new classes and the slide counter render correctly. No headless-browser/screenshot tooling is available in this environment, so this was verified at the HTML/CSS level rather than visually — worth a quick look in an actual browser after deploy.
+
+
 ## 2026-08-14 (compliance page + tax-advisory overclaim cleanup)
 
 Continued the accuracy sweep into pages not yet checked: the standalone Compliance page, and tax-related content on the services and market pages.
