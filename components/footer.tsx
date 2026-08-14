@@ -1,33 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  Linkedin,
-  Facebook,
-  Instagram,
-  Youtube,
-  Mail,
-  Phone,
-  MapPin,
-} from 'lucide-react';
+import { Linkedin, Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  // Consolidated from 8 sections down to 6 -- "Company" now absorbs the
-  // former standalone "How We Work" section (both were small, related
-  // categories), and legal links moved to the bottom bar (the
-  // conventional place for them, and it removes an 8th column that was
-  // forcing uneven grid wrapping). 6 divides evenly into 2, 3, and 6
-  // columns, so this wraps cleanly at every breakpoint instead of the
-  // previous nested-grid math creating jagged, uneven rows.
   const footerSections = [
     {
       title: 'Solutions',
       links: [
         { name: 'Offshore Accounting Support', href: '/solutions/offshore-accounting-support' },
         { name: 'Staff Augmentation', href: '/solutions/staff-augmentation' },
-        { name: 'Dedicated Teams', href: '/solutions/dedicated-accounting-teams' },
+        { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
         { name: 'Back Office Support', href: '/solutions/back-office-support' },
       ],
     },
@@ -40,7 +25,6 @@ export default function Footer() {
         { name: 'Payroll', href: '/services/payroll' },
         { name: 'Accounts Payable', href: '/services/accounts-payable' },
         { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
-        { name: 'CFO Support', href: '/services/cfo-support' },
         { name: 'Audit Support', href: '/services/audit-support' },
       ],
     },
@@ -94,76 +78,42 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 md:py-20">
-        {/* Brand block — deliberately decoupled from the link grid below
-            (not sharing grid columns with it) so its width and the nav
-            grid's column count never conflict with each other. */}
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10 pb-12 mb-12 border-b border-white/10">
-          <div className="max-w-sm space-y-4">
-            <Link href="/" className="inline-flex items-center h-14 hover:opacity-90 transition-opacity">
-              <Image
-                src="/accounstone-logo-horizontal.png"
-                alt="Accounstone"
-                width={280}
-                height={60}
-                className="h-14 w-auto"
-              />
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-14 md:py-18">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_auto] gap-10 lg:gap-16 pb-12 mb-12 border-b border-white/10">
+          <div className="max-w-md space-y-5">
+            <Link href="/" className="inline-flex items-center hover:opacity-90 transition-opacity">
+              <Image src="/accounstone-logo-horizontal.png" alt="Accounstone" width={280} height={60} className="h-12 w-auto" />
             </Link>
-            <p className="text-white/70 text-sm leading-relaxed">
-              {companyInfo.tagline}
-            </p>
-            <div className="flex items-center gap-3 pt-1">
-              <a href="https://www.linkedin.com/company/accounstone/" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#0A66C2] hover:border-[#0A66C2] hover:text-white transition-all duration-300 hover:scale-110">
-                <Linkedin size={18} />
-              </a>
-              <a href="https://www.facebook.com/profile.php?id=61591501869187" target="_blank" rel="noopener noreferrer me" aria-label="Facebook" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#1877F2] hover:border-[#1877F2] hover:text-white transition-all duration-300 hover:scale-110">
-                <Facebook size={18} />
-              </a>
-              <a href="https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy" target="_blank" rel="noopener noreferrer me" aria-label="Instagram" className="group flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-all duration-300 hover:scale-110 hover:border-transparent hover:bg-linear-to-br hover:from-[#F58529] hover:via-[#DD2A7B] hover:to-[#8134AF]">
-                <Instagram size={18} className="text-white/70 group-hover:text-white transition-colors" />
-              </a>
-              <a href="https://www.youtube.com/@accounstone" target="_blank" rel="noopener noreferrer me" aria-label="YouTube" className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 hover:bg-[#FF0000] hover:border-[#FF0000] hover:text-white transition-all duration-300 hover:scale-110">
-                <Youtube size={18} />
-              </a>
+            <p className="text-white/70 text-sm leading-7 max-w-sm">{companyInfo.tagline}</p>
+            <div className="flex items-center gap-2.5 pt-1">
+              {[
+                { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn', icon: <Linkedin size={17} /> },
+                { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook', icon: <Facebook size={17} /> },
+                { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram', icon: <Instagram size={17} /> },
+                { href: 'https://www.youtube.com/@accounstone', label: 'YouTube', icon: <Youtube size={17} /> },
+              ].map((social) => (
+                <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/10 transition-all duration-200">
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Contact info — right-aligned on desktop, forming a clean
-              two-column top section rather than being buried inside
-              the brand column's vertical stack. */}
-          <ul className="space-y-3 text-sm text-white/70 shrink-0">
-            <li className="flex items-center gap-2.5">
-              <Mail size={16} className="shrink-0 text-white/50" aria-hidden="true" />
-              <a href={`mailto:${companyInfo.contact.email}`} className="hover:text-white transition-colors">
-                {companyInfo.contact.email}
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <Phone size={16} className="shrink-0 text-white/50" aria-hidden="true" />
-              <a href={`tel:${companyInfo.contact.phone}`} className="hover:text-white transition-colors">
-                +91 99905 97192
-              </a>
-            </li>
-            <li className="flex items-center gap-2.5">
-              <MapPin size={16} className="shrink-0 text-white/50" aria-hidden="true" />
-              <span>{companyInfo.contact.address}</span>
-            </li>
+          <ul className="space-y-3 text-sm text-white/70 lg:min-w-[260px] lg:pt-1">
+            <li className="flex items-start gap-3"><Mail size={16} className="mt-0.5 shrink-0 text-white/45" aria-hidden="true" /><a href={`mailto:${companyInfo.contact.email}`} className="hover:text-white transition-colors break-all">{companyInfo.contact.email}</a></li>
+            <li className="flex items-start gap-3"><Phone size={16} className="mt-0.5 shrink-0 text-white/45" aria-hidden="true" /><a href={`tel:${companyInfo.contact.phone}`} className="hover:text-white transition-colors">+91 99905 97192</a></li>
+            <li className="flex items-start gap-3"><MapPin size={16} className="mt-0.5 shrink-0 text-white/45" aria-hidden="true" /><span className="leading-6">{companyInfo.contact.address}</span></li>
           </ul>
         </div>
 
-        {/* Link grid — a single, flat grid (no nesting). 6 sections
-            divide evenly at 2, 3, and 6 columns, so every breakpoint
-            wraps cleanly with no jagged, uneven rows. */}
-        <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10">
+        <nav aria-label="Footer" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.35fr_1.35fr_0.8fr_0.95fr_0.95fr_1fr] gap-x-7 gap-y-10">
           {footerSections.map((section) => (
-            <div key={section.title} className="space-y-4">
-              <h3 className="font-bold text-white text-[13px] md:text-sm uppercase tracking-wider pb-1">{section.title}</h3>
+            <div key={section.title} className="min-w-0">
+              <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-white">{section.title}</h3>
               <ul className="space-y-2.5">
                 {section.links.map((link) => (
-                  <li key={link.name}>
-                    <Link href={link.href} className="text-white/70 hover:text-white transition-colors text-sm">
-                      {link.name}
-                    </Link>
+                  <li key={link.name} className="leading-5">
+                    <Link href={link.href} className="inline-block text-sm text-white/65 hover:text-white transition-colors">{link.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -171,30 +121,16 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div className="border-t border-white/10 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-white/60 text-sm order-2 md:order-1">
-              © {currentYear} Accounstone. All rights reserved.
-            </p>
-
-            {/* Legal links — moved here from their own footer column.
-                This is the conventional placement for legal/compliance
-                links, and it removes a column that had very few items
-                compared to the others, which was contributing to the
-                uneven look. */}
-            <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 order-1 md:order-2">
+        <div className="border-t border-white/10 mt-12 pt-7">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <p className="text-white/50 text-xs md:text-sm">© {currentYear} Accounstone. All rights reserved.</p>
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalLinks.map((link) => (
-                <li key={link.name}>
-                  <Link href={link.href} className="text-white/60 hover:text-white transition-colors text-sm">
-                    {link.name}
-                  </Link>
-                </li>
+                <li key={link.name}><Link href={link.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm">{link.name}</Link></li>
               ))}
             </ul>
           </div>
-          <p className="text-white/50 text-xs text-center md:text-left mt-4">
-            Security-focused with NDA-backed engagements. Actively pursuing SOC 2 certification.
-          </p>
+          <p className="text-white/40 text-xs mt-4 max-w-3xl leading-5">Security-focused with NDA-backed engagements. Actively pursuing SOC 2 certification.</p>
         </div>
       </div>
     </footer>
