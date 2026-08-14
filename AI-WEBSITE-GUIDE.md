@@ -102,6 +102,45 @@ Good pages should answer natural objections such as:
 
 The answer should be practical, not defensive.
 
+### 8. Use progressive disclosure
+
+Do not put every detail in the hero. The first screen should establish what Accounstone does, who it is for and why the visitor should continue. Deeper sections should answer objections, workflow questions, technology questions and trust questions in that order.
+
+### 9. Make claims proportional to proof
+
+The stronger the claim, the stronger the evidence required. Prefer observable process statements over outcome guarantees. For example, explain a review workflow rather than promising zero errors or a fixed percentage of savings.
+
+### 10. Separate information from persuasion
+
+A visitor should be able to learn something useful even if they never contact Accounstone. Commercial sections should follow useful explanations rather than interrupt them.
+
+## Future content decision framework
+
+Before changing or creating any page, use this sequence:
+
+1. **Search intent:** What is the visitor actually trying to understand or decide?
+2. **Buyer stage:** Is the visitor learning, comparing options, evaluating a provider, or ready to discuss a workflow?
+3. **Primary anxiety:** What could make the visitor hesitate? Review burden, control, quality, confidentiality, training, turnaround, cost or communication?
+4. **Accounting reality:** What would an experienced accountant explain about this workflow?
+5. **Proof:** What can Accounstone truthfully demonstrate through process, technology familiarity, documentation or delivery method?
+6. **Decision boundary:** What should remain with the CPA, owner, manager or other licensed professional?
+7. **Next step:** What is the most natural useful next action or internal link?
+8. **Differentiation check:** Does this page add something that another existing Accounstone page does not? If not, improve or consolidate rather than creating duplication.
+
+### Content maturity rule
+
+Do not rewrite a page simply because it is old or because a keyword has changed. Change it when there is a clear improvement in one or more of these areas:
+
+- Better answer to the user's question
+- More accurate accounting workflow explanation
+- Better handling of buyer objections
+- Stronger internal-link relationship
+- More useful page-specific metadata
+- Removal of unsupported or outdated claims
+- Better accessibility or comprehension
+
+If none of these applies, leave the page alone.
+
 ## Site architecture
 
 ```text
@@ -383,6 +422,11 @@ Do not remove design elements merely because they animate. Remove or reduce them
 - Do not replace useful accounting workflow explanations with generic marketing copy.
 - Do not remove the current visual identity without a documented UX/accessibility/performance reason.
 - Do not use manipulative sales psychology such as fake urgency, fear-based claims or exaggerated outcomes.
+- Do not change the hero imagery/slider unless the owner explicitly requests a hero change.
+- Do not reintroduce financial services or CFO positioning because a keyword tool suggests it.
+- Do not turn every page into a sales page; informational pages must remain useful on their own.
+- Do not rewrite content solely to increase word count.
+- Do not publish AI-generated claims that cannot be traced to an existing business fact or a clearly stated general accounting principle.
 
 ## Change management
 
@@ -396,6 +440,8 @@ Every SEO/content implementation pass should be recorded in `SEO-CHANGELOG.md` w
 - Whether URL changed
 - Whether metadata changed
 - Whether content changed
+
+For future content passes, record not only the copy change but also the **buyer concern being addressed** when that is material. This makes the reasoning recoverable for future developers and AI agents.
 
 ## Final quality test
 
