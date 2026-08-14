@@ -16,7 +16,7 @@ export default function PayrollPage() {
       service={{
         name: 'Payroll Processing Services',
         description:
-          'Complete payroll management including processing, tax withholding, statutory reporting, and full compliance with federal and state regulations.',
+          'Complete payroll management including processing, tax withholding, statutory reporting, and payroll records aligned with federal and state requirements.',
         icon: '💰',
       }}
       overview="Payroll management is complex and requires strict compliance with constantly changing regulations. Our payroll experts handle complete payroll operations for businesses of all sizes, from startups to enterprises. We process payroll bi-weekly, semi-monthly, or monthly according to your schedule, manage all tax withholdings, handle statutory filings, and provide comprehensive reporting. Let us manage the complexity while you focus on growing your business."

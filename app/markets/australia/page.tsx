@@ -44,7 +44,7 @@ export default function AustraliaMarketPage() {
     {
       question: 'Can you help with tax planning?',
       answer:
-        'Absolutely. We provide strategic tax planning including capital gains strategies, negative gearing optimization, and salary sacrificing.',
+        'We prepare the bookkeeping and documentation that tax planning depends on, including BAS-ready GST records and structured accounts. Strategies like capital gains planning, negative gearing, and salary sacrificing are advice given by your registered tax agent or accountant, not something we provide directly.',
     },
   ];
 
@@ -78,7 +78,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               Australian Accounting Expertise
             </h2></Reveal>
             <p className="text-lg text-muted leading-relaxed">
-              Australian accounting requires specialized knowledge of ATO requirements, ASIC standards, GST compliance, and superannuation rules. Our Australian-focused team brings expertise in regulatory requirements, tax optimization, and industry practices. Whether you're managing Australian operations or expanding to Australia, we provide expert accounting and compliance services.
+              Australian accounting requires specialized knowledge of ATO requirements, GST compliance, and superannuation rules. Our Australian-focused team brings expertise in regulatory requirements and industry practices. Whether you're managing Australian operations or expanding to Australia, we provide accounting and bookkeeping support built for the local requirements.
             </p>
           </div>
 
@@ -87,16 +87,16 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <h3 className="text-2xl font-bold text-primary">Our Australian Expertise</h3>
               <ul className="space-y-3">
                 {[
-                  'IFRS and ASIC compliance',
+                  'IFRS accounting standards',
                   'ATO tax compliance',
-                  'Income tax returns and lodgement',
-                  'GST management and optimization',
+                  'Income tax return preparation',
+                  'GST management and reconciliation',
                   'PAYG withholding and remittance',
                   'Superannuation guarantee compliance',
                   'Business activity statements (BAS)',
-                  'Fringe benefits tax (FBT)',
-                  'Capital gains tax planning',
-                  'Audit and assurance services',
+                  'Fringe benefits tax (FBT) reporting support',
+                  'Capital gains tax reporting support',
+                  'Audit support services',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="text-accent w-5 h-5" aria-hidden="true" />

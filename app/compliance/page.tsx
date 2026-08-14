@@ -6,7 +6,7 @@ import { generateMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Compliance & Regulatory Standards',
-  description: 'Full compliance with accounting standards, tax regulations, and industry requirements across US, UK, and Australia.',
+  description: 'How Accounstone approaches accounting standards, tax regulations, and industry compliance requirements across the US, UK, and Australia.',
   path: '/compliance',
 });
 
@@ -16,7 +16,7 @@ export default function CompliancePage() {
       <PremiumHero
         subtitle="Trust & Compliance"
         title="Regulatory Compliance & Standards"
-        description="Full adherence to GAAP, IFRS, tax regulations, and industry-specific compliance requirements."
+        description="Accounting work structured around GAAP, IFRS, tax regulations, and the compliance requirements relevant to your industry and location."
         background="primary-gradient"
       />
 
@@ -30,11 +30,11 @@ export default function CompliancePage() {
               },
               {
                 title: 'United Kingdom',
-                items: ['IFRS Compliance', 'Companies House Reporting', 'VAT Regulations', 'FCA Requirements'],
+                items: ['IFRS Compliance', 'Companies House Reporting', 'VAT Regulations', 'Anti-Money Laundering (AML) Requirements'],
               },
               {
                 title: 'Australia',
-                items: ['IFRS Compliance', 'ATO Requirements', 'ASIC Standards', 'Superannuation Rules'],
+                items: ['IFRS Compliance', 'ATO Requirements', 'GST and BAS Reporting Standards', 'Superannuation Rules'],
               },
             ].map((region, i) => (
               <div key={i} className="p-6 bg-input rounded-lg border border-border">
@@ -78,7 +78,7 @@ export default function CompliancePage() {
 
       <CTABanner
         title="Compliance You Can Trust"
-        description="Learn about our compliance certifications and regulatory expertise."
+        description="Talk to us about your specific compliance requirements and how we structure work around them."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',

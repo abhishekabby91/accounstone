@@ -1,5 +1,35 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (compliance page + tax-advisory overclaim cleanup)
+
+Continued the accuracy sweep into pages not yet checked: the standalone Compliance page, and tax-related content on the services and market pages.
+
+### `app/compliance/page.tsx` — most serious finding of this pass
+
+**Changed:** The UK compliance list included **"FCA Requirements"** — the Financial Conduct Authority regulates financial services firms (banks, investment firms, insurers), not accounting/bookkeeping providers. This directly contradicted the entire "we don't provide financial services" cleanup from earlier today. Replaced with "Anti-Money Laundering (AML) Requirements", which is the regulation that actually applies to UK accountancy service providers. Also replaced "ASIC Standards" (Australia) with "GST and BAS Reporting Standards" (ASIC is primarily a financial-services/corporate-securities regulator; GST/BAS is the accounting-scoped equivalent). Also fixed an internal contradiction: the page's own meta description and hero said "Full compliance" / "Full adherence" (absolute claims), while a section further down the same page honestly stated "as a growing company, here is where we honestly stand today... actively working toward formal certifications." Softened the absolute claims so the page is consistent with its own honesty elsewhere. Same fix applied to the CTA description, which said "Learn about our compliance certifications" — implying certifications already held.  
+**Why:** FCA in particular is a direct, unambiguous regulatory-scope overclaim on a page whose entire purpose is building compliance trust.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes.
+
+### `app/services/tax-preparation/page.tsx` — IRS representation overclaim
+
+**Changed:** An FAQ literally said "Can you represent us with the IRS? Yes, we can provide power of attorney to represent your interests in IRS matters." **This is false and risky as written** — IRS representation with power of attorney (Form 2848) requires being a licensed CPA, Enrolled Agent, or attorney under Circular 230, and nothing elsewhere on the site suggests Accounstone itself holds those credentials (every other tax page explicitly routes representation/sign-off to "your CPA or Enrolled Agent"). Changed the answer to explicitly say no and explain the distinction. Also removed "Tax reduction strategies and optimization," "Multi-entity tax planning," "Tax planning summary and recommendations," and "IRS representation letters" from the benefits/deliverables lists, and reworded the process steps ("Analysis & Planning" → "Organization & Review", "Review & Optimization" → "Quality Review") to remove tax-strategy/advisory framing throughout.  
+**Why:** This is the most concrete legal-risk finding of the entire cleanup — a specific, actionable false claim about a credentialed activity, not just marketing tone.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (full page).
+
+### `app/markets/australia/page.tsx` — unhedged tax-advisory claim
+
+**Changed:** An FAQ said "Can you help with tax planning? Absolutely. We provide strategic tax planning including capital gains strategies, negative gearing optimization, and salary sacrificing" — a direct, unhedged claim to provide tax advisory services, the same category of issue as the FCA and IRS-representation findings. Rewrote to explain Accounstone prepares the underlying bookkeeping/documentation, while those specific strategies are advice from the client's registered tax agent or accountant. Also removed "tax optimization" from the page's body copy, "GST management and **optimization**" → "reconciliation", "Capital gains tax **planning**" → "reporting support", and "Income tax returns and **lodgement**" → "preparation" (lodging on a client's behalf requires registered tax/BAS agent status, which isn't established anywhere on the site).  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+### `app/services/payroll/page.tsx`, `app/markets/united-states/page.tsx`
+
+**Changed:** Removed "full compliance with federal and state regulations" (absolute claim) from the payroll page description. Removed "entity selection and tax planning" (advisory claim) from a US market FAQ, and "Multi-state tax **optimization**" / "Quarterly estimated tax **planning**" bullets, replacing with preparation/calculation framing consistent with the rest of the site.  
+**URL changed:** No. **Metadata changed:** Some. **Content changed:** Yes.
+
+### Also checked, no changes needed
+
+State pages (California, Texas, Florida), homepage trust badges, testimonials data (already clearly labeled "illustrative engagement themes, not client testimonials"), and the case studies page (already clearly labeled as illustrative scenarios, not real client results) were all already accurate and appropriately hedged — no fabricated stats, no unlabeled claims.
+
 ## 2026-08-14 (broader content sweep: technology hub page, generic filler, HR-scope overclaim)
 
 Continued the content-quality pass after finishing the technology pages — swept the rest of the site for the same categories of issue: generic marketing filler ("seamless," "enterprise-grade," "superior results") and scope overclaims (implementation/dev work, advisory work, and — newly found — general HR services).

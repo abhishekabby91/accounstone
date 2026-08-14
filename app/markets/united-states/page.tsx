@@ -24,7 +24,7 @@ export default function USMarketPage() {
     {
       question: 'Do you handle S-Corps and LLCs?',
       answer:
-        'Yes, we serve sole proprietors, partnerships, S-Corps, C-Corps, and LLCs with specialized knowledge of entity selection and tax planning.',
+        'Yes, we serve sole proprietors, partnerships, S-Corps, C-Corps, and LLCs, working from the entity structure your CPA or attorney has already established.',
     },
     {
       question: 'What about state-specific requirements?',
@@ -90,9 +90,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'Federal income tax compliance',
                   'State and local tax compliance',
                   'Payroll and FICA tax management',
-                  'Multi-state tax optimization',
+                  'Multi-state tax return preparation',
                   'GAAP financial reporting',
-                  'Quarterly estimated tax planning',
+                  'Quarterly estimated tax calculations',
                   '1099 and W-2 processing',
                   'Sales tax and use tax compliance',
                   'Industry-specific regulations',
