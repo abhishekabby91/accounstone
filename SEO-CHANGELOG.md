@@ -1,5 +1,18 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (market pages: fix "Industries We Serve" accuracy + add internal links)
+
+Follow-up to the note left at the end of the previous pass.
+
+### `app/markets/united-states/page.tsx`, `app/markets/united-kingdom/page.tsx`, `app/markets/australia/page.tsx`
+
+**Changed:** Replaced each market page's "Industries We Serve" list. Previously each list was plain, unlinked text mixing the site's six real industries (CPA Firms, Technology, Healthcare, E-Commerce, Real Estate, Professional Services) with several industries that have no dedicated page anywhere on the site (Manufacturing, Non-profit, Construction, Hospitality, Mining, Agriculture, Tourism). Replaced with the site's actual industries only, each now a real internal link to its `/industries/*` page (previously plain `<span>` text, not links).  
+**Why:** The old lists implied industry coverage the site doesn't actually have pages for, and were a missed internal-linking opportunity between market pages and industry pages (flagged as a pending item in the original audit).  
+**SEO purpose:** Removes inaccurate claims; adds genuine contextual internal links from three market pages to six industry pages.  
+**URL changed:** No.  
+**Metadata changed:** No.  
+**Content changed:** Yes.
+
 ## 2026-08-14 (remove "financial services" / CFO positioning throughout the site)
 
 Accounstone does not offer financial services, financial advisory, or CFO services — only accounting, bookkeeping, tax preparation support, payroll, AP/AR, and audit support. This pass removed language and links that claimed or implied otherwise. Standard accounting terminology that legitimately contains the word "financial" (financial statements, financial reporting, financial data/position, GAAP/IFRS financial reporting standards) was intentionally left in place — those are accurate descriptions of bookkeeping/accounting deliverables, not service-scope claims, and removing them would make the content less accurate.

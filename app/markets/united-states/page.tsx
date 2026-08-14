@@ -109,19 +109,16 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <h3 className="text-2xl font-bold text-primary">Industries We Serve</h3>
               <ul className="space-y-3">
                 {[
-                  'Technology and SaaS',
-                  'E-commerce and retail',
-                  'Healthcare and medical practices',
-                  'Real estate and property management',
-                  'Professional services and consulting',
-                  'Manufacturing and distribution',
-                  'Non-profit organizations',
-                  'Construction and contracting',
-                  'Hospitality and restaurants',
+                  { name: 'CPA Firms', href: '/industries/cpa-firms' },
+                  { name: 'Technology and SaaS', href: '/industries/technology' },
+                  { name: 'E-commerce and retail', href: '/industries/ecommerce' },
+                  { name: 'Healthcare and medical practices', href: '/industries/healthcare' },
+                  { name: 'Real estate and property management', href: '/industries/real-estate' },
+                  { name: 'Professional services and consulting', href: '/industries/professional-services' },
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
+                    <Link href={item.href} className="text-foreground hover:text-accent hover:underline">{item.name}</Link>
                   </li>
                 ))}
               </ul>
