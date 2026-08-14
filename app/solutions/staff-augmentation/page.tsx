@@ -75,7 +75,7 @@ export default function StaffAugmentationPage() {
                 {[
                   'Vetted accounting professionals',
                   'Flexible short or long-term engagement',
-                  'Seamless integration with your team',
+                  'Works inside your existing systems and approval process',
                   'No permanent employment costs',
                   'Option to hire permanently',
                   'Rapid onboarding',

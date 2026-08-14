@@ -8,22 +8,22 @@ import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Back Office Support',
-  description: 'Complete back-office operations including accounting, payroll, HR, and administrative functions. End-to-end support for your business.',
+  description: 'Complete back-office accounting operations including bookkeeping, payroll processing, accounts payable/receivable, and account maintenance.',
   path: '/solutions/back-office-support',
 });
 
 const faqs = [
   {
     question: 'What is included in back office support?',
-    answer: 'Complete back-office operations including accounting, bookkeeping, payroll processing, accounts payable/receivable, financial reporting, HR compliance, and administrative functions.',
+    answer: 'Recurring back-office accounting operations: bookkeeping, payroll processing, accounts payable/receivable, financial reporting, and account maintenance.',
   },
   {
-    question: 'Can you integrate with our existing systems?',
-    answer: 'Yes, we integrate seamlessly with QuickBooks, Xero, NetSuite, Sage, and custom systems. We handle data migration and system setup.',
+    question: 'Can you work inside our existing systems?',
+    answer: 'Yes, we work inside QuickBooks, Xero, NetSuite, Sage, and similar platforms your business already uses. Data migration and initial system setup are typically handled by your software vendor or an implementation partner.',
   },
   {
-    question: 'What about HR and compliance functions?',
-    answer: 'We provide HR support including payroll processing, benefits administration, compliance reporting, and regulatory requirements across all our markets.',
+    question: 'Does back-office support include HR functions?',
+    answer: 'It includes the payroll-related accounting work: payroll processing, payroll tax withholding, and payroll reporting. Broader HR functions such as benefits administration, employment compliance, and regulatory filings sit with your HR provider or in-house team.',
   },
   {
     question: 'How do you ensure quality and accuracy?',
@@ -56,7 +56,7 @@ export default function BackOfficeSupportPage() {
       <PremiumHero
         subtitle="Back Office Support"
         title="End-to-End Operations Support"
-        description="Outsource all your back-office operations. We handle accounting, payroll, HR, and administrative functions so you can focus on your core business."
+        description="Take recurring accounting administration off your team's plate: bookkeeping, payroll processing, payables, and receivables."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',
@@ -72,17 +72,17 @@ export default function BackOfficeSupportPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <Reveal><h2 className="text-4xl font-bold text-primary">Full Back-Office Operations Outsourced</h2></Reveal>
-              <p className="text-lg text-muted leading-relaxed">Back-office support removes the burden of administrative operations from your team. We handle all the operational details so you can focus on strategy, sales, and growth.</p>
+              <Reveal><h2 className="text-4xl font-bold text-primary">Recurring Accounting Administration Outsourced</h2></Reveal>
+              <p className="text-lg text-muted leading-relaxed">Back-office support takes recurring accounting administration off your team's plate so they can focus on review, clients, and growth instead of data entry.</p>
               
               <div className="space-y-4 pt-4">
                 {[
                   'Complete accounting operations',
-                  'Payroll processing and compliance',
+                  'Payroll processing and payroll tax withholding',
                   'Accounts payable and receivable',
-                  'HR administration and benefits',
-                  'Financial reporting and analysis',
-                  'System and process management',
+                  'Account maintenance and reconciliations',
+                  'Financial reporting and trend summaries',
+                  'Documented, repeatable close process',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
@@ -101,8 +101,8 @@ export default function BackOfficeSupportPage() {
                   'Payroll processing and tax withholding',
                   'Invoice processing and vendor management',
                   'Customer billing and collections',
-                  'Benefits administration',
-                  'Compliance reporting',
+                  'Payroll reporting and recordkeeping',
+                  'Account reconciliations and maintenance',
                   'Financial reporting and trend summaries',
                 ].map((item, i) => (
                   <p key={i} className="flex items-start gap-2">

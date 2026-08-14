@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: 'How long does onboarding take?',
-    answer: 'Most clients are fully onboarded within 2-4 weeks. We conduct thorough training, establish processes, and ensure seamless integration with your existing systems.',
+    answer: 'Most clients are fully onboarded within 2-4 weeks. We conduct thorough training, establish processes, and work inside your existing systems from day one.',
   },
 ];
 
@@ -76,7 +76,7 @@ export default function OffshoreSolutionPage() {
                   'Experienced accounting professionals',
                   'NDA-backed engagements on every project',
                   '24-hour response commitment',
-                  'Seamless integration with your systems',
+                  'Works inside your existing accounting system and chart of accounts',
                   'Dedicated account management',
                   'Flexible scaling up or down',
                 ].map((item, i) => (

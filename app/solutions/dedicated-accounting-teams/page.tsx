@@ -8,7 +8,7 @@ import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Dedicated Accounting Teams',
-  description: 'Build dedicated accounting teams exclusively for your business. Seamless integration with your operations and a dependable, long-term accounting partnership.',
+  description: 'Build dedicated accounting teams exclusively for your business, working inside your existing systems, with a dependable, long-term accounting partnership.',
   path: '/solutions/dedicated-accounting-teams',
 });
 
@@ -55,8 +55,8 @@ export default function DedicatedTeamsPage() {
 
       <PremiumHero
         subtitle="Dedicated Teams"
-        title="Your Strategic Accounting Partner"
-        description="Build a dedicated team of CPAs and accountants exclusively focused on your business. Seamless integration, strategic partnership, and long-term value creation."
+        title="A Team Built Around Your Business"
+        description="A dedicated accounting team of CPAs and accountants working inside your existing systems and approval process, structured around your workload rather than a fixed package."
         cta={{
           text: 'Build Your Team',
           href: '/contact',
@@ -79,10 +79,10 @@ export default function DedicatedTeamsPage() {
                 {[
                   'Dedicated senior-level oversight and coordination',
                   'Deep understanding of your business',
-                  'Proactive tax planning and optimization',
+                  'Recurring tax preparation support and deadline tracking',
                   'Real-time financial insights and reporting',
                   'Team lead accountability and coordination',
-                  'Seamless integration with your operations',
+                  'Works inside your existing systems and approval process',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />

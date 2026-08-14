@@ -19,7 +19,7 @@ export default function BookkeepingPage() {
           'Expert bookkeeping services handling daily transaction recording, bank reconciliations, and complete financial record management for your business.',
         icon: '📖',
       }}
-      overview="Professional bookkeeping is the foundation of accurate, reliable accounting records. Our experienced bookkeepers handle all aspects of transaction recording, bank reconciliation, accounts payable and receivable, and financial record maintenance. Whether you're a growing business or established firm, we provide accurate, timely bookkeeping that gives you complete visibility into your financial position. Our offshore bookkeeping team integrates seamlessly with your operations, delivering high-quality service at competitive rates."
+      overview="Professional bookkeeping is the foundation of accurate, reliable accounting records. Our experienced bookkeepers handle all aspects of transaction recording, bank reconciliation, accounts payable and receivable, and financial record maintenance. Whether you're a growing business or established firm, we provide accurate, timely bookkeeping that gives you complete visibility into your financial position. Our offshore bookkeeping team works inside your existing systems and processes, at a competitive rate for the work involved."
       benefits={[
         'Accurate daily transaction recording and classification',
         'Weekly or monthly bank reconciliations',

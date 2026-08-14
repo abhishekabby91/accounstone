@@ -5,7 +5,7 @@ import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Quality Assurance & Controls',
-  description: 'Enterprise-grade quality assurance processes ensure accuracy, compliance, and continuous improvement.',
+  description: 'Multi-level review, documented checklists, and reconciliation controls behind every close cycle.',
   path: '/delivery-framework/quality-assurance',
 });
 
@@ -23,7 +23,7 @@ export default function QAPage() {
       <PremiumHero
         subtitle="Delivery Framework"
         title="Quality Assurance & Internal Controls"
-        description="We maintain enterprise-grade quality standards through rigorous review processes, compliance audits, and continuous improvement."
+        description="Multi-level review, documented checklists, and reconciliation controls behind every close cycle — not a one-time quality claim."
         background="primary-gradient"
       />
 

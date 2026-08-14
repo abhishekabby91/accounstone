@@ -28,7 +28,7 @@ export default function OnboardingPage() {
     },
     {
       question: 'Can onboarding happen while we continue normal operations?',
-      answer: 'Yes, our onboarding is designed to be non-disruptive. We work parallel to your existing processes and seamlessly take over.',
+      answer: 'Yes. Onboarding runs alongside your existing processes rather than pausing them — the delivery team ramps up on defined tasks first, with a full handoff only once the workflow is documented and reviewed.',
     },
   ];
 
@@ -41,8 +41,8 @@ export default function OnboardingPage() {
 
       <PremiumHero
         subtitle="Delivery Framework"
-        title="Seamless Client Onboarding"
-        description="Our proven onboarding process ensures quick ramp-up, clear documentation, and immediate value delivery. We integrate with your team from day one."
+        title="Onboarding That Runs Alongside Your Existing Process"
+        description="A documented ramp-up — chart of accounts, access, existing procedures, and a soft-launch phase — before any accounting responsibility fully transitions."
         background="primary-gradient"
       />
 
@@ -85,7 +85,7 @@ export default function OnboardingPage() {
               {
                 step: '7',
                 title: 'Full Transition',
-                desc: 'Seamless handoff of all accounting responsibilities. Ongoing support and optimization phase begins.',
+                desc: 'Full handoff of accounting responsibilities, with ongoing review and support continuing after transition.',
               },
             ].map((item) => (
               <div key={item.step} className="flex gap-6 pb-8 border-b border-border">

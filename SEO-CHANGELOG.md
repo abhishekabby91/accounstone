@@ -1,5 +1,34 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (broader content sweep: technology hub page, generic filler, HR-scope overclaim)
+
+Continued the content-quality pass after finishing the technology pages — swept the rest of the site for the same categories of issue: generic marketing filler ("seamless," "enterprise-grade," "superior results") and scope overclaims (implementation/dev work, advisory work, and — newly found — general HR services).
+
+### `app/technology/page.tsx` (full rework)
+
+**Changed:** This was the worst offender found in the sweep. Replaced "We leverage the latest... to deliver superior results," "Advanced analytics and forecasting" (forecasting overclaim, same category as the earlier back-office-support fix), "Enterprise-grade security" (used twice, vague), and a "Schedule Demo" CTA (odd for an accounting firm — no other page on the site uses "demo" language) with concrete, accounting-scoped content. Added a new "What Stays With Your Software Provider" panel that's explicit about what's out of scope: software licensing/hosting, implementation/configuration for larger platforms, custom development, and forecasting/BI tools. Updated one FAQ that claimed "advanced business intelligence tools for... forecasting" and another claiming the team can "build custom integrations as needed" — both are scope overclaims for an accounting-support company.  
+**Why:** This is the hub page for all seven technology pages, so it's high-visibility, and it had the most generic, unspecific copy on the site.  
+**SEO purpose:** Consistency with the now-reworked individual technology pages; removes unverifiable/vague claims.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes (full rework).
+
+### `app/solutions/back-office-support/page.tsx` — HR scope overclaim (new finding)
+
+**Changed:** This page's meta description, hero, one FAQ, and two bullet lists all claimed "HR," "HR compliance," "benefits administration," and "regulatory requirements" as part of back-office support. None of that is in the `back-office-support` solution's actual description in `lib/data.ts` ("bookkeeping, payables, receivables, payroll processing, and account maintenance"). Rescoped every instance to the payroll-related accounting work Accounstone actually does (payroll processing, payroll tax withholding, payroll reporting), and added an explicit line in the FAQ stating broader HR functions (benefits administration, employment compliance, regulatory filings) sit with the client's HR provider or in-house team.  
+**Why:** Same category of issue as the earlier "financial services"/CFO cleanup — claiming a regulated adjacent service (general HR/benefits administration) that isn't actually offered.  
+**SEO purpose:** Accuracy.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes.
+
+### Generic filler cleanup ("seamless," "enterprise-grade," "strategic partnership")
+
+**Changed:** Replaced vague, unelaborated "Seamless integration with X" bullets and similar filler phrases with concrete detail across `app/solutions/staff-augmentation/page.tsx`, `app/solutions/dedicated-accounting-teams/page.tsx` (also removed "Proactive tax planning and optimization" — the same tax-advisory overclaim already fixed on the Drake Tax page — and reworded the hero from "Your Strategic Accounting Partner" / "strategic partnership, and long-term value creation" to concrete language), `app/solutions/offshore-accounting-support/page.tsx`, `app/services/bookkeeping/page.tsx`, `app/delivery-framework/quality-assurance/page.tsx` ("Enterprise-grade quality standards" → specific description of the actual review process), and `app/delivery-framework/onboarding/page.tsx` (page title "Seamless Client Onboarding" and two body instances).  
+**Why:** These phrases read as generic outsourcing marketing language rather than the specific, workflow-grounded tone established elsewhere on the site (per AI-WEBSITE-GUIDE's content principles).  
+**SEO purpose:** Consistency; replaces vague adjectives with content that actually differentiates the page.  
+**URL changed:** No. **Metadata changed:** Some (titles/descriptions on a few pages). **Content changed:** Yes.
+
+### Full sitewide sweep performed
+
+Grepped the entire `app/` tree for the AI-WEBSITE-GUIDE's banned superlatives list (best, number one, world-class, unparalleled, cheapest, guaranteed, industry-leading) plus "seamless," "enterprise-grade," "cutting-edge," "state-of-the-art," "revolutionary." After this pass, zero remaining hits except contextually appropriate uses (e.g. "best practices" as a standard industry term, "which service is best for my business" as a natural FAQ question).
+
 ## 2026-08-14 (finish technology page rework: CCH, MYOB, Drake Tax)
 
 Follow-up to the NetSuite/Sage rework — the same generic vendor-marketing pattern was present on the three remaining technology pages.
