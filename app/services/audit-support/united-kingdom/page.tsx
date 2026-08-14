@@ -5,144 +5,34 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
-import {
-  generateMetadata as genMeta,
-  generateServiceSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  baseUrl,
-} from '@/lib/seo';
+import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/united-kingdom';
+export const metadata: Metadata = genMeta({ title: 'UK Audit Support for Accounting Teams | Accounstone', description: 'UK audit support for schedules, reconciliations, evidence and working papers, organised around the engaged audit firm’s review process.', path: PATH });
 
-export const metadata: Metadata = genMeta({
-  title: 'UK Audit Support Services',
-  description:
-    'Audit support and documentation preparation for UK businesses — working papers and testing support aligned with Companies Act 2006 and UK auditing standards, ahead of your statutory audit.',
-  path: PATH,
-});
-
-const overview =
-  "UK companies above the audit exemption thresholds set out in the Companies Act 2006 require a statutory audit, carried out by a registered auditor regulated by a recognised supervisory body (such as ICAEW or ACCA). We support the preparation work that happens before and during that audit — organising working papers, reconciling supporting schedules, and getting documentation into the format auditors expect — while the audit opinion itself is issued by your engaged UK audit firm, not by us.";
-
-const benefits = [
-  'Audit documentation and working paper preparation ahead of fieldwork',
-  'Testing support aligned with UK auditing standards',
-  'Organised, audit-ready files that reduce back-and-forth during fieldwork',
-  'Support understanding Companies Act 2006 audit exemption thresholds',
-  'Coordination with your engaged UK audit firm',
-  'Capacity support during audit season without adding permanent headcount',
-];
-
+const overview = "Audit support is often less about complicated accounting than about getting the right evidence, schedules and explanations to the audit team without repeated chasing. We support preparation and documentation work for UK businesses, while the engaged registered auditor retains responsibility for audit procedures, professional judgement and the audit opinion.";
+const benefits = ['Working-paper and schedule preparation before fieldwork', 'Reconciliations and supporting-document organisation', 'Evidence-request tracking and open-item follow-up', 'Testing support where defined by the engaged audit team', 'Clearer files and handoffs for UK audit fieldwork', 'Flexible capacity during audit periods without changing the audit relationship'];
+const retained = ['Audit opinion and professional judgement', 'Final audit conclusions and assurance decisions', 'Direction of audit procedures by the engaged auditor', 'Client-facing audit conclusions and statutory responsibilities'];
 const faqs = [
-  {
-    question: 'Do you issue the audit opinion?',
-    answer:
-      'No — the audit opinion is issued by your engaged, registered UK audit firm. We support the preparation, documentation, and testing work that happens before and during the audit.',
-  },
-  {
-    question: 'Do you understand UK audit exemption thresholds?',
-    answer:
-      "We're familiar with the general Companies Act 2006 audit exemption thresholds (based on turnover, balance sheet total, and employee numbers), and can help you understand whether your company is likely to require a statutory audit -- though your accountant should confirm your specific position.",
-  },
-  {
-    question: 'Can you help organise working papers before fieldwork starts?',
-    answer:
-      'Yes, getting working papers and supporting documentation organised before fieldwork begins is one of the most common ways we support audit readiness.',
-  },
-  {
-    question: 'Do you work with ICAEW or ACCA-regulated audit firms?',
-    answer:
-      'Yes, we coordinate with whichever registered UK audit firm you engage, adapting our documentation format to what your specific auditors expect.',
-  },
+  { question: 'Do you issue the audit opinion?', answer: 'No. The engaged registered audit firm remains responsible for the audit opinion and professional judgement. We support preparation, schedules, documentation and defined testing work.' },
+  { question: 'Can you help before fieldwork begins?', answer: 'Yes. Organising reconciliations, schedules, evidence and open items before fieldwork can reduce the amount of time the audit team spends waiting for information.' },
+  { question: 'Can you work with our existing UK audit firm?', answer: 'Yes. The support can be structured around the formats, requests and review process used by the engaged audit team rather than introducing a separate reporting system.' },
+  { question: 'Can you help with Companies Act audit preparation?', answer: 'We can support the underlying documentation and schedules. Your accountant and auditor should confirm the company-specific statutory requirements and audit position.' },
 ];
-
 const faqSchema = generateFAQSchema(faqs);
-
-const serviceSchema = generateServiceSchema({
-  name: 'Audit Support Services for UK Businesses',
-  description: overview,
-  slug: 'audit-support/united-kingdom',
-  basePath: '/services/',
-  areaServed: ['GB'],
-});
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl },
-  { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Audit Support', url: `${baseUrl}/services/audit-support` },
-  { name: 'United Kingdom', url: `${baseUrl}${PATH}` },
-]);
+const serviceSchema = generateServiceSchema({ name: 'Audit Support Services for UK Businesses', description: overview, slug: 'audit-support/united-kingdom', basePath: '/services/', areaServed: ['GB'] });
+const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Audit Support', url: `${baseUrl}/services/audit-support` }, { name: 'United Kingdom', url: `${baseUrl}${PATH}` }]);
 
 export default function AuditSupportUKPage() {
-  return (
-    <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <PremiumHero
-        subtitle="Audit Support for UK Businesses"
-        title="UK Audit Support Services"
-        description="Documentation and testing support aligned with Companies Act 2006 and UK auditing standards — your auditor issues the opinion, we handle the prep work."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View All Services', href: '/services' }}
-        background="primary-gradient"
-      />
-
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
-        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services/audit-support" className="hover:text-primary transition-colors">Audit Support</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
-        </ol>
-      </nav>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-4xl mx-auto space-y-6">
-          <>
-          <div className="space-y-2">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Audit-Ready Documentation for UK Standards</h2>
-          </div>
-          <p className="text-lg text-muted leading-relaxed">{overview}</p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center space-y-4 mb-16">
-            <>
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-            </>
-          </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((b, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <FAQSection subtitle="Questions" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Preparing for a Statutory Audit?"
-        description="Let's get your documentation organised before fieldwork starts."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
-    </main>
-  );
+  return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <PremiumHero subtitle="Audit Support for UK Businesses" title="UK Audit Support Services" description="Schedules, evidence and documentation support built around your engaged auditor's review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+    <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/audit-support">Audit Support</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United Kingdom</li></ol></nav>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Make the Audit File Easier to Work Through</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">The Preparation Work Around the Audit</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((b, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{b}</p></li></Reveal>)}</ul></div></section>
+    <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto rounded-2xl bg-primary text-white p-8 md:p-10"><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained by the auditor</span><h2 className="text-3xl font-bold mt-3 mb-6">Assurance, judgement and the audit opinion</h2><ul className="grid md:grid-cols-2 gap-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></div></section>
+    <section className="w-full py-16 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto text-center"><h2 className="text-3xl font-bold text-primary mb-5">Keep the UK service cluster connected</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/bookkeeping/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Bookkeeping</Link><Link href="/services/tax-preparation/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Tax Preparation</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">CPA Firms</Link></div></div></section>
+    <FAQSection subtitle="Questions" items={faqs} columns={2} />
+    <CTABanner title="Preparing for UK Audit Fieldwork?" description="Tell us where the pressure sits: schedules, evidence, reconciliations or open-item follow-up." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
+  </main>;
 }
