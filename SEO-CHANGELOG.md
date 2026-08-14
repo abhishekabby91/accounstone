@@ -1,5 +1,18 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (Tier 2 review: rework NetSuite and Sage pages)
+
+Spot-checked the Tier 2 pages flagged in the original audit (UK/Australia bookkeeping, NetSuite, Sage, e-commerce, professional services). UK/Australia bookkeeping and both industry pages were already at the same specificity bar as Tier 1 (region-specific workflow detail, not generic filler) — no changes needed. NetSuite and Sage were the exception: both still read as generic software-vendor marketing copy rather than accounting-support content, unlike the already-reworked QuickBooks/Xero pages.
+
+### `app/technology/netsuite/page.tsx`, `app/technology/sage/page.tsx`
+
+**Changed:** Full content rework of both pages to match the established QuickBooks/Xero pattern. Removed vendor-marketing language ("leading cloud-based ERP", "powerful accounting platform... of all sizes", "Strong user community", "Competitive pricing", "Regular updates and improvements" — none of which describe anything Accounstone does) and claims that read as ERP-implementation-partner positioning ("NetSuite implementation and deployment", "we handle complete Sage implementation... including... training"). Replaced with accounting-scoped workflow content: multi-entity/multi-currency reconciliations, intercompany eliminations, consolidation, close activities — consistent with each technology's own description in `lib/data.ts`. Added an explicit FAQ on each page clarifying Accounstone supports the accounting work inside these systems, not implementation/configuration, and is not NetSuite/Oracle or Sage (matching the disclaimer pattern already used on the QuickBooks page).  
+**Why:** These two pages hadn't been through the same content pass as QuickBooks/Xero and were making claims (software implementation, "why choose \[vendor\]" marketing bullets) well outside what an accounting/bookkeeping support company does.  
+**SEO purpose:** Aligns both pages with the site's actual positioning and the AI-WEBSITE-GUIDE content rules (avoid generic/vendor-style copy, avoid unsupported superlatives).  
+**URL changed:** No.  
+**Metadata changed:** Yes (both titles/descriptions).  
+**Content changed:** Yes (full page rework, both pages).
+
 ## 2026-08-14 (set up ESLint properly)
 
 ### `eslint.config.mjs` (new), `package.json`
