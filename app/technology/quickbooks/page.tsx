@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { Check, BadgeCheck } from 'lucide-react';
+import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
@@ -8,179 +8,54 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'QuickBooks Online Accounting Services',
-  description:
-    'Expert QuickBooks Online setup, integration, optimization, and support. We manage your accounting using QuickBooks for seamless financial operations.',
+  title: 'QuickBooks Online Accounting Support',
+  description: 'QuickBooks Online support for setup, cleanup, bookkeeping, reconciliations, reporting and recurring accounting workflows.',
   path: '/technology/quickbooks',
 });
 
 export default function QuickBooksPage() {
   const faqs = [
-    {
-      question: 'Can you set up QuickBooks Online for our business?',
-      answer:
-        'Yes, we handle complete QuickBooks Online setup including configuration, chart of accounts design, user setup, and integration with your business systems.',
-    },
-    {
-      question: 'Do you provide ongoing QuickBooks support?',
-      answer:
-        'Absolutely. We provide monthly bookkeeping, reconciliation, reporting, and ongoing support for any QuickBooks questions or issues.',
-    },
-    {
-      question: 'Can we integrate QuickBooks with other systems?',
-      answer:
-        'Yes, we integrate QuickBooks with CRM systems, payroll platforms, e-commerce systems, and other business software for seamless data flow.',
-    },
-    {
-      question: 'How do you optimize our QuickBooks setup?',
-      answer:
-        'We review your chart of accounts, customize reports, set up automation, and optimize workflows to maximize efficiency and accuracy.',
-    },
-    {
-      question: 'Do you help with QuickBooks troubleshooting?',
-      answer:
-        'Yes, we troubleshoot QuickBooks issues, reconcile accounts, fix data errors, and ensure your accounting is always accurate.',
-    },
-    {
-      question: 'Are you a certified QuickBooks ProAdvisor?',
-      answer:
-        'Yes, our team includes a QuickBooks Certified ProAdvisor, certified since 2022, which means direct access to QuickBooks-specific training, tools, and support channels for our clients.',
-    },
-    {
-      question: 'Can you migrate from desktop to QuickBooks Online?',
-      answer:
-        'Yes, we manage the entire migration from QuickBooks Desktop to QuickBooks Online including data import and setup verification.',
-    },
+    { question: 'Can you set up QuickBooks Online for our business?', answer: 'Yes. Setup support can include organization settings, chart of accounts, users, permissions, opening balances and the workflow needed for recurring bookkeeping.' },
+    { question: 'Do you provide ongoing QuickBooks support?', answer: 'Yes. Ongoing support can include bookkeeping, reconciliations, AP/AR workflows, reporting, cleanup and month-end close activities.' },
+    { question: 'Can you help when the QuickBooks file has become difficult to review?', answer: 'Yes. We can review unreconciled accounts, inconsistent categorization, duplicate or missing transactions and other cleanup items before establishing a repeatable workflow.' },
+    { question: 'Can QuickBooks connect to other systems?', answer: 'QuickBooks Online supports many integrations. We can help review the accounting side of an integration and reconcile the resulting workflow, while the exact connector depends on the systems involved.' },
+    { question: 'Can you help migrate from QuickBooks Desktop?', answer: 'Yes. Migration support can include preparation, data transfer coordination, setup checks and post-migration reconciliation. The exact approach depends on the Desktop file and the destination setup.' },
+    { question: 'Do you provide QuickBooks certification or official vendor support?', answer: 'We provide accounting workflow support around QuickBooks Online. We are not QuickBooks or Intuit, and any certification claim should be verified independently before being treated as a credential.' },
   ];
 
-const faqSchema = generateFAQSchema(faqs);
+  const faqSchema = generateFAQSchema(faqs);
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: baseUrl },
+    { name: 'Technology', url: `${baseUrl}/technology` },
+    { name: 'QuickBooks', url: `${baseUrl}/technology/quickbooks` },
+  ]);
 
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl },
-  { name: 'Technology', url: `${baseUrl}/technology` },
-  { name: 'QuickBooks', url: `${baseUrl}/technology/quickbooks` },
-]);
+  const workflows = [
+    'Initial setup and chart-of-accounts review',
+    'Transaction processing and categorization',
+    'Bank and credit-card reconciliation',
+    'Accounts payable and receivable workflows',
+    'Cleanup and historical corrections',
+    'Month-end close and reporting preparation',
+  ];
 
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero
-        subtitle="Platform Expertise"
-        title="QuickBooks Online Accounting Services"
-        description="Expert QuickBooks Online integration, setup, optimization, and support from a team including a QuickBooks Certified ProAdvisor."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View Services', href: '/services' }}
-        background="primary-gradient"
-      />
+      <PremiumHero subtitle="Platform Workflow Support" title="QuickBooks Online Accounting Support" description="Help with the accounting work around QuickBooks Online — from setup and cleanup to reconciliations, month-end and reporting." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View Services', href: '/services' }} background="primary-gradient" />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">QuickBooks Online</span>
-            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-              QuickBooks Online Expertise
-            </h2></Reveal>
-            <p className="text-lg text-muted leading-relaxed">
-              QuickBooks Online is the most popular cloud accounting software for small to mid-size businesses. Our team brings deep expertise in setup, configuration, optimization, and support. Whether you're new to QuickBooks or migrating from desktop, we ensure your accounting is properly structured, efficient, and provides the insights you need.
-            </p>
-            <div className="inline-flex items-center gap-3 px-5 py-3 bg-input rounded-lg border-2 border-border">
-              <BadgeCheck className="w-6 h-6 text-primary" aria-hidden="true" />
-              <span className="font-semibold text-primary">QuickBooks Certified ProAdvisor since 2022</span>
-            </div>
-          </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Why the workflow matters</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">QuickBooks is the system. The accounting process still needs ownership.</h2><p className="text-lg text-muted leading-8">A well-configured QuickBooks file does not automatically produce clean month-end work. Transactions still need to be categorized, accounts reconciled, exceptions resolved and supporting records kept in a form your reviewer can follow. Our role is to support those accounting workflows inside the system your team already uses.</p></></Reveal></div></section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Our QuickBooks Services</h3>
-              <ul className="space-y-3">
-                {[
-                  'QuickBooks Online setup and configuration',
-                  'Chart of accounts design and optimization',
-                  'User setup and permission management',
-                  'Monthly bookkeeping and reconciliation',
-                  'Bank and credit card reconciliation',
-                  'Financial reporting and analysis',
-                  'Payroll integration',
-                  'Integration with other business systems',
-                  'Data migration and cleanup',
-                  'Custom report development',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Workflows</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What We Can Support in QuickBooks</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{workflows.map((item, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-2xl border border-border/70"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="leading-7">{item}</span></li></Reveal>)}</ul></div></section>
 
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Why Choose QuickBooks Online</h3>
-              <ul className="space-y-3">
-                {[
-                  'Cloud-based accessibility from anywhere',
-                  'Real-time financial data and reporting',
-                  'Automation of repetitive tasks',
-                  'Integration with hundreds of business apps',
-                  'Mobile app for on-the-go access',
-                  'Scalable as your business grows',
-                  'Bank-level security',
-                  'Automatic backups and data protection',
-                  'Regular updates and improvements',
-                  'Competitive pricing for features',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-10"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Common starting points</span><h2 className="text-3xl md:text-4xl font-bold text-primary">When QuickBooks support becomes useful</h2></></Reveal><div className="grid grid-cols-1 md:grid-cols-3 gap-6"><div className="p-7 rounded-2xl bg-input border border-border/70"><h3 className="font-bold text-primary text-xl mb-3">Cleanup</h3><p className="text-muted leading-7">Reconciliations are behind, categories have drifted, or old transactions need to be reviewed before recurring work can be trusted.</p></div><div className="p-7 rounded-2xl bg-input border border-border/70"><h3 className="font-bold text-primary text-xl mb-3">Capacity</h3><p className="text-muted leading-7">The bookkeeping process works, but the internal team no longer has enough time to keep up with transaction volume and close deadlines.</p></div><div className="p-7 rounded-2xl bg-input border border-border/70"><h3 className="font-bold text-primary text-xl mb-3">Close</h3><p className="text-muted leading-7">Month-end repeatedly turns into a catch-up exercise because reconciliations, schedules and unresolved items are not completed on time.</p></div></div></div></section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Related Services</span>
-            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-              Services We Deliver in QuickBooks
-            </h2></Reveal>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { name: 'Bookkeeping', slug: 'bookkeeping' },
-              { name: 'Accounts Payable', slug: 'accounts-payable' },
-              { name: 'Accounts Receivable', slug: 'accounts-receivable' },
-              { name: 'Accounting Services', slug: 'accounting' },
-              { name: 'Financial Reporting', slug: 'accounting' },
-              { name: 'Payroll Integration', slug: 'payroll' },
-            ].map((service, i) => (
-              <Link
-                key={i}
-                href={`/services/${service.slug}`}
-                className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
-              >
-                <h3 className="font-bold text-primary text-lg group-hover:text-primary-light transition-colors">
-                  {service.name}
-                </h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto text-center"><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-8">Connect QuickBooks to the accounting work</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Bookkeeping</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link><Link href="/resources/guides/quickbooks-vs-xero-comparison" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">QuickBooks vs Xero</Link></div></div></section>
 
       <FAQSection subtitle="QuickBooks FAQs" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Ready to Master QuickBooks Online?"
-        description="Let our QuickBooks experts optimize your accounting and provide ongoing support."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
+      <CTABanner title="Need Help With Your QuickBooks Workflow?" description="Tell us what is happening in the file today and which part of the accounting process needs more capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }
