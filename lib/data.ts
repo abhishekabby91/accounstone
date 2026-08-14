@@ -2,80 +2,80 @@
 export const services = [
   {
     id: 'bookkeeping', slug: 'bookkeeping', name: 'Bookkeeping', icon: '📖',
-    description: 'Reliable bookkeeping support for small to mid-size businesses. We handle transaction recording, bank reconciliations, account maintenance, and clean monthly records.', shortDesc: 'Accurate records & reconciliations',
+    description: 'Bookkeeping support for teams that need their records kept current, reconciled, and ready for review. The work can include transaction posting, bank and credit-card reconciliations, account maintenance, cleanup, and recurring month-end tasks.', shortDesc: 'Current books, reconciliations & month-end support',
   },
   {
     id: 'accounting', slug: 'accounting', name: 'Accounting Services', icon: '📊',
-    description: 'Practical accounting support including month-end close, account reconciliations, management reporting, and day-to-day accounting operations.', shortDesc: 'Month-end close & accounting operations',
+    description: 'Day-to-day accounting support for the work that sits between bookkeeping and reporting, including reconciliations, close tasks, journal entries, account maintenance, and management reporting.', shortDesc: 'Reconciliations, close & accounting operations',
   },
   {
     id: 'tax-preparation', slug: 'tax-preparation', name: 'Tax Preparation', icon: '📝',
-    description: 'Professional tax return preparation and filing support for businesses and individuals, with a focus on accuracy, documentation, and timely compliance.', shortDesc: 'Tax returns & filing support',
+    description: 'Tax preparation support built around organized workpapers, source documents, return preparation, review notes, and a clear handoff to the tax professional responsible for the final return.', shortDesc: 'Return preparation, workpapers & review support',
   },
   {
     id: 'payroll', slug: 'payroll', name: 'Payroll Processing', icon: '💰',
-    description: 'Accurate payroll processing support including payroll calculations, employee records, reporting, and coordination of payroll-related requirements.', shortDesc: 'Accurate payroll processing',
+    description: 'Payroll processing support for recurring calculations, employee records, payroll reports, and coordination of the accounting work around payroll. The workflow can be defined around your existing provider and approvals.', shortDesc: 'Recurring payroll processing & support',
   },
   {
     id: 'accounts-payable', slug: 'accounts-payable', name: 'Accounts Payable', icon: '💳',
-    description: 'End-to-end accounts payable support covering invoice processing, vendor records, approvals, payment preparation, and account reconciliation.', shortDesc: 'Invoice & vendor management',
+    description: 'Accounts payable support from invoice intake through coding, approval tracking, payment preparation, vendor records, and reconciliation. The goal is a clean queue and a process your team can review without chasing every item.', shortDesc: 'Invoice processing, approvals & vendor records',
   },
   {
     id: 'accounts-receivable', slug: 'accounts-receivable', name: 'Accounts Receivable', icon: '📥',
-    description: 'Accounts receivable support covering customer invoicing, payment tracking, account reconciliation, aging review, and collection follow-up.', shortDesc: 'Invoicing & receivables support',
+    description: 'Accounts receivable support covering invoicing, payment application, account reconciliation, aging review, and follow-up. Work can be structured around your billing cycle and collection process.', shortDesc: 'Invoicing, cash application & aging support',
   },
   {
     id: 'audit-support', slug: 'audit-support', name: 'Audit Support', icon: '✓',
-    description: 'Organized audit support including documentation, schedules, reconciliations, evidence gathering, and coordination with your audit team.', shortDesc: 'Audit preparation & support',
+    description: 'Audit support that helps organize schedules, reconciliations, supporting documents, evidence requests, and open items so the audit team can spend less time waiting for information.', shortDesc: 'Schedules, evidence & audit-request support',
   },
 ];
 
 export const solutions = [
   {
     id: 'offshore-accounting-support', slug: 'offshore-accounting-support', name: 'Offshore Accounting Support', icon: '🌍',
-    description: 'Extend your accounting capacity with experienced offshore professionals who can support recurring accounting workflows, close activities, and back-office tasks.',
+    description: 'Add accounting capacity without asking your existing team to absorb every recurring task. Defined workflows can be handled by an offshore team while your managers retain review, approval, and process control.',
     services: ['Bookkeeping', 'Accounting Services', 'Payroll Processing', 'Accounts Payable', 'Accounts Receivable'],
   },
   {
     id: 'staff-augmentation', slug: 'staff-augmentation', name: 'Staff Augmentation', icon: '👥',
-    description: 'Add experienced accounting professionals to your existing team for seasonal demand, overflow work, recurring processes, or specialized projects.',
+    description: 'Bring in additional accounting capacity when the workload changes, a hiring gap opens up, or a particular workflow needs more hands. The added resource works within your existing systems and review structure.',
     services: ['Accounting Services', 'Tax Preparation', 'Audit Support'],
   },
   {
     id: 'dedicated-accounting-teams', slug: 'dedicated-accounting-teams', name: 'Dedicated Accounting Teams', icon: '👨‍💼',
-    description: 'Build a dedicated accounting team around your workflows, systems, review process, and reporting requirements without the complexity of local hiring.',
+    description: 'Build a team around the way your accounting work is actually done: your systems, close calendar, documentation, approvals, and review process. The team can grow or narrow with the workload rather than forcing a fixed scope.',
     services: ['Accounting Services', 'Tax Preparation', 'Audit Support'],
   },
   {
     id: 'back-office-support', slug: 'back-office-support', name: 'Back Office Support', icon: '🏢',
-    description: 'Reliable support for recurring back-office accounting workflows including bookkeeping, payables, receivables, payroll processing, and account maintenance.',
+    description: 'Take recurring accounting administration off your core team’s plate, including bookkeeping, payables, receivables, payroll processing, and account maintenance. Each workflow can be defined around who prepares, who reviews, and who approves.',
     services: ['Bookkeeping', 'Payroll Processing', 'Accounts Payable', 'Accounts Receivable', 'Accounting Services'],
   },
 ];
 
 export const markets = [
-  { id: 'united-states', slug: 'united-states', name: 'United States', icon: '🇺🇸', description: 'Supporting U.S. businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.' },
-  { id: 'united-kingdom', slug: 'united-kingdom', name: 'United Kingdom', icon: '🇬🇧', description: 'Supporting UK businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.' },
-  { id: 'australia', slug: 'australia', name: 'Australia', icon: '🇦🇺', description: 'Supporting Australian businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.' },
+  { id: 'united-states', slug: 'united-states', name: 'United States', icon: '🇺🇸', description: 'Accounting support for U.S. businesses and accounting practices, with workflows built around bookkeeping, tax preparation, payroll, reconciliations, close, and audit support.' },
+  { id: 'united-kingdom', slug: 'united-kingdom', name: 'United Kingdom', icon: '🇬🇧', description: 'Accounting support for UK businesses and accounting practices, with recurring bookkeeping, accounting operations, tax preparation, payroll, and reporting workflows.' },
+  { id: 'australia', slug: 'australia', name: 'Australia', icon: '🇦🇺', description: 'Accounting support for Australian businesses and accounting practices, including bookkeeping, reconciliations, reporting, payroll, tax preparation, and recurring back-office work.' },
 ];
 
 export const industries = [
-  { id: 'cpa-firms', slug: 'cpa-firms', name: 'CPA Firms', icon: '📊', description: 'Support for accounting firms handling overflow work, recurring client deliverables, bookkeeping, tax preparation, and audit support.' },
-  { id: 'technology', slug: 'technology', name: 'Technology', icon: '💻', description: 'Accounting operations support for SaaS, software, and technology businesses with recurring transaction and reporting needs.' },
-  { id: 'healthcare', slug: 'healthcare', name: 'Healthcare', icon: '🏥', description: 'Organized accounting and back-office support for medical practices, clinics, and healthcare providers.' },
-  { id: 'ecommerce', slug: 'ecommerce', name: 'E-Commerce', icon: '🛒', description: 'Accounting operations support for online retailers and marketplaces across sales, payables, receivables, and reconciliations.' },
-  { id: 'real-estate', slug: 'real-estate', name: 'Real Estate', icon: '🏠', description: 'Real estate accounting support including property-level bookkeeping, reconciliations, payables, receivables, and reporting workflows.' },
-  { id: 'professional-services', slug: 'professional-services', name: 'Professional Services', icon: '⚖️', description: 'Accounting and back-office support for consulting, legal, agency, and other professional service businesses.' },
+  { id: 'cpa-firms', slug: 'cpa-firms', name: 'CPA Firms', icon: '📊', description: 'Support for CPA and accounting firms when recurring bookkeeping, cleanup, tax-season preparation, or audit work starts competing with review and client-facing time.' },
+  { id: 'technology', slug: 'technology', name: 'Technology', icon: '💻', description: 'Accounting operations support for SaaS, software, and technology businesses where transaction volume, subscriptions, integrations, and reporting can make the close harder to keep consistent.' },
+  { id: 'healthcare', slug: 'healthcare', name: 'Healthcare', icon: '🏥', description: 'Accounting and back-office support for medical practices and healthcare providers, with attention to reconciliations, payables, receivables, payroll, and recurring reporting.' },
+  { id: 'ecommerce', slug: 'ecommerce', name: 'E-Commerce', icon: '🛒', description: 'Accounting support for online retailers and marketplace businesses dealing with sales channels, payment processors, refunds, fees, inventory-related activity, payables, and reconciliations.' },
+  { id: 'real-estate', slug: 'real-estate', name: 'Real Estate', icon: '🏠', description: 'Real estate accounting support for property-level books, owner reporting, AP/AR, reconciliations, month-end close, and multi-entity workflows.' },
+  { id: 'professional-services', slug: 'professional-services', name: 'Professional Services', icon: '⚖️', description: 'Accounting and back-office support for consulting, legal, agency, and other professional service businesses where billing, payroll, expenses, and month-end reporting need to stay organized.' },
 ];
 
 export const technologies = [
-  { id: 'quickbooks', slug: 'quickbooks', name: 'QuickBooks', icon: '📱', description: 'QuickBooks Online support covering setup, cleanup, transaction workflows, reconciliations, automation, and reporting.' },
-  { id: 'xero', slug: 'xero', name: 'Xero', icon: '☁️', description: 'Xero support covering setup, automation, integrations, reconciliations, and recurring accounting workflows.' },
-  { id: 'sage', slug: 'sage', name: 'Sage', icon: '📈', description: 'Sage accounting software support including configuration, recurring workflows, reconciliations, and reporting.' },
-  { id: 'netsuite', slug: 'netsuite', name: 'NetSuite', icon: '🔧', description: 'NetSuite support for complex accounting workflows, multi-entity operations, reconciliations, and reporting processes.' },
-  { id: 'drake-tax', slug: 'drake-tax', name: 'Drake Tax', icon: '📝', description: 'Drake Tax software support for organized tax preparation workflows, return processing, and compliance documentation.' },
-  { id: 'cch', slug: 'cch', name: 'CCH Axcess', icon: '🎯', description: 'CCH Axcess support for tax and accounting workflows, documentation, and recurring practice operations.' },
-  { id: 'myob', slug: 'myob', name: 'MYOB', icon: '💼', description: 'MYOB accounting platform support for Australian and New Zealand businesses and accounting practices.' },
+  { id: 'quickbooks', slug: 'quickbooks', name: 'QuickBooks', icon: '📱', description: 'QuickBooks support around the accounting work that happens inside the system: cleanup, transaction workflows, reconciliations, recurring close tasks, reporting, and process organization.' },
+  { id: 'xero', slug: 'xero', name: 'Xero', icon: '☁️', description: 'Xero support for teams that need help keeping transactions, reconciliations, integrations, reporting, and recurring accounting workflows under control.' },
+  { id: 'sage', slug: 'sage', name: 'Sage', icon: '📈', description: 'Sage accounting support for recurring workflows, reconciliations, account maintenance, reporting, and the operational work around month-end close.' },
+  { id: 'netsuite', slug: 'netsuite', name: 'NetSuite', icon: '🔧', description: 'NetSuite support for multi-entity accounting, reconciliations, close activities, account maintenance, and reporting workflows that require more structured controls.' },
+  { id: 'drake-tax', slug: 'drake-tax', name: 'Drake Tax', icon: '📝', description: 'Drake Tax support for organized return-preparation workflows, source-document handling, workpapers, review notes, and recurring tax-season processes.' },
+  { id: 'cch', slug: 'cch', name: 'CCH Axcess', icon: '🎯', description: 'CCH Axcess support around tax-practice workflows, document organization, preparation tasks, review queues, and recurring practice operations.' },
+  { id: 'myob', slug: 'myob', name: 'MYOB', icon: '💼', description: 'MYOB accounting support for Australian and New Zealand businesses and accounting practices, including recurring bookkeeping, reconciliations, and reporting workflows.' },
 ];
 
 export const expertise = [
@@ -90,19 +90,19 @@ export const testimonials = [
     name: 'Seasonal capacity',
     title: 'Common engagement theme',
     company: 'CPA firm workflows',
-    text: 'A firm may have strong internal reviewers but need additional capacity for transaction-level bookkeeping, cleanup, or recurring work during a busy period.',
+    text: 'A firm may have strong internal reviewers but still need more capacity for transaction-level bookkeeping, cleanup, workpaper preparation, or recurring client work when deadlines start to stack up.',
   },
   {
     name: 'Recurring workflow support',
     title: 'Common engagement theme',
     company: 'Accounting operations',
-    text: 'Outside support can take ownership of defined AP, AR, bookkeeping, reconciliation, or close tasks while the client team retains review and approval control.',
+    text: 'A defined outside team can take ownership of AP, AR, bookkeeping, reconciliations, or close tasks while the client team keeps the review and approval points that matter to them.',
   },
   {
     name: 'Growing workload',
     title: 'Common engagement theme',
     company: 'Business and practice operations',
-    text: 'A business or accounting practice may need more capacity without immediately changing its existing systems, processes, or management structure.',
+    text: 'A growing business or accounting practice may need additional capacity without immediately changing its accounting system or asking managers to rebuild the workflow from scratch.',
   },
 ];
 
@@ -116,7 +116,7 @@ export const trustBadges = [
 export const companyInfo = {
   name: 'Accounstone',
   tagline: 'Outsourced Accounting & Bookkeeping Solutions',
-  description: 'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, audit support, and back-office services to businesses and accounting practices across the US, UK, and Australia. Our delivery model is built around experienced professionals, documented workflows, quality review, and clear communication.',
+  description: 'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, audit support, and back-office services to businesses and accounting practices across the US, UK, and Australia. The focus is practical: defined workflows, clear handoffs, documented work, quality review, and communication that keeps the client team informed.',
   website: 'https://www.accounstone.com',
   contact: {
     email: 'partner@accounstone.com',
