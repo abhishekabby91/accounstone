@@ -7,9 +7,9 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import { services } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Services',
+  title: 'Accounting Services',
   description:
-    'Comprehensive accounting and finance services including bookkeeping, tax planning, financial advisory, and more.',
+    'Bookkeeping, accounting operations, tax preparation, payroll, accounts payable, accounts receivable, and audit support for businesses and CPA firms.',
   path: '/services',
 });
 
@@ -17,22 +17,22 @@ const serviceFAQs = [
   {
     question: 'Which service is best for my business?',
     answer:
-      'The best service depends on your business type, size, and specific needs. We recommend scheduling a consultation where we can assess your situation and recommend a customized package.',
+      'The right service depends on your workload, systems, team structure, and recurring processes. We start by understanding the work that needs to be done and then recommend the most practical support model.',
   },
   {
     question: 'Can I combine multiple services?',
     answer:
-      'Yes, most clients use a combination of services. We can put together a package that addresses your accounting and finance needs together rather than piecemeal.',
+      'Yes. Many engagements combine bookkeeping, accounting operations, payables, receivables, payroll, tax preparation, or audit support depending on the client workflow.',
   },
   {
     question: 'How is pricing determined?',
     answer:
-      'Pricing is based on the scope of services, volume of transactions, and engagement model. We provide transparent, fixed-fee quotes whenever possible. See our cost guide for an instant estimate.',
+      'Pricing is based on service scope, transaction volume, workflow complexity, systems, turnaround requirements, and the engagement model. We provide a clear proposal after understanding the work.',
   },
   {
     question: 'What accounting software do you support?',
     answer:
-      'We work with QuickBooks Online, Xero, NetSuite, Sage, and custom systems.',
+      'We work with QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, MYOB, and client-specific systems where access and documentation are available.',
   },
 ];
 
@@ -49,23 +49,18 @@ export default function ServicesPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        subtitle="Expertise at Every Level"
-        title="Professional Accounting Services"
-        description="From bookkeeping basics to complex tax strategy, we provide expert services tailored to your business."
-        cta={{
-          text: 'Get a Quote',
-          href: '/contact',
-        }}
-        ctaSecondary={{
-          text: 'View Solutions',
-          href: '/solutions',
-        }}
+        subtitle="What We Do"
+        title="Accounting Support Built Around Your Workflow"
+        description="From day-to-day bookkeeping to tax preparation and audit support, our team helps keep recurring accounting work accurate, organized, and on schedule."
+        cta={{ text: 'Discuss Your Requirements', href: '/contact' }}
+        ctaSecondary={{ text: 'View Solutions', href: '/solutions' }}
         background="primary-gradient"
       />
 
       <SectionGrid
         subtitle="Our Services"
-        title="Complete Accounting Solutions"
+        title="Practical Support for Recurring Accounting Work"
+        description="Choose individual services or combine them into a delivery model that fits your team."
         items={services}
         baseUrl="/services"
         columns={3}
@@ -75,12 +70,9 @@ export default function ServicesPage() {
       <FAQSection subtitle="Services" items={serviceFAQs} columns={2} />
 
       <CTABanner
-        title="Need Help Choosing Services?"
-        description="Our team can help you select the right combination of services for your business."
-        cta={{
-          text: 'Schedule a Consultation',
-          href: '/contact',
-        }}
+        title="Not Sure Where to Start?"
+        description="Tell us which processes are creating pressure for your team. We will help map the work to the right support model."
+        cta={{ text: 'Schedule a Conversation', href: '/contact' }}
         background="primary"
       />
     </main>
