@@ -5,144 +5,34 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
-import {
-  generateMetadata as genMeta,
-  generateServiceSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  baseUrl,
-} from '@/lib/seo';
+import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
+export const metadata: Metadata = genMeta({ title: 'Australian Tax Preparation Support | Accounstone', description: 'Australian tax preparation support for income tax and BAS workflows, with organised workpapers, reconciliations and review-ready records for tax and BAS agents.', path: PATH });
 
-export const metadata: Metadata = genMeta({
-  title: 'Australian Tax Preparation Support Services',
-  description:
-    'Tax preparation support for Australian businesses — income tax return and BAS lodgment documentation, working under your registered tax agent or BAS agent\'s review, aligned with ATO requirements.',
-  path: PATH,
-});
-
-const overview =
-  "Australian tax preparation runs on the ATO's systems and calendar: the Australian financial year runs 1 July to 30 June, BAS lodgments happen periodically throughout the year (monthly, quarterly, or annually depending on your business), and income tax returns are prepared and lodged by a registered tax agent. Only agents registered with the Tax Practitioners Board can lodge on a client's behalf — we support the preparation and documentation work underneath that, not the registered lodgment itself.";
-
-const benefits = [
-  'Income tax return documentation preparation for ATO lodgment',
-  'BAS preparation support aligned with your lodgment cycle (monthly, quarterly, or annual)',
-  'Records organised and reconciled ahead of your tax agent\'s review',
-  'Support aligned with the Australian financial year (1 July to 30 June)',
-  'Support during EOFY (End of Financial Year) capacity crunches',
-  'Coordination with your registered tax agent or BAS agent for final review and lodgment',
-];
-
+const overview = "Australian tax work often gets squeezed by the same practical problem: the preparation queue grows while the registered tax or BAS agent still has to review the work, resolve exceptions and speak with clients. We support the documentation and preparation underneath income tax and BAS workflows, organised around the Australian financial year and the client's existing accounting records, while the registered professional retains advice, judgement and lodgment responsibility.";
+const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Income tax return preparation support', 'BAS preparation support built from organised GST records', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the registered tax or BAS agent responsible for advice and lodgment'];
+const retained = ['Final tax or BAS advice and professional judgement', 'Final review and approval of returns or statements', 'Client-facing tax decisions and explanations', 'Lodgment responsibilities reserved for the appropriate registered agent', 'Decisions on unusual or uncertain tax treatment'];
 const faqs = [
-  {
-    question: 'Do you lodge tax returns or BAS directly with the ATO?',
-    answer:
-      'No — only agents registered with the Tax Practitioners Board can lodge on a client\'s behalf. We support the preparation and documentation process, and your registered tax agent or BAS agent handles final review and lodgment.',
-  },
-  {
-    question: 'Can you help during EOFY (End of Financial Year)?',
-    answer:
-      'Yes, this is one of the most common ways businesses and firms use our support — absorbing preparation workload around 30 June so your tax agent can focus on review and client conversations.',
-  },
-  {
-    question: 'Do you support quarterly BAS lodgment cycles?',
-    answer:
-      'Yes, we prepare BAS documentation aligned with whichever lodgment cycle applies to your business — monthly, quarterly, or annual.',
-  },
-  {
-    question: 'What accounting software do you work within?',
-    answer:
-      'We work within Xero and MYOB, the two platforms most Australian tax and BAS agents already use.',
-  },
+  { question: 'Can you support income tax preparation?', answer: 'Yes. We can organise source records, reconciliations, schedules and defined preparation work for income tax returns while the registered tax professional retains final review, advice and lodgment responsibility.' },
+  { question: 'Can you support BAS preparation?', answer: 'Yes. We can organise the bookkeeping and GST records that feed BAS preparation, along with reconciliations and exception lists. Your registered BAS or tax agent remains responsible for advice and lodgment.' },
+  { question: 'Can you help around EOFY?', answer: 'Yes. EOFY can create a review bottleneck when historic cleanup and current preparation compete for the same people. Separating preparation support from final review can help keep the queue moving.' },
+  { question: 'Do you provide tax advice?', answer: 'No. The support is designed around preparation, documentation and workflow. Tax advice, professional judgement and final lodgment remain with the responsible registered professional.' },
 ];
-
 const faqSchema = generateFAQSchema(faqs);
-
-const serviceSchema = generateServiceSchema({
-  name: 'Tax Preparation Support for Australian Businesses',
-  description: overview,
-  slug: 'tax-preparation/australia',
-  basePath: '/services/',
-  areaServed: ['AU'],
-});
-
-const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl },
-  { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Tax Preparation', url: `${baseUrl}/services/tax-preparation` },
-  { name: 'Australia', url: `${baseUrl}${PATH}` },
-]);
+const serviceSchema = generateServiceSchema({ name: 'Tax Preparation Support for Australian Businesses', description: overview, slug: 'tax-preparation/australia', basePath: '/services/', areaServed: ['AU'] });
+const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Tax Preparation', url: `${baseUrl}/services/tax-preparation` }, { name: 'Australia', url: `${baseUrl}${PATH}` }]);
 
 export default function TaxPrepAUPage() {
-  return (
-    <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <PremiumHero
-        subtitle="Tax Preparation Support for Australian Businesses"
-        title="Australian Tax Preparation Support Services"
-        description="Income tax and BAS preparation support, working under your registered tax agent's review."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View All Services', href: '/services' }}
-        background="primary-gradient"
-      />
-
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
-        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services/tax-preparation" className="hover:text-primary transition-colors">Tax Preparation</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-primary font-medium">Australia</li>
-        </ol>
-      </nav>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-4xl mx-auto space-y-6">
-          <>
-          <div className="space-y-2">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Support for Australian Tax Preparation Workflows</h2>
-          </div>
-          <p className="text-lg text-muted leading-relaxed">{overview}</p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center space-y-4 mb-16">
-            <>
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-            </>
-          </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((b, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <FAQSection subtitle="Questions" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Preparing for EOFY?"
-        description="Let's talk about your capacity needs before the next lodgment deadline."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
-    </main>
-  );
+  return <main>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <PremiumHero subtitle="Tax Preparation Support for Australian Businesses" title="Australian Tax Preparation Support Services" description="Preparation and workpaper support for income tax and BAS workflows, built around your agent's review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+    <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/tax-preparation">Tax Preparation</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">Australia</li></ol></nav>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Move Preparation Forward Before EOFY Review</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What Can Move Before Final Review</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((b, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{b}</p></li></Reveal>)}</ul></div></section>
+    <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto rounded-2xl bg-primary text-white p-8 md:p-10"><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained by your firm</span><h2 className="text-3xl font-bold mt-3 mb-6">Judgement, advice and final lodgment</h2><ul className="grid md:grid-cols-2 gap-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></div></section>
+    <section className="w-full py-16 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto text-center"><h2 className="text-3xl font-bold text-primary mb-5">Keep the Australian workflow connected</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/bookkeeping/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Australian Bookkeeping</Link><Link href="/services/audit-support/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Australian Audit Support</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Xero</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">MYOB</Link></div></div></section>
+    <FAQSection subtitle="Questions" items={faqs} columns={2} />
+    <CTABanner title="Where Is the Australian Tax Queue Getting Stuck?" description="Tell us whether the pressure is source documents, bookkeeping cleanup, BAS preparation or EOFY review capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
+  </main>;
 }
