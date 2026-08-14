@@ -5,75 +5,67 @@ export const services = [
     slug: 'bookkeeping',
     name: 'Bookkeeping',
     icon: '📖',
-    description: 'Expert bookkeeping services for small to mid-size businesses. We handle daily transaction recording, bank reconciliations, and financial record management.',
-    shortDesc: 'Daily transaction & record management',
+    description: 'Reliable bookkeeping support for small to mid-size businesses. We handle transaction recording, bank reconciliations, account maintenance, and clean monthly records.',
+    shortDesc: 'Accurate records & reconciliations',
   },
   {
     id: 'accounting',
     slug: 'accounting',
     name: 'Accounting Services',
     icon: '📊',
-    description: 'Complete accounting solutions including financial statement preparation, month-end close, and comprehensive financial analysis.',
-    shortDesc: 'Financial statements & analysis',
+    description: 'Practical accounting support including month-end close, account reconciliations, management reporting, and day-to-day accounting operations.',
+    shortDesc: 'Month-end close & accounting operations',
   },
   {
     id: 'tax-preparation',
     slug: 'tax-preparation',
     name: 'Tax Preparation',
     icon: '📝',
-    description: 'Professional tax return preparation and filing for businesses and individuals, ensuring compliance and optimization.',
-    shortDesc: 'Tax returns & filing',
+    description: 'Professional tax return preparation and filing support for businesses and individuals, with a focus on accuracy, documentation, and timely compliance.',
+    shortDesc: 'Tax returns & filing support',
   },
   {
     id: 'payroll',
     slug: 'payroll',
     name: 'Payroll Processing',
     icon: '💰',
-    description: 'Complete payroll management including processing, tax withholding, statutory reporting, and compliance.',
-    shortDesc: 'Payroll & tax management',
+    description: 'Accurate payroll processing support including payroll calculations, employee records, reporting, and coordination of payroll-related requirements.',
+    shortDesc: 'Accurate payroll processing',
   },
   {
     id: 'accounts-payable',
     slug: 'accounts-payable',
     name: 'Accounts Payable',
     icon: '💳',
-    description: 'Accounts payable management, vendor management, invoice processing, and payment optimization.',
-    shortDesc: 'Vendor & payment management',
+    description: 'End-to-end accounts payable support covering invoice processing, vendor records, approvals, payment preparation, and account reconciliation.',
+    shortDesc: 'Invoice & vendor management',
   },
   {
     id: 'accounts-receivable',
     slug: 'accounts-receivable',
     name: 'Accounts Receivable',
     icon: '📥',
-    description: 'Accounts receivable management, invoice tracking, collection optimization, and cash flow improvement.',
-    shortDesc: 'Customer billing & collections',
-  },
-  {
-    id: 'cfo-support',
-    slug: 'cfo-support',
-    name: 'CFO Support Services',
-    icon: '💼',
-    description: 'Expert CFO-level support including financial planning, strategy, forecasting, and executive reporting.',
-    shortDesc: 'Strategic financial leadership',
+    description: 'Accounts receivable support covering customer invoicing, payment tracking, account reconciliation, aging review, and collection follow-up.',
+    shortDesc: 'Invoicing & receivables support',
   },
   {
     id: 'audit-support',
     slug: 'audit-support',
     name: 'Audit Support',
     icon: '✓',
-    description: 'Comprehensive audit support services including documentation, testing, and preparation for external audits.',
+    description: 'Organized audit support including documentation, schedules, reconciliations, evidence gathering, and coordination with your audit team.',
     shortDesc: 'Audit preparation & support',
   },
 ];
 
-// Solutions/service packages
+// Solutions / engagement models
 export const solutions = [
   {
     id: 'offshore-accounting-support',
     slug: 'offshore-accounting-support',
     name: 'Offshore Accounting Support',
     icon: '🌍',
-    description: 'Scale your accounting operations with experienced offshore professionals. Cost-effective support for bookkeeping, accounting, payroll, and financial operations.',
+    description: 'Extend your accounting capacity with experienced offshore professionals who can support recurring accounting workflows, close activities, and back-office tasks.',
     services: ['Bookkeeping', 'Accounting Services', 'Payroll Processing', 'Accounts Payable', 'Accounts Receivable'],
   },
   {
@@ -81,23 +73,23 @@ export const solutions = [
     slug: 'staff-augmentation',
     name: 'Staff Augmentation',
     icon: '👥',
-    description: 'Augment your existing team with skilled accountants and finance professionals to handle overflow work and specialized projects.',
-    services: ['Accounting Services', 'Tax Preparation', 'CFO Support Services', 'Audit Support'],
+    description: 'Add experienced accounting professionals to your existing team for seasonal demand, overflow work, recurring processes, or specialized projects.',
+    services: ['Accounting Services', 'Tax Preparation', 'Audit Support'],
   },
   {
     id: 'dedicated-accounting-teams',
     slug: 'dedicated-accounting-teams',
     name: 'Dedicated Accounting Teams',
     icon: '👨‍💼',
-    description: 'Build dedicated teams of certified CPAs and accountants exclusively for your business. Seamless integration with your existing operations.',
-    services: ['Accounting Services', 'Tax Preparation', 'CFO Support Services', 'Financial Planning'],
+    description: 'Build a dedicated accounting team around your workflows, systems, review process, and reporting requirements without the complexity of local hiring.',
+    services: ['Accounting Services', 'Tax Preparation', 'Audit Support'],
   },
   {
     id: 'back-office-support',
     slug: 'back-office-support',
     name: 'Back Office Support',
     icon: '🏢',
-    description: 'Complete back-office operations including accounting, payroll, HR, and administrative functions. End-to-end support for your business.',
+    description: 'Reliable support for recurring back-office accounting workflows including bookkeeping, payables, receivables, payroll processing, and account maintenance.',
     services: ['Bookkeeping', 'Payroll Processing', 'Accounts Payable', 'Accounts Receivable', 'Accounting Services'],
   },
 ];
@@ -109,67 +101,67 @@ export const markets = [
     slug: 'united-states',
     name: 'United States',
     icon: '🇺🇸',
-    description: 'Serving U.S. businesses with expertise in federal, state, and local tax compliance, GAAP accounting, and SOX requirements.',
+    description: 'Supporting U.S. businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.',
   },
   {
     id: 'united-kingdom',
     slug: 'united-kingdom',
     name: 'United Kingdom',
     icon: '🇬🇧',
-    description: 'UK-focused accounting services with knowledge of IFRS, VAT, Companies House reporting, and UK tax regulations.',
+    description: 'Supporting UK businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.',
   },
   {
     id: 'australia',
     slug: 'australia',
     name: 'Australia',
     icon: '🇦🇺',
-    description: 'Australian accounting expertise including IFRS compliance, ATO requirements, and ASIC reporting standards.',
+    description: 'Supporting Australian businesses and accounting practices with bookkeeping, accounting operations, tax preparation, payroll, and audit support.',
   },
 ];
 
-// Industries/Verticals
+// Industries / Verticals
 export const industries = [
   {
     id: 'cpa-firms',
     slug: 'cpa-firms',
     name: 'CPA Firms',
     icon: '📊',
-    description: 'Support for accounting firms handling overflow work, client deliverables, and specialized services.',
+    description: 'Support for accounting firms handling overflow work, recurring client deliverables, bookkeeping, tax preparation, and audit support.',
   },
   {
     id: 'technology',
     slug: 'technology',
     name: 'Technology',
     icon: '💻',
-    description: 'Specialized accounting and CFO services for SaaS, software, and tech startups.',
+    description: 'Accounting operations support for SaaS, software, and technology businesses with recurring transaction and reporting needs.',
   },
   {
     id: 'healthcare',
     slug: 'healthcare',
     name: 'Healthcare',
     icon: '🏥',
-    description: 'Compliant financial management for medical practices, clinics, and healthcare providers.',
+    description: 'Organized accounting and back-office support for medical practices, clinics, and healthcare providers.',
   },
   {
     id: 'ecommerce',
     slug: 'ecommerce',
     name: 'E-Commerce',
     icon: '🛒',
-    description: 'Multi-channel accounting and tax solutions for online retailers and marketplaces.',
+    description: 'Accounting operations support for online retailers and marketplaces across sales, payables, receivables, and reconciliations.',
   },
   {
     id: 'real-estate',
     slug: 'real-estate',
     name: 'Real Estate',
     icon: '🏠',
-    description: 'Real estate accounting including property management, investment analysis, and tax planning.',
+    description: 'Real estate accounting support including property-level bookkeeping, reconciliations, payables, receivables, and reporting workflows.',
   },
   {
     id: 'professional-services',
     slug: 'professional-services',
     name: 'Professional Services',
     icon: '⚖️',
-    description: 'Specialized finance for law firms, consulting firms, and other professional services.',
+    description: 'Accounting and back-office support for consulting, legal, agency, and other professional service businesses.',
   },
 ];
 
@@ -180,49 +172,49 @@ export const technologies = [
     slug: 'quickbooks',
     name: 'QuickBooks',
     icon: '📱',
-    description: 'Expert integration and support for QuickBooks Online. We handle setup, optimization, automation, and advanced reporting.',
+    description: 'QuickBooks Online support covering setup, cleanup, transaction workflows, reconciliations, automation, and reporting.',
   },
   {
     id: 'xero',
     slug: 'xero',
     name: 'Xero',
     icon: '☁️',
-    description: 'Xero accounting platform expertise. We manage setup, automation, integration, and advanced workflows.',
+    description: 'Xero support covering setup, automation, integrations, reconciliations, and recurring accounting workflows.',
   },
   {
     id: 'sage',
     slug: 'sage',
     name: 'Sage',
     icon: '📈',
-    description: 'Comprehensive Sage accounting software support including implementation, configuration, and optimization.',
+    description: 'Sage accounting software support including configuration, recurring workflows, reconciliations, and reporting.',
   },
   {
     id: 'netsuite',
     slug: 'netsuite',
     name: 'NetSuite',
     icon: '🔧',
-    description: 'Enterprise NetSuite ERP implementation and support for complex, multi-entity organizations.',
+    description: 'NetSuite support for complex accounting workflows, multi-entity operations, reconciliations, and reporting processes.',
   },
   {
     id: 'drake-tax',
     slug: 'drake-tax',
     name: 'Drake Tax',
     icon: '📝',
-    description: 'Drake Tax software expertise for efficient tax preparation, filing, and compliance management.',
+    description: 'Drake Tax software support for organized tax preparation workflows, return processing, and compliance documentation.',
   },
   {
     id: 'cch',
     slug: 'cch',
     name: 'CCH Axcess',
     icon: '🎯',
-    description: 'CCH tax and accounting software support including implementation and advanced features.',
+    description: 'CCH Axcess support for tax and accounting workflows, documentation, and recurring practice operations.',
   },
   {
     id: 'myob',
     slug: 'myob',
     name: 'MYOB',
     icon: '💼',
-    description: 'MYOB accounting platform expertise for Australian and New Zealand businesses.',
+    description: 'MYOB accounting platform support for Australian and New Zealand businesses and accounting practices.',
   },
 ];
 
@@ -237,24 +229,13 @@ export const expertise = [
     items: ['SaaS & Technology', 'E-Commerce & Retail', 'Healthcare', 'Real Estate & Hospitality'],
   },
   {
-    title: 'Services',
-    items: ['VOSB Certification', 'Benefits Administration', 'Risk Management', 'Strategic Planning'],
+    title: 'Practice Support',
+    items: ['Bookkeeping Operations', 'Tax Preparation Support', 'Audit Support', 'Workflow Management'],
   },
 ];
 
-// Testimonials/Case Studies
-//
-// ⚠️ TODO — LEGAL/TRUST: These are illustrative, not real client quotes.
-// The FTC's rule on consumer reviews (16 CFR Part 465, effective 2024)
-// prohibits presenting testimonials in a way that implies they're from
-// real customers when they are not. Two safe paths:
-//   1. Replace with real client quotes (get written permission) — best.
-//   2. Keep as-is BUT the visible page text must say something like
-//      "Illustrative feedback based on common client engagement themes"
-//      — not just hidden in a code comment. Do NOT ship this section
-//      with real-sounding names/avatars and no on-page disclosure.
-// Placeholder avatars (dicebear cartoons) are fine to keep even with
-// real quotes, if a real client prefers not to share a photo.
+// Testimonials / Case Studies
+// These are illustrative engagement themes, not client endorsements.
 export const testimonials = [
   {
     name: 'Accounting Practice Owner',
@@ -264,15 +245,15 @@ export const testimonials = [
     image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=AccountingOwner',
   },
   {
-    name: 'Finance Director',
-    title: 'Managing Complex Client Work',
+    name: 'Practice Operations Lead',
+    title: 'Managing Recurring Client Work',
     company: 'Growing Accounting Practice',
-    text: 'Having dedicated support for accounts payable and receivable freed up our senior team to focus on advisory work. The responsiveness has been key to our success.',
-    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=FinanceDirector',
+    text: 'Having dedicated support for accounts payable and receivable freed up our senior team to focus on client work. The responsiveness has been key to our workflow.',
+    image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=OperationsLead',
   },
   {
     name: 'CPA Firm Partner',
-    title: 'Expanding Service Offerings',
+    title: 'Expanding Practice Capacity',
     company: 'Regional CPA Firm',
     text: 'We were able to take on more clients because we had reliable bookkeeping support. The team understood our quality standards and delivered consistently.',
     image: 'https://api.dicebear.com/9.x/avataaars/svg?seed=CPAPartner',
@@ -280,7 +261,6 @@ export const testimonials = [
 ];
 
 // Trust & Compliance badges
-// [Add further verified certifications here as they're achieved. Currently pursuing SOC 2 certification.]
 export const trustBadges = [
   { name: 'QuickBooks Certified ProAdvisor (since 2022)', icon: '📱' },
   { name: 'NDA-Backed Engagements', icon: '🔒' },
@@ -288,23 +268,14 @@ export const trustBadges = [
 ];
 
 // Company info
-//
-// Global delivery model: leadership/sales presence serving US/UK/AU
-// clients, with the service delivery team based in New Delhi, India.
-// This is presented transparently as the core "offshore accounting"
-// value proposition, not hidden — matches how comparable companies
-// (TOA Global, Escalon, etc.) position their delivery model.
 export const companyInfo = {
   name: 'Accounstone',
-  tagline: 'Outsourced Accounting & Finance Solutions',
-  description: 'Accounstone is a leading provider of outsourced accounting, finance, and HR services to growing businesses across the US, UK, and Australia. With a team of expert accountants and CPAs, we deliver strategic financial solutions that drive business growth.',
+  tagline: 'Outsourced Accounting & Bookkeeping Solutions',
+  description: 'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, audit support, and back-office services to businesses and accounting practices across the US, UK, and Australia. Our delivery model is built around experienced professionals, documented workflows, quality review, and clear communication.',
   website: 'https://www.accounstone.com',
   contact: {
     email: 'partner@accounstone.com',
-    // E.164 format for tel: links / schema. Displayed format handled
-    // in the component (e.g. "+91 99905 97192").
     phone: '+919990597192',
-    // Labeled as delivery center, not HQ — see note above.
     address: 'Global Delivery Center, New Delhi, India',
   },
 };
