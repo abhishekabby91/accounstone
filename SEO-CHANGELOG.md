@@ -1,5 +1,16 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (homepage hero: remove AI-generated carousel images)
+
+### `app/page.tsx`, `public/carousel-accounting-team.png` (deleted), `public/carousel-global-team.png` (deleted)
+
+**Changed:** Removed the first two homepage hero carousel slides, which used AI-generated stock images. Both had visible AI-generation artifacts (garbled on-screen text, a fabricated "Acuity Financial Partners" logo rendered on an office wall in the first image, distorted hands/objects in the second). Replaced them with two already-present, genuine stock photos (`carousel-budget-planning.jpg`, `carousel-worldwide.jpg`) that were sitting unused in `public/`. The third slide (`carousel-tax-returns.jpg`, a real stock photo) was kept as-is.  
+**Why:** AI-generated imagery with visible artifacts (and an unrelated fake competitor/company logo) undermines trust on the highest-visibility part of the homepage.  
+**SEO purpose:** No ranking impact expected; this is a trust/brand-integrity fix. Alt text was updated to match the new images.  
+**URL changed:** No.  
+**Metadata changed:** No.  
+**Content changed:** Yes (hero slide images, alt text, ids). Titles/subtitles per slide were kept as-is since they already matched the intended message, not the specific photo.
+
 ## 2026-08-14
 
 ### `SEO-AUDIT.md`

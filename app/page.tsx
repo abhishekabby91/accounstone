@@ -32,16 +32,16 @@ const faqSchema = generateFAQSchema(homePageFAQs);
 export default function HomePage() {
   const carouselSlides = [
     {
-      id: 'accounting-team',
-      image: '/carousel-accounting-team.png',
-      alt: 'Professional accounting team collaborating on client work',
+      id: 'budget-planning',
+      image: '/carousel-budget-planning.jpg',
+      alt: 'Budget summary, charts, and calculator on a desk',
       title: 'Accounting Support That Fits Your Workflow',
       subtitle: 'Experienced professionals working as an extension of your team',
     },
     {
-      id: 'global-team',
-      image: '/carousel-global-team.png',
-      alt: 'Global accounting team working together',
+      id: 'worldwide',
+      image: '/carousel-worldwide.jpg',
+      alt: 'Globe representing worldwide accounting support',
       title: 'Reliable Support Across Three Markets',
       subtitle: 'US, UK, and Australia support from one delivery team',
     },
