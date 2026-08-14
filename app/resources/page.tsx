@@ -6,9 +6,9 @@ import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '
 const PATH = '/resources';
 
 export const metadata: Metadata = genMeta({
-  title: 'Resources for CPA Firms & Growing Businesses',
+  title: 'Accounting Resources for CPA Firms & Growing Businesses',
   description:
-    'Guides, insights, and case studies on outsourced bookkeeping, tax season staffing, SaaS accounting, and more for U.S. CPA firms and businesses.',
+    'Practical accounting, bookkeeping, tax preparation and workflow guides for CPA firms, accounting teams and growing businesses.',
   path: PATH,
 });
 
@@ -22,19 +22,19 @@ const sections = [
     title: 'Guides',
     href: '/resources/guides',
     description:
-      'In-depth guides on outsourced accounting costs, platform comparisons, and how CPA firms scale capacity during tax season.',
+      'In-depth answers to practical accounting questions, including bookkeeping costs, software decisions and CPA firm capacity planning.',
   },
   {
     title: 'Insights',
     href: '/resources/insights',
     description:
-      'Shorter explainers on specific accounting and tax topics — sales tax nexus, revenue recognition, and more.',
+      'Focused explainers on accounting, tax and operational topics that come up in real bookkeeping and accounting workflows.',
   },
   {
     title: 'Case Studies',
     href: '/resources/case-studies',
     description:
-      'Illustrative examples of how businesses use our outsourced accounting support to solve real capacity and reporting challenges.',
+      'Examples of accounting workflow and capacity challenges, with a focus on what changed and how the work was approached.',
   },
 ];
 
@@ -46,17 +46,15 @@ export default function ResourcesPage() {
       <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-6">
           <>
-          <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-            Resources
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-balance">
-            Guides, Insights & Case Studies
-          </h1>
-          <p className="text-lg text-muted leading-relaxed">
-            Practical resources on outsourced accounting, bookkeeping platforms,
-            tax season capacity, and industry-specific financial topics —
-            written for CPA firms and growing businesses.
-          </p>
+            <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Resources</span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-balance">
+              Useful Answers to Practical Accounting Questions
+            </h1>
+            <p className="text-lg text-muted leading-relaxed">
+              Guides and insights for people responsible for keeping the books current,
+              getting work ready for review and keeping accounting workflows moving.
+              Start with the question you are trying to solve, then go deeper where it helps.
+            </p>
           </>
         </Reveal>
       </section>
