@@ -1,5 +1,18 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (finish technology page rework: CCH, MYOB, Drake Tax)
+
+Follow-up to the NetSuite/Sage rework — the same generic vendor-marketing pattern was present on the three remaining technology pages.
+
+### `app/technology/cch/page.tsx`, `app/technology/myob/page.tsx`, `app/technology/drake-tax/page.tsx`
+
+**Changed:** Same rework as NetSuite/Sage. Removed "is the leading..." vendor-marketing openers (CCH Axcess, MYOB, and Drake Tax pages each claimed to be "the leading" software in their category — an unverifiable superlative about a third party's product, not something Accounstone can substantiate), "Why Choose \[Vendor\]" bullet lists that were really just describing the software's own features rather than Accounstone's work, and "setup and configuration" implementation-style claims. Replaced with accounting-scoped workflow content matching each platform's real use case (CCH: tax-practice review queues and document management; MYOB: AU/NZ GST/BAS and STP-aligned payroll bookkeeping; Drake Tax: return-preparation capacity for tax season). Also removed "Tax planning and optimization" from the Drake Tax services list and added an explicit FAQ stating tax planning/advisory stays with the client's CPA/EA — the same class of overclaim as the earlier CFO/financial-advisory cleanup.  
+**Why:** Same reasoning as the NetSuite/Sage pass: this is an accounting-support company, not a software vendor or implementation partner, and "the leading software" claims about third-party products aren't something Accounstone can verify or should be making on their behalf.  
+**SEO purpose:** Consistent accounting-scoped positioning across all seven technology pages; removes unverifiable superlative claims per the AI-WEBSITE-GUIDE content rules.  
+**URL changed:** No. **Metadata changed:** Yes (all three titles/descriptions). **Content changed:** Yes (full rework, all three pages).
+
+All seven `/technology/*` pages (QuickBooks, Xero, NetSuite, Sage, CCH, MYOB, Drake Tax) are now consistently accounting-scoped.
+
 ## 2026-08-14 (Tier 2 review: rework NetSuite and Sage pages)
 
 Spot-checked the Tier 2 pages flagged in the original audit (UK/Australia bookkeeping, NetSuite, Sage, e-commerce, professional services). UK/Australia bookkeeping and both industry pages were already at the same specificity bar as Tier 1 (region-specific workflow detail, not generic filler) — no changes needed. NetSuite and Sage were the exception: both still read as generic software-vendor marketing copy rather than accounting-support content, unlike the already-reworked QuickBooks/Xero pages.

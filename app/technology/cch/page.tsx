@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -7,8 +8,8 @@ import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'CCH Axcess Tax Software Solutions',
-  description: 'Expert CCH tax and accounting software setup, integration, and support for comprehensive tax compliance.',
+  title: 'CCH Axcess Accounting Support',
+  description: 'CCH Axcess support for tax-practice workflows, document organization, preparation tasks, review queues and recurring practice operations.',
   path: '/technology/cch',
 });
 
@@ -29,16 +30,28 @@ const faqs = [
     question: 'Is CCH Axcess cloud-based, and do you support remote access setups?',
     answer: "Yes, CCH Axcess is cloud-based, and we work within your firm's existing access and security setup rather than requiring a separate environment.",
   },
+  {
+    question: 'Do you implement or administer CCH Axcess itself?',
+    answer: 'We support the tax-practice workflow inside an existing CCH Axcess environment: preparation, review queues and document organization. System administration and licensing are handled by your firm and Wolters Kluwer.',
+  },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
-
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Technology', url: `${baseUrl}/technology` },
   { name: 'CCH Axcess', url: `${baseUrl}/technology/cch` },
 ]);
+
+const workflows = [
+  'Tax return preparation and workpaper organization',
+  'Document management inside CCH Axcess Workflow',
+  'Review-queue support for multi-client, multi-engagement work',
+  'Audit documentation and testing support within CCH Axcess',
+  'Bookkeeping and accounting work that feeds prepared returns',
+  'Multi-entity and multi-state preparation support',
+];
 
 export default function CCHPage() {
   return (
@@ -47,61 +60,23 @@ export default function CCHPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PremiumHero
-        subtitle="Tax & Accounting Software"
-        title="CCH Axcess Solutions"
-        description="Expert CCH Axcess integration and support for tax preparation, accounting, and compliance management."
+        subtitle="Platform Workflow Support"
+        title="CCH Axcess Accounting Support"
+        description="Help with the tax-practice workflow inside CCH Axcess — preparation, review queues and document organization, not system administration."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services' }}
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">CCH Axcess</span>
-            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-              CCH Axcess Expertise
-            </h2></Reveal>
-            <p className="text-lg text-muted leading-relaxed">
-              CCH Axcess is the leading integrated tax, accounting, and compliance software. We provide expert setup, optimization, and ongoing support for efficient tax preparation and financial reporting.
-            </p>
-          </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">What buyers usually care about</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">CCH Axcess is the system. Someone still has to keep the review queue moving.</h2><p className="text-lg text-muted leading-8">A firm running CCH Axcess across a large book of clients still needs preparation, documentation and review-queue work handled consistently, especially during tax season. We work inside your firm's existing CCH Axcess access and security setup on that recurring preparation work, while system administration and licensing stay with your firm.</p></></Reveal></div></section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Our CCH Services</h3>
-              <ul className="space-y-3">
-                {['CCH setup and configuration', 'Tax return preparation', 'Accounting and bookkeeping', 'Compliance management', 'Financial reporting', 'Multi-entity support'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Workflows</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">The Work Around CCH Axcess</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{workflows.map((item, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-2xl border border-border/70"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="leading-7">{item}</span></li></Reveal>)}</ul></div></section>
 
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Why Choose CCH</h3>
-              <ul className="space-y-3">
-                {['Integrated tax and accounting', 'Comprehensive compliance tools', 'Multi-state capability', 'Advanced reporting', 'Document management', 'Professional resources'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto text-center"><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-8">Connect CCH Axcess to the practice work</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/tax-preparation" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Tax Preparation</Link><Link href="/services/audit-support" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Audit Support</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link></div></div></section>
 
       <FAQSection subtitle="CCH Axcess Questions" items={faqs} columns={2} />
 
-
-      
-
-
-      <CTABanner title="Ready to Optimize Your CCH Operations?" description="Let our CCH experts support your tax and accounting practice." cta={{ text: 'Get Started', href: '/contact' }} background="primary" />
+      <CTABanner title="Where Is Your CCH Axcess Review Queue Getting Stuck?" description="Tell us whether the pressure is preparation capacity, document organization or tax-season volume." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }

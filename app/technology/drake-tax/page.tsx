@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Check } from 'lucide-react';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -7,8 +8,8 @@ import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Drake Tax Software Solutions',
-  description: 'Expert Drake Tax software integration and support for efficient tax preparation and filing.',
+  title: 'Drake Tax Accounting Support',
+  description: 'Drake Tax support for organized return-preparation workflows, source-document handling, workpapers and recurring tax-season processes.',
   path: '/technology/drake-tax',
 });
 
@@ -29,16 +30,28 @@ const faqs = [
     question: 'Do you handle e-filing submission directly?',
     answer: 'We prepare returns and documentation to be e-filing ready within Drake Tax; final review, sign-off, and submission is handled by your licensed CPA or Enrolled Agent.',
   },
+  {
+    question: 'Do you provide tax planning or advisory services?',
+    answer: 'No. We support return preparation, workpapers and quarterly estimated tax calculations inside Drake Tax. Tax planning, strategy and advisory work stay with your licensed CPA or Enrolled Agent.',
+  },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
-
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Technology', url: `${baseUrl}/technology` },
   { name: 'Drake Tax', url: `${baseUrl}/technology/drake-tax` },
 ]);
+
+const workflows = [
+  'Return preparation and data entry inside Drake Tax',
+  'Source-document organization and workpapers',
+  'Multi-state return preparation support',
+  'Quarterly estimated tax calculations',
+  'E-filing-ready documentation for CPA/EA review',
+  'Prior-year data organization and migration support',
+];
 
 export default function DrakeTaxPage() {
   return (
@@ -47,61 +60,23 @@ export default function DrakeTaxPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <PremiumHero
-        subtitle="Tax Preparation Platform"
-        title="Drake Tax Software Solutions"
-        description="Expert Drake Tax integration and support for efficient tax preparation, filing, and compliance management."
+        subtitle="Platform Workflow Support"
+        title="Drake Tax Accounting Support"
+        description="Preparation and workpaper support inside Drake Tax that scales with tax-season volume, while your CPA or Enrolled Agent keeps final review and filing control."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services' }}
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Drake Tax Software</span>
-            <Reveal><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
-              Drake Tax Expertise
-            </h2></Reveal>
-            <p className="text-lg text-muted leading-relaxed">
-              Drake is the leading tax preparation software for accounting professionals. Our team brings expertise in Drake setup, optimization, and support for efficient tax return preparation and filing.
-            </p>
-          </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">What buyers usually care about</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Drake Tax is the system. Someone still has to get every return prep-ready by April.</h2><p className="text-lg text-muted leading-8">Tax season volume doesn't scale evenly — the same firm handling steady work in November needs meaningfully more preparation capacity in March. We work inside your firm's existing Drake Tax setup on data entry, workpapers and preparation, so your CPA or Enrolled Agent can focus review time on judgment calls instead of data entry.</p></></Reveal></div></section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Our Drake Tax Services</h3>
-              <ul className="space-y-3">
-                {['Drake setup and configuration', 'Tax return preparation', 'E-filing and compliance', 'Multi-state tax returns', 'Tax planning and optimization', 'Quarterly estimated tax calculations'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Workflows</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">The Work Around Drake Tax</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{workflows.map((item, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-2xl border border-border/70"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="leading-7">{item}</span></li></Reveal>)}</ul></div></section>
 
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Why Choose Drake</h3>
-              <ul className="space-y-3">
-                {['Efficient tax preparation workflow', 'Built-in compliance checks', 'Multi-state capability', 'IRS e-file integration', 'Data security', 'Professional support'].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto text-center"><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="text-3xl md:text-4xl font-bold text-primary mt-3 mb-8">Connect Drake Tax to the practice work</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/tax-preparation/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Tax Preparation</Link><Link href="/solutions/staff-augmentation" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Staff Augmentation</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link></div></div></section>
 
       <FAQSection subtitle="Drake Tax Questions" items={faqs} columns={2} />
 
-
-      
-
-
-      <CTABanner title="Ready to Streamline Tax Preparation?" description="Let our Drake Tax experts support your tax operations." cta={{ text: 'Get Started', href: '/contact' }} background="primary" />
+      <CTABanner title="Ready for the Next Tax Season Volume Spike?" description="Tell us whether the pressure is data entry, multi-state returns or simply peak-season capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }
