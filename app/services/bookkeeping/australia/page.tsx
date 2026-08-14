@@ -5,68 +5,53 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
-import {
-  generateMetadata as genMeta,
-  generateServiceSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  baseUrl,
-} from '@/lib/seo';
+import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/bookkeeping/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Bookkeeping Services for Australian Businesses',
-  description:
-    'Outsourced bookkeeping for Australian businesses — BAS-ready GST tracking, Single Touch Payroll (STP) compliant payroll bookkeeping, and Xero/MYOB support aligned with ATO requirements.',
+  title: 'Outsourced Bookkeeping for Australian Businesses | Accounstone',
+  description: 'Australian bookkeeping support for businesses and accounting firms, with reconciliations, GST records, BAS-ready bookkeeping, payroll support and Xero/MYOB workflows.',
   path: PATH,
 });
 
-const overview =
-  "Bookkeeping for Australian businesses centres on a few specific obligations: GST needs to be tracked accurately for periodic Business Activity Statement (BAS) lodgment, payroll bookkeeping needs to align with Single Touch Payroll (STP) real-time ATO reporting, and most businesses run on Xero or MYOB rather than other platforms. The Australian financial year also runs 1 July to 30 June, not the calendar year. We structure bookkeeping around these specifics rather than applying a generic international template.";
+const overview = "Australian bookkeeping is not just about entering transactions. GST records need to support BAS preparation, payroll bookkeeping needs to stay consistent with the payroll process and reporting, and month-end work needs to fit a financial year that runs from 1 July to 30 June. We handle defined recurring preparation work inside your existing system while your business, accountant or registered agent keeps review, approval and advice responsibilities.";
 
 const benefits = [
-  'GST tracking structured for accurate BAS lodgment',
-  'Single Touch Payroll (STP) compliant payroll bookkeeping',
-  'Xero and MYOB support — the two dominant platforms in the Australian market',
-  'Bookkeeping aligned with the Australian financial year (1 July to 30 June)',
-  'Superannuation Guarantee contribution tracking',
-  'Reporting formatted for your registered tax agent or BAS agent',
+  'Transaction processing, coding and account maintenance',
+  'Bank and card reconciliations with exception follow-up',
+  'GST records organised for BAS preparation and review',
+  'Payroll-related bookkeeping and account reconciliation',
+  'Month-end schedules aligned with the Australian financial year',
+  'Xero, MYOB and other supported accounting-platform workflows',
+];
+
+const delegated = [
+  'Recurring transaction processing and categorisation',
+  'Bank and card reconciliations',
+  'GST coding and supporting schedules',
+  'Payroll-related accounting entries and reconciliations',
+  'Month-end preparation and first-level checks',
+];
+
+const retained = [
+  'Final review and approval of the books',
+  'Tax or BAS advice and professional judgement',
+  'Decisions about unusual GST or accounting treatment',
+  'Final lodgment responsibility where a registered agent is required',
+  'Control over access, approvals and business decisions',
 ];
 
 const faqs = [
-  {
-    question: 'Can you help with BAS (Business Activity Statement) preparation?',
-    answer:
-      'We track GST and the underlying figures your BAS requires accurately in your books, working alongside your registered BAS agent or tax agent for the actual lodgment.',
-  },
-  {
-    question: 'Do you support Single Touch Payroll (STP) requirements?',
-    answer:
-      'Yes, we structure payroll bookkeeping to align with STP real-time reporting to the ATO, keeping your records consistent with what\'s being reported.',
-  },
-  {
-    question: 'Do you work with Xero and MYOB?',
-    answer:
-      'Yes, both are core supported platforms for us, and between them they cover the large majority of Australian small businesses.',
-  },
-  {
-    question: 'Do you track Superannuation Guarantee contributions?',
-    answer:
-      'Yes, we track Superannuation Guarantee obligations as part of payroll bookkeeping, keeping records aligned with your compulsory contribution requirements.',
-  },
+  { question: 'Can you support BAS preparation?', answer: 'Yes. We can keep the underlying bookkeeping, GST records, reconciliations and supporting schedules organised for BAS review. Your registered BAS or tax agent remains responsible for advice and lodgment where required.' },
+  { question: 'Do you support Xero and MYOB?', answer: 'Yes. Both are supported platforms. We focus on fitting the workflow to your existing chart of accounts, reporting, approvals and month-end routine rather than changing systems without a reason.' },
+  { question: 'Can you help if the books are behind before EOFY?', answer: 'Yes. Catch-up work can be scoped separately from the recurring monthly process. That makes it easier to fix historic issues while establishing a routine that keeps the current period moving.' },
+  { question: 'Do you handle payroll bookkeeping?', answer: 'We can support the accounting work around payroll, including entries, reconciliations and records. Payroll approvals, employee decisions and statutory responsibilities remain with the appropriate business or payroll professional.' },
+  { question: 'Will our accountant still review the work?', answer: 'Yes. The delivery team can prepare defined recurring work while your accountant or internal reviewer retains final review, approval and professional judgement.' },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
-
-const serviceSchema = generateServiceSchema({
-  name: 'Bookkeeping Services for Australian Businesses',
-  description: overview,
-  slug: 'bookkeeping/australia',
-  basePath: '/services/',
-  areaServed: ['AU'],
-});
-
+const serviceSchema = generateServiceSchema({ name: 'Bookkeeping Services for Australian Businesses', description: overview, slug: 'bookkeeping/australia', basePath: '/services/', areaServed: ['AU'] });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
@@ -80,69 +65,14 @@ export default function BookkeepingAUPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <PremiumHero
-        subtitle="Bookkeeping for Australian Businesses"
-        title="Outsourced Bookkeeping for Australian Businesses"
-        description="BAS-ready GST tracking, STP-compliant payroll, and Xero/MYOB support built around ATO requirements."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View All Services', href: '/services' }}
-        background="primary-gradient"
-      />
-
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
-        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services/bookkeeping" className="hover:text-primary transition-colors">Bookkeeping</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-primary font-medium">Australia</li>
-        </ol>
-      </nav>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-4xl mx-auto space-y-6">
-          <>
-          <div className="space-y-2">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Built for Australian Accounting Conventions</h2>
-          </div>
-          <p className="text-lg text-muted leading-relaxed">{overview}</p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center space-y-4 mb-16">
-            <>
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-            </>
-          </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((b, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
+      <PremiumHero subtitle="Bookkeeping for Australian Businesses" title="Outsourced Bookkeeping for Australian Businesses" description="Practical bookkeeping support built around your GST records, payroll workflow, month-end routine and review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/bookkeeping">Bookkeeping</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">Australia</li></ol></nav>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Books That Are Easier to Review at BAS and Month-End</h2></div><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">The Work Behind a Well-Kept Set of Australian Books</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((item, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{item}</p></li></Reveal>)}</ul></div></section>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"><Reveal className="rounded-2xl bg-input border border-border/70 p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Can be delegated</span><h2 className="text-3xl font-bold text-primary mt-3 mb-6">Repeatable preparation work</h2><ul className="space-y-4">{delegated.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="text-foreground leading-6">{item}</span></li>)}</ul></></Reveal><Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="text-3xl font-bold mt-3 mb-6">Review, judgement and approvals</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal></div></section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="text-3xl md:text-4xl font-bold text-primary">Useful next steps</h2></></Reveal><div className="flex flex-wrap justify-center gap-3"><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Xero</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">MYOB</Link><Link href="/services/tax-preparation/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Australian Tax Preparation</Link><Link href="/services/audit-support/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Australian Audit Support</Link></div></div></section>
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Ready for BAS-Ready Books?"
-        description="Let's talk about your current setup and what needs to change."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
+      <CTABanner title="Where Is Your Australian Bookkeeping Process Getting Stuck?" description="Tell us whether the pressure is in reconciliations, GST records, catch-up work, payroll accounting or month-end review." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }
