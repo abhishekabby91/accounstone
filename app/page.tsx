@@ -31,9 +31,27 @@ const faqSchema = generateFAQSchema(homePageFAQs);
 
 export default function HomePage() {
   const carouselSlides = [
-    { id: 'accounting-team', image: '/carousel-accounting-team.png', alt: 'Professional accounting team collaborating on client work', title: 'Accounting Support That Fits Your Workflow', subtitle: 'Experienced professionals working as an extension of your team' },
-    { id: 'global-team', image: '/carousel-global-team.png', alt: 'Global accounting team working together', title: 'Reliable Support Across Three Markets', subtitle: 'US, UK, and Australia support from one delivery team' },
-    { id: 'tax-returns', image: '/carousel-tax-returns.jpg', alt: 'Organized tax return documents prepared for professional review', title: 'Built for Accounting Practices', subtitle: 'Bookkeeping, tax preparation, payroll, and audit support' },
+    {
+      id: 'accounting-team',
+      image: '/carousel-accounting-team.png',
+      alt: 'Accounting professionals collaborating on client work',
+      title: 'Accounting Support That Fits Your Workflow',
+      subtitle: 'Practical capacity for recurring accounting work',
+    },
+    {
+      id: 'budget-planning',
+      image: '/carousel-budget-planning.jpg',
+      alt: 'Professionals reviewing accounting and planning information together',
+      title: 'More Capacity Without Losing Review Control',
+      subtitle: 'Support built around your processes and standards',
+    },
+    {
+      id: 'global-delivery',
+      image: '/carousel-worldwide.jpg',
+      alt: 'Global business and accounting operations across international markets',
+      title: 'Accounting Support Across Three Markets',
+      subtitle: 'US, UK, and Australia support from one delivery team',
+    },
   ];
 
   return (
