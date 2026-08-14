@@ -5,68 +5,53 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
-import {
-  generateMetadata as genMeta,
-  generateServiceSchema,
-  generateFAQSchema,
-  generateBreadcrumbSchema,
-  baseUrl,
-} from '@/lib/seo';
+import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/bookkeeping/united-kingdom';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Bookkeeping Services for UK Businesses',
-  description:
-    'Outsourced bookkeeping for UK businesses — Making Tax Digital (MTD) compliant record-keeping, VAT tracking, and Xero support aligned with HMRC and Companies House requirements.',
+  title: 'Outsourced Bookkeeping for UK Businesses | Accounstone',
+  description: 'UK bookkeeping support for businesses and accounting firms, with reconciliations, VAT records, MTD-ready digital records, month-end work and Xero support.',
   path: PATH,
 });
 
-const overview =
-  "Bookkeeping for UK businesses runs on a different set of rules than other markets: HMRC's Making Tax Digital (MTD) initiative requires digital record-keeping and software-based VAT submissions rather than manual spreadsheets, VAT tracking needs to reflect the correct rate and scheme for your business, and annual accounts eventually need to reconcile cleanly for Companies House filing. Xero is the dominant platform in the UK market, and we structure bookkeeping around these specifics rather than applying a generic international template.";
+const overview = "UK bookkeeping has a few practical realities that a generic bookkeeping process can miss. VAT records need to follow the business's registered scheme, digital records need to support Making Tax Digital requirements where applicable, and month-end work should leave the accountant with records that can be reviewed rather than rebuilt. We support the recurring preparation work inside your existing process, while your accountant or internal team keeps review, approval and tax decisions.";
 
 const benefits = [
-  'Making Tax Digital (MTD) compliant digital record-keeping',
-  'VAT tracking and categorisation aligned with your registered VAT scheme',
-  'Xero support — the leading bookkeeping platform in the UK market',
-  'Monthly reconciliation structured for clean Companies House annual accounts',
-  'UK fiscal year conventions (customisable company year-end, standard 6 April Self Assessment year)',
-  'Reporting formatted for your UK accountant or tax agent at year-end',
+  'Transaction processing, coding and account maintenance',
+  'Bank and card reconciliations with exceptions clearly flagged',
+  'VAT record preparation aligned with your registered VAT scheme',
+  'Digital bookkeeping workflows that support MTD requirements where applicable',
+  'Month-end schedules and records prepared for accountant review',
+  'Xero and other supported accounting-platform workflows',
+];
+
+const delegated = [
+  'Recurring transaction processing and categorisation',
+  'Bank and card reconciliations',
+  'Supporting schedules and account maintenance',
+  'VAT-related bookkeeping and exception lists',
+  'Month-end preparation and first-level checks',
+];
+
+const retained = [
+  'Final review and approval of the books',
+  'Tax advice and accounting judgements',
+  'VAT scheme decisions and unusual treatment decisions',
+  'Client-facing advice and statutory filing responsibility',
+  'Control over access, approvals and business decisions',
 ];
 
 const faqs = [
-  {
-    question: 'Do you handle Making Tax Digital (MTD) requirements?',
-    answer:
-      'Yes, we maintain digital records structured for MTD compliance and work within MTD-compatible software so your VAT submissions meet HMRC\'s digital record-keeping requirements.',
-  },
-  {
-    question: 'Can you manage VAT tracking for our business?',
-    answer:
-      'Yes, we track VAT on transactions according to your registered scheme (standard, flat rate, or cash accounting) and prepare the underlying records your accountant or tax agent needs for submission.',
-  },
-  {
-    question: 'Do you work with Xero specifically?',
-    answer:
-      'Yes, Xero is one of our core supported platforms, and it\'s the platform most UK small businesses and accountants already use, so integration is typically straightforward.',
-  },
-  {
-    question: 'Will our books be ready for Companies House annual accounts?',
-    answer:
-      'Yes, we structure monthly reconciliation and reporting so your accountant can move directly into preparing annual accounts for Companies House without needing to redo your books first.',
-  },
+  { question: 'Can you support Making Tax Digital workflows?', answer: 'Yes. We can maintain the underlying digital bookkeeping records and workflows needed to support MTD requirements where they apply. Your accountant or authorised agent remains responsible for the relevant advice and submissions.' },
+  { question: 'Can you help with VAT records?', answer: 'Yes. We can organise transaction records, VAT coding, reconciliations and exception lists around your registered VAT scheme so the records are easier for your accountant to review.' },
+  { question: 'Do you work with Xero?', answer: 'Yes. Xero is one of the platforms we support. The important part is fitting the bookkeeping routine to your existing chart of accounts, approvals, reporting and month-end process rather than changing software unnecessarily.' },
+  { question: 'Can you catch up bookkeeping that is behind?', answer: 'Yes. Catch-up work can be separated from the recurring monthly process so the team can address historic unreconciled items without allowing the current month to fall behind again.' },
+  { question: 'Will our accountant still review the work?', answer: 'Yes. The engagement can be structured so the delivery team prepares defined work while your accountant or internal reviewer retains final review, approval and professional judgement.' },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
-
-const serviceSchema = generateServiceSchema({
-  name: 'Bookkeeping Services for UK Businesses',
-  description: overview,
-  slug: 'bookkeeping/united-kingdom',
-  basePath: '/services/',
-  areaServed: ['GB'],
-});
-
+const serviceSchema = generateServiceSchema({ name: 'Bookkeeping Services for UK Businesses', description: overview, slug: 'bookkeeping/united-kingdom', basePath: '/services/', areaServed: ['GB'] });
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
@@ -80,69 +65,14 @@ export default function BookkeepingUKPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-
-      <PremiumHero
-        subtitle="Bookkeeping for UK Businesses"
-        title="Outsourced Bookkeeping for UK Businesses"
-        description="MTD-compliant record-keeping, VAT tracking, and Xero support built around HMRC and Companies House requirements."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View All Services', href: '/services' }}
-        background="primary-gradient"
-      />
-
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
-        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href="/services/bookkeeping" className="hover:text-primary transition-colors">Bookkeeping</Link></li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
-        </ol>
-      </nav>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-4xl mx-auto space-y-6">
-          <>
-          <div className="space-y-2">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Built for UK Accounting Conventions</h2>
-          </div>
-          <p className="text-lg text-muted leading-relaxed">{overview}</p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal className="text-center space-y-4 mb-16">
-            <>
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
-            </>
-          </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {benefits.map((b, i) => (
-              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
-      </section>
-
+      <PremiumHero subtitle="Bookkeeping for UK Businesses" title="Outsourced Bookkeeping for UK Businesses" description="Practical bookkeeping support built around your existing records, VAT workflow, month-end routine and review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/bookkeeping">Bookkeeping</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United Kingdom</li></ol></nav>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Books That Are Easier to Review</h2></div><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">The Work Behind a Well-Kept Set of UK Books</h2></></Reveal><ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((item, i) => <Reveal key={i}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{item}</p></li></Reveal>)}</ul></div></section>
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white"><div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"><Reveal className="rounded-2xl bg-input border border-border/70 p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Can be delegated</span><h2 className="text-3xl font-bold text-primary mt-3 mb-6">Repeatable preparation work</h2><ul className="space-y-4">{delegated.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="text-foreground leading-6">{item}</span></li>)}</ul></></Reveal><Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="text-3xl font-bold mt-3 mb-6">Review, judgement and approvals</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal></div></section>
+      <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="text-3xl md:text-4xl font-bold text-primary">Useful next steps</h2></></Reveal><div className="flex flex-wrap justify-center gap-3"><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">Xero</Link><Link href="/services/tax-preparation/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Tax Preparation</Link><Link href="/services/audit-support/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">UK Audit Support</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium">CPA Firms</Link></div></div></section>
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
-
-      <CTABanner
-        title="Ready for MTD-Ready Books?"
-        description="Let's talk about your current setup and what needs to change."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
-        background="primary"
-      />
+      <CTABanner title="Where Is Your UK Bookkeeping Process Getting Stuck?" description="Tell us whether the pressure is in reconciliations, VAT records, catch-up work or month-end review." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }
