@@ -7,7 +7,7 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import { services } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Accounting Services',
+  title: 'Accounting & Bookkeeping Services',
   description:
     'Bookkeeping, accounting operations, tax preparation, payroll, accounts payable, accounts receivable, and audit support for businesses and CPA firms.',
   path: '/services',

@@ -1,5 +1,35 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (crawlability audit: Google + AI-tool crawling)
+
+Full site-wide crawlability sweep, prompted by a direct request to check for crawling issues affecting Google and other AI tools (ChatGPT/Perplexity-style crawlers that read `llms.txt`, etc.).
+
+### `app/services/accounting/page.tsx` (new page — the big one)
+
+**Changed:** Created the missing `/services/accounting` page. This route was referenced from **15 places** across the codebase — including the site-wide footer (every page), the homepage service grid, `public/llms.txt`'s own Services list, and `app/sitemap.ts` (which auto-generates `/services/${slug}` for every entry in `lib/data.ts`'s `services` array, which already included `accounting`) — but no `page.tsx` existed for it. Every one of those links, and the sitemap entry, was a 404.  
+**Why:** This is exactly the kind of issue that hurts both Google and AI-tool crawling: a sitemap referencing a dead URL wastes crawl budget and can trigger Search Console errors, `llms.txt` (the file AI tools use to discover site content) pointed AI crawlers at a 404, and a footer link that's broken on literally every page is a poor signal for both crawlers and visitors. Built the page using the `accounting` service's existing description in `lib/data.ts` and the same `ServicePageTemplate` pattern as the other service pages, so it's now consistent with the rest of the services cluster.  
+**SEO purpose:** Fixes 15 internal 404s at once, makes the sitemap fully accurate, and makes `llms.txt` accurate for AI-crawler discovery.  
+**URL changed:** No (this URL already existed conceptually everywhere it was linked from — it just didn't resolve).  
+**Metadata changed:** Yes (new page).  
+**Content changed:** Yes (new page).
+
+### `app/services/page.tsx`
+
+**Changed:** Meta title "Accounting Services" → "Accounting & Bookkeeping Services".  
+**Why:** Adding the new `/services/accounting` page created an exact duplicate `<title>` with the `/services` hub page, which had reused the same title.  
+**SEO purpose:** Removes a duplicate-title issue between two distinct, now-both-real pages.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** No.
+
+### Full audit performed, no other issues found
+
+- **Sitemap accuracy:** Programmatically diffed every URL in the generated `sitemap.xml` against every real `page.tsx` route. Before this pass: 1 sitemap URL with no page (`/services/accounting`, now fixed). After: 0 mismatches in either direction. (`/privacy` and `/terms` are intentionally excluded per the sitemap's own documented utility-page policy.)
+- **Internal links:** Programmatically checked every `href="/..."` and every `slug`-based link pattern across the entire `app/` and `components/` tree against the real route list. 0 broken links remain.
+- **robots.ts / meta robots:** Confirmed no page has an accidental `noindex`; robots.ts correctly allows crawling and points at the production sitemap.
+- **Duplicate titles/descriptions:** Programmatically parsed every page's `generateMetadata()` call. Found and fixed 1 duplicate title (`/services` vs the new `/services/accounting`). No duplicate descriptions found.
+- **Heading structure:** Every page renders exactly one `<h1>` (via the shared `PremiumHero`, `HeroCarousel`, or `ArticleLayout` components).
+- **External images:** No `<Image>` usage references a domain outside `next.config.mjs`'s `remotePatterns` (only `images.unsplash.com` is allowed, and nothing else is used) — an unlisted domain would silently break the image at build/runtime.
+- **`public/llms.txt`:** No stale CFO references; the `/services/accounting` link it already contained is now a real page instead of a 404.
+
 ## 2026-08-14 (market pages: fix "Industries We Serve" accuracy + add internal links)
 
 Follow-up to the note left at the end of the previous pass.
