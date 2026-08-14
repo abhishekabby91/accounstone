@@ -1,27 +1,26 @@
 # Accounstone
 
-> Outsourced accounting, bookkeeping, and finance solutions for CPA firms and growing businesses across the United States, United Kingdom, and Australia. Service delivery team based in New Delhi, India.
+> Outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses across the United States, United Kingdom, and Australia. Service delivery team based in New Delhi, India.
 
-Accounstone provides outsourced accounting support including bookkeeping, tax preparation support, payroll processing, accounts payable/receivable, CFO support, and audit support documentation. Solutions are offered as offshore accounting support, staff augmentation, dedicated accounting teams, and full back-office support, with flexible engagement models rather than one-size-fits-all packages.
+Accounstone provides outsourced accounting support including bookkeeping, accounting operations, tax preparation support, payroll processing, accounts payable/receivable, and audit support. Solutions are offered as offshore accounting support, staff augmentation, dedicated accounting teams, and back-office support, with flexible engagement models rather than one-size-fits-all packages.
 
 ## Services
 
-- [Bookkeeping](/services/bookkeeping): Daily transaction recording, bank reconciliation, and financial record management.
-- [Accounting Services](/services/accounting): Financial statement preparation, month-end close, and financial analysis.
-- [Tax Preparation](/services/tax-preparation): Return preparation support working under CPA/EA review, not independent filing.
-- [Payroll Processing](/services/payroll): Payroll processing, tax withholding, and statutory reporting.
-- [Accounts Payable](/services/accounts-payable): Vendor management, invoice processing, and payment optimization.
-- [Accounts Receivable](/services/accounts-receivable): Customer billing, invoice tracking, and collections.
-- [CFO Support Services](/services/cfo-support): Financial planning, forecasting, and executive reporting.
-- [Audit Support](/services/audit-support): Documentation and testing support for external audits (does not issue audit opinions).
+- [Bookkeeping](/services/bookkeeping): Transaction recording, bank reconciliation, account maintenance, and clean monthly records.
+- [Accounting Services](/services/accounting): Month-end close, account reconciliations, management reporting, and recurring accounting operations.
+- [Tax Preparation](/services/tax-preparation): Return preparation support working under appropriate professional review.
+- [Payroll Processing](/services/payroll): Payroll processing, employee records, and payroll-related reporting support.
+- [Accounts Payable](/services/accounts-payable): Vendor records, invoice processing, approvals, and payment preparation.
+- [Accounts Receivable](/services/accounts-receivable): Customer invoicing, payment tracking, reconciliations, and aging follow-up.
+- [Audit Support](/services/audit-support): Documentation, schedules, evidence gathering, and coordination support for external audits.
 
 ## Region-Specific Service Pages
 
-Bookkeeping, Tax Preparation, and Audit Support each have dedicated pages for the three core markets, with genuinely region-specific regulatory content (not shared boilerplate):
+Bookkeeping, Tax Preparation, and Audit Support each have dedicated pages for the three core markets, with region-specific regulatory content:
 
 - United States: [Bookkeeping](/services/bookkeeping/united-states), [Tax Preparation](/services/tax-preparation/united-states), [Audit Support](/services/audit-support/united-states)
-- United Kingdom: [Bookkeeping](/services/bookkeeping/united-kingdom) (Making Tax Digital, VAT, Companies House), [Tax Preparation](/services/tax-preparation/united-kingdom) (Self Assessment, Corporation Tax), [Audit Support](/services/audit-support/united-kingdom) (Companies Act 2006)
-- Australia: [Bookkeeping](/services/bookkeeping/australia) (BAS, GST, Single Touch Payroll), [Tax Preparation](/services/tax-preparation/australia) (ATO, EOFY), [Audit Support](/services/audit-support/australia) (ASIC, Australian Auditing Standards)
+- United Kingdom: [Bookkeeping](/services/bookkeeping/united-kingdom), [Tax Preparation](/services/tax-preparation/united-kingdom), [Audit Support](/services/audit-support/united-kingdom)
+- Australia: [Bookkeeping](/services/bookkeeping/australia), [Tax Preparation](/services/tax-preparation/australia), [Audit Support](/services/audit-support/australia)
 
 ## Solutions (Engagement Models)
 
@@ -32,12 +31,12 @@ Bookkeeping, Tax Preparation, and Audit Support each have dedicated pages for th
 
 ## Industries Served
 
-- [CPA Firms](/industries/cpa-firms): Overflow capacity, white-label work, tax-season support.
-- [Technology & SaaS](/industries/technology): MRR/ARR tracking, ASC 606 revenue recognition, investor reporting.
-- [Healthcare](/industries/healthcare): Insurance reimbursement reconciliation, payer mix reporting.
-- [E-Commerce](/industries/ecommerce): Multi-channel reconciliation, COGS, sales tax nexus tracking.
-- [Real Estate](/industries/real-estate): Trust accounting, owner statements, CAM reconciliation, Yardi platform experience.
-- [Professional Services](/industries/professional-services): Client trust fund accounting, work-in-progress tracking.
+- [CPA Firms](/industries/cpa-firms): Overflow capacity, recurring client work, and tax-season support.
+- [Technology & SaaS](/industries/technology): Accounting operations and recurring reporting workflows.
+- [Healthcare](/industries/healthcare): Organized accounting and back-office support.
+- [E-Commerce](/industries/ecommerce): Multi-channel reconciliation, payables, receivables, and sales tax support.
+- [Real Estate](/industries/real-estate): Property accounting, reconciliations, payables, receivables, and Yardi workflows.
+- [Professional Services](/industries/professional-services): Accounting operations and recurring back-office support.
 
 ## Markets
 
@@ -51,9 +50,9 @@ QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, MYOB. See [/tech
 
 ## Resources
 
-- [Guides](/resources/guides): In-depth articles including outsourced bookkeeping cost guide, QuickBooks vs. Xero comparison, and tax-season staff augmentation, plus cross-links to the [Texas](/markets/united-states/texas), [California](/markets/united-states/california), and [Florida](/markets/united-states/florida) state pages.
-- [Insights](/resources/insights): Shorter explainers on topics like sales tax nexus and ASC 606 revenue recognition.
-- [Case Studies](/resources/case-studies): Illustrative scenarios (not yet real named client case studies — the company is newly launched).
+- [Guides](/resources/guides): In-depth articles including outsourced bookkeeping cost guidance, QuickBooks vs. Xero comparison, and tax-season staff augmentation.
+- [Insights](/resources/insights): Short explainers on practical accounting and tax topics.
+- [Case Studies](/resources/case-studies): Illustrative scenarios, clearly presented as examples rather than named client endorsements.
 
 ## Company Notes
 
