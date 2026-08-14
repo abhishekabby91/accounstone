@@ -14,41 +14,25 @@ export function generateMetadata(config: {
 }): Metadata {
   const url = `${baseUrl}${config.path}`;
   const ogImage = config.ogImage || `${baseUrl}/og-image.png`;
+  const robots = config.noindex
+    ? { index: false, follow: false }
+    : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' as const, 'max-snippet': -1 } };
 
   return {
-    // BUG FIX: the root layout's metadata.title.template ("%s | Accounstone")
-    // automatically appends the site name to every CHILD route segment's
-    // title -- but this function was ALSO manually appending "| Accounstone"
-    // below, causing every non-home page to render as "X | Accounstone |
-    // Accounstone". The homepage is the one exception: Next.js's template
-    // inheritance does NOT apply a layout's template to the page.tsx at
-    // that same root segment, only to descendant segments -- so the
-    // homepage still needs the manual suffix here, or it would lose its
-    // brand name entirely once the duplicate-suffix bug is fixed for
-    // every other page.
     title: config.path === '/' ? `${config.title} | ${siteName}` : config.title,
     description: config.description,
-    robots: config.noindex
-      ? { index: false, follow: false }
-      : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
+    robots,
     openGraph: {
-      title: config.title,
+      title: config.path === '/' ? `${config.title} | ${siteName}` : config.title,
       description: config.description,
       url,
       siteName,
-      images: [
-        {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: config.title,
-        },
-      ],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: config.title }],
       type: 'website',
     },
     twitter: {
       card: 'summary_large_image',
-      title: config.title,
+      title: config.path === '/' ? `${config.title} | ${siteName}` : config.title,
       description: config.description,
       images: [ogImage],
     },
@@ -58,8 +42,6 @@ export function generateMetadata(config: {
   };
 }
 
-// Schema.org structured data generators
-
 export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -68,28 +50,24 @@ export function generateOrganizationSchema() {
     name: companyInfo.name,
     description: companyInfo.description,
     url: baseUrl,
-    logo: `${baseUrl}/logo.svg`,
+    logo: `${baseUrl}/accounstone-logo-horizontal.png`,
     sameAs: [
-  'https://www.linkedin.com/company/accounstone/',
-  'https://www.facebook.com/profile.php?id=61591501869187',
-  'https://www.instagram.com/accounstone',
-  'https://www.youtube.com/@accounstone',
-],
-    // Fixed: schema.org uses "contactPoint", not "contact" — the previous
-    // key meant this block was not valid structured data at all.
+      'https://www.linkedin.com/company/accounstone/',
+      'https://www.facebook.com/profile.php?id=61591501869187',
+      'https://www.instagram.com/accounstone',
+      'https://www.youtube.com/@accounstone',
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       contactType: 'Customer Service',
       email: companyInfo.contact.email,
       telephone: companyInfo.contact.phone,
-      areaServed: ['US', 'GB', 'AU', 'CA'],
+      areaServed: ['US', 'GB', 'AU'],
       availableLanguage: ['English'],
     },
   };
 }
 
-// New — needed for the sitelinks search box and for AI answer engines to
-// resolve the site as a distinct entity separate from any single page.
 export function generateWebsiteSchema() {
   return {
     '@context': 'https://schema.org',
@@ -98,11 +76,6 @@ export function generateWebsiteSchema() {
     url: baseUrl,
     name: siteName,
     publisher: { '@id': `${baseUrl}/#organization` },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${baseUrl}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -110,11 +83,8 @@ export function generateServiceSchema(service: {
   name: string;
   description: string;
   slug: string;
-  // Was hardcoded to 'US' before — every UK/AU/CA service page was
-  // claiming US-only coverage regardless of actual content. Now
-  // defaults to all four markets but can be overridden per page.
   areaServed?: string[];
-  basePath?: string; // defaults to /services/, override for other route groups
+  basePath?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -126,7 +96,7 @@ export function generateServiceSchema(service: {
       name: companyInfo.name,
       url: baseUrl,
     },
-    areaServed: (service.areaServed ?? ['US', 'GB', 'AU', 'CA']).map((code) => ({
+    areaServed: (service.areaServed ?? ['US', 'GB', 'AU']).map((code) => ({
       '@type': 'Country',
       name: code,
     })),
@@ -141,10 +111,7 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
   };
 }
@@ -169,7 +136,7 @@ export function generateArticleSchema(article: {
   publishedDate: string;
   author: string;
   slug: string;
-  basePath?: string; // defaults to /resources/, override for nested paths like /resources/guides/
+  basePath?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -178,25 +145,7 @@ export function generateArticleSchema(article: {
     description: article.description,
     image: article.imageUrl,
     datePublished: article.publishedDate,
-    author: {
-      '@type': 'Organization',
-      name: companyInfo.name,
-    },
+    author: { '@type': 'Organization', name: companyInfo.name },
     url: `${baseUrl}${article.basePath ?? '/resources/'}${article.slug}`,
   };
-}
-
-// New — for testimonials, since the brief calls for Review schema and
-// none existed here yet.
-export function generateReviewSchema(
-  reviews: Array<{ author: string; reviewBody: string; rating: number }>
-) {
-  return reviews.map((r) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    author: { '@type': 'Person', name: r.author },
-    reviewBody: r.reviewBody,
-    reviewRating: { '@type': 'Rating', ratingValue: r.rating, bestRating: 5 },
-    itemReviewed: { '@id': `${baseUrl}/#organization` },
-  }));
 }
