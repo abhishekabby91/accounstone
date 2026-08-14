@@ -16,28 +16,27 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // DECISION: www.accounstone.com is canonical everywhere (switched
-  // from non-www since www is more widely recognized/expected by users).
-  // baseUrl in lib/seo.ts is the single source of truth — never
-  // hardcode the domain in any other file.
   metadataBase: new URL(baseUrl),
 
   title: {
-    default: "Accounstone | Outsourced Accounting & Bookkeeping for CPA Firms",
+    default: "Accounstone | Outsourced Accounting & Bookkeeping",
     template: "%s | Accounstone",
   },
 
   description:
-    "Outsourced accounting, bookkeeping, and finance solutions for CPA firms and accounting professionals. Scalable support from experienced accountants.",
+    "Outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses.",
 
   keywords: [
-    "accounting services",
     "outsourced accounting",
-    "CFO services",
-    "bookkeeping",
-    "tax advisory",
-    "finance outsourcing",
-    "HR services",
+    "accounting outsourcing",
+    "bookkeeping services",
+    "CPA firm support",
+    "tax preparation support",
+    "payroll processing",
+    "accounts payable outsourcing",
+    "accounts receivable outsourcing",
+    "audit support",
+    "dedicated accounting teams",
   ],
 
   authors: [{ name: "Accounstone" }],
@@ -53,24 +52,11 @@ export const metadata: Metadata = {
     },
   },
 
-  // FALLBACK ONLY. Every individual page (services/*, solutions/*,
-  // markets/*, resources/*) MUST call generateMetadata() from lib/seo.ts,
-  // which sets its own canonical automatically. If a page sets metadata
-  // manually instead of using that helper, it will silently inherit
-  // this homepage canonical and Google may drop it from the index.
   alternates: {
     canonical: baseUrl,
   },
 
   manifest: "/manifest.webmanifest",
-
-  // TODO once the domain is live: sign up for Google Search Console
-  // and Bing Webmaster Tools, choose the "HTML meta tag" verification
-  // method in each, and paste the codes they give you here. Example:
-  // verification: {
-  //   google: "paste-google-site-verification-code-here",
-  //   other: { "msvalidate.01": "paste-bing-verification-code-here" },
-  // },
 
   icons: {
     icon: "/favicon.ico",
@@ -82,26 +68,24 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Accounstone",
-    title: "Accounstone | Outsourced Accounting & Finance Solutions",
+    title: "Accounstone | Outsourced Accounting & Bookkeeping",
     description:
-      "Professional outsourced accounting, finance, and HR services for growing businesses.",
+      "Reliable outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses.",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Accounstone",
+        alt: "Accounstone — Outsourced Accounting & Bookkeeping",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "Accounstone | Outsourced Accounting & Finance Solutions",
+    title: "Accounstone | Outsourced Accounting & Bookkeeping",
     description:
-      "Professional outsourced accounting, finance, and HR services for growing businesses.",
-    // TODO confirm: remove this line if @accounstone is not a real,
-    // active X/Twitter account.
+      "Reliable outsourced accounting, bookkeeping, tax preparation, payroll, and back-office support.",
     creator: "@accounstone",
   },
 };
