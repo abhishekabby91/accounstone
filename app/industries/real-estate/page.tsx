@@ -5,38 +5,18 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/industries/real-estate';
 
 export const metadata: Metadata = genMeta({
-  title: 'Accounting for Real Estate & Property Management Companies',
-  description:
-    'Outsourced accounting for real estate and property management companies — trust accounting, owner statements, CAM reconciliations, and multi-property portfolio reporting.',
+  title: 'Real Estate Accounting Support | Accounstone',
+  description: 'Accounting support for real estate and property management companies, including property-level bookkeeping, reconciliations, AP/AR, owner reporting and multi-entity workflows.',
   path: PATH,
 });
 
 const faqs = [
-  {
-    question: 'Do you handle trust accounting for owner and tenant funds?',
-    answer:
-      'Yes, we structure bookkeeping to keep trust funds (owner and tenant funds) clearly separated from operating funds, supporting the trust accounting compliance property management requires.',
-  },
-  {
-    question: 'Can you prepare owner statements across a multi-property portfolio?',
-    answer:
-      'Yes, we prepare owner statements per property alongside consolidated portfolio-level reporting, so both individual owners and portfolio managers get the detail they need.',
-  },
-  {
-    question: 'What property management platforms do you support?',
-    answer:
-      'Our team has hands-on experience with Yardi (Voyager and Breeze), and we also work with QuickBooks and other property accounting software depending on your setup.',
-  },
-  {
-    question: 'Do you handle CAM (Common Area Maintenance) reconciliations?',
-    answer:
-      'Yes, CAM reconciliation across a commercial property portfolio is part of our standard property management accounting support.',
-  },
-  {
-    question: 'Do you support both residential and commercial property portfolios?',
-    answer:
-      'Yes, we support both, adapting the reporting structure to residential unit-level detail or commercial lease and CAM structures as needed.',
-  },
+  { question: 'Do you handle trust accounting for owner and tenant funds?', answer: 'Where trust accounting is part of the engagement, we can support the bookkeeping and reconciliation workflow needed to keep relevant funds and records organized. Exact compliance requirements depend on the property and jurisdiction.' },
+  { question: 'Can you prepare owner statements across a multi-property portfolio?', answer: 'Yes. We can organize property-level records and supporting schedules for owner reporting, with the reporting structure agreed to the client’s property and entity setup.' },
+  { question: 'What property management platforms do you support?', answer: 'Our team has experience with Yardi, including Voyager and Breeze, and can also work with QuickBooks and other systems depending on the engagement.' },
+  { question: 'Do you support CAM reconciliations?', answer: 'Yes, CAM reconciliation can be included for commercial property workflows where it is part of the agreed scope and lease documentation is available.' },
+  { question: 'Do you support residential and commercial portfolios?', answer: 'Yes. The workflow can be adapted to residential property-level detail or commercial lease, CAM and owner-reporting requirements.' },
+  { question: 'What does month-end look like for property accounting?', answer: 'A typical close can include bank reconciliations, AP/AR review, property-level account checks, supporting schedules, owner-report preparation and identification of unresolved items before reporting is finalized.' },
 ];
 
 export default function RealEstateIndustryPage() {
@@ -45,22 +25,24 @@ export default function RealEstateIndustryPage() {
       path={PATH}
       industry={{
         name: 'Real Estate',
-        description:
-          'Trust accounting, owner statements, and multi-property portfolio reporting for real estate and property management companies.',
+        description: 'Property-level bookkeeping, reconciliations, AP/AR, owner reporting and multi-entity accounting support for real estate and property management workflows.',
         icon: '🏠',
       }}
-      overview="Real estate and property management accounting carries compliance weight that general bookkeeping doesn't: trust accounting rules require owner and tenant funds to be kept clearly separate from operating funds, and portfolios spanning multiple properties need both property-level detail and consolidated reporting at the same time. We structure bookkeeping around these requirements from the start, whether you manage a handful of properties or a large multi-entity portfolio."
+      overview="Real estate accounting is usually more structured than ordinary business bookkeeping because the records often need to be understood at both the property and entity level. Depending on the portfolio, that can mean separate bank accounts, owner statements, tenant-related activity, AP/AR, CAM reconciliations, property management software and a month-end close that rolls property detail into broader reporting. The right workflow depends on how the portfolio is organized, so the first step is understanding the existing property and entity structure."
       benefits={[
-        'Trust accounting support keeping owner and tenant funds properly separated',
-        'Owner statement preparation, per-property and portfolio-consolidated',
-        'CAM (Common Area Maintenance) reconciliation for commercial portfolios',
-        'Support for Yardi (Voyager and Breeze), QuickBooks, and other property platforms',
-        'Multi-entity, multi-property general ledger management',
-        'Support for both residential and commercial property structures',
+        'Property-level bookkeeping and bank reconciliations',
+        'Owner statement preparation and supporting schedules',
+        'AP/AR workflows for property-level transactions',
+        'CAM reconciliation support for commercial portfolios where in scope',
+        'Yardi Voyager, Yardi Breeze and QuickBooks workflow familiarity',
+        'Multi-entity and multi-property close support',
+        'Documentation and reporting organized around the existing portfolio structure',
       ]}
       relatedLinks={[
         { name: 'Yardi Accounting for Texas Property Managers', href: '/industries/real-estate/yardi-accounting-outsourcing-texas' },
         { name: 'Bookkeeping', href: '/services/bookkeeping' },
+        { name: 'Accounts Payable', href: '/services/accounts-payable' },
+        { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
         { name: 'Back Office Support', href: '/solutions/back-office-support' },
       ]}
       faqs={faqs}
