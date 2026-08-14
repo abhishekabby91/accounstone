@@ -1,5 +1,15 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (set up ESLint properly)
+
+### `eslint.config.mjs` (new), `package.json`
+
+**Changed:** Added a flat ESLint config (`eslint-config-next` via `FlatCompat`, since this is ESLint 9 + Next.js 15) so linting runs non-interactively instead of prompting for first-time setup. Switched `package.json`'s `lint` script from the deprecated `next lint` (removed in Next.js 16) to the plain `eslint .` CLI, which is Next's own recommended migration path. Also fixed the two real (non-cosmetic) findings: an unused `Link` import in `app/technology/drake-tax/page.tsx`, and an `any` type in `components/touch-ripple.tsx` (replaced with a properly typed optional property for the legacy IE `msMaxTouchPoints` check). Disabled `react/no-unescaped-entities`, which flagged ~75 plain apostrophes/quotes inside JSX text across ~20 content files — purely cosmetic (doesn't affect rendering, accessibility, or crawling), and mechanically escaping that many instances risked mangling copy for no functional benefit.  
+**Why:** This was a pending item from the original audit ("Set up ESLint config"). Without it, `npm run lint` couldn't run in CI at all.  
+**SEO purpose:** N/A directly, but a working lint step catches real bugs (like the unused import and `any` type) before they ship.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (code/tooling only).  
+**Caveat:** `package.json` now lists `eslint` and `eslint-config-next` as devDependencies, but this environment only has `npm` available, not `pnpm` (the project's canonical package manager per `pnpm-lock.yaml`). `pnpm-lock.yaml` was **not** regenerated here — run `pnpm install` locally once to bring it in sync before relying on a clean `pnpm install` in CI/deploy.
+
 ## 2026-08-14 (crawlability audit: Google + AI-tool crawling)
 
 Full site-wide crawlability sweep, prompted by a direct request to check for crawling issues affecting Google and other AI tools (ChatGPT/Perplexity-style crawlers that read `llms.txt`, etc.).

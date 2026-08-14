@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { Check } from 'lucide-react';
-import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
