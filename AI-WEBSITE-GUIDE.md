@@ -429,7 +429,7 @@ Do not remove design elements merely because they animate. Remove or reduce them
 - Do not remove the current visual identity without a documented UX/accessibility/performance reason.
 - Do not use manipulative sales psychology such as fake urgency, fear-based claims or exaggerated outcomes.
 - Do not change the hero imagery/slider unless the owner explicitly requests a hero change.
-- Do not reintroduce financial services or CFO positioning because a keyword tool suggests it.
+- Do not reintroduce financial services or CFO positioning because a keyword tool suggests it. Accounstone has no `/services/cfo-support` page and does not offer CFO or financial-advisory services — do not add "CFO Support" links/copy anywhere (checked and removed repo-wide 2026-08-14). "Financial statements", "financial reporting", "financial data" etc. are fine (accurate accounting-deliverable terminology); "financial services", "financial advisory", "CFO-level", "strategic financial guidance/partnership" are not.
 - Do not turn every page into a sales page; informational pages must remain useful on their own.
 - Do not rewrite content solely to increase word count.
 - Do not publish AI-generated claims that cannot be traced to an existing business fact or a clearly stated general accounting principle.

@@ -74,7 +74,7 @@ export default function TaxPreparationPage() {
       relatedServices={[
         { name: 'Bookkeeping', slug: 'bookkeeping' },
         { name: 'Accounting Services', slug: 'accounting' },
-        { name: 'CFO Support Services', slug: 'cfo-support' },
+        { name: 'Audit Support', slug: 'audit-support' },
         { name: 'Tax Preparation for U.S. Businesses', slug: 'tax-preparation/united-states' },
       ]}
       faqs={[

@@ -1,5 +1,67 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (remove "financial services" / CFO positioning throughout the site)
+
+Accounstone does not offer financial services, financial advisory, or CFO services — only accounting, bookkeeping, tax preparation support, payroll, AP/AR, and audit support. This pass removed language and links that claimed or implied otherwise. Standard accounting terminology that legitimately contains the word "financial" (financial statements, financial reporting, financial data/position, GAAP/IFRS financial reporting standards) was intentionally left in place — those are accurate descriptions of bookkeeping/accounting deliverables, not service-scope claims, and removing them would make the content less accurate.
+
+### Broken links to a non-existent `/services/cfo-support` page (biggest finding)
+
+**Changed:** Removed 10 internal links across `app/industries/technology`, `app/industries/healthcare`, `app/industries/professional-services`, `app/services/tax-preparation`, `app/services/audit-support`, `app/markets/united-kingdom`, `app/markets/united-states`, `app/markets/australia`, and `app/technology/netsuite`, all pointing to `/services/cfo-support` — a page that does not exist anywhere in `lib/data.ts` or the `app/services` route tree, and a service Accounstone does not provide. Replaced each with a real, existing related-service link (Audit Support, Tax Preparation, Accounting Services, etc.) where the list needed a replacement item, or simply removed the line.  
+**Why:** These were both dead links (404s — bad for crawlability and UX) and a claim to offer CFO/financial-advisory services that isn't accurate.  
+**SEO purpose:** Eliminates internal 404s and false service claims.  
+**URL changed:** No.  
+**Metadata changed:** No.  
+**Content changed:** Yes (related-link lists only).
+
+### `app/solutions/dedicated-accounting-teams/page.tsx`
+
+**Changed:** Replaced "Dedicated CFO-level strategic guidance" with "Dedicated senior-level oversight and coordination", "CFO-level Lead + Multi-specialist team" with "Senior Accounting Lead + Multi-specialist team", "strategic financial partnership" (meta description) with "dependable, long-term accounting partnership", and "provide strategic financial guidance that drives growth" with "provide dependable accounting support that keeps pace with your growth".  
+**Why:** CFO-level guidance and financial partnership/advisory positioning overclaim what the company does.  
+**SEO purpose:** Accuracy; avoids implying a regulated advisory service.  
+**URL changed:** No. **Metadata changed:** Yes (description). **Content changed:** Yes.
+
+### `app/about/page.tsx`
+
+**Changed:** Hero title "Building Better Financial Futures" → "Practical Accounting Support, Built to Last"; hero description no longer says "manage their finances"; mission copy "we deliver financial clarity and strategic guidance that drives growth" → "we deliver accurate books and dependable accounting support that helps your business run smoothly".  
+**Why:** "Financial Futures" and "strategic guidance" read as financial-advisory/wealth-management positioning.  
+**SEO purpose:** Accuracy on the company's own About page.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+### `app/terms/page.tsx`
+
+**Changed:** "Accounstone provides accounting, bookkeeping, tax, payroll, and related financial services" → "...tax preparation support, and payroll processing services" (removed the umbrella "financial services" claim from the Terms & Conditions itself).  
+**Why:** A legal document should not describe the company's own offering using a category it doesn't provide.  
+**SEO purpose:** N/A (legal accuracy).  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+### `app/markets/united-kingdom/page.tsx`, `app/markets/united-states/page.tsx`, `app/markets/australia/page.tsx`
+
+**Changed:** Removed "Financial services" from each page's "Industries We Serve" list (it isn't one of the six industries actually built out in `lib/data.ts`/`app/industries`). Removed "CFO and financial advisory services" from the US page's tax-services list.  
+**Why:** These implied Accounstone serves the financial-services industry vertical and/or offers CFO/advisory services, neither of which is accurate or backed by an actual page.  
+**SEO purpose:** Accuracy; these lists still don't fully match the real industries architecture (see note below).  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+### `app/solutions/staff-augmentation/page.tsx`
+
+**Changed:** "Bring in specialists for areas like tax, audit, or financial advisory" → "...or specialized accounting support".  
+**SEO purpose:** Accuracy.
+
+### `app/solutions/back-office-support/page.tsx`
+
+**Changed:** "Financial analysis and forecasting" → "Financial reporting and trend summaries".  
+**Why:** "Forecasting" implies FP&A/advisory work beyond back-office bookkeeping scope.  
+**SEO purpose:** Accuracy.
+
+### `app/services/bookkeeping/page.tsx`
+
+**Changed:** "Professional bookkeeping is the foundation of financial management" → "...the foundation of accurate, reliable accounting records".  
+**Why:** "Financial management" is a broader category claim than bookkeeping.  
+**SEO purpose:** Accuracy.
+
+### Note for a future pass
+
+The "Industries We Serve" lists on the three market pages (UK/US/Australia) still include several industries (Manufacturing, Non-profit, Construction, Hospitality, Mining, Agriculture, etc.) that aren't part of the site's actual six-industry architecture in `lib/data.ts`/`app/industries`. That's a broader content-accuracy question beyond this "financial"/CFO cleanup and worth a dedicated review.
+
 ## 2026-08-14 (homepage hero: remove AI-generated carousel images)
 
 ### `app/page.tsx`, `public/carousel-accounting-team.png` (deleted), `public/carousel-global-team.png` (deleted)

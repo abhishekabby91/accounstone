@@ -103,7 +103,7 @@ export default function BackOfficeSupportPage() {
                   'Customer billing and collections',
                   'Benefits administration',
                   'Compliance reporting',
-                  'Financial analysis and forecasting',
+                  'Financial reporting and trend summaries',
                 ].map((item, i) => (
                   <p key={i} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />

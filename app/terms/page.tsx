@@ -27,7 +27,7 @@ export default function TermsPage() {
         <div className="bg-input p-6 rounded-lg border border-border">
           <h2 className="text-2xl font-bold text-primary mb-4">2. Service Provision</h2>
           <p className="text-muted mb-4">
-            Accounstone provides accounting, bookkeeping, tax, payroll, and related financial services as described in our engagement letters and service agreements. Services are provided as professional services with reasonable care standards.
+            Accounstone provides accounting, bookkeeping, tax preparation support, and payroll processing services as described in our engagement letters and service agreements. Services are provided as professional services with reasonable care standards.
           </p>
         </div>
 

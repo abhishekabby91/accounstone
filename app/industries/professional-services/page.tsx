@@ -60,7 +60,7 @@ export default function ProfessionalServicesIndustryPage() {
       ]}
       relatedLinks={[
         { name: 'Bookkeeping', href: '/services/bookkeeping' },
-        { name: 'CFO Support Services', href: '/services/cfo-support' },
+        { name: 'Accounting Services', href: '/services/accounting' },
         { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
       ]}
       faqs={faqs}

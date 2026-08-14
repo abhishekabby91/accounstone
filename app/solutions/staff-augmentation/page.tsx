@@ -116,7 +116,7 @@ export default function StaffAugmentationPage() {
             {[
               { title: 'Overflow Work', desc: 'Handle client projects and overflow that your team cannot accommodate.' },
               { title: 'Seasonal Demand', desc: 'Add capacity during peak periods like year-end close and tax season.' },
-              { title: 'Skill Gaps', desc: 'Bring in specialists for areas like tax, audit, or financial advisory.' },
+              { title: 'Skill Gaps', desc: 'Bring in specialists for areas like tax, audit, or specialized accounting support.' },
               { title: 'Project Work', desc: 'Dedicate resources to system implementations or one-time initiatives.' },
               { title: 'Temporary Coverage', desc: 'Cover for vacation, leave, or temporary staffing needs.' },
               { title: 'Permanent Hiring Trial', desc: 'Test compatibility before making permanent hiring decisions.' },

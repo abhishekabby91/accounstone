@@ -96,7 +96,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   '1099 and W-2 processing',
                   'Sales tax and use tax compliance',
                   'Industry-specific regulations',
-                  'CFO and financial advisory services',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="text-accent w-5 h-5" aria-hidden="true" />
@@ -117,7 +116,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                   'Professional services and consulting',
                   'Manufacturing and distribution',
                   'Non-profit organizations',
-                  'Financial services',
                   'Construction and contracting',
                   'Hospitality and restaurants',
                 ].map((item, i) => (
@@ -149,7 +147,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               { name: 'Payroll Processing', slug: 'payroll' },
               { name: 'Accounts Payable', slug: 'accounts-payable' },
               { name: 'Accounts Receivable', slug: 'accounts-receivable' },
-              { name: 'CFO Support', slug: 'cfo-support' },
               { name: 'Audit Support', slug: 'audit-support' },
             ].map((service, i) => (
               <Link

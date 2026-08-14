@@ -111,7 +111,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <ul className="space-y-3">
                 {[
                   'Technology and software',
-                  'Financial services',
                   'Mining and resources',
                   'Agriculture and farming',
                   'Construction and contracting',
@@ -149,7 +148,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               { name: 'Payroll Processing', href: '/services/payroll' },
               { name: 'Accounts Payable', href: '/services/accounts-payable' },
               { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
-              { name: 'CFO Support', href: '/services/cfo-support' },
               { name: 'Audit Support', href: '/services/audit-support/australia' },
             ].map((service, i) => (
               <Link

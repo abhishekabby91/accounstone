@@ -73,7 +73,7 @@ export default function AuditSupportPage() {
       relatedServices={[
         { name: 'Accounting Services', slug: 'accounting' },
         { name: 'Bookkeeping', slug: 'bookkeeping' },
-        { name: 'CFO Support Services', slug: 'cfo-support' },
+        { name: 'Tax Preparation', slug: 'tax-preparation' },
         { name: 'Audit Support for U.S. Businesses', slug: 'audit-support/united-states' },
       ]}
       faqs={[

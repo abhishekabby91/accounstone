@@ -59,7 +59,6 @@ export default function TechnologyIndustryPage() {
         'Support scales with headcount and complexity as you grow',
       ]}
       relatedLinks={[
-        { name: 'CFO Support Services', href: '/services/cfo-support' },
         { name: 'NetSuite', href: '/technology/netsuite' },
         { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
       ]}

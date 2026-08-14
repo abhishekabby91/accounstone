@@ -135,7 +135,6 @@ export default function NetSuitePage() {
             {[
               { name: 'Accounting Services', slug: 'accounting' },
               { name: 'Financial Reporting', slug: 'accounting' },
-              { name: 'CFO Support', slug: 'cfo-support' },
               { name: 'Bookkeeping', slug: 'bookkeeping' },
               { name: 'Tax Preparation', slug: 'tax-preparation' },
               { name: 'Audit Support', slug: 'audit-support' },

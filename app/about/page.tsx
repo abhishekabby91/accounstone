@@ -18,8 +18,8 @@ export default function AboutPage() {
     <main>
       <PremiumHero
         subtitle="Our Story"
-        title="Building Better Financial Futures"
-        description="Accounstone helps CPA firms and growing businesses manage their finances with expertise, integrity, and dedication."
+        title="Practical Accounting Support, Built to Last"
+        description="Accounstone helps CPA firms and growing businesses keep their books accurate and current, with expertise, integrity, and dedication."
         background="primary-gradient"
       />
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
                 We believe that small and mid-size businesses deserve accounting support that actually works for them, not a one-size-fits-all package. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                By combining hands-on expertise with modern technology and dedicated teams, we deliver financial clarity and strategic guidance that drives growth.
+                By combining hands-on expertise with modern technology and dedicated teams, we deliver accurate books and dependable accounting support that helps your business run smoothly.
               </p>
             </div>
 

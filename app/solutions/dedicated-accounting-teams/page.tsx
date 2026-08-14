@@ -8,7 +8,7 @@ import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Dedicated Accounting Teams',
-  description: 'Build dedicated accounting teams exclusively for your business. Seamless integration with your operations and strategic financial partnership.',
+  description: 'Build dedicated accounting teams exclusively for your business. Seamless integration with your operations and a dependable, long-term accounting partnership.',
   path: '/solutions/dedicated-accounting-teams',
 });
 
@@ -73,11 +73,11 @@ export default function DedicatedTeamsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
               <Reveal><h2 className="text-4xl font-bold text-primary">More Than Accounting - A True Partnership</h2></Reveal>
-              <p className="text-lg text-muted leading-relaxed">A dedicated accounting team becomes an integral part of your organization. They understand your business deeply, anticipate your needs, and provide strategic financial guidance that drives growth.</p>
+              <p className="text-lg text-muted leading-relaxed">A dedicated accounting team becomes an integral part of your organization. They understand your business deeply, anticipate your needs, and provide dependable accounting support that keeps pace with your growth.</p>
               
               <div className="space-y-4 pt-4">
                 {[
-                  'Dedicated CFO-level strategic guidance',
+                  'Dedicated senior-level oversight and coordination',
                   'Deep understanding of your business',
                   'Proactive tax planning and optimization',
                   'Real-time financial insights and reporting',
@@ -105,7 +105,7 @@ export default function DedicatedTeamsPage() {
                 </div>
                 <div>
                   <div className="font-bold mb-1">Enterprise (5+)</div>
-                  <p className="text-white/80 text-sm">CFO-level Lead + Multi-specialist team</p>
+                  <p className="text-white/80 text-sm">Senior Accounting Lead + Multi-specialist team</p>
                 </div>
               </div>
             </div>
