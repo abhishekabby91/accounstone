@@ -41,29 +41,27 @@ export default function SectionGrid({
   }[columns];
 
   return (
-    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-background">
+    <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-background">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <Reveal className="mb-16 text-center space-y-4">
+        <Reveal className="mb-12 md:mb-14 max-w-3xl mx-auto text-center space-y-4">
           <>
             {subtitle && (
-              <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
+              <span className="inline-flex items-center justify-center text-xs md:text-sm font-bold tracking-[0.16em] uppercase text-accent">
                 {subtitle}
               </span>
             )}
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary text-balance">
               {title}
             </h2>
             {description && (
-              <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+              <p className="text-base md:text-lg text-muted max-w-2xl mx-auto leading-7 md:leading-8">
                 {description}
               </p>
             )}
           </>
         </Reveal>
 
-        {/* Grid */}
-        <div className={`grid grid-cols-1 ${colsClass} gap-8`}>
+        <div className={`grid grid-cols-1 ${colsClass} gap-6 md:gap-7`}>
           {items.map((item, index) => {
             const cardVariant =
               featuredItemIndex !== undefined && index === featuredItemIndex
