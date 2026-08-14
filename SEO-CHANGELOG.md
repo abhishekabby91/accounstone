@@ -157,9 +157,57 @@ If a claim cannot be verified, remove it rather than inventing a replacement.
 
 ## Next planned changes
 
-- Audit remaining page-level metadata across the full route set.
 - Strengthen contextual internal linking across all clusters.
 - Review state pages for unique local value.
 - Review Tier 2 pages and resource content.
-- Run production build/type/lint validation and fix any errors.
+- Set up ESLint config (`next lint` currently prompts for first-time setup; not run in CI yet).
 - Re-crawl production after deployment.
+
+## 2026-08-14 (build verification + crawlability/responsiveness pass)
+
+This pass followed up on the "Next planned changes" items from the audit above: running a real production build (crawlability depends on the site actually deploying) and auditing page-level metadata and responsive image handling across the full route set.
+
+### `app/resources/guides/questions-to-ask-before-outsourcing-bookkeeping/page.tsx`
+
+**Changed:** Added the required `publishedDate`, `section`, and `slug` props to the `ArticleLayout` call.  
+**Why:** `next build` failed a type check on this page (missing required props), which would have blocked production deployment entirely — i.e. the whole site would not have been crawlable/live until this was fixed.  
+**SEO purpose:** Restore a working production build; this also fixes the Article schema and breadcrumb generation for this page, which depend on those props.  
+**URL changed:** No.  
+**Metadata changed:** No (schema/structured data only).  
+**Content changed:** No visible content change.
+
+### `app/contact/layout.tsx` (new file)
+
+**Changed:** Added a route-level layout that supplies page-specific metadata (title, description, canonical, Open Graph/Twitter) via `generateMetadata()` from `lib/seo.ts`.  
+**Why:** `/contact` is a `'use client'` page (it holds form state), so it cannot export Next.js `metadata` directly. It was the only route in the app with no page-specific metadata and was silently inheriting only the generic site-wide title/description.  
+**SEO purpose:** A high commercial-intent page (contact/conversion) now has its own title, description and canonical instead of a generic fallback.  
+**URL changed:** No.  
+**Metadata changed:** Yes.  
+**Content changed:** No.
+
+### `components/SectorSection.tsx`
+
+**Changed:** Added a `sizes` attribute to the `<Image fill>` usage in the sector/industry card grid.  
+**Why:** A Next.js `fill` image with no `sizes` prop defaults to requesting a full-viewport-width image on every breakpoint, including mobile, which works visually but is wasteful and can hurt mobile LCP/Core Web Vitals.  
+**SEO purpose:** Better mobile performance signal; no visual change.  
+**URL changed:** No.  
+**Metadata changed:** No.  
+**Content changed:** No.
+
+### Verification performed, no changes needed
+
+- Confirmed every other `app/**/page.tsx` exports `metadata` or `generateMetadata`.
+- Confirmed `app/robots.ts` and `app/sitemap.ts` point at the production domain and exclude non-indexable routes.
+- Confirmed root `viewport` meta (`width=device-width, initialScale=1`) is set in `app/layout.tsx`.
+- Confirmed the mobile navigation (`components/navbar.tsx`) has a working toggle with `aria-expanded`/`aria-controls`/`aria-label` and closes on Escape.
+- Confirmed responsive (`sm:`/`md:`/`lg:`) classes are used throughout the homepage, navbar, footer and hero carousel.
+- Ran a full `next build`: all 69 routes now compile and prerender as static content with no type errors.
+
+### Next planned changes (updated)
+
+- Strengthen contextual internal linking across all clusters.
+- Review state pages for unique local value.
+- Review Tier 2 pages and resource content.
+- Set up ESLint config (`next lint` prompts for first-time setup; not run yet) and fix any lint findings.
+- Manual/visual responsive QA at 375px, 768px and 1280px viewports (this pass checked code-level responsive patterns, not rendered screenshots).
+- Re-crawl production after deployment and confirm the `/contact` metadata and Article schema fix are live.

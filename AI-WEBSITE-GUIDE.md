@@ -408,6 +408,12 @@ Preserve the current design, but review:
 
 Do not remove design elements merely because they animate. Remove or reduce them when they create a real usability or performance problem.
 
+## Known build gotchas (checked 2026-08-14)
+
+- **Always run `npx next build` before considering a pass finished.** A single missing prop on one guide/insight page (`ArticleLayout` requires `publishedDate`, `section`, and `slug`) previously broke the type check for the *entire* production build, which would have blocked deployment of every route, not just that page.
+- **`app/contact/page.tsx` is a `'use client'` component** (it holds form state) and therefore cannot export `metadata` directly. Its page-specific metadata lives in `app/contact/layout.tsx` instead. If you convert other interactive pages to client components, give them the same sibling-`layout.tsx` treatment rather than letting them silently fall back to the generic site-wide title/description.
+- **`<Image fill>` usages need an explicit `sizes` prop** (see `components/hero-carousel.tsx` for the pattern) or they will request a full-viewport-width image on mobile, hurting LCP for no visual benefit.
+
 ## What future AI agents must NOT do
 
 - Do not rebuild the website from scratch.
