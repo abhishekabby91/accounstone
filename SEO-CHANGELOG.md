@@ -1,5 +1,40 @@
 # Accounstone SEO Changelog
 
+## 2026-08-14 (top bar, footer, robots, sitemap, performance)
+
+### `components/header-bar.tsx` (full rework)
+
+**Changed:** Replaced the generic announcement-bar banner ("Transform Your Accounting with Offshore Expertise" + Get Started + close button) with a slim, permanent top bar containing the site's contact info (email + phone on left) and social media icons (LinkedIn, Facebook, Instagram, YouTube on right), matching the same social links already used in the footer. Added a small "Get Started" CTA that's desktop-only (hidden on mobile since the navbar's own CTA covers that). The bar is now `bg-primary-dark` (one shade darker than the navbar's `bg-primary`) so the two bars are visually distinct but related.  
+**Why:** Social media visibility at the top of the page (above the fold, before scrolling to the footer) is a common trust/reach signal for B2B service businesses. The previous announcement banner read as generic marketing ("Transform Your Accounting") and had a dismissible close button, meaning it could vanish permanently for returning visitors.  
+**SEO purpose:** Social-media links above the fold are a crawlability and brand-signal benefit; no metadata change.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+### `components/footer.tsx` (alignment and structure fix)
+
+**Changed:** Restructured the footer into three visually separated bands: a top band (logo/tagline/social + right-aligned contact info), a middle band (the 6-column link grid, now using `grid-cols-2 sm:grid-cols-3 lg:grid-cols-6` instead of the previous fractional-width grid that didn't align cleanly on tablets), and a bottom bar with a subtle darker background (`bg-primary-dark/50`) for legal links. The contact column's text is now right-aligned on desktop and left-aligned on mobile (previously left-aligned everywhere, leaving the right side of the footer's top row empty on desktop). The 6-column link grid now wraps to 2 columns on mobile and 3 on tablet instead of a single column, which was unnecessarily long on smaller screens.  
+**Why:** The previous footer had alignment issues at intermediate breakpoints (the fractional-width grid broke, and the contact info floated awkwardly) and no visual separation between the link section and the legal section.  
+**SEO purpose:** Cleaner, more scannable footer helps both crawlers and visitors find links.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (same links, same copy).
+
+### `app/robots.ts` (AI crawler rules)
+
+**Changed:** Added explicit `allow: '/'` rules for GPTBot (OpenAI/ChatGPT), Google-Extended (Google AI features), PerplexityBot, ClaudeBot, Applebot-Extended, and anthropic-ai. These are the AI crawlers that respect robots.txt and that the site wants to be discoverable by (the site already publishes `llms.txt` for exactly this purpose).  
+**Why:** Without explicit allow rules, some AI crawlers default to restricted crawling. Since the site actively publishes `llms.txt` as its AI-crawler-facing content summary, it should also explicitly allow those crawlers at the robots.txt level.  
+**SEO purpose:** Maximizes AI-tool discoverability (ChatGPT, Perplexity, Google AI Overviews, Apple Intelligence) alongside the existing Google crawling.
+
+### `app/sitemap.ts` (lastModified dates)
+
+**Changed:** Added `lastModified: '2026-08-14'` to every route that was touched in today's content/crawlability audit. Routes that weren't touched don't get a `lastModified` (per the existing sitemap policy: "Do not invent lastModified dates").  
+**Why:** `lastModified` tells crawlers which pages have been recently updated, helping them prioritize re-crawling freshly reworked content over pages that haven't changed.  
+**SEO purpose:** Signals content freshness to search engines for the ~50 pages that were materially updated today.
+
+### `app/globals.css` (font stack performance)
+
+**Changed:** Replaced `var(--font-inter), "Helvetica Neue", system-ui, sans-serif` (where `--font-inter` was undefined — never loaded from anywhere, so the browser was doing a lookup for a missing variable on every text element) with a clean system font stack (`"Helvetica Neue", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif`). System fonts have zero download time and zero FOIT/FOUT since they're already on the user's device.  
+**Why:** An undefined CSS variable in the font stack is a small but real performance waste (the browser resolves it to nothing on every repaint). The site was never actually loading Inter from anywhere — the `--font-inter` variable was referenced but never defined.  
+**SEO purpose:** Faster text rendering contributes to LCP and CLS metrics.
+
+
 ## 2026-08-14 (homepage: visual decoration pass)
 
 Purely visual work — no content, metadata, or URL changes on this pass.
