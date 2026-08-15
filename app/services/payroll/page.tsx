@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -137,6 +137,7 @@ export default function PayrollPage() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-xl font-bold text-primary mb-4">Related</h2>
           <div className="flex flex-wrap gap-3">
+            <Link href="/resources/guides/outsourced-payroll-processing-guide" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">📖 Payroll Guide: US, UK &amp; AU</Link>
             <Link href="/services/accounting" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounting Services</Link>
             <Link href="/services/accounts-payable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Payable</Link>
             <Link href="/technology/quickbooks" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">QuickBooks Payroll</Link>

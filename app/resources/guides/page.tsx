@@ -20,24 +20,52 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const guides = [
   {
+    title: 'Outsourced Payroll Processing: What It Actually Covers (US, UK & Australia)',
+    href: '/resources/guides/outsourced-payroll-processing-guide',
+    description: 'Per-jurisdiction payroll compliance, QuickBooks/Xero/Gusto workflows, realistic cost ranges, and the real questions employers ask before handing payroll to an offshore team.',
+    isNew: true,
+  },
+  {
+    title: 'Outsourced Accounts Payable: How It Works in QuickBooks, Xero & NetSuite',
+    href: '/resources/guides/outsourced-accounts-payable-guide',
+    description: 'What the AP team handles vs. what stays with you, how approval workflows and fraud controls work, location-specific VAT/GST nuances, and realistic per-invoice costs.',
+    isNew: true,
+  },
+  {
+    title: 'Outsourced Accounts Receivable: DSO, Collections & Software Workflows (US, UK, AU)',
+    href: '/resources/guides/outsourced-accounts-receivable-guide',
+    description: 'How to measure the cash flow impact of outsourced AR, how collections follow-up works in QuickBooks and Xero, and the questions business owners ask before outsourcing receivables.',
+    isNew: true,
+  },
+  {
+    title: 'Outsourced Accounting Services: Month-End Close, GAAP vs IFRS, and QuickBooks to NetSuite',
+    href: '/resources/guides/outsourced-accounting-services-guide',
+    description: 'What accounting operations cover beyond bookkeeping, how month-end close works in QBO, Xero, Sage, and NetSuite, and how US GAAP, UK FRS 102, and Australian AASB differ.',
+    isNew: true,
+  },
+  {
     title: '9 Questions to Ask Before Outsourcing Your Bookkeeping',
     href: '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping',
     description: 'The real questions to ask before hiring — answered honestly, including the ones without a flattering answer.',
+    isNew: false,
   },
   {
     title: 'Outsourced Bookkeeping Cost Guide for U.S. Businesses',
     href: '/resources/guides/outsourced-bookkeeping-cost-guide',
     description: 'What actually drives the price up or down, and how it compares to hiring in-house.',
+    isNew: false,
   },
   {
     title: 'QuickBooks Online vs. Xero: Which Should Your Business Use?',
     href: '/resources/guides/quickbooks-vs-xero-comparison',
     description: 'A practical comparison of pricing, ease of use, and reporting to help you decide.',
+    isNew: false,
   },
   {
     title: 'How CPA Firms Use Staff Augmentation During Tax Season',
     href: '/resources/guides/staff-augmentation-tax-season-guide',
     description: 'Why seasonal hiring is risky, and how flexible capacity support works instead.',
+    isNew: false,
   },
 ];
 
@@ -65,9 +93,12 @@ export default function GuidesPage() {
             <Reveal key={guide.href} delay={Math.min(i * 0.08, 0.24)}>
               <Link
                 href={guide.href}
-                className="block p-8 bg-white rounded-xl border-2 border-border hover:border-primary transition-colors"
+                className="block p-8 bg-white rounded-xl border-2 border-border hover:border-primary transition-colors relative"
               >
-                <h2 className="text-2xl font-bold text-primary mb-2">{guide.title}</h2>
+                {guide.isNew && (
+                  <span className="absolute top-4 right-4 px-2 py-0.5 rounded-full bg-accent text-white text-xs font-bold uppercase tracking-wide">New</span>
+                )}
+                <h2 className="text-2xl font-bold text-primary mb-2 pr-14">{guide.title}</h2>
                 <p className="text-muted leading-relaxed">{guide.description}</p>
               </Link>
             </Reveal>

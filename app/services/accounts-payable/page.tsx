@@ -123,6 +123,7 @@ export default function APPage() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-xl font-bold text-primary mb-4">Related</h2>
           <div className="flex flex-wrap gap-3">
+            <Link href="/resources/guides/outsourced-accounts-payable-guide" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">📖 AP Guide: QBO, Xero &amp; NetSuite</Link>
             <Link href="/services/accounts-receivable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Receivable</Link>
             <Link href="/services/bookkeeping" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping</Link>
             <Link href="/services/accounting" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounting Services</Link>
