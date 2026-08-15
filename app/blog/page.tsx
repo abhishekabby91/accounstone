@@ -1,0 +1,146 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import Reveal from '@/components/reveal';
+import CTABanner from '@/components/cta-banner';
+
+export const metadata: Metadata = generateMetadata({
+  title: 'Accounting & Bookkeeping Knowledge Base',
+  description:
+    'Practical guides on outsourced bookkeeping, accounts payable, payroll, tax preparation, and audit support — with real answers for US, UK, and Australian businesses.',
+  path: '/blog',
+});
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Blog', url: `${baseUrl}/blog` },
+]);
+
+const articles = [
+  {
+    href: '/blog/outsourced-bookkeeping-guide',
+    title: 'Outsourced Bookkeeping: What It Costs, What to Expect, and When It Makes Sense',
+    description:
+      'Real pricing ranges for the US, UK, and Australia. What Reddit gets right (and wrong) about offshore bookkeeping. QuickBooks vs Xero for outsourced work. Common questions answered.',
+    tag: 'Bookkeeping',
+    readTime: '12 min read',
+  },
+  {
+    href: '/blog/accounts-payable-outsourcing',
+    title: 'Accounts Payable Outsourcing: The Complete Guide for Growing Businesses',
+    description:
+      'When AP becomes a bottleneck, what to outsource vs. keep in-house, software considerations (NetSuite, QuickBooks, Xero), and what businesses in the US, UK, and Australia actually pay.',
+    tag: 'Accounts Payable',
+    readTime: '10 min read',
+  },
+  {
+    href: '/blog/accounts-receivable-management',
+    title: 'Outsourcing Accounts Receivable: A Practical Guide for Business Owners',
+    description:
+      'How AR outsourcing works, what gets collected faster (and why), invoicing software considerations, and real-world questions from small business owners and CPA firms.',
+    tag: 'Accounts Receivable',
+    readTime: '10 min read',
+  },
+  {
+    href: '/blog/outsourced-payroll-services',
+    title: 'Outsourced Payroll: What It Covers, What It Costs, and What to Watch Out For',
+    description:
+      'Payroll outsourcing for US (W-2/1099, 941), UK (RTI, PAYE), and Australia (STP, superannuation). What Reddit payroll threads get wrong. Pricing by employee count.',
+    tag: 'Payroll',
+    readTime: '11 min read',
+  },
+  {
+    href: '/blog/outsourced-accounting-services',
+    title: 'Outsourced Accounting Services: What\'s Included, What Costs What, and How to Start',
+    description:
+      'The difference between bookkeeping and accounting outsourcing. Month-end close support, reconciliations, and management reporting. Real cost ranges for SMBs and CPA firms.',
+    tag: 'Accounting',
+    readTime: '10 min read',
+  },
+  {
+    href: '/blog/tax-preparation-outsourcing',
+    title: 'Outsourcing Tax Return Preparation: What CPA Firms and Businesses Need to Know',
+    description:
+      'How CPA firms use offshore tax preparation support, what can be prepared vs. what requires a licensed CPA or EA, Drake Tax and CCH Axcess workflow specifics, and season-capacity planning.',
+    tag: 'Tax Preparation',
+    readTime: '11 min read',
+  },
+  {
+    href: '/blog/audit-support-services',
+    title: 'Audit Support Outsourcing: What Preparation Work Can Be Delegated (and What Cannot)',
+    description:
+      'Working papers, evidence organization, schedule preparation — what audit support firms actually outsource. UK FRC, US GAAS, and Australian AUASB requirements explained.',
+    tag: 'Audit Support',
+    readTime: '10 min read',
+  },
+];
+
+export default function BlogPage() {
+  return (
+    <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-primary dot-grid-dark">
+        <Reveal className="max-w-4xl mx-auto text-center space-y-5 relative z-10">
+          <>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide uppercase text-white/70">
+              <span className="w-4 h-px bg-white/40" aria-hidden="true" />Knowledge Base
+            </span>
+            <h1 className="text-4xl md:text-6xl font-bold text-white text-balance leading-tight">
+              Accounting & Bookkeeping Guides
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
+              Practical answers to real questions — pricing, software, what to outsource, what to keep in-house, and how it works across the US, UK, and Australia.
+            </p>
+          </>
+        </Reveal>
+      </section>
+
+      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <nav aria-label="Breadcrumb" className="mb-10">
+            <ol className="flex flex-wrap items-center gap-2 text-sm text-muted">
+              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-primary font-medium">Blog</li>
+            </ol>
+          </nav>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
+            {articles.map((article) => (
+              <Reveal key={article.href}>
+                <Link
+                  href={article.href}
+                  className="group block h-full p-7 bg-white rounded-2xl border border-border/70 hover:border-primary/20 hover:shadow-[0_16px_40px_rgba(15,23,42,0.09)] transition-all duration-300"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold uppercase tracking-wide">
+                      {article.tag}
+                    </span>
+                    <span className="text-xs text-muted">{article.readTime}</span>
+                  </div>
+                  <h2 className="text-lg font-bold text-primary leading-snug mb-3 group-hover:text-primary-light transition-colors">
+                    {article.title}
+                  </h2>
+                  <p className="text-sm text-muted leading-6">{article.description}</p>
+                  <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all duration-200">
+                    Read article
+                    <span aria-hidden="true">→</span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <CTABanner
+        title="Looking for Region-Specific Services?"
+        description="Browse our US, UK, and Australia service pages for country-specific bookkeeping, tax preparation, and audit support."
+        cta={{ text: 'View Services', href: '/services' }}
+        ctaSecondary={{ text: 'Contact Us', href: '/contact' }}
+        background="primary"
+      />
+    </main>
+  );
+}
