@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, Linkedin, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
+import SocialIcon from '@/components/social-icon';
 
 const socials = [
-  { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn', icon: Linkedin },
-  { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook', icon: Facebook },
-  { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram', icon: Instagram },
-  { href: 'https://www.youtube.com/@accounstone', label: 'YouTube', icon: Youtube },
+  { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn' },
+  { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook' },
+  { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram' },
+  { href: 'https://www.youtube.com/@accounstone', label: 'YouTube' },
 ];
 
 export default function HeaderBar() {
@@ -35,17 +36,14 @@ export default function HeaderBar() {
         {/* Right — social icons + CTA */}
         <div className="flex items-center gap-3 md:gap-4">
           <div className="flex items-center gap-1.5">
-            {socials.map(({ href, label, icon: Icon }) => (
-              <a
+            {socials.map(({ href, label }) => (
+              <SocialIcon
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                className="flex h-7 w-7 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all"
-              >
-                <Icon size={14} />
-              </a>
+                label={label}
+                size={14}
+                variant="header"
+              />
             ))}
           </div>
           <span className="hidden md:block w-px h-4 bg-white/20" aria-hidden="true" />

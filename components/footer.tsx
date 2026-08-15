@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import { companyInfo } from '@/lib/data';
+import SocialIcon from '@/components/social-icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -77,10 +78,10 @@ export default function Footer() {
   ];
 
   const socials = [
-    { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn', icon: <Linkedin size={17} /> },
-    { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook', icon: <Facebook size={17} /> },
-    { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram', icon: <Instagram size={17} /> },
-    { href: 'https://www.youtube.com/@accounstone', label: 'YouTube', icon: <Youtube size={17} /> },
+    { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn' },
+    { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook' },
+    { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram' },
+    { href: 'https://www.youtube.com/@accounstone', label: 'YouTube' },
   ];
 
   return (
@@ -96,16 +97,13 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-7">{companyInfo.tagline}</p>
             <div className="flex items-center gap-2.5">
               {socials.map((social) => (
-                <a
+                <SocialIcon
                   key={social.label}
                   href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-white/65 hover:text-white hover:border-white/35 hover:bg-white/10 transition-all duration-200"
-                >
-                  {social.icon}
-                </a>
+                  label={social.label}
+                  size={17}
+                  variant="footer"
+                />
               ))}
             </div>
           </div>
