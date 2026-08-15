@@ -31,7 +31,7 @@ export default function CTABanner({
   }[background];
 
   return (
-    <section className={`relative w-full py-16 md:py-24 px-6 md:px-8 ${bgClass}`}>
+    <section className={`relative w-full py-16 md:py-24 px-6 md:px-8 ${bgClass} cta-glow dot-grid-dark`}>
       <Reveal className="max-w-5xl mx-auto text-center space-y-8">
         <>
         <div className="space-y-4">

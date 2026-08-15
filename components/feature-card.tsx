@@ -23,9 +23,9 @@ export default function FeatureCard({
   const baseClasses = `group h-full p-7 md:p-8 rounded-2xl transition-all duration-300 ${className}`;
 
   const variantClasses = {
-    default: 'bg-white border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:border-primary/15 hover:shadow-[0_18px_45px_rgba(15,23,42,0.10)]',
+    default: 'accent-corner glow-hover bg-white border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:border-primary/15',
     featured: 'bg-primary text-white border border-primary shadow-xl hover:-translate-y-1 hover:shadow-2xl',
-    minimal: 'bg-transparent border border-border hover:-translate-y-1 hover:border-accent/50 hover:bg-white hover:shadow-lg',
+    minimal: 'accent-corner glow-hover bg-transparent border border-border hover:-translate-y-1 hover:border-accent/50 hover:bg-white',
   }[variant];
 
   const content = (

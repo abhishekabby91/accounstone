@@ -183,6 +183,164 @@ a {
   background: var(--color-accent);
 }
 
+/* ─── CSS-only decorative graphics ─── */
+/* Zero HTTP requests, zero render-blocking. All use CSS gradients,
+   pseudo-elements, or inline SVG data URIs embedded in backgrounds. */
+
+/*
+  Dot grid — a faint repeating dot pattern for section backgrounds.
+  Gives visual texture without loading an image. Use on light sections.
+*/
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    var(--color-border) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.06) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+}
+
+/*
+  Angled section transition — a CSS clip-path that creates a subtle
+  diagonal edge between sections. Apply to a full-width div between
+  sections. Height controls the angle steepness.
+*/
+.angle-cut {
+  clip-path: polygon(0 0, 100% 40%, 100% 100%, 0% 100%);
+}
+
+.angle-cut-reverse {
+  clip-path: polygon(0 40%, 100% 0, 100% 100%, 0% 100%);
+}
+
+/*
+  Accent corner — a small diagonal accent stroke in the top-left
+  corner of a card. Apply to the card container. Uses a CSS gradient
+  positioned as a fixed-size background in the corner, so it doesn't
+  affect layout or content spacing.
+*/
+.accent-corner {
+  position: relative;
+}
+
+.accent-corner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent) 50%,
+    transparent 50%
+  );
+  border-radius: 1rem 0 0 0;
+  opacity: 0.15;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.accent-corner:hover::before {
+  opacity: 0.3;
+}
+
+/*
+  Glow card hover — a soft radial glow behind the card on hover.
+  Uses box-shadow only, so no extra DOM elements or repaints.
+*/
+.glow-hover {
+  transition: box-shadow 0.35s ease, transform 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.10),
+    0 0 0 1px rgba(30, 58, 95, 0.08),
+    0 0 40px -8px rgba(184, 68, 8, 0.12);
+}
+
+/*
+  CTA radial glow — a subtle radial gradient overlay on CTA bands
+  that creates a soft spotlight effect behind the content.
+*/
+.cta-glow {
+  position: relative;
+}
+
+.cta-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 120%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/*
+  Section wave separator — an inline SVG wave between sections.
+  Uses a data URI so there's no HTTP request.
+*/
+.wave-top {
+  position: relative;
+}
+
+.wave-top::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 360 0 720 20 Q 1080 40 1440 20 L1440 0 L0 0Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+
+.wave-top-cream::before {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20 Q 360 0 720 20 Q 1080 40 1440 20 L1440 0 L0 0Z' fill='%23faf8f3'/%3E%3C/svg%3E");
+}
+
+/*
+  Grid shimmer — a subtle animated gradient that sweeps across
+  the section grid background on load (once). Uses a CSS animation
+  with will-change for GPU compositing, no JS.
+*/
+@keyframes shimmer-once {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-bg {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(184, 68, 8, 0.03) 50%,
+    transparent 100%
+  );
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer-once 2s ease-out forwards;
+}
+
 .prose-content h2 {
   font-size: 1.75rem;
   font-weight: 700;

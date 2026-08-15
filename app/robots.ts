@@ -7,12 +7,11 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/admin', '/private', '/internal', '/api'],
+        disallow: ['/admin', '/private', '/internal', '/api', '/_next/'],
       },
       // Explicitly allow AI/LLM crawlers that respect robots.txt.
-      // These are allowed because the site publishes llms.txt and
-      // wants to be discoverable by AI tools (ChatGPT, Perplexity,
-      // Google AI Overviews, etc.).
+      // The site publishes llms.txt and wants to be discoverable by
+      // AI tools (ChatGPT, Perplexity, Google AI Overviews, etc.).
       {
         userAgent: 'GPTBot',
         allow: '/',
@@ -37,7 +36,33 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'anthropic-ai',
         allow: '/',
       },
+      {
+        userAgent: 'Bytespider',
+        allow: '/',
+      },
+      {
+        userAgent: 'CCBot',
+        allow: '/',
+      },
+      // Block known bad bots / scrapers
+      {
+        userAgent: 'AhrefsBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'SemrushBot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'MJ12bot',
+        disallow: '/',
+      },
+      {
+        userAgent: 'DotBot',
+        disallow: '/',
+      },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }
