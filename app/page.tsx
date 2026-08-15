@@ -88,7 +88,7 @@ export default function HomePage() {
 
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
-      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light relative overflow-hidden wave-top cta-glow">
+      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light relative overflow-hidden cta-glow dot-grid-dark">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 ledger-lines-dark" />
         <Reveal className="relative max-w-7xl mx-auto text-center space-y-6">
           <>
@@ -107,7 +107,7 @@ export default function HomePage() {
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
       <section data-section="services"><SectionGrid subtitle="What We Do" title="Accounting Services That Keep Work Moving" description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support." items={services} baseUrl="/services" columns={3} variant="default" /></section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white relative wave-top-cream">
+      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <Reveal className="space-y-6">
