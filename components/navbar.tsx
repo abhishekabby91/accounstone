@@ -30,13 +30,16 @@ interface NavItem {
 // flat list.
 const regionServiceGroups: NavGroup[] = [
   {
-    // The 8 base service pages ARE the USA services -- not a separate
-    // "global" tier. The dedicated /united-states deep-dive pages for
-    // bookkeeping/tax-preparation/audit-support still exist and are
-    // cross-linked from these base pages' Related Services sections
-    // and included in the sitemap -- just not duplicated here.
     label: 'USA',
-    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
+    items: [
+      { label: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+      { label: 'Tax Preparation', href: '/services/tax-preparation/united-states' },
+      { label: 'Audit Support', href: '/services/audit-support/united-states' },
+      { label: 'Payroll', href: '/services/payroll' },
+      { label: 'Accounts Payable', href: '/services/accounts-payable' },
+      { label: 'Accounts Receivable', href: '/services/accounts-receivable' },
+      { label: 'Accounting Services', href: '/services/accounting' },
+    ],
   },
   {
     label: 'UK',
@@ -53,6 +56,10 @@ const regionServiceGroups: NavGroup[] = [
       { label: 'Tax Preparation', href: '/services/tax-preparation/australia' },
       { label: 'Audit Support', href: '/services/audit-support/australia' },
     ],
+  },
+  {
+    label: 'All Services',
+    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
   },
 ];
 
@@ -223,7 +230,7 @@ export default function Navbar() {
                   // Australia), so region pages sit beside the global
                   // ones instead of replacing them.
                   <div
-                    className="absolute left-0 top-full mt-2 w-[640px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50"
+                    className="absolute left-0 top-full mt-2 w-[780px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50"
                     style={{ WebkitOverflowScrolling: 'touch' }}
                   >
                     <Link

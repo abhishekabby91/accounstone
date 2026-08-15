@@ -138,13 +138,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { name: 'Bookkeeping', slug: 'bookkeeping' },
+              { name: 'Bookkeeping for U.S. Businesses', slug: 'bookkeeping/united-states' },
               { name: 'Accounting Services', slug: 'accounting' },
-              { name: 'Tax Preparation', slug: 'tax-preparation' },
+              { name: 'Tax Preparation for U.S. Businesses', slug: 'tax-preparation/united-states' },
               { name: 'Payroll Processing', slug: 'payroll' },
               { name: 'Accounts Payable', slug: 'accounts-payable' },
               { name: 'Accounts Receivable', slug: 'accounts-receivable' },
-              { name: 'Audit Support', slug: 'audit-support' },
+              { name: 'Audit Support for U.S. Businesses', slug: 'audit-support/united-states' },
             ].map((service, i) => (
               <Link
                 key={i}
