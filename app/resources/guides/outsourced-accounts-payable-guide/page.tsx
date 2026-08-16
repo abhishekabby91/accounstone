@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import ArticleVisual from '@/components/article-visual';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 const PATH = '/resources/guides/outsourced-accounts-payable-guide';
@@ -28,6 +29,17 @@ export default function OutsourcedAPGuide() {
       <p>
         That is why the useful question is not simply, “Can AP be outsourced?” It is: <strong>which parts of the AP workflow can be handed off without giving up control over what gets paid?</strong>
       </p>
+
+      <ArticleVisual
+        variant="control"
+        title="A controlled AP handoff"
+        items={[
+          { label: 'Capture', detail: 'Invoices enter one defined workflow.' },
+          { label: 'Check', detail: 'Coding and duplicates are reviewed.' },
+          { label: 'Approve', detail: 'Authorized people make the decision.' },
+          { label: 'Pay', detail: 'Payment authority stays controlled.' },
+        ]}
+      />
 
       <h2>What an AP Team Usually Handles</h2>
       <p>
@@ -65,6 +77,17 @@ export default function OutsourcedAPGuide() {
       <p>
         NetSuite becomes more important when AP involves multiple entities, subsidiaries, departments or more formal approval rules. In that environment, the handoff needs to account for entity coding, approval routing, intercompany transactions and the controls around payment files.
       </p>
+
+      <ArticleVisual
+        variant="workflow"
+        title="Where exceptions should surface"
+        items={[
+          { label: 'Invoice', detail: 'Capture the bill and required details.' },
+          { label: 'Coding', detail: 'Check entity, account and tax treatment.' },
+          { label: 'Exception', detail: 'Flag duplicates or unusual items.' },
+          { label: 'Decision', detail: 'Send the right question to the right owner.' },
+        ]}
+      />
 
       <h2>“What If Someone Sends a Duplicate Invoice?”</h2>
       <p>
