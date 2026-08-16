@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import ArticleVisual from '@/components/article-visual';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 const PATH = '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping';
@@ -28,6 +29,17 @@ export default function QuestionsToAskGuide() {
         These questions are useful whether you run a growing business, manage accounting work for clients, or are considering support in the U.S., U.K. or Australia. The goal is not to find the provider with the longest list of promises. It is to understand what will actually happen to the books.
       </p>
 
+      <ArticleVisual
+        variant="decision"
+        title="A useful outsourcing conversation should answer four things"
+        items={[
+          { label: 'Scope', detail: 'What is actually included each month?' },
+          { label: 'Ownership', detail: 'Who does, reviews and approves the work?' },
+          { label: 'Exceptions', detail: 'What happens when something is unclear?' },
+          { label: 'Handoff', detail: 'What reaches your team at month-end?' },
+        ]}
+      />
+
       <h2>1. What exactly is included in the monthly scope?</h2>
       <p>
         “Bookkeeping” can mean very different things. Ask whether the scope includes transaction categorisation, bank and credit-card reconciliations, AP/AR, month-end close, reporting, cleanup and follow-up on missing information. If a task matters to your workflow, it should be clear whether it is included, excluded or separately scoped.
@@ -47,6 +59,17 @@ export default function QuestionsToAskGuide() {
       <p>
         If your business already uses QuickBooks Online, Xero, Sage or another accounting platform, ask whether the provider can work within that environment. Also ask how access is granted, how permissions are managed and how changes or issues are documented. Moving systems should not become a requirement unless there is a genuine reason for it.
       </p>
+
+      <ArticleVisual
+        variant="control"
+        title="The control question behind the software question"
+        items={[
+          { label: 'Access', detail: 'Use the right permissions for each role.' },
+          { label: 'Process', detail: 'Keep a consistent way of handling work.' },
+          { label: 'Review', detail: 'Flag exceptions before the handoff.' },
+          { label: 'Control', detail: 'Keep approval authority where it belongs.' },
+        ]}
+      />
 
       <h2>5. How is the work reviewed before it reaches us?</h2>
       <p>
