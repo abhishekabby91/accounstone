@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { services, solutions, markets, technologies, industries } from '@/lib/data';
+import { solutions, markets, technologies, industries } from '@/lib/data';
 
 interface NavChild {
   label: string;
@@ -56,10 +56,6 @@ const regionServiceGroups: NavGroup[] = [
       { label: 'Tax Preparation', href: '/services/tax-preparation/australia' },
       { label: 'Audit Support', href: '/services/audit-support/australia' },
     ],
-  },
-  {
-    label: 'All Services',
-    items: services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
   },
 ];
 
@@ -230,7 +226,7 @@ export default function Navbar() {
                   // Australia), so region pages sit beside the global
                   // ones instead of replacing them.
                   <div
-                    className="absolute left-0 top-full mt-2 w-[780px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50"
+                    className="absolute left-0 top-full mt-2 w-[600px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50"
                     style={{ WebkitOverflowScrolling: 'touch' }}
                   >
                     <Link
@@ -240,7 +236,7 @@ export default function Navbar() {
                     >
                       View All {item.label} →
                     </Link>
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-3 gap-6">
                       {item.groups!.map((group) => (
                         <div key={group.label}>
                           <p className="text-xs font-bold uppercase tracking-wider text-muted mb-2 px-3">
