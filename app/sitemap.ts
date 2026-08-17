@@ -69,6 +69,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services/bookkeeping/australia', priority: 0.8, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/services/tax-preparation/australia', priority: 0.8, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/services/audit-support/australia', priority: 0.8, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    // Blog articles
+    { path: '/blog', priority: 0.8, changeFrequency: 'weekly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/outsourced-bookkeeping-guide', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/accounts-payable-outsourcing', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/accounts-receivable-management', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/outsourced-payroll-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/outsourced-accounting-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/tax-preparation-outsourcing', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/blog/audit-support-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
   ];
 
   const seen = new Set<string>();
