@@ -510,8 +510,16 @@ html {
   overflow-x: clip;
 }
 
-/* 11. Image responsive defaults: never overflow, maintain aspect ratio. */
-img, video, svg {
+/* 11. Image responsive defaults: never overflow.
+   NOTE: height:auto is intentionally removed here — it overrides
+   Tailwind h-* utilities on images (globals.css is cascade-priority
+   above @layer utilities). Width is constrained; height follows the
+   h-* class or the image's natural proportions via w-auto. */
+img, video {
+  max-width: 100%;
+}
+
+svg {
   max-width: 100%;
   height: auto;
 }

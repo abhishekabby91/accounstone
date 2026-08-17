@@ -162,7 +162,8 @@ export default function Navbar() {
             alt="Accounstone"
             width={280}
             height={60}
-            className="h-16 w-auto"
+            className="w-auto"
+            style={{ height: '48px' }}
             priority
           />
         </Link>
