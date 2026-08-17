@@ -337,7 +337,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className={`block px-4 py-3.5 min-h-[48px] flex items-center rounded-lg font-medium transition-colors active:bg-input ${
+                    className={`flex items-center px-4 min-h-[48px] rounded-lg font-medium transition-colors active:bg-input ${
                       isActive(item.href)
                         ? 'bg-input text-primary'
                         : 'text-foreground hover:bg-input hover:text-primary'
@@ -355,7 +355,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`flex-1 px-4 py-3 rounded-lg font-medium transition-colors ${
+                      className={`flex-1 flex items-center px-4 min-h-[48px] rounded-lg font-medium transition-colors active:bg-input ${
                         isActive(item.href)
                           ? 'bg-input text-primary'
                           : 'text-foreground hover:bg-input hover:text-primary'
@@ -367,7 +367,7 @@ export default function Navbar() {
                       onClick={() => setOpenMobileSection(isSectionOpen ? null : item.label)}
                       aria-expanded={isSectionOpen}
                       aria-label={`${isSectionOpen ? 'Collapse' : 'Expand'} ${item.label} submenu`}
-                      className="p-3 mr-1 rounded-lg hover:bg-input transition-colors"
+                      className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center mr-1 rounded-lg hover:bg-input active:bg-input transition-colors"
                     >
                       <svg
                         className={`w-4 h-4 text-muted transition-transform duration-200 ${isSectionOpen ? 'rotate-180' : ''}`}
@@ -392,7 +392,7 @@ export default function Navbar() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block px-4 py-3 min-h-[44px] flex items-center rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
+                              className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                             >
                               {child.label}
                             </Link>
@@ -409,7 +409,7 @@ export default function Navbar() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-3 min-h-[44px] flex items-center rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
+                          className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                         >
                           {child.label}
                         </Link>
