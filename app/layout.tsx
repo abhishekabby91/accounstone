@@ -22,11 +22,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
+    default: "Outsourced Accounting & Bookkeeping — US, UK & Australia | Accounstone",
     template: "%s | Accounstone",
   },
   description:
-    "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
+    "Outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses across the US, UK, and Australia.",
   authors: [{ name: "Accounstone" }],
   robots: {
     index: true,
@@ -51,23 +51,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Accounstone",
-    title: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
+    title: "Outsourced Accounting & Bookkeeping — US, UK & Australia | Accounstone",
     description:
-      "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
+      "Outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses across the US, UK, and Australia.",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Accounstone — Accounting, Tax, Bookkeeping & Audit Outsourcing",
+        alt: "Accounstone — Outsourced Accounting & Bookkeeping for US, UK & Australia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
+    title: "Outsourced Accounting & Bookkeeping — US, UK & Australia | Accounstone",
     description:
-      "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses.",
+      "Outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses.",
     images: [`${baseUrl}/og-image.png`],
   },
 };

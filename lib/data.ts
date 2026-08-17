@@ -121,6 +121,6 @@ export const companyInfo = {
   contact: {
     email: 'partner@accounstone.com',
     phone: '+919990597192',
-    address: 'Global Delivery Center, New Delhi, India',
+    address: 'Global Delivery Center - New Delhi, India',
   },
 };
