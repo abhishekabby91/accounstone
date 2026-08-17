@@ -342,7 +342,7 @@ export default function Navbar() {
                         ? 'bg-input text-primary'
                         : 'text-foreground hover:bg-input hover:text-primary'
                     }`}
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}
                   >
                     {item.label}
                   </Link>
@@ -354,7 +354,7 @@ export default function Navbar() {
                   <div className="flex items-center">
                     <Link
                       href={item.href}
-                      onClick={() => setMobileMenuOpen(false)}
+                      onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}
                       className={`flex-1 flex items-center px-4 min-h-[48px] rounded-lg font-medium transition-colors active:bg-input ${
                         isActive(item.href)
                           ? 'bg-input text-primary'
@@ -391,7 +391,7 @@ export default function Navbar() {
                             <Link
                               key={child.href}
                               href={child.href}
-                              onClick={() => setMobileMenuOpen(false)}
+                              onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}
                               className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                             >
                               {child.label}
@@ -408,7 +408,7 @@ export default function Navbar() {
                         <Link
                           key={child.href}
                           href={child.href}
-                          onClick={() => setMobileMenuOpen(false)}
+                          onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}
                           className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                         >
                           {child.label}
@@ -422,7 +422,7 @@ export default function Navbar() {
             <Link
               href="/contact"
               className="block w-full mt-4 px-4 py-4 min-h-[52px] rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all text-center active:scale-[0.98]"
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => { setMobileMenuOpen(false); window.scrollTo(0, 0); }}
             >
               Get Started
             </Link>
