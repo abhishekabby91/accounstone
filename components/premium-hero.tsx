@@ -53,7 +53,7 @@ export default function PremiumHero({
         };
 
   return (
-    <section className={`relative w-full py-24 md:py-32 lg:py-40 px-6 md:px-8 ${bgClass}`}>
+    <section className={`relative w-full py-16 md:py-20 lg:py-24 px-6 md:px-8 ${bgClass}`}>
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 ${image ? 'md:grid-cols-2' : ''} gap-12 md:gap-16 items-center`}>
           <div className="space-y-8">

@@ -63,7 +63,7 @@ export default function HeroCarousel({
 
   return (
     <div
-      className="relative w-full h-96 md:h-screen max-h-[600px] md:max-h-full overflow-hidden bg-background"
+      className="relative w-full h-72 md:h-[420px] overflow-hidden bg-background"
       role="region"
       aria-roledescription="carousel"
       aria-label={pageHeading}

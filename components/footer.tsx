@@ -68,7 +68,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-start">
           <div className="space-y-5 max-w-sm">
             <Link href="/" className="inline-flex items-center hover:opacity-90 transition-opacity">
-              <Image src="/accounstone-logo-horizontal.png" alt="Accounstone" width={280} height={60} className="h-12 w-auto" />
+              <Image src="/accounstone-logo-horizontal.png" alt="Accounstone" width={180} height={40} className="h-8 w-auto" />
             </Link>
             <p className="text-white/70 text-sm leading-7">{companyInfo.tagline}</p>
             <div className="flex items-center gap-2.5">

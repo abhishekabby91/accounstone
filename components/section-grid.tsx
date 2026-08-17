@@ -41,7 +41,7 @@ export default function SectionGrid({
   }[columns];
 
   return (
-    <section className="w-full py-20 md:py-24 px-6 md:px-8 bg-background dot-grid">
+    <section className="w-full py-14 md:py-16 px-6 md:px-8 bg-background dot-grid">
       <div className="max-w-7xl mx-auto">
         <Reveal className="mb-12 md:mb-14 max-w-3xl mx-auto text-center space-y-4">
           <>

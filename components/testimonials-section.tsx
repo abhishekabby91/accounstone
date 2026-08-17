@@ -21,7 +21,7 @@ export default function TestimonialsSection({
   testimonials,
 }: TestimonialsSectionProps) {
   return (
-    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+    <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14 text-center space-y-4 max-w-3xl mx-auto">
           {subtitle && (

@@ -90,8 +90,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to main content
         </a>
         <TouchRipple />
-        <HeaderBar />
-        <Navbar />
+        <div className="sticky top-0 z-50">
+          <HeaderBar />
+          <Navbar />
+        </div>
         <div id="main-content">{children}</div>
         <Footer />
         <BackToTop />
