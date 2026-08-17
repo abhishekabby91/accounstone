@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import ArticleVisual from '@/components/article-visual';
 import CostEstimator from '@/components/cost-estimator';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
@@ -29,6 +30,17 @@ export default function OutsourcedBookkeepingCostGuide() {
         That is why two businesses with similar transaction counts can receive very different proposals. The difference may have little to do with the number of transactions and much more to do with how clean the books are, how many accounts need review, how many entities are involved and what has to be ready at month-end.
       </p>
 
+      <ArticleVisual
+        variant="decision"
+        title="A better way to compare bookkeeping costs"
+        items={[
+          { label: 'Scope', detail: 'Define the work that must be done.' },
+          { label: 'Complexity', detail: 'Look at accounts, entities and exceptions.' },
+          { label: 'Review', detail: 'Measure how much cleanup remains.' },
+          { label: 'Capacity', detail: 'Check what the team can absorb.' },
+        ]}
+      />
+
       <h2>Start With the Work, Not the Package Name</h2>
       <p>
         “Bookkeeping” can mean several things. Before comparing providers, write down what actually happens each month: who codes transactions, who reconciles the accounts, who follows up on missing information, who handles AP or AR, who prepares close schedules and who reviews the finished work.
@@ -55,6 +67,17 @@ export default function OutsourcedBookkeepingCostGuide() {
         <li><strong>Software and integrations</strong> — a well-maintained accounting system can make recurring work straightforward; inconsistent feeds and manual workarounds can increase review time.</li>
         <li><strong>Close and reporting requirements</strong> — a business that needs books ready by a defined day each month needs a more controlled workflow than one that only wants basic transaction entry.</li>
       </ul>
+
+      <ArticleVisual
+        variant="workflow"
+        title="What a monthly bookkeeping workflow should make clear"
+        items={[
+          { label: 'Process', detail: 'Transactions and reconciliations are completed.' },
+          { label: 'Exceptions', detail: 'Open questions are surfaced early.' },
+          { label: 'Review', detail: 'The file is checked before handoff.' },
+          { label: 'Close', detail: 'The agreed month-end output is ready.' },
+        ]}
+      />
 
       <h2>Cleanup Is Different From Ongoing Bookkeeping</h2>
       <p>

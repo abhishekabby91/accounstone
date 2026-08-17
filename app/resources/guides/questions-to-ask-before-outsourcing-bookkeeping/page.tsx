@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import ArticleVisual from '@/components/article-visual';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 const PATH = '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping';
@@ -8,7 +9,7 @@ const PATH = '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping'
 export const metadata: Metadata = genMeta({
   title: '9 Questions to Ask Before Outsourcing Your Bookkeeping',
   description:
-    'Considering outsourced bookkeeping? These nine practical questions cover scope, software access, review, security, pricing, handoff and day-to-day communication.',
+    'Considering outsourced bookkeeping? These practical questions cover scope, software access, review, security, pricing, handoff and day-to-day communication.',
   path: PATH,
 });
 
@@ -22,11 +23,22 @@ export default function QuestionsToAskGuide() {
       section="guides"
       slug="questions-to-ask-before-outsourcing-bookkeeping">
       <p>
-        Outsourcing bookkeeping is not simply a decision about who enters transactions. Someone outside your business may be working in the same accounting file your CPA relies on, preparing information your management team uses, and handling records that need to stay organised month after month. It is reasonable to ask how that relationship will work before you hand over access.
+        Outsourcing bookkeeping is not simply a decision about who enters transactions. Someone outside your business may be working in the same accounting file your CPA or accountant relies on, preparing information your management team uses, and handling records that need to stay organised month after month. It is reasonable to ask how that relationship will work before you hand over access.
       </p>
       <p>
-        These questions are useful whether you run a growing business or manage accounting work for clients. The goal is not to find the provider with the longest list of promises. It is to understand what will actually happen to the books.
+        These questions are useful whether you run a growing business, manage accounting work for clients, or are considering support in the U.S., U.K. or Australia. The goal is not to find the provider with the longest list of promises. It is to understand what will actually happen to the books.
       </p>
+
+      <ArticleVisual
+        variant="decision"
+        title="A useful outsourcing conversation should answer four things"
+        items={[
+          { label: 'Scope', detail: 'What is actually included each month?' },
+          { label: 'Ownership', detail: 'Who does, reviews and approves the work?' },
+          { label: 'Exceptions', detail: 'What happens when something is unclear?' },
+          { label: 'Handoff', detail: 'What reaches your team at month-end?' },
+        ]}
+      />
 
       <h2>1. What exactly is included in the monthly scope?</h2>
       <p>
@@ -35,7 +47,7 @@ export default function QuestionsToAskGuide() {
 
       <h2>2. Who will actually work on the books?</h2>
       <p>
-        Ask whether you will have a consistent person or team, who handles questions when that person is unavailable, and who reviews the completed work. Consistency matters because bookkeeping depends on context: how accounts are normally coded, which transactions need clarification and what your CPA expects to see at review time.
+        Ask whether you will have a consistent person or team, who handles questions when that person is unavailable, and who reviews the completed work. Consistency matters because bookkeeping depends on context: how accounts are normally coded, which transactions need clarification and what your CPA or accountant expects to see at review time.
       </p>
 
       <h2>3. What happens if the books are already behind?</h2>
@@ -45,8 +57,19 @@ export default function QuestionsToAskGuide() {
 
       <h2>4. Will you work in our existing accounting software?</h2>
       <p>
-        If your business already uses QuickBooks Online, Xero or another accounting platform, ask whether the provider can work within that environment. Also ask how access is granted, how permissions are managed and how changes or issues are documented. Moving systems should not become a requirement unless there is a genuine reason for it.
+        If your business already uses QuickBooks Online, Xero, Sage or another accounting platform, ask whether the provider can work within that environment. Also ask how access is granted, how permissions are managed and how changes or issues are documented. Moving systems should not become a requirement unless there is a genuine reason for it.
       </p>
+
+      <ArticleVisual
+        variant="control"
+        title="The control question behind the software question"
+        items={[
+          { label: 'Access', detail: 'Use the right permissions for each role.' },
+          { label: 'Process', detail: 'Keep a consistent way of handling work.' },
+          { label: 'Review', detail: 'Flag exceptions before the handoff.' },
+          { label: 'Control', detail: 'Keep approval authority where it belongs.' },
+        ]}
+      />
 
       <h2>5. How is the work reviewed before it reaches us?</h2>
       <p>
@@ -73,12 +96,22 @@ export default function QuestionsToAskGuide() {
         Ask the provider to walk through a normal month. When are transactions processed? When do reconciliations happen? When are exceptions raised? When are reports or close schedules prepared? Who reviews them? A provider who can explain the workflow in practical terms gives you much more to evaluate than a generic promise of “timely books.”
       </p>
 
+      <h2>Does the workflow change by country?</h2>
+      <p>
+        The core bookkeeping questions are similar in the U.S., U.K. and Australia, but the surrounding compliance calendar and terminology can change. A U.S. business may be preparing records for a CPA's tax work; a U.K. business may need bookkeeping organised around VAT and year-end accounts; an Australian business may need records ready for BAS and end-of-financial-year work. The important question is whether the bookkeeping process is designed around the reporting and filing requirements that actually apply to the business, rather than assuming one workflow fits every market.
+      </p>
+
       <h2>For CPA Firms, Add One More Question</h2>
       <p>
         If you are a CPA firm, ask: <strong>“How much review-ready work should reach my team?”</strong> Production volume alone does not tell you whether the arrangement will help. If your staff still has to reorganise the file, chase explanations and correct avoidable issues, the capacity problem may simply have moved rather than disappeared.
       </p>
       <p>
         Look for a workflow that makes review easier: clear documentation, visible exceptions, consistent reconciliations and a defined handoff. Our <Link href="/industries/cpa-firms" className="text-primary font-medium hover:underline">CPA firm support</Link> page explains how that type of workflow can fit into an existing firm.
+      </p>
+
+      <h2>What Are the Warning Signs?</h2>
+      <p>
+        Be cautious if the scope is described only with broad phrases such as “full bookkeeping,” if no one can explain who reviews the work, or if additional charges are likely to appear whenever the workload changes. A provider does not need to promise that every month will be identical. It should be able to explain how exceptions, extra work and review questions are handled.
       </p>
 
       <h2>What a Good Conversation Should Cover</h2>

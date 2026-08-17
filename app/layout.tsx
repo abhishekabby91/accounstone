@@ -18,11 +18,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Accounstone | Outsourced Accounting & Bookkeeping",
+    default: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
     template: "%s | Accounstone",
   },
   description:
-    "Accounting and bookkeeping support for CPA firms and growing businesses, including tax preparation, payroll, payables, receivables, and audit support.",
+    "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
   authors: [{ name: "Accounstone" }],
   robots: {
     index: true,
@@ -47,23 +47,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Accounstone",
-    title: "Accounstone | Outsourced Accounting & Bookkeeping",
+    title: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
     description:
-      "Accounting and bookkeeping support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
+      "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses, with practical support across recurring accounting workflows.",
     images: [
       {
         url: `${baseUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "Accounstone — Outsourced Accounting & Bookkeeping",
+        alt: "Accounstone — Accounting, Tax, Bookkeeping & Audit Outsourcing",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accounstone | Outsourced Accounting & Bookkeeping",
+    title: "Accounting, Tax, Bookkeeping & Audit Outsourcing | Accounstone",
     description:
-      "Accounting and bookkeeping support for CPA firms and growing businesses.",
+      "Accounting, tax, bookkeeping and audit support for CPA firms and growing businesses.",
     images: [`${baseUrl}/og-image.png`],
   },
 };

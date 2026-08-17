@@ -1,182 +1,158 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import ArticleLayout from '@/components/article-layout';
+import ArticleVisual from '@/components/article-visual';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 const PATH = '/resources/guides/outsourced-accounts-payable-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounts Payable: How It Works in QuickBooks, Xero & NetSuite',
+  title: 'What Does Outsourced Accounts Payable Actually Include?',
   description:
-    'What outsourced AP processing actually covers, how approval workflows work in QuickBooks and Xero, what it costs, and the real questions controllers ask before handing off vendor payments.',
+    'A practical guide to outsourced accounts payable: invoice processing, approvals, payment controls, reconciliations, software workflows and what should stay in-house.',
   path: PATH,
 });
 
 export default function OutsourcedAPGuide() {
   return (
     <ArticleLayout
-      title="Outsourced Accounts Payable: How It Works in QuickBooks, Xero & NetSuite"
+      title="What Does Outsourced Accounts Payable Actually Include?"
       category="Guide"
-      description="From invoice receipt to payment approval: what the AP team handles, what stays with you, and the workflow questions that come up in real onboarding calls."
+      description="A practical look at invoice processing, approvals, payment controls and reconciliations across QuickBooks, Xero and NetSuite."
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-accounts-payable-guide"
     >
       <p>
-        Accounts payable outsourcing is one of the more straightforward back-office handoffs, but controllers and finance managers consistently ask the same set of questions before they start. The real concerns are not about whether the work can be done offshore — it clearly can — but about where the approval lines sit, how fraud is prevented, and whether the existing system (QuickBooks, Xero, NetSuite, Sage) needs to change.
+        Accounts payable often looks simple from the outside: receive an invoice, enter it, get it approved and pay it. The trouble starts when the volume grows. Invoices arrive in different formats, approvals sit in someone's inbox, duplicate bills slip through, and the controller ends up checking work that should already be ready for review.
       </p>
       <p>
-        This guide covers what outsourced AP processing actually includes, how it works inside the accounting software your team already uses, what it costs at different scales, and the specific questions that come up on Reddit&rsquo;s r/Accounting, r/smallbusiness, and in real onboarding conversations.
+        That is why the useful question is not simply, “Can AP be outsourced?” It is: <strong>which parts of the AP workflow can be handed off without giving up control over what gets paid?</strong>
       </p>
 
-      <h2>What Outsourced AP Processing Actually Includes</h2>
-      <p>Accounts payable processing — the recurring data-entry and workflow management — covers:</p>
+      <ArticleVisual
+        variant="control"
+        title="A controlled AP handoff"
+        items={[
+          { label: 'Capture', detail: 'Invoices enter one defined workflow.' },
+          { label: 'Check', detail: 'Coding and duplicates are reviewed.' },
+          { label: 'Approve', detail: 'Authorized people make the decision.' },
+          { label: 'Pay', detail: 'Payment authority stays controlled.' },
+        ]}
+      />
+
+      <h2>What an AP Team Usually Handles</h2>
+      <p>
+        A well-defined outsourced AP scope can include receiving invoices, entering bills, coding them to the correct accounts, checking for duplicates, matching purchase orders where applicable, maintaining due dates, routing invoices for approval and keeping the AP aging current.
+      </p>
+      <p>
+        The important boundary is payment authority. The AP team can prepare a payment queue, but the person responsible for the business should normally retain approval and bank-payment authority.
+      </p>
+
+      <h2>What Should Stay With the Business?</h2>
       <ul>
-        <li>Receiving vendor invoices (email, portal, or forwarded inbox)</li>
-        <li>Entering bills into your accounting system against the correct vendor record and expense account</li>
-        <li>Matching invoices against purchase orders where PO-based workflow is in place</li>
-        <li>Routing bills for internal approval per your approval matrix</li>
-        <li>Preparing the payment run (the list of what is due, when, and to whom)</li>
-        <li>Scheduling and coding payments once approved</li>
-        <li>Reconciling vendor statements against the AP ledger</li>
-        <li>Maintaining the AP aging report</li>
+        <li>Approving invoices and exceptions</li>
+        <li>Authorizing bank payments</li>
+        <li>Adding or changing sensitive vendor banking information</li>
+        <li>Resolving commercial disputes with vendors</li>
+        <li>Deciding whether an expense is appropriate for the business</li>
+        <li>Setting the approval matrix and payment policy</li>
       </ul>
       <p>
-        What it <strong>does not include</strong>: deciding which vendors to pay, approving invoices above your defined threshold, executing bank payments, managing vendor contracts, or resolving commercial disputes with vendors. Those decisions stay with you.
+        This division matters because outsourcing data entry should not mean outsourcing financial control. A business can delegate the repetitive workflow while keeping the decisions that require internal authority.
       </p>
 
-      <h2>How AP Outsourcing Works in Common Accounting Software</h2>
-
-      <h3>QuickBooks Online (US, UK, Australia)</h3>
+      <h2>What Happens in QuickBooks, Xero or NetSuite?</h2>
+      <h3>QuickBooks Online</h3>
       <p>
-        QBO&rsquo;s bills workflow is the most common setup for small and mid-market businesses in all three markets:
+        A typical workflow is invoice receipt, bill entry, coding, approval, payment preparation and reconciliation. If approvals happen outside QuickBooks, the process should still leave a clear record of who approved the bill and when.
       </p>
-      <ul>
-        <li><strong>Bill entry:</strong> Vendor invoices are entered as Bills against the vendor record, categorized to the correct expense account or class, and dated per the invoice date (not the entry date)</li>
-        <li><strong>Approval:</strong> QBO doesn&rsquo;t have a native multi-level approval workflow in most tiers, so approval typically happens outside QBO (via email confirmation or a shared tracker) before the bill is marked approved</li>
-        <li><strong>Payment queue:</strong> Approved bills appear in the Pay Bills queue. The AP team prepares the payment run — which bills to pay, with what amount and method — for review by the authorized approver</li>
-        <li><strong>Payment execution:</strong> The authorized internal person initiates the payment (ACH, check, or QBO Bill Pay). The AP team does not initiate payments.</li>
-        <li><strong>Reconciliation:</strong> Vendor statements are reconciled against QBO&rsquo;s vendor balance reports monthly</li>
-      </ul>
 
-      <h3>Xero (US, UK, Australia)</h3>
+      <h3>Xero</h3>
       <p>
-        Xero has a more structured AP workflow than QBO, particularly in the UK and Australia where it is dominant:
+        Xero can support draft and approval stages, which makes it easier to separate data entry from authorization. The exact workflow depends on the subscription, permissions and the business's approval setup, so those should be checked before the process is designed around a particular feature.
       </p>
-      <ul>
-        <li><strong>Bills to pay module:</strong> Invoices are entered as draft or awaiting approval bills, with line-item coding and due date tracking</li>
-        <li><strong>Approval workflow:</strong> Xero&rsquo;s approval flow supports multi-user approval chains — the AP team enters and submits; the approver reviews and approves; the AP team then schedules the batch payment</li>
-        <li><strong>Batch payments:</strong> Xero generates a batch payment file for your bank. The file is exported and submitted via your bank&rsquo;s online banking — not from within Xero. Bank access stays with your authorized signatories.</li>
-        <li><strong>Hubdoc integration:</strong> Many Xero users combine Hubdoc (owned by Xero) for receipt and invoice capture, which auto-publishes bills to Xero for the AP team to code and route</li>
-      </ul>
 
-      <h3>NetSuite (Mid-market, Multi-entity)</h3>
+      <h3>NetSuite</h3>
       <p>
-        NetSuite AP is more complex and appropriate for multi-entity, high-volume environments:
+        NetSuite becomes more important when AP involves multiple entities, subsidiaries, departments or more formal approval rules. In that environment, the handoff needs to account for entity coding, approval routing, intercompany transactions and the controls around payment files.
       </p>
-      <ul>
-        <li><strong>Vendor bills:</strong> Entered against subsidiary and location dimensions, with GL impact across consolidated entities</li>
-        <li><strong>Approval routing:</strong> NetSuite&rsquo;s SuiteFlow can automate approval routing based on vendor, amount, department, and subsidiary</li>
-        <li><strong>Payment processing:</strong> NetSuite generates EFT/ACH payment files; execution is via your bank</li>
-        <li><strong>Intercompany AP:</strong> Multi-entity intercompany bills are a common add-on scope item — coding intercompany transactions correctly so they eliminate properly in consolidation</li>
-      </ul>
 
-      <h3>Sage (UK, US)</h3>
+      <ArticleVisual
+        variant="workflow"
+        title="Where exceptions should surface"
+        items={[
+          { label: 'Invoice', detail: 'Capture the bill and required details.' },
+          { label: 'Coding', detail: 'Check entity, account and tax treatment.' },
+          { label: 'Exception', detail: 'Flag duplicates or unusual items.' },
+          { label: 'Decision', detail: 'Send the right question to the right owner.' },
+        ]}
+      />
+
+      <h2>“What If Someone Sends a Duplicate Invoice?”</h2>
       <p>
-        Sage 50 and Sage Intacct are common in UK accountancy practice environments:
+        This is one of the practical questions worth answering before the handoff. A basic duplicate check should compare the vendor, invoice number, amount and relevant dates before a bill is entered or paid. A stronger process also flags unusual changes in vendor details instead of treating every invoice as routine.
       </p>
-      <ul>
-        <li><strong>Sage 50:</strong> Purchase ledger entry, supplier invoice posting, and remittance advice generation. Access is typically via Remote Desktop or a shared cloud setup</li>
-        <li><strong>Sage Intacct:</strong> More structured AP workflow with role-based access — the AP team has data-entry and routing permissions without payment execution access</li>
-      </ul>
-
-      <h2>The Approval and Fraud Control Question</h2>
       <p>
-        The most consistent concern in r/Accounting and r/CFO discussions about AP outsourcing is fraud prevention. The right structure is straightforward:
+        The goal is not to make the AP team responsible for investigating every suspicious transaction. Their job is to identify and flag exceptions early enough for the authorized person to decide what happens next.
+      </p>
+
+      <h2>“What About a Vendor Dispute?”</h2>
+      <p>
+        If a vendor says an invoice is overdue but your team believes the amount is wrong, the AP team should record the dispute and keep it visible. The commercial decision stays with the business. Otherwise, an outsourced team can accidentally turn a bookkeeping task into a purchasing or contract decision.
+      </p>
+
+      <h2>US, UK and Australia: What Changes?</h2>
+      <p>
+        The basic AP workflow is similar across markets, but the tax treatment around purchases is not identical.
       </p>
       <ul>
-        <li><strong>The AP team enters and organizes.</strong> They do not approve invoices or execute payments.</li>
-        <li><strong>Internal approvers approve.</strong> An authorized person inside your business approves each bill above a threshold — typically via Xero&rsquo;s approval flow, an email confirmation, or a shared tracker.</li>
-        <li><strong>Payment execution stays internal.</strong> ACH initiation, check signing, wire authorization — these stay with an authorized person who has bank access. The AP team never touches bank accounts.</li>
-        <li><strong>Vendor master maintenance has controls.</strong> New vendors are added only by someone inside your organization, not by the AP team, to prevent fake vendor fraud.</li>
-        <li><strong>Statement reconciliations catch drift.</strong> Monthly reconciliation of vendor statements against the AP ledger catches invoices that were never entered and payments that were applied incorrectly.</li>
-      </ul>
-
-      <h2>Location-Specific AP Nuances</h2>
-
-      <h3>United States</h3>
-      <ul>
-        <li><strong>1099 vendor management:</strong> Vendors who are unincorporated individuals or partnerships need W-9s on file and 1099-NEC or 1099-MISC issued annually. The AP team maintains the vendor records and flags the 1099-reportable vendors; your accountant or bookkeeper issues the forms</li>
-        <li><strong>Sales tax on purchases:</strong> Use tax applies when you purchase from vendors who didn&rsquo;t charge sales tax and the item would have been taxable. Tracking and accruing use tax is often an AP responsibility in higher-volume businesses</li>
-        <li><strong>Three-way matching:</strong> In businesses with purchase orders, invoice matching against PO and receiving record is standard practice and a key fraud control</li>
-      </ul>
-
-      <h3>United Kingdom</h3>
-      <ul>
-        <li><strong>VAT on purchases:</strong> Input VAT must be correctly coded and reclaimed. AP coding errors on VAT (wrong VAT code, missing VAT number, incorrect partial exemption treatment) create real problems at VAT return time. The AP team codes VAT per the invoice; your VAT-registered accountant or finance manager reviews</li>
-        <li><strong>Making Tax Digital:</strong> MTD requires digital records of all VAT transactions — AP entries in Xero or Sage satisfy this requirement, but paper-only records do not</li>
-        <li><strong>CIS (Construction Industry Scheme):</strong> If you work in construction, CIS requires withholding from payments to subcontractors. CIS deduction rates must be verified before payment runs</li>
-      </ul>
-
-      <h3>Australia</h3>
-      <ul>
-        <li><strong>GST on purchases:</strong> Input tax credits (ITC) on GST-inclusive purchases must be correctly coded per each vendor&rsquo;s ABN and GST registration status. Invoices without an ABN or from non-GST-registered suppliers are coded differently</li>
-        <li><strong>RCTI (Recipient-Created Tax Invoices):</strong> Some Australian AP arrangements use RCTIs where the buyer creates the tax invoice rather than the supplier — this has specific ATO requirements</li>
-        <li><strong>Payment terms:</strong> Australian businesses typically pay on 30-day terms; the AP team should maintain a due-date tracker to avoid late payment penalties in contractual situations</li>
-      </ul>
-
-      <h2>What Does Outsourced AP Cost?</h2>
-      <p>Per-invoice pricing is most common:</p>
-      <ul>
-        <li><strong>Basic entry and routing (no PO matching):</strong> $0.50–$1.50 per invoice offshore</li>
-        <li><strong>Three-way PO matching:</strong> $1.50–$3.00 per invoice</li>
-        <li><strong>Multi-entity AP with intercompany coding:</strong> $2.00–$4.00 per invoice</li>
-        <li><strong>Fixed monthly fee (common for consistent volumes):</strong> $400–$1,500/month for 200–500 invoices/month offshore</li>
-        <li><strong>Onshore equivalent:</strong> 50–65% more than offshore rates</li>
+        <li><strong>US:</strong> vendor information and year-end reporting requirements need to be captured correctly, while sales and use-tax treatment can vary by state and transaction.</li>
+        <li><strong>UK:</strong> VAT coding is important because incorrect purchase VAT treatment can create problems when records are used for VAT reporting.</li>
+        <li><strong>Australia:</strong> GST treatment and supplier information need to be recorded correctly, particularly where input tax credits are relevant.</li>
       </ul>
       <p>
-        Most outsourced AP engagements make economic sense when the in-house alternative is a part-time or full-time AP clerk role, or when the owner/controller is spending meaningful time on invoice entry and approval routing each month.
+        The accounting team can apply the coding rules already established by the business or its tax adviser. It should not independently make a new tax position simply because an invoice looks unusual.
       </p>
 
-      <h2>The Real Questions That Come Up Before Outsourcing AP</h2>
-
-      <h3>&ldquo;What happens with the vendor email inbox?&rdquo;</h3>
+      <h2>How Much Does Outsourced AP Cost?</h2>
       <p>
-        Set up a dedicated AP email address (e.g. ap@yourbusiness.com or bills@yourbusiness.com) that both the AP team and your internal finance contact can access. Vendors send invoices there; the AP team processes from there. Avoid using a personal or generic email that mixes AP invoices with other correspondence.
+        There is no useful universal price per invoice. Cost depends on invoice volume, how much coding is required, whether purchase-order matching is involved, how many entities are included, the number of approval steps and whether vendor reconciliations are part of the scope.
+      </p>
+      <p>
+        A business processing a few dozen straightforward invoices has a very different requirement from a multi-entity company processing hundreds of invoices with three-way matching. Comparing providers only on a per-invoice number can hide the work happening around each invoice.
       </p>
 
-      <h3>&ldquo;How do they handle disputed invoices?&rdquo;</h3>
-      <p>
-        The AP team should flag disputed invoices rather than enter and route them. The dispute resolution — whether the invoice is correct, whether to accept a credit note, whether to pay a partial amount — is a business decision that stays with you. The AP team can track open disputes and follow up for documentation; they should not resolve commercial disputes independently.
-      </p>
+      <h2>Questions to Ask Before You Hand Off AP</h2>
+      <ol>
+        <li>Who receives the invoices?</li>
+        <li>Who checks the coding?</li>
+        <li>Who approves the invoice?</li>
+        <li>Who can change vendor banking information?</li>
+        <li>Who actually releases the payment?</li>
+        <li>How are duplicate invoices identified?</li>
+        <li>How are disputed invoices tracked?</li>
+        <li>How are vendor statements reconciled?</li>
+        <li>What happens when an invoice arrives after the cutoff?</li>
+        <li>Who reviews the AP aging before month-end close?</li>
+      </ol>
 
-      <h3>&ldquo;What if a vendor sends a fake or duplicate invoice?&rdquo;</h3>
+      <h2>A Good First Step Is Smaller Than You Think</h2>
       <p>
-        Duplicate detection is a standard AP control: checking the vendor, invoice number, and amount against existing bills before entry. For fake invoices (from vendors not on your approved vendor list), the control is a restricted vendor master — new vendors are only added by an authorized internal person, not by the AP team. These two controls together prevent the most common AP fraud vectors.
+        You do not have to hand over the entire AP function on day one. A sensible starting point can be invoice intake, coding and approval routing while payment authorization remains internal. Once that process is stable, vendor statement reconciliation, aging management or additional entities can be added if they make sense.
       </p>
-
-      <h3>&ldquo;Can they work with our existing approval matrix?&rdquo;</h3>
       <p>
-        Yes. Most businesses have a simple approval matrix (e.g. invoices under $1,000 approved by department manager; over $1,000 by CFO or owner). The AP team routes per whatever matrix you define — via email, Xero&rsquo;s approval flow, Slack, or a shared tracker. The approval step itself stays with your internal team.
-      </p>
-
-      <h3>&ldquo;What&rsquo;s the biggest AP mistake before outsourcing?&rdquo;</h3>
-      <p>
-        Not cleaning up the vendor master before handing off. Duplicate vendors, vendors with no ABN/VAT number on file, vendors coded to wrong expense accounts, and vendors with incorrect payment terms all create more work once the AP team starts and frequently surface as the first thing that needs reconciliation.
+        That approach also gives the business a chance to see whether the handoff actually reduces review time. If the internal team is still correcting every invoice, the process needs work before more volume is delegated.
       </p>
 
       <div className="mt-8 p-6 bg-input rounded-xl border border-border/70">
-        <p className="font-semibold text-primary mb-3">Relevant services</p>
+        <p className="font-semibold text-primary mb-3">Continue exploring</p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/services/accounts-payable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Payable</Link>
-          <Link href="/services/accounting" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounting Services</Link>
+          <Link href="/services/accounts-payable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Payable Support</Link>
           <Link href="/technology/quickbooks" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">QuickBooks</Link>
           <Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Xero</Link>
           <Link href="/technology/netsuite" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">NetSuite</Link>
-          <Link href="/technology/sage" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Sage</Link>
-          <Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">U.S. Market</Link>
-          <Link href="/markets/united-kingdom" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">UK Market</Link>
-          <Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Australia Market</Link>
+          <Link href="/resources/guides/outsourced-bookkeeping-cost-guide" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping Cost Guide</Link>
         </div>
       </div>
     </ArticleLayout>
