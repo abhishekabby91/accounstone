@@ -11,7 +11,11 @@ import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/li
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#1e3a5f",
+  maximumScale: 5,       // allow pinch-zoom for accessibility — do NOT set to 1
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#1e3a5f" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1f35" },
+  ],
   colorScheme: "light",
 };
 

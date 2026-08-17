@@ -340,7 +340,7 @@ export default function Navbar() {
                     key={item.href}
                     href={item.href}
                     aria-current={isActive(item.href) ? 'page' : undefined}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-colors ${
+                    className={`block px-4 py-3.5 min-h-[48px] flex items-center rounded-lg font-medium transition-colors active:bg-input ${
                       isActive(item.href)
                         ? 'bg-input text-primary'
                         : 'text-foreground hover:bg-input hover:text-primary'
@@ -395,7 +395,7 @@ export default function Navbar() {
                               key={child.href}
                               href={child.href}
                               onClick={() => setMobileMenuOpen(false)}
-                              className="block px-4 py-2 rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors"
+                              className="block px-4 py-3 min-h-[44px] flex items-center rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                             >
                               {child.label}
                             </Link>
@@ -412,7 +412,7 @@ export default function Navbar() {
                           key={child.href}
                           href={child.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-4 py-2 rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors"
+                          className="block px-4 py-3 min-h-[44px] flex items-center rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input"
                         >
                           {child.label}
                         </Link>
@@ -424,7 +424,7 @@ export default function Navbar() {
             })}
             <Link
               href="/contact"
-              className="block w-full mt-4 px-4 py-3 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all text-center"
+              className="block w-full mt-4 px-4 py-4 min-h-[52px] rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all text-center active:scale-[0.98]"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get Started

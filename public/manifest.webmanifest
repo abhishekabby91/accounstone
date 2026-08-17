@@ -1,21 +1,44 @@
 {
-  "name": "Accounstone",
+  "name": "Accounstone — Outsourced Accounting & Bookkeeping",
   "short_name": "Accounstone",
-  "description": "Outsourced Accounting & Finance Solutions for CPA Firms and Growing Businesses",
+  "description": "Outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses in the US, UK, and Australia.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#faf8f3",
   "theme_color": "#1e3a5f",
+  "orientation": "any",
+  "lang": "en",
+  "categories": ["finance", "business"],
   "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-light-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
     {
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/favicon.ico",
-      "sizes": "16x16 32x32 48x48 64x64 128x128 256x256",
-      "type": "image/x-icon"
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
