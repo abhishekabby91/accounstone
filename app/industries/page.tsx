@@ -24,12 +24,12 @@ export default function IndustriesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
             Industries
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary text-balance">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary text-balance">
             Industries We Serve
           </h1>
           <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">

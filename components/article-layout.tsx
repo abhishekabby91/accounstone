@@ -52,7 +52,7 @@ export default function ArticleLayout({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-16 md:py-24 px-6 md:px-8 hero-gradient text-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 hero-gradient text-white">
         <div className="max-w-3xl mx-auto space-y-4">
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-white/80">
             {category}
@@ -74,7 +74,7 @@ export default function ArticleLayout({
         </ol>
       </nav>
 
-      <article className="w-full py-12 md:py-16 px-6 md:px-8 bg-white">
+      <article className="w-full py-7 md:py-10 px-6 md:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <Reveal className="prose-content space-y-8">
             <>{children}</>

@@ -155,14 +155,14 @@ export default function Navbar() {
 
   return (
     <header className="w-full bg-background border-b-2 border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-14 flex items-center justify-between">
-        <Link href="/" className="flex items-center h-14 px-2 sm:px-3 shrink-0">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-12 flex items-center justify-between">
+        <Link href="/" className="flex items-center h-12 px-2 sm:px-3 shrink-0">
           <Image
             src="/accounstone-logo-horizontal.png"
             alt="Accounstone"
-            width={200}
-            height={44}
-            className="h-8 w-auto"
+            width={160}
+            height={36}
+            className="h-7 w-auto"
             priority
           />
         </Link>
@@ -181,7 +181,7 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   aria-current={isActive(item.href) ? 'page' : undefined}
-                  className={`transition-colors font-medium text-sm lg:text-base ${
+                  className={`transition-colors font-medium text-sm ${
                     isActive(item.href) ? 'text-primary' : 'text-foreground hover:text-primary'
                   }`}
                 >
@@ -204,7 +204,7 @@ export default function Navbar() {
                   onClick={() => setOpenDropdown(isOpen ? null : item.label)}
                   aria-haspopup="true"
                   aria-expanded={isOpen}
-                  className={`flex items-center gap-1 transition-colors font-medium text-sm lg:text-base ${
+                  className={`flex items-center gap-1 transition-colors font-medium text-sm ${
                     isActive(item.href) ? 'text-primary' : 'text-foreground hover:text-primary'
                   }`}
                 >
@@ -320,7 +320,7 @@ export default function Navbar() {
         <nav
           id="mobile-menu"
           aria-label="Mobile"
-          className="md:hidden bg-white border-t border-border max-h-[calc(100vh-3.5rem)] overflow-y-auto"
+          className="md:hidden bg-white border-t border-border max-h-[calc(100vh-3rem)] overflow-y-auto"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">

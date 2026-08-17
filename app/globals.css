@@ -31,7 +31,6 @@ body {
   font-family: var(--font-sans);
   background: var(--color-background);
   color: var(--color-foreground);
-  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
@@ -344,13 +343,12 @@ a {
   letter-spacing: -0.01em;
 }
 
-/* Heading line-height and letter-spacing only —
-   font-size is controlled via Tailwind text-* utilities per component,
-   NOT globally here, to avoid compounding with those classes. */
-h1, h2, h3, h4 {
-  line-height: 1.2;
-  letter-spacing: -0.015em;
-}
+/* Heading defaults: Tailwind text-* utilities override these.
+   These only apply when no Tailwind class is present. */
+h1 { font-size: 1.875rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem;   font-weight: 700; line-height: 1.2;  letter-spacing: -0.015em; }
+h3 { font-size: 1.25rem;  font-weight: 600; line-height: 1.25; }
+h4 { font-size: 1.125rem; font-weight: 600; line-height: 1.3; }
 
 p {
   line-height: 1.65;
@@ -506,10 +504,10 @@ a[href] {
   }
 }
 
-/* 10. Prevent horizontal scroll from any overflowing content. */
-body, html {
-  overflow-x: hidden;
-  max-width: 100vw;
+/* 10. Prevent horizontal scroll — use clip on html only, NOT overflow:hidden
+   on body/html as that breaks position:sticky. */
+html {
+  overflow-x: clip;
 }
 
 /* 11. Image responsive defaults: never overflow, maintain aspect ratio. */

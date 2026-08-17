@@ -24,7 +24,7 @@ export default function AboutPage() {
       />
 
       {/* Mission & Vision */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
@@ -72,9 +72,9 @@ export default function AboutPage() {
       </section>
 
       {/* Who We Are — honest, growing-company framing */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-primary text-center text-balance mb-16">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary text-center text-balance mb-16">
             A Growing Team, Not a Faceless Vendor
           </h2>
 
@@ -125,13 +125,13 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
               What Sets Us Apart
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
               Why Businesses Choose Accounstone
             </h2>
           </div>

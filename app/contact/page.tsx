@@ -58,7 +58,7 @@ export default function ContactPage() {
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
@@ -67,7 +67,7 @@ export default function ContactPage() {
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   Free Consultation
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary">
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">
                   Schedule Your Meeting
                 </h2>
               </div>

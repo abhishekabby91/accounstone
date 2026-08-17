@@ -155,11 +155,11 @@ export default function YardiTexasPage() {
         </ol>
       </nav>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="space-y-2">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
               Yardi-Based Accounting for Texas Property Managers
             </h2>
           </div>
@@ -167,11 +167,11 @@ export default function YardiTexasPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
               Why Property Managers Choose This Support
             </h2>
           </div>
@@ -186,11 +186,11 @@ export default function YardiTexasPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Our Process</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
               How We Onboard Your Portfolio
             </h2>
           </div>
@@ -212,11 +212,11 @@ export default function YardiTexasPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Deliverables</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What You Get</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What You Get</h2>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {deliverables.map((deliverable, i) => (

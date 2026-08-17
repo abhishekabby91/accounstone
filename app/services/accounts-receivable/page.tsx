@@ -53,11 +53,11 @@ export default function ARPage() {
         </ol>
       </nav>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The AR cycle</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">From invoice to collection — what the AR team handles</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">From invoice to collection — what the AR team handles</h2>
           </></Reveal>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
             {[
@@ -83,7 +83,7 @@ export default function ARPage() {
         <div className="max-w-4xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Cash flow impact</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance mt-2">What reducing DSO actually means in dollars</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-primary text-balance mt-2">What reducing DSO actually means in dollars</h2>
           </></Reveal>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
             {[

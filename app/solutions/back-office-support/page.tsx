@@ -68,7 +68,7 @@ export default function BackOfficeSupportPage() {
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
@@ -116,7 +116,7 @@ export default function BackOfficeSupportPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Back Office Service Model</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -14,7 +14,7 @@ const socials = [
 export default function HeaderBar() {
   return (
     <div className="w-full bg-primary-dark text-white/80 text-xs md:text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-1.5 flex items-center justify-between gap-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-1 flex items-center justify-between gap-3">
 
         {/* Left — contact icons only (tappable, screen-reader labelled) */}
         <div className="flex items-center gap-1">
@@ -22,7 +22,7 @@ export default function HeaderBar() {
             href="mailto:partner@accounstone.com"
             aria-label="Email Accounstone at partner@accounstone.com"
             title="partner@accounstone.com"
-            className="flex h-8 w-8 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+            className="flex h-7 w-7 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
           >
             <Mail size={15} aria-hidden="true" />
           </a>
@@ -30,7 +30,7 @@ export default function HeaderBar() {
             href="tel:+919990597192"
             aria-label="Call Accounstone at +91 99905 97192"
             title="+91 99905 97192"
-            className="flex h-8 w-8 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
+            className="flex h-7 w-7 items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-all duration-200"
           >
             <Phone size={15} aria-hidden="true" />
           </a>

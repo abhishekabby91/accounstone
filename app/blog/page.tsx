@@ -80,7 +80,7 @@ export default function BlogPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-primary dot-grid-dark">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-primary dot-grid-dark">
         <Reveal className="max-w-4xl mx-auto text-center space-y-5 relative z-10">
           <>
             <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-wide uppercase text-white/70">
@@ -96,7 +96,7 @@ export default function BlogPage() {
         </Reveal>
       </section>
 
-      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-background">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-background">
         <div className="max-w-5xl mx-auto">
           <nav aria-label="Breadcrumb" className="mb-10">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-muted">

@@ -53,7 +53,7 @@ export default function PremiumHero({
         };
 
   return (
-    <section className={`relative w-full py-16 md:py-20 lg:py-24 px-6 md:px-8 ${bgClass}`}>
+    <section className={`relative w-full py-8 md:py-10 lg:py-24 px-6 md:px-8 ${bgClass}`}>
       <div className="max-w-7xl mx-auto">
         <div className={`grid grid-cols-1 ${image ? 'md:grid-cols-2' : ''} gap-12 md:gap-16 items-center`}>
           <div className="space-y-8">
@@ -69,7 +69,7 @@ export default function PremiumHero({
 
             <motion.h1
               {...fadeUp(0.08)}
-              className={`text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-balance ${
+              className={`text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-balance ${
                 background === 'default' ? 'text-primary' : ''
               }`}
             >

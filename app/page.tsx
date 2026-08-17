@@ -73,13 +73,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-white">
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-4 mb-10">
           <>
             <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
               <span className="w-4 h-px bg-accent" aria-hidden="true" />How We Work
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
             <p className="text-muted leading-relaxed">Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting businesses and accounting practices across the US, UK, and Australia.</p>
           </>
         </Reveal>
@@ -88,11 +88,11 @@ export default function HomePage() {
 
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
-      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light relative overflow-hidden cta-glow dot-grid-dark">
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-linear-to-r from-primary to-primary-light relative overflow-hidden cta-glow dot-grid-dark">
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 ledger-lines-dark" />
         <Reveal className="relative max-w-7xl mx-auto text-center space-y-6">
           <>
-            <h2 className="text-3xl md:text-4xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">Add experienced accounting professionals to your workflow without rebuilding your entire team.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">Talk to Our Team</Link>
@@ -107,7 +107,7 @@ export default function HomePage() {
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
       <section data-section="services"><SectionGrid subtitle="What We Do" title="Accounting Services That Keep Work Moving" description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support." items={services} baseUrl="/services" columns={3} variant="default" /></section>
 
-      <section className="w-full py-14 md:py-20 px-6 md:px-8 bg-white relative">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-white relative">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <Reveal className="space-y-6">
@@ -115,7 +115,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   <span className="w-4 h-px bg-accent" aria-hidden="true" />Why Accounstone
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
+                <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
                 <p className="text-lg text-muted leading-relaxed">We work inside your processes, follow your review standards, and become a dependable extension of your team.</p>
                 <div className="space-y-4 pt-4 pl-5 margin-rule">
                   {['Experienced accounting professionals', 'Dedicated support during busy periods', 'Documented onboarding and knowledge transfer', 'Quality review before work reaches your team', 'Clear communication and defined ownership', 'Flexible engagement models as workload changes'].map((item, i) => (

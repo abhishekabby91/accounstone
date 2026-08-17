@@ -25,7 +25,7 @@ export default function FAQSection({
   const colsClass = columns === 2 ? 'md:grid-cols-2' : '';
 
   return (
-    <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+    <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 text-center space-y-4">
           {subtitle && (
@@ -33,7 +33,7 @@ export default function FAQSection({
               {subtitle}
             </span>
           )}
-          <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">
+          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
             {title}
           </h2>
         </div>

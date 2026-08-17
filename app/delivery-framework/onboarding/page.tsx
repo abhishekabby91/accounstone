@@ -46,7 +46,7 @@ export default function OnboardingPage() {
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="space-y-8">
             <h2 className="text-4xl font-bold text-primary">Our Onboarding Approach</h2>

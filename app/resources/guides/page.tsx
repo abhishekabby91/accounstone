@@ -74,11 +74,11 @@ export default function GuidesPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-6">
           <>
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Guides</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary text-balance">In-Depth Guides</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary text-balance">In-Depth Guides</h1>
           <p className="text-lg text-muted leading-relaxed">
             Longer-form guides on the accounting decisions that actually come up
             for growing businesses and CPA firms.
@@ -87,7 +87,7 @@ export default function GuidesPage() {
         </Reveal>
       </section>
 
-      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-input">
         <div className="max-w-3xl mx-auto space-y-6">
           {guides.map((guide, i) => (
             <Reveal key={guide.href} delay={Math.min(i * 0.08, 0.24)}>
@@ -109,7 +109,7 @@ export default function GuidesPage() {
       {/* Cross-links to the state-specific market pages -- these live
           under /markets/united-states/*, not duplicated here, just
           linked so they're discoverable from Resources too. */}
-      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-white">
         <div className="max-w-3xl mx-auto">
           <Reveal>
             <div className="text-center space-y-2 mb-8">

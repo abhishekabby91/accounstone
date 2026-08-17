@@ -21,13 +21,13 @@ export default function TestimonialsSection({
   testimonials,
 }: TestimonialsSectionProps) {
   return (
-    <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-white">
+    <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="mb-14 text-center space-y-4 max-w-3xl mx-auto">
           {subtitle && (
             <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">{subtitle}</span>
           )}
-          <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">{title}</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">{title}</h2>
           <p className="text-muted leading-7">
             These are common workflow situations, not client testimonials. The right support model depends on the work, review process, systems, and capacity your team needs.
           </p>

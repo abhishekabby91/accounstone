@@ -36,11 +36,11 @@ export default function InsightsPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-6">
           <>
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Insights</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary text-balance">Quick Explainers</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary text-balance">Quick Explainers</h1>
           <p className="text-lg text-muted leading-relaxed">
             Shorter reads on specific accounting and tax topics that come up for
             growing businesses.
@@ -49,7 +49,7 @@ export default function InsightsPage() {
         </Reveal>
       </section>
 
-      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-input">
         <div className="max-w-3xl mx-auto space-y-6">
           {insights.map((insight, i) => (
             <Reveal key={insight.href} delay={Math.min(i * 0.08, 0.24)}>

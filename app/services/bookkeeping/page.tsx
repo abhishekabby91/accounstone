@@ -70,11 +70,11 @@ export default function BookkeepingPage() {
       </nav>
 
       {/* What it covers */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto space-y-8">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The work</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">What the bookkeeper actually does</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">What the bookkeeper actually does</h2>
             <p className="text-lg text-muted leading-relaxed mt-4">Bookkeeping is the recurring maintenance work that keeps your accounting records current and reconciled. In practice that means: transactions get posted and categorized against your chart of accounts, bank and credit card accounts get reconciled when statements close, exceptions and unmatched items get flagged and resolved, and a reporting package gets organized for whoever reviews it — your CPA, controller, or yourself.</p>
             <p className="text-lg text-muted leading-relaxed mt-4">What it does not include: tax advice, audit opinions, management decisions on reclassifications, or anything that requires a licensed CPA or Enrolled Agent. Those stay with your accountant.</p>
           </></Reveal>
@@ -101,11 +101,11 @@ export default function BookkeepingPage() {
       </section>
 
       {/* What nobody tells you */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-4xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">What nobody tells you</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">The things accountants learn by doing it</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">The things accountants learn by doing it</h2>
           </></Reveal>
           <div className="mt-10 space-y-6">
             {[
@@ -126,11 +126,11 @@ export default function BookkeepingPage() {
       </section>
 
       {/* Software notes */}
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Software</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">How it works in each platform</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">How it works in each platform</h2>
             <p className="text-muted leading-relaxed mt-4 max-w-2xl">We work inside your existing accounting software. Here is how outsourced bookkeeping typically operates in the platforms we support most.</p>
           </></Reveal>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -154,11 +154,11 @@ export default function BookkeepingPage() {
       </section>
 
       {/* Region-specific */}
-      <section id="regions" className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section id="regions" className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">By region</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">How bookkeeping differs by market</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">How bookkeeping differs by market</h2>
           </></Reveal>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
             {regionNotes.map((r, i) => (
@@ -183,7 +183,7 @@ export default function BookkeepingPage() {
         <div className="max-w-4xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Cost context</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance mt-2">What outsourced bookkeeping typically costs</h2>
+            <h2 className="text-xl md:text-2xl font-bold text-primary text-balance mt-2">What outsourced bookkeeping typically costs</h2>
             <p className="text-muted leading-relaxed mt-4">The most common question people ask before engaging an offshore bookkeeping team. These are real-world ranges, not marketing numbers.</p>
           </></Reveal>
           <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -208,7 +208,7 @@ export default function BookkeepingPage() {
 
       <FAQSection subtitle="Bookkeeping Questions" items={faqs} columns={2} />
 
-      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-input">
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl font-bold text-primary mb-5">Related resources</h2>
           <div className="flex flex-wrap gap-3">

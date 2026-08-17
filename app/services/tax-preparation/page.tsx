@@ -60,11 +60,11 @@ export default function TaxPreparationPage() {
         </ol>
       </nav>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope boundary</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">Preparation vs. advice — where the line sits</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">Preparation vs. advice — where the line sits</h2>
           </></Reveal>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
             <Reveal>
@@ -95,11 +95,11 @@ export default function TaxPreparationPage() {
         </div>
       </section>
 
-      <section id="regions" className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section id="regions" className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">By region</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">How tax preparation differs by market</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">How tax preparation differs by market</h2>
           </></Reveal>
           <div className="mt-10 space-y-5">
             {regionData.map((r, i) => (

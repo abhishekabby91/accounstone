@@ -102,24 +102,24 @@ export default function FloridaPage() {
         </ol>
       </nav>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-6">
           <>
           <div className="space-y-2">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">What Makes Florida Different</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Makes Florida Different</h2>
           </div>
           <p className="text-lg text-muted leading-relaxed">{overview}</p>
           </>
         </Reveal>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal className="text-center space-y-4 mb-16">
             <>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Support</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">Built Around Florida Specifics</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Built Around Florida Specifics</h2>
             </>
           </Reveal>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">

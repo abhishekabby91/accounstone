@@ -62,11 +62,11 @@ export default function CaseStudiesPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-3xl mx-auto text-center space-y-6">
           <>
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Case Studies</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-primary text-balance">Illustrative Scenarios</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-primary text-balance">Illustrative Scenarios</h1>
           <p className="text-lg text-muted leading-relaxed">
             We're a growing company and don't have named client case studies to
             share publicly yet. The scenarios below illustrate the kinds of
@@ -77,7 +77,7 @@ export default function CaseStudiesPage() {
         </Reveal>
       </section>
 
-      <section className="w-full py-16 md:py-20 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-input">
         <div className="max-w-4xl mx-auto space-y-8">
           {scenarios.map((scenario, i) => (
             <Reveal key={scenario.title} delay={Math.min(i * 0.08, 0.24)}>

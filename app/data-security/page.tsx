@@ -21,7 +21,7 @@ export default function DataSecurityPage() {
         background="primary-gradient"
       />
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto space-y-16">
           <div className="bg-input border-2 border-border rounded-lg p-8">
             <h2 className="text-2xl font-bold text-primary mb-4">Where We Stand Today</h2>

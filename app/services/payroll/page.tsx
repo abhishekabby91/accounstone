@@ -60,11 +60,11 @@ export default function PayrollPage() {
         </ol>
       </nav>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto space-y-6">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">What the payroll team handles</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">What the payroll team handles</h2>
             <p className="text-lg text-muted leading-relaxed mt-4">Payroll processing is the recurring calculation, documentation, and record-keeping work that happens each pay cycle. It is not HR strategy, employment law advice, or benefits design — those stay with your internal team or HR advisor. The payroll team prepares the run; your authorized person reviews and submits it.</p>
           </></Reveal>
           <Reveal delay={0.1}>
@@ -80,11 +80,11 @@ export default function PayrollPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-input">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">By region</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">Payroll compliance by market</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">Payroll compliance by market</h2>
             <p className="text-muted leading-relaxed mt-4 max-w-2xl">Each jurisdiction has its own payroll compliance layer. These are the recurring elements involved in each market.</p>
           </></Reveal>
           <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -107,11 +107,11 @@ export default function PayrollPage() {
         </div>
       </section>
 
-      <section className="w-full py-20 md:py-28 px-6 md:px-8 bg-white">
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-4xl mx-auto">
           <Reveal><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Common mistakes</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance mt-2">What goes wrong with outsourced payroll</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">What goes wrong with outsourced payroll</h2>
           </></Reveal>
           <div className="mt-10 space-y-5">
             {[
