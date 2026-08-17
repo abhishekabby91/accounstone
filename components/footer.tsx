@@ -64,7 +64,7 @@ export default function Footer() {
   ];
   return (
     <footer className="bg-primary text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-14 md:pt-18 pb-12 md:pb-14">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-10 md:pt-12 pb-8 md:pb-10">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 md:gap-16 items-start">
           <div className="space-y-5 max-w-sm">
             <Link href="/" className="inline-flex items-center hover:opacity-90 transition-opacity">
@@ -98,7 +98,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-8"><div className="border-t border-white/10" /></div>
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-12 md:py-14">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-10">
         <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
           {footerSections.map((section) => (
             <div key={section.title} className="min-w-0">

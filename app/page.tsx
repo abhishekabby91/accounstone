@@ -79,7 +79,7 @@ export default function HomePage() {
             <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
               <span className="w-4 h-px bg-accent" aria-hidden="true" />How We Work
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
             <p className="text-muted leading-relaxed">Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting businesses and accounting practices across the US, UK, and Australia.</p>
           </>
         </Reveal>
@@ -92,7 +92,7 @@ export default function HomePage() {
         <div aria-hidden="true" className="pointer-events-none absolute inset-0 ledger-lines-dark" />
         <Reveal className="relative max-w-7xl mx-auto text-center space-y-6">
           <>
-            <h2 className="text-4xl md:text-5xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
             <p className="text-lg text-white/90 max-w-2xl mx-auto">Add experienced accounting professionals to your workflow without rebuilding your entire team.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">Talk to Our Team</Link>
@@ -115,7 +115,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   <span className="w-4 h-px bg-accent" aria-hidden="true" />Why Accounstone
                 </span>
-                <h2 className="text-4xl md:text-5xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
                 <p className="text-lg text-muted leading-relaxed">We work inside your processes, follow your review standards, and become a dependable extension of your team.</p>
                 <div className="space-y-4 pt-4 pl-5 margin-rule">
                   {['Experienced accounting professionals', 'Dedicated support during busy periods', 'Documented onboarding and knowledge transfer', 'Quality review before work reaches your team', 'Clear communication and defined ownership', 'Flexible engagement models as workload changes'].map((item, i) => (

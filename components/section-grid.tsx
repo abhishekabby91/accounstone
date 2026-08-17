@@ -50,7 +50,7 @@ export default function SectionGrid({
                 {subtitle}
               </span>
             )}
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-primary text-balance">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-primary text-balance">
               {title}
             </h2>
             {description && (
