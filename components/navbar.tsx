@@ -115,6 +115,15 @@ export default function Navbar() {
   const isActive = (href: string) =>
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
+  // Close the mobile menu and any open dropdown whenever the route
+  // changes. Without this, clicking a link navigates but the menu
+  // state persists — so the menu is still open on the new page.
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setOpenDropdown(null);
+    setOpenMobileSection(null);
+  }, [pathname]);
+
   useEffect(() => {
     if (!mobileMenuOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -154,7 +163,7 @@ export default function Navbar() {
   };
 
   return (
-    <header className="w-full bg-background border-b-2 border-border">
+    <header className="sticky top-0 z-50 w-full bg-background border-b-2 border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center px-3 sm:px-5 shrink-0" aria-label="Accounstone home">
           <Image
