@@ -142,28 +142,24 @@ export default function Navbar() {
 
         <Link href="/contact" className="hidden sm:inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">Get Started</Link>
 
-        <button onClick={() => setMobileMenuOpen((prev) => !prev)} className="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-input transition-colors shrink-0" aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-menu">
+        <button onClick={() => setMobileMenuOpen((prev) => !prev)} className="md:hidden flex items-center justify-center w-11 h-11 rounded-lg hover:bg-input active:bg-input transition-colors shrink-0" aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-menu">
           <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
         </button>
       </div>
 
       {mobileMenuOpen && (
-        <>
-          {/* Backdrop — tap to close. Fixed so it covers the viewport
-              regardless of scroll position. */}
-          <div
-            className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-black/20 z-40"
-            aria-hidden="true"
-            onClick={closeMobileMenu}
-          />
-          {/* Menu panel — fixed directly under the 80px (h-20) header.
-              overscroll-contain stops scroll chaining to the page body. */}
-          <nav
-            id="mobile-menu"
-            aria-label="Mobile"
-            className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-white border-t border-border overflow-y-auto overscroll-contain"
-            style={{ WebkitOverflowScrolling: 'touch' }}
-          >
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile"
+          /* absolute (not fixed): the header has backdrop-filter, which
+             makes it a containing block for fixed descendants — a fixed
+             panel would size against the 80px header and collapse to
+             zero height. top-full anchors it directly beneath the header
+             and it follows the header while sticky. overscroll-contain
+             stops scroll chaining to the page behind it. */
+          className="md:hidden absolute top-full inset-x-0 z-50 bg-white border-t border-border shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain"
+          style={{ WebkitOverflowScrolling: 'touch' }}
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
             {menuItems.map((item) => {
               const hasChildren = !!item.children?.length;
@@ -185,7 +181,6 @@ export default function Navbar() {
             <Link href="/contact" onClick={closeMobileMenu} className="flex items-center justify-center min-h-[48px] mt-4 px-4 rounded-lg bg-primary text-white font-semibold hover:bg-primary-light transition-colors">Get Started</Link>
           </div>
         </nav>
-        </>
       )}
     </header>
   );
