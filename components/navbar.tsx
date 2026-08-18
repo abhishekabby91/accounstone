@@ -69,10 +69,15 @@ export default function Navbar() {
     if (!mobileMenuOpen) return;
     const handleKeyDown = (e: KeyboardEvent) => { if (e.key === 'Escape') setMobileMenuOpen(false); };
     document.addEventListener('keydown', handleKeyDown);
-    document.body.style.overflow = 'hidden';
+    // NOTE: do NOT set document.body.style.overflow = 'hidden' here.
+    // Setting overflow on <body> turns it into a scroll container, which
+    // breaks `position: sticky` on the header — the header snaps back to
+    // its natural document position (the very top of the page), so it
+    // vanishes from view whenever the menu is opened while scrolled down.
+    // The menu panel below is a fixed overlay with its own scroll and
+    // overscroll-contain, so no body-level scroll lock is needed.
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
     };
   }, [mobileMenuOpen]);
 
@@ -143,7 +148,22 @@ export default function Navbar() {
       </div>
 
       {mobileMenuOpen && (
-        <nav id="mobile-menu" aria-label="Mobile" className="md:hidden bg-white border-t border-border max-h-[calc(100vh-5rem)] overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <>
+          {/* Backdrop — tap to close. Fixed so it covers the viewport
+              regardless of scroll position. */}
+          <div
+            className="md:hidden fixed inset-x-0 top-20 bottom-0 bg-black/20 z-40"
+            aria-hidden="true"
+            onClick={closeMobileMenu}
+          />
+          {/* Menu panel — fixed directly under the 80px (h-20) header.
+              overscroll-contain stops scroll chaining to the page body. */}
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            className="md:hidden fixed inset-x-0 top-20 bottom-0 z-50 bg-white border-t border-border overflow-y-auto overscroll-contain"
+            style={{ WebkitOverflowScrolling: 'touch' }}
+          >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">
             {menuItems.map((item) => {
               const hasChildren = !!item.children?.length;
@@ -165,6 +185,7 @@ export default function Navbar() {
             <Link href="/contact" onClick={closeMobileMenu} className="flex items-center justify-center min-h-[48px] mt-4 px-4 rounded-lg bg-primary text-white font-semibold hover:bg-primary-light transition-colors">Get Started</Link>
           </div>
         </nav>
+        </>
       )}
     </header>
   );
