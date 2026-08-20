@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { Check } from 'lucide-react';
+import Link from 'next/link';
+import { Check, ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -7,36 +8,22 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Staff Augmentation',
-  description: 'Augment your existing team with skilled accountants and finance professionals. Handle overflow work, seasonal demand, and specialized projects.',
+  title: 'Accounting Staff Augmentation for CPA Firms & Businesses',
+  description: 'Add accounting capacity for tax season, month-end close, cleanup, AP/AR, audit support, or defined projects. Work inside your systems and review process with a flexible staffing model.',
   path: '/solutions/staff-augmentation',
 });
 
 const faqs = [
-  {
-    question: 'What is staff augmentation?',
-    answer: 'Staff augmentation is adding temporary or semi-permanent skilled professionals to your team to handle overflow work, seasonal demands, special projects, or skills gaps without permanent hiring.',
-  },
-  {
-    question: 'How quickly can you provide staff?',
-    answer: 'We can typically provide vetted professionals within 1-2 weeks. For urgent needs, we may have available resources available within days.',
-  },
-  {
-    question: 'Can we hire augmented staff permanently?',
-    answer: 'Yes, many clients transition augmented staff to permanent positions. We facilitate this process and ensure smooth onboarding.',
-  },
-  {
-    question: 'What skills can you augment?',
-    answer: 'We provide CPAs, accountants, tax specialists, financial analysts, bookkeepers, and other accounting and finance professionals at all experience levels.',
-  },
-  {
-    question: 'Is there a minimum commitment?',
-    answer: 'Flexibility is built in. Engagements can be short-term (weeks), project-based, or ongoing. You only pay for the time and resources you need.',
-  },
+  { question: 'What is accounting staff augmentation?', answer: 'Staff augmentation adds accounting professionals to your existing workflow for a defined period or ongoing need. It can be useful when work increases faster than hiring, a specialist is needed for a project, or your team needs temporary capacity without changing who owns review and approvals.' },
+  { question: 'What work can augmented accounting staff handle?', answer: 'The scope can include bookkeeping, reconciliations, AP/AR, month-end close support, tax preparation tasks, audit support, reporting preparation, cleanup, and other defined accounting workflows. The exact responsibilities are agreed before onboarding.' },
+  { question: 'How quickly can a team member start?', answer: 'The timeline depends on the role, availability, systems, documentation, and knowledge-transfer requirements. Rather than promise a universal start date, we scope the requirement first and confirm a realistic onboarding timeline.' },
+  { question: 'Can augmented staff work in our existing systems?', answer: 'Yes. The model is designed to work inside your established accounting software, procedures, communication channels, and approval structure. The objective is to add capacity without forcing a separate operating process.' },
+  { question: 'Does staff augmentation mean we lose control of the work?', answer: 'No. Your team can retain responsibility for approvals, accounting judgments, client communication, and final review. The augmented professional handles the defined preparation or operational work and flags exceptions according to the agreed workflow.' },
+  { question: 'Is there a minimum commitment?', answer: 'The appropriate engagement length depends on the work. Support can be structured around a project, a busy period, a recurring workflow, or an ongoing capacity requirement. The proposal should match the actual workload rather than force every client into the same term.' },
+  { question: 'Can an augmented team member eventually be hired permanently?', answer: 'That depends on the engagement terms and the circumstances of both organizations. If a long-term hiring path is important, it should be discussed before the engagement so the commercial and transition terms are clear.' },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
-
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Solutions', url: `${baseUrl}/solutions` },
@@ -50,97 +37,56 @@ export default function StaffAugmentationPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        subtitle="Staff Augmentation"
-        title="Extend Your Team On-Demand"
-        description="Add skilled accounting professionals to your team on a flexible basis. Perfect for overflow work, seasonal needs, specialized projects, and skill gaps."
-        cta={{
-          text: 'Request Staff',
-          href: '/contact',
-        }}
-        ctaSecondary={{
-          text: 'View Services',
-          href: '/services',
-        }}
+        subtitle="Accounting Staff Augmentation"
+        title="Add Accounting Capacity Without Rebuilding Your Team"
+        description="Bring defined accounting work into an extended team model for tax season, month-end close, cleanup, AP/AR, audit support, or projects—while your team keeps the review and approval responsibilities that matter."
+        cta={{ text: 'Talk Through Your Staffing Need', href: '/contact' }}
+        ctaSecondary={{ text: 'View Accounting Services', href: '/services' }}
         background="primary-gradient"
       />
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             <div className="space-y-6">
-              <Reveal><h2 className="text-4xl font-bold text-primary">Scale Your Team Without Long-Term Commitment</h2></Reveal>
-              <p className="text-lg text-muted leading-relaxed">Staff augmentation provides access to qualified accounting professionals when you need them, without the overhead of permanent hiring. Perfect for managing seasonal peaks, special projects, or filling expertise gaps.</p>
-              
-              <div className="space-y-4 pt-4">
-                {[
-                  'Vetted accounting professionals',
-                  'Flexible short or long-term engagement',
-                  'Works inside your existing systems and approval process',
-                  'No permanent employment costs',
-                  'Option to hire permanently',
-                  'Rapid onboarding',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
+              <Reveal><><span className="text-sm font-semibold tracking-wide uppercase text-accent">The model</span><h2 className="text-3xl md:text-4xl font-bold text-primary mt-2">Add capacity where the work is actually piling up</h2></></Reveal>
+              <p className="text-lg text-muted leading-relaxed">Staff augmentation works best when the work is clear. Instead of adding a person and figuring out the process later, define the recurring tasks, systems, deadlines, reviewer, and handoff points first. The additional professional can then work inside that process.</p>
+              <p className="text-lg text-muted leading-relaxed">Your team can keep client relationships, approvals, accounting judgments, and final review while the augmented resource takes responsibility for the preparation and operational work assigned to them.</p>
+              <div className="space-y-4 pt-2">
+                {['Defined scope and ownership', 'Works in your existing systems', 'Documented onboarding and knowledge transfer', 'Clear review and escalation points', 'Flexible around seasonal or project demand', 'Capacity that can change as the workload changes'].map((item, i) => <div key={i} className="flex items-start gap-3"><Check className="text-accent shrink-0 w-5 h-5" aria-hidden="true" /><span className="text-foreground">{item}</span></div>)}
               </div>
             </div>
-
-            <div className="bg-gradient-to-br from-accent to-accent-light rounded-xl p-8 text-white space-y-6">
-              <h3 className="text-2xl font-bold">Why Staff Augmentation?</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="text-2xl font-bold mb-2">Peak Season Support</div>
-                  <p className="text-white/80 text-sm">Handle year-end closes, tax season, and busy periods without permanent headcount.</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold mb-2">Special Projects</div>
-                  <p className="text-white/80 text-sm">Dedicate expertise to system implementations, audits, or strategic initiatives.</p>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold mb-2">No Overhead</div>
-                  <p className="text-white/80 text-sm">Pay only for what you use, no benefits, payroll taxes, or permanent employment costs.</p>
-                </div>
-              </div>
+            <div className="bg-primary rounded-2xl p-8 text-white space-y-6">
+              <h3 className="text-2xl font-bold">Where augmentation can help</h3>
+              {[['Tax season', 'Move defined preparation and documentation work away from reviewers when volume increases.'], ['Month-end close', 'Add capacity for reconciliations, schedules, account support and close checklists.'], ['Cleanup', 'Work through historical unreconciled items, categorization issues and documentation gaps.'], ['Projects', 'Add accounting capacity for a defined implementation, transition, audit-support or reporting project.']].map(([title, text]) => <div key={title}><div className="font-bold text-lg mb-1">{title}</div><p className="text-white/80 text-sm leading-6">{text}</p></div>)}
             </div>
           </div>
         </div>
       </section>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
-        <div className="max-w-5xl mx-auto">
-          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Use Cases for Staff Augmentation</h2></Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              { title: 'Overflow Work', desc: 'Handle client projects and overflow that your team cannot accommodate.' },
-              { title: 'Seasonal Demand', desc: 'Add capacity during peak periods like year-end close and tax season.' },
-              { title: 'Skill Gaps', desc: 'Bring in specialists for areas like tax, audit, or specialized accounting support.' },
-              { title: 'Project Work', desc: 'Dedicate resources to system implementations or one-time initiatives.' },
-              { title: 'Temporary Coverage', desc: 'Cover for vacation, leave, or temporary staffing needs.' },
-              { title: 'Permanent Hiring Trial', desc: 'Test compatibility before making permanent hiring decisions.' },
-            ].map((item, i) => (
-              <div key={i} className="bg-white rounded-lg p-6 space-y-3">
-                <h3 className="font-bold text-lg text-primary">{item.title}</h3>
-                <p className="text-sm text-muted">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <div className="max-w-5xl mx-auto"><Reveal><h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">Common use cases</h2></Reveal><div className="grid grid-cols-1 md:grid-cols-3 gap-6">{[
+          ['Overflow work', 'Take on client or internal accounting work that your existing team cannot absorb without delaying deadlines.'],
+          ['Busy-season capacity', 'Add defined preparation or operational support during tax season, year-end, or other predictable peaks.'],
+          ['Skill gaps', 'Bring in experience for a specific accounting workflow without changing the rest of your team.'],
+          ['Project work', 'Assign additional capacity to a system transition, cleanup, audit-support project, or reporting initiative.'],
+          ['Temporary coverage', 'Maintain defined workflows during leave, turnover, recruitment, or another temporary capacity gap.'],
+          ['Growing workload', 'Test a support model around a recurring workload before deciding whether the role should become permanent.'],
+        ].map(([title, desc], i) => <Reveal key={title} delay={i * 0.04}><div className="bg-white rounded-2xl p-6 border border-border/70 h-full"><h3 className="font-bold text-lg text-primary mb-2">{title}</h3><p className="text-sm text-muted leading-6">{desc}</p></div></Reveal>)}</div></div>
       </section>
 
-      <FAQSection subtitle="Staff Augmentation" items={faqs} columns={2} />
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal><><span className="text-sm font-semibold tracking-wide uppercase text-accent">How the handoff works</span><h2 className="text-2xl md:text-3xl font-bold text-primary mt-2">Four things to define before work starts</h2></></Reveal><div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-5">{[
+        ['01', 'Scope', 'List the exact recurring tasks or project deliverables the augmented professional owns.'],
+        ['02', 'Systems', 'Document the accounting software, files, communication channels and access required.'],
+        ['03', 'Review', 'Name the reviewer, approval points, deadlines and escalation rules.'],
+        ['04', 'Measures', 'Agree what a completed week or month looks like so both teams can see whether the model is working.'],
+      ].map(([num, title, text]) => <div key={num} className="p-6 bg-input rounded-2xl border border-border/70"><div className="text-sm font-bold text-accent mb-3">{num}</div><h3 className="font-bold text-primary mb-2">{title}</h3><p className="text-muted text-sm leading-6">{text}</p></div>)}</div></div></section>
 
-      <CTABanner
-        title="Need Additional Staff Right Away?"
-        description="Tell us your requirements and we'll find the right professionals for your team."
-        cta={{
-          text: 'Request Staff Now',
-          href: '/contact',
-        }}
-        background="accent"
-      />
+      <FAQSection subtitle="Staff Augmentation Questions" items={faqs} columns={2} />
+
+      <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/dedicated-accounting-teams" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Dedicated Accounting Teams <ArrowRight size={14} /></Link><Link href="/services/bookkeeping" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Bookkeeping <ArrowRight size={14} /></Link><Link href="/services/tax-preparation" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Tax Preparation <ArrowRight size={14} /></Link></div></div></section>
+
+      <CTABanner title="Where Do You Need More Accounting Capacity?" description="Tell us the work that is falling behind, the deadline you are working toward, and the systems involved. We can scope a practical staffing model around it." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }
