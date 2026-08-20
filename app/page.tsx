@@ -14,16 +14,16 @@ import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   title: 'Outsourced Accounting & Bookkeeping for CPA Firms',
   description:
-    'Accounting and bookkeeping support for CPA firms and growing businesses, with practical help across recurring accounting workflows, tax preparation, payroll, payables, receivables, and audit support.',
+    'Outsourced bookkeeping, accounting, tax preparation, payroll, and audit support for CPA firms and businesses. Add experienced accounting capacity around your existing workflow.',
   path: '/',
 });
 
 const homePageFAQs = [
-  { question: 'What services does Accounstone provide?', answer: 'We provide bookkeeping, accounting operations, tax preparation, payroll processing, accounts payable, accounts receivable, audit support, and dedicated accounting teams. Engagements are tailored to your workflow and workload.' },
-  { question: 'How do you approach data security?', answer: 'Engagements are NDA-backed, with access limited to the team members working on the account. We use controlled access, documented workflows, and security-focused handling practices, and we are transparent about the certifications we do and do not hold.' },
-  { question: 'Can you work with our existing software?', answer: 'Yes. Our team works with platforms including QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, and MYOB, along with client-specific systems and workflows.' },
-  { question: 'How quickly can you get started?', answer: 'Most engagements begin with structured discovery and knowledge transfer. The exact timeline depends on your workflows, systems, documentation, and scope of work.' },
-  { question: 'How is pricing determined?', answer: 'Pricing depends on transaction volume, workflow complexity, systems, service scope, and the engagement model. We first understand the work and then provide a clear proposal.' },
+  { question: 'What services does Accounstone provide?', answer: 'We support bookkeeping, accounting operations, tax preparation, payroll, accounts payable, accounts receivable, audit support, and dedicated accounting teams. The scope is built around the work you need to hand off and the review points you want to keep.' },
+  { question: 'How do you approach data security?', answer: 'Engagements are NDA-backed, with access limited to the team members working on the account. We use controlled access, documented workflows, and security-focused handling practices. We are also transparent about the certifications and controls we do and do not hold.' },
+  { question: 'Can you work with our existing software?', answer: 'Yes. Our team works with platforms including QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, and MYOB, along with client-specific systems and workflows. The goal is to fit into your existing process rather than force a system change.' },
+  { question: 'How quickly can you get started?', answer: 'Most engagements begin with structured discovery and knowledge transfer. The timeline depends on your workflows, systems, documentation, current books, and the scope being handed over.' },
+  { question: 'How is pricing determined?', answer: 'Pricing depends on transaction volume, workflow complexity, systems, service scope, and the engagement model. We first understand the work, review what needs to be handled, and then provide a clear proposal.' },
   { question: 'Do you provide offshore accounting support?', answer: 'Yes. Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting practices and businesses across the US, UK, and Australia.' },
 ];
 
@@ -93,7 +93,7 @@ export default function HomePage() {
         <Reveal className="relative max-w-7xl mx-auto text-center space-y-6">
           <>
             <h2 className="text-xl md:text-2xl font-bold text-white text-balance">Need More Accounting Capacity?</h2>
-            <p className="text-lg text-white/90 max-w-2xl mx-auto">Add experienced accounting professionals to your workflow without rebuilding your entire team.</p>
+            <p className="text-lg text-white/90 max-w-2xl mx-auto">Add experienced accounting professionals to the work that is slowing your team down—without rebuilding your existing process.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="inline-flex items-center justify-center px-8 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">Talk to Our Team</Link>
               <Link href="/solutions" className="inline-flex items-center justify-center px-8 py-3 rounded-lg border-2 border-white text-white font-semibold hover:bg-white/10 transition-all">Explore Solutions</Link>
@@ -104,7 +104,7 @@ export default function HomePage() {
 
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
-      <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
+      <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, review structure, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
       <section data-section="services"><SectionGrid subtitle="What We Do" title="Accounting Services That Keep Work Moving" description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support." items={services} baseUrl="/services" columns={3} variant="default" /></section>
 
       <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-white relative">
@@ -116,7 +116,7 @@ export default function HomePage() {
                   <span className="w-4 h-px bg-accent" aria-hidden="true" />Why Accounstone
                 </span>
                 <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
-                <p className="text-lg text-muted leading-relaxed">We work inside your processes, follow your review standards, and become a dependable extension of your team.</p>
+                <p className="text-lg text-muted leading-relaxed">We work inside your processes, follow your review standards, and take ownership of defined accounting work while your team keeps the decisions and approvals that belong with them.</p>
                 <div className="space-y-4 pt-4 pl-5 margin-rule">
                   {['Experienced accounting professionals', 'Dedicated support during busy periods', 'Documented onboarding and knowledge transfer', 'Quality review before work reaches your team', 'Clear communication and defined ownership', 'Flexible engagement models as workload changes'].map((item, i) => (
                     <div key={i} className="flex items-start gap-4"><Check className="text-accent shrink-0 w-5 h-5" aria-hidden="true" /><p className="text-foreground font-medium">{item}</p></div>
