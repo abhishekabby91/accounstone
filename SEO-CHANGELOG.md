@@ -27,9 +27,12 @@ Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 clai
 **Why:** Requested in the handoff's Priority 4; these didn't exist yet. Written as internal reference docs for future agents/content passes, not as site copy.
 **URL changed:** No. **Metadata changed:** No. **Content changed:** Documentation only (not rendered on the site).
 
-### Tooling: ESLint dependency (validated locally, not included in this push)
+### Tooling: ESLint dependency
 
-Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies locally — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`, verified `npx eslint .` runs clean (0 findings) and `pnpm install --frozen-lockfile` succeeds (the exact command Vercel runs). **This specific change was not pushed** — this session's GitHub write path doesn't include raw `git push`, so `package.json`/`pnpm-lock.yaml` were left untouched on this branch to avoid pushing an unverified lockfile through a different channel. A follow-up session with `git push` access should reapply it (steps above) and verify the same way before committing.
+**Changed:** Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`.  
+**Why:** `npm run lint` / `pnpm run lint` had no working `eslint` installed even though `eslint.config.mjs` existed — the previous fix had to be reverted for breaking the Vercel build.  
+**Verified:** `npx eslint .` runs clean (0 findings), `pnpm install --frozen-lockfile` succeeds (the exact command Vercel runs on deploy), and `next build` still produces all 79 static routes.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (tooling only).
 
 ### Open questions — unchanged, still awaiting client answer
 
