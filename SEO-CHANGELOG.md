@@ -1,6 +1,6 @@
 # Accounstone SEO Changelog
 
-## 2026-08-21 (handoff continuation: bottom-funnel guides, schema completion, knowledge base, ESLint fix)
+## 2026-08-21 (handoff continuation: bottom-funnel guides, schema completion, knowledge base)
 
 Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 claims first: `app/industries/cpa-firms/page.tsx` and the healthcare/e-commerce/professional-services industry pages were already reworked with 250–650+ words, workflow-specific FAQs, and auto-generated FAQ/Breadcrumb schema via `IndustryPageTemplate` — the "57 lines / thin content" note in the handoff was stale (line count is misleading because the template pulls content from data arrays). No changes made there; making them longer for its own sake would have violated the guide's anti-padding rule. Moved to the parts of the handoff that were genuinely unaddressed.
 
@@ -27,11 +27,9 @@ Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 clai
 **Why:** Requested in the handoff's Priority 4; these didn't exist yet. Written as internal reference docs for future agents/content passes, not as site copy.
 **URL changed:** No. **Metadata changed:** No. **Content changed:** Documentation only (not rendered on the site).
 
-### Tooling fix: ESLint dependency
+### Tooling: ESLint dependency (validated locally, not included in this push)
 
-**Changed:** Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`, then verified with `pnpm install --frozen-lockfile` (the exact command Vercel runs) before committing.
-**Why:** `npm run lint` / `pnpm run lint` had no working `eslint` installed even though `eslint.config.mjs` existed — the previous fix had to be reverted for breaking the Vercel build. Confirmed `npx eslint .` now runs clean (0 findings) and `next build` still produces all 79 static routes.
-**URL changed:** No. **Metadata changed:** No. **Content changed:** Tooling only.
+Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies locally — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`, verified `npx eslint .` runs clean (0 findings) and `pnpm install --frozen-lockfile` succeeds (the exact command Vercel runs). **This specific change was not pushed** — this session's GitHub write path doesn't include raw `git push`, so `package.json`/`pnpm-lock.yaml` were left untouched on this branch to avoid pushing an unverified lockfile through a different channel. A follow-up session with `git push` access should reapply it (steps above) and verify the same way before committing.
 
 ### Open questions — unchanged, still awaiting client answer
 
