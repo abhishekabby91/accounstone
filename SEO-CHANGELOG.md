@@ -1,5 +1,25 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (responsive audit: unreachable tablet nav + CTA, tap targets, footer overflow)
+
+Ran an instrumented responsive audit (not a visual skim) across 320/360/375/390/768/820/1024/1280/1440px, measuring horizontal overflow, tap-target sizes against WCAG 2.5.8 AA, and per-element clipping. Found one significant bug and two real accessibility issues.
+
+### `components/navbar.tsx` — the significant one: primary CTA unreachable on iPad portrait
+
+**Changed:** The desktop nav switched on at `md:` (768px), but the seven nav items plus the logo and CTA need ~963px. At 768px — iPad portrait, the most common tablet width — "Resources", "About", and the **"Get Started" button** were pushed past the viewport edge. Because `html` sets `overflow-x: clip`, the page could not scroll to reach them: the primary conversion CTA was simply invisible and untappable on tablets. Moved the desktop nav to `lg:` (1024px) so tablets get the mobile menu (which carries every link plus its own Get Started button), and grouped the CTA with the hamburger so `justify-between` keeps them together on the right instead of stranding the CTA mid-header. Also tightened the nav gap and logo padding at `lg:` only — at exactly 1024px the logo, nav, and CTA were touching with 0px between them; they now have 13px, and the CTA no longer wraps to two lines.  
+**Why:** A conversion CTA that does not exist on tablets is a revenue bug, not a styling nit. Verified before and after by enumerating which header elements fell outside the viewport at each width, and confirming the page genuinely could not scroll to them.
+
+### `components/footer.tsx` and `components/hero-carousel.tsx` — tap targets below the accessibility minimum
+
+**Changed:** Footer navigation links rendered at 20px tall and the legal links (Privacy, Terms, Data Security, Compliance) at 14px — both under the 24×24px WCAG 2.5.8 AA minimum, and awkward to hit on a phone. Added vertical padding (28px and 26px respectively) and reduced the row gap to match, so the footer's overall height barely changes. The hero carousel's slide indicators were **3px tall** buttons; the button is now padded to 27px with the padding cancelled by a negative margin, so the hit area grows while the 3px bar stays visually identical and in the same position.  
+**Result:** sub-24px interactive targets on the homepage went from 40+ to 0 (the one remaining is the `sr-only` skip link, correctly 1×1 until keyboard focus).
+
+### `components/footer.tsx` — horizontal overflow traced and fixed
+
+**Changed:** Every page reported a 4px horizontal overflow (`scrollWidth` 379 vs `clientWidth` 375). Traced it to the footer's wide uppercase `tracking-[0.14em]` section headings: "TECHNOLOGY" needed 180px inside a 152px column and was clipped at the viewport edge. Tightened tracking and size on mobile only, and dropped the footer nav to a single column below 375px, where no readable size of that word fits a 2-column grid. Breakpoint chosen by measurement, not assumption — 360px still clipped, 375px does not.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (layout/accessibility only, 3 components).  
+**Verified:** Zero horizontal overflow and zero clipped headings at all nine widths; desktop dropdowns, tablet menu, and phone submenu all confirmed still functional after the header restructure. `next build` and `eslint .` both pass.
+
 ## 2026-08-21 (mobile UX sweep: every remaining single-column card grid on mobile)
 
 User asked to find and convert any other card grids sitewide that were still stacking one-per-row on mobile, following the same pattern already fixed on the main Services/Solutions grids. Audited every `grid-cols-1 md:grid-cols-2` (and `md:grid-cols-3`) occurrence in the codebase and classified each by content, not just by class name — the same Tailwind classes are used for genuinely different layouts (short checklist cards vs. large "delegated vs. retained" 2-panel splits vs. sequential numbered process steps), so a blind find-and-replace would have broken several pages.

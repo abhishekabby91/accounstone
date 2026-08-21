@@ -99,13 +99,24 @@ export default function Footer() {
       </div>
       <div className="max-w-7xl mx-auto px-6 md:px-8"><div className="border-t border-white/10" /></div>
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-8 md:py-10">
-        <nav aria-label="Footer" className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
+        {/* Single column below 375px: the 2-column grid needs ~155px per
+            column to fit "TECHNOLOGY", which only holds from 375px up.
+            Measured, not guessed — 360px clipped it, 375px does not. */}
+        <nav aria-label="Footer" className="grid grid-cols-1 min-[375px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-8 min-[375px]:gap-y-10">
           {footerSections.map((section) => (
             <div key={section.title} className="min-w-0">
-              <h3 className="mb-4 text-xs font-bold uppercase tracking-[0.14em] text-white">{section.title}</h3>
-              <ul className="space-y-2.5">
+              {/* The wide uppercase tracking overflowed a 2-column mobile grid
+                  ("TECHNOLOGY" needed 180px in a 152px column and was clipped
+                  at the viewport edge). Tracking and size are tightened on
+                  mobile only, leaving real margin rather than a 1px squeak;
+                  the original treatment returns from sm: up. */}
+              <h3 className="mb-4 text-[11px] sm:text-xs font-bold uppercase tracking-normal sm:tracking-[0.14em] text-white">{section.title}</h3>
+              {/* py-1 lifts each link's hit area from 20px to 28px, above the
+                  24px WCAG 2.5.8 minimum. The row gap is reduced to match so
+                  the footer's overall height barely changes. */}
+              <ul className="space-y-0.5">
                 {section.links.map((link) => (
-                  <li key={link.name} className="leading-5"><Link href={link.href} className="inline-block text-sm text-white/65 hover:text-white transition-colors">{link.name}</Link></li>
+                  <li key={link.name}><Link href={link.href} className="inline-block py-1 text-sm leading-5 text-white/65 hover:text-white transition-colors">{link.name}</Link></li>
                 ))}
               </ul>
             </div>
@@ -116,8 +127,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-6 md:px-8 py-5 md:py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <p className="text-white/50 text-xs md:text-sm">© {currentYear} Accounstone. All rights reserved.</p>
-            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2">
-              {legalLinks.map((link) => (<li key={link.name}><Link href={link.href} className="text-white/50 hover:text-white transition-colors text-xs md:text-sm">{link.name}</Link></li>))}
+            <ul className="flex flex-wrap items-center gap-x-5">
+              {legalLinks.map((link) => (<li key={link.name}><Link href={link.href} className="inline-block py-1.5 text-white/50 hover:text-white transition-colors text-xs md:text-sm leading-5">{link.name}</Link></li>))}
             </ul>
           </div>
           <p className="text-white/40 text-xs mt-3 max-w-3xl leading-5">Security-focused with NDA-backed engagements. Actively pursuing SOC 2 certification.</p>

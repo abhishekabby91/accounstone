@@ -107,11 +107,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur-sm border-b-2 border-border supports-[backdrop-filter]:bg-background/90">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center px-3 sm:px-5 shrink-0" aria-label="Accounstone home">
+        <Link href="/" className="flex items-center px-3 sm:px-5 lg:px-2 xl:px-5 shrink-0" aria-label="Accounstone home">
           <Image src="/accounstone-logo-horizontal.png" alt="Accounstone" width={280} height={60} className="w-auto" style={{ height: '48px' }} priority />
         </Link>
 
-        <nav ref={navRef} aria-label="Primary" className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* Desktop nav starts at lg:, not md:. At md: (768px, iPad portrait)
+            the seven items plus the logo and CTA need ~963px, so "Resources",
+            "About" and the Get Started button were pushed off-screen — and
+            because html sets overflow-x: clip, the page could not scroll to
+            reach them. Tablets get the mobile menu, which carries every link. */}
+        <nav ref={navRef} aria-label="Primary" className="hidden lg:flex items-center gap-3 xl:gap-8">
           {menuItems.map((item) => {
             const hasChildren = !!item.children?.length;
             const hasGroups = !!item.groups?.length;
@@ -145,11 +150,16 @@ export default function Navbar() {
           })}
         </nav>
 
-        <Link href="/contact" className="hidden sm:inline-flex items-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base">Get Started</Link>
+        {/* CTA and hamburger are grouped so justify-between keeps them together
+            on the right. Ungrouped, the CTA was stranded mid-header at tablet
+            widths where the nav is hidden. */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <Link href="/contact" className="hidden sm:inline-flex items-center justify-center whitespace-nowrap px-4 sm:px-5 xl:px-6 py-2.5 sm:py-3 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg text-sm xl:text-base">Get Started</Link>
 
-        <button onClick={() => setMobileMenuOpen((prev) => !prev)} className="md:hidden flex items-center justify-center w-11 h-11 rounded-lg hover:bg-input active:bg-input transition-colors shrink-0" aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-menu">
-          <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
-        </button>
+          <button onClick={() => setMobileMenuOpen((prev) => !prev)} className="lg:hidden flex items-center justify-center w-11 h-11 rounded-lg hover:bg-input active:bg-input transition-colors shrink-0" aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'} aria-expanded={mobileMenuOpen} aria-controls="mobile-menu">
+            <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'} /></svg>
+          </button>
+        </div>
       </div>
 
       {mobileMenuOpen && (
@@ -162,7 +172,7 @@ export default function Navbar() {
              zero height. top-full anchors it directly beneath the header
              and it follows the header while sticky. overscroll-contain
              stops scroll chaining to the page behind it. */
-          className="md:hidden absolute top-full inset-x-0 z-50 bg-white border-t border-border shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain"
+          className="lg:hidden absolute top-full inset-x-0 z-50 bg-white border-t border-border shadow-lg max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain"
           style={{ WebkitOverflowScrolling: 'touch' }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 space-y-1">

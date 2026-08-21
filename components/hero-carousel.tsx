@@ -167,24 +167,32 @@ export default function HeroCarousel({
         </div>
         <div className="flex gap-2 w-full">
         {slides.map((_, index) => (
+          // The visible indicator is a 3px bar, which is far too small to tap
+          // accurately on a phone. The button itself is padded out to ~27px
+          // (above the 24px WCAG 2.5.8 minimum) and the padding is cancelled
+          // with a negative margin, so the hit area grows without moving the
+          // bar or changing the layout. The bar is a child span so the
+          // absolutely-positioned progress fills still measure against it.
           <button
             key={index}
             onClick={() => handleDot(index)}
             aria-label={`Go to slide ${index + 1}`}
             aria-current={index === current}
-            className="relative h-[3px] flex-1 bg-white/25 rounded-full overflow-hidden"
+            className="flex-1 py-3 -my-3"
           >
-            {index === current && (
-              <div
-                key={current}
-                className="absolute inset-y-0 left-0 bg-white rounded-full animate-ledger-fill"
-                style={{
-                  animationDuration: `${autoPlayInterval}ms`,
-                  animationPlayState: isPaused || shouldReduceMotion ? 'paused' : 'running',
-                }}
-              />
-            )}
-            {index < current && <div className="absolute inset-0 bg-white/70" />}
+            <span className="relative block h-[3px] w-full bg-white/25 rounded-full overflow-hidden">
+              {index === current && (
+                <span
+                  key={current}
+                  className="absolute inset-y-0 left-0 bg-white rounded-full animate-ledger-fill"
+                  style={{
+                    animationDuration: `${autoPlayInterval}ms`,
+                    animationPlayState: isPaused || shouldReduceMotion ? 'paused' : 'running',
+                  }}
+                />
+              )}
+              {index < current && <span className="absolute inset-0 bg-white/70" />}
+            </span>
           </button>
         ))}
         </div>
