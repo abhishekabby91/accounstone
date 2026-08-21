@@ -59,7 +59,7 @@ export default function ARPage() {
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The AR cycle</span>
             <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">From invoice to collection — what the AR team handles</h2>
           </></Reveal>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">
             {[
               { t: 'Invoice creation & sending', d: 'Invoices created from sales orders, contracts, or time sheets, reviewed, and sent on your billing schedule.' },
               { t: 'Payment application', d: 'Incoming payments matched to open invoices in QBO or Xero, discrepancies flagged for internal review.' },
@@ -69,9 +69,9 @@ export default function ARPage() {
               { t: 'Month-end AR close', d: 'AR balance reconciled to the general ledger, uncollectable balances flagged for write-off consideration.' },
             ].map((item, i) => (
               <Reveal key={i} delay={i * 0.05}>
-                <div className="p-6 bg-input rounded-xl border border-border/70">
-                  <h3 className="font-bold text-primary mb-2">{item.t}</h3>
-                  <p className="text-muted text-sm leading-6">{item.d}</p>
+                <div className="p-3.5 sm:p-6 bg-input rounded-xl border border-border/70 h-full">
+                  <h3 className="font-bold text-primary text-sm sm:text-base mb-1 sm:mb-2">{item.t}</h3>
+                  <p className="text-muted text-xs sm:text-sm leading-5 sm:leading-6 line-clamp-3 sm:line-clamp-none">{item.d}</p>
                 </div>
               </Reveal>
             ))}

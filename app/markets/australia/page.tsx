@@ -140,7 +140,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             </h2></Reveal>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
             {[
               { name: 'Bookkeeping', href: '/services/bookkeeping/australia' },
               { name: 'Accounting Services', href: '/services/accounting' },
@@ -153,9 +153,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <Link
                 key={i}
                 href={service.href}
-                className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
+                className="p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
               >
-                <h3 className="font-bold text-primary text-lg group-hover:text-primary-light transition-colors">
+                <h3 className="font-bold text-primary text-sm sm:text-lg group-hover:text-primary-light transition-colors">
                   {service.name}
                 </h3>
               </Link>

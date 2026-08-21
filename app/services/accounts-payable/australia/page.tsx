@@ -86,7 +86,7 @@ export default function AccountsPayableAUPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">AU specifics</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Applies to Australian Accounts Payable</h2></></Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-5">{auElements.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="flex items-start gap-3 p-5 bg-white rounded-xl border border-border/70"><Check className="text-accent shrink-0 w-5 h-5 mt-0.5" aria-hidden="true" /><span className="text-foreground leading-6">{item}</span></li></Reveal>)}</ul>
+          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">{auElements.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="flex items-start gap-2 sm:gap-3 p-3.5 sm:p-5 bg-white rounded-xl border border-border/70"><Check className="text-accent shrink-0 w-4 h-4 sm:w-5 sm:h-5 mt-0.5" aria-hidden="true" /><span className="text-foreground text-sm sm:text-base leading-5 sm:leading-6">{item}</span></li></Reveal>)}</ul>
         </div>
       </section>
 
