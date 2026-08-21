@@ -37,7 +37,13 @@ function walk(dir) {
 }
 function rel(p) { return path.relative(ROOT, p).replaceAll(path.sep, "/"); }
 function strip(code) { return code.replace(/\/\/.*$/gm, "").replace(/\/\*[\s\S]*?\*\//g, ""); }
-function text(code) { return code.replace(/<[^>]+>/g, " ").replace(/[{}`$]/g, " ").replace(/\s+/g, " ").trim(); }
+// Strips HTML/JSX tags to get plain text for word-count/phrase checks. Deliberately
+// excludes "{" from the tag body: a self-closing component call that spans many lines
+// with only JS-expression props (e.g. <ServicePageTemplate overview="..." benefits={[...]} />)
+// has no literal ">" until its closing "/>", so a naive [^>]+ match swallows the entire
+// call — including every prop string — as a single "tag" and erases all real content.
+// Previously undercounted app/services/accounting/page.tsx at 46 words instead of ~490.
+function text(code) { return code.replace(/<[a-zA-Z][^>{]*>/g, " ").replace(/[{}`$]/g, " ").replace(/\s+/g, " ").trim(); }
 function firstMatch(code, re) { const m = code.match(re); return m?.[1]?.trim() ?? ""; }
 function scorePage(item) {
   let score = 100;
