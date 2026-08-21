@@ -28,13 +28,13 @@
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 382 | 1 | 1 | 0 | 0 |
 | app/services/accounting/page.tsx | 85/100 | 496 | 1 | 0 | 0 | 0 |
 | app/about/page.tsx | 90/100 | 693 | 1 | 5 | 0 | 0 |
-| app/blog/accounts-payable-outsourcing/page.tsx | 90/100 | 610 | 1 | 5 | 0 | 0 |
+| app/blog/accounts-payable-outsourcing/page.tsx | 90/100 | 599 | 1 | 6 | 0 | 0 |
 | app/blog/accounts-receivable-management/page.tsx | 90/100 | 591 | 1 | 4 | 0 | 0 |
 | app/blog/audit-support-services/page.tsx | 90/100 | 716 | 1 | 6 | 0 | 0 |
 | app/blog/outsourced-accounting-services/page.tsx | 90/100 | 693 | 1 | 5 | 0 | 0 |
-| app/blog/outsourced-bookkeeping-guide/page.tsx | 90/100 | 1303 | 1 | 7 | 0 | 0 |
-| app/blog/outsourced-payroll-services/page.tsx | 90/100 | 704 | 1 | 7 | 0 | 0 |
-| app/blog/page.tsx | 90/100 | 552 | 1 | 10 | 0 | 0 |
+| app/blog/outsourced-bookkeeping-guide/page.tsx | 90/100 | 1344 | 1 | 9 | 0 | 0 |
+| app/blog/outsourced-payroll-services/page.tsx | 90/100 | 720 | 1 | 8 | 0 | 0 |
+| app/blog/page.tsx | 90/100 | 553 | 1 | 10 | 0 | 0 |
 | app/blog/tax-preparation-outsourcing/page.tsx | 90/100 | 693 | 1 | 6 | 0 | 0 |
 | app/delivery-framework/onboarding/page.tsx | 90/100 | 499 | 1 | 4 | 0 | 0 |
 | app/industries/cpa-firms/page.tsx | 90/100 | 870 | 1 | 4 | 0 | 0 |
