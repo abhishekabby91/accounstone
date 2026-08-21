@@ -88,7 +88,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/blog/accounts-payable-outsourcing', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/blog/accounts-receivable-management', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/blog/outsourced-payroll-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
-    { path: '/blog/outsourced-accounting-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/blog/tax-preparation-outsourcing', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
     { path: '/blog/audit-support-services', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
   ];

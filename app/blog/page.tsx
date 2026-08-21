@@ -50,14 +50,6 @@ const articles = [
     readTime: '11 min read',
   },
   {
-    href: '/blog/outsourced-accounting-services',
-    title: 'Outsourced Accounting Services: What\'s Included, What Costs What, and How to Start',
-    description:
-      'The difference between bookkeeping and accounting outsourcing. Month-end close support, reconciliations, and management reporting. Real cost ranges for SMBs and CPA firms.',
-    tag: 'Accounting',
-    readTime: '10 min read',
-  },
-  {
     href: '/blog/tax-preparation-outsourcing',
     title: 'Outsourcing Tax Return Preparation: What CPA Firms and Businesses Need to Know',
     description:

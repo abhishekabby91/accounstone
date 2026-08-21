@@ -9,8 +9,7 @@ One primary search intent → one primary URL. Check this file before creating a
 | What outsourced bookkeeping looks like day to day / red flags | `/blog/outsourced-bookkeeping-guide` | Informational |
 | Questions to ask before outsourcing bookkeeping | `/resources/guides/questions-to-ask-before-outsourcing-bookkeeping` | Evaluation |
 | Outsourced accounting services | `/services/accounting/{region}` | Commercial |
-| Outsourced accounting services — cost / what's included | `/blog/outsourced-accounting-services` | Commercial investigation — **unresolved overlap with guide below, see CONTENT-REGISTRY** |
-| Month-end close, GAAP vs IFRS, QuickBooks→NetSuite | `/resources/guides/outsourced-accounting-services-guide` | Informational (deep) — **unresolved overlap, see CONTENT-REGISTRY** |
+| Outsourced accounting services — cost / month-end close / what's included / GAAP vs IFRS / QuickBooks→NetSuite | `/resources/guides/outsourced-accounting-services-guide` | Informational (deep) — merged 2026-08-21, see CONTENT-REGISTRY |
 | Outsourced payroll processing | `/services/payroll/{region}` | Commercial |
 | Outsourced payroll — coverage by jurisdiction (US/UK/AU) | `/resources/guides/outsourced-payroll-processing-guide` | Informational |
 | Outsourced payroll — cost, bank-access, watch-outs | `/blog/outsourced-payroll-services` | Commercial investigation |

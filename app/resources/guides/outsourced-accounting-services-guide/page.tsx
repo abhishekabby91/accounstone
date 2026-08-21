@@ -6,18 +6,18 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-accounting-services-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting Services: Month-End Close, GAAP vs IFRS, and QuickBooks to NetSuite',
+  title: 'Outsourced Accounting Services: Month-End Close, Cost, GAAP vs IFRS, and QuickBooks to NetSuite',
   description:
-    'What outsourced accounting operations actually cover beyond bookkeeping, how month-end close works across QuickBooks, Xero, Sage, and NetSuite, and the real questions controllers ask before outsourcing accounting work.',
+    'What outsourced accounting operations actually cover beyond bookkeeping and what it costs, how month-end close works across QuickBooks, Xero, Sage, and NetSuite, and the real questions controllers ask before outsourcing accounting work.',
   path: PATH,
 });
 
 export default function OutsourcedAccountingGuide() {
   return (
     <ArticleLayout
-      title="Outsourced Accounting Services: Month-End Close, GAAP vs IFRS, and QuickBooks to NetSuite"
+      title="Outsourced Accounting Services: Month-End Close, Cost, GAAP vs IFRS, and QuickBooks to NetSuite"
       category="Guide"
-      description="What accounting operations outsourcing covers, how close cycles work in common accounting systems, US vs UK vs Australian standards, and the questions that come up before handing off the close."
+      description="What accounting operations outsourcing covers and costs, how close cycles work in common accounting systems, US vs UK vs Australian standards, and the questions that come up before handing off the close."
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-accounting-services-guide"
@@ -139,6 +139,20 @@ export default function OutsourcedAccountingGuide() {
       </ul>
       <p>
         The key distinction: the accounting operations team prepares and posts this work. A reviewer (your CFO, controller, or CPA) signs off on the closed period. Judgment calls about unusual items, accounting policy elections, and period adjustments stay with the reviewer.
+      </p>
+
+      <h2>What Does It Cost?</h2>
+      <p>
+        Accounting operations work is priced separately from bookkeeping, since it's a different layer of work — if you're outsourcing both, expect two line items, not one.
+      </p>
+      <ul>
+        <li><strong>SMB accounting operations</strong> (simple accrual, monthly close): roughly $500–$1,500/month offshore</li>
+        <li><strong>Mid-market</strong> (multi-entity, complex revenue, board reporting): roughly $1,500–$4,000/month offshore</li>
+        <li><strong>Onshore equivalent:</strong> typically 40–60% more than offshore rates</li>
+      </ul>
+      <p>
+        These are starting ranges, not quotes — the same factors that drive bookkeeping cost (entity count, transaction volume, cleanup requirements, reporting complexity) apply here too. See the{' '}
+        <Link href="/resources/guides/outsourced-bookkeeping-cost-guide" className="text-primary font-medium hover:underline">bookkeeping cost guide</Link>{' '}for the fuller framework on comparing quotes.
       </p>
 
       <h2>Real Questions Before Outsourcing Accounting Operations</h2>
