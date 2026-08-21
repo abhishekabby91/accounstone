@@ -142,9 +142,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               { name: 'Bookkeeping', href: '/services/bookkeeping/australia' },
               { name: 'Accounting Services', href: '/services/accounting' },
               { name: 'Tax Preparation', href: '/services/tax-preparation/australia' },
-              { name: 'Payroll Processing', href: '/services/payroll' },
-              { name: 'Accounts Payable', href: '/services/accounts-payable' },
-              { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
+              { name: 'Payroll Processing', href: '/services/payroll/australia' },
+              { name: 'Accounts Payable', href: '/services/accounts-payable/australia' },
+              { name: 'Accounts Receivable', href: '/services/accounts-receivable/australia' },
               { name: 'Audit Support', href: '/services/audit-support/australia' },
             ].map((service, i) => (
               <Link

@@ -12,9 +12,9 @@ Type key: **B** commercial SEO page · **C** blog/guide/informational · **E** p
 | `/services/bookkeeping` | B | Bookkeeping | `/united-states`, `/united-kingdom`, `/australia` | Published |
 | `/services/accounting` | B | Accounting Services | `/united-states` | Published |
 | `/services/tax-preparation` | B | Tax Preparation | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/payroll` | B | Payroll | `/united-states` | Published |
-| `/services/accounts-payable` | B | Accounts Payable | `/united-states` | Published |
-| `/services/accounts-receivable` | B | Accounts Receivable | `/united-states` | Published |
+| `/services/payroll` | B | Payroll | `/united-states`, `/united-kingdom`, `/australia` | Published |
+| `/services/accounts-payable` | B | Accounts Payable | `/united-states`, `/united-kingdom`, `/australia` | Published |
+| `/services/accounts-receivable` | B | Accounts Receivable | `/united-states`, `/united-kingdom`, `/australia` | Published |
 | `/services/audit-support` | B | Audit Support | `/united-states`, `/united-kingdom`, `/australia` | Published |
 
 ## Solutions (engagement models)

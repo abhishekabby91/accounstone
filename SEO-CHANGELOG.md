@@ -1,5 +1,23 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (growth-system audit, Stage 4: UK/AU payroll, AP, AR pages)
+
+Closed the regional-coverage gap flagged in the Growth System Audit §06: payroll, accounts payable, and accounts receivable had dedicated U.S. pages but fell back to the generic overview for UK and Australia, unlike bookkeeping, tax preparation, and audit support, which already had all three regions.
+
+### New pages
+
+**Changed:** Added `/services/payroll/united-kingdom`, `/services/payroll/australia`, `/services/accounts-payable/united-kingdom`, `/services/accounts-payable/australia`, `/services/accounts-receivable/united-kingdom`, `/services/accounts-receivable/australia` — each following the existing region-page pattern (Service/FAQ/Breadcrumb schema, delegated-vs-retained split) with genuine jurisdiction-specific detail rather than a template substitution: UK payroll covers RTI/PAYE/NI/auto-enrolment, AU payroll covers STP Phase 2/superannuation/PAYG/award rates, UK AP/AR cover input/output VAT and Making Tax Digital, AU AP/AR cover GST input tax credits/ABN verification/RCTI.  
+**Why:** Same root cause as the U.S. pages created in an earlier pass — a service existing in `lib/data.ts` and the market pages' prose doesn't mean a matching page exists for every region it's described in.  
+**URL changed:** No (new URLs only). **Metadata changed:** N/A (new pages). **Content changed:** Yes (6 new pages).
+
+### Updated: navbar, sitemap, market pages, general service pages
+
+**Changed:** `components/navbar.tsx` now declares all three regions for Payroll, Accounts Payable, and Accounts Receivable (previously US-only, matching the pattern already fixed for Bookkeeping/Tax Preparation/Audit Support in an earlier pass). `app/sitemap.ts` includes the 6 new routes. `app/markets/united-kingdom/page.tsx` and `app/markets/australia/page.tsx` "Services for X Markets" grids now point Payroll/AP/AR at the new dedicated pages instead of the generic overview — the same fix already applied to the U.S. market page. The three general service pages (`/services/payroll`, `/services/accounts-payable`, `/services/accounts-receivable`) gained UK/AU cross-links alongside the existing U.S. one. `/services/accounting` intentionally stays U.S.-only — no UK/AU page exists, and nothing now claims one does.  
+**Why:** Same class of bug the navbar/market-page region-URL fix caught earlier this session — a page existing without every place that links to it being updated to point at it.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (5 files) — plus `docs/ROUTES.md` and `docs/CONTENT-REGISTRY.md` updated so the registry doesn't go stale the same day it was created.
+
+**Verified:** `next build` (all 85 routes) and `eslint .` both pass.
+
 ## 2026-08-21 (growth-system audit, Stage 1: governance registries + blog/guide cannibalization fixes)
 
 Ran a full Phase 1–4 repository audit against the hub-and-spoke/search-intent architecture requested for the site's SEO growth system, delivered as a report for review. This entry covers the Stage 1 work approved to proceed without further sign-off: the registries the audit's own framework requires, and the low-risk cannibalization fixes it identified with high confidence. The one pair flagged as needing an explicit merge-vs-deepen decision (`/blog/outsourced-accounting-services` vs. `/resources/guides/outsourced-accounting-services-guide`) was **not** touched — see `docs/CONTENT-REGISTRY.md` for why.

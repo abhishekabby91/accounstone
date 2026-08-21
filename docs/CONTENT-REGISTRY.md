@@ -34,6 +34,10 @@ A light title/intro edit won't fix paragraph-level duplication. The two real opt
 
 Either requires an explicit decision — a URL change is out of scope for an unsupervised content pass per this system's own approval policy. Flagged for the site owner; not resolved by this pass.
 
+## Resolved gap: UK/AU payroll, AP, AR pages
+
+The Growth System Audit (2026-08-21, §06) flagged that payroll, AP, and AR had no dedicated UK/AU pages while bookkeeping, tax preparation, and audit support did. Closed the same day: added `/services/payroll/{united-kingdom,australia}`, `/services/accounts-payable/{united-kingdom,australia}`, and `/services/accounts-receivable/{united-kingdom,australia}` — each with genuine regional detail (RTI/PAYE/NI/auto-enrolment and STP/superannuation/PAYG for payroll; input VAT/MTD/CIS and GST/ABN/RCTI for AP; GBP/VAT and AUD/GST invoicing for AR), not a find-and-replace of the U.S. page. Navbar, sitemap, and both market pages' service grids updated to point at the new pages instead of falling back to the generic overview. `/services/accounting` remains U.S.-only by design — no UK/AU page exists yet, and none was claimed in the navbar or market pages.
+
 ## Content gap: engagement-model comparison
 
 No page compares the four `/solutions/*` pages (offshore accounting support, staff augmentation, dedicated accounting teams, back-office support) against each other. The CAS guide and "how to choose a partner" guide partially cover the decision but neither is a direct model-vs-model comparison. Candidate for Stage 6 (new content) once Stage 1–2 registries are in place — see the Growth System Audit, §09.
