@@ -1,5 +1,16 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (mobile UX follow-up: 2-per-row card grid)
+
+Follow-up to the same-day card-density fix. User reviewed the shipped 1-per-row result and asked whether 2 cards per row was possible to fit more on screen. Prototyped it, found a real tradeoff (2-up cuts the description to ~1 line and, without care, truncates short titles mid-word), fixed the truncation, and shipped once it looked "systematic and organized" per the user's own bar rather than just technically fitting.
+
+### `components/section-grid.tsx`, `components/feature-card.tsx`, `components/icon-badge.tsx`
+
+**Changed:** Grid is `grid-cols-2` on mobile (was `grid-cols-1`), unchanged at `md:grid-cols-3`+. Card padding, icon size (`IconBadge`'s `md` size is now responsive: 40px on mobile, 56px from `sm:` up), title size, and description size/line-clamp are all tightened further on mobile only. Title no longer clamps with an ellipsis — a first pass did, and a 3-word service name mid-truncated to "Dedicated Accounti…", which reads as broken; titles now wrap fully with only a reserved minimum height for row alignment across cards. Description clamps to 2 lines on mobile (was 3 in the 1-per-row version), 3 lines at `sm:`, uncapped at `md:`+.  
+**Why:** Direct user request, verified against the specific failure mode (title truncation) before shipping rather than shipping the first version that technically fit two columns.  
+**Verified:** Playwright screenshots at 375×812 (iPhone SE — the narrowest common device) for `/services` and `/solutions`, plus a 1440px desktop screenshot confirming zero visual change above the `md:` breakpoint. `next build` and `eslint .` both pass.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (layout/typography only).
+
 ## 2026-08-21 (mobile UX: services/solutions cards were taking nearly a full screen each)
 
 User-reported bug: on mobile (iOS/Android), browsing Services or Solutions felt like cards were "coming on one by one," each taking the whole screen, making it slow to check the full list. Verified with Playwright at a 390×844 mobile viewport before touching anything: on `/services`, each card measured ~385px tall against an 844px viewport — roughly 46% of the screen per card, so only ~1.3 cards were visible at once. Root cause: `FeatureCard` (shared by every `SectionGrid` usage — services, solutions, industries, technology, and markets grids, plus the homepage) rendered the full marketing-length `description` with generous padding and no height cap, which reads fine on desktop but is disproportionate on a narrow phone screen.

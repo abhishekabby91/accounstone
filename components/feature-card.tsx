@@ -20,7 +20,7 @@ export default function FeatureCard({
   variant = 'default',
   className = '',
 }: FeatureCardProps) {
-  const baseClasses = `group h-full p-5 md:p-8 rounded-2xl transition-all duration-300 ${className}`;
+  const baseClasses = `group h-full p-3.5 sm:p-5 md:p-8 rounded-2xl transition-all duration-300 ${className}`;
 
   const variantClasses = {
     default: 'accent-corner glow-hover bg-white border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)] hover:-translate-y-1 hover:border-primary/15',
@@ -29,14 +29,14 @@ export default function FeatureCard({
   }[variant];
 
   const content = (
-    <div className="space-y-3 md:space-y-5 h-full flex flex-col">
+    <div className="space-y-2 sm:space-y-3 md:space-y-5 h-full flex flex-col">
       {icon && <div className="shrink-0">{typeof icon === 'string' ? <span>{icon}</span> : icon}</div>}
 
       <div>
-        <h3 className={`text-lg md:text-xl font-bold mb-1.5 md:mb-2 ${variant === 'featured' ? 'text-white' : 'text-primary'}`}>
+        <h3 className={`text-sm sm:text-lg md:text-xl font-bold leading-tight sm:leading-normal mb-1 sm:mb-1.5 md:mb-2 min-h-[2.25rem] sm:min-h-0 ${variant === 'featured' ? 'text-white' : 'text-primary'}`}>
           {title}
         </h3>
-        <p className={`text-sm leading-6 line-clamp-3 md:line-clamp-none ${variant === 'featured' ? 'text-white/85' : 'text-muted'}`}>
+        <p className={`text-xs sm:text-sm leading-4 sm:leading-6 line-clamp-2 sm:line-clamp-3 md:line-clamp-none min-h-[2rem] sm:min-h-0 ${variant === 'featured' ? 'text-white/85' : 'text-muted'}`}>
           {description}
         </p>
       </div>
