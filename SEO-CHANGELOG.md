@@ -1,5 +1,16 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (mobile UX: services/solutions cards were taking nearly a full screen each)
+
+User-reported bug: on mobile (iOS/Android), browsing Services or Solutions felt like cards were "coming on one by one," each taking the whole screen, making it slow to check the full list. Verified with Playwright at a 390×844 mobile viewport before touching anything: on `/services`, each card measured ~385px tall against an 844px viewport — roughly 46% of the screen per card, so only ~1.3 cards were visible at once. Root cause: `FeatureCard` (shared by every `SectionGrid` usage — services, solutions, industries, technology, and markets grids, plus the homepage) rendered the full marketing-length `description` with generous padding and no height cap, which reads fine on desktop but is disproportionate on a narrow phone screen.
+
+### `components/feature-card.tsx`, `components/section-grid.tsx`
+
+**Changed:** Capped the description to 3 lines on mobile only (`line-clamp-3 md:line-clamp-none` — desktop still shows the full text, matching current behavior exactly), tightened card padding (`p-7 md:p-8` → `p-5 md:p-8`), title size (`text-xl` → `text-lg md:text-xl`), and internal spacing (`space-y-5` → `space-y-3 md:space-y-5`) on mobile, and reduced the grid gap between cards on mobile (`gap-6 md:gap-7` → `gap-4 md:gap-7`). Desktop values are unchanged throughout — this is a mobile-only fix.  
+**Why:** This single shared component drives every service/solution/industry/technology/market card sitewide, so fixing it here fixes the complaint everywhere it occurs rather than patching one page.  
+**Verified:** Re-measured with Playwright at the same 390×844 viewport after the change — card height dropped from ~385px to ~258px (about 2.5 cards now visible per screen instead of 1.3), full `/services` page height dropped from 6229px to 5462px. Also screenshotted `/solutions`, the homepage's services section, and a 1440px desktop view of `/services` to confirm desktop rendering is byte-for-byte the same (full description text, same 3-column layout, same card heights). `next build` and `eslint .` both pass.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (styling/layout only — same copy, no truncation on desktop; mobile truncates with a CSS ellipsis rather than removing any text).
+
 ## 2026-08-21 (deepen the 3 market pages — content depth, differentiation, internal linking)
 
 Owner asked to focus on the US/UK/Australia markets specifically, since live ranking data (GSC, Ahrefs, Semrush) isn't reachable from this environment — this is on-page depth and linking work, not a ranking-data-driven change. Ran the local SEO agent scan first: all three market pages already score 90/100 with no flagged issues, but a manual read showed they were noticeably shallower than the region-specific service pages a visitor lands on next — a bullet-list "expertise" section with no operational specificity, and no links out to the site's own blog/guide/insight content.
