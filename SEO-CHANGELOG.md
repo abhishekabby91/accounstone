@@ -1,5 +1,27 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (finalization pass: full-site technical verification + 6 unlisted sitemap URLs)
+
+End-of-engagement verification sweep across all 89 routes, checking the things that quietly break rather than re-reading copy. Everything passed except one real finding.
+
+### `app/sitemap.ts` — six indexable pages were never declared for crawling
+
+**Changed:** Added `/resources/guides/outsourced-accounting-services-guide`, `/resources/guides/outsourced-payroll-processing-guide`, `/resources/guides/outsourced-accounts-payable-guide`, `/resources/guides/outsourced-accounts-receivable-guide`, plus `/privacy` and `/terms`.  
+**Why:** The four guides shipped 2026-08-14 and were internally linked but never added to the sitemap, so they were crawlable only by link discovery. The accounting-services guide is the most consequential of the four — it is the 301 target for the retired `/blog/outsourced-accounting-services` URL, so the destination of a permanent redirect was itself unlisted. `/privacy` and `/terms` are indexable and footer-linked exactly like `/compliance` and `/data-security`, which were already listed; excluding only those two was an inconsistency rather than a decision.  
+**How it was missed until now:** `app/sitemap.ts` mixes hardcoded `path:` entries with URLs auto-generated from `lib/data.ts`, so grepping the source undercounts by ~30 URLs and looks fine. The check only works against the *generated* `/sitemap.xml`. That method is now documented in `docs/ROUTES.md` so it is reproducible.  
+**Result:** 89 page files ↔ 89 sitemap URLs, exact parity in both directions.
+
+### Verification performed (all clean, no changes needed)
+
+- **Every route responds:** all 89 return HTTP 200 — no broken or orphaned routes.
+- **Internal links:** crawled all 89 pages, extracted 87 unique internal link targets, every one resolves to a real page. Zero dead links — the failure mode that previously produced 15 of them here.
+- **Metadata integrity across all 89 pages:** 0 duplicate `<title>`, 0 duplicate canonicals, 0 missing title/description/canonical, 0 pages without an `<h1>`, 0 pages with multiple `<h1>`s, 0 accidental `noindex`.
+- **Redirect:** the retired blog URL still resolves 308 → the guide.
+- **Registry accuracy:** `docs/ROUTES.md` said 85 routes against an actual 89; corrected to the measured figure.
+
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (sitemap declarations and docs only).  
+**Verified:** `next build` and `eslint .` both pass.
+
 ## 2026-08-21 (responsive audit: unreachable tablet nav + CTA, tap targets, footer overflow)
 
 Ran an instrumented responsive audit (not a visual skim) across 320/360/375/390/768/820/1024/1280/1440px, measuring horizontal overflow, tap-target sizes against WCAG 2.5.8 AA, and per-element clipping. Found one significant bug and two real accessibility issues.
