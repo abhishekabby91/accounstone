@@ -17,8 +17,8 @@
 | app/industries/page.tsx | 75/100 | 178 | 1 | 1 | 0 | 0 |
 | app/privacy/page.tsx | 75/100 | 268 | 1 | 0 | 0 | 0 |
 | app/terms/page.tsx | 75/100 | 228 | 1 | 0 | 0 | 0 |
-| app/delivery-framework/communication/page.tsx | 80/100 | 289 | 1 | 4 | 0 | 0 |
-| app/delivery-framework/quality-assurance/page.tsx | 80/100 | 328 | 1 | 5 | 0 | 0 |
+| app/delivery-framework/communication/page.tsx | 80/100 | 293 | 1 | 4 | 0 | 0 |
+| app/delivery-framework/quality-assurance/page.tsx | 80/100 | 330 | 1 | 5 | 0 | 0 |
 | app/markets/page.tsx | 80/100 | 261 | 1 | 3 | 0 | 0 |
 | app/resources/insights/page.tsx | 80/100 | 208 | 1 | 2 | 0 | 0 |
 | app/resources/page.tsx | 80/100 | 249 | 1 | 3 | 0 | 0 |
@@ -27,7 +27,7 @@
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 390 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 382 | 1 | 1 | 0 | 0 |
 | app/services/accounting/page.tsx | 85/100 | 496 | 1 | 0 | 0 | 0 |
-| app/about/page.tsx | 90/100 | 693 | 1 | 5 | 0 | 0 |
+| app/about/page.tsx | 90/100 | 695 | 1 | 5 | 0 | 0 |
 | app/blog/accounts-payable-outsourcing/page.tsx | 90/100 | 599 | 1 | 6 | 0 | 0 |
 | app/blog/accounts-receivable-management/page.tsx | 90/100 | 591 | 1 | 4 | 0 | 0 |
 | app/blog/audit-support-services/page.tsx | 90/100 | 716 | 1 | 6 | 0 | 0 |
@@ -41,13 +41,13 @@
 | app/industries/healthcare/page.tsx | 90/100 | 442 | 1 | 3 | 0 | 0 |
 | app/industries/professional-services/page.tsx | 90/100 | 446 | 1 | 3 | 0 | 0 |
 | app/industries/real-estate/page.tsx | 90/100 | 471 | 1 | 5 | 0 | 0 |
-| app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 899 | 1 | 6 | 0 | 0 |
+| app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 901 | 1 | 6 | 0 | 0 |
 | app/industries/technology/page.tsx | 90/100 | 439 | 1 | 2 | 0 | 0 |
-| app/markets/australia/page.tsx | 90/100 | 798 | 1 | 19 | 0 | 0 |
-| app/markets/united-kingdom/page.tsx | 90/100 | 774 | 1 | 19 | 0 | 0 |
+| app/markets/australia/page.tsx | 90/100 | 799 | 1 | 19 | 0 | 0 |
+| app/markets/united-kingdom/page.tsx | 90/100 | 775 | 1 | 19 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 652 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
-| app/markets/united-states/page.tsx | 90/100 | 875 | 1 | 12 | 0 | 0 |
+| app/markets/united-states/page.tsx | 90/100 | 876 | 1 | 12 | 0 | 0 |
 | app/markets/united-states/texas/page.tsx | 90/100 | 649 | 1 | 6 | 0 | 0 |
 | app/resources/case-studies/page.tsx | 90/100 | 574 | 1 | 4 | 0 | 0 |
 | app/resources/guides/choosing-an-engagement-model/page.tsx | 90/100 | 1103 | 1 | 10 | 0 | 0 |
