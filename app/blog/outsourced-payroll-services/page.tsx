@@ -4,17 +4,17 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll: What It Covers, What It Costs, and What to Watch Out For',
-  description: 'Payroll outsourcing for US (W-2/1099, Form 941), UK (RTI, PAYE), and Australia (STP, superannuation). Pricing by employee count and the watch-outs from real payroll threads.',
+  title: 'Outsourced Payroll: Costs, Bank-Access Red Flags, and What to Watch Out For',
+  description: "What outsourced payroll costs by employee count in the US, UK, and Australia, the bank-access line that should never move, and the watch-outs from real payroll threads. For jurisdiction-by-jurisdiction compliance, see our payroll processing guide.",
   path: '/blog/outsourced-payroll-services',
 });
 
 export default function PayrollOutsourcingBlog() {
   return (
     <ArticleLayout
-      title="Outsourced Payroll: What It Covers, What It Costs, and What to Watch Out For"
+      title="Outsourced Payroll: Costs, Bank-Access Red Flags, and What to Watch Out For"
       category="Payroll"
-      description="US, UK, and Australian payroll compliance, software workflows, per-employee cost ranges, and the watch-outs that come up in real onboarding calls."
+      description="Per-employee cost ranges for the US, UK, and Australia, the bank-access line that should never move, and the watch-outs that come up in real onboarding calls."
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/outsourced-payroll-services"
@@ -22,15 +22,10 @@ export default function PayrollOutsourcingBlog() {
       <p>Payroll is one of the more emotionally charged outsourcing decisions for business owners — employees are paid on time or they&rsquo;re not, and the consequences of &ldquo;not&rdquo; are immediate. The hesitation is understandable, but the actual risks of well-structured outsourced payroll are much lower than the risks of a payroll process that depends entirely on one busy person remembering to run it on time every fortnight.</p>
 
       <h2>What Outsourced Payroll Processing Includes</h2>
-      <ul>
-        <li>Calculating gross pay from timesheets, salaries, hourly rates, and overtime rules</li>
-        <li>Applying tax withholdings, voluntary deductions (401k, pension, benefits), and garnishments</li>
-        <li>Generating and distributing payslips</li>
-        <li>Submitting payroll runs in your payroll software</li>
-        <li>Reconciling payroll GL entries against the payroll register</li>
-        <li>Maintaining payroll records and audit trails</li>
-      </ul>
-      <p>Not included: HR strategy, benefits administration, employment law advice, classification of contractors vs. employees, hiring or termination decisions.</p>
+      <p>
+        The recurring work: calculating gross pay, applying tax withholdings and deductions, generating payslips, submitting the payroll run, and reconciling payroll GL entries against the register. It does not include HR strategy, benefits administration, employment law advice, or the contractor-vs-employee classification call — those stay with your management team or employment attorney. See our{' '}
+        <Link href="/resources/guides/outsourced-payroll-processing-guide" className="text-primary font-medium hover:underline">payroll processing guide</Link>{' '}for the full jurisdiction-by-jurisdiction breakdown of what's in and out of scope.
+      </p>
 
       <h2>Jurisdiction-Specific Compliance</h2>
       <p><strong>US:</strong> Federal (FICA, FUTA, W-4 withholding) + state (income tax, SUTA, state-specific programs like California SDI or New York PFL). Quarterly 941 filings, annual 940 and W-2s. Multi-state remote employees create nexus questions — your tax advisor determines nexus, the payroll team processes per that determination.</p>

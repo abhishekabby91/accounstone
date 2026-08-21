@@ -1,5 +1,30 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (growth-system audit, Stage 1: governance registries + blog/guide cannibalization fixes)
+
+Ran a full Phase 1–4 repository audit against the hub-and-spoke/search-intent architecture requested for the site's SEO growth system, delivered as a report for review. This entry covers the Stage 1 work approved to proceed without further sign-off: the registries the audit's own framework requires, and the low-risk cannibalization fixes it identified with high confidence. The one pair flagged as needing an explicit merge-vs-deepen decision (`/blog/outsourced-accounting-services` vs. `/resources/guides/outsourced-accounting-services-guide`) was **not** touched — see `docs/CONTENT-REGISTRY.md` for why.
+
+### New: `docs/ROUTES.md`, `docs/SEARCH-INTENTS.md`, `docs/CONTENT-REGISTRY.md`
+
+**Changed:** Added a formal route registry (all 79 routes, by cluster), search-intent registry (intent → primary URL), and content registry (blog/guide inventory with status) — none existed before in this form, though the same governance intent was previously spread informally across `AI-WEBSITE-GUIDE.md`, `SEO-AUDIT.md`, and `ACCounstone-SEO-AGENT.md`.  
+**Why:** Prevents the specific failure this pass found (see below) from recurring — future agents/sessions now have one place to check for an existing intent owner before creating a page.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** N/A (new docs, no site-facing content).
+
+### `/blog/outsourced-bookkeeping-guide`, `/blog/outsourced-payroll-services`, `/blog/accounts-payable-outsourcing` — cannibalization fix
+
+**Changed:** These three blog articles independently grew near-duplicate coverage of the same questions already owned by a `/resources/guides/*` counterpart (verified by reading both pages in each pair, not just titles). Re-scoped each blog's title, meta description, intro, and the one most-duplicated section to lead with the angle its own title already half-promised but the body didn't deliver on, and added an explicit cross-link to the guide that owns the overlapping intent:
+- **Bookkeeping:** title/intro re-scoped away from "what it costs" (the guide's job — it has the `CostEstimator` widget) toward "what to expect day to day, software workflows, red flags" (the blog's actual unique content: QBO/Xero mechanics, Reddit-sourced FAQ, warning signs). Added a pointer to the cost guide above the pricing tables.
+- **Payroll:** title/intro re-scoped away from "what it covers" (the guide's job — it has the full US/UK/AU jurisdiction breakdown) toward "costs, bank-access red flags, watch-outs." Condensed the duplicated "what's included" bullet list to a short summary + link to the guide's full version.
+- **Accounts Payable:** title/intro re-scoped toward "fraud controls, software workflows, real costs" (the blog's unique operational detail) away from restating the guide's control-and-authority framework. Condensed the duplicated "what the AP team handles vs. stays with you" section to a summary + link.
+
+Also updated the corresponding listing entries on `/blog` (title/description) to match.  
+**Why:** `/blog` and `/resources/guides` grew as two separately-built content systems; nothing before `docs/SEARCH-INTENTS.md` existed would have caught two pages competing for the same primary intent. This is the concrete instance the growth-system audit was designed to surface.  
+**URL changed:** No (no page removed or redirected — differentiation only, per the audit's own escalation path: only MERGE/REDIRECT require the URL-change approval this pass didn't seek). **Metadata changed:** Yes (3 pages). **Content changed:** Yes (3 pages + blog index).
+
+**Not touched:** `/blog/outsourced-accounting-services` vs. `/resources/guides/outsourced-accounting-services-guide` — overlap here is paragraph-level, not just topical (several sections are near word-for-word matches). A title/intro edit wouldn't fix it, and a real fix means either merging with a 301 or a substantial rewrite — both need an explicit owner decision. Flagged in `docs/CONTENT-REGISTRY.md`, left as-is.
+
+**Verified:** `next build` and `eslint .` both pass.
+
 ## 2026-08-21 (follow-up sweep: caught one missed FAQ + tone/absolute-claim cleanup)
 
 Re-ran the same red-flag grep sweep after the market-pages fix shipped, to catch anything missed. Found one real gap and a few lower-severity tone issues.

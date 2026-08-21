@@ -4,17 +4,17 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Accounts Payable Outsourcing: The Complete Guide for Growing Businesses',
-  description: 'When AP becomes a bottleneck, what to outsource vs. keep in-house, software workflows for QuickBooks, Xero and NetSuite, and real cost ranges for US, UK, and Australia.',
+  title: 'Accounts Payable Outsourcing: Fraud Controls, Software Workflows, and Real Costs',
+  description: 'The fraud controls every outsourced AP setup needs, how the workflow runs in QuickBooks, Xero and NetSuite, and real per-invoice cost ranges for the US, UK, and Australia. For the full control-and-authority breakdown, see our AP guide.',
   path: '/blog/accounts-payable-outsourcing',
 });
 
 export default function APOutsourcingBlog() {
   return (
     <ArticleLayout
-      title="Accounts Payable Outsourcing: The Complete Guide for Growing Businesses"
+      title="Accounts Payable Outsourcing: Fraud Controls, Software Workflows, and Real Costs"
       category="Accounts Payable"
-      description="The AP bottleneck, fraud controls, software workflows, and real cost ranges for the US, UK, and Australia."
+      description="Fraud controls, software workflows, and real per-invoice cost ranges for the US, UK, and Australia — the operational detail behind an outsourced AP setup."
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/accounts-payable-outsourcing"
@@ -23,8 +23,10 @@ export default function APOutsourcingBlog() {
       <p>Outsourcing AP solves the most consistent problem: no one is entering invoices, routing them, and reconciling vendor balances on a predictable schedule.</p>
 
       <h2>What the AP Team Handles vs. What Stays With You</h2>
-      <p>The outsourced AP team handles: invoice receipt (shared AP inbox), bill entry against the correct vendor and expense account, three-way PO matching where applicable, routing bills to internal approvers, preparing the payment run, scheduling payments once approved, reconciling vendor statements, and maintaining the aging report.</p>
-      <p>What stays with you: vendor contract decisions, approving invoices above your threshold, executing bank payments, and adding new vendors to the approved list. The AP team never initiates transfers or accesses your banking credentials.</p>
+      <p>
+        The outsourced AP team handles the processing work — invoice entry, matching, routing, and reconciliation. Payment execution, vendor approval, and banking access stay with you; the AP team never initiates transfers or accesses your banking credentials. See our{' '}
+        <Link href="/resources/guides/outsourced-accounts-payable-guide" className="text-primary font-medium hover:underline">accounts payable guide</Link>{' '}for the full breakdown of what's handled and what stays in-house.
+      </p>
 
       <h2>Fraud Controls That Must Be in Place</h2>
       <p><strong>Duplicate invoice detection</strong> — checking vendor name, invoice number, and amount before entry — prevents the most common accidental overpayment. A <strong>restricted vendor master</strong> — new vendors added only by your internal team — prevents fake vendor fraud. Both should be documented in the onboarding agreement, not discovered missing after a payment error.</p>

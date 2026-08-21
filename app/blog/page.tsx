@@ -19,17 +19,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 const articles = [
   {
     href: '/blog/outsourced-bookkeeping-guide',
-    title: 'Outsourced Bookkeeping: What It Costs, What to Expect, and When It Makes Sense',
+    title: 'Outsourced Bookkeeping: What to Expect, Software Workflows, and Red Flags to Watch For',
     description:
-      'Real pricing ranges for the US, UK, and Australia. What Reddit gets right (and wrong) about offshore bookkeeping. QuickBooks vs Xero for outsourced work. Common questions answered.',
+      "What outsourced bookkeeping looks like day to day in QuickBooks and Xero, and the warning signs it isn't working. What Reddit gets right (and wrong) about offshore bookkeeping.",
     tag: 'Bookkeeping',
     readTime: '12 min read',
   },
   {
     href: '/blog/accounts-payable-outsourcing',
-    title: 'Accounts Payable Outsourcing: The Complete Guide for Growing Businesses',
+    title: 'Accounts Payable Outsourcing: Fraud Controls, Software Workflows, and Real Costs',
     description:
-      'When AP becomes a bottleneck, what to outsource vs. keep in-house, software considerations (NetSuite, QuickBooks, Xero), and what businesses in the US, UK, and Australia actually pay.',
+      'The fraud controls every outsourced AP setup needs, software workflows (NetSuite, QuickBooks, Xero), and what businesses in the US, UK, and Australia actually pay.',
     tag: 'Accounts Payable',
     readTime: '10 min read',
   },
@@ -43,9 +43,9 @@ const articles = [
   },
   {
     href: '/blog/outsourced-payroll-services',
-    title: 'Outsourced Payroll: What It Covers, What It Costs, and What to Watch Out For',
+    title: 'Outsourced Payroll: Costs, Bank-Access Red Flags, and What to Watch Out For',
     description:
-      'Payroll outsourcing for US (W-2/1099, 941), UK (RTI, PAYE), and Australia (STP, superannuation). What Reddit payroll threads get wrong. Pricing by employee count.',
+      'What outsourced payroll costs by employee count in the US, UK, and Australia, the bank-access line that should never move, and what Reddit payroll threads get wrong.',
     tag: 'Payroll',
     readTime: '11 min read',
   },
