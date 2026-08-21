@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Files/pages scanned: **83**
+- Files/pages scanned: **89**
 - High-priority findings: **0**
 - Medium-priority findings: **11**
 - Low-priority findings: **9**
@@ -63,9 +63,13 @@
 | app/resources/guides/quickbooks-vs-xero-comparison/page.tsx | 90/100 | 813 | 1 | 3 | 0 | 0 |
 | app/resources/guides/staff-augmentation-tax-season-guide/page.tsx | 90/100 | 849 | 1 | 3 | 0 | 0 |
 | app/services/accounting/united-states/page.tsx | 90/100 | 676 | 1 | 11 | 0 | 0 |
-| app/services/accounts-payable/page.tsx | 90/100 | 1062 | 1 | 12 | 0 | 0 |
+| app/services/accounts-payable/australia/page.tsx | 90/100 | 697 | 1 | 12 | 0 | 0 |
+| app/services/accounts-payable/page.tsx | 90/100 | 1070 | 1 | 14 | 0 | 0 |
+| app/services/accounts-payable/united-kingdom/page.tsx | 90/100 | 712 | 1 | 12 | 0 | 0 |
 | app/services/accounts-payable/united-states/page.tsx | 90/100 | 700 | 1 | 11 | 0 | 0 |
-| app/services/accounts-receivable/page.tsx | 90/100 | 1070 | 1 | 11 | 0 | 0 |
+| app/services/accounts-receivable/australia/page.tsx | 90/100 | 703 | 1 | 12 | 0 | 0 |
+| app/services/accounts-receivable/page.tsx | 90/100 | 1078 | 1 | 13 | 0 | 0 |
+| app/services/accounts-receivable/united-kingdom/page.tsx | 90/100 | 711 | 1 | 12 | 0 | 0 |
 | app/services/accounts-receivable/united-states/page.tsx | 90/100 | 698 | 1 | 11 | 0 | 0 |
 | app/services/audit-support/australia/page.tsx | 90/100 | 614 | 1 | 13 | 0 | 0 |
 | app/services/audit-support/page.tsx | 90/100 | 1178 | 1 | 8 | 0 | 0 |
@@ -76,7 +80,9 @@
 | app/services/bookkeeping/united-kingdom/page.tsx | 90/100 | 889 | 1 | 13 | 0 | 0 |
 | app/services/bookkeeping/united-states/page.tsx | 90/100 | 975 | 1 | 13 | 0 | 0 |
 | app/services/page.tsx | 90/100 | 362 | 1 | 3 | 0 | 0 |
-| app/services/payroll/page.tsx | 90/100 | 1250 | 1 | 12 | 0 | 0 |
+| app/services/payroll/australia/page.tsx | 90/100 | 716 | 1 | 12 | 0 | 0 |
+| app/services/payroll/page.tsx | 90/100 | 1258 | 1 | 14 | 0 | 0 |
+| app/services/payroll/united-kingdom/page.tsx | 90/100 | 751 | 1 | 12 | 0 | 0 |
 | app/services/payroll/united-states/page.tsx | 90/100 | 761 | 1 | 11 | 0 | 0 |
 | app/services/tax-preparation/australia/page.tsx | 90/100 | 695 | 1 | 13 | 0 | 0 |
 | app/services/tax-preparation/page.tsx | 90/100 | 1155 | 1 | 9 | 0 | 0 |
