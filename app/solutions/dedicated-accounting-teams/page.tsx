@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: 'Can we scale the team up or down?',
-    answer: 'Absolutely. Your dedicated team scales with your business. Add resources during growth phases or reduce during slower periods with flexibility.',
+    answer: 'Yes. Your dedicated team can scale with your business — adding resources during growth phases or reducing during slower periods.',
   },
   {
     question: 'Who manages the dedicated team?',

@@ -27,11 +27,11 @@ const faqs = [
   },
   {
     question: 'How do you ensure quality and accuracy?',
-    answer: 'Multi-level QA processes, senior accountant reviews, automated controls, and monthly reconciliations ensure accuracy and compliance.',
+    answer: 'Multi-level QA processes, senior accountant reviews, automated controls, and monthly reconciliations are built into the workflow to catch errors before work reaches you.',
   },
   {
     question: 'Can we customize which functions you handle?',
-    answer: 'Absolutely. You choose which back-office functions you want us to handle. Some clients outsource everything, others select specific areas.',
+    answer: 'Yes. You choose which back-office functions you want us to handle — some clients outsource everything, others select specific areas.',
   },
   {
     question: 'What is included in the pricing?',

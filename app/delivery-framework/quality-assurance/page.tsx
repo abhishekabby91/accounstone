@@ -84,8 +84,8 @@ export default function QAPage() {
       </section>
 
       <CTABanner
-        title="Experience Premium Quality"
-        description="Learn how our QA processes ensure accuracy and compliance."
+        title="Want to See How Review Works in Practice?"
+        description="Talk through what our QA process would look like on your engagement."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',

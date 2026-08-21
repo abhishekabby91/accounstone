@@ -18,7 +18,7 @@
 | app/privacy/page.tsx | 75/100 | 268 | 1 | 0 | 0 | 0 |
 | app/terms/page.tsx | 75/100 | 228 | 1 | 0 | 0 | 0 |
 | app/delivery-framework/communication/page.tsx | 80/100 | 289 | 1 | 4 | 0 | 0 |
-| app/delivery-framework/quality-assurance/page.tsx | 80/100 | 320 | 1 | 5 | 0 | 0 |
+| app/delivery-framework/quality-assurance/page.tsx | 80/100 | 328 | 1 | 5 | 0 | 0 |
 | app/markets/page.tsx | 80/100 | 261 | 1 | 3 | 0 | 0 |
 | app/resources/insights/page.tsx | 80/100 | 208 | 1 | 2 | 0 | 0 |
 | app/resources/page.tsx | 80/100 | 249 | 1 | 3 | 0 | 0 |
@@ -45,7 +45,7 @@
 | app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 899 | 1 | 6 | 0 | 0 |
 | app/industries/technology/page.tsx | 90/100 | 439 | 1 | 2 | 0 | 0 |
 | app/markets/australia/page.tsx | 90/100 | 706 | 1 | 16 | 0 | 0 |
-| app/markets/united-kingdom/page.tsx | 90/100 | 687 | 1 | 16 | 0 | 0 |
+| app/markets/united-kingdom/page.tsx | 90/100 | 694 | 1 | 16 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 652 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/page.tsx | 90/100 | 788 | 1 | 9 | 0 | 0 |
@@ -82,7 +82,7 @@
 | app/services/tax-preparation/page.tsx | 90/100 | 1155 | 1 | 9 | 0 | 0 |
 | app/services/tax-preparation/united-kingdom/page.tsx | 90/100 | 702 | 1 | 12 | 0 | 0 |
 | app/services/tax-preparation/united-states/page.tsx | 90/100 | 729 | 1 | 13 | 0 | 0 |
-| app/solutions/back-office-support/page.tsx | 90/100 | 592 | 1 | 3 | 0 | 0 |
+| app/solutions/back-office-support/page.tsx | 90/100 | 601 | 1 | 3 | 0 | 0 |
 | app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 589 | 1 | 3 | 0 | 0 |
 | app/solutions/offshore-accounting-support/page.tsx | 90/100 | 587 | 1 | 3 | 0 | 0 |
 | app/solutions/staff-augmentation/page.tsx | 90/100 | 993 | 1 | 7 | 0 | 0 |
