@@ -175,11 +175,11 @@ export default function YardiTexasPage() {
               Why Property Managers Choose This Support
             </h2>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
             {benefits.map((benefit, i) => (
-              <li key={i} className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                <p className="text-foreground leading-relaxed">{benefit}</p>
+              <li key={i} className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border">
+                <Check className="shrink-0 text-accent w-4 h-4 sm:w-5 sm:h-5 mt-0.5 sm:mt-0" aria-hidden="true" />
+                <p className="text-foreground text-sm sm:text-base leading-5 sm:leading-relaxed">{benefit}</p>
               </li>
             ))}
           </ul>

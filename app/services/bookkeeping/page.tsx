@@ -130,12 +130,12 @@ export default function BookkeepingPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance mt-2">How the workflow fits different accounting platforms</h2>
             <p className="text-muted leading-relaxed mt-4 max-w-2xl">We work inside your existing accounting software. The exact tasks depend on your system, chart of accounts, integrations, and review process.</p>
           </></Reveal>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">
             {softwareNotes.map((s, i) => (
               <Reveal key={i} delay={i * 0.05}>
-                <div className="p-6 bg-input rounded-2xl border border-border/70 h-full">
-                  <h3 className="font-bold text-primary text-base mb-2">{s.name}</h3>
-                  <p className="text-muted text-sm leading-6">{s.notes}</p>
+                <div className="p-3.5 sm:p-6 bg-input rounded-2xl border border-border/70 h-full">
+                  <h3 className="font-bold text-primary text-sm sm:text-base mb-1 sm:mb-2">{s.name}</h3>
+                  <p className="text-muted text-xs sm:text-sm leading-5 sm:leading-6 line-clamp-3 sm:line-clamp-none">{s.notes}</p>
                 </div>
               </Reveal>
             ))}

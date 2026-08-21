@@ -122,12 +122,12 @@ export default function TexasPage() {
             <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Built Around Texas Specifics</h2>
             </>
           </Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
             {benefits.map((b, i) => (
               <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-4 p-6 bg-white rounded-lg border-2 border-border">
-                  <Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" />
-                  <p className="text-foreground leading-relaxed">{b}</p>
+                <li className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border">
+                  <Check className="shrink-0 text-accent w-4 h-4 sm:w-5 sm:h-5 mt-0.5 sm:mt-0" aria-hidden="true" />
+                  <p className="text-foreground text-sm sm:text-base leading-5 sm:leading-relaxed">{b}</p>
                 </li>
               </Reveal>
             ))}

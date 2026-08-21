@@ -1,5 +1,20 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (mobile UX sweep: every remaining single-column card grid on mobile)
+
+User asked to find and convert any other card grids sitewide that were still stacking one-per-row on mobile, following the same pattern already fixed on the main Services/Solutions grids. Audited every `grid-cols-1 md:grid-cols-2` (and `md:grid-cols-3`) occurrence in the codebase and classified each by content, not just by class name — the same Tailwind classes are used for genuinely different layouts (short checklist cards vs. large "delegated vs. retained" 2-panel splits vs. sequential numbered process steps), so a blind find-and-replace would have broken several pages.
+
+### Converted to 2-per-row on mobile (short-item card grids only)
+
+**Changed:** `components/service-page-template.tsx` (benefits + deliverables grids — used by 7 pages via the shared template: `/services/accounting` and all 6 `/industries/*` pages), `components/industry-page-template.tsx` (benefits grid), the inline "benefits/preparation/support" checklist grids on all region-specific bookkeeping/tax-preparation/audit-support pages (9 files), the "elements" compliance-layer grids on all region-specific payroll/AP/AR/accounting pages (10 files), the "workflows" grids on all 7 technology pages, the 3 US state market pages' benefits grids, the Yardi/Texas industry page's benefits grid, the "Services for X Market" title-only link grids on all 3 market pages, both grids on the About page (2-card "Growing Team" row and 6-card "Why Choose Us" grid), the AR and Bookkeeping general-service pages' title+description info-box grids, the Quality Assurance page's two 4-item boxes (nested inside the existing 2-column QA Framework/Quality Standards split, which itself stays 1-column on mobile), and the Communication page's 6-item channel grid. Padding, icon/text size, and description line-clamp are tightened on mobile in each case, matching the earlier Services/Solutions fix; desktop is unchanged throughout.  
+**Why:** Direct user request to extend the same fix everywhere it applied. Verified with Playwright screenshots across a representative sample (UK bookkeeping, Xero, Australia market, About, Quality Assurance, Communication) at 375×812 before shipping.
+
+### Deliberately left alone (checked, not just skipped)
+
+**Not changed:** "Delegated vs. retained" 2-panel splits (each panel holds 5-6 list items — halving the width would cram far too much into one column), numbered process-step timelines (sequential narrative content reads better top-to-bottom than in a 2-column zigzag), the 3-item "Common starting points" paragraph cards on technology pages (each already has full-paragraph content, a separate treatment from the short-item grids), and the Blog/Guides/Insights/Case-studies article listing cards — checked visually first: article titles run 60-90 characters and would wrap to 8+ lines at half-width, which is worse, not better.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (layout/typography only, ~35 files).  
+**Verified:** `next build` (all routes) and `eslint .` both pass.
+
 ## 2026-08-21 (mobile UX follow-up: 2-per-row card grid)
 
 Follow-up to the same-day card-density fix. User reviewed the shipped 1-per-row result and asked whether 2 cards per row was possible to fit more on screen. Prototyped it, found a real tradeoff (2-up cuts the description to ~1 line and, without care, truncates short titles mid-word), fixed the truncation, and shipped once it looked "systematic and organized" per the user's own bar rather than just technically fitting.

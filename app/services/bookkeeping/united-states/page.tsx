@@ -94,7 +94,7 @@ export default function BookkeepingUSPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-16"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Work Behind a Clean Month-End</h2></></Reveal>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">{benefits.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="flex items-start gap-4 p-6 bg-white rounded-xl border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)]"><Check className="shrink-0 text-accent w-5 h-5" aria-hidden="true" /><p className="text-foreground leading-relaxed">{item}</p></li></Reveal>)}</ul>
+          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">{benefits.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-xl border border-border/70 shadow-[0_1px_3px_rgba(15,23,42,0.04)]"><Check className="shrink-0 text-accent w-4 h-4 sm:w-5 sm:h-5 mt-0.5 sm:mt-0" aria-hidden="true" /><p className="text-foreground text-sm sm:text-base leading-5 sm:leading-relaxed">{item}</p></li></Reveal>)}</ul>
         </div>
       </section>
 

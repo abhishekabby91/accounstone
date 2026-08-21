@@ -31,7 +31,7 @@ export default function CommunicationPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-12">
             {[
               { title: 'Dedicated Account Manager', desc: 'Single point of contact for all questions and issues', icon: User },
               { title: 'Weekly Status Updates', desc: 'Regular updates on project status and upcoming deliverables', icon: BarChart3 },
@@ -40,11 +40,11 @@ export default function CommunicationPage() {
               { title: 'Monthly Business Reviews', desc: 'Strategic reviews of performance, metrics, and improvements', icon: TrendingUp },
               { title: 'Transparent Reporting', desc: 'Detailed reports on work completed, metrics, and insights', icon: ClipboardList },
             ].map((item, i) => (
-              <div key={i} className="flex gap-4 items-start p-6 bg-input rounded-lg border border-border">
-                <item.icon className="w-8 h-8 text-accent flex-shrink-0" aria-hidden="true" />
+              <div key={i} className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start p-3.5 sm:p-6 bg-input rounded-lg border border-border">
+                <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" aria-hidden="true" />
                 <div>
-                  <h3 className="font-bold text-primary mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted">{item.desc}</p>
+                  <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{item.title}</h3>
+                  <p className="text-xs sm:text-sm text-muted line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                 </div>
               </div>
             ))}

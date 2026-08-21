@@ -100,14 +100,14 @@ export default function AboutPage() {
             A Growing Team, Not a Faceless Vendor
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <div className="text-center space-y-3 p-6 rounded-lg bg-white border-2 border-border">
-              <h3 className="text-xl font-semibold text-primary">Real Experience</h3>
-              <p className="text-sm text-muted">Our team brings 24+ years of combined hands-on accounting experience to every engagement.</p>
+          <div className="grid grid-cols-2 gap-3 sm:gap-8 max-w-2xl mx-auto">
+            <div className="text-center space-y-2 sm:space-y-3 p-3.5 sm:p-6 rounded-lg bg-white border-2 border-border">
+              <h3 className="text-base sm:text-xl font-semibold text-primary">Real Experience</h3>
+              <p className="text-xs sm:text-sm text-muted">Our team brings 24+ years of combined hands-on accounting experience to every engagement.</p>
             </div>
-            <div className="text-center space-y-3 p-6 rounded-lg bg-white border-2 border-border">
-              <h3 className="text-xl font-semibold text-primary">Building Deliberately</h3>
-              <p className="text-sm text-muted">We're a growing company and we'd rather earn trust with honest work than inflate our track record.</p>
+            <div className="text-center space-y-2 sm:space-y-3 p-3.5 sm:p-6 rounded-lg bg-white border-2 border-border">
+              <h3 className="text-base sm:text-xl font-semibold text-primary">Building Deliberately</h3>
+              <p className="text-xs sm:text-sm text-muted">We're a growing company and we'd rather earn trust with honest work than inflate our track record.</p>
             </div>
           </div>
         </div>
@@ -158,7 +158,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
             {[
               {
                 icon: GraduationCap,
@@ -191,10 +191,10 @@ export default function AboutPage() {
                 desc: 'Flexible engagement models designed to fit your budget and needs.',
               },
             ].map((item, i) => (
-              <div key={i} className="space-y-3 p-6 bg-input rounded-xl border-2 border-border">
-                <item.icon className="w-10 h-10 text-accent" aria-hidden="true" />
-                <h3 className="font-bold text-lg text-primary">{item.title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{item.desc}</p>
+              <div key={i} className="space-y-2 sm:space-y-3 p-3.5 sm:p-6 bg-input rounded-xl border-2 border-border">
+                <item.icon className="w-7 h-7 sm:w-10 sm:h-10 text-accent" aria-hidden="true" />
+                <h3 className="font-bold text-sm sm:text-lg text-primary">{item.title}</h3>
+                <p className="text-muted text-xs sm:text-sm leading-5 sm:leading-relaxed line-clamp-3 sm:line-clamp-none">{item.desc}</p>
               </div>
             ))}
           </div>
