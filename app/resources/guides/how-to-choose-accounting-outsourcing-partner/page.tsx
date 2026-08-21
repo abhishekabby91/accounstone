@@ -132,11 +132,15 @@ export default function HowToChoosePartnerGuide() {
         None of this is about finding a provider that promises the fewest problems. It is about finding one that can describe its process in specific, checkable terms — who does the work, who reviews it, what stays with you, and what happens if the relationship changes. A provider that answers those questions plainly is usually easier to work with than one that only offers reassurance.
       </p>
       <p>
-        If you are further along and evaluating a specific engagement model, see our{' '}
+        If you are further along and deciding between engagement models specifically, see{' '}
+        <Link href="/resources/guides/choosing-an-engagement-model" className="text-primary font-medium hover:underline">
+          staff augmentation vs. dedicated team vs. offshore support vs. back office
+        </Link>{' '}
+        , or the full{' '}
         <Link href="/solutions" className="text-primary font-medium hover:underline">
           outsourced accounting solutions
         </Link>{' '}
-        overview or{' '}
+        overview, or{' '}
         <Link href="/resources/guides/outsourced-bookkeeping-cost-guide" className="text-primary font-medium hover:underline">
           bookkeeping cost guide
         </Link>{' '}

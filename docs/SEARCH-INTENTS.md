@@ -27,7 +27,7 @@ One primary search intent → one primary URL. Check this file before creating a
 | Staff augmentation during tax season | `/resources/guides/staff-augmentation-tax-season-guide` | Informational |
 | Client Accounting Services (CAS) for CPA firms | `/resources/guides/client-accounting-services-cas-guide` | Informational |
 | How to choose an accounting outsourcing partner | `/resources/guides/how-to-choose-accounting-outsourcing-partner` | Evaluation |
-| Staff augmentation vs. dedicated team vs. offshore vs. back-office | *(no URL owns this yet)* | Comparison — gap, see CONTENT-REGISTRY |
+| Staff augmentation vs. dedicated team vs. offshore vs. back-office | `/resources/guides/choosing-an-engagement-model` | Comparison |
 | QuickBooks vs. Xero | `/resources/guides/quickbooks-vs-xero-comparison` | Comparison |
 | ASC 606 revenue recognition for SaaS | `/resources/insights/asc-606-revenue-recognition-saas` | Informational (specialist) |
 | Sales tax nexus for e-commerce | `/resources/insights/sales-tax-nexus-ecommerce-guide` | Informational (specialist) |

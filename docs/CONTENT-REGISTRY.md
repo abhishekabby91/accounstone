@@ -23,6 +23,7 @@ Tracks blog/guide/insight content specifically (not every route — see `ROUTES.
 | QuickBooks Online vs. Xero: Which Fits Your Business? | `/resources/guides/quickbooks-vs-xero-comparison` | Technology | Software comparison | Stable | — |
 | ASC 606 Revenue Recognition for SaaS: A Quick Explainer | `/resources/insights/asc-606-revenue-recognition-saas` | Insights | Specialist explainer | Stable | — |
 | Sales Tax Nexus: What E-Commerce Sellers Need to Track | `/resources/insights/sales-tax-nexus-ecommerce-guide` | Insights | Specialist explainer | Stable | — |
+| Staff Augmentation vs. Dedicated Team vs. Offshore Support vs. Back Office: How to Choose | `/resources/guides/choosing-an-engagement-model` | Solutions | Comparison / decision framework | Published | 2026-08-21 |
 
 ## Open item: Accounting Services blog/guide pair
 
@@ -38,6 +39,6 @@ Either requires an explicit decision — a URL change is out of scope for an uns
 
 The Growth System Audit (2026-08-21, §06) flagged that payroll, AP, and AR had no dedicated UK/AU pages while bookkeeping, tax preparation, and audit support did. Closed the same day: added `/services/payroll/{united-kingdom,australia}`, `/services/accounts-payable/{united-kingdom,australia}`, and `/services/accounts-receivable/{united-kingdom,australia}` — each with genuine regional detail (RTI/PAYE/NI/auto-enrolment and STP/superannuation/PAYG for payroll; input VAT/MTD/CIS and GST/ABN/RCTI for AP; GBP/VAT and AUD/GST invoicing for AR), not a find-and-replace of the U.S. page. Navbar, sitemap, and both market pages' service grids updated to point at the new pages instead of falling back to the generic overview. `/services/accounting` remains U.S.-only by design — no UK/AU page exists yet, and none was claimed in the navbar or market pages.
 
-## Content gap: engagement-model comparison
+## Resolved gap: engagement-model comparison
 
-No page compares the four `/solutions/*` pages (offshore accounting support, staff augmentation, dedicated accounting teams, back-office support) against each other. The CAS guide and "how to choose a partner" guide partially cover the decision but neither is a direct model-vs-model comparison. Candidate for Stage 6 (new content) once Stage 1–2 registries are in place — see the Growth System Audit, §09.
+Closed 2026-08-21: added `/resources/guides/choosing-an-engagement-model`, comparing the four `/solutions/*` pages (offshore accounting support, staff augmentation, dedicated accounting teams, back-office support) side by side — unit of engagement, best fit, typical duration — plus a decision framework and an honest note that the models blur in practice rather than presenting them as four rigid tiers. Cross-linked from all four solutions pages, the solutions index, and the "how to choose a partner" guide (which covers evaluating a provider generally, not choosing between models — kept distinct rather than merged).

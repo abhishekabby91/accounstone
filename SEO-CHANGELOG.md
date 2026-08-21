@@ -1,5 +1,23 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (growth-system audit, Stage 6: engagement-model comparison guide)
+
+Closed the content gap flagged in the Growth System Audit §06: no page compared the four `/solutions/*` engagement models against each other, so a visitor deciding between staff augmentation, a dedicated team, offshore accounting support, and back-office support had no single page to work from.
+
+### New: `/resources/guides/choosing-an-engagement-model`
+
+**Changed:** Added a comparison guide — a side-by-side table (unit of engagement, best fit, typical duration), a four-question decision framework, and honest notes that the models overlap in practice (a dedicated team can end up doing back-office-style work; offshore support can look like staff augmentation once running) rather than presenting them as four rigid, non-overlapping tiers. Cross-linked from all four `/solutions/*` pages, the `/solutions` index, and the "how to choose a partner" guide (kept distinct — that guide covers evaluating a provider generally; this one covers choosing between models once you've decided to work with Accounstone).  
+**Why:** Real content gap identified in the audit's search-intent registry — the intent existed with no owning URL.  
+**URL changed:** No (new URL only). **Metadata changed:** N/A (new page). **Content changed:** Yes (1 new page + 6 cross-link updates).
+
+### `/solutions/offshore-accounting-support` — found while researching the comparison guide
+
+**Changed:** The page claimed "2-4 Weeks to Full Onboarding" as a stat and "Most clients are fully onboarded within 2-4 weeks" in an FAQ — the same category of overclaim already removed from `delivery-framework/onboarding` in an earlier pass ("Typically 2-4 weeks" / "immediate productivity" contradicted the honest ramp-up language on the CPA-firms page), just not caught on this page at the time. Reworded the FAQ to route to a discovery conversation instead of a fixed number, and replaced the stat with "Flexible — Scope That Scales With You."  
+**Why:** Same standard the site already applies elsewhere: don't promise a timeline that depends on a client's specific file complexity.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+**Verified:** `next build` (86 routes) and `eslint .` both pass.
+
 ## 2026-08-21 (growth-system audit, Stage 4: UK/AU payroll, AP, AR pages)
 
 Closed the regional-coverage gap flagged in the Growth System Audit §06: payroll, accounts payable, and accounts receivable had dedicated U.S. pages but fell back to the generic overview for UK and Australia, unlike bookkeeping, tax preparation, and audit support, which already had all three regions.
