@@ -73,6 +73,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/resources/guides/how-to-choose-accounting-outsourcing-partner', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
     { path: '/resources/guides/client-accounting-services-cas-guide', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
     { path: '/resources/guides/choosing-an-engagement-model', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
+    // These four shipped 2026-08-14 but were never added here, so they were
+    // internally linked yet never declared for crawling. The accounting-services
+    // guide matters most: it is the 301 target for the retired
+    // /blog/outsourced-accounting-services URL.
+    { path: '/resources/guides/outsourced-accounting-services-guide', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
+    { path: '/resources/guides/outsourced-payroll-processing-guide', priority: 0.7, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/resources/guides/outsourced-accounts-payable-guide', priority: 0.7, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/resources/guides/outsourced-accounts-receivable-guide', priority: 0.7, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    // Indexable and footer-linked, like /compliance and /data-security which
+    // were already listed. Low priority, but excluding only these two was an
+    // inconsistency rather than a decision.
+    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/markets/united-states/texas', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/california', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/florida', priority: 0.65, changeFrequency: 'monthly' as const },

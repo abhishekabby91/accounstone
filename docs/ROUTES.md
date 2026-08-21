@@ -124,4 +124,20 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 
 ---
 
-**85 routes total** (86 page files minus the retired `/blog/outsourced-accounting-services`, now a 301 redirect). Before adding a new one: check this file, `SEARCH-INTENTS.md`, and `CONTENT-REGISTRY.md` for an existing owner of the intent. Before removing one: search all internal references and add a redirect — see `AI-WEBSITE-GUIDE.md`.
+**89 routes total**, plus one 301 redirect (`/blog/outsourced-accounting-services` → the accounting-services guide). Verified 2026-08-21: 89 page files, 89 sitemap URLs, exact parity — no dead sitemap entries and no unlisted pages.
+
+Before adding a route: check this file, `SEARCH-INTENTS.md`, and `CONTENT-REGISTRY.md` for an existing owner of the intent. Before removing one: search all internal references and add a redirect — see `AI-WEBSITE-GUIDE.md`.
+
+## Re-running the drift check
+
+`app/sitemap.ts` mixes hardcoded `path:` entries with URLs auto-generated from `lib/data.ts`, so grepping the source undercounts. Diff against the **generated** sitemap instead, with the dev server running:
+
+```bash
+find app -name "page.tsx" | sed 's|^app||; s|/page.tsx$||; s|^$|/|' | sort > /tmp/disk.txt
+curl -s http://localhost:3000/sitemap.xml | grep -oE '<loc>[^<]+</loc>' \
+  | sed 's|<loc>https://www.accounstone.com||; s|</loc>||; s|^$|/|' | sort -u > /tmp/sitemap.txt
+comm -13 /tmp/disk.txt /tmp/sitemap.txt   # in sitemap, no page  -> would 404
+comm -23 /tmp/disk.txt /tmp/sitemap.txt   # page exists, unlisted -> not crawled
+```
+
+Both should print nothing. This is the check that catches the failure mode recorded in `AI-WEBSITE-GUIDE.md` ("Known build gotchas") — it found four unlisted guides on 2026-08-21.
