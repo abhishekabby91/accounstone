@@ -80,6 +80,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             <p className="text-lg text-muted leading-relaxed">
               The U.S. market requires expertise in federal taxes, state and local compliance, and industry-specific regulations. Our team brings deep knowledge of GAAP accounting standards, complex tax rules, and evolving regulatory requirements. Whether you're a CPA firm, accounting practice, or business, we provide reliable support to grow your U.S. operations.
             </p>
+            <p className="text-lg text-muted leading-relaxed">
+              The complexity rarely comes from any single rule — it's the number of layers that stack on top of each other. A business with employees or customers in three states is effectively tracking three different filing calendars, not one, and each one shifts the moment operations expand into a new state. That's usually where in-house teams and CPA firms need more hands doing the tracking, not more judgment calls.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -185,6 +188,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                 </Link>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-8 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-wide text-muted">Related resources:</span>
+            <Link href="/resources/insights/sales-tax-nexus-ecommerce-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Sales Tax Nexus Guide</Link>
+            <Link href="/resources/insights/asc-606-revenue-recognition-saas" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">ASC 606 Explainer</Link>
+            <Link href="/resources/guides/outsourced-accounting-services-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Month-End Close &amp; GAAP Guide</Link>
           </div>
         </div>
       </section>

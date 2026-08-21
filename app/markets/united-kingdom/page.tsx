@@ -80,6 +80,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             <p className="text-lg text-muted leading-relaxed">
               UK accounting requires expertise in IFRS standards, VAT compliance, Companies House requirements, and corporation tax. Our UK-focused team brings deep knowledge of regulatory requirements and industry-specific practices. Whether you're expanding to the UK or supporting existing operations, we provide expert accounting and compliance services.
             </p>
+            <p className="text-lg text-muted leading-relaxed">
+              What makes UK bookkeeping different in practice isn't the VAT rate itself — it's the reporting cadence. Making Tax Digital means digital records aren't optional once a business is VAT-registered, and Companies House filing deadlines create a hard stop that doesn't move for anyone's workload. A firm managing several UK clients is really managing several different filing calendars running in parallel.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -156,6 +159,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                 </h3>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-8 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-wide text-muted">Related resources:</span>
+            <Link href="/resources/guides/outsourced-accounting-services-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">FRS 102 &amp; Close Guide</Link>
+            <Link href="/resources/guides/quickbooks-vs-xero-comparison" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">QuickBooks vs. Xero</Link>
+            <Link href="/resources/guides/client-accounting-services-cas-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">CAS Guide for CPA Firms</Link>
           </div>
         </div>
       </section>
