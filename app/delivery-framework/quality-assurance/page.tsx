@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
@@ -53,7 +54,7 @@ export default function QAPage() {
                 {[
                   { title: 'Thorough Review Process', desc: 'Every deliverable is reviewed before it reaches you, not just prepared once' },
                   { title: 'Compliance-Focused', desc: 'We track regulatory requirements across the markets we serve and flag concerns early' },
-                  { title: 'On-Time Delivery Commitment', desc: 'Monthly reports and filings delivered on the schedule we agree to' },
+                  { title: 'On-Time Delivery Commitment', desc: 'Monthly reports and filing-ready documentation delivered on the schedule we agree to' },
                   { title: 'Continuous Training', desc: 'Ongoing professional development for all team members' },
                 ].map((item, i) => (
                   <div key={i} className="p-4 bg-accent/10 rounded-lg border border-accent">
@@ -64,6 +65,21 @@ export default function QAPage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-muted leading-relaxed">
+            Review structure matters most on{' '}
+            <Link href="/services/audit-support" className="text-primary font-medium hover:underline">audit support</Link>{' '}
+            and{' '}
+            <Link href="/services/tax-preparation" className="text-primary font-medium hover:underline">tax preparation</Link>{' '}
+            work, where final sign-off stays with your CPA, Enrolled Agent, or audit team. See how this fits into{' '}
+            <Link href="/delivery-framework/onboarding" className="text-primary font-medium hover:underline">onboarding</Link>{' '}
+            and{' '}
+            <Link href="/delivery-framework/communication" className="text-primary font-medium hover:underline">ongoing communication</Link>.
+          </p>
         </div>
       </section>
 

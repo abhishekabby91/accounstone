@@ -63,6 +63,7 @@ export default function AccountingPage() {
         'Documented workpapers for each close',
       ]}
       relatedServices={[
+        { name: '🇺🇸 U.S. Accounting Details', slug: 'accounting/united-states' },
         { name: 'Bookkeeping', slug: 'bookkeeping' },
         { name: 'Accounts Payable', slug: 'accounts-payable' },
         { name: 'Accounts Receivable', slug: 'accounts-receivable' },

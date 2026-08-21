@@ -20,6 +20,18 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const guides = [
   {
+    title: 'How to Choose an Accounting Outsourcing Partner',
+    href: '/resources/guides/how-to-choose-accounting-outsourcing-partner',
+    description: 'A decision framework covering scope, review structure, red flags and what a sound onboarding process should look like.',
+    isNew: true,
+  },
+  {
+    title: 'Client Accounting Services (CAS): A Guide for CPA Firms',
+    href: '/resources/guides/client-accounting-services-cas-guide',
+    description: 'What CAS actually includes, why production capacity is the usual bottleneck, and where outsourced back-office support fits without touching advisory work.',
+    isNew: true,
+  },
+  {
     title: 'Outsourced Payroll Processing: What It Actually Covers (US, UK & Australia)',
     href: '/resources/guides/outsourced-payroll-processing-guide',
     description: 'Per-jurisdiction payroll compliance, QuickBooks/Xero/Gusto workflows, realistic cost ranges, and the real questions employers ask before handing payroll to an offshore team.',

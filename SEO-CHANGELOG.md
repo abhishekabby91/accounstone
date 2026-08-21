@@ -1,5 +1,84 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (handoff continuation: bottom-funnel guides, schema completion, knowledge base)
+
+Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 claims first: `app/industries/cpa-firms/page.tsx` and the healthcare/e-commerce/professional-services industry pages were already reworked with 250–650+ words, workflow-specific FAQs, and auto-generated FAQ/Breadcrumb schema via `IndustryPageTemplate` — the "57 lines / thin content" note in the handoff was stale (line count is misleading because the template pulls content from data arrays). No changes made there; making them longer for its own sake would have violated the guide's anti-padding rule. Moved to the parts of the handoff that were genuinely unaddressed.
+
+### New pages — Priority 2 (zero-coverage bottom-funnel guides)
+
+**Changed:** Created `app/resources/guides/how-to-choose-accounting-outsourcing-partner/page.tsx` and `app/resources/guides/client-accounting-services-cas-guide/page.tsx`, both using `ArticleLayout` (`section="guides"`), which auto-generates Article + BreadcrumbList schema. Added both to `app/resources/guides/page.tsx`'s guide list and to `app/sitemap.ts`.
+**Why:** Both were confirmed zero-coverage (`grep` found no existing content) and are high commercial-intent, pre-shortlist search terms per the handoff brief.
+**Content notes:**
+- The partner-selection guide is a decision framework (scope-first comparison, review structure, red flags, onboarding expectations) — written as buyer-neutral evaluation criteria, not a sales pitch for Accounstone. Its "red flags" section explicitly calls out unqualified IRS-representation claims and "guaranteed/full compliance" language as warning signs, reinforcing `knowledge/company/scope-boundaries.md` from the buyer's side.
+- The CAS guide explains Client Accounting Services as an industry practice-growth model for CPA firms, then draws the same production-vs-judgment delegation line used everywhere else on the site: bookkeeping/close/reporting production can be delegated, advisory and sign-off stay with the firm's licensed staff. No CFO/advisory positioning introduced.
+**SEO purpose:** Fills two zero-coverage, high-intent bottom-funnel search terms named in the handoff brief; both link back into the CPA-firms, staff-augmentation and bookkeeping-cost-guide clusters.
+**URL changed:** No (new URLs). **Metadata changed:** N/A (new pages). **Content changed:** Yes (new pages).
+
+### Schema completion — Priority 3
+
+**Audited:** Every `page.tsx` route for BreadcrumbList and FAQPage coverage against visible content. Result: every page with visible FAQ content already had matching `FAQPage` schema (0 gaps — the earlier "37/77" FAQ count undercounted because it didn't account for `IndustryPageTemplate`/`ServicePageTemplate`/`ArticleLayout` auto-generating schema for every page that uses them). Breadcrumb coverage had two real gaps.
+**Changed:** Added `BreadcrumbList` schema to `app/compliance/page.tsx` and `app/data-security/page.tsx` (both had none; neither has FAQ-style visible content, so `FAQPage` schema was correctly not added — schema must match visible content). `app/page.tsx` (homepage) and `/terms`, `/privacy` (utility pages, intentionally excluded from the sitemap per its own documented policy) were left without breadcrumb schema, consistent with existing site convention.
+**SEO purpose:** Closes the last real BreadcrumbList gaps; confirms FAQPage coverage was already effectively complete rather than the 37/77 figure the handoff cited.
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (schema only).
+
+### Knowledge base expansion — Priority 4
+
+**Added:** `knowledge/services/{bookkeeping,accounting,tax-preparation,payroll,accounts-payable,accounts-receivable,audit-support}.md` (one per service line, each with exact deliverables split into "can be delegated" vs. "stays with the client/CPA," sourced from `lib/data.ts` service descriptions and the existing service pages — no new claims invented). `knowledge/markets/{us,uk,au}.md` (regulatory context, the FCA/ASIC boundary restated per-market, terminology differences, buyer expectations, software ecosystem). `knowledge/icp/cpa-firms.md` (buyer persona, what they outsource, the seasonal-capacity pattern, the handoff pattern, vocabulary, primary objection, and a note on the CAS trend tying back to the new CAS guide).
+**Why:** Requested in the handoff's Priority 4; these didn't exist yet. Written as internal reference docs for future agents/content passes, not as site copy.
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Documentation only (not rendered on the site).
+
+### Tooling: ESLint dependency
+
+**Changed:** Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`.  
+**Why:** `npm run lint` / `pnpm run lint` had no working `eslint` installed even though `eslint.config.mjs` existed — the previous fix had to be reverted for breaking the Vercel build.  
+**Verified:** `npx eslint .` runs clean (0 findings), `pnpm install --frozen-lockfile` succeeds (the exact command Vercel runs on deploy), and `next build` still produces all 79 static routes.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (tooling only).
+
+### Tooling: fixed a word-count undercount bug in `scripts/accounstone-seo-agent.mjs`
+
+**Found while triaging the agent's "content-depth" priority queue:** `app/services/accounting/page.tsx` was flagged MEDIUM at only 46 words — but reading the actual page showed a full overview, 6 benefits, a 5-step process, 5 deliverables, related services, and 4 FAQs (~490 words), all rendered through `ServicePageTemplate`. Root cause: the scanner's tag-stripping regex (`<[^>]+>`) has no way to tell a real HTML tag from a multi-line, self-closing component call like `<ServicePageTemplate overview="..." benefits={[...]} .../>` — since that entire call contains no literal `>` character until its closing `/>`, the regex swallowed everything between as one "tag" and erased it, including every prop string.  
+**Changed:** Tightened the regex to `<[a-zA-Z][^>{]*>`, which stops matching at the first `{` — a real JSX tag's attributes don't contain raw `{`, so plain tags still strip correctly, while a component call with JS-expression props now survives as visible text instead of vanishing.  
+**Impact:** Re-ran the full scan. Word counts corrected upward across nearly every page (undercounts had ranged from ~15% on long-form guides to the 10x case on `/services/accounting`). Medium-priority findings dropped from 18 to 11 — the false positives on already-substantial pages cleared. The 11 that remain are exactly the site's hub/index pages (`/industries`, `/markets`, `/solutions`, `/resources`, `/resources/insights`) and legal/trust pages (`/terms`, `/privacy`, `/compliance`, `/data-security`, `/delivery-framework/communication`, `/delivery-framework/quality-assurance`) — all legitimately short by design per `AI-WEBSITE-GUIDE.md`'s own rule against padding hub and utility pages. **No content changes made** — confirmed there is no genuine thin-content problem left on the site; the previous "18 medium findings" figure was mostly a tooling artifact.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (tooling only; `seo-agent/reports/2026-08-21.md` regenerated with corrected counts).
+
+### Tooling: fixed internal-link undercount, then closed the genuine gaps it revealed
+
+**Changed:** Broadened the internal-link counter from `href\s*=\s*["']\/` to `href\s*[:=]\s*["'\`]\/`, so it also catches object-literal links (`href: '/...'`) used by `relatedLinks` arrays passed into `IndustryPageTemplate`, not just JSX-attribute links. Low-priority internal-linking findings dropped from 33 to 12 once this and the word-count fix were both applied — most of the original 33 were the same class of false positive (a template component renders the actual `<a href>`, but the scanner only walks `app/`, not `components/`). Documented the remaining known limitation in a code comment: pages using `ServicePageTemplate`'s `relatedServices` prop (bare `slug:` values resolved to a URL only inside the template) still won't be counted, so LOW findings on those pages should be treated with skepticism, not as confirmed gaps.  
+**Checked the 12 that remained:** most are legal/utility pages (contact, privacy, terms, compliance, data-security) or hub pages that link out via card grids rather than literal `href=` strings — not real gaps, left alone per the site's own "don't add links just to increase count" rule. Three were genuine: `app/delivery-framework/{onboarding,communication,quality-assurance}.tsx` had no content links at all beyond a generic `/contact` CTA, leaving a reader in the "how we work" cluster with no path back into services/industries content.  
+**Added:** One short, on-topic paragraph of contextual links to each of the three pages — onboarding links to CPA firms, staff augmentation, and quality assurance; communication links to CPA firms, quality assurance, and onboarding; quality assurance links to audit support, tax preparation, onboarding, and communication. All three cross-reference each other, forming a small linked cluster instead of three dead ends.  
+**Also found and fixed while reading these pages (real content-accuracy issues, not just linking):**
+- `app/delivery-framework/onboarding/page.tsx` claimed "Typically 2-4 weeks" for onboarding and "immediate productivity" in its meta description — this directly contradicts the honest-ramp-up language already established elsewhere on the site (the CPA-firms FAQ explicitly says *"We prefer to establish a realistic ramp-up plan... rather than promise an arbitrary number of days"*, and a fixed timeline claim was already removed from that same page in an earlier pass — see the `2026-08-14` entry below, "Removed a fixed productivity timeline claim"). Reworded both to match the rest of the site.
+- `app/delivery-framework/quality-assurance/page.tsx` said "Monthly reports and **filings** delivered on the schedule we agree to" — "filings" reads as a claim to handle the actual filing/lodgment, which contradicts `knowledge/company/scope-boundaries.md` §2 (lodgment/filing stays with the client's CPA, EA, or registered agent). Changed to "filing-ready documentation."  
+**URL changed:** No. **Metadata changed:** Yes (onboarding page description). **Content changed:** Yes (3 pages; small additions + 2 accuracy fixes).
+
+### Navbar Services dropdown: fixed misleading region grouping, added 4 real U.S. service pages
+
+**Reported by the client:** the Services dropdown looked like it was "only showing USA services," and services appeared to have "USA in their cluster as others."  
+**Root cause:** `components/navbar.tsx`'s Services mega-menu bucketed Payroll, Accounts Payable, Accounts Receivable and Accounting Services under the "USA" column only (alongside Bookkeeping/Tax Preparation/Audit Support, which do have real region pages), while the UK and Australia columns showed just 3 items each. None of those 4 services are actually US-exclusive — they simply had no dedicated region page yet — but the layout made it look that way: USA had 7 listed services, UK/Australia had 3.  
+**First fix (superseded below):** briefly split the 4 generic services into a separate "All Regions" row instead of nesting them under USA. The client's follow-up made clear the actual ask was for these to become genuinely region-specific, not just relabeled — so this was reverted before shipping.  
+**Actual fix — created 4 new dedicated U.S. service pages:**
+- `app/services/payroll/united-states/page.tsx` — federal/state withholding, FICA, FUTA/SUTA, W-2/1099-NEC record-keeping, delegated-vs-retained split (filing authority stays with the client's accountant).
+- `app/services/accounts-payable/united-states/page.tsx` — ACH/check/wire payment-run preparation, 1099-NEC vendor tracking, sales/use tax coding on vendor invoices.
+- `app/services/accounts-receivable/united-states/page.tsx` — USD invoicing, ACH/check payment application, DSO framing, aging/follow-up cadence.
+- `app/services/accounting/united-states/page.tsx` — U.S. GAAP-oriented reconciliations, month-end close, management reporting, explicit hand-off boundary to tax preparation.
+
+Each follows the same pattern as the existing `bookkeeping/tax-preparation/audit-support` region pages: Service + FAQ + BreadcrumbList schema, a delegated-vs-retained split, genuine U.S.-specific detail (not a find-and-replace of the generic page), and a link back to the general multi-region overview. Added all 4 to `app/sitemap.ts`.  
+**Navbar restructured:** `regionServiceGroups` now derives from one `allServices` list where each service declares which regions have a dedicated page for it. USA links to all 7 dedicated U.S. pages. UK and Australia link to their 3 dedicated region pages plus fall back to the general (multi-region) page for the 4 services that don't have UK/Australia-specific versions yet — so no column ever links to a URL that doesn't exist, and no column looks artificially empty relative to another.  
+**Cross-linked:** the 4 general service pages (`/services/payroll`, `/services/accounts-payable`, `/services/accounts-receivable`, `/services/accounting`) now each link to their new U.S.-specific page.  
+**Verified:** `next build` (81 routes, up from 77), `eslint .` clean, and visually confirmed in a browser (desktop dropdown, mobile menu, and the new pages themselves) via Playwright before committing.  
+**URL changed:** No existing URL changed; 4 new URLs added. **Metadata changed:** N/A (new pages) + minor related-link additions on 4 existing pages. **Content changed:** Yes.
+
+### `app/markets/united-states/page.tsx` — same inconsistency the client had just flagged in the navbar, found on the U.S. market page too
+
+**Found:** the "Services for U.S. Markets" card grid on this page already mixed region-specific slugs (`bookkeeping/united-states`, `tax-preparation/united-states`, `audit-support/united-states`) with plain, non-regional slugs (`accounting`, `payroll`, `accounts-payable`, `accounts-receivable`) — the exact same inconsistency just fixed in the navbar, on the one page whose entire purpose is describing U.S. services specifically. Grepped the rest of the codebase for the same dynamic-slug link pattern (`` href={`/services/${...}`} ``) to confirm this was the only remaining instance.  
+**Changed:** all 7 entries now point at their dedicated U.S. page (`accounting/united-states`, `payroll/united-states`, `accounts-payable/united-states`, `accounts-receivable/united-states`, joining the existing 3). Card labels updated to match ("Accounting Services" → "Accounting Services for U.S. Businesses", etc.) for consistency with the other four.  
+**Checked, no change needed:** the UK and Australia market pages have the identical-looking pattern (3 region-specific + 4 generic slugs) — that's correct there, since no UK/Australia-specific pages exist yet for those 4 services; changing them would link to nothing.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (7 link targets + labels on one page).
+
+### Open questions — unchanged, still awaiting client answer
+
+Per `knowledge/company/identity.md` and `knowledge/company/scope-boundaries.md`: (1) whether Canada is a real market needing a content cluster or a third-party directory error, and (2) whether "Financial reporting" should exist as a named service line or stay strictly as accounting-deliverable terminology. Neither was resolved this pass — both require a client decision, not an agent judgment call.
+
 ## 2026-08-14 (top bar, footer, robots, sitemap, performance)
 
 ### `components/header-bar.tsx` (full rework)
