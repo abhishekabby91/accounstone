@@ -72,7 +72,7 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 | `/blog/accounts-payable-outsourcing` | C | Accounts Payable | Re-scoped 2026-08-21 |
 | `/blog/accounts-receivable-management` | C | Accounts Receivable | Published — no conflict |
 | `/blog/outsourced-payroll-services` | C | Payroll | Re-scoped 2026-08-21 |
-| `/blog/outsourced-accounting-services` | C | Accounting Services | **Flagged — see CONTENT-REGISTRY, unresolved** |
+| `/blog/outsourced-accounting-services` | — | Accounting Services | **Removed 2026-08-21** — 301 redirect to `/resources/guides/outsourced-accounting-services-guide` in `next.config.mjs`, see CONTENT-REGISTRY |
 | `/blog/tax-preparation-outsourcing` | C | Tax Preparation | Published — no conflict |
 | `/blog/audit-support-services` | C | Audit Support | Published — no conflict |
 
@@ -85,7 +85,7 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 | `/resources/guides/questions-to-ask-before-outsourcing-bookkeeping` | C | Bookkeeping | Published |
 | `/resources/guides/quickbooks-vs-xero-comparison` | C | Technology | Published |
 | `/resources/guides/staff-augmentation-tax-season-guide` | C | CPA Firms | Published |
-| `/resources/guides/outsourced-accounting-services-guide` | C | Accounting Services | **Flagged — see CONTENT-REGISTRY, unresolved** |
+| `/resources/guides/outsourced-accounting-services-guide` | C | Accounting Services | Published — sole owner of this intent since 2026-08-21 merge |
 | `/resources/guides/outsourced-accounts-payable-guide` | C | Accounts Payable | Published — primary owner of scope intent |
 | `/resources/guides/outsourced-accounts-receivable-guide` | C | Accounts Receivable | Published |
 | `/resources/guides/outsourced-payroll-processing-guide` | C | Payroll | Published — primary owner of coverage-by-region intent |
@@ -124,4 +124,4 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 
 ---
 
-**79 routes total.** Before adding a new one: check this file, `SEARCH-INTENTS.md`, and `CONTENT-REGISTRY.md` for an existing owner of the intent. Before removing one: search all internal references and add a redirect — see `AI-WEBSITE-GUIDE.md`.
+**85 routes total** (86 page files minus the retired `/blog/outsourced-accounting-services`, now a 301 redirect). Before adding a new one: check this file, `SEARCH-INTENTS.md`, and `CONTENT-REGISTRY.md` for an existing owner of the intent. Before removing one: search all internal references and add a redirect — see `AI-WEBSITE-GUIDE.md`.

@@ -56,9 +56,9 @@ const guides = [
     isNew: true,
   },
   {
-    title: 'Outsourced Accounting Services: Month-End Close, GAAP vs IFRS, and QuickBooks to NetSuite',
+    title: 'Outsourced Accounting Services: Month-End Close, Cost, GAAP vs IFRS, and QuickBooks to NetSuite',
     href: '/resources/guides/outsourced-accounting-services-guide',
-    description: 'What accounting operations cover beyond bookkeeping, how month-end close works in QBO, Xero, Sage, and NetSuite, and how US GAAP, UK FRS 102, and Australian AASB differ.',
+    description: 'What accounting operations cover beyond bookkeeping and what it costs, how month-end close works in QBO, Xero, Sage, and NetSuite, and how US GAAP, UK FRS 102, and Australian AASB differ.',
     isNew: true,
   },
   {

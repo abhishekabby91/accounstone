@@ -1,5 +1,23 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (growth-system audit: merge the accounting-services blog/guide pair — owner decision)
+
+Owner decision on the one cannibalization pair the audit couldn't resolve on its own: merge `/blog/outsourced-accounting-services` into `/resources/guides/outsourced-accounting-services-guide` rather than deepen-and-differentiate. Executed per the standard the audit itself proposed for a merge (see `docs/CONTENT-REGISTRY.md`).
+
+### `/resources/guides/outsourced-accounting-services-guide` — extended before the merge
+
+**Changed:** Ported the blog's "Cost Ranges" section — the guide's only real content gap versus the blog — into a new "What Does It Cost?" section (SMB vs. mid-market offshore ranges, onshore comparison, a pointer to the bookkeeping cost guide's fuller framework). Title/description updated to "...Month-End Close, Cost, GAAP vs IFRS..." to reflect the addition.  
+**Why:** A merge shouldn't lose the one piece of the losing page that wasn't already duplicated.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes.
+
+### `/blog/outsourced-accounting-services` — retired
+
+**Changed:** Deleted `app/blog/outsourced-accounting-services/page.tsx`. Added a permanent 301 redirect from `/blog/outsourced-accounting-services` to the guide in `next.config.mjs`. Removed its entry from the `/blog` listing and `app/sitemap.ts`. Searched the repo for remaining references — the only other mentions were in `docs/*.md`, `SEO-CHANGELOG.md`, and auto-generated `seo-agent/reports/*` (updated or left to regenerate on the next scheduled run).  
+**Why:** The two pages shared several near-identical sections; retiring the weaker, less-linked page into the stronger one removes the duplication rather than papering over it.  
+**URL changed:** Yes — `/blog/outsourced-accounting-services` now 301s to `/resources/guides/outsourced-accounting-services-guide`. **Metadata changed:** N/A (page removed). **Content changed:** N/A (page removed; see above for what it became).
+
+**Verified:** `next build` and `eslint .` both pass; confirmed the redirect resolves and no remaining internal `<Link>` points at the retired URL.
+
 ## 2026-08-21 (growth-system audit, Stage 6: engagement-model comparison guide)
 
 Closed the content gap flagged in the Growth System Audit §06: no page compared the four `/solutions/*` engagement models against each other, so a visitor deciding between staff augmentation, a dedicated team, offshore accounting support, and back-office support had no single page to work from.
