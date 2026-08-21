@@ -1,33 +1,40 @@
-# accounstone
+# Accounstone
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
+Marketing site for [Accounstone](https://www.accounstone.com) — outsourced accounting,
+bookkeeping, tax preparation, payroll, and audit support for CPA firms and growing
+businesses across the US, UK, and Australia.
 
-## Built with v0
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS v4 · deployed on Vercel.
 
-This repository is linked to a [v0](https://v0.app) project. You can continue developing by visiting the link below -- start new chats to make changes, and v0 will push commits directly to this repo. Every merge to `main` will automatically deploy.
+## Getting started
 
-[Continue working on v0 →](https://v0.app/chat/projects/prj_U3q8s4ccppsY3bpw26nPXWXgOT4D)
-
-## Getting Started
-
-First, run the development server:
+This project uses **pnpm**. Using npm will produce a lockfile that does not match
+Vercel's build step.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+pnpm install
+pnpm dev          # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Before committing:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm eslint .     # must be silent
+pnpm next build   # must complete
+```
 
-## Learn More
+## Contributing
 
-To learn more, take a look at the following resources:
+**Read [`CLAUDE.md`](./CLAUDE.md) first.** It is the orientation file for anyone —
+human or AI — working on this repository: which documents are authoritative, the
+content rules that exist because real overclaims once shipped, the sitemap drift check,
+and the open decisions that should not be resolved unilaterally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [v0 Documentation](https://v0.app/docs) - learn about v0 and how to use it.
+Key references:
+
+- [`AI-WEBSITE-GUIDE.md`](./AI-WEBSITE-GUIDE.md) — tone, content rules, build gotchas
+- [`knowledge/`](./knowledge) — authoritative facts about what Accounstone does and does not offer
+- [`docs/`](./docs) — route, search-intent, and content registries
+- [`SEO-CHANGELOG.md`](./SEO-CHANGELOG.md) — dated record of every change and why
+
+Every push to `main` deploys to production automatically.
