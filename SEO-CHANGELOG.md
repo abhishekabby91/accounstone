@@ -1,5 +1,17 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (deepen the 3 market pages — content depth, differentiation, internal linking)
+
+Owner asked to focus on the US/UK/Australia markets specifically, since live ranking data (GSC, Ahrefs, Semrush) isn't reachable from this environment — this is on-page depth and linking work, not a ranking-data-driven change. Ran the local SEO agent scan first: all three market pages already score 90/100 with no flagged issues, but a manual read showed they were noticeably shallower than the region-specific service pages a visitor lands on next — a bullet-list "expertise" section with no operational specificity, and no links out to the site's own blog/guide/insight content.
+
+### `app/markets/{united-states,united-kingdom,australia}/page.tsx`
+
+**Changed:** Added a second paragraph to each market's "expertise" intro explaining *why* that market's accounting is harder to get right in practice — not a generic claim, but the specific mechanism (US: three states means three filing calendars, not one; UK: Making Tax Digital plus Companies House deadlines create a reporting cadence, not just a VAT-rate difference; Australia: BAS/STP/EOFY create a rhythm where a missed deadline cascades into the next cycle). Added a "Related resources" link row to each page pointing at genuinely relevant existing content that wasn't linked from these pages before (US → sales-tax-nexus insight, ASC 606 insight, accounting-services guide; UK → the same guide's FRS 102 section, QuickBooks-vs-Xero, the CAS guide; Australia → the payroll/super guide, MYOB, the how-to-choose-a-partner guide).  
+**Why:** Matches the site's own stated psychology principle — "use operational specificity as proof of understanding" — and closes an internal-linking gap the audit's linking review didn't catch because it was looking cluster-to-cluster, not within a single page.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (3 pages).
+
+**Verified:** `next build` and `eslint .` both pass.
+
 ## 2026-08-21 (growth-system audit: merge the accounting-services blog/guide pair — owner decision)
 
 Owner decision on the one cannibalization pair the audit couldn't resolve on its own: merge `/blog/outsourced-accounting-services` into `/resources/guides/outsourced-accounting-services-guide` rather than deepen-and-differentiate. Executed per the standard the audit itself proposed for a merge (see `docs/CONTENT-REGISTRY.md`).

@@ -80,6 +80,9 @@ const breadcrumbSchema = generateBreadcrumbSchema([
             <p className="text-lg text-muted leading-relaxed">
               Australian accounting requires specialized knowledge of ATO requirements, GST compliance, and superannuation rules. Our Australian-focused team brings expertise in regulatory requirements and industry practices. Whether you're managing Australian operations or expanding to Australia, we provide accounting and bookkeeping support built for the local requirements.
             </p>
+            <p className="text-lg text-muted leading-relaxed">
+              The practical challenge is less about any single requirement and more about the reporting rhythm: BAS due quarterly, Single Touch Payroll reporting due with every pay run, and EOFY driving a hard close by June 30. Missing one of those doesn't just create a gap for that period — it usually cascades into the next reporting cycle too, which is why the recurring bookkeeping and payroll work behind each deadline matters as much as the deadline itself.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -157,6 +160,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
                 </h3>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-8 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
+            <span className="text-xs font-bold uppercase tracking-wide text-muted">Related resources:</span>
+            <Link href="/resources/guides/outsourced-payroll-processing-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Payroll &amp; Super Guide</Link>
+            <Link href="/technology/myob" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">MYOB Support</Link>
+            <Link href="/resources/guides/how-to-choose-accounting-outsourcing-partner" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Choosing a Partner</Link>
           </div>
         </div>
       </section>
