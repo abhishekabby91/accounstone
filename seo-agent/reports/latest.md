@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Files/pages scanned: **90**
+- Files/pages scanned: **89**
 - High-priority findings: **0**
 - Medium-priority findings: **11**
 - Low-priority findings: **9**
@@ -31,10 +31,9 @@
 | app/blog/accounts-payable-outsourcing/page.tsx | 90/100 | 599 | 1 | 6 | 0 | 0 |
 | app/blog/accounts-receivable-management/page.tsx | 90/100 | 591 | 1 | 4 | 0 | 0 |
 | app/blog/audit-support-services/page.tsx | 90/100 | 716 | 1 | 6 | 0 | 0 |
-| app/blog/outsourced-accounting-services/page.tsx | 90/100 | 693 | 1 | 5 | 0 | 0 |
 | app/blog/outsourced-bookkeeping-guide/page.tsx | 90/100 | 1344 | 1 | 9 | 0 | 0 |
 | app/blog/outsourced-payroll-services/page.tsx | 90/100 | 720 | 1 | 8 | 0 | 0 |
-| app/blog/page.tsx | 90/100 | 553 | 1 | 10 | 0 | 0 |
+| app/blog/page.tsx | 90/100 | 508 | 1 | 9 | 0 | 0 |
 | app/blog/tax-preparation-outsourcing/page.tsx | 90/100 | 693 | 1 | 6 | 0 | 0 |
 | app/delivery-framework/onboarding/page.tsx | 90/100 | 499 | 1 | 4 | 0 | 0 |
 | app/industries/cpa-firms/page.tsx | 90/100 | 870 | 1 | 4 | 0 | 0 |
@@ -54,12 +53,12 @@
 | app/resources/guides/choosing-an-engagement-model/page.tsx | 90/100 | 1103 | 1 | 10 | 0 | 0 |
 | app/resources/guides/client-accounting-services-cas-guide/page.tsx | 90/100 | 1106 | 1 | 3 | 0 | 0 |
 | app/resources/guides/how-to-choose-accounting-outsourcing-partner/page.tsx | 90/100 | 1418 | 1 | 5 | 0 | 0 |
-| app/resources/guides/outsourced-accounting-services-guide/page.tsx | 90/100 | 1700 | 1 | 11 | 0 | 0 |
+| app/resources/guides/outsourced-accounting-services-guide/page.tsx | 90/100 | 1808 | 1 | 12 | 0 | 0 |
 | app/resources/guides/outsourced-accounts-payable-guide/page.tsx | 90/100 | 1062 | 1 | 5 | 0 | 0 |
 | app/resources/guides/outsourced-accounts-receivable-guide/page.tsx | 90/100 | 1664 | 1 | 8 | 0 | 0 |
 | app/resources/guides/outsourced-bookkeeping-cost-guide/page.tsx | 90/100 | 988 | 1 | 4 | 0 | 0 |
 | app/resources/guides/outsourced-payroll-processing-guide/page.tsx | 90/100 | 1779 | 1 | 7 | 0 | 0 |
-| app/resources/guides/page.tsx | 90/100 | 671 | 1 | 14 | 0 | 0 |
+| app/resources/guides/page.tsx | 90/100 | 676 | 1 | 14 | 0 | 0 |
 | app/resources/guides/questions-to-ask-before-outsourcing-bookkeeping/page.tsx | 90/100 | 1173 | 1 | 3 | 0 | 0 |
 | app/resources/guides/quickbooks-vs-xero-comparison/page.tsx | 90/100 | 813 | 1 | 3 | 0 | 0 |
 | app/resources/guides/staff-augmentation-tax-season-guide/page.tsx | 90/100 | 849 | 1 | 3 | 0 | 0 |
