@@ -2,7 +2,7 @@
 
 ## Summary
 
-- Files/pages scanned: **77**
+- Files/pages scanned: **79**
 - High-priority findings: **0**
 - Medium-priority findings: **18**
 - Low-priority findings: **33**
@@ -12,11 +12,11 @@
 
 | File | Score | Words | H1s | Internal links | Generic phrases | Risky claims |
 |---|---:|---:|---:|---:|---:|---:|
-| app/compliance/page.tsx | 70/100 | 173 | 1 | 0 | 0 | 0 |
+| app/compliance/page.tsx | 70/100 | 191 | 1 | 0 | 0 | 0 |
 | app/industries/page.tsx | 70/100 | 108 | 1 | 0 | 0 | 0 |
 | app/services/accounting/page.tsx | 70/100 | 46 | 1 | 0 | 0 | 0 |
 | app/solutions/page.tsx | 70/100 | 74 | 1 | 0 | 0 | 0 |
-| app/data-security/page.tsx | 75/100 | 252 | 1 | 0 | 0 | 0 |
+| app/data-security/page.tsx | 75/100 | 271 | 1 | 0 | 0 | 0 |
 | app/delivery-framework/communication/page.tsx | 75/100 | 187 | 1 | 0 | 0 | 0 |
 | app/delivery-framework/quality-assurance/page.tsx | 75/100 | 209 | 1 | 0 | 0 | 0 |
 | app/industries/ecommerce/page.tsx | 75/100 | 266 | 1 | 0 | 0 | 0 |
@@ -38,7 +38,7 @@
 | app/markets/united-kingdom/page.tsx | 85/100 | 475 | 1 | 0 | 0 | 0 |
 | app/markets/united-states/page.tsx | 85/100 | 555 | 1 | 0 | 0 | 0 |
 | app/resources/case-studies/page.tsx | 85/100 | 509 | 1 | 0 | 0 | 0 |
-| app/resources/guides/page.tsx | 85/100 | 490 | 1 | 0 | 0 | 0 |
+| app/resources/guides/page.tsx | 85/100 | 559 | 1 | 0 | 0 | 0 |
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 379 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 373 | 1 | 1 | 0 | 0 |
 | app/solutions/back-office-support/page.tsx | 85/100 | 464 | 1 | 0 | 0 | 0 |
@@ -58,6 +58,8 @@
 | app/markets/united-states/california/page.tsx | 90/100 | 536 | 1 | 3 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 531 | 1 | 3 | 0 | 0 |
 | app/markets/united-states/texas/page.tsx | 90/100 | 533 | 1 | 3 | 0 | 0 |
+| app/resources/guides/client-accounting-services-cas-guide/page.tsx | 90/100 | 1040 | 1 | 3 | 0 | 0 |
+| app/resources/guides/how-to-choose-accounting-outsourcing-partner/page.tsx | 90/100 | 1259 | 1 | 4 | 0 | 0 |
 | app/resources/guides/outsourced-accounting-services-guide/page.tsx | 90/100 | 1671 | 1 | 11 | 0 | 0 |
 | app/resources/guides/outsourced-accounts-payable-guide/page.tsx | 90/100 | 943 | 1 | 5 | 0 | 0 |
 | app/resources/guides/outsourced-accounts-receivable-guide/page.tsx | 90/100 | 1637 | 1 | 8 | 0 | 0 |

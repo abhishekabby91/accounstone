@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Compliance & Regulatory Standards',
@@ -10,9 +10,16 @@ export const metadata: Metadata = generateMetadata({
   path: '/compliance',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Compliance', url: `${baseUrl}/compliance` },
+]);
+
 export default function CompliancePage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Trust & Compliance"
         title="Regulatory Compliance & Standards"

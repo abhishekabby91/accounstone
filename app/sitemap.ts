@@ -60,6 +60,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/resources/insights/sales-tax-nexus-ecommerce-guide', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/resources/insights/asc-606-revenue-recognition-saas', priority: 0.6, changeFrequency: 'monthly' as const },
     { path: '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping', priority: 0.7, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT },
+    { path: '/resources/guides/how-to-choose-accounting-outsourcing-partner', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
+    { path: '/resources/guides/client-accounting-services-cas-guide', priority: 0.75, changeFrequency: 'monthly' as const, lastModified: '2026-08-21' },
     { path: '/markets/united-states/texas', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/california', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/florida', priority: 0.65, changeFrequency: 'monthly' as const },

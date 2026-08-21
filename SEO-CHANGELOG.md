@@ -1,5 +1,42 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (handoff continuation: bottom-funnel guides, schema completion, knowledge base, ESLint fix)
+
+Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 claims first: `app/industries/cpa-firms/page.tsx` and the healthcare/e-commerce/professional-services industry pages were already reworked with 250–650+ words, workflow-specific FAQs, and auto-generated FAQ/Breadcrumb schema via `IndustryPageTemplate` — the "57 lines / thin content" note in the handoff was stale (line count is misleading because the template pulls content from data arrays). No changes made there; making them longer for its own sake would have violated the guide's anti-padding rule. Moved to the parts of the handoff that were genuinely unaddressed.
+
+### New pages — Priority 2 (zero-coverage bottom-funnel guides)
+
+**Changed:** Created `app/resources/guides/how-to-choose-accounting-outsourcing-partner/page.tsx` and `app/resources/guides/client-accounting-services-cas-guide/page.tsx`, both using `ArticleLayout` (`section="guides"`), which auto-generates Article + BreadcrumbList schema. Added both to `app/resources/guides/page.tsx`'s guide list and to `app/sitemap.ts`.
+**Why:** Both were confirmed zero-coverage (`grep` found no existing content) and are high commercial-intent, pre-shortlist search terms per the handoff brief.
+**Content notes:**
+- The partner-selection guide is a decision framework (scope-first comparison, review structure, red flags, onboarding expectations) — written as buyer-neutral evaluation criteria, not a sales pitch for Accounstone. Its "red flags" section explicitly calls out unqualified IRS-representation claims and "guaranteed/full compliance" language as warning signs, reinforcing `knowledge/company/scope-boundaries.md` from the buyer's side.
+- The CAS guide explains Client Accounting Services as an industry practice-growth model for CPA firms, then draws the same production-vs-judgment delegation line used everywhere else on the site: bookkeeping/close/reporting production can be delegated, advisory and sign-off stay with the firm's licensed staff. No CFO/advisory positioning introduced.
+**SEO purpose:** Fills two zero-coverage, high-intent bottom-funnel search terms named in the handoff brief; both link back into the CPA-firms, staff-augmentation and bookkeeping-cost-guide clusters.
+**URL changed:** No (new URLs). **Metadata changed:** N/A (new pages). **Content changed:** Yes (new pages).
+
+### Schema completion — Priority 3
+
+**Audited:** Every `page.tsx` route for BreadcrumbList and FAQPage coverage against visible content. Result: every page with visible FAQ content already had matching `FAQPage` schema (0 gaps — the earlier "37/77" FAQ count undercounted because it didn't account for `IndustryPageTemplate`/`ServicePageTemplate`/`ArticleLayout` auto-generating schema for every page that uses them). Breadcrumb coverage had two real gaps.
+**Changed:** Added `BreadcrumbList` schema to `app/compliance/page.tsx` and `app/data-security/page.tsx` (both had none; neither has FAQ-style visible content, so `FAQPage` schema was correctly not added — schema must match visible content). `app/page.tsx` (homepage) and `/terms`, `/privacy` (utility pages, intentionally excluded from the sitemap per its own documented policy) were left without breadcrumb schema, consistent with existing site convention.
+**SEO purpose:** Closes the last real BreadcrumbList gaps; confirms FAQPage coverage was already effectively complete rather than the 37/77 figure the handoff cited.
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No (schema only).
+
+### Knowledge base expansion — Priority 4
+
+**Added:** `knowledge/services/{bookkeeping,accounting,tax-preparation,payroll,accounts-payable,accounts-receivable,audit-support}.md` (one per service line, each with exact deliverables split into "can be delegated" vs. "stays with the client/CPA," sourced from `lib/data.ts` service descriptions and the existing service pages — no new claims invented). `knowledge/markets/{us,uk,au}.md` (regulatory context, the FCA/ASIC boundary restated per-market, terminology differences, buyer expectations, software ecosystem). `knowledge/icp/cpa-firms.md` (buyer persona, what they outsource, the seasonal-capacity pattern, the handoff pattern, vocabulary, primary objection, and a note on the CAS trend tying back to the new CAS guide).
+**Why:** Requested in the handoff's Priority 4; these didn't exist yet. Written as internal reference docs for future agents/content passes, not as site copy.
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Documentation only (not rendered on the site).
+
+### Tooling fix: ESLint dependency
+
+**Changed:** Re-added `eslint`, `eslint-config-next`, `@eslint/eslintrc` to `package.json` devDependencies — pinned to `eslint@^9` / `eslint-config-next@^15` (matching the project's Next 15 major version) rather than letting the resolver pick the latest majors, which is what caused the peer-dependency mismatch (`eslint-config-next` 16.x wanting `eslint` 9.x, resolver installing `eslint` 10.x) that broke this the last time it was attempted (commit `7dfca5f`, "Fix Vercel deploy: remove ESLint devDeps that broke pnpm-lock.yaml sync"). Regenerated `pnpm-lock.yaml` via `pnpm add -D`, then verified with `pnpm install --frozen-lockfile` (the exact command Vercel runs) before committing.
+**Why:** `npm run lint` / `pnpm run lint` had no working `eslint` installed even though `eslint.config.mjs` existed — the previous fix had to be reverted for breaking the Vercel build. Confirmed `npx eslint .` now runs clean (0 findings) and `next build` still produces all 79 static routes.
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Tooling only.
+
+### Open questions — unchanged, still awaiting client answer
+
+Per `knowledge/company/identity.md` and `knowledge/company/scope-boundaries.md`: (1) whether Canada is a real market needing a content cluster or a third-party directory error, and (2) whether "Financial reporting" should exist as a named service line or stay strictly as accounting-deliverable terminology. Neither was resolved this pass — both require a client decision, not an agent judgment call.
+
 ## 2026-08-14 (top bar, footer, robots, sitemap, performance)
 
 ### `components/header-bar.tsx` (full rework)

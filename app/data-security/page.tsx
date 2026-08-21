@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Data Security & Protection',
@@ -11,9 +11,16 @@ export const metadata: Metadata = generateMetadata({
   path: '/data-security',
 });
 
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: baseUrl },
+  { name: 'Data Security', url: `${baseUrl}/data-security` },
+]);
+
 export default function DataSecurityPage() {
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
         subtitle="Trust & Compliance"
         title="How We Handle Your Data"
