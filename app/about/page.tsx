@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { GraduationCap, Rocket, Lock, Zap, Handshake, DollarSign } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
-import { generateMetadata } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, generateOrganizationSchema, baseUrl } from '@/lib/seo';
 import { trustBadges } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
@@ -14,8 +14,30 @@ export const metadata: Metadata = generateMetadata({
 });
 
 export default function AboutPage() {
+  // AboutPage + Organization + Breadcrumb schema. The About page is one of
+  // the primary signals an AI system uses to decide whether an organisation
+  // is real and citable, so it should carry explicit entity markup.
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: 'Home', url: baseUrl },
+    { name: 'About', url: `${baseUrl}/about` },
+  ]);
+  const aboutPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${baseUrl}/about#webpage`,
+    url: `${baseUrl}/about`,
+    name: 'About Accounstone',
+    description:
+      'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses across the US, UK, and Australia.',
+    isPartOf: { '@id': `${baseUrl}/#website` },
+    about: { '@id': `${baseUrl}/#organization` },
+  };
+
   return (
     <main>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationSchema()) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PremiumHero
         subtitle="Our Story"
         title="Practical Accounting Support, Built to Last"
