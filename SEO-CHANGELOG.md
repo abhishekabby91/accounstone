@@ -68,6 +68,13 @@ Each follows the same pattern as the existing `bookkeeping/tax-preparation/audit
 **Verified:** `next build` (81 routes, up from 77), `eslint .` clean, and visually confirmed in a browser (desktop dropdown, mobile menu, and the new pages themselves) via Playwright before committing.  
 **URL changed:** No existing URL changed; 4 new URLs added. **Metadata changed:** N/A (new pages) + minor related-link additions on 4 existing pages. **Content changed:** Yes.
 
+### `app/markets/united-states/page.tsx` — same inconsistency the client had just flagged in the navbar, found on the U.S. market page too
+
+**Found:** the "Services for U.S. Markets" card grid on this page already mixed region-specific slugs (`bookkeeping/united-states`, `tax-preparation/united-states`, `audit-support/united-states`) with plain, non-regional slugs (`accounting`, `payroll`, `accounts-payable`, `accounts-receivable`) — the exact same inconsistency just fixed in the navbar, on the one page whose entire purpose is describing U.S. services specifically. Grepped the rest of the codebase for the same dynamic-slug link pattern (`` href={`/services/${...}`} ``) to confirm this was the only remaining instance.  
+**Changed:** all 7 entries now point at their dedicated U.S. page (`accounting/united-states`, `payroll/united-states`, `accounts-payable/united-states`, `accounts-receivable/united-states`, joining the existing 3). Card labels updated to match ("Accounting Services" → "Accounting Services for U.S. Businesses", etc.) for consistency with the other four.  
+**Checked, no change needed:** the UK and Australia market pages have the identical-looking pattern (3 region-specific + 4 generic slugs) — that's correct there, since no UK/Australia-specific pages exist yet for those 4 services; changing them would link to nothing.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (7 link targets + labels on one page).
+
 ### Open questions — unchanged, still awaiting client answer
 
 Per `knowledge/company/identity.md` and `knowledge/company/scope-boundaries.md`: (1) whether Canada is a real market needing a content cluster or a third-party directory error, and (2) whether "Financial reporting" should exist as a named service line or stay strictly as accounting-deliverable terminology. Neither was resolved this pass — both require a client decision, not an agent judgment call.

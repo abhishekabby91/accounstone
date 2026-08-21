@@ -48,7 +48,7 @@
 | app/markets/united-kingdom/page.tsx | 90/100 | 619 | 1 | 16 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 652 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
-| app/markets/united-states/page.tsx | 90/100 | 736 | 1 | 9 | 0 | 0 |
+| app/markets/united-states/page.tsx | 90/100 | 747 | 1 | 9 | 0 | 0 |
 | app/markets/united-states/texas/page.tsx | 90/100 | 649 | 1 | 6 | 0 | 0 |
 | app/resources/case-studies/page.tsx | 90/100 | 574 | 1 | 4 | 0 | 0 |
 | app/resources/guides/client-accounting-services-cas-guide/page.tsx | 90/100 | 1106 | 1 | 3 | 0 | 0 |
