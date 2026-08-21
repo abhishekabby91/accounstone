@@ -29,17 +29,17 @@ export default function USMarketPage() {
     {
       question: 'What about state-specific requirements?',
       answer:
-        'Each U.S. state has unique tax requirements. We maintain expertise across all 50 states and handle specific state compliance, filings, and reporting.',
+        "Each U.S. state has different tax requirements. We prepare state-specific returns and reporting across all 50 states for your CPA's review and filing.",
     },
     {
       question: 'Can you handle multi-state operations?',
       answer:
-        'Absolutely. We manage accounting for businesses operating across multiple states with proper nexus analysis, tax allocation, and reporting.',
+        'Yes. We prepare multi-state accounting records — tracking revenue and activity by state so nexus exposure is visible — and support tax allocation and reporting. Final nexus determination and filing decisions stay with your CPA or tax advisor.',
     },
     {
       question: 'What payroll taxes do you manage?',
       answer:
-        'We handle federal payroll taxes (FICA, FUTA), state unemployment insurance, and state income tax withholding with proper quarterly filings.',
+        "We calculate and process federal payroll taxes (FICA, FUTA), state unemployment insurance, and state income tax withholding. Quarterly filing (Form 941, state returns) can be included in scope or stay with your accountant, depending on what's agreed at onboarding.",
     },
     {
       question: 'Are you familiar with SOX compliance?',
