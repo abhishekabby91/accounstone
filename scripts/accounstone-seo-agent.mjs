@@ -83,7 +83,14 @@ for (const file of files) {
     h1s.push(t || "(rendered by layout component)");
   }
   const canonical = /canonical\s*[:=]/i.test(code) || /alternates\s*:/i.test(code);
-  const internalLinks = (raw.match(/href\s*=\s*["']\/(?!\/)/g) || []).length;
+  // Counts both JSX attribute links (href="/...") and object-literal links
+  // (href: '/...', used by relatedLinks/relatedServices arrays passed into
+  // IndustryPageTemplate/ServicePageTemplate). Still undercounts pages whose
+  // related-content links are declared as bare slugs (e.g. { slug: 'bookkeeping' })
+  // resolved to a URL only inside the template component, which this scanner
+  // does not walk — treat LOW internal-linking findings on templated pages
+  // with skepticism rather than as confirmed gaps.
+  const internalLinks = (raw.match(/href\s*[:=]\s*["'`]\/(?!\/)/g) || []).length;
   const cta = /(contact|schedule|book|request|talk|discuss|get started|learn more)/i.test(body);
   const generic = GENERIC.filter(p => body.toLowerCase().includes(p));
   const risky = RISKY.filter(p => body.toLowerCase().includes(p.toLowerCase()));

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -6,7 +7,7 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 
 export const metadata: Metadata = generateMetadata({
   title: 'Client Onboarding Process',
-  description: 'Our streamlined onboarding process ensures smooth transition and immediate productivity. Learn how we integrate with your team.',
+  description: 'A documented onboarding process built around discovery, system access, process documentation, and a soft-launch phase before full handoff.',
   path: '/delivery-framework/onboarding',
 });
 
@@ -20,7 +21,7 @@ export default function OnboardingPage() {
   const onboardingFAQs = [
     {
       question: 'How long does the onboarding process take?',
-      answer: 'Typically 2-4 weeks depending on complexity. We work with your team to establish workflows, access systems, and complete knowledge transfer.',
+      answer: 'It depends on the complexity of your systems, the state of your existing documentation, and how much knowledge transfer is needed. We prefer to build a realistic ramp-up plan from the actual work rather than promise a fixed number of weeks.',
     },
     {
       question: 'What documentation do we need to provide?',
@@ -105,6 +106,20 @@ export default function OnboardingPage() {
       </section>
 
       <FAQSection subtitle="Onboarding" items={onboardingFAQs} columns={2} />
+
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-muted leading-relaxed">
+            Onboarding concerns come up most for{' '}
+            <Link href="/industries/cpa-firms" className="text-primary font-medium hover:underline">CPA firms</Link>{' '}
+            evaluating whether a handoff will actually reduce review time, and for teams adding{' '}
+            <Link href="/solutions/staff-augmentation" className="text-primary font-medium hover:underline">staff augmentation</Link>{' '}
+            capacity during a specific crunch. See{' '}
+            <Link href="/delivery-framework/quality-assurance" className="text-primary font-medium hover:underline">how review and quality control work</Link>{' '}
+            once onboarding is complete.
+          </p>
+        </div>
+      </section>
 
       <CTABanner
         title="Ready to Get Started?"

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { User, BarChart3, Zap, MessageSquare, TrendingUp, ClipboardList } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
@@ -48,6 +49,20 @@ export default function CommunicationPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="w-full py-7 md:py-10 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-muted leading-relaxed">
+            For{' '}
+            <Link href="/industries/cpa-firms" className="text-primary font-medium hover:underline">CPA firms</Link>{' '}
+            specifically, communication is usually the difference between delegated work reducing review time and simply moving it elsewhere. See how this connects to{' '}
+            <Link href="/delivery-framework/quality-assurance" className="text-primary font-medium hover:underline">review and quality control</Link>{' '}
+            and{' '}
+            <Link href="/delivery-framework/onboarding" className="text-primary font-medium hover:underline">how onboarding sets communication expectations</Link>{' '}
+            from the start.
+          </p>
         </div>
       </section>
 
