@@ -1,5 +1,22 @@
 # Accounstone SEO Changelog
 
+## 2026-08-21 (follow-up sweep: caught one missed FAQ + tone/absolute-claim cleanup)
+
+Re-ran the same red-flag grep sweep after the market-pages fix shipped, to catch anything missed. Found one real gap and a few lower-severity tone issues.
+
+### `app/markets/united-kingdom/page.tsx` — missed in the previous pass
+
+**Changed:** FAQ #1 ("Are you familiar with UK IFRS standards?") still said "**We ensure compliance** with international financial reporting standards" — the same absolute-claim pattern already fixed on the other 5 FAQs on this page, but this one was the first item and got missed. Reworded to "our... reporting is structured around IFRS accounting standards," with statutory-accounts sign-off routed to the client's accountant of record.  
+**Why:** Same category as the rest of the market-pages fix — an unhedged compliance claim.
+
+### Tone/absolute-claim consistency (lower severity — no scope violation, just inconsistent voice)
+
+**Changed:** Two FAQ answers still opened with "**Absolutely.**" (`app/solutions/dedicated-accounting-teams/page.tsx`, `app/solutions/back-office-support/page.tsx`) — the same unhedged-affirmation style already removed from the Australia market page's tax-planning FAQ in an earlier pass. Reworded both to a plain "Yes." opener. Also softened "Multi-level QA processes... **ensure** accuracy and compliance" (back-office-support FAQ) and "Learn how our QA processes **ensure** accuracy and compliance" (quality-assurance page CTA, which also dropped the vague "Premium Quality" framing) to describe the review process rather than guarantee its outcome.  
+**Why:** Neither claim was factually wrong, but "ensure"/"Absolutely" read as guarantees, which the site's own principles (`scope-boundaries.md` §7) treat as something to avoid consistently, not just where a legal-risk claim happens to ride along with it.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes (4 files).
+
+**Verified:** re-ran the full grep sweep (Absolutely., "ensure compliance/accuracy", "full compliance/knowledge/ATO/HMRC", "optimization", "we handle all", "we file/submit/lodge on your behalf") across the entire `app/` tree — clean. `next build` and `eslint .` both pass.
+
 ## 2026-08-21 (market pages: cleared leftover pre-cleanup overclaims in FAQs and hero/meta copy)
 
 Resumed general content-accuracy review after the previous fixes were merged and deployed. Swept the codebase for the site's established banned-phrase categories (superlatives, "optimization"/tax-strategy language, "full compliance", regulator citations, HR-scope overclaims) and found the three market pages (`app/markets/{australia,united-kingdom,united-states}/page.tsx`) still carried unhedged FAQ answers and hero/meta copy from before the site's main August accuracy pass — that earlier pass (see the `2026-08-14` entries below) only touched the "Industries We Serve" lists and one tax-planning FAQ on each page; the rest of the FAQ set, hero description and meta description were never revisited.

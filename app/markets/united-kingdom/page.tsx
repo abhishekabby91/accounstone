@@ -19,7 +19,7 @@ export default function UKMarketPage() {
     {
       question: 'Are you familiar with UK IFRS standards?',
       answer:
-        'Yes, we use IFRS accounting standards for all UK clients. We ensure compliance with international financial reporting standards and UK-specific requirements.',
+        'Yes, our bookkeeping and reporting for UK clients is structured around IFRS accounting standards and UK-specific requirements. Final sign-off on statutory accounts stays with your accountant of record.',
     },
     {
       question: 'Can you help with VAT?',
