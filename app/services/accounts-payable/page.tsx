@@ -124,6 +124,8 @@ export default function APPage() {
           <h2 className="text-xl font-bold text-primary mb-4">Related</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/services/accounts-payable/united-states" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇺🇸 U.S. AP Details</Link>
+            <Link href="/services/accounts-payable/united-kingdom" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇬🇧 UK AP Details</Link>
+            <Link href="/services/accounts-payable/australia" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇦🇺 Australia AP Details</Link>
             <Link href="/resources/guides/outsourced-accounts-payable-guide" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">📖 AP Guide: QBO, Xero &amp; NetSuite</Link>
             <Link href="/services/accounts-receivable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Receivable</Link>
             <Link href="/services/bookkeeping" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping</Link>

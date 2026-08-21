@@ -138,6 +138,8 @@ export default function PayrollPage() {
           <h2 className="text-xl font-bold text-primary mb-4">Related</h2>
           <div className="flex flex-wrap gap-3">
             <Link href="/services/payroll/united-states" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇺🇸 U.S. Payroll Details</Link>
+            <Link href="/services/payroll/united-kingdom" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇬🇧 UK Payroll Details</Link>
+            <Link href="/services/payroll/australia" className="px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium hover:bg-primary-light transition-colors">🇦🇺 Australia Payroll Details</Link>
             <Link href="/resources/guides/outsourced-payroll-processing-guide" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">📖 Payroll Guide: US, UK &amp; AU</Link>
             <Link href="/services/accounting" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounting Services</Link>
             <Link href="/services/accounts-payable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Payable</Link>

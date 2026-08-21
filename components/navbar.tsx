@@ -11,18 +11,18 @@ interface NavGroup { label: string; items: NavChild[]; }
 interface NavItem { label: string; href: string; children?: NavChild[]; groups?: NavGroup[]; }
 
 // Each service lists the regions that have a dedicated page for it. Bookkeeping,
-// Tax Preparation and Audit Support have pages for all three regions. Payroll,
-// Accounts Payable, Accounts Receivable and Accounting Services currently only
-// have a dedicated U.S. page — the UK and Australia columns fall back to the
-// general (multi-region) service page for those until region-specific versions
-// exist, rather than linking to a page that doesn't exist.
+// Tax Preparation, Audit Support, Payroll, Accounts Payable and Accounts
+// Receivable have pages for all three regions. Accounting Services currently
+// only has a dedicated U.S. page — the UK and Australia columns fall back to
+// the general (multi-region) service page for it until region-specific
+// versions exist, rather than linking to a page that doesn't exist.
 const allServices = [
   { label: 'Bookkeeping', slug: 'bookkeeping', regions: ['united-states', 'united-kingdom', 'australia'] },
   { label: 'Tax Preparation', slug: 'tax-preparation', regions: ['united-states', 'united-kingdom', 'australia'] },
   { label: 'Audit Support', slug: 'audit-support', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Payroll', slug: 'payroll', regions: ['united-states'] },
-  { label: 'Accounts Payable', slug: 'accounts-payable', regions: ['united-states'] },
-  { label: 'Accounts Receivable', slug: 'accounts-receivable', regions: ['united-states'] },
+  { label: 'Payroll', slug: 'payroll', regions: ['united-states', 'united-kingdom', 'australia'] },
+  { label: 'Accounts Payable', slug: 'accounts-payable', regions: ['united-states', 'united-kingdom', 'australia'] },
+  { label: 'Accounts Receivable', slug: 'accounts-receivable', regions: ['united-states', 'united-kingdom', 'australia'] },
   { label: 'Accounting Services', slug: 'accounting', regions: ['united-states'] },
 ];
 const regionServiceGroups: NavGroup[] = [
