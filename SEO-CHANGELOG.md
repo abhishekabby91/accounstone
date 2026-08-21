@@ -51,6 +51,23 @@ Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 clai
 - `app/delivery-framework/quality-assurance/page.tsx` said "Monthly reports and **filings** delivered on the schedule we agree to" — "filings" reads as a claim to handle the actual filing/lodgment, which contradicts `knowledge/company/scope-boundaries.md` §2 (lodgment/filing stays with the client's CPA, EA, or registered agent). Changed to "filing-ready documentation."  
 **URL changed:** No. **Metadata changed:** Yes (onboarding page description). **Content changed:** Yes (3 pages; small additions + 2 accuracy fixes).
 
+### Navbar Services dropdown: fixed misleading region grouping, added 4 real U.S. service pages
+
+**Reported by the client:** the Services dropdown looked like it was "only showing USA services," and services appeared to have "USA in their cluster as others."  
+**Root cause:** `components/navbar.tsx`'s Services mega-menu bucketed Payroll, Accounts Payable, Accounts Receivable and Accounting Services under the "USA" column only (alongside Bookkeeping/Tax Preparation/Audit Support, which do have real region pages), while the UK and Australia columns showed just 3 items each. None of those 4 services are actually US-exclusive — they simply had no dedicated region page yet — but the layout made it look that way: USA had 7 listed services, UK/Australia had 3.  
+**First fix (superseded below):** briefly split the 4 generic services into a separate "All Regions" row instead of nesting them under USA. The client's follow-up made clear the actual ask was for these to become genuinely region-specific, not just relabeled — so this was reverted before shipping.  
+**Actual fix — created 4 new dedicated U.S. service pages:**
+- `app/services/payroll/united-states/page.tsx` — federal/state withholding, FICA, FUTA/SUTA, W-2/1099-NEC record-keeping, delegated-vs-retained split (filing authority stays with the client's accountant).
+- `app/services/accounts-payable/united-states/page.tsx` — ACH/check/wire payment-run preparation, 1099-NEC vendor tracking, sales/use tax coding on vendor invoices.
+- `app/services/accounts-receivable/united-states/page.tsx` — USD invoicing, ACH/check payment application, DSO framing, aging/follow-up cadence.
+- `app/services/accounting/united-states/page.tsx` — U.S. GAAP-oriented reconciliations, month-end close, management reporting, explicit hand-off boundary to tax preparation.
+
+Each follows the same pattern as the existing `bookkeeping/tax-preparation/audit-support` region pages: Service + FAQ + BreadcrumbList schema, a delegated-vs-retained split, genuine U.S.-specific detail (not a find-and-replace of the generic page), and a link back to the general multi-region overview. Added all 4 to `app/sitemap.ts`.  
+**Navbar restructured:** `regionServiceGroups` now derives from one `allServices` list where each service declares which regions have a dedicated page for it. USA links to all 7 dedicated U.S. pages. UK and Australia link to their 3 dedicated region pages plus fall back to the general (multi-region) page for the 4 services that don't have UK/Australia-specific versions yet — so no column ever links to a URL that doesn't exist, and no column looks artificially empty relative to another.  
+**Cross-linked:** the 4 general service pages (`/services/payroll`, `/services/accounts-payable`, `/services/accounts-receivable`, `/services/accounting`) now each link to their new U.S.-specific page.  
+**Verified:** `next build` (81 routes, up from 77), `eslint .` clean, and visually confirmed in a browser (desktop dropdown, mobile menu, and the new pages themselves) via Playwright before committing.  
+**URL changed:** No existing URL changed; 4 new URLs added. **Metadata changed:** N/A (new pages) + minor related-link additions on 4 existing pages. **Content changed:** Yes.
+
 ### Open questions — unchanged, still awaiting client answer
 
 Per `knowledge/company/identity.md` and `knowledge/company/scope-boundaries.md`: (1) whether Canada is a real market needing a content cluster or a third-party directory error, and (2) whether "Financial reporting" should exist as a named service line or stay strictly as accounting-deliverable terminology. Neither was resolved this pass — both require a client decision, not an agent judgment call.

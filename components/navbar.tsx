@@ -10,27 +10,32 @@ interface NavChild { label: string; href: string; }
 interface NavGroup { label: string; items: NavChild[]; }
 interface NavItem { label: string; href: string; children?: NavChild[]; groups?: NavGroup[]; }
 
-const regionServiceGroups: NavGroup[] = [
-  { label: 'USA', items: [
-    { label: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
-    { label: 'Tax Preparation', href: '/services/tax-preparation/united-states' },
-    { label: 'Audit Support', href: '/services/audit-support/united-states' },
-    { label: 'Payroll', href: '/services/payroll' },
-    { label: 'Accounts Payable', href: '/services/accounts-payable' },
-    { label: 'Accounts Receivable', href: '/services/accounts-receivable' },
-    { label: 'Accounting Services', href: '/services/accounting' },
-  ]},
-  { label: 'UK', items: [
-    { label: 'Bookkeeping', href: '/services/bookkeeping/united-kingdom' },
-    { label: 'Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
-    { label: 'Audit Support', href: '/services/audit-support/united-kingdom' },
-  ]},
-  { label: 'Australia', items: [
-    { label: 'Bookkeeping', href: '/services/bookkeeping/australia' },
-    { label: 'Tax Preparation', href: '/services/tax-preparation/australia' },
-    { label: 'Audit Support', href: '/services/audit-support/australia' },
-  ]},
+// Each service lists the regions that have a dedicated page for it. Bookkeeping,
+// Tax Preparation and Audit Support have pages for all three regions. Payroll,
+// Accounts Payable, Accounts Receivable and Accounting Services currently only
+// have a dedicated U.S. page — the UK and Australia columns fall back to the
+// general (multi-region) service page for those until region-specific versions
+// exist, rather than linking to a page that doesn't exist.
+const allServices = [
+  { label: 'Bookkeeping', slug: 'bookkeeping', regions: ['united-states', 'united-kingdom', 'australia'] },
+  { label: 'Tax Preparation', slug: 'tax-preparation', regions: ['united-states', 'united-kingdom', 'australia'] },
+  { label: 'Audit Support', slug: 'audit-support', regions: ['united-states', 'united-kingdom', 'australia'] },
+  { label: 'Payroll', slug: 'payroll', regions: ['united-states'] },
+  { label: 'Accounts Payable', slug: 'accounts-payable', regions: ['united-states'] },
+  { label: 'Accounts Receivable', slug: 'accounts-receivable', regions: ['united-states'] },
+  { label: 'Accounting Services', slug: 'accounting', regions: ['united-states'] },
 ];
+const regionServiceGroups: NavGroup[] = [
+  { label: 'USA', region: 'united-states' },
+  { label: 'UK', region: 'united-kingdom' },
+  { label: 'Australia', region: 'australia' },
+].map(({ label, region }) => ({
+  label,
+  items: allServices.map((s) => ({
+    label: s.label,
+    href: s.regions.includes(region) ? `/services/${s.slug}/${region}` : `/services/${s.slug}`,
+  })),
+}));
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -173,7 +178,11 @@ export default function Navbar() {
                     <Link href={item.href} onClick={closeMobileMenu} className={`flex-1 flex items-center px-4 min-h-[48px] rounded-lg font-medium transition-colors active:bg-input ${isActive(item.href) ? 'bg-input text-primary' : 'text-foreground hover:bg-input hover:text-primary'}`}>{item.label}</Link>
                     <button onClick={() => setOpenMobileSection(isSectionOpen ? null : item.label)} aria-expanded={isSectionOpen} aria-label={`${isSectionOpen ? 'Collapse' : 'Expand'} ${item.label} submenu`} className="p-3 min-w-[48px] min-h-[48px] flex items-center justify-center mr-1 rounded-lg hover:bg-input active:bg-input transition-colors"><svg className={`w-4 h-4 text-muted transition-transform duration-200 ${isSectionOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg></button>
                   </div>
-                  {isSectionOpen && hasGroups && <div className="pl-4 py-1 space-y-3 border-l-2 border-border ml-4 mb-1">{item.groups!.map((group) => <div key={group.label}><p className="text-xs font-bold uppercase tracking-wider text-muted mb-1 px-4">{group.label}</p>{group.items.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>)}</div>}
+                  {isSectionOpen && hasGroups && (
+                    <div className="pl-4 py-1 space-y-3 border-l-2 border-border ml-4 mb-1">
+                      {item.groups!.map((group) => <div key={group.label}><p className="text-xs font-bold uppercase tracking-wider text-muted mb-1 px-4">{group.label}</p>{group.items.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>)}
+                    </div>
+                  )}
                   {isSectionOpen && hasChildren && <div className="pl-4 py-1 space-y-1 border-l-2 border-border ml-4 mb-1">{item.children!.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>}
                 </div>
               );
