@@ -95,8 +95,8 @@ export default function IconBadge({ name, fallback, variant = 'default', size = 
 
   const Icon = ICON_MAP[name];
 
-  const dimensions = size === 'sm' ? 'w-10 h-10' : 'w-14 h-14';
-  const iconSize = size === 'sm' ? 20 : 26;
+  const dimensions = size === 'sm' ? 'w-10 h-10' : 'w-10 h-10 sm:w-14 sm:h-14';
+  const iconSize = size === 'sm' ? 20 : 22;
 
   if (!Icon) {
     // Fallback for anything not yet mapped (e.g. markets, which

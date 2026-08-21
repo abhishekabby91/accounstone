@@ -61,7 +61,7 @@ export default function SectionGrid({
           </>
         </Reveal>
 
-        <div className={`grid grid-cols-1 ${colsClass} gap-4 md:gap-7`}>
+        <div className={`grid grid-cols-2 ${colsClass} gap-3 md:gap-7`}>
           {items.map((item, index) => {
             const cardVariant =
               featuredItemIndex !== undefined && index === featuredItemIndex
