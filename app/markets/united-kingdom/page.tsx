@@ -10,7 +10,7 @@ import Reveal from '@/components/reveal';
 export const metadata: Metadata = generateMetadata({
   title: 'UK Accounting & Bookkeeping Services',
   description:
-    'Expert UK accounting services. IFRS compliance, VAT management, Companies House reporting, and corporation tax. Support your UK operations.',
+    'UK accounting and bookkeeping services — IFRS-aligned reporting, VAT-ready records, and Companies House and corporation tax return preparation.',
   path: '/markets/united-kingdom',
 });
 
@@ -22,29 +22,29 @@ export default function UKMarketPage() {
         'Yes, we use IFRS accounting standards for all UK clients. We ensure compliance with international financial reporting standards and UK-specific requirements.',
     },
     {
-      question: 'Do you handle VAT compliance?',
+      question: 'Can you help with VAT?',
       answer:
-        'Absolutely. We manage VAT registration, returns, compliance, and optimization for UK businesses with full knowledge of current VAT rules.',
+        'Yes. We prepare VAT-coded transactions, reconciliations, and return calculations. VAT registration and the actual return submission are completed by you or your accountant of record — we do not hold HMRC portal credentials.',
     },
     {
       question: 'What about Companies House filing?',
       answer:
-        'We handle all Companies House requirements including statutory accounts filing, confirmation statements, and director obligations.',
+        "We prepare statutory accounts and confirmation statement data for your review. Filing with Companies House and any director-level legal obligations stay with your company's registered accountant or company secretary.",
     },
     {
-      question: 'Can you manage corporation tax?',
+      question: 'Can you help with corporation tax?',
       answer:
-        'Yes, we handle corporation tax returns, calculations, and payments with optimization for R&D relief and other CT reliefs available.',
+        "We prepare corporation tax return calculations and supporting workpapers for your accountant's review and submission. Identifying R&D relief or other reliefs your business may qualify for is a specialist tax question best directed to your accountant or an R&D tax specialist.",
     },
     {
       question: 'Do you support payroll in the UK?',
       answer:
-        'Yes, we manage UK payroll including PAYE withholding, National Insurance contributions, RTI reporting, and pension contributions.',
+        'Yes, we process UK payroll including PAYE withholding calculations, National Insurance contributions, records for RTI reporting, and pension auto-enrolment bookkeeping.',
     },
     {
       question: 'What about limited companies vs sole traders?',
       answer:
-        'We serve both limited companies and sole traders with specialized knowledge of corporation tax vs self-assessment and entity structure optimization.',
+        'We support both limited companies and sole traders, with bookkeeping and return preparation structured around whichever entity type applies. Entity structure decisions are a legal and tax question for your accountant or advisor.',
     },
   ];
 
@@ -64,7 +64,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <PremiumHero
         subtitle="UK Market Expertise"
         title="Accounting Services for UK Businesses"
-        description="Expert accounting, bookkeeping, and tax services tailored to UK regulations. IFRS, VAT, and Companies House compliance included."
+        description="Accounting, bookkeeping, and tax preparation support structured around UK VAT, Companies House and corporation tax requirements."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services/bookkeeping/united-kingdom' }}
         background="primary-gradient"
@@ -88,15 +88,14 @@ const breadcrumbSchema = generateBreadcrumbSchema([
               <ul className="space-y-3">
                 {[
                   'IFRS financial reporting',
-                  'Corporation tax compliance',
-                  'VAT management and optimization',
-                  'Self-assessment and personal tax',
-                  'PAYE and payroll management',
-                  'Companies House compliance',
-                  'Director obligations and filings',
-                  'Pension and benefits administration',
-                  'R&D tax relief',
-                  'Grant funding and incentives',
+                  'Corporation tax return preparation',
+                  'VAT reconciliation and return preparation',
+                  'Self-assessment and personal tax preparation',
+                  'PAYE and payroll processing',
+                  'Companies House filing preparation',
+                  'Pension auto-enrolment bookkeeping',
+                  'Bank and credit-card reconciliations',
+                  'Management reporting for UK entities',
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <Check className="text-accent w-5 h-5" aria-hidden="true" />

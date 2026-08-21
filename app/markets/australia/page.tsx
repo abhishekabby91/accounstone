@@ -10,31 +10,31 @@ import Reveal from '@/components/reveal';
 export const metadata: Metadata = generateMetadata({
   title: 'Australian Accounting & Bookkeeping Services',
   description:
-    'Expert Australian accounting services. IFRS compliance, ATO requirements, GST management, and ASIC reporting. Scale your Australian operations.',
+    'Australian accounting and bookkeeping services — IFRS-aligned reporting, ATO requirements, and GST/BAS-ready records for businesses operating in Australia.',
   path: '/markets/australia',
 });
 
 export default function AustraliaMarketPage() {
   const faqs = [
     {
-      question: 'Do you understand IFRS and ASIC requirements?',
+      question: 'Do you work with IFRS accounting standards?',
       answer:
-        'Yes, we ensure compliance with IFRS accounting standards and ASIC reporting requirements for Australian companies and large proprietary companies.',
+        "Yes, our bookkeeping and reporting work for Australian clients is structured around IFRS/AASB accounting standards. Formal compliance requirements for public or large proprietary companies — including ASIC and Corporations Act obligations — are confirmed with your accountant and auditor of record.",
     },
     {
-      question: 'Can you handle GST compliance?',
+      question: 'Can you help with GST?',
       answer:
-        'Absolutely. We manage GST registration, monthly/quarterly GST returns to the ATO, and optimization of GST positions.',
+        'Yes. We prepare BAS-ready GST records and reconciliations for monthly or quarterly reporting. Registration and lodgment with the ATO stay with you or your registered tax or BAS agent.',
     },
     {
       question: 'What about PAYG withholding and Super?',
       answer:
-        'We handle PAYG tax witholding, superannuation guarantee compliance, and SuperStream reporting for payroll.',
+        'We calculate PAYG tax withholding and superannuation guarantee contributions as part of payroll processing, and prepare the records that feed SuperStream reporting. Lodgment stays with your registered agent.',
     },
     {
       question: 'Are you familiar with ABN and registration?',
       answer:
-        'Yes, we assist with ABN registration, business activity statements (BAS), and full ATO compliance requirements.',
+        "Yes. We can help organize the documentation needed for ABN registration and prepare BAS-ready records. Registration and lodgment are completed by you or your registered agent — final ATO compliance responsibility sits with the business and its registered tax or BAS agent.",
     },
     {
       question: 'Do you support both companies and sole traders?',
@@ -64,7 +64,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
       <PremiumHero
         subtitle="Australian Market Expertise"
         title="Accounting Services for Australian Businesses"
-        description="Expert accounting, bookkeeping, and tax services tailored to Australian regulations. ATO, GST, and ASIC compliance included."
+        description="Accounting, bookkeeping, and tax preparation support structured around Australian ATO and GST requirements."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services/bookkeeping/australia' }}
         background="primary-gradient"

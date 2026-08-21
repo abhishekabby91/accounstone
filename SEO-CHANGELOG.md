@@ -1,6 +1,30 @@
 # Accounstone SEO Changelog
 
-## 2026-08-21 (handoff continuation: bottom-funnel guides, schema completion, knowledge base)
+## 2026-08-21 (market pages: cleared leftover pre-cleanup overclaims in FAQs and hero/meta copy)
+
+Resumed general content-accuracy review after the previous fixes were merged and deployed. Swept the codebase for the site's established banned-phrase categories (superlatives, "optimization"/tax-strategy language, "full compliance", regulator citations, HR-scope overclaims) and found the three market pages (`app/markets/{australia,united-kingdom,united-states}/page.tsx`) still carried unhedged FAQ answers and hero/meta copy from before the site's main August accuracy pass — that earlier pass (see the `2026-08-14` entries below) only touched the "Industries We Serve" lists and one tax-planning FAQ on each page; the rest of the FAQ set, hero description and meta description were never revisited.
+
+### `app/markets/australia/page.tsx`
+
+**Changed:** Meta description and hero description both said "**ASIC** ... compliance included" — the exact FCA/ASIC violation already fixed on the Compliance page in an earlier pass, reintroduced here. Removed. The "Do you understand IFRS and ASIC requirements?" FAQ claimed "**we ensure compliance** with... ASIC reporting requirements" — rewrote to route ASIC/Corporations Act obligations to the client's accountant and auditor, matching the pattern already used correctly on `services/audit-support/australia/page.tsx`. The GST FAQ said "**Absolutely**. We manage GST registration... and **optimization** of GST positions" — removed the absolute opener and the tax-strategy word "optimization," reframed as BAS-ready preparation with registration/lodgment left to the client's registered agent. The ABN FAQ claimed "**full ATO compliance requirements**" — an absolute claim banned under `scope-boundaries.md` §7 — softened to preparation-only language.  
+**Why:** Direct violations of two already-documented scope boundaries (§1/§6 regulator citation, §7 absolute claims) that had already been fixed once elsewhere on the site but were missed on this page.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes.
+
+### `app/markets/united-kingdom/page.tsx` — the more serious finding of this pass
+
+**Changed:** The "Our UK Expertise" list included three items outside anything Accounstone actually offers: **"Director obligations and filings"** (a governance/legal matter, not an accounting deliverable — removed), **"Pension and benefits administration"** (the same HR-scope overclaim already fixed on the back-office-support page — replaced with "Pension auto-enrolment bookkeeping," the legitimate payroll-adjacent version already used on the Payroll service page), and **"R&D tax relief"** / **"Grant funding and incentives"** (specialist tax-advisory and grants-consulting services that aren't in Accounstone's service lines at all — removed, no hedge could make these accurate since they're not offered in any form). "VAT management and **optimization**" → "VAT reconciliation and return preparation." "Corporation tax compliance" / "Companies House compliance" → reworded to "return/filing preparation" framing.  
+**FAQs rewritten:** VAT FAQ dropped "Absolutely... **optimization**... full knowledge" for a prep-scoped answer that explicitly states Accounstone doesn't hold HMRC portal credentials (matching `knowledge/markets/uk.md`). Companies House FAQ dropped "**we handle all** ... **director obligations**" (a legal-authority overclaim) for preparation-only language. Corporation tax FAQ dropped "**optimization for R&D relief and other CT reliefs**" — a direct tax-advisory overclaim, the same category as the already-fixed IRS-representation and Australian tax-planning findings — for return-preparation language that routes relief-eligibility questions to the client's accountant or an R&D specialist. The entity-structure FAQ dropped "**entity structure optimization**" — entity selection advice is explicitly banned under `scope-boundaries.md` §2.  
+**Why:** This page had the most and the most serious overclaims of the three — several items claimed services genuinely outside Accounstone's scope, not just imprecise wording around real services.  
+**URL changed:** No. **Metadata changed:** Yes. **Content changed:** Yes.
+
+### `app/markets/united-states/page.tsx`
+
+**Changed:** The state-requirements FAQ said "**we... handle** specific state compliance, **filings**, and reporting" — filing authority stays with the client's CPA; reworded to preparation-for-review language. The multi-state FAQ opened with "**Absolutely**" and claimed "**proper nexus analysis**" — nexus determination is a tax-judgment call; reworded to describe tracking activity by state so exposure is *visible*, with the determination itself left to the client's CPA/tax advisor. The payroll-tax FAQ claimed "**quarterly filings**" as something Accounstone handles — reworded to match the already-established Payroll knowledge doc pattern (filing can be included in scope or stay with the client's accountant, agreed at onboarding).  
+**Why:** Same category as the UK/Australia fixes — filing-authority and tax-determination claims that contradict the site's own scope boundaries.  
+**URL changed:** No. **Metadata changed:** No. **Content changed:** Yes.
+
+**Verified:** `next build` (all routes, no errors), `eslint .` clean, and a targeted re-grep for every removed pattern (ASIC, "optimization," "full ... compliance," "Absolutely.", "benefits administration," "R&D tax relief," "grant funding," "entity structure optimization") across all three files confirmed clean before committing.
+
 
 Picked up from a Claude.ai handoff prompt. Verified the prompt's Priority 1 claims first: `app/industries/cpa-firms/page.tsx` and the healthcare/e-commerce/professional-services industry pages were already reworked with 250–650+ words, workflow-specific FAQs, and auto-generated FAQ/Breadcrumb schema via `IndustryPageTemplate` — the "57 lines / thin content" note in the handoff was stale (line count is misleading because the template pulls content from data arrays). No changes made there; making them longer for its own sake would have violated the guide's anti-padding rule. Moved to the parts of the handoff that were genuinely unaddressed.
 
