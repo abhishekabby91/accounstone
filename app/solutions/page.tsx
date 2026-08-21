@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
@@ -45,6 +46,18 @@ export default function SolutionsPage() {
         columns={3}
         variant="default"
       />
+
+      <section className="w-full py-8 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-muted leading-relaxed">
+            Not sure which of these fits? See{' '}
+            <Link href="/resources/guides/choosing-an-engagement-model" className="text-primary font-medium hover:underline">
+              a side-by-side comparison of all four models
+            </Link>{' '}
+            and a decision framework for matching one to your situation.
+          </p>
+        </div>
+      </section>
 
       <CTABanner
         title="Ready to Find the Right Solution?"

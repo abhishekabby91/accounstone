@@ -91,6 +91,7 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 | `/resources/guides/outsourced-payroll-processing-guide` | C | Payroll | Published — primary owner of coverage-by-region intent |
 | `/resources/guides/how-to-choose-accounting-outsourcing-partner` | C | CPA Firms | Published |
 | `/resources/guides/client-accounting-services-cas-guide` | C | CPA Firms | Published |
+| `/resources/guides/choosing-an-engagement-model` | C | Solutions | Published 2026-08-21 — fills the comparison gap flagged in the audit |
 
 ## Resources — Insights & Case Studies
 

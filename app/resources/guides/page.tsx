@@ -20,6 +20,12 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 const guides = [
   {
+    title: 'Staff Augmentation vs. Dedicated Team vs. Offshore Support vs. Back Office: How to Choose',
+    href: '/resources/guides/choosing-an-engagement-model',
+    description: 'What actually separates the four engagement models, a comparison table, and a decision framework for matching the model to your situation.',
+    isNew: true,
+  },
+  {
     title: 'How to Choose an Accounting Outsourcing Partner',
     href: '/resources/guides/how-to-choose-accounting-outsourcing-partner',
     description: 'A decision framework covering scope, review structure, red flags and what a sound onboarding process should look like.',

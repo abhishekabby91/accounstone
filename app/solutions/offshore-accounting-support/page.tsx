@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import { Check } from 'lucide-react';
+import Link from 'next/link';
+import { Check, ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -31,7 +32,7 @@ const faqs = [
   },
   {
     question: 'How long does onboarding take?',
-    answer: 'Most clients are fully onboarded within 2-4 weeks. We conduct thorough training, establish processes, and work inside your existing systems from day one.',
+    answer: 'It depends on how complex your books and systems are — a straightforward setup with clean records moves faster than one that needs cleanup first. A more useful first step than a fixed timeline is a discovery conversation about your current process, so we can give you a realistic estimate for your specific situation rather than a generic number.',
   },
 ];
 
@@ -92,16 +93,16 @@ export default function OffshoreSolutionPage() {
               <h3 className="text-2xl font-bold">Key Benefits</h3>
               <div className="space-y-4">
                 <div>
-                  <div className="text-4xl font-bold mb-2">2-4</div>
-                  <p className="text-white/80">Weeks to Full Onboarding</p>
-                </div>
-                <div>
                   <div className="text-4xl font-bold mb-2">24 hrs</div>
                   <p className="text-white/80">Response Time Commitment</p>
                 </div>
                 <div>
                   <div className="text-4xl font-bold mb-2">100%</div>
                   <p className="text-white/80">NDA-Backed Engagements</p>
+                </div>
+                <div>
+                  <div className="text-4xl font-bold mb-2">Flexible</div>
+                  <p className="text-white/80">Scope That Scales With You</p>
                 </div>
               </div>
             </div>
@@ -128,6 +129,8 @@ export default function OffshoreSolutionPage() {
           </div>
         </div>
       </section>
+
+      <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/staff-augmentation" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Staff Augmentation <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
 
       <FAQSection subtitle="Offshore Support" items={faqs} columns={2} />
 
