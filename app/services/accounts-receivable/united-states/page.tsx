@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-receivable/united-states';
@@ -15,7 +16,7 @@ export const metadata: Metadata = genMeta({
   path: PATH,
 });
 
-const overview = 'Cash collected late is cash your business already earned but cannot use. We handle the recurring AR cycle — invoicing, payment application, aging review, and follow-up — inside your existing system, so overdue accounts get consistent attention instead of getting lost between other priorities.';
+const overview = "Cash collected late is cash the business already earned but cannot use. We run the recurring receivables cycle inside your existing system — issuing invoices on schedule, applying receipts as they land, reading the aging for cause, and following up on a defined cadence — so overdue accounts get consistent attention rather than whatever attention is left over at month end.";
 
 const uSElements = [
   'USD invoicing from sales orders, contracts, or time sheets',
@@ -27,19 +28,18 @@ const uSElements = [
 ];
 
 const delegated = [
-  'Invoice creation and sending on your billing schedule',
-  'Payment application against open invoices',
-  'Aging monitoring and escalation list preparation',
-  'Systematic follow-up reminders (in your name)',
-  'Customer account reconciliation',
+  'Invoice preparation and issue on your billing schedule',
+  'Receipt matching against open invoices, including partial payments',
+  'Aging review and preparation of the escalation list',
+  'Reminder sequences sent in your company name',
+  'Customer account reconciliation against remittances',
 ];
 
 const retained = [
-  'Credit limit decisions and credit holds',
-  'Write-off approval authority',
-  'Legal or collections agency referral decisions',
-  'Customer contract terms affecting invoicing',
-  'Judgment calls on disputed balances',
+  'Credit limits, credit holds and terms decisions',
+  'Approval to write off a balance',
+  'Whether to refer an account to collections or counsel',
+  'Resolution of disputed balances with the customer',
 ];
 
 const faqs = [
@@ -54,8 +54,7 @@ const serviceSchema = generateServiceSchema({ name: 'Accounts Receivable for U.S
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Accounts Receivable', url: `${baseUrl}/services/accounts-receivable` },
-  { name: 'United States', url: `${baseUrl}${PATH}` },
+  { name: 'Accounts Receivable — United States', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function AccountsReceivableUSPage() {
@@ -71,14 +70,14 @@ export default function AccountsReceivableUSPage() {
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
           <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
           <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/services/accounts-receivable" className="hover:text-primary transition-colors">Accounts Receivable</Link></li><li aria-hidden="true">/</li>
+          <li>Accounts Receivable</li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United States</li>
         </ol>
       </nav>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-6"><>
-          <div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Collections That Follow a Schedule, Not Whoever Has Time</h2></div>
+          <div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Getting Paid Closer to Terms, Without Damaging the Relationship</h2></div>
           <p className="text-lg text-muted leading-relaxed">{overview}</p>
         </></Reveal>
       </section>
@@ -94,17 +93,19 @@ export default function AccountsReceivableUSPage() {
         <Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="text-3xl font-bold mt-3 mb-6">Credit and collections judgment</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal>
       </div></section>
 
+      <ServiceDepth serviceSlug="accounts-receivable" regionSlug="united-states" />
+
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto">
         <div className="mb-6 p-4 bg-white rounded-xl border border-border/70 flex flex-wrap items-center gap-3">
-          <span className="text-xs font-bold uppercase tracking-wide text-muted">This service everywhere:</span>
-          <Link href="/services/accounts-receivable" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">General AR Overview</Link>
+          <span className="text-xs font-bold uppercase tracking-wide text-muted">Same service, other regions:</span>
+          <Link href="/services/accounts-receivable/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">United Kingdom</Link><Link href="/services/accounts-receivable/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Australia</Link>
         </div>
-        <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/services/accounts-payable" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Accounts Payable</Link><Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AR Guide</Link><Link href="/industries/ecommerce" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">E-Commerce</Link></div>
+        <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/services/accounts-payable/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Accounts Payable</Link><Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AR Guide</Link><Link href="/industries/ecommerce" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">E-Commerce</Link></div>
       </div></section>
 
-      <CTABanner title="How Long Are You Waiting to Collect?" description="Tell us your invoice volume, average payment terms, and current follow-up process." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
+      <CTABanner title="How Long Are You Waiting to Get Paid?" description="Tell us where receivables are slipping — invoicing delay, unapplied cash, or follow-up that stops when the month gets busy — and we can talk through what a consistent cycle would change." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }

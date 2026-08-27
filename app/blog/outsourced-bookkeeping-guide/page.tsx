@@ -145,7 +145,7 @@ export default function OutsourcedBookkeepingBlog() {
       <div className="mt-8 p-6 bg-input rounded-xl border border-border/70">
         <p className="font-semibold text-primary mb-3">Relevant services</p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/services/bookkeeping" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping Services</Link>
+          <Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping Services</Link>
           <Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">U.S. Bookkeeping</Link>
           <Link href="/services/bookkeeping/united-kingdom" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">UK Bookkeeping</Link>
           <Link href="/services/bookkeeping/australia" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Australian Bookkeeping</Link>

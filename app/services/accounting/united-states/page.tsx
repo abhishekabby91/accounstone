@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounting/united-states';
@@ -52,8 +53,7 @@ const serviceSchema = generateServiceSchema({ name: 'Accounting Services for U.S
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Accounting Services', url: `${baseUrl}/services/accounting` },
-  { name: 'United States', url: `${baseUrl}${PATH}` },
+  { name: 'Accounting Services — United States', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function AccountingUSPage() {
@@ -69,7 +69,7 @@ export default function AccountingUSPage() {
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
           <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
           <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/services/accounting" className="hover:text-primary transition-colors">Accounting Services</Link></li><li aria-hidden="true">/</li>
+          <li>Accounting Services</li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United States</li>
         </ol>
       </nav>
@@ -92,12 +92,14 @@ export default function AccountingUSPage() {
         <Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="text-3xl font-bold mt-3 mb-6">Review and sign-off</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal>
       </div></section>
 
+      <ServiceDepth serviceSlug="accounting" regionSlug="united-states" />
+
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto">
         <div className="mb-6 p-4 bg-white rounded-xl border border-border/70 flex flex-wrap items-center gap-3">
-          <span className="text-xs font-bold uppercase tracking-wide text-muted">This service everywhere:</span>
-          <Link href="/services/accounting" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">General Accounting Services Overview</Link>
+          <span className="text-xs font-bold uppercase tracking-wide text-muted">Same service, other regions:</span>
+          <Link href="/services/accounting/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">United Kingdom</Link><Link href="/services/accounting/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Bookkeeping</Link><Link href="/services/tax-preparation/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Tax Preparation</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link></div>
       </div></section>

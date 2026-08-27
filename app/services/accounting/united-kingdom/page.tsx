@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounting/united-kingdom';
@@ -53,8 +54,7 @@ const serviceSchema = generateServiceSchema({ name: 'Accounting Services for UK 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Accounting Services', url: `${baseUrl}/services/accounting/united-kingdom` },
-  { name: 'United Kingdom', url: `${baseUrl}${PATH}` },
+  { name: 'Accounting Services — United Kingdom', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function AccountingUKPage() {
@@ -92,6 +92,8 @@ export default function AccountingUKPage() {
         <Reveal className="rounded-2xl bg-input border border-border/70 p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Can be delegated</span><h2 className="text-3xl font-bold text-primary mt-3 mb-6">Recurring close work</h2><ul className="space-y-4">{delegated.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" /><span className="text-foreground leading-6">{item}</span></li>)}</ul></></Reveal>
         <Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Stays with your practitioner</span><h2 className="text-3xl font-bold mt-3 mb-6">Review and submission</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal>
       </div></section>
+
+      <ServiceDepth serviceSlug="accounting" regionSlug="united-kingdom" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
 

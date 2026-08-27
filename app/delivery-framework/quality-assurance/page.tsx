@@ -72,9 +72,9 @@ export default function QAPage() {
         <div className="max-w-5xl mx-auto">
           <p className="text-muted leading-relaxed">
             Review structure matters most on{' '}
-            <Link href="/services/audit-support" className="text-primary font-medium hover:underline">audit support</Link>{' '}
+            <Link href="/services/audit-support/united-states" className="text-primary font-medium hover:underline">audit support</Link>{' '}
             and{' '}
-            <Link href="/services/tax-preparation" className="text-primary font-medium hover:underline">tax preparation</Link>{' '}
+            <Link href="/services/tax-preparation/united-states" className="text-primary font-medium hover:underline">tax preparation</Link>{' '}
             work, where final sign-off stays with your CPA, Enrolled Agent, or audit team. See how this fits into{' '}
             <Link href="/delivery-framework/onboarding" className="text-primary font-medium hover:underline">onboarding</Link>{' '}
             and{' '}
