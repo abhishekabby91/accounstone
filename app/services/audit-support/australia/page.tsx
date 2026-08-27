@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import RegionalContext from '@/components/regional-context';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/australia';
@@ -54,6 +55,8 @@ export default function AuditSupportAUPage() {
       <ol className="space-y-4">{phases.map((w, i) => <Reveal key={i} delay={Math.min(i * 0.06, 0.25)}><li className="p-5 sm:p-6 bg-white rounded-xl border border-border/70 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6"><span className="shrink-0 text-xs font-bold uppercase tracking-wider text-accent sm:w-36 sm:pt-1">{w.k}</span><div><h3 className="font-bold text-primary mb-1.5 text-base sm:text-lg">{w.h}</h3><p className="text-muted text-sm sm:text-base leading-relaxed">{w.p}</p></div></li></Reveal>)}</ol></div></section>
 
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto rounded-2xl bg-primary text-white p-8 md:p-10"><span className="text-sm font-semibold uppercase tracking-wide text-white/70">The line we do not cross</span><h2 className="text-3xl font-bold mt-3 mb-6">Preparation moves. Assurance does not.</h2><p className="text-white/85 leading-7 mb-6">Everything above is preparation and documentation performed for the entity, not audit work performed for the auditor. The engaged registered company auditor directs the audit, evaluates the evidence, and signs the opinion.</p><ul className="grid md:grid-cols-2 gap-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></div></section>
+
+    <RegionalContext serviceSlug="audit-support" regionSlug="australia" />
 
     <FAQSection subtitle="Questions" items={faqs} columns={2} />
 

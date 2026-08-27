@@ -6,6 +6,7 @@ import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
+import RegionalContext from '@/components/regional-context';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
@@ -39,6 +40,8 @@ export default function TaxPrepAUPage() {
           <Link href="/services/tax-preparation/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇬🇧 United Kingdom</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australia Market Overview</Link><Link href="/services/bookkeeping/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Bookkeeping</Link><Link href="/services/audit-support/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Audit Support</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Xero</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">MYOB</Link></div></div></section>
+    <RegionalContext serviceSlug="tax-preparation" regionSlug="australia" />
+
     <ServiceDepth serviceSlug="tax-preparation" regionSlug="australia" />
 
     <FAQSection subtitle="Questions" items={faqs} columns={2} />

@@ -6,6 +6,7 @@ import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
+import RegionalContext from '@/components/regional-context';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/united-kingdom';
@@ -39,6 +40,8 @@ export default function TaxPrepUKPage() {
           <Link href="/services/tax-preparation/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇦🇺 Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Market Overview</Link><Link href="/services/bookkeeping/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Bookkeeping</Link><Link href="/services/audit-support/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Audit Support</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Xero</Link></div></div></section>
+    <RegionalContext serviceSlug="tax-preparation" regionSlug="united-kingdom" />
+
     <ServiceDepth serviceSlug="tax-preparation" regionSlug="united-kingdom" />
 
     <FAQSection subtitle="Questions" items={faqs} columns={2} />
