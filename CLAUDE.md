@@ -179,6 +179,31 @@ deliberately 1-per-row — their titles run 60–90 characters and wrap badly at
 
 ---
 
+## Contact form
+
+`/contact` posts to `app/api/contact/route.ts`, which forwards to Web3Forms
+**server-side**. Web3Forms access keys are public by design and their docs put
+them in client HTML, but this repo is public, so the key is not committed - it
+lives only in the Vercel environment and never reaches the client bundle.
+
+Required: `WEB3FORMS_ACCESS_KEY` in Vercel (Production + Preview). **No
+`NEXT_PUBLIC_` prefix** - that would ship it to the browser and defeat the
+point. Adding or changing it needs a redeploy; Vercel deployments are immutable
+and will not pick up a new variable on their own.
+
+While it is unset the route returns 503 and the form falls back to opening the
+visitor's mail client - the behaviour the site had before - so a missing key
+degrades rather than breaks. Same fallback on 502 if Web3Forms is unreachable.
+
+The route validates name/email/message, caps field lengths, and carries a
+honeypot (`botcheck`) that bots fill and people cannot see. Provider error text
+is logged, never shown, since it can carry account detail.
+
+**Cannot be tested from a sandboxed session:** the egress proxy denies CONNECT
+to `api.web3forms.com` (403). Everything except the upstream call is testable
+locally; the upstream call can only be confirmed from production, via
+`get_runtime_logs` on the `/api/contact` invocation.
+
 ## Environment constraints
 
 Known limits when working from a sandboxed session:
