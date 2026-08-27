@@ -4,36 +4,24 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { solutions, markets, technologies, industries } from '@/lib/data';
+import { solutions, technologies, industries, regions, serviceRegions } from '@/lib/data';
 
 interface NavChild { label: string; href: string; }
 interface NavGroup { label: string; items: NavChild[]; }
 interface NavItem { label: string; href: string; children?: NavChild[]; groups?: NavGroup[]; }
 
-// Each service lists the regions that have a dedicated page for it. Bookkeeping,
-// Tax Preparation, Audit Support, Payroll, Accounts Payable and Accounts
-// Receivable have pages for all three regions. Accounting Services currently
-// only has a dedicated U.S. page — the UK and Australia columns fall back to
-// the general (multi-region) service page for it until region-specific
-// versions exist, rather than linking to a page that doesn't exist.
-const allServices = [
-  { label: 'Bookkeeping', slug: 'bookkeeping', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Tax Preparation', slug: 'tax-preparation', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Audit Support', slug: 'audit-support', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Payroll', slug: 'payroll', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Accounts Payable', slug: 'accounts-payable', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Accounts Receivable', slug: 'accounts-receivable', regions: ['united-states', 'united-kingdom', 'australia'] },
-  { label: 'Accounting Services', slug: 'accounting', regions: ['united-states'] },
-];
-const regionServiceGroups: NavGroup[] = [
-  { label: 'USA', region: 'united-states' },
-  { label: 'UK', region: 'united-kingdom' },
-  { label: 'Australia', region: 'australia' },
-].map(({ label, region }) => ({
-  label,
-  items: allServices.map((s) => ({
-    label: s.label,
-    href: s.regions.includes(region) ? `/services/${s.slug}/${region}` : `/services/${s.slug}`,
+// Services are region-first: each column is a market, each row a service.
+// Every entry resolves to a real /services/{service}/{region} page - the
+// matrix lives in lib/data.ts so the navbar, footer, /services hub and
+// sitemap cannot drift apart.
+//
+// CFO Support and HR are deliberately absent. See
+// knowledge/company/scope-boundaries.md - not offered today.
+const regionServiceGroups: NavGroup[] = regions.map((region) => ({
+  label: region.name,
+  items: serviceRegions.map((s) => ({
+    label: s.navLabel,
+    href: `/services/${s.slug}/${region.slug}`,
   })),
 }));
 
@@ -45,17 +33,22 @@ export default function Navbar() {
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const navRef = useRef<HTMLElement>(null);
 
+  // Markets is deliberately not a primary nav item. The market pages remain
+  // indexable and are linked from the footer and contextually from the
+  // Service x Region pages - they serve broad regional intent, not the
+  // commercial navigation path.
   const menuItems: NavItem[] = [
-    { label: 'Solutions', href: '/solutions', children: solutions.map((s) => ({ label: s.name, href: `/solutions/${s.slug}` })) },
     { label: 'Services', href: '/services', groups: regionServiceGroups },
+    { label: 'Solutions', href: '/solutions', children: solutions.map((s) => ({ label: s.name, href: `/solutions/${s.slug}` })) },
     { label: 'Industries', href: '/industries', children: industries.map((i) => ({ label: i.name, href: `/industries/${i.slug}` })) },
-    { label: 'Markets', href: '/markets', children: markets.map((m) => ({ label: m.name, href: `/markets/${m.slug}` })) },
     { label: 'Technology', href: '/technology', children: technologies.map((t) => ({ label: t.name, href: `/technology/${t.slug}` })) },
     { label: 'Resources', href: '/resources', children: [
-      { label: 'Case Studies', href: '/resources/case-studies' },
       { label: 'Guides', href: '/resources/guides' },
       { label: 'Insights', href: '/resources/insights' },
+      { label: 'Case Studies', href: '/resources/case-studies' },
+      { label: 'Blog', href: '/blog' },
     ]},
+    { label: 'Compliance', href: '/compliance' },
     { label: 'About', href: '/about' },
   ];
 

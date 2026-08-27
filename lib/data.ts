@@ -124,3 +124,136 @@ export const companyInfo = {
     address: 'Global Delivery Center - New Delhi, India',
   },
 };
+
+// ---------------------------------------------------------------------------
+// Region-first services architecture.
+//
+// One source of truth for the Service x Region layer. The navbar, footer,
+// /services hub and app/sitemap.ts all derive from `serviceRegions` so a new
+// combination cannot be added to one surface and forgotten on the others.
+//
+// IMPORTANT: an entry here does NOT create a page. Every combination listed
+// must have a matching app/services/{service}/{region}/page.tsx. See CLAUDE.md
+// "Adding a route" - a missing page.tsx previously produced 15 dead links.
+//
+// CFO Support and HR services are intentionally absent. See
+// knowledge/company/scope-boundaries.md - they are not offered today. They are
+// planned for the future, at which point adding them here plus the matching
+// page files is the whole change.
+// ---------------------------------------------------------------------------
+
+export const regions = [
+  {
+    slug: 'united-states',
+    name: 'United States',
+    adjective: 'U.S.',
+    flag: '🇺🇸',
+    intro:
+      'U.S. engagements are built around the month-end close and the recurring compliance work that surrounds it. Records are kept to U.S. GAAP conventions, payroll accounting accommodates federal and state withholding, and tax work stops at prepared returns and workpapers - the filing decision stays with your CPA or EA.',
+  },
+  {
+    slug: 'united-kingdom',
+    name: 'United Kingdom',
+    adjective: 'UK',
+    flag: '🇬🇧',
+    intro:
+      'UK engagements run on two clocks: the recurring VAT cycle and the year-end accounts deadline. Records are prepared under FRS 102 conventions and kept in a state that supports both. HMRC and Companies House submission stays with your registered practitioner - we do not hold portal credentials.',
+  },
+  {
+    slug: 'australia',
+    name: 'Australia',
+    adjective: 'Australian',
+    flag: '🇦🇺',
+    intro:
+      'Australian engagements are paced by the BAS cycle and the 30 June year end. GST coding is checked as part of the close rather than reconstructed at lodgment, and payroll accounting accounts for PAYG and superannuation guarantee. Lodgment stays with your registered BAS or tax agent.',
+  },
+] as const;
+
+export type RegionSlug = (typeof regions)[number]['slug'];
+
+type ServiceRegionCopy = Record<RegionSlug, string>;
+
+interface ServiceRegionEntry {
+  slug: string;
+  name: string;
+  navLabel: string;
+  copy: ServiceRegionCopy;
+}
+
+export const serviceRegions: ServiceRegionEntry[] = [
+  {
+    slug: 'bookkeeping',
+    name: 'Bookkeeping',
+    navLabel: 'Bookkeeping',
+    copy: {
+      'united-states': 'Transaction posting, reconciliations and month-end tasks kept current so the close starts from a clean ledger.',
+      'united-kingdom': 'Records maintained across the VAT quarter, with digital links kept intact for Making Tax Digital.',
+      'australia': 'Books kept BAS-ready, with GST coding checked as transactions are posted rather than at lodgment.',
+    },
+  },
+  {
+    slug: 'accounting',
+    name: 'Accounting Services',
+    navLabel: 'Accounting',
+    copy: {
+      'united-states': 'Reconciliations, journal entries and month-end close prepared to U.S. GAAP conventions for CPA review.',
+      'united-kingdom': 'Close, journals and year-end accounts preparation under FRS 102, packaged for your practitioner.',
+      'australia': 'Close and reporting under AASB conventions, timed to your BAS periods rather than run separately from them.',
+    },
+  },
+  {
+    slug: 'tax-preparation',
+    name: 'Tax Preparation',
+    navLabel: 'Tax Preparation',
+    copy: {
+      'united-states': 'Workpapers and return preparation for 1120, 1065 and 1040 filings, handed off to your CPA or EA.',
+      'united-kingdom': 'Corporation Tax and Self Assessment workpapers prepared for your registered practitioner to review and submit.',
+      'australia': 'Company and trust return workpapers prepared for lodgment by your registered tax agent.',
+    },
+  },
+  {
+    slug: 'payroll',
+    name: 'Payroll Processing',
+    navLabel: 'Payroll',
+    copy: {
+      'united-states': 'Recurring payroll runs, W-2 and 1099 records, and federal plus multi-state withholding accounting.',
+      'united-kingdom': 'PAYE processing, RTI submission support and the accounting around pension auto-enrolment.',
+      'australia': 'Pay runs with PAYG withholding, Single Touch Payroll reporting support and superannuation guarantee accounting.',
+    },
+  },
+  {
+    slug: 'accounts-payable',
+    name: 'Accounts Payable',
+    navLabel: 'Accounts Payable',
+    copy: {
+      'united-states': 'Invoice intake through approval and payment preparation, with 1099 vendor data kept current.',
+      'united-kingdom': 'Purchase ledger run with VAT coding checked at entry, and CIS handling where it applies.',
+      'australia': 'Purchase ledger with GST coding and ABN validation applied as invoices are processed.',
+    },
+  },
+  {
+    slug: 'accounts-receivable',
+    name: 'Accounts Receivable',
+    navLabel: 'Accounts Receivable',
+    copy: {
+      'united-states': 'Invoicing, cash application and aging follow-up structured around your collections cadence and DSO targets.',
+      'united-kingdom': 'Sales ledger and credit control with VAT invoicing requirements applied correctly at source.',
+      'australia': 'Sales ledger and collections follow-up with GST invoicing requirements applied at source.',
+    },
+  },
+  {
+    slug: 'audit-support',
+    name: 'Audit Support',
+    navLabel: 'Audit Support',
+    copy: {
+      'united-states': 'PBC lists, lead schedules and indexed evidence prepared ahead of fieldwork for your engaged auditor.',
+      'united-kingdom': 'FRS 102 lead schedules and year-end reconciliations prepared against your statutory auditor’s request list.',
+      'australia': 'AASB schedules, GST control reconciliation and evidence prepared before the 30 June crunch.',
+    },
+  },
+];
+
+/** Every Service x Region path. Must stay in step with the page.tsx files on disk. */
+export const serviceRegionPaths: string[] = serviceRegions.flatMap((s) =>
+  regions.map((r) => `/services/${s.slug}/${r.slug}`),
+);
