@@ -3,7 +3,7 @@
 ## Summary
 
 - Files/pages scanned: **84**
-- High-priority findings: **0**
+- High-priority findings: **4**
 - Medium-priority findings: **11**
 - Low-priority findings: **8**
 - Duplicate title groups: **0**
@@ -12,6 +12,10 @@
 
 | File | Score | Words | H1s | Internal links | Generic phrases | Risky claims |
 |---|---:|---:|---:|---:|---:|---:|
+| app/resources/insights/page.tsx | 50/100 | 154 | 0 | 4 | 0 | 0 |
+| app/resources/guides/page.tsx | 55/100 | 299 | 0 | 5 | 0 | 0 |
+| app/resources/case-studies/page.tsx | 65/100 | 670 | 0 | 6 | 0 | 0 |
+| app/resources/page.tsx | 65/100 | 510 | 0 | 6 | 0 | 0 |
 | app/compliance/page.tsx | 75/100 | 255 | 1 | 1 | 0 | 0 |
 | app/data-security/page.tsx | 75/100 | 321 | 1 | 1 | 0 | 0 |
 | app/industries/page.tsx | 75/100 | 178 | 1 | 1 | 0 | 0 |
@@ -20,10 +24,8 @@
 | app/delivery-framework/communication/page.tsx | 80/100 | 293 | 1 | 4 | 0 | 0 |
 | app/delivery-framework/quality-assurance/page.tsx | 80/100 | 330 | 1 | 5 | 0 | 0 |
 | app/markets/page.tsx | 80/100 | 261 | 1 | 3 | 0 | 0 |
-| app/resources/insights/page.tsx | 80/100 | 208 | 1 | 2 | 0 | 0 |
-| app/resources/page.tsx | 80/100 | 249 | 1 | 3 | 0 | 0 |
 | app/solutions/page.tsx | 80/100 | 200 | 1 | 4 | 0 | 0 |
-| app/contact/page.tsx | 85/100 | 497 | 1 | 0 | 0 | 0 |
+| app/contact/page.tsx | 85/100 | 503 | 1 | 0 | 0 | 0 |
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 390 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 382 | 1 | 1 | 0 | 0 |
 | app/about/page.tsx | 90/100 | 695 | 1 | 5 | 0 | 0 |
@@ -48,7 +50,6 @@
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/page.tsx | 90/100 | 1340 | 1 | 13 | 0 | 0 |
 | app/markets/united-states/texas/page.tsx | 90/100 | 649 | 1 | 6 | 0 | 0 |
-| app/resources/case-studies/page.tsx | 90/100 | 574 | 1 | 4 | 0 | 0 |
 | app/resources/guides/choosing-an-engagement-model/page.tsx | 90/100 | 1103 | 1 | 10 | 0 | 0 |
 | app/resources/guides/client-accounting-services-cas-guide/page.tsx | 90/100 | 1106 | 1 | 3 | 0 | 0 |
 | app/resources/guides/how-to-choose-accounting-outsourcing-partner/page.tsx | 90/100 | 1418 | 1 | 5 | 0 | 0 |
@@ -57,7 +58,6 @@
 | app/resources/guides/outsourced-accounts-receivable-guide/page.tsx | 90/100 | 1664 | 1 | 8 | 0 | 0 |
 | app/resources/guides/outsourced-bookkeeping-cost-guide/page.tsx | 90/100 | 988 | 1 | 4 | 0 | 0 |
 | app/resources/guides/outsourced-payroll-processing-guide/page.tsx | 90/100 | 1779 | 1 | 7 | 0 | 0 |
-| app/resources/guides/page.tsx | 90/100 | 676 | 1 | 14 | 0 | 0 |
 | app/resources/guides/questions-to-ask-before-outsourcing-bookkeeping/page.tsx | 90/100 | 1173 | 1 | 3 | 0 | 0 |
 | app/resources/guides/quickbooks-vs-xero-comparison/page.tsx | 90/100 | 813 | 1 | 3 | 0 | 0 |
 | app/resources/guides/staff-augmentation-tax-season-guide/page.tsx | 90/100 | 849 | 1 | 3 | 0 | 0 |
@@ -76,7 +76,7 @@
 | app/services/bookkeeping/australia/page.tsx | 90/100 | 891 | 1 | 12 | 0 | 0 |
 | app/services/bookkeeping/united-kingdom/page.tsx | 90/100 | 891 | 1 | 12 | 0 | 0 |
 | app/services/bookkeeping/united-states/page.tsx | 90/100 | 979 | 1 | 12 | 0 | 0 |
-| app/services/page.tsx | 90/100 | 1053 | 1 | 10 | 0 | 0 |
+| app/services/page.tsx | 90/100 | 1057 | 1 | 10 | 0 | 0 |
 | app/services/payroll/australia/page.tsx | 90/100 | 721 | 1 | 12 | 0 | 0 |
 | app/services/payroll/united-kingdom/page.tsx | 90/100 | 755 | 1 | 12 | 0 | 0 |
 | app/services/payroll/united-states/page.tsx | 90/100 | 762 | 1 | 11 | 0 | 0 |
@@ -123,19 +123,27 @@
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
 12. **LOW — internal-linking** — app/privacy/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-13. **LOW — internal-linking** — app/resources/insights/asc-606-revenue-recognition-saas/page.tsx
+13. **HIGH — metadata** — app/resources/case-studies/page.tsx
+   - Add missing title, meta description or H1.
+14. **HIGH — metadata** — app/resources/guides/page.tsx
+   - Add missing title, meta description or H1.
+15. **MEDIUM — content-depth** — app/resources/guides/page.tsx
+   - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
+16. **LOW — internal-linking** — app/resources/insights/asc-606-revenue-recognition-saas/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-14. **MEDIUM — content-depth** — app/resources/insights/page.tsx
+17. **HIGH — metadata** — app/resources/insights/page.tsx
+   - Add missing title, meta description or H1.
+18. **MEDIUM — content-depth** — app/resources/insights/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-15. **LOW — internal-linking** — app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx
+19. **LOW — internal-linking** — app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-16. **MEDIUM — content-depth** — app/resources/page.tsx
+20. **HIGH — metadata** — app/resources/page.tsx
+   - Add missing title, meta description or H1.
+21. **MEDIUM — content-depth** — app/solutions/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-17. **MEDIUM — content-depth** — app/solutions/page.tsx
+22. **MEDIUM — content-depth** — app/terms/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-18. **MEDIUM — content-depth** — app/terms/page.tsx
-   - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-19. **LOW — internal-linking** — app/terms/page.tsx
+23. **LOW — internal-linking** — app/terms/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
 
 ## Human-content rules
