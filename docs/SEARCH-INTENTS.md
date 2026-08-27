@@ -37,3 +37,20 @@ One primary search intent → one primary URL. Check this file before creating a
 2. If a close match exists, ask: does the new page genuinely serve a different intent, or the same one with a different keyword? If the same intent, improve the existing URL instead.
 3. Only add a new row (and page) when the intent is genuinely unserved.
 4. Two rows should never target the same primary intent without an explicit differentiation note (see the Payroll and AP rows above for the pattern).
+
+## Regional authority vs. commercial intent (added 2026-08-27)
+
+The distinction below is the one the restructure exists to protect. A Market page answers
+"how does accounting work in this country"; a Service x Region page answers "who can do
+this specific work for me there". Measured overlap between the two is 0.0%.
+
+| Search intent | Primary URL | Intent class |
+|---|---|---|
+| How accounting/tax/payroll works in the US (IRS, GAAP, state, nexus) | `/markets/united-states` | Informational — regional authority |
+| How accounting/tax/payroll works in the UK (HMRC, VAT, MTD, PAYE, Companies House) | `/markets/united-kingdom` | Informational — regional authority |
+| How accounting/tax/payroll works in Australia (ATO, GST, BAS, PAYG, STP, super) | `/markets/australia` | Informational — regional authority |
+| Outsourced {service} in {region} | `/services/{service}/{region}` | Commercial |
+| All services, choose by region | `/services` | Commercial — navigational |
+
+**Do not** write service scope onto a Market page, and do not write country-environment
+explainers onto a Service x Region page. That collapse is what produces doorway pages.

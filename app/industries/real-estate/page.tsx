@@ -5,7 +5,7 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/industries/real-estate';
 
 export const metadata: Metadata = genMeta({
-  title: 'Real Estate Accounting Support | Accounstone',
+  title: 'Real Estate Accounting Support',
   description: 'Accounting support for real estate and property management companies, including property-level bookkeeping, reconciliations, AP/AR, owner reporting and multi-entity workflows.',
   path: PATH,
 });
@@ -40,9 +40,9 @@ export default function RealEstateIndustryPage() {
       ]}
       relatedLinks={[
         { name: 'Yardi Accounting for Texas Property Managers', href: '/industries/real-estate/yardi-accounting-outsourcing-texas' },
-        { name: 'Bookkeeping', href: '/services/bookkeeping' },
-        { name: 'Accounts Payable', href: '/services/accounts-payable' },
-        { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
+        { name: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+        { name: 'Accounts Payable', href: '/services/accounts-payable/united-states' },
+        { name: 'Accounts Receivable', href: '/services/accounts-receivable/united-states' },
         { name: 'Back Office Support', href: '/solutions/back-office-support' },
       ]}
       faqs={faqs}

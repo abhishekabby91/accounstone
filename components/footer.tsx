@@ -82,7 +82,7 @@ export default function Footer() {
   const socials = [
     { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn' },
     { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook' },
-    { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram' },
+    { href: 'https://www.instagram.com/accounstone', label: 'Instagram' },
     { href: 'https://www.youtube.com/@accounstone', label: 'YouTube' },
   ];
   return (

@@ -9,15 +9,17 @@ function absoluteUrl(path: string) {
   return `${baseUrl}${path.startsWith('/') ? path : `/${path}`}`;
 }
 
-export function generateMetadata(config: { title: string; description: string; path: string; ogImage?: string; canonical?: string; noindex?: boolean }): Metadata {
+export function generateMetadata(config: { title: string; description: string; path: string; ogImage?: string; canonical?: string; noindex?: boolean; absoluteTitle?: boolean }): Metadata {
   const canonical = absoluteUrl(config.canonical || config.path);
   const ogImage = absoluteUrl(config.ogImage || '/og-image.png');
   const robots: Metadata['robots'] = config.noindex
     ? { index: false, follow: false }
     : { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } };
 
+  // absoluteTitle opts out of the "%s | Accounstone" template in app/layout.tsx.
+  // Used by the homepage, whose title is a deliberate exact string.
   return {
-    title: config.title,
+    title: config.absoluteTitle ? { absolute: config.title } : config.title,
     description: config.description,
     robots,
     alternates: { canonical },

@@ -59,8 +59,8 @@ export default function ProfessionalServicesIndustryPage() {
         'NDA-backed, confidential handling of client and firm financial data',
       ]}
       relatedLinks={[
-        { name: 'Bookkeeping', href: '/services/bookkeeping' },
-        { name: 'Accounting Services', href: '/services/accounting' },
+        { name: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+        { name: 'Accounting Services', href: '/services/accounting/united-states' },
         { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
       ]}
       faqs={faqs}

@@ -11,7 +11,7 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/bookkeeping/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Bookkeeping for Australian Businesses | Accounstone',
+  title: 'Outsourced Bookkeeping for Australian Businesses',
   description: 'Australian bookkeeping support for businesses and accounting firms, with reconciliations, GST records, BAS-ready bookkeeping, payroll support and Xero/MYOB workflows.',
   path: PATH,
 });

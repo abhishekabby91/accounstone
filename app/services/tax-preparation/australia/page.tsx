@@ -9,7 +9,7 @@ import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
-export const metadata: Metadata = genMeta({ title: 'Australian Tax Preparation Support | Accounstone', description: 'Australian tax preparation support for income tax and BAS workflows, with organised workpapers, reconciliations and review-ready records for tax and BAS agents.', path: PATH });
+export const metadata: Metadata = genMeta({ title: 'Australian Tax Preparation Support', description: 'Australian tax preparation support for income tax and BAS workflows, with organised workpapers, reconciliations and review-ready records for tax and BAS agents.', path: PATH });
 
 const overview = "Australian tax work often gets squeezed by the same practical problem: the preparation queue grows while the registered tax or BAS agent still has to review the work, resolve exceptions and speak with clients. We support the documentation and preparation underneath income tax and BAS workflows, organised around the Australian financial year and the client's existing accounting records, while the registered professional retains advice, judgement and lodgment responsibility.";
 const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Income tax return preparation support', 'BAS preparation support built from organised GST records', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the registered tax or BAS agent responsible for advice and lodgment'];

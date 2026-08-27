@@ -1,21 +1,47 @@
 # Route Registry
 
-Source of truth for every indexable route on accounstone.com. Generated from a full repository audit on 2026-08-21 (see the Growth System Audit delivered that date). Update this file in the same pass as any change that adds, removes, or re-scopes a route — don't let it drift from `app/**/page.tsx` the way `app/sitemap.ts` did once before (see `AI-WEBSITE-GUIDE.md`, "Known build gotchas").
+Source of truth for every indexable route on accounstone.com. Generated from a full repository audit on 2026-08-21, restructured 2026-08-27 (see the Growth System Audit delivered that date). Update this file in the same pass as any change that adds, removes, or re-scopes a route — don't let it drift from `app/**/page.tsx` the way `app/sitemap.ts` did once before (see `AI-WEBSITE-GUIDE.md`, "Known build gotchas").
 
 Type key: **B** commercial SEO page · **C** blog/guide/informational · **E** proof · **Hub** index/directory page · **Corp** non-cluster company page (intentionally outside the SEO cluster architecture).
 
 ## Services
 
-| URL | Type | Cluster | Region variants | Status |
-|---|---|---|---|---|
-| `/services` | Hub | — | — | Published |
-| `/services/bookkeeping` | B | Bookkeeping | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/accounting` | B | Accounting Services | `/united-states` | Published |
-| `/services/tax-preparation` | B | Tax Preparation | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/payroll` | B | Payroll | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/accounts-payable` | B | Accounts Payable | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/accounts-receivable` | B | Accounts Receivable | `/united-states`, `/united-kingdom`, `/australia` | Published |
-| `/services/audit-support` | B | Audit Support | `/united-states`, `/united-kingdom`, `/australia` | Published |
+Region-first as of 2026-08-27. The generic `/services/{slug}` layer was retired: its
+content was merged into the regional pages and the URLs now 301 to the United States
+page (see `next.config.mjs`). **Do not recreate a generic service page** — it competes
+with its own regional children for the same commercial intent.
+
+| URL | Type | Cluster | Status |
+|---|---|---|---|
+| `/services` | Hub | Core — region-first | Published |
+| `/services/bookkeeping/{united-states,united-kingdom,australia}` | B | Bookkeeping | Published |
+| `/services/accounting/{united-states,united-kingdom,australia}` | B | Accounting Services | Published (UK + AU added 2026-08-27) |
+| `/services/tax-preparation/{united-states,united-kingdom,australia}` | B | Tax Preparation | Published |
+| `/services/payroll/{united-states,united-kingdom,australia}` | B | Payroll | Published |
+| `/services/accounts-payable/{united-states,united-kingdom,australia}` | B | Accounts Payable | Published |
+| `/services/accounts-receivable/{united-states,united-kingdom,australia}` | B | Accounts Receivable | Published |
+| `/services/audit-support/{united-states,united-kingdom,australia}` | B | Audit Support | Published |
+
+21 commercial pages = 7 services x 3 regions. The matrix lives in `lib/data.ts`
+(`regions`, `serviceRegions`, `serviceRegionPaths`) and drives the navbar, the footer,
+the `/services` hub and `app/sitemap.ts` from one place.
+
+**CFO Support and HR services are not offered** and have no pages. See
+`knowledge/company/scope-boundaries.md`. The owner has indicated both may be added in
+future; at that point the change is an entry in `serviceRegions` plus the matching
+`page.tsx` files, nothing structural.
+
+### Retired — do not recreate
+
+| URL | Action | Target |
+|---|---|---|
+| `/services/bookkeeping` | 301 | `/services/bookkeeping/united-states` |
+| `/services/accounting` | 301 | `/services/accounting/united-states` |
+| `/services/tax-preparation` | 301 | `/services/tax-preparation/united-states` |
+| `/services/payroll` | 301 | `/services/payroll/united-states` |
+| `/services/accounts-payable` | 301 | `/services/accounts-payable/united-states` |
+| `/services/accounts-receivable` | 301 | `/services/accounts-receivable/united-states` |
+| `/services/audit-support` | 301 | `/services/audit-support/united-states` |
 
 ## Solutions (engagement models)
 

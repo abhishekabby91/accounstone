@@ -9,7 +9,7 @@ import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/united-kingdom';
-export const metadata: Metadata = genMeta({ title: 'UK Tax Preparation Support for Accounting Teams | Accounstone', description: 'UK tax preparation support for Self Assessment and Corporation Tax workflows, with organised workpapers, reconciliations and review-ready files for UK accountants and tax agents.', path: PATH });
+export const metadata: Metadata = genMeta({ title: 'UK Tax Preparation Support for Accounting Teams', description: 'UK tax preparation support for Self Assessment and Corporation Tax workflows, with organised workpapers, reconciliations and review-ready files for UK accountants and tax agents.', path: PATH });
 
 const overview = "Tax season rarely becomes difficult because one return is impossible to prepare. It becomes difficult when source documents arrive late, records need cleaning, workpapers are incomplete and the same review questions keep appearing across a growing queue. We support the preparation and organisation underneath UK Self Assessment and Corporation Tax work so the accountant or tax agent responsible for the client can spend more time reviewing and advising.";
 const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Self Assessment preparation support for individuals and sole traders', 'Corporation Tax preparation support for companies', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the UK accountant or tax agent responsible for advice and filing'];
