@@ -1,54 +1,77 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, MapPin } from 'lucide-react';
-import { companyInfo } from '@/lib/data';
+import { companyInfo, regions, serviceRegions, technologies, industries } from '@/lib/data';
 import SocialIcon from '@/components/social-icon';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const footerSections = [
-    { title: 'Solutions', links: [
-      { name: 'Offshore Accounting Support', href: '/solutions/offshore-accounting-support' },
-      { name: 'Staff Augmentation', href: '/solutions/staff-augmentation' },
-      { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
-      { name: 'Back Office Support', href: '/solutions/back-office-support' },
-    ]},
-    { title: 'Services', links: [
-      { name: 'Bookkeeping', href: '/services/bookkeeping' },
-      { name: 'Accounting', href: '/services/accounting' },
-      { name: 'Tax Preparation', href: '/services/tax-preparation' },
-      { name: 'Payroll', href: '/services/payroll' },
-      { name: 'Accounts Payable', href: '/services/accounts-payable' },
-      { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
-      { name: 'Audit Support', href: '/services/audit-support' },
-    ]},
-    { title: 'Markets', links: [
-      { name: 'United States', href: '/markets/united-states' },
-      { name: 'United Kingdom', href: '/markets/united-kingdom' },
-      { name: 'Australia', href: '/markets/australia' },
-    ]},
-    { title: 'Technology', links: [
-      { name: 'QuickBooks', href: '/technology/quickbooks' },
-      { name: 'Xero', href: '/technology/xero' },
-      { name: 'Sage', href: '/technology/sage' },
-      { name: 'NetSuite', href: '/technology/netsuite' },
-      { name: 'Drake Tax', href: '/technology/drake-tax' },
-      { name: 'CCH', href: '/technology/cch' },
-      { name: 'MYOB', href: '/technology/myob' },
-    ]},
-    { title: 'Resources', links: [
-      { name: 'Case Studies', href: '/resources/case-studies' },
-      { name: 'Guides', href: '/resources/guides' },
-      { name: 'Insights', href: '/resources/insights' },
-      { name: 'Industries', href: '/industries' },
-    ]},
-    { title: 'Company', links: [
-      { name: 'About', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Onboarding', href: '/delivery-framework/onboarding' },
-      { name: 'Communication', href: '/delivery-framework/communication' },
-      { name: 'Quality Assurance', href: '/delivery-framework/quality-assurance' },
-    ]},
+  // The footer is the site's real crawl skeleton. The navbar renders its
+  // dropdown links only when open, so they never appear in server HTML - every
+  // crawlable internal link below the hero comes from here. Two consequences
+  // are deliberate:
+  //   1. The 21 Service x Region pages are listed directly. They are the
+  //      primary commercial pages and were previously reachable only through
+  //      in-content links.
+  //   2. Section hubs (/services, /markets, /technology, /resources, /blog)
+  //      are listed explicitly. /technology and /blog had zero inbound links
+  //      in rendered HTML before this and were effectively orphaned.
+  const footerColumns: Array<{ blocks: Array<{ title: string; links: Array<{ name: string; href: string }> }> }> = [
+    ...regions.map((region) => ({
+      blocks: [{
+        title: `${region.name} Services`,
+        links: serviceRegions.map((service) => ({
+          name: service.navLabel,
+          href: `/services/${service.slug}/${region.slug}`,
+        })),
+      }],
+    })),
+    {
+      blocks: [
+        { title: 'Solutions', links: [
+          { name: 'Offshore Accounting Support', href: '/solutions/offshore-accounting-support' },
+          { name: 'Staff Augmentation', href: '/solutions/staff-augmentation' },
+          { name: 'Dedicated Accounting Teams', href: '/solutions/dedicated-accounting-teams' },
+          { name: 'Back Office Support', href: '/solutions/back-office-support' },
+        ]},
+        { title: 'Markets', links: [
+          ...regions.map((r) => ({ name: r.name, href: `/markets/${r.slug}` })),
+          { name: 'All Markets', href: '/markets' },
+        ]},
+      ],
+    },
+    {
+      blocks: [
+        { title: 'Technology', links: [
+          ...technologies.map((t) => ({ name: t.name, href: `/technology/${t.slug}` })),
+          { name: 'All Platforms', href: '/technology' },
+        ]},
+      ],
+    },
+    {
+      blocks: [
+        { title: 'Industries', links: industries.map((i) => ({ name: i.name, href: `/industries/${i.slug}` })) },
+        { title: 'Resources', links: [
+          { name: 'Guides', href: '/resources/guides' },
+          { name: 'Insights', href: '/resources/insights' },
+          { name: 'Case Studies', href: '/resources/case-studies' },
+          { name: 'Blog', href: '/blog' },
+        ]},
+      ],
+    },
+    {
+      blocks: [
+        { title: 'Company', links: [
+          { name: 'About', href: '/about' },
+          { name: 'Contact', href: '/contact' },
+          { name: 'All Services', href: '/services' },
+          { name: 'Compliance', href: '/compliance' },
+          { name: 'Onboarding', href: '/delivery-framework/onboarding' },
+          { name: 'Communication', href: '/delivery-framework/communication' },
+          { name: 'Quality Assurance', href: '/delivery-framework/quality-assurance' },
+        ]},
+      ],
+    },
   ];
   const legalLinks = [
     { name: 'Privacy Policy', href: '/privacy' },
@@ -59,7 +82,7 @@ export default function Footer() {
   const socials = [
     { href: 'https://www.linkedin.com/company/accounstone/', label: 'LinkedIn' },
     { href: 'https://www.facebook.com/profile.php?id=61591501869187', label: 'Facebook' },
-    { href: 'https://www.instagram.com/accounstone?igsh=cTVpcXp0bG9sbnZy', label: 'Instagram' },
+    { href: 'https://www.instagram.com/accounstone', label: 'Instagram' },
     { href: 'https://www.youtube.com/@accounstone', label: 'YouTube' },
   ];
   return (
@@ -103,22 +126,26 @@ export default function Footer() {
             column to fit "TECHNOLOGY", which only holds from 375px up.
             Measured, not guessed — 360px clipped it, 375px does not. */}
         <nav aria-label="Footer" className="grid grid-cols-1 min-[375px]:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 sm:gap-x-6 gap-y-8 min-[375px]:gap-y-10">
-          {footerSections.map((section) => (
-            <div key={section.title} className="min-w-0">
-              {/* The wide uppercase tracking overflowed a 2-column mobile grid
-                  ("TECHNOLOGY" needed 180px in a 152px column and was clipped
-                  at the viewport edge). Tracking and size are tightened on
-                  mobile only, leaving real margin rather than a 1px squeak;
-                  the original treatment returns from sm: up. */}
-              <h3 className="mb-4 text-[11px] sm:text-xs font-bold uppercase tracking-normal sm:tracking-[0.14em] text-white">{section.title}</h3>
-              {/* py-1 lifts each link's hit area from 20px to 28px, above the
-                  24px WCAG 2.5.8 minimum. The row gap is reduced to match so
-                  the footer's overall height barely changes. */}
-              <ul className="space-y-0.5">
-                {section.links.map((link) => (
-                  <li key={link.name}><Link href={link.href} className="inline-block py-1 text-sm leading-5 text-white/65 hover:text-white transition-colors">{link.name}</Link></li>
-                ))}
-              </ul>
+          {footerColumns.map((column, ci) => (
+            <div key={ci} className="min-w-0 space-y-8">
+              {column.blocks.map((section) => (
+                <div key={section.title} className="min-w-0">
+                  {/* The wide uppercase tracking overflowed a 2-column mobile grid
+                      ("TECHNOLOGY" needed 180px in a 152px column and was clipped
+                      at the viewport edge). Tracking and size are tightened on
+                      mobile only, leaving real margin rather than a 1px squeak;
+                      the original treatment returns from sm: up. */}
+                  <h3 className="mb-4 text-[11px] sm:text-xs font-bold uppercase tracking-normal sm:tracking-[0.14em] text-white">{section.title}</h3>
+                  {/* py-1 lifts each link's hit area from 20px to 28px, above the
+                      24px WCAG 2.5.8 minimum. The row gap is reduced to match so
+                      the footer's overall height barely changes. */}
+                  <ul className="space-y-0.5">
+                    {section.links.map((link) => (
+                      <li key={link.href}><Link href={link.href} className="inline-block py-1 text-sm leading-5 text-white/65 hover:text-white transition-colors">{link.name}</Link></li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           ))}
         </nav>

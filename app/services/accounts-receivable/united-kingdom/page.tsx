@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-receivable/united-kingdom';
@@ -15,7 +16,7 @@ export const metadata: Metadata = genMeta({
   path: PATH,
 });
 
-const overview = 'Cash collected late is cash your business already earned but cannot use. We handle the recurring AR cycle — invoicing with correct output VAT, payment application, aging review, and follow-up — inside your existing system, so overdue accounts get consistent attention instead of getting lost between other priorities.';
+const overview = "In the UK, late payment costs twice: the cash is outstanding, and unless you operate cash accounting for VAT, the output tax on that invoice has already fallen due. We run the recurring sales ledger inside Xero or Sage — issuing compliant invoices, applying receipts, reviewing the aged debtor report and following an agreed credit control sequence — so the ledger is both collectable and defensible.";
 
 const ukElements = [
   'GBP invoicing with output VAT applied per your registered scheme',
@@ -27,19 +28,18 @@ const ukElements = [
 ];
 
 const delegated = [
-  'Invoice creation and sending on your billing schedule',
-  'Payment application against open invoices',
-  'Aging monitoring and escalation list preparation',
-  'Systematic follow-up reminders (in your name)',
-  'Customer account reconciliation',
+  'Invoice preparation with the VAT details a customer needs to recover',
+  'Receipt matching from the bank feed, including BACS and card settlements',
+  'Aged debtor review and preparation of the escalation list',
+  'Credit control reminders sent in your company name',
+  'Customer account reconciliation against statements and remittances',
 ];
 
 const retained = [
-  'Credit limit decisions and credit holds',
-  'Write-off approval authority',
-  'Legal or collections agency referral decisions',
-  'Customer contract terms affecting invoicing',
-  'Judgment calls on disputed balances or VAT treatment',
+  'Credit limits, credit holds and terms decisions',
+  'Whether to apply statutory interest and compensation to an account',
+  'Approval to write off a balance, and any bad debt relief position',
+  'Whether to refer an account to a collections agency or solicitor',
 ];
 
 const faqs = [
@@ -54,8 +54,7 @@ const serviceSchema = generateServiceSchema({ name: 'Accounts Receivable for UK 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Accounts Receivable', url: `${baseUrl}/services/accounts-receivable` },
-  { name: 'United Kingdom', url: `${baseUrl}${PATH}` },
+  { name: 'Accounts Receivable — United Kingdom', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function AccountsReceivableUKPage() {
@@ -71,14 +70,14 @@ export default function AccountsReceivableUKPage() {
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
           <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
           <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/services/accounts-receivable" className="hover:text-primary transition-colors">Accounts Receivable</Link></li><li aria-hidden="true">/</li>
+          <li>Accounts Receivable</li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
         </ol>
       </nav>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-6"><>
-          <div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Collections That Follow a Schedule, Not Whoever Has Time</h2></div>
+          <div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">A Sales Ledger That Funds the Business Rather Than HMRC</h2></div>
           <p className="text-lg text-muted leading-relaxed">{overview}</p>
         </></Reveal>
       </section>
@@ -94,18 +93,20 @@ export default function AccountsReceivableUKPage() {
         <Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="text-3xl font-bold mt-3 mb-6">Credit and collections judgment</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal>
       </div></section>
 
+      <ServiceDepth serviceSlug="accounts-receivable" regionSlug="united-kingdom" />
+
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto">
         <div className="mb-6 p-4 bg-white rounded-xl border border-border/70 flex flex-wrap items-center gap-3">
           <span className="text-xs font-bold uppercase tracking-wide text-muted">Same service, other regions:</span>
-          <Link href="/services/accounts-receivable" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">General AR Overview</Link>
+          <Link href="/services/accounts-receivable/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">United States</Link><Link href="/services/accounts-receivable/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Australia</Link>
           <Link href="/services/accounts-receivable/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇺🇸 United States</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-kingdom" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">UK Market Overview</Link><Link href="/services/accounts-payable/united-kingdom" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">UK Accounts Payable</Link><Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AR Guide</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Xero</Link></div>
       </div></section>
 
-      <CTABanner title="How Long Are You Waiting to Collect?" description="Tell us your invoice volume, average payment terms, and current follow-up process." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
+      <CTABanner title="Is Your Aged Debtor Report Getting Worse?" description="Tell us where the sales ledger is slipping — invoice queries, unapplied receipts, or credit control that runs only when someone has time — and we can talk through a consistent cycle." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
 }

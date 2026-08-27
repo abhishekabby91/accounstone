@@ -12,10 +12,14 @@ import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Outsourced Accounting & Bookkeeping for CPA Firms',
+  // Exact strings, set deliberately. The title intentionally carries no
+  // "| Accounstone" suffix - the brand name is Accounstone, which is a
+  // separate thing from the homepage's SEO title.
+  title: 'Accounting, Bookkeeping, Tax & Payroll Outsourcing Services',
   description:
-    'Outsourced bookkeeping, accounting, tax preparation, payroll, and audit support for CPA firms and businesses. Add experienced accounting capacity around your existing workflow.',
+    'Outsourced accounting, bookkeeping, tax, payroll, and audit support for CPA firms and businesses. Expand your accounting capacity with Accounstone.',
   path: '/',
+  absoluteTitle: true,
 });
 
 const homePageFAQs = [
@@ -59,7 +63,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section data-section="hero">
-        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} pageHeading="Outsourced Accounting & Bookkeeping for CPA Firms | Accounstone" />
+        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} pageHeading="Outsourced Accounting, Bookkeeping, Tax and Payroll for CPA Firms and Businesses" />
       </section>
 
       <section className="w-full py-7 md:py-8 px-6 md:px-8 bg-white border-b border-border ledger-lines">
@@ -105,7 +109,29 @@ export default function HomePage() {
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, review structure, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
-      <section data-section="services"><SectionGrid subtitle="What We Do" title="Accounting Services That Keep Work Moving" description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support." items={services} baseUrl="/services" columns={3} variant="default" /></section>
+      {/* Cards point at the United States pages, which is where the retired
+          generic /services/{slug} URLs now redirect - linking to the old slugs
+          would send the site's highest-authority page through a 301. The line
+          underneath carries UK and Australia visitors to the region-first hub. */}
+      <section data-section="services">
+        <SectionGrid
+          subtitle="What We Do"
+          title="Accounting Services That Keep Work Moving"
+          description="Practical support across bookkeeping, accounting operations, tax preparation, payroll, payables, receivables, and audit support."
+          items={services.map((s) => ({ ...s, slug: `${s.slug}/united-states` }))}
+          baseUrl="/services"
+          columns={3}
+          variant="default"
+        />
+        <div className="w-full px-6 md:px-8 pb-10 md:pb-14 -mt-4 text-center">
+          <p className="text-muted">
+            Working in the UK or Australia?{' '}
+            <Link href="/services" className="text-primary font-medium underline underline-offset-4 hover:text-accent transition-colors">
+              See all services by region
+            </Link>.
+          </p>
+        </div>
+      </section>
 
       <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-white relative">
         <div className="max-w-7xl mx-auto">

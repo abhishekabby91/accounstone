@@ -27,24 +27,55 @@ background, superseded on specifics by the files above.
 
 ---
 
-## Current state (verified 2026-08-21)
+## Current state (verified 2026-08-27)
 
-- **89 routes**, all returning 200. Sitemap has exact parity: 89 ↔ 89.
-- One redirect: `/blog/outsourced-accounting-services` → `/resources/guides/outsourced-accounting-services-guide` (in `next.config.mjs`).
-- Zero duplicate titles/canonicals, zero missing metadata, zero missing or duplicate `h1`, zero accidental `noindex`.
-- No horizontal overflow at any width 320–1440px. Homepage has no tap target under the 24px WCAG 2.5.8 minimum.
-- Production is live and green.
+- **84 routes**, all returning 200. Sitemap has exact parity: 84 ↔ 84.
+- **Services are region-first.** 21 commercial pages = 7 services × 3 regions, at
+  `/services/{service}/{region}`. The matrix lives in `lib/data.ts` (`regions`,
+  `serviceRegions`, `serviceRegionPaths`) and drives the navbar, footer, `/services`
+  hub and `app/sitemap.ts` from one place. **Do not recreate a generic
+  `/services/{slug}` page** — those 7 URLs are 301s and a generic page competes with
+  its own regional children.
+- Eight redirects, all single-hop: the 7 retired generic service URLs → their
+  United States page, plus `/blog/outsourced-accounting-services` →
+  `/resources/guides/outsourced-accounting-services-guide`.
+- **Markets are not in the primary navbar** but the pages are live, indexable and
+  linked from the footer and contextually. They serve broad regional intent
+  (HMRC/VAT/MTD, ATO/GST/BAS, IRS/GAAP/nexus) and measure 0.0% content overlap with
+  the commercial Service × Region pages. Keep that boundary.
+- Zero duplicate titles/canonicals, zero missing metadata, zero missing or duplicate
+  `h1`, zero accidental `noindex`, zero broken internal links, zero orphan pages,
+  zero internal links pointing at a redirect.
+- Worst near-duplicate pair across the 21 commercial pages is 16.6%; none above 25%.
+- No horizontal overflow at any width 320–1440px.
+
+### The navbar is not a crawl path
+
+Dropdown contents render only when open, and parent items with children render as
+`<button>`, not `<a>` — so **the navbar emits zero links into server HTML**. The
+footer is the site's actual crawl skeleton. If you add a section, add it to the
+footer or it will not be discovered by link. This is how `/technology` and `/blog`
+ended up with zero inbound links before 2026-08-27.
 
 ## Open items — decisions, not engineering
 
 Do **not** resolve these unilaterally. Each needs the owner.
 
-1. **Analytics is not installed.** No GA4/GTM/Vercel Analytics tag exists anywhere. Any CRO or CTR work is unmeasurable until one does. The owner said they would add it.
-2. **No Search Console connection.** All SEO work so far is on-page. Real ranking work needs GSC data. (`robots.txt` deliberately blocks AhrefsBot and SemrushBot, which is why those tools show little for this domain.)
-3. **Is Canada a real market?** Paused by the owner. Either it needs a full cluster like US/UK/AU, or it was a third-party directory artifact. See `knowledge/company/identity.md`.
-4. **Should "Financial reporting" be a named service line?** A positioning decision near the financial-advisory boundary the site deliberately stays behind. See `knowledge/company/scope-boundaries.md`.
-
----
+1. **Analytics is not installed.** No GA4/GTM/Vercel Analytics tag exists anywhere.
+   Any CRO or CTR work is unmeasurable until one does, and the 2026-08-27 restructure
+   cannot be validated without it. The owner said they would add it.
+2. **No Search Console connection.** All SEO work so far is on-page. Ahrefs returns
+   `Insufficient plan` and Semrush reports insufficient API units, so no traffic,
+   ranking or backlink evidence is obtainable at all. (`robots.txt` also deliberately
+   blocks AhrefsBot and SemrushBot.)
+3. **The 7 service redirects all target the United States page.** Chosen without
+   traffic data. If GSC shows non-US demand on those URLs, each is one reversible
+   line in `next.config.mjs`.
+4. **CFO Support and HR services.** Specified in the 2026-08-27 brief, excluded
+   because `scope-boundaries.md` forbids both. The owner has said they may be added
+   in future — that is a data change plus page files, not a restructure.
+5. **Is Canada a real market?** Paused by the owner. See `knowledge/company/identity.md`.
+6. **Should "Financial reporting" be a named service line?** See `scope-boundaries.md`.
 
 ## Hard rules
 
@@ -87,7 +118,7 @@ comm -13 /tmp/disk.txt /tmp/sitemap.txt   # in sitemap, no page  → would 404
 comm -23 /tmp/disk.txt /tmp/sitemap.txt   # page exists, unlisted → never crawled
 ```
 
-Both should print nothing. This found four unlisted guides on 2026-08-21.
+Both should print nothing. This found four unlisted guides on 2026-08-21, and confirmed 84 ↔ 84 parity after the 2026-08-27 restructure.
 
 ### Adding a route
 

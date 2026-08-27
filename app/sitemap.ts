@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/lib/seo';
-import { services, solutions, markets, technologies, industries } from '@/lib/data';
+import { solutions, markets, technologies, industries, serviceRegionPaths } from '@/lib/data';
 
 /**
  * Sitemap policy:
@@ -42,7 +42,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const dynamicRoutes = [
-    ...services.map((s) => ({ path: `/services/${s.slug}`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT })),
+    // The 7 generic /services/{slug} URLs are deliberately NOT generated here.
+    // They are 301s as of 2026-08-27 (see next.config.mjs) and a redirected URL
+    // must not be declared in the sitemap. This is the drift trap CLAUDE.md
+    // documents: these URLs came from a services.map() loop, so removing them
+    // required changing the loop, not deleting lines.
+    ...serviceRegionPaths.map((path) => ({ path, priority: 0.9, changeFrequency: 'monthly' as const, lastModified: '2026-08-27' })),
     ...solutions.map((s) => ({ path: `/solutions/${s.slug}`, priority: 0.85, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT })),
     ...markets.map((m) => ({ path: `/markets/${m.slug}`, priority: 0.8, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT })),
     ...technologies.map((t) => ({ path: `/technology/${t.slug}`, priority: 0.75, changeFrequency: 'monthly' as const, lastModified: LAST_AUDIT })),

@@ -59,9 +59,9 @@ export default function HealthcareIndustryPage() {
         'NDA-backed engagements with secure financial data handling',
       ]}
       relatedLinks={[
-        { name: 'Bookkeeping', href: '/services/bookkeeping' },
-        { name: 'Accounts Receivable', href: '/services/accounts-receivable' },
-        { name: 'Audit Support', href: '/services/audit-support' },
+        { name: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+        { name: 'Accounts Receivable', href: '/services/accounts-receivable/united-states' },
+        { name: 'Audit Support', href: '/services/audit-support/united-states' },
       ]}
       faqs={faqs}
     />

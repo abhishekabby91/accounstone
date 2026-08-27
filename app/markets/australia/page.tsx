@@ -1,186 +1,197 @@
 import { Metadata } from 'next';
-import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import { serviceRegions } from '@/lib/data';
+
+const PATH = '/markets/australia';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Australian Accounting & Bookkeeping Services',
+  title: 'Accounting in Australia: A Practical Overview',
   description:
-    'Australian accounting and bookkeeping services — IFRS-aligned reporting, ATO requirements, and GST/BAS-ready records for businesses operating in Australia.',
-  path: '/markets/australia',
+    'How Australian accounting works in practice — the ATO, GST and BAS, PAYG, Single Touch Payroll, superannuation and the 30 June year end — and where outsourced support fits.',
+  path: PATH,
 });
 
-export default function AustraliaMarketPage() {
-  const faqs = [
-    {
-      question: 'Do you work with IFRS accounting standards?',
-      answer:
-        "Yes, our bookkeeping and reporting work for Australian clients is structured around IFRS/AASB accounting standards. Formal compliance requirements for public or large proprietary companies — including ASIC and Corporations Act obligations — are confirmed with your accountant and auditor of record.",
-    },
-    {
-      question: 'Can you help with GST?',
-      answer:
-        'Yes. We prepare BAS-ready GST records and reconciliations for monthly or quarterly reporting. Registration and lodgment with the ATO stay with you or your registered tax or BAS agent.',
-    },
-    {
-      question: 'What about PAYG withholding and Super?',
-      answer:
-        'We calculate PAYG tax withholding and superannuation guarantee contributions as part of payroll processing, and prepare the records that feed SuperStream reporting. Lodgment stays with your registered agent.',
-    },
-    {
-      question: 'Are you familiar with ABN and registration?',
-      answer:
-        "Yes. We can help organize the documentation needed for ABN registration and prepare BAS-ready records. Registration and lodgment are completed by you or your registered agent — final ATO compliance responsibility sits with the business and its registered tax or BAS agent.",
-    },
-    {
-      question: 'Do you support both companies and sole traders?',
-      answer:
-        'Yes, we serve companies, sole traders, partnerships, and trusts with specialized knowledge of each entity type.',
-    },
-    {
-      question: 'Can you help with tax planning?',
-      answer:
-        'We prepare the bookkeeping and documentation that tax planning depends on, including BAS-ready GST records and structured accounts. Strategies like capital gains planning, negative gearing, and salary sacrificing are advice given by your registered tax agent or accountant, not something we provide directly.',
-    },
-  ];
+const faqs = [
+  {
+    question: 'Do you lodge our BAS?',
+    answer:
+      'No. We prepare BAS-ready records — GST coding reconciled, the ledger current, supporting detail organised — so lodgment is straightforward. Lodgment itself is the work of a registered BAS agent, and income tax lodgment the work of a registered tax agent. We do not hold ATO portal access.',
+  },
+  {
+    question: 'Why does the 30 June year end matter so much?',
+    answer:
+      'Because nearly every Australian entity shares it. Year-end close, the June quarter BAS, and the start of audit or tax preparation all land on the same finance team within weeks. In the UK and U.S., year ends are spread across the calendar; in Australia the workload concentrates, which is why capacity planning matters more than elsewhere.',
+  },
+  {
+    question: 'How does superannuation affect the accounting work?',
+    answer:
+      'Superannuation guarantee contributions have to be calculated on ordinary time earnings and paid by quarterly deadlines, and late payment carries consequences that ordinary late payments do not. The accounting work is making sure the calculation and the accrual are right and supported. Superannuation fund advice is not something we offer in any form.',
+  },
+  {
+    question: 'What is the difference between a BAS agent and a tax agent?',
+    answer:
+      'They are separately registered roles. A registered BAS agent can lodge activity statements and advise on GST and PAYG withholding obligations; a registered tax agent handles income tax lodgment and advice. Our work sits behind both — preparing the records each of them relies on.',
+  },
+  {
+    question: 'Which reporting standards apply?',
+    answer:
+      'Australian entities report under AASB standards, which are aligned with IFRS. Reporting requirements differ depending on the type of entity and whether it is classified as a reporting entity, which is a determination for your registered agent rather than a general rule.',
+  },
+  {
+    question: 'What software do Australian clients usually run?',
+    answer:
+      'Xero is dominant in the Australian SME market, with MYOB well established and QuickBooks Online also in use. We work inside whichever platform is already running rather than implementing or configuring it.',
+  },
+];
 
 const faqSchema = generateFAQSchema(faqs);
-
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Markets', url: `${baseUrl}/markets` },
-  { name: 'Australia', url: `${baseUrl}/markets/australia` },
+  { name: 'Australia', url: `${baseUrl}${PATH}` },
 ]);
 
+const topics = [
+  {
+    h: 'The BAS cycle governs the year',
+    p: 'The Business Activity Statement is the recurring obligation most Australian businesses organise around — quarterly for the majority, monthly above a turnover threshold. It reports GST alongside PAYG withholding and PAYG instalments in a single statement, which means one inaccurate ledger affects several obligations at once.',
+  },
+  {
+    h: 'GST is national, and coded at the transaction',
+    p: 'Unlike U.S. sales tax, GST is a single national rate administered by the ATO, which removes the jurisdictional complexity entirely. What replaces it is coding discipline: GST-free, input-taxed and taxable supplies each behave differently, and a mis-coded transaction quietly distorts both the BAS and the year-end position until someone reconciles the control account.',
+  },
+  {
+    h: 'PAYG runs in two distinct forms',
+    p: 'PAYG withholding is tax withheld from employee wages and reported through the BAS. PAYG instalments are prepayments toward the business’s own income tax liability. They share a name and a statement but are unrelated obligations, and confusing them is a common source of reconciliation difficulty.',
+  },
+  {
+    h: 'Single Touch Payroll reports every pay event',
+    p: 'Payroll information is reported to the ATO on or before each pay day rather than at year end. Employee year-to-date figures are therefore visible to the ATO and to employees continuously, which means payroll errors surface immediately and have to be corrected in-cycle rather than swept into a year-end adjustment.',
+  },
+  {
+    h: 'Superannuation guarantee is a hard deadline',
+    p: 'Employer superannuation contributions are calculated on ordinary time earnings and must reach the employee’s fund by the quarterly cut-off. Late payment is treated differently from other late payments, so the accrual and the payment timing both need to be right — and supported — rather than reconstructed later.',
+  },
+  {
+    h: 'Trust structures are common and change the records',
+    p: 'Discretionary and unit trusts are used far more widely in Australian small business than in the UK or U.S. They bring their own record-keeping requirements — distribution resolutions, beneficiary entitlements, and trust accounts that have to reconcile — which a standard company chart of accounts does not accommodate on its own.',
+  },
+];
+
+export default function AustraliaMarketPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        subtitle="Australian Market Expertise"
-        title="Accounting Services for Australian Businesses"
-        description="Accounting, bookkeeping, and tax preparation support structured around Australian ATO and GST requirements."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View Services', href: '/services/bookkeeping/australia' }}
+        subtitle="Australia"
+        title="Accounting in Australia"
+        description="How Australian accounting works in practice — the BAS cycle, GST coding, PAYG, Single Touch Payroll, superannuation and the 30 June crunch."
+        cta={{ text: 'Discuss Your Australian Requirements', href: '/contact' }}
+        ctaSecondary={{ text: 'View Australian Services', href: '/services#australia' }}
         background="primary-gradient"
       />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Australian Market</span>
-            <Reveal><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
-              Australian Accounting Expertise
-            </h2></Reveal>
-            <p className="text-lg text-muted leading-relaxed">
-              Australian accounting requires specialized knowledge of ATO requirements, GST compliance, and superannuation rules. Our Australian-focused team brings expertise in regulatory requirements and industry practices. Whether you're managing Australian operations or expanding to Australia, we provide accounting and bookkeeping support built for the local requirements.
-            </p>
-            <p className="text-lg text-muted leading-relaxed">
-              The practical challenge is less about any single requirement and more about the reporting rhythm: BAS due quarterly, Single Touch Payroll reporting due with every pay run, and EOFY driving a hard close by June 30. Missing one of those doesn't just create a gap for that period — it usually cascades into the next reporting cycle too, which is why the recurring bookkeeping and payroll work behind each deadline matters as much as the deadline itself.
-            </p>
-          </div>
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
+          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-primary font-medium">Australia</li>
+        </ol>
+      </nav>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Our Australian Expertise</h3>
-              <ul className="space-y-3">
-                {[
-                  'IFRS accounting standards',
-                  'ATO tax compliance',
-                  'Income tax return preparation',
-                  'GST management and reconciliation',
-                  'PAYG withholding and remittance',
-                  'Superannuation guarantee compliance',
-                  'Business activity statements (BAS)',
-                  'Fringe benefits tax (FBT) reporting support',
-                  'Capital gains tax reporting support',
-                  'Audit support services',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Industries We Serve</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'CPA and accounting firms', href: '/industries/cpa-firms' },
-                  { name: 'Technology and software', href: '/industries/technology' },
-                  { name: 'Property and real estate', href: '/industries/real-estate' },
-                  { name: 'Professional services', href: '/industries/professional-services' },
-                  { name: 'Healthcare and medical', href: '/industries/healthcare' },
-                  { name: 'Retail and e-commerce', href: '/industries/ecommerce' },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <Link href={item.href} className="text-foreground hover:text-accent hover:underline">{item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <Reveal className="max-w-4xl mx-auto space-y-5"><>
+          <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment Australian Businesses Operate In</h2>
+          <p className="text-lg text-muted leading-relaxed">
+            Australian accounting has a distinctive shape. A single tax authority and a single national GST rate make the rules simpler than the U.S. state patchwork. But two features concentrate the workload in ways neither the U.S. nor the UK experience: almost every entity shares a 30 June year end, and the BAS combines GST, PAYG withholding and PAYG instalments into one recurring statement.
+          </p>
+          <p className="text-lg text-muted leading-relaxed">
+            The result is a calendar with a pronounced peak and a ledger that several obligations depend on simultaneously. This page describes that environment as background; the commercial detail sits on the individual Australian service pages linked further down.
+          </p>
+        </></Reveal>
       </section>
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
-            <Reveal><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
-              Services for Australian Markets
-            </h2></Reveal>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
-            {[
-              { name: 'Bookkeeping', href: '/services/bookkeeping/australia' },
-              { name: 'Accounting Services', href: '/services/accounting' },
-              { name: 'Tax Preparation', href: '/services/tax-preparation/australia' },
-              { name: 'Payroll Processing', href: '/services/payroll/australia' },
-              { name: 'Accounts Payable', href: '/services/accounts-payable/australia' },
-              { name: 'Accounts Receivable', href: '/services/accounts-receivable/australia' },
-              { name: 'Audit Support', href: '/services/audit-support/australia' },
-            ].map((service, i) => (
-              <Link
-                key={i}
-                href={service.href}
-                className="p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
-              >
-                <h3 className="font-bold text-primary text-sm sm:text-lg group-hover:text-primary-light transition-colors">
-                  {service.name}
-                </h3>
-              </Link>
+          <Reveal className="max-w-3xl space-y-3 mb-8"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">The landscape</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape Australian Accounting Work</h2>
+          </></Reveal>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+            {topics.map((t, i) => (
+              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
+                <div className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border/70">
+                  <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{t.h}</h3>
+                  <p className="text-muted text-sm sm:text-base leading-relaxed">{t.p}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full py-8 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wide text-muted">Related resources:</span>
-            <Link href="/resources/guides/outsourced-payroll-processing-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Payroll &amp; Super Guide</Link>
-            <Link href="/technology/myob" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">MYOB Support</Link>
-            <Link href="/resources/guides/how-to-choose-accounting-outsourcing-partner" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Choosing a Partner</Link>
-          </div>
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal className="space-y-5"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Where outsourcing fits</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
+            <p className="text-lg text-muted leading-relaxed">
+              The preparation layer moves well, and in Australia it is the layer that absorbs the 30 June pressure: keeping GST coding correct as transactions are posted, reconciling the GST control account through the year, running pay events with PAYG and superannuation calculated and supported, maintaining the ledgers, and assembling BAS-ready records and year-end workpapers.
+            </p>
+            <p className="text-lg text-muted leading-relaxed">
+              What cannot move is lodgment and advice. BAS lodgment belongs to a registered BAS agent, income tax lodgment to a registered tax agent, and we do not hold ATO portal access. We do not provide tax planning, structuring advice, or superannuation fund advice in any form — our work is the records those decisions are made from.
+            </p>
+          </></Reveal>
         </div>
       </section>
 
-      <FAQSection subtitle="Australian Market FAQs" items={faqs} columns={2} />
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="max-w-3xl space-y-3 mb-7"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Australian services</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Our Australian Service Pages</h2>
+            <p className="text-base text-muted leading-relaxed">Each page covers scope, the review boundary, and how the work is run for Australian engagements.</p>
+          </></Reveal>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {serviceRegions.map((s, i) => (
+              <Reveal key={s.slug} delay={Math.min(i * 0.04, 0.2)}>
+                <li>
+                  <Link href={`/services/${s.slug}/australia`} className="block p-4 bg-white rounded-xl border border-border/70 hover:border-primary/40 transition-colors">
+                    <span className="font-semibold text-primary">Australian {s.name}</span>
+                    <span className="block text-sm text-muted mt-1 leading-relaxed">{s.copy['australia']}</span>
+                  </Link>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={0.1}>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">MYOB</Link>
+              <Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Xero</Link>
+              <Link href="/industries/real-estate" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Real Estate</Link>
+              <Link href="/industries/professional-services" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Professional Services</Link>
+              <Link href="/compliance" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Compliance &amp; Controls</Link>
+              <Link href="/resources/guides/outsourced-payroll-processing-guide" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Payroll guide</Link>
+              <Link href="/resources/guides/outsourced-bookkeeping-cost-guide" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Bookkeeping cost guide</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <FAQSection subtitle="Australia" items={faqs} columns={2} />
 
       <CTABanner
-        title="Ready to Expand Your Australian Accounting Capabilities?"
-        description="Let our Australian experts help you navigate compliance and scale your operations."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
+        title="Heading Into a 30 June Crunch?"
+        description="Tell us where the pressure sits — GST coding, the BAS cycle, payroll each pay event, or year-end preparation — and we can talk through what support would actually change."
+        cta={{ text: 'Start a Conversation', href: '/contact' }}
         background="primary"
       />
     </main>

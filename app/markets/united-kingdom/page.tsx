@@ -1,185 +1,197 @@
 import { Metadata } from 'next';
-import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
-import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
+import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import { serviceRegions } from '@/lib/data';
+
+const PATH = '/markets/united-kingdom';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'UK Accounting & Bookkeeping Services',
+  title: 'Accounting in the United Kingdom: A Practical Overview',
   description:
-    'UK accounting and bookkeeping services — IFRS-aligned reporting, VAT-ready records, and Companies House and corporation tax return preparation.',
-  path: '/markets/united-kingdom',
+    'How UK accounting works in practice — HMRC, VAT and Making Tax Digital, PAYE and RTI, Corporation Tax, Companies House and FRS 102 — and where outsourced support fits.',
+  path: PATH,
 });
 
-export default function UKMarketPage() {
-  const faqs = [
-    {
-      question: 'Are you familiar with UK IFRS standards?',
-      answer:
-        'Yes, our bookkeeping and reporting for UK clients is structured around IFRS accounting standards and UK-specific requirements. Final sign-off on statutory accounts stays with your accountant of record.',
-    },
-    {
-      question: 'Can you help with VAT?',
-      answer:
-        'Yes. We prepare VAT-coded transactions, reconciliations, and return calculations. VAT registration and the actual return submission are completed by you or your accountant of record — we do not hold HMRC portal credentials.',
-    },
-    {
-      question: 'What about Companies House filing?',
-      answer:
-        "We prepare statutory accounts and confirmation statement data for your review. Filing with Companies House and any director-level legal obligations stay with your company's registered accountant or company secretary.",
-    },
-    {
-      question: 'Can you help with corporation tax?',
-      answer:
-        "We prepare corporation tax return calculations and supporting workpapers for your accountant's review and submission. Identifying R&D relief or other reliefs your business may qualify for is a specialist tax question best directed to your accountant or an R&D tax specialist.",
-    },
-    {
-      question: 'Do you support payroll in the UK?',
-      answer:
-        'Yes, we process UK payroll including PAYE withholding calculations, National Insurance contributions, records for RTI reporting, and pension auto-enrolment bookkeeping.',
-    },
-    {
-      question: 'What about limited companies vs sole traders?',
-      answer:
-        'We support both limited companies and sole traders, with bookkeeping and return preparation structured around whichever entity type applies. Entity structure decisions are a legal and tax question for your accountant or advisor.',
-    },
-  ];
+const faqs = [
+  {
+    question: 'What does Making Tax Digital actually require?',
+    answer:
+      'For VAT-registered businesses, records have to be kept digitally and returns submitted through compatible software, with an unbroken digital link between the underlying records and the submitted figures. In practice the digital link is the part that breaks — a manual copy-paste into a spreadsheet interrupts the chain. Keeping records in the accounting system rather than around it is what keeps compliance straightforward.',
+  },
+  {
+    question: 'Do you submit our VAT return to HMRC?',
+    answer:
+      'No. We prepare the underlying records and the return figures so submission is straightforward, but submission itself stays with your registered practitioner. We do not hold HMRC portal credentials.',
+  },
+  {
+    question: 'Which reporting standard applies to us?',
+    answer:
+      'Most UK companies report under FRS 102, and smaller entities often under Section 1A of it. Some report under FRS 105 as a micro-entity, and listed groups under IFRS. Your accountant determines which applies; we prepare records to the framework they have set.',
+  },
+  {
+    question: 'Are we required to have an audit?',
+    answer:
+      'Audit exemption depends on turnover, balance sheet total and employee numbers, and on whether the company is part of a group or in a regulated sector. Because the tests interact, this is a question for your accountant rather than a rule of thumb. Where an audit is required, our audit support work is preparation for the engaged registered auditor.',
+  },
+  {
+    question: 'Do you handle CIS?',
+    answer:
+      'We can handle the accounting around the Construction Industry Scheme — subcontractor records, deduction tracking, and the supporting detail for returns. Verification and submission stay with your registered practitioner.',
+  },
+  {
+    question: 'What software do UK clients usually run?',
+    answer:
+      'Xero and QuickBooks Online dominate the UK SME market, with Sage still common in more established businesses. We work inside whichever platform is already in place rather than implementing or configuring it.',
+  },
+];
 
 const faqSchema = generateFAQSchema(faqs);
-
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Markets', url: `${baseUrl}/markets` },
-  { name: 'United Kingdom', url: `${baseUrl}/markets/united-kingdom` },
+  { name: 'United Kingdom', url: `${baseUrl}${PATH}` },
 ]);
 
+const topics = [
+  {
+    h: 'HMRC sets the recurring rhythm',
+    p: 'Most UK businesses deal with a single tax authority across several cycles: VAT returns, PAYE submissions on or before every pay date, and Corporation Tax annually. This is administratively simpler than the U.S. federal-plus-state split, but the cycles are frequent and unforgiving — a late RTI submission is visible to HMRC immediately.',
+  },
+  {
+    h: 'VAT is the cycle everything else is timed around',
+    p: 'A VAT-registered business typically reports quarterly, with the return and payment due roughly a month and a week after the quarter ends. Because VAT touches nearly every transaction, the quarter is effectively a mini close: if the ledger is not current and coding is inconsistent, the return becomes an exercise in reconstruction rather than reporting.',
+  },
+  {
+    h: 'Making Tax Digital changed how records must be kept',
+    p: 'MTD requires digital record-keeping and submission through compatible software, with digital links preserved from source to return. The practical effect is that spreadsheet workarounds between the accounting system and the return are no longer acceptable — records have to live in the system.',
+  },
+  {
+    h: 'PAYE runs in real time',
+    p: 'Under Real Time Information, payroll data is reported to HMRC on or before each pay date rather than at year end. Pension auto-enrolment sits alongside it, with assessment and contributions running on the same cycle. Payroll therefore has no quiet periods to catch up in — it either runs correctly each period or accumulates corrections.',
+  },
+  {
+    h: 'Companies House is a separate obligation from tax',
+    p: 'Annual accounts filed at Companies House and the Corporation Tax return filed with HMRC draw on the same underlying figures but are separate filings with separate deadlines. Both depend on a year end that has been properly prepared, which is why year-end accounts work usually starts well before either deadline.',
+  },
+  {
+    h: 'FRS 102 as the everyday framework',
+    p: 'FRS 102 governs how most UK entities recognise and present transactions, with Section 1A providing reduced disclosure for smaller companies. The areas that most often need care are accruals and prepayments, revenue timing, and the disclosure notes — related parties, commitments, and leases — that are assembled from records kept during the year.',
+  },
+];
+
+export default function UKMarketPage() {
   return (
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        subtitle="UK Market Expertise"
-        title="Accounting Services for UK Businesses"
-        description="Accounting, bookkeeping, and tax preparation support structured around UK VAT, Companies House and corporation tax requirements."
-        cta={{ text: 'Get Started', href: '/contact' }}
-        ctaSecondary={{ text: 'View Services', href: '/services/bookkeeping/united-kingdom' }}
+        subtitle="United Kingdom"
+        title="Accounting in the United Kingdom"
+        description="How UK accounting works in practice — the VAT cycle, Making Tax Digital, real-time PAYE, Companies House and FRS 102 — and where outside capacity actually helps."
+        cta={{ text: 'Discuss Your UK Requirements', href: '/contact' }}
+        ctaSecondary={{ text: 'View UK Services', href: '/services#united-kingdom' }}
         background="primary-gradient"
       />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto space-y-12">
-          <div className="space-y-6">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">United Kingdom Market</span>
-            <Reveal><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
-              UK Accounting Expertise
-            </h2></Reveal>
-            <p className="text-lg text-muted leading-relaxed">
-              UK accounting requires expertise in IFRS standards, VAT compliance, Companies House requirements, and corporation tax. Our UK-focused team brings deep knowledge of regulatory requirements and industry-specific practices. Whether you're expanding to the UK or supporting existing operations, we provide expert accounting and compliance services.
-            </p>
-            <p className="text-lg text-muted leading-relaxed">
-              What makes UK bookkeeping different in practice isn't the VAT rate itself — it's the reporting cadence. Making Tax Digital means digital records aren't optional once a business is VAT-registered, and Companies House filing deadlines create a hard stop that doesn't move for anyone's workload. A firm managing several UK clients is really managing several different filing calendars running in parallel.
-            </p>
-          </div>
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
+          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
+        </ol>
+      </nav>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Our UK Expertise</h3>
-              <ul className="space-y-3">
-                {[
-                  'IFRS financial reporting',
-                  'Corporation tax return preparation',
-                  'VAT reconciliation and return preparation',
-                  'Self-assessment and personal tax preparation',
-                  'PAYE and payroll processing',
-                  'Companies House filing preparation',
-                  'Pension auto-enrolment bookkeeping',
-                  'Bank and credit-card reconciliations',
-                  'Management reporting for UK entities',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Industries We Serve</h3>
-              <ul className="space-y-3">
-                {[
-                  { name: 'CPA and accounting firms', href: '/industries/cpa-firms' },
-                  { name: 'Technology and software', href: '/industries/technology' },
-                  { name: 'Healthcare and medical practices', href: '/industries/healthcare' },
-                  { name: 'Professional services', href: '/industries/professional-services' },
-                  { name: 'Retail and e-commerce', href: '/industries/ecommerce' },
-                  { name: 'Property and real estate', href: '/industries/real-estate' },
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Check className="text-accent w-5 h-5" aria-hidden="true" />
-                    <Link href={item.href} className="text-foreground hover:text-accent hover:underline">{item.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <Reveal className="max-w-4xl mx-auto space-y-5"><>
+          <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment UK Businesses Operate In</h2>
+          <p className="text-lg text-muted leading-relaxed">
+            UK accounting is administratively centralised in a way that U.S. accounting is not. One tax authority, one national indirect tax, one companies registry. What it lacks in fragmentation it makes up for in cadence: VAT quarterly, PAYE on or before every pay date, pension assessment each period, and a year end that has to satisfy both HMRC and Companies House.
+          </p>
+          <p className="text-lg text-muted leading-relaxed">
+            The pressure in UK finance teams is therefore rarely a single deadline. It is the accumulation of frequent, non-negotiable cycles against a ledger that has to stay current to serve them. This page describes that environment as background; the commercial detail sits on the individual UK service pages linked further down.
+          </p>
+        </></Reveal>
       </section>
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Services</span>
-            <Reveal><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
-              Services for UK Markets
-            </h2></Reveal>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
-            {[
-              { name: 'Bookkeeping', href: '/services/bookkeeping/united-kingdom' },
-              { name: 'Accounting Services', href: '/services/accounting' },
-              { name: 'Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
-              { name: 'Payroll Processing', href: '/services/payroll/united-kingdom' },
-              { name: 'Accounts Payable', href: '/services/accounts-payable/united-kingdom' },
-              { name: 'Accounts Receivable', href: '/services/accounts-receivable/united-kingdom' },
-              { name: 'Audit Support', href: '/services/audit-support/united-kingdom' },
-            ].map((service, i) => (
-              <Link
-                key={i}
-                href={service.href}
-                className="p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
-              >
-                <h3 className="font-bold text-primary text-sm sm:text-lg group-hover:text-primary-light transition-colors">
-                  {service.name}
-                </h3>
-              </Link>
+          <Reveal className="max-w-3xl space-y-3 mb-8"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">The landscape</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape UK Accounting Work</h2>
+          </></Reveal>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+            {topics.map((t, i) => (
+              <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
+                <div className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border/70">
+                  <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{t.h}</h3>
+                  <p className="text-muted text-sm sm:text-base leading-relaxed">{t.p}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full py-8 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wide text-muted">Related resources:</span>
-            <Link href="/resources/guides/outsourced-accounting-services-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">FRS 102 &amp; Close Guide</Link>
-            <Link href="/resources/guides/quickbooks-vs-xero-comparison" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">QuickBooks vs. Xero</Link>
-            <Link href="/resources/guides/client-accounting-services-cas-guide" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">CAS Guide for CPA Firms</Link>
-          </div>
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal className="space-y-5"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">Where outsourcing fits</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
+            <p className="text-lg text-muted leading-relaxed">
+              The recurring layer moves well: posting and reconciling transactions, keeping VAT coding consistent as it happens, running the payroll calculation each period, maintaining the purchase and sales ledgers, and preparing year-end accounts and the workpapers behind them. This is process work with clear inputs and a reviewable output.
+            </p>
+            <p className="text-lg text-muted leading-relaxed">
+              What stays with your registered practitioner is submission and judgement: filing to HMRC and Companies House, signing off statutory accounts, deciding the reporting framework, and any question of tax treatment rather than tax recording. We do not hold HMRC portal credentials, and we do not offer tax planning or advisory work in any form.
+            </p>
+          </></Reveal>
         </div>
       </section>
 
-      <FAQSection subtitle="UK Market FAQs" items={faqs} columns={2} />
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <Reveal className="max-w-3xl space-y-3 mb-7"><>
+            <span className="text-sm font-semibold tracking-wide uppercase text-accent">UK services</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Our UK Service Pages</h2>
+            <p className="text-base text-muted leading-relaxed">Each page covers scope, the review boundary, and how the work is run for UK engagements.</p>
+          </></Reveal>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            {serviceRegions.map((s, i) => (
+              <Reveal key={s.slug} delay={Math.min(i * 0.04, 0.2)}>
+                <li>
+                  <Link href={`/services/${s.slug}/united-kingdom`} className="block p-4 bg-white rounded-xl border border-border/70 hover:border-primary/40 transition-colors">
+                    <span className="font-semibold text-primary">UK {s.name}</span>
+                    <span className="block text-sm text-muted mt-1 leading-relaxed">{s.copy['united-kingdom']}</span>
+                  </Link>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal delay={0.1}>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Xero</Link>
+              <Link href="/technology/sage" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Sage</Link>
+              <Link href="/industries/professional-services" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Professional Services</Link>
+              <Link href="/industries/ecommerce" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">E-Commerce</Link>
+              <Link href="/compliance" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Compliance &amp; Controls</Link>
+              <Link href="/resources/guides/outsourced-payroll-processing-guide" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Payroll guide</Link>
+              <Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Receivables guide</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <FAQSection subtitle="United Kingdom" items={faqs} columns={2} />
 
       <CTABanner
-        title="Ready to Expand Your UK Accounting Capabilities?"
-        description="Let our UK experts help you navigate regulatory compliance and scale your operations."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
+        title="Working Through a UK Accounting Bottleneck?"
+        description="Tell us where the pressure sits — the VAT quarter, payroll each period, or year-end preparation — and we can talk through what support would actually change."
+        cta={{ text: 'Start a Conversation', href: '/contact' }}
         background="primary"
       />
     </main>

@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/united-states';
@@ -44,7 +45,7 @@ const faqs = [
 const faqSchema = generateFAQSchema(faqs);
 const serviceSchema = generateServiceSchema({ name: 'Audit Support Services for U.S. Businesses', description: overview, slug: 'audit-support/united-states', basePath: '/services/', areaServed: ['US'] });
 const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Audit Support', url: `${baseUrl}/services/audit-support` }, { name: 'United States', url: `${baseUrl}${PATH}` },
+  { name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Audit Support — United States', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function AuditSupportUSPage() {
@@ -55,7 +56,7 @@ export default function AuditSupportUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PremiumHero subtitle="Audit Support for U.S. Businesses" title="U.S. Audit Support Services" description="Documentation, schedules and preparation support that helps your audit team spend less time chasing open items." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="hover:text-primary">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="hover:text-primary">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/audit-support" className="hover:text-primary">Audit Support</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United States</li></ol></nav>
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="hover:text-primary">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="hover:text-primary">Services</Link></li><li aria-hidden="true">/</li><li>Audit Support</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United States</li></ol></nav>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Make the Evidence Easier to Work Through</h2></div><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
 
@@ -70,6 +71,8 @@ export default function AuditSupportUSPage() {
           <Link href="/services/audit-support/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇦🇺 Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link><Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Bookkeeping</Link><Link href="/solutions/staff-augmentation" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Staff Augmentation</Link></div></div></section>
+
+      <ServiceDepth serviceSlug="audit-support" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
       <CTABanner title="What Is Holding Up the Audit?" description="Tell us whether the pressure is coming from schedules, documentation, PBC follow-up or preparation capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />

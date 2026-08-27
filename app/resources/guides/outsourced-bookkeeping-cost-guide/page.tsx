@@ -130,7 +130,7 @@ export default function OutsourcedBookkeepingCostGuide() {
       </p>
       <p>
         See our{' '}
-        <Link href="/services/bookkeeping" className="text-primary font-medium hover:underline">bookkeeping services</Link>{' '}or{' '}
+        <Link href="/services/bookkeeping/united-states" className="text-primary font-medium hover:underline">bookkeeping services</Link>{' '}or{' '}
         <Link href="/contact" className="text-primary font-medium hover:underline">start a conversation</Link>{' '}about your current workflow.
       </p>
     </ArticleLayout>

@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/bookkeeping/united-states';
@@ -63,8 +64,7 @@ const serviceSchema = generateServiceSchema({ name: 'Bookkeeping Services for U.
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Services', url: `${baseUrl}/services` },
-  { name: 'Bookkeeping', url: `${baseUrl}/services/bookkeeping` },
-  { name: 'United States', url: `${baseUrl}${PATH}` },
+  { name: 'Bookkeeping — United States', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function BookkeepingUSPage() {
@@ -80,7 +80,7 @@ export default function BookkeepingUSPage() {
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
           <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
           <li><Link href="/services" className="hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/services/bookkeeping" className="hover:text-primary transition-colors">Bookkeeping</Link></li><li aria-hidden="true">/</li>
+          <li>Bookkeeping</li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United States</li>
         </ol>
       </nav>
@@ -112,6 +112,8 @@ export default function BookkeepingUSPage() {
           <Link href="/services/bookkeeping/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇦🇺 Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/technology/quickbooks" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">QuickBooks</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Xero</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link><Link href="/resources/guides/outsourced-bookkeeping-cost-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Bookkeeping Cost Guide</Link></div></div></section>
+
+      <ServiceDepth serviceSlug="bookkeeping" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
       <CTABanner title="Where Is Your Bookkeeping Process Getting Stuck?" description="Tell us what is falling behind—reconciliations, cleanup, AP/AR, month-end or review—and we can start from the actual workflow." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />

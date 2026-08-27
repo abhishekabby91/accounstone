@@ -59,8 +59,8 @@ export default function EcommerceIndustryPage() {
         'QuickBooks and Xero integration with common e-commerce platforms',
       ]}
       relatedLinks={[
-        { name: 'Bookkeeping', href: '/services/bookkeeping' },
-        { name: 'Accounts Payable', href: '/services/accounts-payable' },
+        { name: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+        { name: 'Accounts Payable', href: '/services/accounts-payable/united-states' },
         { name: 'Offshore Accounting Support', href: '/solutions/offshore-accounting-support' },
       ]}
       faqs={faqs}

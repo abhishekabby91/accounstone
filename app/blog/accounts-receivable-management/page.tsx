@@ -58,7 +58,7 @@ export default function ARManagementBlog() {
       <div className="mt-8 p-6 bg-input rounded-xl border border-border/70">
         <p className="font-semibold text-primary mb-3">Relevant services</p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/services/accounts-receivable" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Receivable</Link>
+          <Link href="/services/accounts-receivable/united-states" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Accounts Receivable</Link>
           <Link href="/technology/quickbooks" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">QuickBooks</Link>
           <Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Xero</Link>
           <Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium hover:bg-border transition-colors">Full AR Guide</Link>

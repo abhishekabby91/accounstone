@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import ServiceDepth from '@/components/service-depth';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/united-states';
@@ -44,7 +45,7 @@ const faqs = [
 const faqSchema = generateFAQSchema(faqs);
 const serviceSchema = generateServiceSchema({ name: 'Tax Preparation Support for U.S. Businesses', description: overview, slug: 'tax-preparation/united-states', basePath: '/services/', areaServed: ['US'] });
 const breadcrumbSchema = generateBreadcrumbSchema([
-  { name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Tax Preparation', url: `${baseUrl}/services/tax-preparation` }, { name: 'United States', url: `${baseUrl}${PATH}` },
+  { name: 'Home', url: baseUrl }, { name: 'Services', url: `${baseUrl}/services` }, { name: 'Tax Preparation — United States', url: `${baseUrl}${PATH}` },
 ]);
 
 export default function TaxPrepUSPage() {
@@ -55,7 +56,7 @@ export default function TaxPrepUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PremiumHero subtitle="Tax Preparation Support for U.S. Businesses" title="U.S. Tax Preparation Support" description="Preparation and documentation support that fits your tax-season workflow while your licensed professional keeps final review and filing control." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
-      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="hover:text-primary">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="hover:text-primary">Services</Link></li><li aria-hidden="true">/</li><li><Link href="/services/tax-preparation" className="hover:text-primary">Tax Preparation</Link></li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United States</li></ol></nav>
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="hover:text-primary">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="hover:text-primary">Services</Link></li><li aria-hidden="true">/</li><li>Tax Preparation</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United States</li></ol></nav>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Give Your Reviewer Better Work to Review</h2></div><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
 
@@ -70,6 +71,8 @@ export default function TaxPrepUSPage() {
           <Link href="/services/tax-preparation/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇦🇺 Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link><Link href="/technology/drake-tax" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Drake Tax</Link><Link href="/technology/cch" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">CCH Axcess</Link><Link href="/resources/guides/staff-augmentation-tax-season-guide" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Tax-Season Staff Augmentation</Link></div></div></section>
+
+      <ServiceDepth serviceSlug="tax-preparation" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
       <CTABanner title="Where Is Tax Season Putting Pressure on Your Team?" description="Tell us which preparation tasks are building up and whether the real bottleneck is documents, preparation or review." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />

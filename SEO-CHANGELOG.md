@@ -1,5 +1,123 @@
 # Accounstone SEO Changelog
 
+## 2026-08-27 (region-first services restructure)
+
+Full crawl of all 89 routes, then a restructure to a region-first commercial
+architecture. Audit delivered before any change was made.
+
+### The finding that reframed the work
+
+A Service x Region layer already existed — this was a completion and a
+re-pointing of authority, not a greenfield build. Three measured facts drove
+every decision:
+
+1. **The navbar contributed zero crawlable links.** Dropdown contents render
+   only when `isOpen` is true, and parent items with children render as
+   `<button>`, not `<a>`. Nothing from the navbar appears in server HTML.
+   `/technology` and `/blog` had **0** inbound links sitewide as a result.
+2. **The footer was the real crawl skeleton, pointing at the wrong layer.** It
+   linked all 7 generic service pages and 0 of the 19 Service x Region pages.
+3. **Authority was inverted.** Generic pages held 600-1301 words with zero
+   editorial inbound links; the regional pages held the commercial intent at
+   484-758 words. The site was arguing with itself.
+
+### Changes
+
+**Completed the matrix.** Added `/services/accounting/united-kingdom` and
+`/services/accounting/australia`. The navbar had been silently falling back to
+the generic page for those two regions. Now 7 services x 3 regions = 21 pages.
+
+**Retired the generic layer.** Content merged into the regional pages first
+(`lib/service-depth.ts`), all 68 internal links repointed, 19 breadcrumb schemas
+collapsed so structured data no longer declares a redirected URL, then the page
+files removed and 301s added. Order mattered: nothing redirected until its
+target held the content.
+
+**Rebuilt `/services`** as the core authority page — H1 "Accounting & Finance
+Services", overview, then US / UK / AU sections with real introductory copy and
+region-specific service descriptions, plus how-we-work, industries, technology,
+compliance, resources, FAQ and CTA.
+
+**Rewrote the three Market pages** as broad regional authority. They previously
+shared a rigid template and carried almost no regional substance — no HMRC, VAT
+or MTD on the UK page; no ATO, GST or BAS on the Australian one.
+
+**Fixed a 52.6% duplicate pair.** `/services/audit-support/united-kingdom` and
+`/services/audit-support/australia` were the same page with the country
+adjective swapped.
+
+**Navigation.** Services dropdown is region-first and every entry resolves to a
+real page. Markets removed from the primary navbar (pages preserved, indexable,
+now linked contextually and from the footer). Compliance promoted. The footer
+was rebuilt as the crawl skeleton.
+
+**Homepage.** Title set to `Accounting, Bookkeeping, Tax & Payroll Outsourcing
+Services` with no brand suffix — this required an `absoluteTitle` option in
+`lib/seo.ts` to opt out of the `"%s | Accounstone"` template. Description set
+per brief. The `sr-only` H1 was `"... for CPA Firms | Accounstone"`; the
+pipe-and-brand construction is a title-tag artifact that reads badly aloud, so
+it is now `Outsourced Accounting, Bookkeeping, Tax and Payroll for CPA Firms and
+Businesses`. Homepage service cards were building `/services/{slug}` from
+`lib/data.ts` — all 7 became redirects, on the highest-authority page — and now
+point at the US regional pages.
+
+**Five double-suffixed titles fixed** (`"... | Accounstone | Accounstone"`), and
+`components/service-page-template.tsx` deleted as dead code.
+
+### The sitemap drift trap, again
+
+`app/sitemap.ts` generated the 7 generic URLs from a `services.map()` loop.
+Removing them required **changing the loop, not deleting lines** — exactly the
+failure mode `CLAUDE.md` documents. The loop now emits `serviceRegionPaths`.
+
+### Measured before → after
+
+| | Before | After |
+|---|---|---|
+| Routes | 89 | 84 |
+| Sitemap parity | 89 ↔ 89 | 84 ↔ 84 |
+| Worst duplicate pair | 52.6% | 16.6% |
+| Pairs above 25% | 3 | 0 |
+| Crawlable links per page | 36 | 58 |
+| Service x Region pages in footer | 0 | 21 |
+| Orphan pages | 2 (`/technology`, `/blog`) | 0 |
+| Market page depth | 594-627w | 1127-1223w |
+| Market vs Service x Region overlap | 0.1% | 0.0% |
+| Internal links to redirects | — | 0 |
+| Broken internal links | 0 | 0 |
+
+All 84 routes return 200. Zero duplicate titles, zero duplicate H1s, exactly one
+H1 per page, zero accidental `noindex`, zero canonical mismatches, every image
+has `alt`. `pnpm eslint .` silent; `pnpm next build` clean.
+
+### Regulatory guardrails held
+
+ASIC is **not** cited on the Australian pages. The brief listed it, but
+`knowledge/markets/au.md` records it as a financial-services regulator that was
+already found live on the Compliance page and removed once. FCA is likewise
+absent from UK copy. CFO Support was specified in the brief as an eighth service
+in all three regions; `CLAUDE.md` and `scope-boundaries.md` forbid it and record
+that `/services/cfo-support` "never existed — do not recreate it". Confirmed with
+the owner and excluded; both CFO and HR are planned for a future pass.
+
+### Not done — needs the owner
+
+- **Analytics and Search Console are still absent.** No GA4, GTM or Vercel
+  Analytics tag exists anywhere. Until at least GA4 and GSC are connected, none
+  of this restructure is measurable, and the redirect decision below cannot be
+  validated.
+- **The 7 redirects target the United States page.** That was the owner's
+  decision ("merge content down, then redirect"), taken without traffic data
+  because none was obtainable — Ahrefs returns `Insufficient plan` and Semrush
+  reports insufficient API units. If GSC later shows non-US demand on those
+  URLs, each redirect is one independently reversible line in `next.config.mjs`.
+- **Email authentication (SPF/DKIM/DMARC) was not verified.** These are DNS
+  records, not repository files, and production DNS is unreachable from the
+  sandbox. No DNS was modified.
+- **Content gaps remain** for UK tax/VAT/MTD, AU BAS/GST, and UK/AU payroll
+  resources. Each has a commercial page to support and no article yet.
+
+
 ## 2026-08-21 (finalization pass: full-site technical verification + 6 unlisted sitemap URLs)
 
 End-of-engagement verification sweep across all 89 routes, checking the things that quietly break rather than re-reading copy. Everything passed except one real finding.
