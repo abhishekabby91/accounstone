@@ -22,7 +22,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Accounting, Bookkeeping, Tax & Payroll Outsourcing Services",
+    // Fallback only - every page sets its own title, and the homepage sets
+    // its exact SEO title via absoluteTitle. Kept distinct from the homepage
+    // title so the two are not the same string in two places.
+    default: "Accounstone — Outsourced Accounting, Bookkeeping, Tax & Payroll",
     template: "%s | Accounstone",
   },
   description:
