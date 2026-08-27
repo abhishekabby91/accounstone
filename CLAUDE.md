@@ -103,6 +103,24 @@ pnpm next build     # must complete; a single bad prop breaks the whole type che
 
 `pnpm`, never `npm` — `pnpm install --frozen-lockfile` mirrors Vercel's build step.
 
+### Check duplication within a page, not just across pages
+
+The restructure measured cross-page similarity throughout and kept it low. What
+that missed: adding a second content block to an already-built page can repeat
+what the page already said. `accounts-receivable/united-kingdom` ended up
+stating statutory interest and VAT bad debt relief twice, in near-identical
+wording, and it did not show up in any cross-page metric.
+
+Content for these pages lives in two modules that both render on the same page:
+
+- `lib/service-depth.ts` - the mechanics (workstreams, sequence, what the work is)
+- `lib/regional-context.ts` - the situation (who the reader is, what goes wrong,
+  what stays their decision)
+
+Before adding to either, check them against each other. A quick 6-gram Jaccard
+between the two entries for the same key is enough; anything above roughly 10%
+means the page is repeating itself.
+
 ### The sitemap drift check
 
 This repo's documented recurring failure mode. `app/sitemap.ts` mixes hardcoded `path:`

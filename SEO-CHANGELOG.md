@@ -1,5 +1,81 @@
 # Accounstone SEO Changelog
 
+## 2026-08-27 (content pass: region-specific narrative on the commercial pages)
+
+Follow-up to the restructure. The 21 Service x Region pages were
+architecturally correct but read as feature inventories - scope checklists,
+delegated/retained lists and numbered steps, with very little prose. The
+guide asks for the opposite.
+
+### What was added
+
+One narrative section per page (`lib/regional-context.ts`, rendered by
+`components/regional-context.tsx`), written against the content-psychology
+principles in `AI-WEBSITE-GUIDE.md`: name the reader's situation (4),
+operational specificity as proof of understanding (5), the hidden cost of
+review (2), respect the buyer's control (3), and say what happens when
+information is missing (1).
+
+It sits before the mechanics section, so the page leads with the reader's
+problem rather than with a list of what is included.
+
+Each entry is genuinely regional. A sample:
+
+| Page | Angle |
+|---|---|
+| bookkeeping/US | The suspense account the reviewer unpicks every month |
+| bookkeeping/UK | Why MTD raised the cost of ordinary ledger drift |
+| bookkeeping/AU | GST coding errors that only surface at lodgment |
+| payroll/US | A remote hire creating a registration obligation nobody noticed |
+| payroll/UK | RTI removing the room to fix it later |
+| payroll/AU | Superannuation calculated on gross instead of ordinary time earnings |
+| AP/UK | Approval as the step everything waits on |
+| AR/UK | Credit control being nobody's actual job |
+| AR/AU | Receivables and the BAS as the same problem |
+| audit/AU | The audit request list arriving with the June BAS |
+
+Every entry carries an aside naming a boundary or a decision that stays with
+the client - payment authority, worker classification, lodgment, credit
+decisions - because that is the objection these pages have to answer.
+
+### Two entries were rewritten after measuring
+
+`accounts-receivable/united-kingdom` repeated its own ServiceDepth section at
+**22.1%** - statutory interest and VAT bad debt relief appeared twice on the
+same page, in near-identical wording. `accounts-payable/united-kingdom` was
+conceptually duplicative at 9.1% (both sections led on VAT invoice validity).
+Both were rewritten onto ground nothing else on the page covers: ownership and
+customer relationship for AR, intake and approval flow for AP. Worst
+intra-page repetition is now 7.0%.
+
+This is worth recording as a method note: cross-page duplication was being
+measured throughout the restructure, but **duplication within a single page**
+was not, and it is the failure mode that adding content to already-built pages
+actually produces.
+
+### Measured
+
+| | Before | After |
+|---|---|---|
+| Page depth | 623-1001w | 855-1293w |
+| Worst cross-page pair | 16.6% | 13.6% |
+| Pairs above 25% | 0 | 0 |
+| Worst intra-page repetition | 22.1% | 7.0% |
+
+Cross-page duplication *fell*, because the new prose is regional enough to
+dilute shared vocabulary rather than add to it.
+
+### Tone and scope checks
+
+No banned phrases from the guide's "Human tone" list. No absolutes
+("full compliance", "guaranteed", "we ensure"). Every occurrence of tax
+planning, CFO, advisory or representation across the new content is an
+explicit disclaimer, not a claim. All regional facts trace to
+`knowledge/markets/{us,uk,au}.md`.
+
+84 routes all 200, 0 broken internal links, 0 links to redirects, 0 orphans,
+no duplicate titles or H1s. `pnpm eslint .` silent; `pnpm next build` clean.
+
 ## 2026-08-27 (region-first services restructure)
 
 Full crawl of all 89 routes, then a restructure to a region-first commercial
