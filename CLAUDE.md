@@ -145,6 +145,29 @@ from those arrays, so adding an entry without the matching `page.tsx` produces d
 this previously caused 15 of them. Create the page, the sitemap entry, and the `docs/`
 registry row **in the same pass**.
 
+### Type system
+
+`--font-serif` (Georgia) is the display face: heroes, section headings, resource
+card titles. `--font-sans` is body and UI. Both were already brand tokens; the
+serif simply went unused until 2026-08-27. Keep new headings on `font-serif` so
+the page does not read as two designs stitched together.
+
+Shared pieces worth using instead of rebuilding:
+`components/section-heading.tsx` (eyebrow + rule + serif heading + lead),
+`components/resource-card.tsx` (guide/insight/article card with topic chips),
+`lib/resources.ts` (the resource inventory the Resources hub counts from).
+
+### Tap targets: measure, do not eyeball
+
+WCAG 2.5.8 wants 24px minimum, and it exempts links inline in a sentence.
+Breadcrumbs, link lists and contact details are **not** inline links, and they
+render ~16-19px tall by default here - which is how 73 of them shipped before
+anyone noticed. Anything not inside a sentence needs `inline-block py-1.5`.
+
+The check is a Playwright sweep over `main a, main button` across 320-1440px,
+skipping `aria-hidden` elements and links whose parent has meaningfully more
+text than the link itself. Run it after any layout change.
+
 ### Responsive breakpoints
 
 The desktop nav starts at `lg:`, not `md:` — seven nav items plus logo and CTA need ~963px,

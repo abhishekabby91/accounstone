@@ -1,5 +1,58 @@
 # Accounstone SEO Changelog
 
+## 2026-08-27 (design pass: type system, Resources, tap targets)
+
+Visual and accessibility work, no architecture change.
+
+### Typography
+
+The brand defined `--font-serif` (Georgia) and nothing used it. Display and
+section headings are now serif, body and UI stay sans - 165 headings across 47
+files plus both hero components. No new colours or fonts were introduced; this
+is the existing palette applied with more intent.
+
+### Resources
+
+`lib/resources.ts` became the single source of truth for guides, insights and
+blog articles, each carrying factual topic and region classifications. Counts
+and the topic index on the hub derive from it, so they cannot drift from the
+content.
+
+The hub gained a stat strip, a featured "start here" guide, section cards with
+counts, a latest-guides list, and a topic index where each topic links through
+to the service page that work sits behind. Guides and insights share a
+`ResourceCard` with topic and region chips and an accent rail that carries
+hierarchy. Case studies became numbered scenarios with a Situation / Approach /
+Outcome rail, and the "illustrative, not real client work" disclaimer is now a
+visible notice rather than a line inside the intro paragraph.
+
+Listings stay one per row - these titles run 60-90 characters and wrap badly at
+half width, which `CLAUDE.md` already records.
+
+### Tap targets - the substantive finding
+
+A Playwright sweep across 20 pages x 7 widths found **73 links below the WCAG
+2.5.8 24px minimum**: 65 breadcrumb links, 8 more with no className at all, the
+`/services` industry and technology lists, and the contact page's email and
+phone - the page's primary conversion targets - at 19px.
+
+WCAG 2.5.8 exempts links inline in a sentence. None of these qualified: they
+are navigation, lists and contact details. All are now at least 24px. One of
+them was introduced by the previous content pass and had quietly broken the
+"homepage has no tap target under the minimum" invariant recorded in
+`CLAUDE.md`.
+
+This is worth recording as a method note: the previous responsive work was
+verified by screenshot, which is why 73 undersized targets survived it. Sizes
+have to be measured.
+
+### Verification
+
+Playwright across 320, 375, 390, 768, 1024, 1280 and 1440px on 20 pages: no
+horizontal overflow, nothing outside the viewport, no tap target under 24px.
+Crawl after: 84 routes all 200, 0 broken internal links, 0 links to redirects,
+0 orphans, no duplicate titles or H1s. `pnpm eslint .` silent; build clean.
+
 ## 2026-08-27 (content pass: region-specific narrative on the commercial pages)
 
 Follow-up to the restructure. The 21 Service x Region pages were
