@@ -92,11 +92,11 @@ export default function TexasPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li>
+          <li><Link href="/markets" className="inline-block py-1.5 hover:text-primary transition-colors">Markets</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/markets/united-states" className="hover:text-primary transition-colors">United States</Link></li>
+          <li><Link href="/markets/united-states" className="inline-block py-1.5 hover:text-primary transition-colors">United States</Link></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">Texas</li>
         </ol>
@@ -107,7 +107,7 @@ export default function TexasPage() {
           <>
           <div className="space-y-2">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Makes Texas Different</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What Makes Texas Different</h2>
           </div>
           <p className="text-lg text-muted leading-relaxed">{overview}</p>
           </>
@@ -119,7 +119,7 @@ export default function TexasPage() {
           <Reveal className="text-center space-y-4 mb-16">
             <>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Support</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Built Around Texas Specifics</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Built Around Texas Specifics</h2>
             </>
           </Reveal>
           <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">

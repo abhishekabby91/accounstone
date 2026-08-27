@@ -96,7 +96,7 @@ export default function AboutPage() {
       {/* Who We Are — honest, growing-company framing */}
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-center text-balance mb-16">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center text-balance mb-16">
             A Growing Team, Not a Faceless Vendor
           </h2>
 
@@ -128,7 +128,7 @@ export default function AboutPage() {
       {/* How We Work — links to the previously orphaned delivery-framework pages */}
       <section className="w-full py-16 px-6 md:px-8 bg-input">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl font-bold text-primary">Want to See How We Actually Work?</h2>
+          <h2 className="font-serif text-3xl font-bold text-primary">Want to See How We Actually Work?</h2>
           <p className="text-muted">
             Evaluating a vendor for your firm or business means asking specifics, not just reading marketing copy. Here's exactly how we onboard, communicate, and review work:
           </p>
@@ -153,7 +153,7 @@ export default function AboutPage() {
             <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
               What Sets Us Apart
             </span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
               Why Businesses Choose Accounstone
             </h2>
           </div>

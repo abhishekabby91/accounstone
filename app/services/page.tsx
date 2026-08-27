@@ -78,7 +78,7 @@ export default function ServicesPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-5xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">Services</li>
         </ol>
@@ -88,7 +88,7 @@ export default function ServicesPage() {
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-5"><>
           <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Same Discipline, Applied to Three Different Rulebooks</h2>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Same Discipline, Applied to Three Different Rulebooks</h2>
           <p className="text-lg text-muted leading-relaxed">
             Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, accounts payable, accounts receivable and audit support to businesses and accounting practices in the United States, the United Kingdom and Australia.
           </p>
@@ -104,7 +104,7 @@ export default function ServicesPage() {
           <div className="max-w-6xl mx-auto">
             <Reveal className="max-w-3xl space-y-4 mb-8"><>
               <span className="text-sm font-semibold tracking-wide uppercase text-accent">{region.adjective} services</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">{region.name} Services</h2>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">{region.name} Services</h2>
               <p className="text-base md:text-lg text-muted leading-relaxed">{region.intro}</p>
             </></Reveal>
 
@@ -144,7 +144,7 @@ export default function ServicesPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-8"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">How we work</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">How We Support Accounting Teams</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">How We Support Accounting Teams</h2>
           </></Reveal>
           <div className="grid md:grid-cols-2 gap-4 md:gap-5">
             {supportPillars.map((p, i) => (
@@ -168,7 +168,7 @@ export default function ServicesPage() {
               <p className="text-sm text-muted mb-4 leading-relaxed">Where the accounting work has its own shape, the process is built around it rather than forced into a standard template.</p>
               <ul className="space-y-1.5">
                 {industries.map((i) => (
-                  <li key={i.slug}><Link href={`/industries/${i.slug}`} className="text-sm text-primary hover:text-accent transition-colors">{i.name}</Link></li>
+                  <li key={i.slug}><Link href={`/industries/${i.slug}`} className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">{i.name}</Link></li>
                 ))}
               </ul>
             </div>
@@ -179,7 +179,7 @@ export default function ServicesPage() {
               <p className="text-sm text-muted mb-4 leading-relaxed">We work inside the platform you already run. Implementation and configuration are not services we offer.</p>
               <ul className="space-y-1.5">
                 {technologies.map((t) => (
-                  <li key={t.slug}><Link href={`/technology/${t.slug}`} className="text-sm text-primary hover:text-accent transition-colors">{t.name}</Link></li>
+                  <li key={t.slug}><Link href={`/technology/${t.slug}`} className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">{t.name}</Link></li>
                 ))}
               </ul>
             </div>
@@ -189,12 +189,12 @@ export default function ServicesPage() {
               <h2 className="text-xl font-bold text-primary mb-3">Compliance &amp; Resources</h2>
               <p className="text-sm text-muted mb-4 leading-relaxed">How engagements are controlled, and the background reading behind the services above.</p>
               <ul className="space-y-1.5">
-                <li><Link href="/compliance" className="text-sm text-primary hover:text-accent transition-colors">Compliance &amp; controls</Link></li>
-                <li><Link href="/data-security" className="text-sm text-primary hover:text-accent transition-colors">Data security</Link></li>
-                <li><Link href="/delivery-framework/onboarding" className="text-sm text-primary hover:text-accent transition-colors">Onboarding</Link></li>
-                <li><Link href="/delivery-framework/quality-assurance" className="text-sm text-primary hover:text-accent transition-colors">Quality assurance</Link></li>
-                <li><Link href="/resources/guides" className="text-sm text-primary hover:text-accent transition-colors">Guides</Link></li>
-                <li><Link href="/resources/insights" className="text-sm text-primary hover:text-accent transition-colors">Insights</Link></li>
+                <li><Link href="/compliance" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Compliance &amp; controls</Link></li>
+                <li><Link href="/data-security" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Data security</Link></li>
+                <li><Link href="/delivery-framework/onboarding" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Onboarding</Link></li>
+                <li><Link href="/delivery-framework/quality-assurance" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Quality assurance</Link></li>
+                <li><Link href="/resources/guides" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Guides</Link></li>
+                <li><Link href="/resources/insights" className="inline-block py-1.5 text-sm text-primary hover:text-accent transition-colors">Insights</Link></li>
               </ul>
             </div>
           </Reveal>

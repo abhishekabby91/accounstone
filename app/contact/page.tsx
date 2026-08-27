@@ -67,7 +67,7 @@ export default function ContactPage() {
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   Free Consultation
                 </span>
-                <h2 className="text-2xl md:text-3xl font-bold text-primary">
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary">
                   Schedule Your Meeting
                 </h2>
               </div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
               {status === 'sent' && (
                 <div role="status" className="p-4 rounded-lg bg-accent/10 border-2 border-accent text-sm text-foreground">
                   Your email client should have opened with your message ready to send. If it didn&apos;t open, please email us directly at{' '}
-                  <a href={`mailto:${companyInfo.contact.email}`} className="font-semibold text-primary hover:underline">
+                  <a href={`mailto:${companyInfo.contact.email}`} className="inline-block py-1 font-semibold text-primary hover:underline">
                     {companyInfo.contact.email}
                   </a>.
                 </div>
@@ -186,7 +186,7 @@ export default function ContactPage() {
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   Contact Information
                 </span>
-                <h3 className="text-3xl font-bold text-primary">
+                <h3 className="font-serif text-3xl font-bold text-primary">
                   Reach Out Today
                 </h3>
               </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
                   <h4 className="font-semibold text-foreground mb-1">Email</h4>
                   <a
                     href={`mailto:${companyInfo.contact.email}`}
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="inline-block py-1 text-primary hover:text-primary-light transition-colors"
                   >
                     {companyInfo.contact.email}
                   </a>
@@ -212,7 +212,7 @@ export default function ContactPage() {
                   <h4 className="font-semibold text-foreground mb-1">Phone</h4>
                   <a
                     href={`tel:${companyInfo.contact.phone}`}
-                    className="text-primary hover:text-primary-light transition-colors"
+                    className="inline-block py-1 text-primary hover:text-primary-light transition-colors"
                   >
                     +91 99905 97192
                   </a>

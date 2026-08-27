@@ -100,8 +100,8 @@ export default function USMarketPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="inline-block py-1.5 hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United States</li>
         </ol>
       </nav>
@@ -109,7 +109,7 @@ export default function USMarketPage() {
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-5"><>
           <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment U.S. Businesses Operate In</h2>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment U.S. Businesses Operate In</h2>
           <p className="text-lg text-muted leading-relaxed">
             U.S. accounting is not harder than accounting elsewhere, but it is more fragmented. A business does not deal with one tax authority; it deals with the IRS and with every state where it has established an obligation. There is no single national sales tax to reconcile — there are thousands of overlapping state and local jurisdictions. Payroll rules stack federal requirements on top of state ones that differ meaningfully from each other.
           </p>
@@ -123,7 +123,7 @@ export default function USMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-8"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The landscape</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape U.S. Accounting Work</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape U.S. Accounting Work</h2>
           </></Reveal>
           <div className="grid md:grid-cols-2 gap-4 md:gap-5">
             {topics.map((t, i) => (
@@ -142,7 +142,7 @@ export default function USMarketPage() {
         <div className="max-w-4xl mx-auto">
           <Reveal className="space-y-5"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Where outsourcing fits</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
             <p className="text-lg text-muted leading-relaxed">
               Most of the U.S. accounting burden is recurring preparation work: posting and reconciling transactions, maintaining vendor and employee data, tracking activity by state, assembling workpapers, and producing a close package. That work is documentable, reviewable, and can be handled by an outside team working inside your existing system.
             </p>
@@ -157,7 +157,7 @@ export default function USMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-7"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">U.S. services</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Our U.S. Service Pages</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Our U.S. Service Pages</h2>
             <p className="text-base text-muted leading-relaxed">Each page covers scope, the review boundary, and how the work is run for U.S. engagements.</p>
           </></Reveal>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

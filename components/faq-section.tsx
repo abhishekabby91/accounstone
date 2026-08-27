@@ -33,7 +33,7 @@ export default function FAQSection({
               {subtitle}
             </span>
           )}
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
             {title}
           </h2>
         </div>

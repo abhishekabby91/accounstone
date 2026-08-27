@@ -145,11 +145,11 @@ export default function YardiTexasPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/industries" className="hover:text-primary transition-colors">Industries</Link></li>
+          <li><Link href="/industries" className="inline-block py-1.5 hover:text-primary transition-colors">Industries</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/industries/real-estate" className="hover:text-primary transition-colors">Real Estate</Link></li>
+          <li><Link href="/industries/real-estate" className="inline-block py-1.5 hover:text-primary transition-colors">Real Estate</Link></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">Yardi Accounting (Texas)</li>
         </ol>
@@ -159,7 +159,7 @@ export default function YardiTexasPage() {
         <div className="max-w-4xl mx-auto space-y-6">
           <div className="space-y-2">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
               Yardi-Based Accounting for Texas Property Managers
             </h2>
           </div>
@@ -171,7 +171,7 @@ export default function YardiTexasPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Benefits</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
               Why Property Managers Choose This Support
             </h2>
           </div>
@@ -190,7 +190,7 @@ export default function YardiTexasPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Our Process</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
               How We Onboard Your Portfolio
             </h2>
           </div>
@@ -216,7 +216,7 @@ export default function YardiTexasPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Deliverables</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What You Get</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What You Get</h2>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {deliverables.map((deliverable, i) => (

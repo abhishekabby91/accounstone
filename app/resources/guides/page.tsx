@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
+import ResourceCard from '@/components/resource-card';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import { guides } from '@/lib/resources';
 
 const PATH = '/resources/guides';
 
@@ -18,73 +22,15 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Guides', url: `${baseUrl}${PATH}` },
 ]);
 
-const guides = [
-  {
-    title: 'Staff Augmentation vs. Dedicated Team vs. Offshore Support vs. Back Office: How to Choose',
-    href: '/resources/guides/choosing-an-engagement-model',
-    description: 'What actually separates the four engagement models, a comparison table, and a decision framework for matching the model to your situation.',
-    isNew: true,
-  },
-  {
-    title: 'How to Choose an Accounting Outsourcing Partner',
-    href: '/resources/guides/how-to-choose-accounting-outsourcing-partner',
-    description: 'A decision framework covering scope, review structure, red flags and what a sound onboarding process should look like.',
-    isNew: true,
-  },
-  {
-    title: 'Client Accounting Services (CAS): A Guide for CPA Firms',
-    href: '/resources/guides/client-accounting-services-cas-guide',
-    description: 'What CAS actually includes, why production capacity is the usual bottleneck, and where outsourced back-office support fits without touching advisory work.',
-    isNew: true,
-  },
-  {
-    title: 'Outsourced Payroll Processing: What It Actually Covers (US, UK & Australia)',
-    href: '/resources/guides/outsourced-payroll-processing-guide',
-    description: 'Per-jurisdiction payroll compliance, QuickBooks/Xero/Gusto workflows, realistic cost ranges, and the real questions employers ask before handing payroll to an offshore team.',
-    isNew: true,
-  },
-  {
-    title: 'Outsourced Accounts Payable: How It Works in QuickBooks, Xero & NetSuite',
-    href: '/resources/guides/outsourced-accounts-payable-guide',
-    description: 'What the AP team handles vs. what stays with you, how approval workflows and fraud controls work, location-specific VAT/GST nuances, and realistic per-invoice costs.',
-    isNew: true,
-  },
-  {
-    title: 'Outsourced Accounts Receivable: DSO, Collections & Software Workflows (US, UK, AU)',
-    href: '/resources/guides/outsourced-accounts-receivable-guide',
-    description: 'How to measure the cash flow impact of outsourced AR, how collections follow-up works in QuickBooks and Xero, and the questions business owners ask before outsourcing receivables.',
-    isNew: true,
-  },
-  {
-    title: 'Outsourced Accounting Services: Month-End Close, Cost, GAAP vs IFRS, and QuickBooks to NetSuite',
-    href: '/resources/guides/outsourced-accounting-services-guide',
-    description: 'What accounting operations cover beyond bookkeeping and what it costs, how month-end close works in QBO, Xero, Sage, and NetSuite, and how US GAAP, UK FRS 102, and Australian AASB differ.',
-    isNew: true,
-  },
-  {
-    title: '9 Questions to Ask Before Outsourcing Your Bookkeeping',
-    href: '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping',
-    description: 'The real questions to ask before hiring — answered honestly, including the ones without a flattering answer.',
-    isNew: false,
-  },
-  {
-    title: 'Outsourced Bookkeeping Cost Guide for U.S. Businesses',
-    href: '/resources/guides/outsourced-bookkeeping-cost-guide',
-    description: 'What actually drives the price up or down, and how it compares to hiring in-house.',
-    isNew: false,
-  },
-  {
-    title: 'QuickBooks Online vs. Xero: Which Should Your Business Use?',
-    href: '/resources/guides/quickbooks-vs-xero-comparison',
-    description: 'A practical comparison of pricing, ease of use, and reporting to help you decide.',
-    isNew: false,
-  },
-  {
-    title: 'How CPA Firms Use Staff Augmentation During Tax Season',
-    href: '/resources/guides/staff-augmentation-tax-season-guide',
-    description: 'Why seasonal hiring is risky, and how flexible capacity support works instead.',
-    isNew: false,
-  },
+const featured = guides.find((g) => g.featured);
+const rest = guides.filter((g) => !g.featured);
+
+// These live under /markets/united-states/*, not duplicated here - linked so
+// they stay discoverable from Resources too.
+const states = [
+  { name: 'Texas', href: '/markets/united-states/texas', note: 'Franchise tax, no state income tax' },
+  { name: 'California', href: '/markets/united-states/california', note: 'CDTFA sales tax, FTB coordination' },
+  { name: 'Florida', href: '/markets/united-states/florida', note: 'No personal income tax, corporate tax clarity' },
 ];
 
 export default function GuidesPage() {
@@ -92,62 +38,76 @@ export default function GuidesPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-3xl mx-auto text-center space-y-6">
-          <>
-          <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Guides</span>
-          <h1 className="text-2xl md:text-3xl font-bold text-primary text-balance">In-Depth Guides</h1>
-          <p className="text-lg text-muted leading-relaxed">
-            Longer-form guides on the accounting decisions that actually come up
-            for growing businesses and CPA firms.
-          </p>
-          </>
-        </Reveal>
-      </section>
-
-      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-input">
-        <div className="max-w-3xl mx-auto space-y-6">
-          {guides.map((guide, i) => (
-            <Reveal key={guide.href} delay={Math.min(i * 0.08, 0.24)}>
-              <Link
-                href={guide.href}
-                className="block p-8 bg-white rounded-xl border-2 border-border hover:border-primary transition-colors relative"
-              >
-                {guide.isNew && (
-                  <span className="absolute top-4 right-4 px-2 py-0.5 rounded-full bg-accent text-white text-xs font-bold uppercase tracking-wide">New</span>
-                )}
-                <h2 className="text-2xl font-bold text-primary mb-2 pr-14">{guide.title}</h2>
-                <p className="text-muted leading-relaxed">{guide.description}</p>
-              </Link>
-            </Reveal>
-          ))}
+      <section className="relative w-full overflow-hidden bg-white px-6 md:px-8 py-12 md:py-16">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 h-64 w-full max-w-[32rem] -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-4xl">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-muted">
+              <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/resources" className="inline-block py-1.5 hover:text-primary transition-colors">Resources</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="font-medium text-primary">Guides</li>
+            </ol>
+          </nav>
+          <SectionHeading
+            as="h1"
+            align="center"
+            eyebrow="Guides"
+            title="In-Depth Guides"
+            lead="Longer-form guides on the accounting decisions that actually come up for growing businesses and CPA firms."
+          />
         </div>
       </section>
 
-      {/* Cross-links to the state-specific market pages -- these live
-          under /markets/united-states/*, not duplicated here, just
-          linked so they're discoverable from Resources too. */}
-      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-white">
-        <div className="max-w-3xl mx-auto">
-          <Reveal>
-            <div className="text-center space-y-2 mb-8">
-              <span className="text-sm font-semibold tracking-wide uppercase text-accent">State-Specific Guides</span>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary">Accounting Rules by U.S. State</h2>
-            </div>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { name: 'Texas', href: '/markets/united-states/texas', note: 'Franchise tax, no state income tax' },
-              { name: 'California', href: '/markets/united-states/california', note: 'CDTFA sales tax, FTB coordination' },
-              { name: 'Florida', href: '/markets/united-states/florida', note: 'No personal income tax, corporate tax clarity' },
-            ].map((state, i) => (
+      {featured && (
+        <section className="w-full bg-input px-6 md:px-8 py-10 md:py-12">
+          <div className="mx-auto max-w-4xl">
+            <Reveal>
+              <ResourceCard item={featured} featured />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {/* One per row deliberately: these titles run 60-90 characters and wrap
+          badly at half width. See CLAUDE.md "Responsive breakpoints". */}
+      <section className="w-full bg-white px-6 md:px-8 py-10 md:py-14">
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading eyebrow={`All guides`} title={`Everything Else We Have Written`} />
+          <div className="mt-8 space-y-4">
+            {rest.map((guide, i) => (
+              <Reveal key={guide.href} delay={Math.min(i * 0.05, 0.24)}>
+                <ResourceCard item={guide} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full bg-input px-6 md:px-8 py-10 md:py-14">
+        <div className="mx-auto max-w-4xl">
+          <SectionHeading
+            eyebrow="State-specific"
+            title="Accounting Rules by U.S. State"
+            lead="Where state-level rules change the recurring work, the detail sits on the market pages."
+          />
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {states.map((state, i) => (
               <Reveal key={state.href} delay={Math.min(i * 0.08, 0.24)}>
                 <Link
                   href={state.href}
-                  className="block h-full p-6 bg-input rounded-lg border-2 border-border hover:border-primary transition-colors"
+                  className="group flex h-full flex-col rounded-xl border border-border bg-white p-5 sm:p-6 transition-all duration-200 hover:border-primary/50 hover:shadow-[0_2px_16px_-4px_rgba(30,58,95,0.18)]"
                 >
-                  <h3 className="font-bold text-primary mb-1">{state.name}</h3>
-                  <p className="text-sm text-muted">{state.note}</p>
+                  <h3 className="font-serif text-lg font-bold text-primary">{state.name}</h3>
+                  <p className="mt-1.5 flex-1 text-sm leading-relaxed text-muted">{state.note}</p>
+                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                    View
+                    <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true" />
+                  </span>
                 </Link>
               </Reveal>
             ))}

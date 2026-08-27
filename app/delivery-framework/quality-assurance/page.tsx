@@ -32,7 +32,7 @@ export default function QAPage() {
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">QA Framework</h2>
+              <h2 className="font-serif text-3xl font-bold text-primary">QA Framework</h2>
               <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4">
                 {[
                   { title: 'Multi-Level Reviews', desc: 'All work reviewed by senior accountants before delivery' },
@@ -49,7 +49,7 @@ export default function QAPage() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">Quality Standards</h2>
+              <h2 className="font-serif text-3xl font-bold text-primary">Quality Standards</h2>
               <div className="grid grid-cols-2 sm:grid-cols-1 gap-3 sm:gap-4">
                 {[
                   { title: 'Thorough Review Process', desc: 'Every deliverable is reviewed before it reaches you, not just prepared once' },

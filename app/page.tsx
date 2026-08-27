@@ -83,7 +83,7 @@ export default function HomePage() {
             <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
               <span className="w-4 h-px bg-accent" aria-hidden="true" />How We Work
             </span>
-            <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
+            <h2 className="font-serif text-xl md:text-2xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
             <p className="text-muted leading-relaxed">Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting businesses and accounting practices across the US, UK, and Australia.</p>
           </>
         </Reveal>
@@ -126,7 +126,7 @@ export default function HomePage() {
         <div className="w-full px-6 md:px-8 pb-10 md:pb-14 -mt-4 text-center">
           <p className="text-muted">
             Working in the UK or Australia?{' '}
-            <Link href="/services" className="text-primary font-medium underline underline-offset-4 hover:text-accent transition-colors">
+            <Link href="/services" className="inline-block py-1 text-primary font-medium underline underline-offset-4 hover:text-accent transition-colors">
               See all services by region
             </Link>.
           </p>
@@ -141,7 +141,7 @@ export default function HomePage() {
                 <span className="inline-flex items-center gap-2 text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                   <span className="w-4 h-px bg-accent" aria-hidden="true" />Why Accounstone
                 </span>
-                <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
+                <h2 className="font-serif text-xl md:text-2xl font-bold text-primary text-balance">A Delivery Partner, Not Just Extra Hands</h2>
                 <p className="text-lg text-muted leading-relaxed">We work inside your processes, follow your review standards, and take ownership of defined accounting work while your team keeps the decisions and approvals that belong with them.</p>
                 <div className="space-y-4 pt-4 pl-5 margin-rule">
                   {['Experienced accounting professionals', 'Dedicated support during busy periods', 'Documented onboarding and knowledge transfer', 'Quality review before work reaches your team', 'Clear communication and defined ownership', 'Flexible engagement models as workload changes'].map((item, i) => (

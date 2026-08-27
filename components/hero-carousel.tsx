@@ -119,7 +119,7 @@ export default function HeroCarousel({
                     initial={isActive && !shouldReduceMotion ? { opacity: 0, y: 16 } : false}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="text-xl md:text-3xl lg:text-4xl font-bold leading-tight text-balance"
+                    className="font-serif text-xl md:text-3xl lg:text-4xl font-bold leading-tight text-balance"
                   >
                     {slide.title}
                   </motion.h2>

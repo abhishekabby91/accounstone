@@ -100,8 +100,8 @@ export default function UKMarketPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="inline-block py-1.5 hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">United Kingdom</li>
         </ol>
       </nav>
@@ -109,7 +109,7 @@ export default function UKMarketPage() {
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-5"><>
           <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment UK Businesses Operate In</h2>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment UK Businesses Operate In</h2>
           <p className="text-lg text-muted leading-relaxed">
             UK accounting is administratively centralised in a way that U.S. accounting is not. One tax authority, one national indirect tax, one companies registry. What it lacks in fragmentation it makes up for in cadence: VAT quarterly, PAYE on or before every pay date, pension assessment each period, and a year end that has to satisfy both HMRC and Companies House.
           </p>
@@ -123,7 +123,7 @@ export default function UKMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-8"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The landscape</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape UK Accounting Work</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape UK Accounting Work</h2>
           </></Reveal>
           <div className="grid md:grid-cols-2 gap-4 md:gap-5">
             {topics.map((t, i) => (
@@ -142,7 +142,7 @@ export default function UKMarketPage() {
         <div className="max-w-4xl mx-auto">
           <Reveal className="space-y-5"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Where outsourcing fits</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
             <p className="text-lg text-muted leading-relaxed">
               The recurring layer moves well: posting and reconciling transactions, keeping VAT coding consistent as it happens, running the payroll calculation each period, maintaining the purchase and sales ledgers, and preparing year-end accounts and the workpapers behind them. This is process work with clear inputs and a reviewable output.
             </p>
@@ -157,7 +157,7 @@ export default function UKMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-7"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">UK services</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Our UK Service Pages</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Our UK Service Pages</h2>
             <p className="text-base text-muted leading-relaxed">Each page covers scope, the review boundary, and how the work is run for UK engagements.</p>
           </></Reveal>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

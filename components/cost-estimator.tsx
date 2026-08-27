@@ -96,7 +96,7 @@ export default function CostEstimator() {
 
       <div className="pt-4 border-t-2 border-border">
         <p className="text-sm text-muted mb-1">Estimated monthly range</p>
-        <p className="text-3xl font-bold text-primary figure">
+        <p className="font-serif text-3xl font-bold text-primary figure">
           ${low.toLocaleString()} – ${high.toLocaleString()}
           <span className="text-base font-normal text-muted"> / month</span>
         </p>

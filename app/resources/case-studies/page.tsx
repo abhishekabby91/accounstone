@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
 import CTABanner from '@/components/cta-banner';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
@@ -62,52 +63,96 @@ export default function CaseStudiesPage() {
     <main>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <Reveal className="max-w-3xl mx-auto text-center space-y-6">
-          <>
-          <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">Case Studies</span>
-          <h1 className="text-2xl md:text-3xl font-bold text-primary text-balance">Illustrative Scenarios</h1>
-          <p className="text-lg text-muted leading-relaxed">
-            We're a growing company and don't have named client case studies to
-            share publicly yet. The scenarios below illustrate the kinds of
-            problems our services are built to solve, based on common
-            challenges businesses like yours actually face.
-          </p>
-          </>
-        </Reveal>
+      <section className="relative w-full overflow-hidden bg-white px-6 md:px-8 py-12 md:py-16">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute -top-24 left-1/2 h-64 w-full max-w-[32rem] -translate-x-1/2 rounded-full bg-secondary/10 blur-3xl"
+        />
+        <div className="relative mx-auto max-w-4xl">
+          <nav aria-label="Breadcrumb" className="mb-6">
+            <ol className="flex flex-wrap items-center justify-center gap-2 text-sm text-muted">
+              <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li><Link href="/resources" className="inline-block py-1.5 hover:text-primary transition-colors">Resources</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="font-medium text-primary">Case Studies</li>
+            </ol>
+          </nav>
+          <SectionHeading
+            as="h1"
+            align="center"
+            eyebrow="Case Studies"
+            title="Illustrative Scenarios"
+            lead="Three situations that show how capacity and workflow problems are usually structured, and where outside support fits."
+          />
+
+          {/* The disclaimer is a visible notice rather than a line buried in the
+              intro - claiming named client work we do not have would be the
+              single most damaging thing this page could do. */}
+          <Reveal delay={0.1}>
+            <div className="mt-8 mx-auto max-w-2xl rounded-xl border border-secondary/50 bg-input p-5">
+              <p className="text-sm font-bold uppercase tracking-wider text-accent mb-1.5">Please read this first</p>
+              <p className="text-sm sm:text-base leading-relaxed text-foreground">
+                Accounstone is a growing company and does not have named client case studies to publish yet.
+                The scenarios below are <strong>illustrative</strong> - they describe the kinds of problems these
+                services are built for. They are not real client engagements and no outcomes below are measured results.
+              </p>
+            </div>
+          </Reveal>
+        </div>
       </section>
 
-      <section className="w-full py-8 md:py-10 px-6 md:px-8 bg-input">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <section className="w-full bg-input px-6 md:px-8 py-10 md:py-14">
+        <div className="mx-auto max-w-4xl space-y-5 md:space-y-6">
           {scenarios.map((scenario, i) => (
             <Reveal key={scenario.title} delay={Math.min(i * 0.08, 0.24)}>
-              <div className="p-8 bg-white rounded-xl border-2 border-border space-y-4">
-                <h2 className="text-2xl font-bold text-primary">{scenario.title}</h2>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-accent mb-1">Situation</p>
-                  <p className="text-muted leading-relaxed">{scenario.situation}</p>
+              <article className="relative overflow-hidden rounded-xl border border-border bg-white p-6 sm:p-8">
+                <span aria-hidden="true" className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-accent to-secondary" />
+
+                <div className="flex items-start gap-4">
+                  <span
+                    aria-hidden="true"
+                    className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/8 font-serif text-lg font-bold text-primary tabular-nums"
+                  >
+                    {i + 1}
+                  </span>
+                  <h2 className="font-serif text-xl sm:text-2xl font-bold text-primary text-balance leading-snug">
+                    {scenario.title}
+                  </h2>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-accent mb-1">Approach</p>
-                  <p className="text-muted leading-relaxed">{scenario.approach}</p>
+
+                <dl className="mt-5 space-y-4 sm:pl-14">
+                  {([
+                    ['Situation', scenario.situation],
+                    ['Approach', scenario.approach],
+                    ['Outcome', scenario.outcome],
+                  ] as const).map(([label, text]) => (
+                    <div key={label} className="border-l-2 border-border pl-4">
+                      <dt className="text-xs font-bold uppercase tracking-wider text-accent mb-1">{label}</dt>
+                      <dd className="text-sm sm:text-base leading-relaxed text-muted">{text}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <div className="mt-5 sm:pl-14">
+                  <Link
+                    href={scenario.link.href}
+                    className="group inline-flex min-h-[40px] items-center gap-1.5 text-sm font-semibold text-primary hover:text-accent transition-colors"
+                  >
+                    More on {scenario.link.label}
+                    <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                  </Link>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold uppercase tracking-wide text-accent mb-1">Outcome</p>
-                  <p className="text-muted leading-relaxed">{scenario.outcome}</p>
-                </div>
-                <Link href={scenario.link.href} className="inline-block text-primary font-medium hover:underline pt-2">
-                  Learn more about {scenario.link.label} →
-                </Link>
-              </div>
+              </article>
             </Reveal>
           ))}
         </div>
       </section>
 
       <CTABanner
-        title="Facing a Similar Challenge?"
-        description="Let's talk about your specific situation and what support would actually help."
-        cta={{ text: 'Schedule Consultation', href: '/contact' }}
+        title="Facing a Similar Situation?"
+        description="Tell us how the work is handled today and where the pressure actually sits, and we can talk through what would help."
+        cta={{ text: 'Start a Conversation', href: '/contact' }}
         background="primary"
       />
     </main>

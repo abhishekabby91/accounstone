@@ -98,7 +98,7 @@ export default function TechnologyPage() {
               <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
                 How We Work
               </span>
-              <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
                 Your System, Our Workflow
               </h2>
               <p className="text-lg text-muted leading-relaxed">

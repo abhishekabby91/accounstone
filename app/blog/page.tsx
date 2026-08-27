@@ -92,7 +92,7 @@ export default function BlogPage() {
         <div className="max-w-5xl mx-auto">
           <nav aria-label="Breadcrumb" className="mb-10">
             <ol className="flex flex-wrap items-center gap-2 text-sm text-muted">
-              <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+              <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
               <li aria-hidden="true">/</li>
               <li aria-current="page" className="text-primary font-medium">Blog</li>
             </ol>

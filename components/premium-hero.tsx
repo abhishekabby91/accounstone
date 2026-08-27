@@ -69,7 +69,7 @@ export default function PremiumHero({
 
             <motion.h1
               {...fadeUp(0.08)}
-              className={`text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-balance ${
+              className={`font-serif text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-balance ${
                 background === 'default' ? 'text-primary' : ''
               }`}
             >

@@ -64,11 +64,11 @@ export default function ArticleLayout({
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-3xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/resources" className="hover:text-primary transition-colors">Resources</Link></li>
+          <li><Link href="/resources" className="inline-block py-1.5 hover:text-primary transition-colors">Resources</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href={`/resources/${section}`} className="hover:text-primary transition-colors">{sectionLabel}</Link></li>
+          <li><Link href={`/resources/${section}`} className="inline-block py-1.5 hover:text-primary transition-colors">{sectionLabel}</Link></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium line-clamp-1">{title}</li>
         </ol>

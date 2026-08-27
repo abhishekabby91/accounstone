@@ -20,11 +20,14 @@ export default function RegionalContext({ serviceSlug, regionSlug }: { serviceSl
   if (!entry) return null;
 
   return (
-    <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+    <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
       <div className="max-w-3xl mx-auto">
         <Reveal className="space-y-4"><>
-          <span className="text-sm font-semibold tracking-wide uppercase text-accent">{entry.eyebrow}</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">{entry.title}</h2>
+          <div className="flex items-center gap-3">
+            <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+            <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">{entry.eyebrow}</span>
+          </div>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">{entry.title}</h2>
           <div className="space-y-4 pt-1">
             {entry.paragraphs.map((p, i) => (
               <p key={i} className="text-base md:text-lg text-muted leading-relaxed">{p}</p>
@@ -34,9 +37,11 @@ export default function RegionalContext({ serviceSlug, regionSlug }: { serviceSl
 
         {entry.aside && (
           <Reveal delay={0.1}>
-            <div className="mt-7 border-l-4 border-accent bg-input rounded-r-xl p-5 sm:p-6">
-              <p className="text-sm font-bold uppercase tracking-wide text-accent mb-2">{entry.aside.label}</p>
-              <p className="text-foreground leading-relaxed text-sm sm:text-base">{entry.aside.text}</p>
+            <div className="mt-8 overflow-hidden rounded-xl border border-border bg-white">
+              <div className="border-l-4 border-accent p-5 sm:p-6">
+                <p className="text-xs font-bold uppercase tracking-wider text-accent mb-2">{entry.aside.label}</p>
+                <p className="text-sm sm:text-base leading-relaxed text-foreground">{entry.aside.text}</p>
+              </div>
             </div>
           </Reveal>
         )}

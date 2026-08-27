@@ -59,7 +59,7 @@ export default function DataSecurityPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">What This Means Practically</h2>
+              <h2 className="font-serif text-3xl font-bold text-primary">What This Means Practically</h2>
               <p className="text-muted leading-relaxed">
                 Because we work inside your own accounting platform rather than a
                 separate system, your data benefits from that platform's own
@@ -70,7 +70,7 @@ export default function DataSecurityPage() {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-primary">Questions We Expect</h2>
+              <h2 className="font-serif text-3xl font-bold text-primary">Questions We Expect</h2>
               <p className="text-muted leading-relaxed">
                 If you're evaluating us for vendor security review, we'd expect
                 you to ask about our certification timeline, access control

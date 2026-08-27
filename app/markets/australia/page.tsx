@@ -100,8 +100,8 @@ export default function AustraliaMarketPage() {
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
-          <li><Link href="/" className="hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
-          <li><Link href="/markets" className="hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li>
+          <li><Link href="/markets" className="inline-block py-1.5 hover:text-primary transition-colors">Markets</Link></li><li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium">Australia</li>
         </ol>
       </nav>
@@ -109,7 +109,7 @@ export default function AustraliaMarketPage() {
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
         <Reveal className="max-w-4xl mx-auto space-y-5"><>
           <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment Australian Businesses Operate In</h2>
+          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Accounting Environment Australian Businesses Operate In</h2>
           <p className="text-lg text-muted leading-relaxed">
             Australian accounting has a distinctive shape. A single tax authority and a single national GST rate make the rules simpler than the U.S. state patchwork. But two features concentrate the workload in ways neither the U.S. nor the UK experience: almost every entity shares a 30 June year end, and the BAS combines GST, PAYG withholding and PAYG instalments into one recurring statement.
           </p>
@@ -123,7 +123,7 @@ export default function AustraliaMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-8"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">The landscape</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape Australian Accounting Work</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Six Things That Shape Australian Accounting Work</h2>
           </></Reveal>
           <div className="grid md:grid-cols-2 gap-4 md:gap-5">
             {topics.map((t, i) => (
@@ -142,7 +142,7 @@ export default function AustraliaMarketPage() {
         <div className="max-w-4xl mx-auto">
           <Reveal className="space-y-5"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Where outsourcing fits</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What Can Move, and What Cannot</h2>
             <p className="text-lg text-muted leading-relaxed">
               The preparation layer moves well, and in Australia it is the layer that absorbs the 30 June pressure: keeping GST coding correct as transactions are posted, reconciling the GST control account through the year, running pay events with PAYG and superannuation calculated and supported, maintaining the ledgers, and assembling BAS-ready records and year-end workpapers.
             </p>
@@ -157,7 +157,7 @@ export default function AustraliaMarketPage() {
         <div className="max-w-5xl mx-auto">
           <Reveal className="max-w-3xl space-y-3 mb-7"><>
             <span className="text-sm font-semibold tracking-wide uppercase text-accent">Australian services</span>
-            <h2 className="text-2xl md:text-3xl font-bold text-primary text-balance">Our Australian Service Pages</h2>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Our Australian Service Pages</h2>
             <p className="text-base text-muted leading-relaxed">Each page covers scope, the review boundary, and how the work is run for Australian engagements.</p>
           </></Reveal>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

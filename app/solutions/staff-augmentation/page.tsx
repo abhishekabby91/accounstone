@@ -75,7 +75,7 @@ export default function StaffAugmentationPage() {
         ].map(([title, desc], i) => <Reveal key={title} delay={i * 0.04}><div className="bg-white rounded-2xl p-6 border border-border/70 h-full"><h3 className="font-bold text-lg text-primary mb-2">{title}</h3><p className="text-sm text-muted leading-6">{desc}</p></div></Reveal>)}</div></div>
       </section>
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal><><span className="text-sm font-semibold tracking-wide uppercase text-accent">How the handoff works</span><h2 className="text-2xl md:text-3xl font-bold text-primary mt-2">Four things to define before work starts</h2></></Reveal><div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-5">{[
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal><><span className="text-sm font-semibold tracking-wide uppercase text-accent">How the handoff works</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary mt-2">Four things to define before work starts</h2></></Reveal><div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-5">{[
         ['01', 'Scope', 'List the exact recurring tasks or project deliverables the augmented professional owns.'],
         ['02', 'Systems', 'Document the accounting software, files, communication channels and access required.'],
         ['03', 'Review', 'Name the reviewer, approval points, deadlines and escalation rules.'],

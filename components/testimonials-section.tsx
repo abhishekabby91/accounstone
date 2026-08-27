@@ -27,7 +27,7 @@ export default function TestimonialsSection({
           {subtitle && (
             <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">{subtitle}</span>
           )}
-          <h2 className="text-xl md:text-2xl font-bold text-primary text-balance">{title}</h2>
+          <h2 className="font-serif text-xl md:text-2xl font-bold text-primary text-balance">{title}</h2>
           <p className="text-muted leading-7">
             These are common workflow situations, not client testimonials. The right support model depends on the work, review process, systems, and capacity your team needs.
           </p>

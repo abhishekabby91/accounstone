@@ -29,7 +29,7 @@ export default function IndustriesPage() {
           <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
             Industries
           </span>
-          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary text-balance">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-primary text-balance">
             Industries We Serve
           </h1>
           <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto">
