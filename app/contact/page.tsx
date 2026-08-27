@@ -6,47 +6,69 @@ import PremiumHero from '@/components/premium-hero';
 import { companyInfo, services } from '@/lib/data';
 
 export default function ContactPage() {
-  const [status, setStatus] = useState<'idle' | 'sent'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  // NOTE: There is no backend/email API wired up yet, so this builds a
-  // mailto: link from the form fields and opens the user's email client
-  // as a functional fallback. This is a stopgap, not the ideal solution
-  // -- a proper form service (e.g. Formspree) or a Next.js API route
-  // with an email provider (e.g. Resend) would submit without leaving
-  // the page and wouldn't depend on the visitor having a configured
-  // email client. Swap this out once that decision is made.
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-
-    const name = data.get('name') as string;
-    const email = data.get('email') as string;
-    const company = data.get('company') as string;
-    const phone = data.get('phone') as string;
-    const service = data.get('service') as string;
-    const message = data.get('message') as string;
-
-    const subject = `Consultation Request from ${name || 'Website Visitor'}`;
+  // Posts to /api/contact, which forwards to Web3Forms server-side so the
+  // access key never reaches the browser. If that route is unavailable -
+  // most likely because WEB3FORMS_ACCESS_KEY is not set yet - we fall back to
+  // opening the visitor's mail client with the message pre-filled, which is
+  // what this form did before. An unconfigured key degrades, it does not
+  // strand the visitor.
+  const openMailClient = (data: FormData) => {
+    const get = (k: string) => (data.get(k) as string) || '';
     const body = [
-      `Name: ${name}`,
-      `Email: ${email}`,
-      `Company: ${company}`,
-      phone ? `Phone: ${phone}` : null,
-      service ? `Service Interest: ${service}` : null,
+      `Name: ${get('name')}`,
+      `Email: ${get('email')}`,
+      `Company: ${get('company')}`,
+      get('phone') ? `Phone: ${get('phone')}` : null,
+      get('service') ? `Service Interest: ${get('service')}` : null,
       '',
       'Message:',
-      message || '(none provided)',
+      get('message') || '(none provided)',
     ]
       .filter(Boolean)
       .join('\n');
 
-    const mailtoLink = `mailto:${companyInfo.contact.email}?subject=${encodeURIComponent(
-      subject
+    window.location.href = `mailto:${companyInfo.contact.email}?subject=${encodeURIComponent(
+      `Consultation Request from ${get('name') || 'Website Visitor'}`,
     )}&body=${encodeURIComponent(body)}`;
+  };
 
-    window.location.href = mailtoLink;
-    setStatus('sent');
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const res = await fetch('/api/contact', { method: 'POST', body: data });
+      const result = (await res.json().catch(() => null)) as { ok?: boolean; reason?: string; message?: string } | null;
+
+      if (res.ok && result?.ok) {
+        form.reset();
+        setStatus('sent');
+        return;
+      }
+
+      // Not configured, or the provider is down: hand the visitor to their
+      // mail client rather than showing a dead end.
+      if (res.status === 503 || res.status === 502) {
+        openMailClient(data);
+        setStatus('error');
+        setErrorMessage('mailto');
+        return;
+      }
+
+      setStatus('error');
+      setErrorMessage(result?.message || 'Something went wrong. Please try again.');
+    } catch {
+      openMailClient(data);
+      setStatus('error');
+      setErrorMessage('mailto');
+    }
   };
 
   return (
@@ -74,14 +96,42 @@ export default function ContactPage() {
 
               {status === 'sent' && (
                 <div role="status" className="p-4 rounded-lg bg-accent/10 border-2 border-accent text-sm text-foreground">
-                  Your email client should have opened with your message ready to send. If it didn&apos;t open, please email us directly at{' '}
+                  <strong className="font-semibold">Thanks &mdash; your message is on its way.</strong> We read every
+                  enquiry ourselves and will come back to you shortly. If it is urgent, email{' '}
                   <a href={`mailto:${companyInfo.contact.email}`} className="inline-block py-1 font-semibold text-primary hover:underline">
                     {companyInfo.contact.email}
                   </a>.
                 </div>
               )}
 
+              {status === 'error' && errorMessage === 'mailto' && (
+                <div role="status" className="p-4 rounded-lg bg-input border-2 border-border text-sm text-foreground">
+                  Your email client should have opened with the message ready to send. If it did not, email us
+                  directly at{' '}
+                  <a href={`mailto:${companyInfo.contact.email}`} className="inline-block py-1 font-semibold text-primary hover:underline">
+                    {companyInfo.contact.email}
+                  </a>.
+                </div>
+              )}
+
+              {status === 'error' && errorMessage !== 'mailto' && (
+                <div role="alert" className="p-4 rounded-lg bg-input border-2 border-accent text-sm text-foreground">
+                  {errorMessage}
+                </div>
+              )}
+
               <form className="space-y-5" onSubmit={handleSubmit}>
+                {/* Honeypot. Hidden from people and from assistive tech; bots
+                    fill it and the API discards the submission. */}
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
                     Full Name
@@ -169,9 +219,11 @@ export default function ContactPage() {
 
                 <button
                   type="submit"
-                  className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+                  disabled={status === 'submitting'}
+                  aria-busy={status === 'submitting'}
+                  className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md"
                 >
-                  Schedule Free Consultation
+                  {status === 'submitting' ? 'Sending\u2026' : 'Schedule Free Consultation'}
                 </button>
 
                 <p className="text-xs text-muted text-center">

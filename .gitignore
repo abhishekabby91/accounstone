@@ -18,3 +18,6 @@ node_modules
 
 # TypeScript incremental build cache
 *.tsbuildinfo
+
+# Local environment overrides (.env.example is the documented template)
+.env
