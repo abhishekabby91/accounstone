@@ -4,9 +4,9 @@
 
 - Files/pages scanned: **84**
 - High-priority findings: **0**
-- Medium-priority findings: **12**
+- Medium-priority findings: **11**
 - Low-priority findings: **8**
-- Duplicate title groups: **1**
+- Duplicate title groups: **0**
 
 ## Page quality scores
 
@@ -137,8 +137,6 @@
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
 19. **LOW — internal-linking** — app/terms/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-20. **MEDIUM — duplicate-title** — app/layout.tsx, app/page.tsx
-   - Differentiate duplicate title: Accounting, Bookkeeping, Tax & Payroll Outsourcing Services
 
 ## Human-content rules
 
