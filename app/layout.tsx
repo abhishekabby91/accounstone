@@ -54,7 +54,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: baseUrl,
     siteName: "Accounstone",
-    title: "Accounting, Bookkeeping, Tax & Payroll Outsourcing Services",
+    // Fallback only - every page sets its own og:title through
+    // generateMetadata, the homepage included. Kept brand-led so it is not the
+    // homepage SEO title duplicated in a second file.
+    title: "Accounstone — Outsourced Accounting, Bookkeeping, Tax & Payroll",
     description:
       "Outsourced accounting, bookkeeping, tax, payroll, and audit support for CPA firms and businesses. Expand your accounting capacity with Accounstone.",
     images: [
@@ -68,7 +71,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Accounting, Bookkeeping, Tax & Payroll Outsourcing Services",
+    // Fallback only, as above.
+    title: "Accounstone — Outsourced Accounting, Bookkeeping, Tax & Payroll",
     description:
       "Outsourced accounting, bookkeeping, tax, payroll, and audit support for CPA firms and businesses. Expand your accounting capacity with Accounstone.",
     images: [`${baseUrl}/og-image.png`],
