@@ -12,9 +12,9 @@ import { companyInfo, services, regions } from '@/lib/data';
  * direct. See app/api/contact/route.ts for the full account of why.
  *
  * `region` makes the form specific rather than generic: it labels the fields in
- * that market's language, offers that market's software, carries the region
- * into the inquiry email so it can be routed, and tells the visitor which hours
- * we cover. A US firm and a UK practice do not fill in the same form.
+ * that market's language, carries the region into the inquiry email so it can be
+ * routed, and tells the visitor which hours we cover. A US firm and a UK
+ * practice do not fill in the same form.
  */
 
 type RegionSlug = (typeof regions)[number]['slug'];
@@ -24,7 +24,6 @@ interface RegionForm {
   phonePlaceholder: string;
   companyLabel: string;
   companyPlaceholder: string;
-  platforms: string[];
   hours: string;
 }
 
@@ -34,7 +33,6 @@ const REGION_FORM: Record<RegionSlug, RegionForm> = {
     phonePlaceholder: '+1 (555) 123-4567',
     companyLabel: 'Firm name',
     companyPlaceholder: 'Your CPA firm',
-    platforms: ['QuickBooks', 'Xero', 'NetSuite', 'Sage', 'Drake Tax', 'CCH Axcess'],
     hours: 'We cover US business hours from our delivery centre in New Delhi.',
   },
   'united-kingdom': {
@@ -42,7 +40,6 @@ const REGION_FORM: Record<RegionSlug, RegionForm> = {
     phonePlaceholder: '+44 20 1234 5678',
     companyLabel: 'Practice name',
     companyPlaceholder: 'Your accountancy practice',
-    platforms: ['Xero', 'Sage', 'QuickBooks', 'FreeAgent', 'IRIS', 'Other'],
     hours: 'We cover UK business hours from our delivery centre in New Delhi.',
   },
   australia: {
@@ -50,7 +47,6 @@ const REGION_FORM: Record<RegionSlug, RegionForm> = {
     phonePlaceholder: '+61 2 1234 5678',
     companyLabel: 'Firm name',
     companyPlaceholder: 'Your accounting firm',
-    platforms: ['Xero', 'MYOB', 'QuickBooks', 'Reckon', 'Other'],
     hours: 'We cover Australian business hours from our delivery centre in New Delhi.',
   },
 };
@@ -60,7 +56,7 @@ const FIELD =
 const LABEL = 'block text-sm font-semibold text-foreground mb-2';
 
 interface InquiryFormProps {
-  /** Tailors labels, software options and routing to one market. */
+  /** Tailors the field labels, placeholders and routing to one market. */
   region?: RegionSlug;
   /** Pre-selects the service, so a page's form is about that page's work. */
   service?: string;
@@ -95,7 +91,6 @@ export default function InquiryForm({
       `Company: ${get('company')}`,
       get('phone') ? `Phone: ${get('phone')}` : null,
       get('service') ? `Service Interest: ${get('service')}` : null,
-      get('platform') ? `Software: ${get('platform')}` : null,
       regionName ? `Region: ${regionName}` : null,
       '',
       'Message:',
@@ -144,7 +139,6 @@ export default function InquiryForm({
           ...(get('company') && { company: get('company') }),
           ...(get('phone') && { phone: get('phone') }),
           ...(get('service') && { service_interest: get('service') }),
-          ...(get('platform') && { software: get('platform') }),
           ...(regionName && { region: regionName }),
           ...(source && { page: source }),
           botcheck: get('botcheck'),
@@ -261,17 +255,6 @@ export default function InquiryForm({
             </select>
           </div>
 
-          {r && (
-            <div>
-              <label htmlFor={`platform-${uid}`} className={LABEL}>Which software do you work in?</label>
-              <select id={`platform-${uid}`} name="platform" defaultValue="" className={FIELD}>
-                <option value="">Select a platform</option>
-                {r.platforms.map((p) => (
-                  <option key={p} value={p}>{p}</option>
-                ))}
-              </select>
-            </div>
-          )}
         </div>
 
         <div>

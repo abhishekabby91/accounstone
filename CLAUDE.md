@@ -223,11 +223,14 @@ the ask leads with that.
 
 **It is region-aware because it has to be.** `region` changes the field labels
 ("Practice name" in the UK, "Firm name" in the US and AU), the email and phone
-placeholders, the software list (Xero/Sage/IRIS vs QuickBooks/Drake/CCH vs
-Xero/MYOB/Reckon), the assurances beside it, and the business hours line. It
-also carries the region into the Web3Forms subject and payload, so an enquiry
-can be routed without reading it. `service` pre-selects the dropdown; `source`
-records which page it came from.
+placeholders, the assurances beside it, and the business hours line. It also
+carries the region into the Web3Forms subject and payload, so an enquiry can be
+routed without reading it. `service` pre-selects the dropdown; `source` records
+which page it came from.
+
+There was a "Which software do you work in?" select. The owner removed it - one
+fewer field between a visitor and a submitted enquiry, on a form whose whole
+job is lead capture. The platform conversation belongs in the reply.
 
 **Adding it raised near-duplicate scores, and that had to be managed.** The
 first pass put identical copy on 45 pages and pushed `/technology/quickbooks`

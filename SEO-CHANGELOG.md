@@ -1,5 +1,36 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (drop the software field from the inquiry form)
+
+The owner confirmed the region-specific inquiry is working in production, and
+removed the "Which software do you work in?" select. One fewer field between a
+visitor and a submitted enquiry, on a form whose only job is lead capture; the
+platform conversation belongs in the reply, not the form.
+
+Removed from the field list, the Web3Forms payload (`software`), the mailto
+fallback body, and the per-region platform lists. The rest of the region
+tailoring is untouched — field labels, email and phone placeholders, the
+assurances, the business-hours line, and the region carried into the subject
+and payload for routing.
+
+Re-tested end to end against a stubbed Web3Forms: from
+`/services/bookkeeping/united-kingdom` the payload still carries
+`service_interest: "Bookkeeping"`, `region: "United Kingdom"`,
+`page: "/services/bookkeeping/united-kingdom"` and a region-tagged subject,
+with no `software` key. UK labels and placeholders intact.
+
+Duplication was re-measured because the platform lists had been carrying
+region-distinct tokens (Xero/Sage/IRIS vs QuickBooks/Drake/CCH) that helped
+separate the region pages. Removing them moved nothing meaningfully: worst
+site pair unchanged at 17.3%, markets against each other 16.1% / 9.7% / 8.9%,
+market-vs-own-services 6.4% / 8.2% / 6.4%.
+
+84 routes all 200, 0 duplicate titles or `h1`s, 0 broken links, 0 links to
+redirects, 0 orphans, Playwright clean at 320-1440px.
+
+**URL changed:** No. **Metadata changed:** No. **Content changed:** the inquiry
+form on 51 pages plus `/contact`.
+
 ## 2026-08-28 (an inquiry form on every commercial page, region-specific)
 
 The owner's correction to the pass above: consultations and calls are always
