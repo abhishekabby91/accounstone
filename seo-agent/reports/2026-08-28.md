@@ -25,7 +25,7 @@
 | app/delivery-framework/quality-assurance/page.tsx | 80/100 | 330 | 1 | 5 | 0 | 0 |
 | app/markets/page.tsx | 80/100 | 261 | 1 | 3 | 0 | 0 |
 | app/solutions/page.tsx | 80/100 | 200 | 1 | 4 | 0 | 0 |
-| app/contact/page.tsx | 85/100 | 670 | 1 | 0 | 0 | 0 |
+| app/contact/page.tsx | 85/100 | 764 | 1 | 0 | 0 | 0 |
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 390 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 382 | 1 | 1 | 0 | 0 |
 | app/about/page.tsx | 90/100 | 1760 | 1 | 23 | 0 | 0 |
