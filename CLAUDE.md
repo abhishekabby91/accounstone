@@ -179,6 +179,27 @@ deliberately 1-per-row — their titles run 60–90 characters and wrap badly at
 
 ---
 
+## Icons and favicon
+
+Generated from the mark in `public/accounstone-logo-horizontal.png` (the A/S
+monogram, cropped and squared) - not from the full lockup. The wordmark is
+illegible below about 100px, so it never belongs in a favicon.
+
+**The set is tiered, deliberately.** At 16px the two thin outer frames collapse
+into noise and the monogram becomes unreadable, so 16 and 32 use a tighter crop
+(24% inset, monogram only) while 48px and up keep the full mark with its frames.
+`favicon.ico` carries all three internally, built by hand - Pillow's ICO writer
+downscales a single image to every size and would put the frame-heavy version at
+16px.
+
+Files: `favicon.ico` (16/32/48), `icon-16x16.png`, `icon-32x32.png`,
+`icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180),
+`icon-maskable-512.png` (inset so a circular OS mask cannot clip the mark).
+Declared in `app/layout.tsx` and `public/manifest.webmanifest`.
+
+All are rendered on a white ground. The mark is navy and blue, which disappears
+against a dark browser tab bar on transparency.
+
 ## Contact form
 
 `/contact` posts to `app/api/contact/route.ts`, which forwards to Web3Forms
