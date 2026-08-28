@@ -45,7 +45,7 @@
 | app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 901 | 1 | 6 | 0 | 0 |
 | app/industries/technology/page.tsx | 90/100 | 439 | 1 | 2 | 0 | 0 |
 | app/markets/australia/page.tsx | 90/100 | 1292 | 1 | 12 | 0 | 0 |
-| app/markets/united-kingdom/page.tsx | 90/100 | 1290 | 1 | 12 | 0 | 0 |
+| app/markets/united-kingdom/page.tsx | 90/100 | 1588 | 1 | 14 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 652 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/page.tsx | 90/100 | 1340 | 1 | 13 | 0 | 0 |
@@ -74,17 +74,17 @@
 | app/services/audit-support/united-kingdom/page.tsx | 90/100 | 911 | 1 | 11 | 0 | 0 |
 | app/services/audit-support/united-states/page.tsx | 90/100 | 687 | 1 | 11 | 0 | 0 |
 | app/services/bookkeeping/australia/page.tsx | 90/100 | 893 | 1 | 12 | 0 | 0 |
-| app/services/bookkeeping/united-kingdom/page.tsx | 90/100 | 893 | 1 | 12 | 0 | 0 |
+| app/services/bookkeeping/united-kingdom/page.tsx | 90/100 | 897 | 1 | 12 | 0 | 0 |
 | app/services/bookkeeping/united-states/page.tsx | 90/100 | 981 | 1 | 12 | 0 | 0 |
 | app/services/page.tsx | 90/100 | 1070 | 1 | 10 | 0 | 0 |
 | app/services/payroll/australia/page.tsx | 90/100 | 724 | 1 | 12 | 0 | 0 |
-| app/services/payroll/united-kingdom/page.tsx | 90/100 | 758 | 1 | 12 | 0 | 0 |
+| app/services/payroll/united-kingdom/page.tsx | 90/100 | 764 | 1 | 12 | 0 | 0 |
 | app/services/payroll/united-states/page.tsx | 90/100 | 762 | 1 | 11 | 0 | 0 |
 | app/services/tax-preparation/australia/page.tsx | 90/100 | 699 | 1 | 12 | 0 | 0 |
-| app/services/tax-preparation/united-kingdom/page.tsx | 90/100 | 706 | 1 | 11 | 0 | 0 |
+| app/services/tax-preparation/united-kingdom/page.tsx | 90/100 | 712 | 1 | 11 | 0 | 0 |
 | app/services/tax-preparation/united-states/page.tsx | 90/100 | 735 | 1 | 12 | 0 | 0 |
 | app/solutions/back-office-support/page.tsx | 90/100 | 631 | 1 | 6 | 0 | 0 |
-| app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 619 | 1 | 6 | 0 | 0 |
+| app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 927 | 1 | 8 | 0 | 0 |
 | app/solutions/offshore-accounting-support/page.tsx | 90/100 | 653 | 1 | 6 | 0 | 0 |
 | app/solutions/staff-augmentation/page.tsx | 90/100 | 1001 | 1 | 8 | 0 | 0 |
 | app/technology/cch/page.tsx | 90/100 | 518 | 1 | 6 | 0 | 0 |
@@ -95,7 +95,7 @@
 | app/technology/quickbooks/page.tsx | 90/100 | 640 | 1 | 6 | 0 | 0 |
 | app/technology/sage/page.tsx | 90/100 | 592 | 1 | 6 | 0 | 0 |
 | app/technology/xero/page.tsx | 90/100 | 600 | 1 | 6 | 0 | 0 |
-| app/page.tsx | 100/100 | 958 | 1 | 5 | 0 | 0 |
+| app/page.tsx | 100/100 | 1167 | 1 | 9 | 0 | 0 |
 
 ## Priority queue
 
