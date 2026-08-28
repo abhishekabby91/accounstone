@@ -28,7 +28,6 @@ const supportAreas = [
   { name: 'Accounts payable', href: '/services/accounts-payable/united-states' },
   { name: 'Accounts receivable', href: '/services/accounts-receivable/united-states' },
   { name: 'Payroll support', href: '/services/payroll/united-states' },
-  { name: 'Financial reporting', href: '/services/accounting/united-states' },
   { name: 'Back-office accounting activities', href: '/solutions/back-office-support' },
   { name: 'Accounting staff augmentation', href: '/solutions/staff-augmentation' },
 ];

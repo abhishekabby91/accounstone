@@ -16,7 +16,7 @@ export const metadata: Metadata = generateMetadata({
 const faqs = [
   {
     question: 'What is included in back office support?',
-    answer: 'Recurring back-office accounting operations: bookkeeping, payroll processing, accounts payable/receivable, financial reporting, and account maintenance.',
+    answer: 'Recurring back-office accounting operations: bookkeeping, payroll processing, accounts payable/receivable, month-end close, and account maintenance.',
   },
   {
     question: 'Can you work inside our existing systems?',
@@ -82,7 +82,7 @@ export default function BackOfficeSupportPage() {
                   'Payroll processing and payroll tax withholding',
                   'Accounts payable and receivable',
                   'Account maintenance and reconciliations',
-                  'Financial reporting and trend summaries',
+                  'Month-end reporting and trend summaries',
                   'Documented, repeatable close process',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -104,7 +104,7 @@ export default function BackOfficeSupportPage() {
                   'Customer billing and collections',
                   'Payroll reporting and recordkeeping',
                   'Account reconciliations and maintenance',
-                  'Financial reporting and trend summaries',
+                  'Month-end reporting and trend summaries',
                 ].map((item, i) => (
                   <p key={i} className="flex items-start gap-2">
                     <Check className="w-4 h-4 mt-0.5 shrink-0" aria-hidden="true" />
