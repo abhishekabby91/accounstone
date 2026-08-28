@@ -65,7 +65,8 @@ export default function AccountingUKPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero subtitle="Accounting Services for UK Businesses" title="Outsourced Accounting Services for UK Businesses" description="Reconciliations, month-end close, and year-end accounts preparation structured for your registered practitioner to review." cta={{ text: 'Talk Through Your Close Process', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <PremiumHero
+        region="united-kingdom" subtitle="Accounting Services for UK Businesses" title="Outsourced Accounting Services for UK Businesses" description="Reconciliations, month-end close, and year-end accounts preparation structured for your registered practitioner to review." cta={{ text: 'Talk Through Your Close Process', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

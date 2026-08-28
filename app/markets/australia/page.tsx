@@ -90,6 +90,7 @@ export default function AustraliaMarketPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
+        region="australia"
         subtitle="Australia"
         title="Accounting in Australia"
         description="How Australian accounting works in practice — the BAS cycle, GST coding, PAYG, Single Touch Payroll, superannuation and the 30 June crunch."

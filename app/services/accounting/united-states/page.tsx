@@ -64,7 +64,8 @@ export default function AccountingUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero subtitle="Accounting Services for U.S. Businesses" title="Outsourced Accounting Services for U.S. Businesses" description="GAAP-based reconciliations, month-end close, and management reporting your CPA can review with confidence." cta={{ text: 'Talk Through Your Close Process', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <PremiumHero
+        region="united-states" subtitle="Accounting Services for U.S. Businesses" title="Outsourced Accounting Services for U.S. Businesses" description="GAAP-based reconciliations, month-end close, and management reporting your CPA can review with confidence." cta={{ text: 'Talk Through Your Close Process', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

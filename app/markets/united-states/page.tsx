@@ -90,6 +90,7 @@ export default function USMarketPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
+        region="united-states"
         subtitle="United States"
         title="Accounting in the United States"
         description="How U.S. accounting works in practice — the federal and state split, entity structures, GAAP, payroll and sales tax — and where outside capacity actually helps."

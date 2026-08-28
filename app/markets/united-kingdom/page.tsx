@@ -124,6 +124,7 @@ export default function UKMarketPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
+        region="united-kingdom"
         subtitle="For UK accountancy practices"
         title="Your Practice’s Offshore Accounting Team"
         description="Bookkeeping, year-end accounts and tax preparation, prepared to your templates. You review, you advise, you file — and you keep the client."

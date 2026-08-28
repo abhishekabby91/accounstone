@@ -148,6 +148,7 @@ export const regions = [
     name: 'United States',
     adjective: 'U.S.',
     flag: '🇺🇸',
+    heroAnchors: ['IRS', 'U.S. GAAP', 'Federal + state', 'W-2 / 1099', 'Sales tax nexus'],
     intro:
       'U.S. engagements are built around the month-end close and the recurring compliance work that surrounds it. Records are kept to U.S. GAAP conventions, payroll accounting accommodates federal and state withholding, and tax work stops at prepared returns and workpapers - the filing decision stays with your CPA or EA.',
   },
@@ -156,6 +157,7 @@ export const regions = [
     name: 'United Kingdom',
     adjective: 'UK',
     flag: '🇬🇧',
+    heroAnchors: ['HMRC', 'VAT & MTD', 'PAYE / RTI', 'Corporation Tax', 'Companies House', 'FRS 102'],
     intro:
       'UK engagements run on two clocks: the recurring VAT cycle and the year-end accounts deadline. Records are prepared under FRS 102 conventions and kept in a state that supports both. HMRC and Companies House submission stays with your registered practitioner - we do not hold portal credentials.',
   },
@@ -164,6 +166,7 @@ export const regions = [
     name: 'Australia',
     adjective: 'Australian',
     flag: '🇦🇺',
+    heroAnchors: ['ATO', 'GST & BAS', 'PAYG', 'Single Touch Payroll', 'Super guarantee', 'AASB'],
     intro:
       'Australian engagements are paced by the BAS cycle and the 30 June year end. GST coding is checked as part of the close rather than reconstructed at lodgment, and payroll accounting accounts for PAYG and superannuation guarantee. Lodgment stays with your registered BAS or tax agent.',
   },

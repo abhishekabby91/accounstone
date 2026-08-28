@@ -66,7 +66,8 @@ export default function AccountsReceivableAUPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero subtitle="Accounts Receivable for Australian Businesses" title="Outsourced Accounts Receivable for Australian Businesses" description="Invoicing with correct GST, payment application, aging review, and follow-up inside Xero or MYOB." cta={{ text: 'Talk Through Your AR Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <PremiumHero
+        region="australia" subtitle="Accounts Receivable for Australian Businesses" title="Outsourced Accounts Receivable for Australian Businesses" description="Invoicing with correct GST, payment application, aging review, and follow-up inside Xero or MYOB." cta={{ text: 'Talk Through Your AR Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

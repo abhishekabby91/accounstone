@@ -69,7 +69,8 @@ export default function PayrollAUPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero subtitle="Payroll for Australian Businesses" title="Outsourced Payroll Processing for Australian Businesses" description="STP Phase 2 reporting data, superannuation, and PAYG withholding inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <PremiumHero
+        region="australia" subtitle="Payroll for Australian Businesses" title="Outsourced Payroll Processing for Australian Businesses" description="STP Phase 2 reporting data, superannuation, and PAYG withholding inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
