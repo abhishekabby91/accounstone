@@ -1,5 +1,42 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (contact form: submit from the browser, because Cloudflare)
+
+The form now sends the enquiry and shows the result on the page. No redirect,
+no mail client, unless the send genuinely fails.
+
+**Root cause.** The server-side design could not have worked. Web3Forms sits
+behind Cloudflare, which answers a server-side call with a JS challenge. Every
+submission failed as `Web3Forms rejected submission 403 null` - which reads as a
+rejected key and is not one. Capturing the response body showed Cloudflare's
+`Just a moment...` interstitial: the request never reached Web3Forms. A probe
+with a *deliberately invalid* key got the identical page, proving the key was
+never involved. Browser `User-Agent`, `Origin` and `Referer` headers did not
+help and cannot - what is fingerprinted is the TLS handshake.
+
+**The fix.** The browser submits, which clears the challenge, and fetches the
+key from `/api/contact/key` at submit time. The key is therefore public - which
+is how Web3Forms is designed, their docs put it in client HTML - but it still
+never enters this public repo or the static bundle, and rotating it in Vercel
+takes effect without a redeploy. `NEXT_PUBLIC_` would have lost that.
+
+`app/api/contact/route.ts` is now diagnosis only, kept because the Hobby plan
+holds runtime logs for one hour and a failed submission otherwise leaves no
+trace: `GET /api/contact` reports configuration, `?probe=1` distinguishes a WAF
+block from a bad key and sends no mail.
+
+Verified in a browser against a stubbed Web3Forms, both paths: on success the
+page stays put, the form clears and confirms; on failure the page stays put,
+every field is preserved and an email is *offered* as a button. The full payload
+was checked on the wire - name, email, company, phone, service interest, message
+and the honeypot.
+
+**Outstanding for the owner:** turn on domain restriction for the key in the
+Web3Forms dashboard. That is the control that makes a public key safe, and it
+cannot be set from the repo.
+
+**URL changed:** No. **Metadata changed:** No. **Content changed:** No.
+
 ## 2026-08-28 (contact form: diagnose why it falls back to the mail client)
 
 The owner reported the form behaving as a mailto link: fill it in, press send,

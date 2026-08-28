@@ -12,15 +12,10 @@ export default function ContactPage() {
   // message without making them retype it.
   const [unsent, setUnsent] = useState<FormData | null>(null);
 
-  // Posts to /api/contact, which forwards to Web3Forms server-side so the
-  // access key never reaches the browser. If that route is unavailable - most
-  // likely because WEB3FORMS_ACCESS_KEY is not set - we offer to hand the
-  // message to the visitor's mail client instead.
-  //
-  // Offer, not perform. This used to redirect on its own the moment a send
-  // failed, which is why the form read as a mailto link dressed up as a form:
-  // you filled it in, pressed send, and your mail client opened with homework.
-  // Now the visitor is told what happened and chooses.
+  // The visitor stays on this page: the form submits, and they see the result
+  // here. The email fallback below is only offered if the send genuinely fails,
+  // and only as a button they can choose - it used to fire on its own, which is
+  // what made the form read as a mailto link in disguise.
   const openMailClient = (data: FormData) => {
     const get = (k: string) => (data.get(k) as string) || '';
     const body = [
@@ -49,27 +44,54 @@ export default function ContactPage() {
     setStatus('submitting');
     setErrorMessage('');
 
+    const get = (k: string) => ((data.get(k) as string) || '').trim();
+
     try {
-      const res = await fetch('/api/contact', { method: 'POST', body: data });
-      const result = (await res.json().catch(() => null)) as { ok?: boolean; reason?: string; message?: string } | null;
+      // The key comes from the server at submit time rather than being baked
+      // into the bundle, so it stays out of this public repository and can be
+      // rotated in Vercel without a redeploy.
+      const keyRes = await fetch('/api/contact/key', { cache: 'no-store' });
+      const keyJson = (await keyRes.json().catch(() => null)) as { accessKey?: string } | null;
 
-      if (res.ok && result?.ok) {
-        form.reset();
-        setStatus('sent');
-        return;
-      }
-
-      // Not configured, or the provider is down: offer the mail client rather
-      // than showing a dead end.
-      if (res.status === 503 || res.status === 502) {
+      if (!keyRes.ok || !keyJson?.accessKey) {
         setUnsent(data);
         setStatus('error');
         setErrorMessage('mailto');
         return;
       }
 
+      // Submitted from the browser, not the server. Web3Forms is behind
+      // Cloudflare, which serves a JS challenge to server-side callers - a real
+      // browser clears it, a serverless function never can.
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: keyJson.accessKey,
+          subject: `Consultation request from ${get('name')}`,
+          from_name: 'Accounstone website',
+          name: get('name'),
+          email: get('email'),
+          message: get('message'),
+          ...(get('company') && { company: get('company') }),
+          ...(get('phone') && { phone: get('phone') }),
+          ...(get('service') && { service_interest: get('service') }),
+          // Web3Forms discards a submission that fills this. People cannot see
+          // the field; bots fill everything.
+          botcheck: get('botcheck'),
+        }),
+      });
+      const result = (await res.json().catch(() => null)) as { success?: boolean } | null;
+
+      if (res.ok && result?.success) {
+        form.reset();
+        setStatus('sent');
+        return;
+      }
+
+      setUnsent(data);
       setStatus('error');
-      setErrorMessage(result?.message || 'Something went wrong. Please try again.');
+      setErrorMessage('mailto');
     } catch {
       setUnsent(data);
       setStatus('error');

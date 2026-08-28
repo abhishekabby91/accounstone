@@ -208,28 +208,54 @@ against a dark browser tab bar on transparency.
 
 ## Contact form
 
-`/contact` posts to `app/api/contact/route.ts`, which forwards to Web3Forms
-**server-side**. Web3Forms access keys are public by design and their docs put
-them in client HTML, but this repo is public, so the key is not committed - it
-lives only in the Vercel environment and never reaches the client bundle.
+**`/contact` submits from the browser, and it has to. Do not move it back to
+the server.** Web3Forms sits behind Cloudflare, which serves a JS challenge to
+any server-side caller. The first design forwarded through
+`app/api/contact/route.ts` to keep the key off the client, and every submission
+failed with:
 
-Required: `WEB3FORMS_ACCESS_KEY` in Vercel (Production + Preview). **No
-`NEXT_PUBLIC_` prefix** - that would ship it to the browser and defeat the
-point. Adding or changing it needs a redeploy; Vercel deployments are immutable
-and will not pick up a new variable on their own.
+```
+Web3Forms rejected submission 403 null
+```
 
-While it is unset the route returns 503 and the form falls back to opening the
-visitor's mail client - the behaviour the site had before - so a missing key
-degrades rather than breaks. Same fallback on 502 if Web3Forms is unreachable.
+which reads as a rejected key and is not one. The body was Cloudflare's
+`Just a moment...` interstitial - the request never reached Web3Forms at all. A
+browser `User-Agent`, `Origin` and `Referer` did not help and cannot: what is
+fingerprinted is the TLS handshake. A real browser clears the challenge; a
+serverless function never will.
 
-The route validates name/email/message, caps field lengths, and carries a
-honeypot (`botcheck`) that bots fill and people cannot see. Provider error text
-is logged, never shown, since it can carry account detail.
+So the key reaches the browser. That is how Web3Forms is designed to be used -
+keys are public by construction and their docs put them in client HTML. What
+`app/api/contact/key/route.ts` buys over hardcoding one is that the key still
+never enters this public repo or the static bundle: it is read from
+`WEB3FORMS_ACCESS_KEY` at request time, so rotating it in Vercel takes effect
+without a redeploy. **No `NEXT_PUBLIC_` prefix** - that would bake it into the
+bundle and lose that. The defence against a scraped key is domain restriction in
+the Web3Forms dashboard, not secrecy.
 
-**Cannot be tested from a sandboxed session:** the egress proxy denies CONNECT
-to `api.web3forms.com` (403). Everything except the upstream call is testable
-locally; the upstream call can only be confirmed from production, via
-`get_runtime_logs` on the `/api/contact` invocation.
+The key is trimmed, unquoted and UUID-validated before use; a value pasted with
+a trailing newline used to fail silently upstream.
+
+`app/api/contact/route.ts` is now diagnosis only, and worth keeping because the
+Hobby plan holds runtime logs for **one hour** - after that a failed submission
+leaves no trace:
+
+- `GET /api/contact` - `configured` / `keyPresent` / `keyWellFormed`, never the key
+- `GET /api/contact?probe=1` - asks Web3Forms how it answers a deliberately
+  invalid key, so a WAF block and a bad key are distinguishable. Sends no mail.
+
+Both are readable from a sandboxed session via `web_fetch_vercel_url`, which
+reaches `www.accounstone.com` when `curl` cannot.
+
+On failure the form **offers** an email, it does not perform one. It used to
+navigate straight to `mailto:` the moment a send failed, which is what made it
+read as a mailto link dressed up as a form. Now the visitor keeps what they
+typed and chooses.
+
+**Testing from a sandboxed session:** the egress proxy denies CONNECT to
+`api.web3forms.com`, so intercept it. `page.route('https://api.web3forms.com/submit', ...)`
+in Playwright exercises the real submit path against a stubbed response and
+proves both the success and failure states without a live send.
 
 ## Environment constraints
 
