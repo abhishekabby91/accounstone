@@ -40,9 +40,16 @@ background, superseded on specifics by the files above.
   United States page, plus `/blog/outsourced-accounting-services` →
   `/resources/guides/outsourced-accounting-services-guide`.
 - **Markets are not in the primary navbar** but the pages are live, indexable and
-  linked from the footer and contextually. They serve broad regional intent
-  (HMRC/VAT/MTD, ATO/GST/BAS, IRS/GAAP/nexus) and measure 0.0% content overlap with
-  the commercial Service × Region pages. Keep that boundary.
+  linked from the footer and contextually. All three are now firm-facing rather
+  than educational: `/markets/{united-states,united-kingdom,australia}` each
+  address that market's accounting firms, with packages, the local compliance
+  calendar, a prepared/retained split and trust sections. They still measure
+  1.4-3.6% overlap against their own Service × Region pages, and 6.9-14.2%
+  against each other. Keep both boundaries.
+- **Each market uses that market's own word for its audience.** CPA firms in the
+  US, accountancy practices in the UK, accounting firms in Australia. Using the
+  wrong one is the fastest signal that copy was not written for the market — do
+  not let "CPA firm" leak into UK or AU copy, or "practice" into US copy.
 - Zero duplicate titles/canonicals, zero missing metadata, zero missing or duplicate
   `h1`, zero accidental `noindex`, zero broken internal links, zero orphan pages,
   zero internal links pointing at a redirect.

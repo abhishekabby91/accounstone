@@ -13,12 +13,12 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/bookkeeping/united-states';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Bookkeeping for U.S. Businesses',
-  description: 'U.S. bookkeeping support for businesses and CPA firms, including transaction processing, reconciliations, cleanup, month-end close and review-ready reporting.',
+  title: 'Outsourced Bookkeeping for U.S. CPA Firms',
+  description: 'Client bookkeeping and month-end close for U.S. CPA firms — transaction processing, reconciliations and state-level activity tracking, prepared to your templates for your review.',
   path: PATH,
 });
 
-const overview = 'Bookkeeping usually becomes a problem before anyone calls it a problem. Reconciliations start slipping, questions sit unanswered, month-end gets pushed back and the person responsible for the books spends more time catching up than reviewing what the numbers are saying. We support the recurring accounting work behind the books so your business or CPA can spend less time chasing unfinished items and more time reviewing the finished work.';
+const overview = 'Client bookkeeping is the work that expands to fill whatever time a firm has, and it is rarely the work that carries the fee. We take the recurring layer — posting, reconciling, chasing the receipt the bank feed cannot explain, keeping state-level activity visible as it posts — so your licensed people review rather than process. Your firm keeps the client conversation, the judgement calls and the sign-off.';
 
 const benefits = [
   'Transaction recording, categorization and account maintenance',
@@ -77,7 +77,7 @@ export default function BookkeepingUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        region="united-states" subtitle="Bookkeeping for U.S. Businesses" title="Outsourced Bookkeeping for U.S. Businesses" description="Practical bookkeeping support built around your existing systems, close calendar and review process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+        region="united-states" subtitle="For U.S. CPA firms" title="Bookkeeping Support for CPA Firms" description="Client bookkeeping, prepared to your chart of accounts and your close calendar — so your people review rather than process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

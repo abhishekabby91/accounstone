@@ -13,12 +13,12 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/tax-preparation/united-states';
 
 export const metadata: Metadata = genMeta({
-  title: 'U.S. Tax Preparation Support for CPA Firms',
-  description: 'Tax preparation support for U.S. businesses and CPA firms, covering return preparation, documentation, review handoff and tax-season capacity.',
+  title: 'Tax Return Preparation Support for U.S. CPA Firms',
+  description: '1040, 1065, 1120 and 1120-S preparation for CPA firms — workpapers, book-to-tax schedules and K-1 detail, prepared for your review and your signature.',
   path: PATH,
 });
 
-const overview = 'Tax season rarely feels difficult because one return is impossible. The pressure comes from having many returns at different stages, incomplete client information, recurring follow-ups and a limited number of people who can perform final review. We support defined preparation and documentation work so licensed tax professionals can spend more of their time on review, judgment and client questions.';
+const overview = 'Busy season is rarely hard because one return is hard. It is hard because forty are open at once, half are waiting on a client who has not replied, and the number of people who can sign is fixed. We prepare returns and the workpapers behind them so the constraint moves off preparation and back onto review — which is the only part that actually requires your licence.';
 
 const preparation = [
   'Return preparation assistance and supporting schedules',
@@ -57,7 +57,7 @@ export default function TaxPrepUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <PremiumHero
-        region="united-states" subtitle="Tax Preparation Support for U.S. Businesses" title="U.S. Tax Preparation Support" description="Preparation and documentation support that fits your tax-season workflow while your licensed professional keeps final review and filing control." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+        region="united-states" subtitle="For U.S. CPA firms" title="Tax Preparation Support for CPA Firms" description="Returns and workpapers prepared to your templates and your review notes. You review, you sign, you e-file." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="inline-block py-1.5 hover:text-primary">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="inline-block py-1.5 hover:text-primary">Services</Link></li><li aria-hidden="true">/</li><li>Tax Preparation</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United States</li></ol></nav>
 

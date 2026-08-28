@@ -35,9 +35,9 @@ export const regionalContext: Record<string, ContextEntry> = {
     eyebrow: 'If this sounds familiar',
     title: 'When the Books Are Done but the Reviewer Still Has Work',
     paragraphs: [
-      "The books are usually not the problem. The problem is what the reviewer finds when they open them: a suspense account that has been growing quietly, a run of card transactions coded to the wrong entity, an owner draw sitting in operating expenses. None of it is difficult. All of it takes a senior person an afternoon to unpick, and that afternoon repeats every month.",
+      "The books are usually not the problem. The problem is what your reviewer finds when they open them: a suspense account that has been growing quietly, a run of card transactions coded to the wrong entity, an owner draw sitting in operating expenses. None of it is difficult. All of it takes a senior person an afternoon to unpick, that afternoon repeats every month, and across a client base it is most of a full-time role nobody budgeted for.",
       "So the useful question is not whether bookkeeping can be handed over. It is whether the handoff leaves your reviewer with less work than before. That depends almost entirely on how exceptions are handled. When a transaction cannot be coded from the bank feed alone, the choice is to guess or to ask. Guessing produces a clean-looking ledger and a bad month-end. We ask, and we put the open items in one place instead of scattering them through the ledger.",
-      "For a business operating in more than one state, the same discipline decides whether the state picture is visible or has to be reconstructed later. Revenue and activity tracked by state as it is posted is a routine habit. Rebuilding it after twelve months is a project.",
+      "For any client operating in more than one state, the same discipline decides whether the state picture is visible or has to be reconstructed later. Revenue and activity tracked by state as it posts is a routine habit. Rebuilding it after twelve months is a project, and it lands on your firm rather than on the client who created it.",
     ],
     aside: {
       label: 'What we do when information is missing',
@@ -63,11 +63,11 @@ export const regionalContext: Record<string, ContextEntry> = {
     paragraphs: [
       "A mis-coded transaction in Australia does not announce itself. It sits in the ledger looking ordinary, flows into the BAS, and stays there until someone reconciles the GST control account against what was actually reported. If that only happens at year end, the reconciliation stops being a check and becomes an investigation, usually in the same weeks as everything else.",
       "The distinctions that cause it are not exotic. GST-free, input-taxed and taxable supplies each behave differently, and the line is not always obvious in food, health, education or financial supplies. A bank feed cannot tell you which applies, and it cannot tell you whether the supplier was registered for GST at all. Without the tax invoice, the credit is not supported no matter how the entry looks.",
-      "So the recurring work is worth doing properly at the point of entry rather than at the point of lodgment. Your registered BAS or tax agent keeps the lodgment and any question of treatment. What we keep current is the ledger they rely on, with GST control reconciled each period rather than once a year.",
+      "So the recurring work is worth doing properly at the point of entry rather than at the point of lodgment. The registered BAS or tax agent in your firm keeps the lodgment and any question of treatment. What we keep current is the ledger they rely on, with GST control reconciled each period rather than once a year — across the client base, not just the clients somebody got to.",
     ],
     aside: {
       label: 'On the 30 June concentration',
-      text: "Because almost every Australian entity shares a year end, there is no quiet quarter to catch up in. Work that is deferred does not get absorbed later - it lands in the same weeks as the June BAS and the year-end close.",
+      text: "Because almost every Australian entity shares a year end, your firm has no quiet quarter to catch up in. Work deferred on one client is not absorbed later - it lands in the same weeks as the June BAS and every other client's year-end close.",
     },
   },
 
@@ -119,7 +119,7 @@ export const regionalContext: Record<string, ContextEntry> = {
     paragraphs: [
       "Most firms that look for tax-season help are not short of expertise. They are short of hours in a ten-week window, and the work that consumes those hours is rarely the judgement. It is the organising: chasing the document that never arrived, building the workpaper, tying the schedule, and then doing it again for the next return.",
       "The risk in delegating that is well understood, because everyone has seen it go the other way. A return arrives prepared but with the workpapers assembled afterwards to justify what was entered, and the reviewer ends up reconstructing the preparation to trust it. That costs more than doing it in-house. What prevents it is building the workpapers as the work proceeds and stopping at anything that requires a decision rather than deciding it.",
-      "The boundary is not negotiable and we would rather be explicit about it. Signing, filing and representing a taxpayer before the IRS require a licence under Circular 230. Those stay with your CPA or enrolled agent. We prepare; they decide and sign.",
+      "The boundary is not negotiable and we would rather be explicit about it. Signing, filing and representing a taxpayer before the IRS require a licence under Circular 230. Those stay inside your firm, with the CPA or enrolled agent who holds it. We prepare; your people decide and sign.",
     ],
     aside: {
       label: 'What gets flagged rather than decided',
@@ -145,7 +145,7 @@ export const regionalContext: Record<string, ContextEntry> = {
     paragraphs: [
       "Because Australian entities overwhelmingly share a 30 June year end, return preparation does not spread across the calendar. It queues. Every client needs the same work in roughly the same months, and the constraint is how quickly files can be brought to a reviewable state rather than how quickly a return can be completed.",
       "What slows that queue is usually inherited. GST differences that were never resolved during the year now appear as unexplained variances. A trust needs its distribution resolutions before anything can be finalised, and they are not always where they should be. A company return waits on a reconciliation that the BAS cycle should have settled months earlier.",
-      "Your registered tax agent keeps the lodgment, and a registered BAS agent keeps activity statement lodgment - those are separately registered roles and neither is one we hold. We do not hold ATO portal access, and structuring or planning advice is outside what we offer. What we prepare is the workpaper set and the return behind their review.",
+      "The registered tax agent in your firm keeps the lodgment, and a registered BAS agent keeps activity statement lodgment - those are separately registered roles and neither is one we hold. We do not hold ATO portal access, and structuring or planning advice is outside what we offer. What we prepare is the workpaper set and the return behind your review.",
     ],
     aside: {
       label: 'Where the file usually stalls',
@@ -158,9 +158,9 @@ export const regionalContext: Record<string, ContextEntry> = {
     eyebrow: 'If this sounds familiar',
     title: 'When a Remote Hire Creates an Obligation Nobody Noticed',
     paragraphs: [
-      "Payroll errors are rarely arithmetic. The calculation is the part software handles well. What goes wrong is structural: an employee who moved states and now creates a withholding and unemployment registration obligation there, a contractor whose classification was never really examined, a tax identification number that has been missing since onboarding and will be missing again in January.",
+      "Payroll errors are rarely arithmetic. The calculation is the part software handles well. What goes wrong is structural: a client's employee who moved states and now creates a withholding and unemployment registration obligation there, a contractor whose classification was never really examined, a tax identification number that has been missing since onboarding and will be missing again in January.",
       "None of these announce themselves at the time. They surface later as a notice, and by then the correction is an amendment rather than an edit. The work that prevents them is unglamorous - keeping employee and vendor data current, checking the registration position when someone is hired, confirming the run before it goes out - and it is exactly the work that gets deferred when payroll is one person's fourth priority.",
-      "One thing we will not do regardless of how it is framed: hold the ability to move your money. We prepare the run and the funding file. Releasing payment stays with your authorised signatory. Any payroll arrangement that requires handing over banking control is worth questioning, whoever is offering it.",
+      "One thing we will not do regardless of how it is framed: hold the ability to move money. We prepare the run and the funding file. Releasing payment stays with your firm or the client's authorised signatory. Any payroll arrangement that requires handing over banking control is worth questioning, whoever is offering it.",
     ],
     aside: {
       label: 'What stays a decision',
@@ -186,7 +186,7 @@ export const regionalContext: Record<string, ContextEntry> = {
     paragraphs: [
       "Superannuation guarantee is calculated on ordinary time earnings, which is not the same as gross pay. Overtime is generally excluded; many allowances and loadings are not. Treating gross as the base is a common error and a quietly expensive one, because it does not fail loudly - it compounds every quarter until somebody checks the calculation rather than the total.",
       "The deadline compounds it further. Contributions have to reach the employee's fund by the quarterly cut-off, and late payment is treated differently from an ordinary late creditor. That makes both the accrual and the payment timing things to get right during the quarter rather than to reconstruct afterwards.",
-      "Single Touch Payroll removes the other margin. Every pay event is reported as it happens, and year-to-date figures are visible to the ATO and to employees continuously. There is no year-end adjustment to absorb an error into - which is why the check before the pay run is the one that matters.",
+      "Single Touch Payroll removes the other margin. Every pay event is reported as it happens, and year-to-date figures are visible to the ATO and to the client's employees continuously. There is no year-end adjustment to absorb an error into - which is why the check before the pay run is the one that matters, and why running payroll across many clients at once concentrates the risk in a single fortnightly window.",
     ],
     aside: {
       label: 'Outside our scope, deliberately',

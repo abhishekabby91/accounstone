@@ -1,5 +1,70 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (US and Australia repositioned for firms, matching the UK pass)
+
+The UK pass on 2026-08-28 moved that market from "outsourced accounting services
+for businesses" to "your practice's offshore accounting team". This applies the
+same move to the United States and Australia, at the owner's request.
+
+**Six surfaces per market, mirroring the UK:**
+
+- `/markets/united-states` rebuilt for **CPA firms**: three packages, the U.S.
+  filing calendar (31 January, 15 March, 15 April, quarterlies, extension
+  season, state by state), a prepared/retained split, and the six trust
+  sections — engagement start, internal review, what happens when a client's
+  records are incomplete, data security, turnaround, named contact.
+- `/markets/australia` rebuilt for **accounting firms**: BAS quarters, STP pay
+  events, superannuation cut-offs, 31 March FBT, year-end, the lodgment
+  program.
+- US and AU **bookkeeping, tax preparation and payroll** pages re-titled and
+  re-framed to address a firm rather than a business.
+- `lib/regional-context.ts` US and AU narrative for those three services moved
+  from "your business" to "your firm" and "a client's employee".
+- The homepage's UK-only section became a **three-region block**. Leaving the US
+  and Australia out of it read as though the offer applied to one market.
+
+**Terminology is per-market and deliberate.** CPA firms in the US, accountancy
+practices in the UK, accounting firms in Australia. Using the wrong word is the
+fastest way to signal the copy was not written for that market. Verified that no
+market page's copy carries another market's term.
+
+**The boundary leads rather than sits in a footer.** We do not hold an EFIN and
+do not sign or e-file (US); income tax lodgment belongs to a registered tax agent
+and BAS lodgment to a registered BAS agent, and we hold no ATO portal access
+(AU). For this audience that is the reason the arrangement is safe to enter, not
+a disclaimer.
+
+Measured after:
+
+```
+market pages vs each other      US-UK 14.2%, US-AU 7.5%, UK-AU 6.9%
+market vs own service pages     1.4% / 3.6% / 1.8%  (boundary intact)
+worst pair among the three      19.7% -> 7.5% after differentiating the AU page
+84 routes all 200, sitemap parity 84 <-> 84
+0 duplicate titles, canonicals or h1s; 0 broken links; 0 links to
+redirects; 0 orphans; 0 images missing alt
+Playwright 20 pages x 7 widths: no overflow, no sub-24px tap target
+```
+
+No pricing, client names, measured outcomes, SOC 2 claim, team size, FCA or ASIC
+reference anywhere in the new copy. No claim of IRS representation, ATO lodgment,
+tax planning, or software implementation.
+
+**One judgement call worth the owner's eye:** the Australian pages name Division
+7A loan schedules as something maintained. That is record-keeping, and the
+decisions are explicitly kept with the firm — but Division 7A is a
+tax-technical area, so if you would rather not name it at all, it is two lines
+to remove.
+
+**Pre-existing, not from this pass:** `/resources` and `/resources/guides`
+measure 28.3% against each other. Both list the same guides, so the overlap is
+structural rather than written. Worth a look if the Resources hub is ever
+revisited.
+
+**URL changed:** No. **Metadata changed:** 8 pages. **Content changed:**
+`/markets/united-states`, `/markets/australia`, six US/AU service pages, the
+homepage.
+
 ## 2026-08-28 (contact form: submit from the browser, because Cloudflare)
 
 The form now sends the enquiry and shows the result on the page. No redirect,

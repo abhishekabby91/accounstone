@@ -110,62 +110,80 @@ export default function HomePage() {
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, review structure, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
-      {/* UK practices are a distinct audience with a distinct problem, so they
-          get a named section rather than being folded into the general pitch.
-          Placed after the services grid so the general offer is established
-          first - this narrows, it does not replace. */}
+      {/* Accounting firms are a distinct audience from the businesses the
+          general pitch above addresses, so they get a named section rather
+          than being folded in. All three markets appear here: the UK version
+          shipped first, and leaving the US and Australia out read as though
+          the offer only applied to one of them. Placed after the services grid
+          so this narrows rather than replaces. */}
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <Reveal>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="h-px w-8 bg-secondary" />
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">For UK accountancy practices</span>
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">For accounting firms and practices</span>
               </div>
-              <h2 className="flex flex-wrap items-center gap-3 font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
-                <RegionFlag region="united-kingdom" className="w-8 h-[22px]" decorative />
-                Your Practice&rsquo;s Offshore Accounting Team
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+                Your Firm&rsquo;s Offshore Preparation Team
               </h2>
             </div>
           </Reveal>
           <Reveal delay={0.08}>
-            <div className="mt-5 space-y-4">
+            <div className="mt-5 space-y-4 max-w-3xl">
               <p className="text-base md:text-lg text-muted leading-relaxed">
-                If your practice is turning down work in January, or your qualified people are spending their week
+                If your firm is turning work away in its busiest weeks, or your qualified people are spending the day
                 posting transactions rather than reviewing them, the constraint is preparation capacity &mdash; not talent.
               </p>
               <p className="text-base md:text-lg text-muted leading-relaxed">
-                We handle bookkeeping across the VAT quarter, year-end accounts under FRS 102, CT600 and Self
-                Assessment workpapers, and payroll prepared for your submission. We prepare. You review, you advise,
-                you file &mdash; and you keep the client.
+                We prepare. You review, you advise, you sign &mdash; and you keep the client. We do not hold your client
+                relationships, we do not file, and we never take banking control.
               </p>
             </div>
           </Reveal>
-          <Reveal delay={0.12}>
-            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {[
-                { name: 'Bookkeeping Support', href: '/services/bookkeeping/united-kingdom' },
-                { name: 'Accounts & Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
-                { name: 'Dedicated Accounting Team', href: '/solutions/dedicated-accounting-teams' },
-              ].map((item) => (
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+            {[
+              {
+                region: 'united-states' as const,
+                label: 'United States',
+                who: 'CPA firms',
+                line: 'Close work, 1040 and entity return preparation, and the workpapers behind them \u2014 built for your review and your signature.',
+                href: '/markets/united-states',
+              },
+              {
+                region: 'united-kingdom' as const,
+                label: 'United Kingdom',
+                who: 'Accountancy practices',
+                line: 'Bookkeeping across the VAT quarter, year-end accounts under FRS 102, and CT600 and Self Assessment workpapers.',
+                href: '/markets/united-kingdom',
+              },
+              {
+                region: 'australia' as const,
+                label: 'Australia',
+                who: 'Accounting firms',
+                line: 'BAS-ready records through the quarter, year-end workpapers under AASB standards, and company and trust returns.',
+                href: '/markets/australia',
+              },
+            ].map((r, i) => (
+              <Reveal key={r.region} delay={Math.min(0.12 + i * 0.06, 0.3)}>
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className="group flex items-center justify-between gap-2 rounded-xl border border-border bg-white p-4 font-semibold text-primary transition-colors hover:border-primary/50"
+                  href={r.href}
+                  className="group flex h-full flex-col rounded-xl border border-border bg-white p-5 sm:p-6 transition-all duration-200 hover:border-primary/50 hover:shadow-[0_2px_16px_-4px_rgba(30,58,95,0.18)]"
                 >
-                  <span className="text-sm sm:text-base">{item.name}</span>
-                  <span aria-hidden="true" className="text-accent transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                  <span className="flex items-center gap-2.5">
+                    <RegionFlag region={r.region} className="w-7 h-[19px]" decorative />
+                    <span className="font-serif text-lg font-bold text-primary">{r.label}</span>
+                  </span>
+                  <span className="mt-1 text-xs font-bold uppercase tracking-wider text-accent">{r.who}</span>
+                  <span className="mt-3 flex-1 text-sm text-muted leading-relaxed">{r.line}</span>
+                  <span className="mt-4 text-sm font-semibold text-accent">
+                    How we work with them{' '}
+                    <span aria-hidden="true" className="inline-block transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                  </span>
                 </Link>
-              ))}
-            </div>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <p className="mt-5 text-sm text-muted">
-              <Link href="/markets/united-kingdom" className="inline-block py-1 font-medium text-primary underline underline-offset-4 hover:text-accent transition-colors">
-                How we work with UK practices
-              </Link>
-            </p>
-          </Reveal>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

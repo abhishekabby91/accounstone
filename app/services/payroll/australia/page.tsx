@@ -13,12 +13,12 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/payroll/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Processing for Australian Businesses',
-  description: 'Australian payroll processing support — STP Phase 2 reporting data, superannuation guarantee calculations, PAYG withholding, and award-rate payroll inside Xero or MYOB.',
+  title: 'Outsourced Payroll Support for Australian Accounting Firms',
+  description: 'Client payroll for Australian firms — STP Phase 2 data, superannuation guarantee and PAYG withholding, prepared and checked before your firm submits.',
   path: PATH,
 });
 
-const overview = "Australian payroll reports to the ATO with every pay run under STP Phase 2, and superannuation runs on its own payment schedule separate from the pay cycle itself. We handle the recurring gross-to-net calculation, STP data preparation, and superannuation tracking inside your existing payroll software, with your authorised reviewer confirming each run before it's submitted.";
+const overview = "Single Touch Payroll removed the quiet correction. Every pay event reports to the ATO on or before pay day, so an error is visible to the ATO and to the client’s employee the same afternoon — and superannuation runs on its own quarterly schedule, unrelated to the pay cycle, where a late payment is treated differently from every other late payment. For a firm running payroll across many clients that is a lot of small deadlines with no catch-up window. We prepare the gross-to-net calculation, the STP data and the superannuation tracking inside your existing software; your firm confirms and submits.";
 
 const auElements = [
   'Single Touch Payroll (STP) Phase 2 reporting data prepared each pay run',
@@ -70,7 +70,7 @@ export default function PayrollAUPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        region="australia" subtitle="Payroll for Australian Businesses" title="Outsourced Payroll Processing for Australian Businesses" description="STP Phase 2 reporting data, superannuation, and PAYG withholding inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+        region="australia" subtitle="For Australian accounting firms" title="Payroll Support for Australian Firms" description="Client payroll prepared and checked — STP Phase 2 data, superannuation guarantee and PAYG withholding — before your firm submits." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

@@ -12,12 +12,12 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/payroll/united-states';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Processing for U.S. Businesses',
-  description: 'U.S. payroll processing support — federal and state withholding, FICA, FUTA/SUTA, W-2/1099 record-keeping, and payroll GL reconciliation inside your existing payroll software.',
+  title: 'Outsourced Payroll Support for U.S. CPA Firms',
+  description: 'Client payroll for CPA firms — federal and state withholding, FICA, FUTA/SUTA and W-2 record-keeping, prepared and checked before your firm approves the run.',
   path: PATH,
 });
 
-const overview = 'U.S. payroll runs on a fixed calendar with real consequences for getting it wrong — a missed cutoff or a miscalculated withholding does not just create rework, it creates an employee who was paid incorrectly. We handle the recurring calculation, withholding, and record-keeping work each pay cycle, inside whatever payroll software you already use, with an internal reviewer confirming the run before it goes out.';
+const overview = 'Payroll is the service where a mistake is visible to somebody outside the engagement within a day. A miscalculated withholding does not create rework; it creates your client’s employee, paid wrong, asking your client why. Running it across many clients at once multiplies the exposure without multiplying the fee. We handle the recurring calculation, withholding and record-keeping each cycle inside the payroll software you already use, with a named internal reviewer confirming the run before it reaches your firm.';
 
 const uSElements = [
   'Federal income tax withholding (W-4 based)',
@@ -68,7 +68,7 @@ export default function PayrollUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <PremiumHero
-        region="united-states" subtitle="Payroll for U.S. Businesses" title="Outsourced Payroll Processing for U.S. Businesses" description="Federal and state withholding, FICA, FUTA/SUTA, and payroll record-keeping inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+        region="united-states" subtitle="For U.S. CPA firms" title="Payroll Support for CPA Firms" description="Client payroll runs prepared and checked — federal and state withholding, FICA and FUTA/SUTA — before your firm approves them." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
