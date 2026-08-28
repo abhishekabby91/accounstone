@@ -7,6 +7,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
+import RegionFlag from '@/components/region-flag';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/bookkeeping/united-kingdom';
@@ -82,8 +83,8 @@ export default function BookkeepingUKPage() {
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="font-serif text-xl md:text-2xl font-bold text-primary">Useful next steps</h2></></Reveal>
         <div className="mb-6 p-4 bg-input rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
           <span className="text-xs font-bold uppercase tracking-wide text-muted">Same service, other regions:</span>
-          <Link href="/services/bookkeeping/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇺🇸 United States</Link>
-          <Link href="/services/bookkeeping/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇦🇺 Australia</Link>
+          <Link href="/services/bookkeeping/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors"><RegionFlag region="united-states" decorative />United States</Link>
+          <Link href="/services/bookkeeping/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-border text-sm text-primary font-medium hover:bg-border transition-colors"><RegionFlag region="australia" decorative />Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-kingdom" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">UK Market Overview</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Xero</Link><Link href="/services/tax-preparation/united-kingdom" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">UK Tax Preparation</Link><Link href="/services/audit-support/united-kingdom" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">UK Audit Support</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link></div></div></section>
       <RegionalContext serviceSlug="bookkeeping" regionSlug="united-kingdom" />

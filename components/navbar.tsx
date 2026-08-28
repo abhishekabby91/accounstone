@@ -5,9 +5,10 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { solutions, technologies, industries, regions, serviceRegions } from '@/lib/data';
+import RegionFlag from '@/components/region-flag';
 
 interface NavChild { label: string; href: string; }
-interface NavGroup { label: string; items: NavChild[]; }
+interface NavGroup { label: string; region?: string; items: NavChild[]; }
 interface NavItem { label: string; href: string; children?: NavChild[]; groups?: NavGroup[]; }
 
 // Services are region-first: each column is a market, each row a service.
@@ -19,6 +20,7 @@ interface NavItem { label: string; href: string; children?: NavChild[]; groups?:
 // knowledge/company/scope-boundaries.md - not offered today.
 const regionServiceGroups: NavGroup[] = regions.map((region) => ({
   label: region.name,
+  region: region.slug,
   items: serviceRegions.map((s) => ({
     label: s.navLabel,
     href: `/services/${s.slug}/${region.slug}`,
@@ -127,9 +129,9 @@ export default function Navbar() {
                   <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </button>
                 {isOpen && hasGroups && (
-                  <div className="absolute left-0 top-full mt-2 w-[600px] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50" style={{ WebkitOverflowScrolling: 'touch' }}>
+                  <div className="absolute left-0 top-full mt-2 w-[680px] max-w-[calc(100vw-2rem)] max-h-[75vh] overflow-y-auto rounded-lg border-2 border-border bg-white shadow-xl p-5 z-50" style={{ WebkitOverflowScrolling: 'touch' }}>
                     <Link href={item.href} onClick={() => setOpenDropdown(null)} className="block px-3 py-2 mb-3 text-sm font-semibold text-primary hover:bg-input rounded-lg transition-colors border-b border-border">View All {item.label} →</Link>
-                    <div className="grid grid-cols-3 gap-6">{item.groups!.map((group) => <div key={group.label}><p className="text-xs font-bold uppercase tracking-wider text-muted mb-2 px-3">{group.label}</p><ul className="space-y-0.5">{group.items.map((child) => <li key={child.href}><Link href={child.href} onClick={() => setOpenDropdown(null)} className="block px-3 py-1.5 rounded-lg text-sm text-foreground hover:bg-input hover:text-primary transition-colors">{child.label}</Link></li>)}</ul></div>)}</div>
+                    <div className="grid grid-cols-3 gap-6">{item.groups!.map((group) => <div key={group.label}><p className="flex items-center gap-2 whitespace-nowrap text-xs font-bold uppercase tracking-wider text-muted mb-2 px-3">{group.region && <RegionFlag region={group.region} decorative />}{group.label}</p><ul className="space-y-0.5">{group.items.map((child) => <li key={child.href}><Link href={child.href} onClick={() => setOpenDropdown(null)} className="block px-3 py-1.5 rounded-lg text-sm text-foreground hover:bg-input hover:text-primary transition-colors">{child.label}</Link></li>)}</ul></div>)}</div>
                   </div>
                 )}
                 {isOpen && hasChildren && (
@@ -183,7 +185,7 @@ export default function Navbar() {
                   </div>
                   {isSectionOpen && hasGroups && (
                     <div className="pl-4 py-1 space-y-3 border-l-2 border-border ml-4 mb-1">
-                      {item.groups!.map((group) => <div key={group.label}><p className="text-xs font-bold uppercase tracking-wider text-muted mb-1 px-4">{group.label}</p>{group.items.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>)}
+                      {item.groups!.map((group) => <div key={group.label}><p className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-muted mb-1 px-4">{group.region && <RegionFlag region={group.region} decorative />}{group.label}</p>{group.items.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>)}
                     </div>
                   )}
                   {isSectionOpen && hasChildren && <div className="pl-4 py-1 space-y-1 border-l-2 border-border ml-4 mb-1">{item.children!.map((child) => <Link key={child.href} href={child.href} onClick={closeMobileMenu} className="flex items-center px-4 min-h-[44px] rounded-lg text-sm text-muted hover:bg-input hover:text-primary transition-colors active:bg-input">{child.label}</Link>)}</div>}

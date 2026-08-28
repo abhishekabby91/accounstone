@@ -7,6 +7,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
+import RegionFlag from '@/components/region-flag';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
@@ -36,8 +37,8 @@ export default function TaxPrepAUPage() {
     <section className="w-full py-16 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto text-center"><h2 className="font-serif text-3xl font-bold text-primary mb-5">Keep the Australian workflow connected</h2>
         <div className="mb-5 p-4 bg-white rounded-xl border border-border/70 flex flex-wrap items-center justify-center gap-3">
           <span className="text-xs font-bold uppercase tracking-wide text-muted">Same service, other regions:</span>
-          <Link href="/services/tax-preparation/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇺🇸 United States</Link>
-          <Link href="/services/tax-preparation/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">🇬🇧 United Kingdom</Link>
+          <Link href="/services/tax-preparation/united-states" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors"><RegionFlag region="united-states" decorative />United States</Link>
+          <Link href="/services/tax-preparation/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors"><RegionFlag region="united-kingdom" decorative />United Kingdom</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australia Market Overview</Link><Link href="/services/bookkeeping/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Bookkeeping</Link><Link href="/services/audit-support/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Audit Support</Link><Link href="/technology/xero" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Xero</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">MYOB</Link></div></div></section>
     <RegionalContext serviceSlug="tax-preparation" regionSlug="australia" />

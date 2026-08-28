@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import FAQSection from '@/components/faq-section';
 import CTABanner from '@/components/cta-banner';
 import Reveal from '@/components/reveal';
+import RegionFlag from '@/components/region-flag';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { regions, serviceRegions, industries, technologies } from '@/lib/data';
 
@@ -103,8 +104,14 @@ export default function ServicesPage() {
         <section key={region.slug} id={region.slug} className={`w-full py-10 md:py-14 px-6 md:px-8 ${ri % 2 === 0 ? 'bg-input' : 'bg-white'}`}>
           <div className="max-w-6xl mx-auto">
             <Reveal className="max-w-3xl space-y-4 mb-8"><>
-              <span className="text-sm font-semibold tracking-wide uppercase text-accent">{region.adjective} services</span>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">{region.name} Services</h2>
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">{region.adjective} services</span>
+              </div>
+              <h2 className="flex flex-wrap items-center gap-3 font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
+                <RegionFlag region={region.slug} className="w-8 h-[22px]" decorative />
+                {region.name} Services
+              </h2>
               <p className="text-base md:text-lg text-muted leading-relaxed">{region.intro}</p>
             </></Reveal>
 
