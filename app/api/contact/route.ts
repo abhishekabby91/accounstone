@@ -18,6 +18,40 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
+// Web3Forms access keys are UUIDs. Checking the shape catches the two ways the
+// value usually arrives wrong from a dashboard paste: surrounding quotes, and a
+// trailing newline.
+const KEY_SHAPE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function readKey(): { key: string; present: boolean; wellFormed: boolean } {
+  const raw = process.env.WEB3FORMS_ACCESS_KEY ?? '';
+  const key = raw.trim().replace(/^["']|["']$/g, '');
+  return { key, present: key.length > 0, wellFormed: KEY_SHAPE.test(key) };
+}
+
+/**
+ * Health check. Reports whether the form is wired up, and nothing else - never
+ * the key itself. Without this there is no way to tell an unset environment
+ * variable from a provider outage without submitting the live form and reading
+ * the runtime logs, and on a low-traffic site those logs age out first.
+ */
+export async function GET() {
+  const { present, wellFormed } = readKey();
+  return NextResponse.json(
+    {
+      configured: present && wellFormed,
+      keyPresent: present,
+      keyWellFormed: wellFormed,
+      note: present
+        ? wellFormed
+          ? 'The contact form is configured and will submit normally.'
+          : 'WEB3FORMS_ACCESS_KEY is set but is not a valid UUID - check for stray quotes or whitespace.'
+        : 'WEB3FORMS_ACCESS_KEY is not set on this deployment. The form falls back to the visitor mail client.',
+    },
+    { status: 200, headers: { 'Cache-Control': 'no-store' } },
+  );
+}
+
 const MAX = { name: 200, email: 320, company: 200, phone: 60, service: 120, message: 5000 };
 
 function clean(value: FormDataEntryValue | null, limit: number): string {
@@ -25,8 +59,8 @@ function clean(value: FormDataEntryValue | null, limit: number): string {
 }
 
 export async function POST(request: Request) {
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-  if (!accessKey) {
+  const { key: accessKey, present, wellFormed } = readKey();
+  if (!present || !wellFormed) {
     return NextResponse.json(
       { ok: false, reason: 'not_configured', message: 'The form service is not configured yet.' },
       { status: 503 },
@@ -92,8 +126,10 @@ export async function POST(request: Request) {
 
     if (!res.ok || !result?.success) {
       // Do not surface the provider's message to the visitor - it can contain
-      // account detail. Log it for us, return something plain to them.
-      console.error('Web3Forms rejected submission', res.status, result?.message);
+      // account detail. Log it for us, return something plain to them. This is
+      // the only record of why a submission failed, so log the status and the
+      // provider's own reason.
+      console.error('Web3Forms rejected submission', res.status, JSON.stringify(result));
       return NextResponse.json(
         { ok: false, reason: 'upstream', message: 'The message could not be sent just now.' },
         { status: 502 },

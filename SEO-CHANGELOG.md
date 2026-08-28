@@ -1,5 +1,37 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (contact form: diagnose why it falls back to the mail client)
+
+The owner reported the form behaving as a mailto link: fill it in, press send,
+and your mail client opens with the message as homework. That is the fallback
+path in `app/contact/page.tsx` firing, which means `/api/contact` returned 503
+(no access key) or 502 (Web3Forms refused). Vercel runtime logs held no
+`/api/contact` invocation at all in the last 24h, so they could not distinguish
+the two — on a site this new the logs age out before anyone submits.
+
+Three changes:
+
+1. **`GET /api/contact` is now a health check.** It reports `configured`,
+   `keyPresent` and `keyWellFormed` and never the key itself. Without it there
+   is no way to tell an unset environment variable from a provider outage
+   without submitting the live form and catching the log before it ages out.
+2. **The key is normalised and shape-checked.** `WEB3FORMS_ACCESS_KEY` is
+   trimmed and stripped of surrounding quotes before use, and validated as a
+   UUID. A value pasted from the Web3Forms dashboard with a trailing newline or
+   wrapping quotes now works instead of silently failing upstream. The failure
+   log also carries the provider's full response rather than one field of it.
+3. **The fallback offers, it no longer hijacks.** On 502/503 the page used to
+   navigate straight to `mailto:` — which is exactly the behaviour that read as
+   "this is not a real form". It now says the send failed, keeps what was typed,
+   and offers a *Send by email instead* button the visitor can choose.
+
+**Fixed while testing:** `message` was optional in the form and required by the
+API, so an empty message produced a 400 for a field the form never marked
+required. It is `required` now.
+
+**URL changed:** No. **Metadata changed:** No. **Content changed:** `/contact`
+error state.
+
 ## 2026-08-28 (About page rewrite; favicon un-cropped)
 
 ### About page

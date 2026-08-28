@@ -8,13 +8,19 @@ import { companyInfo, services } from '@/lib/data';
 export default function ContactPage() {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  // What the visitor typed, kept only so the fallback below can pre-fill a
+  // message without making them retype it.
+  const [unsent, setUnsent] = useState<FormData | null>(null);
 
   // Posts to /api/contact, which forwards to Web3Forms server-side so the
-  // access key never reaches the browser. If that route is unavailable -
-  // most likely because WEB3FORMS_ACCESS_KEY is not set yet - we fall back to
-  // opening the visitor's mail client with the message pre-filled, which is
-  // what this form did before. An unconfigured key degrades, it does not
-  // strand the visitor.
+  // access key never reaches the browser. If that route is unavailable - most
+  // likely because WEB3FORMS_ACCESS_KEY is not set - we offer to hand the
+  // message to the visitor's mail client instead.
+  //
+  // Offer, not perform. This used to redirect on its own the moment a send
+  // failed, which is why the form read as a mailto link dressed up as a form:
+  // you filled it in, pressed send, and your mail client opened with homework.
+  // Now the visitor is told what happened and chooses.
   const openMailClient = (data: FormData) => {
     const get = (k: string) => (data.get(k) as string) || '';
     const body = [
@@ -53,10 +59,10 @@ export default function ContactPage() {
         return;
       }
 
-      // Not configured, or the provider is down: hand the visitor to their
-      // mail client rather than showing a dead end.
+      // Not configured, or the provider is down: offer the mail client rather
+      // than showing a dead end.
       if (res.status === 503 || res.status === 502) {
-        openMailClient(data);
+        setUnsent(data);
         setStatus('error');
         setErrorMessage('mailto');
         return;
@@ -65,7 +71,7 @@ export default function ContactPage() {
       setStatus('error');
       setErrorMessage(result?.message || 'Something went wrong. Please try again.');
     } catch {
-      openMailClient(data);
+      setUnsent(data);
       setStatus('error');
       setErrorMessage('mailto');
     }
@@ -105,12 +111,26 @@ export default function ContactPage() {
               )}
 
               {status === 'error' && errorMessage === 'mailto' && (
-                <div role="status" className="p-4 rounded-lg bg-input border-2 border-border text-sm text-foreground">
-                  Your email client should have opened with the message ready to send. If it did not, email us
-                  directly at{' '}
-                  <a href={`mailto:${companyInfo.contact.email}`} className="inline-block py-1 font-semibold text-primary hover:underline">
-                    {companyInfo.contact.email}
-                  </a>.
+                <div role="alert" className="p-4 rounded-lg bg-input border-2 border-accent text-sm text-foreground space-y-3">
+                  <p>
+                    <strong className="font-semibold">We could not send that automatically.</strong> Nothing you typed
+                    has been lost &mdash; you can send it as an email instead, already filled in.
+                  </p>
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <button
+                      type="button"
+                      onClick={() => unsent && openMailClient(unsent)}
+                      className="inline-block py-2 px-4 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-colors"
+                    >
+                      Send by email instead
+                    </button>
+                    <span>
+                      or write to{' '}
+                      <a href={`mailto:${companyInfo.contact.email}`} className="inline-block py-1 font-semibold text-primary hover:underline">
+                        {companyInfo.contact.email}
+                      </a>
+                    </span>
+                  </div>
                 </div>
               )}
 
@@ -213,6 +233,7 @@ export default function ContactPage() {
                     name="message"
                     placeholder="Tell us about your needs..."
                     rows={4}
+                    required
                     className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input resize-none"
                   />
                 </div>
