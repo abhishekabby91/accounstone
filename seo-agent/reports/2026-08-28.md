@@ -28,7 +28,7 @@
 | app/contact/page.tsx | 85/100 | 846 | 1 | 0 | 0 | 0 |
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 390 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 382 | 1 | 1 | 0 | 0 |
-| app/about/page.tsx | 90/100 | 1760 | 1 | 23 | 0 | 0 |
+| app/about/page.tsx | 90/100 | 1754 | 1 | 22 | 0 | 0 |
 | app/blog/accounts-payable-outsourcing/page.tsx | 90/100 | 599 | 1 | 6 | 0 | 0 |
 | app/blog/accounts-receivable-management/page.tsx | 90/100 | 591 | 1 | 4 | 0 | 0 |
 | app/blog/audit-support-services/page.tsx | 90/100 | 716 | 1 | 6 | 0 | 0 |
@@ -44,11 +44,11 @@
 | app/industries/real-estate/page.tsx | 90/100 | 469 | 1 | 5 | 0 | 0 |
 | app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 901 | 1 | 6 | 0 | 0 |
 | app/industries/technology/page.tsx | 90/100 | 439 | 1 | 2 | 0 | 0 |
-| app/markets/australia/page.tsx | 90/100 | 1293 | 1 | 12 | 0 | 0 |
+| app/markets/australia/page.tsx | 90/100 | 1853 | 1 | 14 | 0 | 0 |
 | app/markets/united-kingdom/page.tsx | 90/100 | 1589 | 1 | 14 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 652 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 645 | 1 | 6 | 0 | 0 |
-| app/markets/united-states/page.tsx | 90/100 | 1341 | 1 | 13 | 0 | 0 |
+| app/markets/united-states/page.tsx | 90/100 | 1762 | 1 | 16 | 0 | 0 |
 | app/markets/united-states/texas/page.tsx | 90/100 | 649 | 1 | 6 | 0 | 0 |
 | app/resources/guides/choosing-an-engagement-model/page.tsx | 90/100 | 1103 | 1 | 10 | 0 | 0 |
 | app/resources/guides/client-accounting-services-cas-guide/page.tsx | 90/100 | 1106 | 1 | 3 | 0 | 0 |
@@ -73,16 +73,16 @@
 | app/services/audit-support/australia/page.tsx | 90/100 | 912 | 1 | 11 | 0 | 0 |
 | app/services/audit-support/united-kingdom/page.tsx | 90/100 | 912 | 1 | 11 | 0 | 0 |
 | app/services/audit-support/united-states/page.tsx | 90/100 | 688 | 1 | 11 | 0 | 0 |
-| app/services/bookkeeping/australia/page.tsx | 90/100 | 894 | 1 | 12 | 0 | 0 |
+| app/services/bookkeeping/australia/page.tsx | 90/100 | 901 | 1 | 12 | 0 | 0 |
 | app/services/bookkeeping/united-kingdom/page.tsx | 90/100 | 898 | 1 | 12 | 0 | 0 |
-| app/services/bookkeeping/united-states/page.tsx | 90/100 | 982 | 1 | 12 | 0 | 0 |
+| app/services/bookkeeping/united-states/page.tsx | 90/100 | 996 | 1 | 12 | 0 | 0 |
 | app/services/page.tsx | 90/100 | 1070 | 1 | 10 | 0 | 0 |
-| app/services/payroll/australia/page.tsx | 90/100 | 725 | 1 | 12 | 0 | 0 |
+| app/services/payroll/australia/page.tsx | 90/100 | 777 | 1 | 12 | 0 | 0 |
 | app/services/payroll/united-kingdom/page.tsx | 90/100 | 765 | 1 | 12 | 0 | 0 |
-| app/services/payroll/united-states/page.tsx | 90/100 | 763 | 1 | 11 | 0 | 0 |
-| app/services/tax-preparation/australia/page.tsx | 90/100 | 700 | 1 | 12 | 0 | 0 |
+| app/services/payroll/united-states/page.tsx | 90/100 | 785 | 1 | 11 | 0 | 0 |
+| app/services/tax-preparation/australia/page.tsx | 90/100 | 716 | 1 | 12 | 0 | 0 |
 | app/services/tax-preparation/united-kingdom/page.tsx | 90/100 | 713 | 1 | 11 | 0 | 0 |
-| app/services/tax-preparation/united-states/page.tsx | 90/100 | 736 | 1 | 12 | 0 | 0 |
+| app/services/tax-preparation/united-states/page.tsx | 90/100 | 749 | 1 | 12 | 0 | 0 |
 | app/solutions/back-office-support/page.tsx | 90/100 | 631 | 1 | 6 | 0 | 0 |
 | app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 927 | 1 | 8 | 0 | 0 |
 | app/solutions/offshore-accounting-support/page.tsx | 90/100 | 653 | 1 | 6 | 0 | 0 |
@@ -95,7 +95,7 @@
 | app/technology/quickbooks/page.tsx | 90/100 | 640 | 1 | 6 | 0 | 0 |
 | app/technology/sage/page.tsx | 90/100 | 592 | 1 | 6 | 0 | 0 |
 | app/technology/xero/page.tsx | 90/100 | 600 | 1 | 6 | 0 | 0 |
-| app/page.tsx | 100/100 | 1167 | 1 | 9 | 0 | 0 |
+| app/page.tsx | 100/100 | 1269 | 1 | 8 | 0 | 0 |
 
 ## Priority queue
 
