@@ -29,27 +29,99 @@ function readKey(): { key: string; present: boolean; wellFormed: boolean } {
   return { key, present: key.length > 0, wellFormed: KEY_SHAPE.test(key) };
 }
 
+const SITE = 'https://www.accounstone.com';
+
+/**
+ * Web3Forms sits behind an edge WAF that will 403 a request that does not look
+ * like it came from a browser. A bare server-side fetch sends no User-Agent and
+ * no Origin, and gets blocked before their API ever sees the key - the failure
+ * looks identical to a bad key unless you read the response body, which is HTML
+ * rather than their usual JSON. These headers are what the block was about.
+ */
+async function submitToWeb3Forms(payload: Record<string, string>) {
+  const res = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+      Origin: SITE,
+      Referer: `${SITE}/contact`,
+    },
+    body: JSON.stringify(payload),
+    signal: AbortSignal.timeout(10_000),
+  });
+  const text = await res.text();
+  let json: { success?: boolean; message?: string } | null = null;
+  try {
+    json = JSON.parse(text);
+  } catch {
+    // Not JSON - almost always a WAF interstitial rather than their API.
+  }
+  return { res, text, json };
+}
+
 /**
  * Health check. Reports whether the form is wired up, and nothing else - never
  * the key itself. Without this there is no way to tell an unset environment
  * variable from a provider outage without submitting the live form and reading
  * the runtime logs, and on a low-traffic site those logs age out first.
+ *
+ * `?probe=1` additionally asks Web3Forms how it answers a *deliberately invalid*
+ * key. That distinguishes the two failures without sending anyone a test email:
+ * a JSON refusal means our request reaches their API and the real key is at
+ * fault; a non-JSON 403 means an edge WAF is blocking us before it gets there.
  */
-export async function GET() {
+export async function GET(request: Request) {
   const { present, wellFormed } = readKey();
-  return NextResponse.json(
-    {
-      configured: present && wellFormed,
-      keyPresent: present,
-      keyWellFormed: wellFormed,
-      note: present
-        ? wellFormed
-          ? 'The contact form is configured and will submit normally.'
-          : 'WEB3FORMS_ACCESS_KEY is set but is not a valid UUID - check for stray quotes or whitespace.'
-        : 'WEB3FORMS_ACCESS_KEY is not set on this deployment. The form falls back to the visitor mail client.',
-    },
-    { status: 200, headers: { 'Cache-Control': 'no-store' } },
-  );
+  const base = {
+    configured: present && wellFormed,
+    keyPresent: present,
+    keyWellFormed: wellFormed,
+    note: present
+      ? wellFormed
+        ? 'The contact form is configured and will submit normally.'
+        : 'WEB3FORMS_ACCESS_KEY is set but is not a valid UUID - check for stray quotes or whitespace.'
+      : 'WEB3FORMS_ACCESS_KEY is not set on this deployment. The form falls back to the visitor mail client.',
+  };
+
+  if (new URL(request.url).searchParams.get('probe') !== '1') {
+    return NextResponse.json(base, { status: 200, headers: { 'Cache-Control': 'no-store' } });
+  }
+
+  try {
+    const { res, text, json } = await submitToWeb3Forms({
+      // A syntactically valid key that is not anyone's. Web3Forms refuses it
+      // without sending mail, so the probe has no side effect.
+      access_key: '00000000-0000-4000-8000-000000000000',
+      subject: 'connectivity probe',
+      name: 'probe',
+      email: 'probe@example.com',
+      message: 'probe',
+    });
+    return NextResponse.json(
+      {
+        ...base,
+        probe: {
+          upstreamStatus: res.status,
+          upstreamIsJson: json !== null,
+          upstreamMessage: json?.message ?? null,
+          bodySnippet: text.slice(0, 300),
+          verdict:
+            json !== null
+              ? 'Reached the Web3Forms API. Connectivity is fine; a failure now points at the access key itself.'
+              : 'Did not reach the Web3Forms API - an edge WAF answered instead. The access key is not the problem.',
+        },
+      },
+      { status: 200, headers: { 'Cache-Control': 'no-store' } },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      { ...base, probe: { error: String(error), verdict: 'Could not reach api.web3forms.com at all.' } },
+      { status: 200, headers: { 'Cache-Control': 'no-store' } },
+    );
+  }
 }
 
 const MAX = { name: 200, email: 320, company: 200, phone: 60, service: 120, message: 5000 };
@@ -116,20 +188,14 @@ export async function POST(request: Request) {
   }
 
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(body),
-      signal: AbortSignal.timeout(10_000),
-    });
-    const result = (await res.json().catch(() => null)) as { success?: boolean; message?: string } | null;
+    const { res, text, json: result } = await submitToWeb3Forms(body);
 
     if (!res.ok || !result?.success) {
       // Do not surface the provider's message to the visitor - it can contain
-      // account detail. Log it for us, return something plain to them. This is
-      // the only record of why a submission failed, so log the status and the
-      // provider's own reason.
-      console.error('Web3Forms rejected submission', res.status, JSON.stringify(result));
+      // account detail. Log it for us, return something plain to them. Log the
+      // raw body too: a non-JSON 403 here is a WAF interstitial, which reads as
+      // a rejected key unless you can see what actually came back.
+      console.error('Web3Forms rejected submission', res.status, 'json=', JSON.stringify(result), 'body=', text.slice(0, 300));
       return NextResponse.json(
         { ok: false, reason: 'upstream', message: 'The message could not be sent just now.' },
         { status: 502 },
