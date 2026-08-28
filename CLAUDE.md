@@ -185,12 +185,18 @@ Generated from the mark in `public/accounstone-logo-horizontal.png` (the A/S
 monogram, cropped and squared) - not from the full lockup. The wordmark is
 illegible below about 100px, so it never belongs in a favicon.
 
-**The set is tiered, deliberately.** At 16px the two thin outer frames collapse
-into noise and the monogram becomes unreadable, so 16 and 32 use a tighter crop
-(24% inset, monogram only) while 48px and up keep the full mark with its frames.
-`favicon.ico` carries all three internally, built by hand - Pillow's ICO writer
-downscales a single image to every size and would put the frame-heavy version at
-16px.
+**Every size shows the whole mark. Do not crop it tighter at small sizes.**
+An earlier set used a tighter 24% inset for 16 and 32 on the theory that the two
+outer frames collapse into noise below 32px. What it actually did was clip the S
+and the foot of the A, and that clipped version is what Google served in search
+results - the owner spotted it there, not in a browser tab. A softer 16px is the
+right trade: the mark stays whole and recognisable, and everything above 32px is
+sharp. One source square (`MARK` = the ink box x 48-284, y 43-253 of the lockup,
+centred at 84% of a white square) renders every PNG and all three ICO entries.
+
+`favicon.ico` is still built by hand with `struct` - Pillow's ICO writer accepts
+only a single image and re-derives the other sizes from it, which loses control
+over what each entry contains.
 
 Files: `favicon.ico` (16/32/48), `icon-16x16.png`, `icon-32x32.png`,
 `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` (180),

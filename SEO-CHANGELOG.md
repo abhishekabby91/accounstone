@@ -1,5 +1,66 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (About page rewrite; favicon un-cropped)
+
+### About page
+
+`/about` rewritten from copy supplied by the owner: an opening on milestones,
+support areas, people and shared knowledge, technology, four engagement models,
+a transparency section, data security and working environments, reach across the
+three markets, the founder story, and a closing "More Milestones. More
+Possibilities."
+
+Two editorial decisions on top of the supplied copy:
+
+- The "areas we may support" and "technology we may work with" lists render as
+  real internal links (to `/services/*/united-states`, `/solutions/*`,
+  `/technology/*`) rather than plain text, so the page contributes to the link
+  graph instead of being a dead end. "Working Across Borders" links the three
+  `/markets/*` pages with their flags.
+- The page's hedged register ("may", "can", "is being built") is the owner's own
+  and was kept. It reads carefully rather than confidently, which is the correct
+  side to err on given `scope-boundaries.md`.
+
+Title was shipping as `About Accounstone | Accounstone` — the layout template
+appends the brand to a title that already carried it. Now absolute:
+`About Accounstone | Outsourced Accounting Support Team`.
+
+Measured: 1,290 words, one `h1`, canonical present, Organization + AboutPage +
+BreadcrumbList schema intact, 0.2% worst 5-gram overlap against all 83 other
+routes, no banned phrase or scope-boundary claim.
+
+**Two items for the owner, not resolved here:**
+
+1. The support list includes **financial reporting**.
+   `knowledge/company/identity.md` still records that as "Needs decision"
+   (conflicts with scope boundary §1 as a *service-line name*). It is published
+   here as a support area linking to `/services/accounting/united-states`, not as
+   a named service line, which stays inside the boundary — but `identity.md` is
+   human-edit-only and still says undecided.
+2. The **Microsoft Azure virtual desktop** claim is an owner assertion about
+   Accounstone's own infrastructure. Nothing in `knowledge/` corroborates it; it
+   is published on the owner's authority.
+
+### Favicon
+
+The icon set had been tiered: 16 and 32 used a tighter 24% inset crop on the
+theory that the mark's two outer frames collapse into noise at small sizes. What
+it actually did was clip the S and the foot of the A — and that clipped version
+is what Google was serving in search results.
+
+Every size is now rendered from one uncropped square: the mark's ink box
+(x 48-284, y 43-253 of `accounstone-logo-horizontal.png`) centred at 84% of a
+white square. `favicon.ico` (16/32/48), `icon-16x16`, `icon-32x32`,
+`apple-touch-icon` (180), `icon-192`, `icon-512`, and `icon-maskable-512` (mark
+at 55% so a circular OS mask cannot clip it). 16px is softer than the old crop;
+the mark is whole, which is the trade that matters in a SERP.
+
+Google re-crawls favicons on its own schedule — expect days, not hours, before
+search results update.
+
+**URL changed:** No. **Metadata changed:** `/about` title. **Content changed:**
+`/about`.
+
 ## 2026-08-27 (design pass: type system, Resources, tap targets)
 
 Visual and accessibility work, no architecture change.

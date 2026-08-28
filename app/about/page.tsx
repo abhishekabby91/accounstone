@@ -1,17 +1,74 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { GraduationCap, Rocket, Lock, Zap, Handshake, DollarSign } from 'lucide-react';
+import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import Reveal from '@/components/reveal';
+import SectionHeading from '@/components/section-heading';
+import RegionFlag from '@/components/region-flag';
 import { generateMetadata, generateBreadcrumbSchema, generateOrganizationSchema, baseUrl } from '@/lib/seo';
-import { trustBadges } from '@/lib/data';
+import { regions } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'About Us',
+  // The layout template appends ' | Accounstone'; this title already carries the
+  // brand, so opt out rather than ship "About Accounstone | Accounstone".
+  title: 'About Accounstone | Outsourced Accounting Support Team',
+  absoluteTitle: true,
   description:
-    'Learn about Accounstone, our mission to provide expert outsourced accounting services for CPA firms and growing businesses.',
+    'Accounstone connects businesses, accounting firms and tax practices with skilled accounting professionals — built around people, shared knowledge and flexible engagement models.',
   path: '/about',
 });
+
+// Support areas. Each links to the page that covers it, so the About page
+// contributes to the internal link graph rather than being a dead end.
+const supportAreas = [
+  { name: 'Bookkeeping', href: '/services/bookkeeping/united-states' },
+  { name: 'Accounting support', href: '/services/accounting/united-states' },
+  { name: 'Tax preparation support', href: '/services/tax-preparation/united-states' },
+  { name: 'Accounts payable', href: '/services/accounts-payable/united-states' },
+  { name: 'Accounts receivable', href: '/services/accounts-receivable/united-states' },
+  { name: 'Payroll support', href: '/services/payroll/united-states' },
+  { name: 'Financial reporting', href: '/services/accounting/united-states' },
+  { name: 'Back-office accounting activities', href: '/solutions/back-office-support' },
+  { name: 'Accounting staff augmentation', href: '/solutions/staff-augmentation' },
+];
+
+const platforms = [
+  { name: 'QuickBooks', href: '/technology/quickbooks' },
+  { name: 'Xero', href: '/technology/xero' },
+  { name: 'Sage', href: '/technology/sage' },
+  { name: 'Drake Tax', href: '/technology/drake-tax' },
+  { name: 'CCH', href: '/technology/cch' },
+  { name: 'MYOB', href: '/technology/myob' },
+  { name: 'NetSuite', href: '/technology/netsuite' },
+];
+
+const engagementModels = [
+  { name: 'Hourly Support', p: 'For specific tasks, projects or variable workloads where support may be structured around agreed working hours.' },
+  { name: 'Full-Time Equivalent (FTE) Support', p: 'For organizations that may require dedicated, ongoing support from an individual professional or team.' },
+  { name: 'Volume-Based Support', p: 'For workflows where the volume of transactions or accounting work may change over time.' },
+  { name: 'Seasonal Support', p: 'For periods when additional capacity may be required, such as tax season, month-end, year-end or other high-volume periods.' },
+];
+
+const clarityPoints = [
+  'Scope of work',
+  'Responsibilities',
+  'Workflows',
+  'Communication',
+  'Review processes',
+  'Working hours or FTE requirements',
+  'Fees',
+  'Deliverables',
+];
+
+const approach = [
+  'Understand the work',
+  'Build the right support',
+  'Share knowledge',
+  'Deliver with clarity',
+  'Keep improving',
+  'Reach the next milestone',
+];
 
 export default function AboutPage() {
   // AboutPage + Organization + Breadcrumb schema. The About page is one of
@@ -28,7 +85,7 @@ export default function AboutPage() {
     url: `${baseUrl}/about`,
     name: 'About Accounstone',
     description:
-      'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, and audit support for CPA firms and businesses across the US, UK, and Australia.',
+      'Accounstone connects businesses, accounting firms and tax practices with skilled accounting professionals across the US, UK and Australia.',
     isPartOf: { '@id': `${baseUrl}/#website` },
     about: { '@id': `${baseUrl}/#organization` },
   };
@@ -38,180 +95,389 @@ export default function AboutPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateOrganizationSchema()) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
       <PremiumHero
-        subtitle="Our Story"
-        title="Practical Accounting Support, Built to Last"
-        description="Accounstone helps CPA firms and growing businesses keep their books accurate and current, with expertise, integrity, and dedication."
+        subtitle="About Accounstone"
+        title="Accounting Support Built Around People, Knowledge and Progress"
+        description="Every business, firm and professional journey is made up of milestones. Our role is to support the next one."
+        cta={{ text: 'Start a Conversation', href: '/contact' }}
+        ctaSecondary={{ text: 'View Services', href: '/services' }}
         background="primary-gradient"
       />
 
-      {/* Mission & Vision */}
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <div>
-                <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Our Mission
-                </span>
-                <h2 className="text-4xl font-bold text-primary mt-2">
-                  Empower Businesses to Grow
-                </h2>
-              </div>
-              <p className="text-lg text-muted leading-relaxed">
-                We believe that small and mid-size businesses deserve accounting support that actually works for them, not a one-size-fits-all package. Our mission is to handle the complexity of accounting so you can focus on what you do best: running your business.
+      <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
+        <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
+          <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" className="text-primary font-medium">About</li>
+        </ol>
+      </nav>
+
+      {/* Opening */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-5">
+          <Reveal>
+            <p className="text-lg md:text-xl text-muted leading-relaxed">
+              At Accounstone, we believe that every business, firm and professional journey is made up of milestones.
+              A completed project. A growing team. A smoother process. A stronger financial foundation. Each step can
+              contribute to what comes next.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="text-lg md:text-xl text-muted leading-relaxed">
+              Accounstone was created with a simple idea: accounting support and knowledge should not be limited by
+              geography. Our aim is to connect businesses, accounting firms and tax practices with skilled accounting
+              professionals who can support their existing operations while encouraging knowledge sharing, practical
+              learning and continuous improvement.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="text-lg md:text-xl text-muted leading-relaxed">
+              As Accounstone continues to grow, our focus is on building a flexible accounting support model around
+              different workflows, workloads and business requirements.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Milestones */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="What we believe" title="More Milestones. More Possibilities." />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                We see accounting as more than a set of numbers and processes. Behind every financial record is a
+                business, a team or an individual working toward the next milestone.
               </p>
-              <p className="text-lg text-muted leading-relaxed">
-                By combining hands-on expertise with modern technology and dedicated teams, we deliver accurate books and dependable accounting support that helps your business run smoothly.
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Our role is designed to support that journey — whether an organization needs additional accounting
+                capacity, help during a busy period, support for specific processes or an extended team for ongoing work.
               </p>
             </div>
-
-            <div className="space-y-6">
-              <div>
-                <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Our Values
-                </span>
-                <h3 className="text-4xl font-bold text-primary mt-2">
-                  Excellence & Integrity
-                </h3>
-              </div>
-              <div className="space-y-4">
-                {[
-                  { title: 'Expertise', desc: 'Real, hands-on accounting knowledge, not just credentials on paper' },
-                  { title: 'Integrity', desc: 'Transparent, ethical, and trustworthy relationships — we say what\'s actually true' },
-                  { title: 'Partnership', desc: 'Invested in your success, not just transactions' },
-                  { title: 'Innovation', desc: 'Modern technology and forward-thinking solutions' },
-                ].map((value, i) => (
-                  <div key={i} className="space-y-1">
-                    <h4 className="font-bold text-primary">{value.title}</h4>
-                    <p className="text-muted text-sm">{value.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <p className="mt-7 font-serif text-xl md:text-2xl font-bold text-primary leading-snug">
+              More clarity. More capacity. More milestones. More possibilities.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Who We Are — honest, growing-company framing */}
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
+      {/* What we support */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading
+            eyebrow="What we support"
+            title="Areas We May Provide Support Across"
+            lead="Depending on the engagement and requirements, Accounstone may provide support across areas such as these."
+          />
+          <Reveal delay={0.08}>
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              {supportAreas.map((a) => (
+                <li key={a.name}>
+                  <Link
+                    href={a.href}
+                    className="group flex items-center gap-3 rounded-xl border border-border bg-input p-4 transition-colors hover:border-primary/50 hover:bg-white"
+                  >
+                    <Check className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+                    <span className="text-sm sm:text-base font-medium text-primary">{a.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-6 text-base text-muted leading-relaxed">
+              Rather than applying the same model to every engagement, we aim to understand the workload, processes and
+              requirements before determining the appropriate support structure.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* People */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="Our approach to delivery" title="Skilled People. Shared Knowledge. Thoughtful Delivery." />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Technology plays an important role in modern accounting, but people remain at the center of the work.
+                Accounstone is being built around the idea that skilled professionals, documented processes, knowledge
+                sharing and continuous learning can contribute to consistent and thoughtful delivery.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Our approach is intended to help team members understand not only what needs to be done, but also the
+                context behind the work and its importance to the client&rsquo;s overall process. Over time, the goal is
+                to develop teams that become familiar with a client&rsquo;s workflows, systems and expectations.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Technology */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading
+            eyebrow="Technology"
+            title="Technology We May Work With"
+            lead="Depending on client requirements and the scope of work, our teams may work with commonly used accounting, tax and financial software."
+          />
+          <Reveal delay={0.08}>
+            <ul className="mt-7 flex flex-wrap gap-2.5">
+              {platforms.map((p) => (
+                <li key={p.name}>
+                  <Link
+                    href={p.href}
+                    className="inline-flex min-h-[40px] items-center rounded-full border border-border bg-input px-4 py-2 text-sm font-semibold text-primary transition-colors hover:border-primary/50 hover:bg-white"
+                  >
+                    {p.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mt-6 text-base text-muted leading-relaxed">
+              The technology used for an engagement will depend on the client&rsquo;s existing systems, workflow and
+              operational requirements.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Engagement models */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center text-balance mb-16">
-            A Growing Team, Not a Faceless Vendor
-          </h2>
-
-          <div className="grid grid-cols-2 gap-3 sm:gap-8 max-w-2xl mx-auto">
-            <div className="text-center space-y-2 sm:space-y-3 p-3.5 sm:p-6 rounded-lg bg-white border-2 border-border">
-              <h3 className="text-base sm:text-xl font-semibold text-primary">Real Experience</h3>
-              <p className="text-xs sm:text-sm text-muted">Our team brings 24+ years of combined hands-on accounting experience to every engagement.</p>
-            </div>
-            <div className="text-center space-y-2 sm:space-y-3 p-3.5 sm:p-6 rounded-lg bg-white border-2 border-border">
-              <h3 className="text-base sm:text-xl font-semibold text-primary">Building Deliberately</h3>
-              <p className="text-xs sm:text-sm text-muted">We're a growing company and we'd rather earn trust with honest work than inflate our track record.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trust Badges — only real, verified items */}
-      <section className="w-full py-12 px-6 md:px-8 bg-white border-y-2 border-border">
-        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-4">
-          {trustBadges.map((badge, i) => (
-            <div key={i} className="flex items-center gap-2 px-5 py-3 bg-input rounded-lg border-2 border-border">
-              <span className="text-xl" aria-hidden="true">{badge.icon}</span>
-              <span className="font-medium text-sm text-foreground">{badge.name}</span>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* How We Work — links to the previously orphaned delivery-framework pages */}
-      <section className="w-full py-16 px-6 md:px-8 bg-input">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="font-serif text-3xl font-bold text-primary">Want to See How We Actually Work?</h2>
-          <p className="text-muted">
-            Evaluating a vendor for your firm or business means asking specifics, not just reading marketing copy. Here's exactly how we onboard, communicate, and review work:
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/delivery-framework/onboarding" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
-              Onboarding Process
-            </Link>
-            <Link href="/delivery-framework/communication" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
-              Communication Standards
-            </Link>
-            <Link href="/delivery-framework/quality-assurance" className="px-5 py-3 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors font-medium text-primary">
-              Quality Assurance
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-              What Sets Us Apart
-            </span>
-            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">
-              Why Businesses Choose Accounstone
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-8">
-            {[
-              {
-                icon: GraduationCap,
-                title: 'Real Expertise',
-                desc: '24+ years of combined hands-on accounting experience across our team.',
-              },
-              {
-                icon: Rocket,
-                title: 'Growth Focus',
-                desc: 'We don\'t just manage finances; we provide practical guidance to fuel growth.',
-              },
-              {
-                icon: Lock,
-                title: 'Security-First, Honestly Stated',
-                desc: 'NDA-backed engagements and secure data handling practices. We\'re actively working toward SOC 2 certification and will tell you exactly where we stand.',
-              },
-              {
-                icon: Zap,
-                title: 'Modern Technology',
-                desc: 'Cloud-based systems (QuickBooks Online, Xero, and more), automation, and real-time reporting tools.',
-              },
-              {
-                icon: Handshake,
-                title: 'True Partnership',
-                desc: 'A dedicated team invested in your success, not a rotating pool of vendors.',
-              },
-              {
-                icon: DollarSign,
-                title: 'Cost Effective',
-                desc: 'Flexible engagement models designed to fit your budget and needs.',
-              },
-            ].map((item, i) => (
-              <div key={i} className="space-y-2 sm:space-y-3 p-3.5 sm:p-6 bg-input rounded-xl border-2 border-border">
-                <item.icon className="w-7 h-7 sm:w-10 sm:h-10 text-accent" aria-hidden="true" />
-                <h3 className="font-bold text-sm sm:text-lg text-primary">{item.title}</h3>
-                <p className="text-muted text-xs sm:text-sm leading-5 sm:leading-relaxed line-clamp-3 sm:line-clamp-none">{item.desc}</p>
-              </div>
+          <SectionHeading
+            eyebrow="Engagement models"
+            title="Flexible Engagement Models"
+            lead="Accounting requirements are not always the same throughout the year. Some organizations may require ongoing support, while others may need additional capacity during tax season, month-end, year-end or other periods of increased workload."
+          />
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+            {engagementModels.map((m, i) => (
+              <Reveal key={m.name} delay={Math.min(i * 0.06, 0.24)}>
+                <div className="h-full rounded-xl border border-border bg-white p-5 sm:p-6">
+                  <h3 className="font-serif text-lg sm:text-xl font-bold text-primary">{m.name}</h3>
+                  <p className="mt-2 text-sm sm:text-base text-muted leading-relaxed">{m.p}</p>
+                </div>
+              </Reveal>
             ))}
           </div>
+          <Reveal delay={0.12}>
+            <p className="mt-6 text-base text-muted leading-relaxed">
+              The engagement structure can be discussed and aligned with the nature of the work and the
+              client&rsquo;s requirements. See{' '}
+              <Link href="/solutions" className="inline-block py-1 font-medium text-primary underline underline-offset-4 hover:text-accent transition-colors">
+                our engagement models
+              </Link>{' '}
+              for how these work in practice.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Transparency */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading
+            eyebrow="How we work"
+            title="A Transparent Way of Working"
+            lead="Transparency is an important part of how we aim to work. Before an engagement begins, we seek to establish clarity around:"
+          />
+          <Reveal delay={0.08}>
+            <ul className="mt-7 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
+              {clarityPoints.map((c) => (
+                <li key={c} className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
+                  <span className="text-foreground leading-6">{c}</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-7 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Our intention is to ensure that the agreed scope and associated fees are communicated clearly. If
+                additional work or changes fall outside the agreed scope, they can be discussed separately before
+                proceeding.
+              </p>
+              <p className="font-serif text-lg md:text-xl font-bold text-primary leading-snug">
+                The objective is simple: clear expectations, clear communication and fewer surprises.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Data security */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="Security" title="Data Security and Working Environments" />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Accounting work can involve sensitive financial and business information. For this reason, data
+                security and controlled access are important considerations in the way we design our delivery processes.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Depending on client requirements and the working environment, Accounstone may use cloud-based virtual
+                desktop solutions, including Microsoft Azure-based desktop environments, where appropriate. Access
+                arrangements, permissions and working practices may be structured according to the requirements of the
+                engagement and the systems being used.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                We recognize that every client may have different confidentiality, access and security requirements,
+                and these can be discussed as part of the engagement process.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/data-security" className="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-white px-5 py-3 font-semibold text-primary transition-colors hover:border-primary/50">Data security</Link>
+              <Link href="/compliance" className="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-white px-5 py-3 font-semibold text-primary transition-colors hover:border-primary/50">Compliance &amp; controls</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Across borders */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading eyebrow="Reach" title="Working Across Borders" />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Accounstone is being developed with an international outlook. Our focus includes supporting
+                organizations and professionals across markets such as the United States, United Kingdom and Australia,
+                subject to the requirements of each engagement and the capabilities of the delivery team.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                A remote delivery model can make it possible to connect skilled professionals and organizations across
+                geographical boundaries while maintaining structured communication and defined workflows.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <ul className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {regions.map((r) => (
+                <li key={r.slug}>
+                  <Link
+                    href={`/markets/${r.slug}`}
+                    className="group flex items-center gap-3 rounded-xl border border-border bg-input p-4 transition-colors hover:border-primary/50 hover:bg-white"
+                  >
+                    <RegionFlag region={r.slug} decorative />
+                    <span className="font-semibold text-primary">{r.name}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* The story */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto">
+          <SectionHeading eyebrow="Origins" title="The Story Behind Accounstone" />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Accounstone is also built around a belief in the value of opportunity. The journey behind the company
+                is rooted in the idea that an opportunity to learn and grow can eventually create possibilities for
+                others.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Our founder&rsquo;s own journey was shaped, in part, by the opportunity to continue his education
+                through support received during his school years. That experience created a lasting belief that
+                opportunities received should, wherever possible, lead to opportunities created for others.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                This belief continues to influence the direction of Accounstone. Our long-term vision is to create
+                opportunities for accounting professionals to develop their skills, share knowledge, work with
+                international teams and contribute to meaningful work across borders.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.14}>
+            <blockquote className="mt-8 overflow-hidden rounded-xl border border-border bg-white">
+              <div className="border-l-4 border-accent p-6">
+                <p className="font-serif text-lg md:text-xl font-bold text-primary leading-snug">
+                  Every opportunity can become a milestone. And every milestone can create another possibility.
+                </p>
+              </div>
+            </blockquote>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Building ahead + approach */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <SectionHeading eyebrow="Looking ahead" title="Building for the Journey Ahead" />
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Our intention is not simply to provide additional resources. We aim to build working relationships
+                where our people can become a useful extension of a client&rsquo;s existing team, based on the scope
+                and requirements of each engagement.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                Whether the requirement is for a few hours of support, additional seasonal capacity, a dedicated
+                professional or an ongoing team structure, the model can be adapted as requirements evolve.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.14}>
+            <div className="mt-9">
+              <p className="text-xs font-bold uppercase tracking-[0.14em] text-accent mb-5">Our approach</p>
+              {/* A real sequence, so it is numbered. Wraps to a column on
+                  mobile rather than forcing six items into one row. */}
+              <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                {approach.map((step, i) => (
+                  <li key={step} className="flex items-center gap-3 rounded-xl border border-border bg-input p-4">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white font-serif text-sm font-bold text-primary tabular-nums"
+                    >
+                      {i + 1}
+                    </span>
+                    <span className="text-sm sm:text-base font-medium text-foreground">{step}</span>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-6 text-base text-muted leading-relaxed">
+                That is the direction Accounstone is being built around.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Closing */}
+      <section className="w-full py-12 md:py-16 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal>
+            <p className="font-serif text-2xl md:text-3xl font-bold text-primary leading-snug text-balance">
+              More Milestones. More Possibilities.
+            </p>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mt-4 text-base md:text-lg text-muted leading-relaxed">
+              Because progress is not always about one big achievement. Sometimes, it is built through one
+              well-managed process, one shared piece of knowledge and one milestone at a time.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       <CTABanner
-        title="Ready to Partner with Accounstone?"
-        description="Let&apos;s discuss how we can help your business grow."
-        cta={{
-          text: 'Schedule a Consultation',
-          href: '/contact',
-        }}
-        ctaSecondary={{
-          text: 'View Services',
-          href: '/services',
-        }}
+        title="Tell Us What You Are Working Toward"
+        description="Share the workload, the process or the period you need support with, and we can talk through what an appropriate structure looks like."
+        cta={{ text: 'Start a Conversation', href: '/contact' }}
         background="primary"
       />
     </main>
