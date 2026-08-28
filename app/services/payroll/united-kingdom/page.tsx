@@ -13,12 +13,12 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/payroll/united-kingdom';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Processing for UK Businesses',
-  description: 'UK payroll processing support — PAYE, RTI submission data, National Insurance calculations, auto-enrolment pension contributions, and payroll GL reconciliation inside Xero or Sage Payroll.',
+  title: 'Outsourced Payroll Support for UK Accountancy Practices',
+  description: 'PAYE processing, RTI submission data and auto-enrolment records for UK practices running client payroll — prepared and checked before you submit.',
   path: PATH,
 });
 
-const overview = "UK payroll reports to HMRC with every pay run, not monthly — an RTI submission is due each time you pay, and a late one triggers a penalty on its own. We handle the recurring gross-to-net calculation, PAYE and NI withholding, and auto-enrolment pension tracking inside your existing payroll software, with your authorised reviewer confirming each run before it's submitted.";
+const overview = "Payroll is the service most practices offer, least enjoy, and can least afford to get wrong. It runs on a fixed cadence with no catch-up window, and an error is visible to the client in their own net pay. We run the gross-to-net calculation, prepare RTI submission data and keep auto-enrolment assessed each period — checked before you submit. Submission stays with your practice, and so does the payment.";
 
 const ukElements = [
   'PAYE income tax withholding calculations',
@@ -69,7 +69,7 @@ export default function PayrollUKPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
-      <PremiumHero subtitle="Payroll for UK Businesses" title="Outsourced Payroll Processing for UK Businesses" description="PAYE, RTI submission data, National Insurance, and auto-enrolment pension tracking inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
+      <PremiumHero subtitle="For UK accountancy practices" title="Payroll Support for UK Practices" description="PAYE, RTI submission data, National Insurance, and auto-enrolment pension tracking inside your existing payroll software." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
 
       <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white">
         <ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">

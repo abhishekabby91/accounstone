@@ -7,6 +7,7 @@ import CTABanner from '@/components/cta-banner';
 import TestimonialsSection from '@/components/testimonials-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import RegionFlag from '@/components/region-flag';
 import GlobalDeliveryDiagram from '@/components/global-delivery-diagram';
 import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials, trustBadges } from '@/lib/data';
@@ -109,6 +110,65 @@ export default function HomePage() {
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, review structure, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
+      {/* UK practices are a distinct audience with a distinct problem, so they
+          get a named section rather than being folded into the general pitch.
+          Placed after the services grid so the general offer is established
+          first - this narrows, it does not replace. */}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">For UK accountancy practices</span>
+              </div>
+              <h2 className="flex flex-wrap items-center gap-3 font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+                <RegionFlag region="united-kingdom" className="w-8 h-[22px]" decorative />
+                Your Practice&rsquo;s Offshore Accounting Team
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                If your practice is turning down work in January, or your qualified people are spending their week
+                posting transactions rather than reviewing them, the constraint is preparation capacity &mdash; not talent.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                We handle bookkeeping across the VAT quarter, year-end accounts under FRS 102, CT600 and Self
+                Assessment workpapers, and payroll prepared for your submission. We prepare. You review, you advise,
+                you file &mdash; and you keep the client.
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {[
+                { name: 'Bookkeeping Support', href: '/services/bookkeeping/united-kingdom' },
+                { name: 'Accounts & Tax Preparation', href: '/services/tax-preparation/united-kingdom' },
+                { name: 'Dedicated Accounting Team', href: '/solutions/dedicated-accounting-teams' },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group flex items-center justify-between gap-2 rounded-xl border border-border bg-white p-4 font-semibold text-primary transition-colors hover:border-primary/50"
+                >
+                  <span className="text-sm sm:text-base">{item.name}</span>
+                  <span aria-hidden="true" className="text-accent transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="mt-5 text-sm text-muted">
+              <Link href="/markets/united-kingdom" className="inline-block py-1 font-medium text-primary underline underline-offset-4 hover:text-accent transition-colors">
+                How we work with UK practices
+              </Link>
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Cards point at the United States pages, which is where the retired
           generic /services/{slug} URLs now redirect - linking to the old slugs
           would send the site's highest-authority page through a 301. The line

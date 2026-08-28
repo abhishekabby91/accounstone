@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Check, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
@@ -8,8 +8,8 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Dedicated Accounting Teams',
-  description: 'Build dedicated accounting teams exclusively for your business, working inside your existing systems, with a dependable, long-term accounting partnership.',
+  title: 'A Dedicated Offshore Accounting Team for Your Practice',
+  description: 'A named offshore team working only your portfolio — your templates, your close calendar, your review points, and one point of contact.',
   path: '/solutions/dedicated-accounting-teams',
 });
 
@@ -56,8 +56,8 @@ export default function DedicatedTeamsPage() {
 
       <PremiumHero
         subtitle="Dedicated Teams"
-        title="A Team Built Around Your Business"
-        description="A dedicated accounting team of CPAs and accountants working inside your existing systems and approval process, structured around your workload rather than a fixed package."
+        title="A Dedicated Team, Not a Ticket Queue"
+        description="A named team working only your portfolio — to your templates, your close calendar and your review points, with one point of contact who knows your work."
         cta={{
           text: 'Build Your Team',
           href: '/contact',
@@ -69,60 +69,108 @@ export default function DedicatedTeamsPage() {
         background="primary-gradient"
       />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="space-y-6">
-              <Reveal><h2 className="text-4xl font-bold text-primary">More Than Accounting - A True Partnership</h2></Reveal>
-              <p className="text-lg text-muted leading-relaxed">A dedicated accounting team becomes an integral part of your organization. They understand your business deeply, anticipate your needs, and provide dependable accounting support that keeps pace with your growth.</p>
-              
-              <div className="space-y-4 pt-4">
-                {[
-                  'Dedicated senior-level oversight and coordination',
-                  'Deep understanding of your business',
-                  'Recurring tax preparation support and deadline tracking',
-                  'Real-time financial insights and reporting',
-                  'Team lead accountability and coordination',
-                  'Works inside your existing systems and approval process',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
-                    <span className="text-foreground">{item}</span>
-                  </div>
-                ))}
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="space-y-3 max-w-3xl">
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">When it applies</span>
               </div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+                When Ad-Hoc Capacity Stops Helping
+              </h2>
             </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <div className="mt-5 space-y-4">
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                There is a point at which buying hours stops paying off. Once the same questions are being
+                re-explained every month, the overhead of briefing outweighs the work being handed over. That is the
+                point to stop buying capacity and start building a team.
+              </p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">
+                For an accountancy practice that usually arrives with portfolio growth: enough recurring client
+                bookkeeping, payroll and year-end work that it needs owners rather than helpers. For a finance team
+                it arrives with volume. Either way the answer is the same shape.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-            <div className="bg-gradient-to-br from-primary to-primary-dark rounded-xl p-8 text-white space-y-6">
-              <h3 className="text-2xl font-bold">Typical Team Composition</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="font-bold mb-1">Small Business (1-2)</div>
-                  <p className="text-white/80 text-sm">Bookkeeper + Accountant or CPA</p>
-                </div>
-                <div>
-                  <div className="font-bold mb-1">Mid-Size (3-5)</div>
-                  <p className="text-white/80 text-sm">Manager + Accountants + Specialists</p>
-                </div>
-                <div>
-                  <div className="font-bold mb-1">Enterprise (5+)</div>
-                  <p className="text-white/80 text-sm">Senior Accounting Lead + Multi-specialist team</p>
-                </div>
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-5xl mx-auto">
+          <Reveal>
+            <div className="space-y-3 max-w-3xl mb-8">
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">What dedicated means</span>
               </div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+                Six Things That Make It a Team Rather Than a Queue
+              </h2>
             </div>
+          </Reveal>
+          <div className="grid md:grid-cols-2 gap-4 md:gap-5">
+            {[
+              { h: 'Named people', p: 'The same people on your work, not a rota. Continuity is most of what makes the arrangement cheaper over time.' },
+              { h: 'Your templates, your chart of accounts', p: 'We work to your conventions. A parallel set of workpapers creates reconciliation work rather than removing it.' },
+              { h: 'Your close calendar', p: 'Due dates set relative to your deadlines and your clients\u2019 cycles, written down rather than assumed.' },
+              { h: 'Your review points, documented', p: 'Where preparation ends and your judgement begins is agreed at the start, so nobody has to guess mid-period.' },
+              { h: 'One point of contact', p: 'A person who knows your work and your templates. Not a ticket queue, and not a different name each month.' },
+              { h: 'Capacity that flexes', p: 'Wider for a January peak or a year-end cycle, narrower afterwards, without rebuilding the process each time.' },
+            ].map((item, i) => (
+              <Reveal key={item.h} delay={Math.min(i * 0.05, 0.25)}>
+                <div className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border">
+                  <h3 className="font-bold text-primary mb-1.5 text-base sm:text-lg">{item.h}</h3>
+                  <p className="text-muted text-sm sm:text-base leading-relaxed">{item.p}</p>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <Reveal>
+            <div className="space-y-3 max-w-3xl">
+              <div className="flex items-center gap-3">
+                <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">The other option</span>
+              </div>
+              <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+                How This Differs From Staff Augmentation
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="mt-5 text-base md:text-lg text-muted leading-relaxed">
+              Staff augmentation adds hands to a process you are already running. A dedicated team owns defined
+              workflows end to end, up to your review point. Augmentation suits a temporary spike; a dedicated team
+              suits recurring volume that is not going away. Most clients start with the former and move to the
+              latter once the workflow is proven — there is no advantage to starting bigger than the evidence.
+            </p>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link href="/solutions/staff-augmentation" className="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-input px-5 py-3 font-semibold text-primary transition-colors hover:border-primary/50">Compare staff augmentation</Link>
+              <Link href="/markets/united-kingdom" className="inline-flex min-h-[44px] items-center rounded-lg border border-border bg-input px-5 py-3 font-semibold text-primary transition-colors hover:border-primary/50">For UK practices</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
-          <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">Build Your Dedicated Team</h2></Reveal>
+          <Reveal><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center mb-10">How the Team Gets Built</h2></Reveal>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { step: '1', title: 'Discovery', desc: 'Understand your business and requirements' },
-              { step: '2', title: 'Staffing', desc: 'Hire and prepare your dedicated team' },
-              { step: '3', title: 'Integration', desc: 'Full onboarding and workflow setup' },
-              { step: '4', title: 'Partnership', desc: 'Long-term strategic accounting support' },
+              { step: '1', title: 'Scoping', desc: 'Your portfolio, platforms and where the pressure sits' },
+              { step: '2', title: 'Pilot', desc: 'One defined block of work, so you see the output first' },
+              { step: '3', title: 'Documented workflow', desc: 'Preparer, reviewer, due dates and escalation' },
+              { step: '4', title: 'Steady state', desc: 'Recurring delivery to your calendar, reviewed quarterly' },
             ].map((item, i) => (
               <div key={i} className="bg-white rounded-lg p-6 text-center space-y-3">
                 <div className="text-4xl font-bold text-primary">{item.step}</div>
@@ -134,15 +182,15 @@ export default function DedicatedTeamsPage() {
         </div>
       </section>
 
-      <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
+      <section className="w-full py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><h2 className="font-serif text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
 
       <FAQSection subtitle="Dedicated Teams" items={faqs} columns={2} />
 
       <CTABanner
-        title="Ready to Build Your Dedicated Team?"
-        description="Let us assemble the right team of accounting professionals for your business."
+        title="Start With One Block of Work"
+        description="Tell us which part of your portfolio is costing the most review time, and we will scope a pilot around it."
         cta={{
-          text: 'Start Team Building',
+          text: 'Start a Conversation',
           href: '/contact',
         }}
         background="primary"

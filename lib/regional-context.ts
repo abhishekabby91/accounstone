@@ -48,13 +48,13 @@ export const regionalContext: Record<string, ContextEntry> = {
     eyebrow: 'If this sounds familiar',
     title: 'When the VAT Quarter Turns Into a Reconstruction',
     paragraphs: [
-      "The pattern is recognisable: the ledger drifts for two months, then the quarter ends and someone spends a week getting it into a state where the return can be prepared. The work is not hard, but it is compressed, and it happens four times a year whether or not anyone has capacity for it.",
+      "The pattern repeats across a portfolio. A client\u2019s ledger drifts for two months, the quarter ends, and someone in your practice spends a week getting it into a state the return can be prepared from. The work is not hard. It is compressed, it is unbillable at the rate the person doing it costs, and it happens four times a year per client whether or not anyone has capacity for it.",
       "Under Making Tax Digital the cost of that drift went up, because the ledger is no longer just an internal record. It is the substantiation behind a figure that has been submitted. A transaction coded standard-rated when it should have been zero-rated is no longer a tidy-up item; it is a correction with a trail. Getting the coding right in the week it happens is a different job from getting it right in the week the return is due.",
-      "None of that changes who decides. Your accountant keeps the VAT scheme decisions, any treatment that is genuinely arguable, and the submission itself. What moves is the recurring preparation underneath: posting, reconciling, chasing the invoice that the bank feed cannot replace, and keeping the digital record intact so nothing has to be re-keyed.",
+      "None of that changes who decides. Your practice keeps the VAT scheme decisions, any treatment that is genuinely arguable, the client conversation, and the submission itself. What moves is the recurring preparation underneath \u2014 and with it, the reason your qualified people were posting transactions in the first place.",
     ],
     aside: {
-      label: 'The question we get asked most',
-      text: "\"What if our books are already behind?\" That is common, and it is scoped separately from the recurring work. Bringing prior quarters into agreement is a different job from keeping the current one current, and pricing it as though it were routine would misrepresent both.",
+      label: 'The question practices ask first',
+      text: "\"What if the client\u2019s books are already behind?\" That is common across any portfolio, and it is scoped separately from the recurring work. Bringing prior quarters into agreement is a different job from keeping the current one current, and pricing it as though it were routine would misrepresent both.",
     },
   },
   'bookkeeping/australia': {
@@ -130,13 +130,13 @@ export const regionalContext: Record<string, ContextEntry> = {
     eyebrow: 'If this sounds familiar',
     title: 'When January Arrives and the Records Are Not Ready',
     paragraphs: [
-      "The Self Assessment deadline concentrates a great deal of work into a few weeks, and Corporation Tax dates are scattered across the year in a way that makes planning capacity harder rather than easier. The pressure is rarely the computation. It is that the records the computation depends on have not been finished, so preparation begins with reconciliation.",
-      "A CT600 needs a settled set of accounts behind it. If the year end is still moving while the computation is being built, the work gets done twice - once on the draft position and again when the balances are agreed. The same is true of a Self Assessment where income sources have not been confirmed complete before anyone starts.",
-      "Preparation work moves; judgement does not. Whether an expense is genuinely disallowable, how a director transaction should be treated, anything approaching planning or advice, and the submission to HMRC all stay with your registered practitioner. We do not hold HMRC portal credentials and we do not offer tax planning in any form.",
+      "The Self Assessment deadline concentrates a great deal of work into a few weeks, and Corporation Tax dates scattered across the year make capacity planning harder rather than easier. The pressure is rarely the computation. It is that the records the computation depends on have not been finished, so preparation begins with reconciliation \u2014 usually performed by the person who was supposed to be reviewing.",
+      "A CT600 needs a settled set of accounts behind it. If the year end is still moving while the computation is being built, the work gets done twice: once on the draft position and again when the balances are agreed. The same is true of a Self Assessment where income sources have not been confirmed complete before anyone starts.",
+      "Preparation work moves; judgement does not. Whether an expense is genuinely disallowable, how a director transaction should be treated, anything approaching planning or advice, and the submission to HMRC all stay with your practice. We do not hold HMRC portal credentials and we do not offer tax planning in any form.",
     ],
     aside: {
-      label: 'The honest constraint',
-      text: "If the underlying records are not finished, tax preparation will not be quick regardless of who does it. Where that is the situation, the bookkeeping catch-up is worth scoping first - it is the actual bottleneck.",
+      label: 'Something we would rather say early',
+      text: "If the bookkeeping underneath is not finished, tax preparation will not be quick regardless of who does it. Where that is the situation we will say so and suggest scoping the catch-up first, rather than taking the work and disappointing you in January.",
     },
   },
   'tax-preparation/australia': {
@@ -171,13 +171,13 @@ export const regionalContext: Record<string, ContextEntry> = {
     eyebrow: 'If this sounds familiar',
     title: 'When RTI Removed the Room to Fix It Later',
     paragraphs: [
-      "Before Real Time Information, a payroll error could be tidied up quietly before year end. Now the Full Payment Submission goes to HMRC on or before each pay date, so a mistake is reported at the moment it is made. Correcting it means an amended submission with its own trail, and the employee has usually already seen the net pay.",
-      "That changes which part of the process matters. The calculation is routine; the check before submission is where the value sits. It is also where things slip, because pay dates do not move and there is no natural catch-up period. A tax code that arrived mid-month and was applied a cycle late produces exactly the kind of visible error that costs trust internally.",
-      "Auto-enrolment runs on the same rhythm and is easy to miss for the same reason. Eligibility has to be assessed every pay period, not once at onboarding - someone crossing the earnings threshold or reaching the qualifying age triggers duties that nothing external flags.",
+      "Before Real Time Information, a payroll error could be tidied up quietly before year end. Now the Full Payment Submission goes to HMRC on or before each pay date, so a mistake is reported at the moment it is made. Correcting it means an amended submission with its own trail \u2014 and the client\u2019s employee has usually already seen the number in their own net pay.",
+      "That changes which part of the process matters. The calculation is routine; the check before submission is where the value sits. It is also where things slip in a practice running payroll for many clients at once, because pay dates do not move and there is no natural catch-up period. A tax code that arrived mid-month and was applied a cycle late produces exactly the kind of visible error that costs a client relationship.",
+      "Auto-enrolment runs on the same rhythm and is missed for the same reason. Eligibility has to be assessed every pay period, not once at onboarding \u2014 someone crossing the earnings threshold or reaching the qualifying age triggers duties that nothing external flags.",
     ],
     aside: {
-      label: 'Who releases the payment',
-      text: "You do. We prepare the run and the payment file; your authorised signatory releases funds. We do not hold banking control, and no payroll arrangement should require it.",
+      label: 'What we will never ask for',
+      text: "Banking control. We prepare the run and the payment file; releasing funds stays with your practice or the client\u2019s authorised signatory. We prepare the RTI data; your practice submits it. Any payroll arrangement that requires handing over the ability to move money is worth questioning, whoever is offering it.",
     },
   },
   'payroll/australia': {
