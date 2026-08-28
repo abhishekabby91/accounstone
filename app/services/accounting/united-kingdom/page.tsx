@@ -46,7 +46,7 @@ const faqs = [
   { question: 'Do you prepare year-end accounts?', answer: 'We prepare the underlying close and the supporting workpapers that year-end accounts are built from, structured so your registered practitioner can review and finalise them. The statutory filing itself stays with the practitioner responsible for it.' },
   { question: 'Which reporting standard do you work to?', answer: 'Reconciliations, journal entries, and reporting are structured around FRS 102 conventions, which apply to most UK entities. Where a business reports under IFRS, we work to the treatment its practitioner has set. Accounting policy decisions stay with your practitioner or finance lead.' },
   { question: 'How does this fit the VAT cycle?', answer: 'The close calendar can be set around your VAT quarters so the ledger is reconciled and current when the return is prepared. VAT return preparation and submission to HMRC stay with your registered practitioner.' },
-  { question: 'Do you work inside our existing software?', answer: 'Yes — Xero, QuickBooks Online, or Sage, whichever your business already uses. We work inside your existing setup rather than changing it.' },
+  { question: 'Do you work inside our existing software?', answer: 'Yes — Xero, QuickBooks Online, or Sage, whichever the client already uses. We work inside the existing setup rather than changing it.' },
   { question: 'Do you hold HMRC or Companies House credentials?', answer: 'No. Portal access and submission stay with your registered practitioner. Our work is the preparation and documentation behind what they review and file.' },
 ];
 

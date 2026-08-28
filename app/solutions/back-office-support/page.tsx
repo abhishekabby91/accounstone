@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     question: 'Can you work inside our existing systems?',
-    answer: 'Yes, we work inside QuickBooks, Xero, NetSuite, Sage, and similar platforms your business already uses. Data migration and initial system setup are typically handled by your software vendor or an implementation partner.',
+    answer: 'Yes, we work inside QuickBooks, Xero, NetSuite, Sage, and similar platforms your firm or your client already uses. Data migration and initial system setup are typically handled by your software vendor or an implementation partner.',
   },
   {
     question: 'Does back-office support include HR functions?',
@@ -167,7 +167,7 @@ export default function BackOfficeSupportPage() {
 
       <CTABanner
         title="Ready to Outsource Your Back Office?"
-        description="Let us handle the operations so you can focus on growing your business."
+        description="Let us handle the recurring operations so your people stay on the work that needs them."
         cta={{
           text: 'Start Back Office Support',
           href: '/contact',

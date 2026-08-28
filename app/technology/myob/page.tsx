@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: 'Do you support both MYOB Essentials and MYOB AccountRight?',
-    answer: 'Yes, we work with both editions, adapting to whichever tier your business is currently using.',
+    answer: 'Yes, we work with both editions, adapting to whichever tier the client is currently using.',
   },
   {
     question: 'Do you work with New Zealand businesses too, or only Australian?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     question: 'Do you implement or configure MYOB itself?',
-    answer: 'We support the recurring accounting work inside an existing MYOB setup: bookkeeping, reconciliations, GST/BAS support and reporting. Initial setup and licensing are handled by your business or an MYOB partner.',
+    answer: 'We support the recurring accounting work inside an existing MYOB setup: bookkeeping, reconciliations, GST/BAS support and reporting. Initial setup and licensing are handled by your firm, the client, or an MYOB partner.',
   },
 ];
 

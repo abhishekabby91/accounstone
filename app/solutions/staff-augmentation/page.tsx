@@ -8,7 +8,7 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Accounting Staff Augmentation for CPA Firms & Businesses',
+  title: 'Accounting Staff Augmentation for CPA Firms & Practices',
   description: 'Add accounting capacity for tax season, month-end close, cleanup, AP/AR, audit support, or defined projects. Work inside your systems and review process with a flexible staffing model.',
   path: '/solutions/staff-augmentation',
 });

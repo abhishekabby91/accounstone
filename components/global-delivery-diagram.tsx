@@ -96,12 +96,12 @@ export default function GlobalDeliveryDiagram() {
       <div
         className="relative flex items-start justify-between"
         role="img"
-        aria-label="Diagram showing client businesses in the US, UK, and Australia connected to Accounstone's Global Delivery Center in New Delhi, India"
+        aria-label="Diagram showing accounting firms in the US, UK, and Australia connected to Accounstone's Global Delivery Center in New Delhi, India"
       >
-        {/* Left node: client businesses */}
+        {/* Left node: the client firm */}
         <div className="flex flex-col items-center gap-4 w-40">
           <div ref={leftNodeRef} className="relative w-24 h-24 rounded-full bg-primary flex items-center justify-center text-center px-2">
-            <span className="text-white font-bold text-sm leading-tight">Your Business</span>
+            <span className="text-white font-bold text-sm leading-tight">Your Firm</span>
             <span className="absolute -bottom-2 px-2 py-0.5 rounded-full bg-accent-light text-white text-[10px] font-bold uppercase tracking-wide whitespace-nowrap">
               Onshore
             </span>

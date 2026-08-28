@@ -47,8 +47,8 @@ const retained = [
 ];
 
 const faqs = [
-  { question: 'Do you submit RTI to HMRC?', answer: 'RTI data preparation is what we handle — calculating and formatting the submission for each pay run. Submitting it to HMRC through your payroll software or authorised agent stays with your business or accountant, since that requires your HMRC credentials or agent authorisation.' },
-  { question: 'Do you handle auto-enrolment pension contributions?', answer: "We track and calculate auto-enrolment pension contributions against the scheme and rates you have in place. Selecting the pension scheme and its contribution structure is a decision for your business or advisor." },
+  { question: 'Do you submit RTI to HMRC?', answer: 'RTI data preparation is what we handle — calculating and formatting the submission for each pay run. Submitting it to HMRC through your payroll software or agent authorisation stays with your practice, since that requires credentials we neither hold nor want.' },
+  { question: 'Do you handle auto-enrolment pension contributions?', answer: "We track and calculate auto-enrolment pension contributions against the scheme and rates already in place. Selecting the pension scheme and its contribution structure is a decision for the client and their adviser." },
   { question: 'What payroll software do you work in?', answer: 'We work inside your existing system — Xero Payroll, Sage Payroll, or similar. We do not require a platform change.' },
   { question: 'Who reviews the payroll run before it goes out?', answer: 'Your authorised internal reviewer confirms headcount, hours, and any changes before the run is submitted. We prepare the run; your team approves and submits it.' },
   { question: 'Do you calculate statutory payments like SSP or SMP?', answer: "Yes, we calculate SSP, SMP, and SPP according to the applicable rules and the information you provide about the employee's circumstances. Determining eligibility in an unusual case is a question for your advisor." },

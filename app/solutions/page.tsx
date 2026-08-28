@@ -9,7 +9,7 @@ import { solutions } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   title: 'Service Solutions',
   description:
-    'Explore our flexible engagement models and service packages designed for growing businesses.',
+    'Explore our flexible engagement models and service packages designed for accounting firms and practices.',
   path: '/solutions',
 });
 
@@ -25,7 +25,7 @@ export default function SolutionsPage() {
 
       <PremiumHero
         subtitle="Flexible Engagement"
-        title="Service Solutions for Every Business Stage"
+        title="Engagement Models for Every Stage of a Firm"
         description="Choose the engagement model that fits your needs. From back-office support to dedicated teams, we deliver exceptional results."
         cta={{
           text: 'Schedule Consultation',
@@ -61,7 +61,7 @@ export default function SolutionsPage() {
 
       <CTABanner
         title="Ready to Find the Right Solution?"
-        description="Let us help you choose the perfect engagement model for your business."
+        description="Tell us where the capacity is short and we will suggest the engagement model that fits."
         cta={{
           text: 'Get Started Today',
           href: '/contact',

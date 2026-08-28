@@ -47,7 +47,7 @@ const retained = [
 
 const process = [
   { title: 'Start with the books you actually have', text: 'We look at the accounting system, chart of accounts, reconciliation status, close calendar and existing documentation. The aim is to understand where the work is getting stuck, not assume the books follow a textbook process.' },
-  { title: 'Decide what should leave your team', text: 'We separate repeatable preparation work from approvals, judgment and decisions that should stay with your business or CPA. This keeps delegation from becoming a loss of control.' },
+  { title: 'Decide what should leave your team', text: 'We separate repeatable preparation work from the approvals, judgment and decisions that stay inside your firm. This keeps delegation from becoming a loss of control.' },
   { title: 'Run the agreed routine', text: 'The delivery team works inside the authorized system, follows the documented process and flags exceptions instead of silently making assumptions.' },
   { title: 'Make review easier', text: 'Completed work is organized for review, with unresolved items and questions visible. The goal is not simply to finish transactions; it is to leave the reviewer with a cleaner next step.' },
 ];

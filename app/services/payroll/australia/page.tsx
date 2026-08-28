@@ -47,7 +47,7 @@ const retained = [
 ];
 
 const faqs = [
-  { question: 'Do you lodge STP with the ATO?', answer: 'STP data preparation is what we handle — calculating and formatting the report for each pay run. Lodging it stays with your business, through your payroll software or registered agent.' },
+  { question: 'Do you lodge STP with the ATO?', answer: 'STP data preparation is what we handle — calculating and formatting the report for each pay run. Lodging it stays with your firm, through your payroll software or a registered agent.' },
   { question: 'Do you pay superannuation to the fund?', answer: "We track and calculate the superannuation guarantee liability each pay run. Remitting the payment to each employee's nominated fund is a banking transaction that stays with you." },
   { question: 'How do you handle award rates?', answer: 'Where employees are covered by a modern award, we apply the pay and penalty rates for the classification you provide. Determining the correct award classification for a role is an employment-law question for your advisor.' },
   { question: 'What payroll software do you work in?', answer: 'We work inside your existing system — Xero Payroll, MYOB, or similar. We do not require a platform change.' },

@@ -45,7 +45,7 @@ const retained = [
 const faqs = [
   { question: 'Is this the same as bookkeeping?', answer: 'Bookkeeping covers day-to-day transaction recording and reconciliations. Accounting Services covers the layer above it: month-end close, journal entries, account maintenance, and management reporting that turns clean books into a usable close package.' },
   { question: 'Do you follow U.S. GAAP?', answer: 'Yes. Reconciliations, journal entries, and reporting are structured around U.S. GAAP conventions. Judgment-based accounting policy decisions stay with your CPA or controller.' },
-  { question: 'Do you work inside our existing software?', answer: 'Yes — QuickBooks Online, Xero, Sage, or NetSuite, whichever your business already uses.' },
+  { question: 'Do you work inside our existing software?', answer: 'Yes — QuickBooks Online, Xero, Sage, or NetSuite, whichever the client already uses.' },
   { question: 'How does this connect to tax preparation?', answer: 'A clean, GAAP-consistent close makes tax return preparation faster for your CPA or EA. We do not prepare or file the return as part of this service, but the close package is built to hand off cleanly to whoever does.' },
 ];
 

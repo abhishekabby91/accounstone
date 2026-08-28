@@ -49,7 +49,7 @@ const retained = [
 const faqs = [
   { question: 'Do you initiate BACS or Faster Payments?', answer: 'No. We prepare the payment batch — vendor, amount, and due date — but an authorised person inside your organisation initiates the actual payment. We do not hold bank access.' },
   { question: 'How is VAT handled on purchase invoices?', answer: "We code input VAT against your registered VAT scheme as invoices are entered, so the records are ready for your accountant's VAT return preparation. Determining the correct VAT treatment for an unusual transaction stays with your accountant." },
-  { question: 'Do you handle CIS deductions?', answer: 'Yes, where your business operates under the Construction Industry Scheme, we track and apply CIS deductions to subcontractor payments according to the verification status you provide. CIS registration and subcontractor verification stay with your business or accountant.' },
+  { question: 'Do you handle CIS deductions?', answer: 'Yes, where a client operates under the Construction Industry Scheme, we track and apply CIS deductions to subcontractor payments according to the verification status you provide. CIS registration and subcontractor verification stay with your practice or the client.' },
   { question: 'Does this support Making Tax Digital?', answer: 'The digital purchase-ledger records we maintain are structured to support MTD requirements where they apply. Your accountant remains responsible for the VAT return submission itself.' },
 ];
 

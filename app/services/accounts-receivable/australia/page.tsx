@@ -47,7 +47,7 @@ const retained = [
 const faqs = [
   { question: 'Will your team contact our customers directly?', answer: 'For overdue-invoice follow-up, yes — the AR team can send reminder emails in your company name from a shared or delegated inbox, on a schedule you define. Phone collection calls typically stay with your internal team unless specifically agreed.' },
   { question: 'How does GST work on our sales invoices?', answer: "Invoices are raised with GST applied according to your registration status and the nature of the supply. Judgement calls on unusual GST treatment — exports, GST-free supplies — stay with your accountant or BAS agent." },
-  { question: 'What is DSO and does this actually reduce it?', answer: 'Days Sales Outstanding measures how long it takes to collect after invoicing. Consistent aging monitoring and follow-up typically reduces DSO by 5–15 days — the cash freed up is working capital your business already earned but had tied up in receivables.' },
+  { question: 'What is DSO and does this actually reduce it?', answer: 'Days Sales Outstanding measures how long it takes to collect after invoicing. Consistent aging monitoring and follow-up typically reduces DSO by 5–15 days — the cash freed up is working capital the client already earned but had tied up in receivables.' },
   { question: 'What stays with our team?', answer: 'Credit decisions, write-off authority, and any judgment call about the customer relationship. We handle the process — invoicing, application, follow-up, reconciliation — and flag exceptions for your decision.' },
 ];
 

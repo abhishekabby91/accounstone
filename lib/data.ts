@@ -54,9 +54,9 @@ export const solutions = [
 ];
 
 export const markets = [
-  { id: 'united-states', slug: 'united-states', name: 'United States', icon: '🇺🇸', description: 'Accounting support for U.S. businesses and accounting practices, with workflows built around bookkeeping, tax preparation, payroll, reconciliations, close, and audit support.' },
-  { id: 'united-kingdom', slug: 'united-kingdom', name: 'United Kingdom', icon: '🇬🇧', description: 'Accounting support for UK businesses and accounting practices, with recurring bookkeeping, accounting operations, tax preparation, payroll, and reporting workflows.' },
-  { id: 'australia', slug: 'australia', name: 'Australia', icon: '🇦🇺', description: 'Accounting support for Australian businesses and accounting practices, including bookkeeping, reconciliations, reporting, payroll, tax preparation, and recurring back-office work.' },
+  { id: 'united-states', slug: 'united-states', name: 'United States', icon: '🇺🇸', description: 'Accounting support for U.S. CPA firms, with workflows built around bookkeeping, tax preparation, payroll, reconciliations, close, and audit support.' },
+  { id: 'united-kingdom', slug: 'united-kingdom', name: 'United Kingdom', icon: '🇬🇧', description: 'Accounting support for UK accountancy practices, with recurring bookkeeping, accounting operations, tax preparation, payroll, and reporting workflows.' },
+  { id: 'australia', slug: 'australia', name: 'Australia', icon: '🇦🇺', description: 'Accounting support for Australian accounting firms, including bookkeeping, reconciliations, reporting, payroll, tax preparation, and recurring back-office work.' },
 ];
 
 export const industries = [
@@ -75,7 +75,7 @@ export const technologies = [
   { id: 'netsuite', slug: 'netsuite', name: 'NetSuite', icon: '🔧', description: 'NetSuite support for multi-entity accounting, reconciliations, close activities, account maintenance, and reporting workflows that require more structured controls.' },
   { id: 'drake-tax', slug: 'drake-tax', name: 'Drake Tax', icon: '📝', description: 'Drake Tax support for organized return-preparation workflows, source-document handling, workpapers, review notes, and recurring tax-season processes.' },
   { id: 'cch', slug: 'cch', name: 'CCH Axcess', icon: '🎯', description: 'CCH Axcess support around tax-practice workflows, document organization, preparation tasks, review queues, and recurring practice operations.' },
-  { id: 'myob', slug: 'myob', name: 'MYOB', icon: '💼', description: 'MYOB accounting support for Australian and New Zealand businesses and accounting practices, including recurring bookkeeping, reconciliations, and reporting workflows.' },
+  { id: 'myob', slug: 'myob', name: 'MYOB', icon: '💼', description: 'MYOB accounting support for Australian and New Zealand accounting firms and practices, including recurring bookkeeping, reconciliations, and reporting workflows.' },
 ];
 
 export const expertise = [
@@ -101,8 +101,8 @@ export const testimonials = [
   {
     name: 'Growing workload',
     title: 'Common engagement theme',
-    company: 'Business and practice operations',
-    text: 'A growing business or accounting practice may need additional capacity without immediately changing its accounting system or asking managers to rebuild the workflow from scratch.',
+    company: 'Firm and practice operations',
+    text: 'A growing firm or accounting practice may need additional capacity without immediately changing its accounting system or asking managers to rebuild the workflow from scratch.',
   },
 ];
 
@@ -116,7 +116,7 @@ export const trustBadges = [
 export const companyInfo = {
   name: 'Accounstone',
   tagline: 'Outsourced Accounting | Tax | Audit | Bookkeeping',
-  description: 'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, audit support, and back-office services to businesses and accounting practices across the US, UK, and Australia. The focus is practical: defined workflows, clear handoffs, documented work, quality review, and communication that keeps the client team informed.',
+  description: 'Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, audit support, and back-office services to accounting firms, practices and the businesses they support across the US, UK, and Australia. The focus is practical: defined workflows, clear handoffs, documented work, quality review, and communication that keeps the client team informed.',
   website: 'https://www.accounstone.com',
   contact: {
     email: 'partner@accounstone.com',

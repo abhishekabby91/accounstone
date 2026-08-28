@@ -18,7 +18,7 @@ export const metadata: Metadata = generateMetadata({
   // separate thing from the homepage's SEO title.
   title: 'Accounting, Bookkeeping, Tax & Payroll Outsourcing Services',
   description:
-    'Outsourced accounting, bookkeeping, tax, payroll, and audit support for CPA firms and businesses. Expand your accounting capacity with Accounstone.',
+    'Outsourced accounting, bookkeeping, tax, payroll, and audit support for CPA firms and accounting practices. Expand your firm’s capacity with Accounstone.',
   path: '/',
   absoluteTitle: true,
 });
@@ -29,7 +29,7 @@ const homePageFAQs = [
   { question: 'Can you work with our existing software?', answer: 'Yes. Our team works with platforms including QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, and MYOB, along with client-specific systems and workflows. The goal is to fit into your existing process rather than force a system change.' },
   { question: 'How quickly can you get started?', answer: 'Most engagements begin with structured discovery and knowledge transfer. The timeline depends on your workflows, systems, documentation, current books, and the scope being handed over.' },
   { question: 'How is pricing determined?', answer: 'Pricing depends on transaction volume, workflow complexity, systems, service scope, and the engagement model. We first understand the work, review what needs to be handled, and then provide a clear proposal.' },
-  { question: 'Do you provide offshore accounting support?', answer: 'Yes. Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting practices and businesses across the US, UK, and Australia.' },
+  { question: 'Do you provide offshore accounting support?', answer: 'Yes. Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting firms and practices across the US, UK, and Australia.' },
 ];
 
 const faqSchema = generateFAQSchema(homePageFAQs);
@@ -64,7 +64,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <section data-section="hero">
-        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} pageHeading="Outsourced Accounting, Bookkeeping, Tax and Payroll for CPA Firms and Businesses" />
+        <HeroCarousel slides={carouselSlides} autoPlayInterval={5000} pageHeading="Outsourced Accounting, Bookkeeping, Tax and Payroll for CPA Firms and Accounting Practices" />
       </section>
 
       <section className="w-full py-7 md:py-8 px-6 md:px-8 bg-white border-b border-border ledger-lines">
@@ -85,7 +85,7 @@ export default function HomePage() {
               <span className="w-4 h-px bg-accent" aria-hidden="true" />How We Work
             </span>
             <h2 className="font-serif text-xl md:text-2xl font-bold text-primary text-balance">One Delivery Team. Three Markets.</h2>
-            <p className="text-muted leading-relaxed">Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting businesses and accounting practices across the US, UK, and Australia.</p>
+            <p className="text-muted leading-relaxed">Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting firms and practices across the US, UK, and Australia.</p>
           </>
         </Reveal>
         <Reveal delay={0.15}><GlobalDeliveryDiagram /></Reveal>
@@ -110,9 +110,8 @@ export default function HomePage() {
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
 
       <section data-section="solutions"><SectionGrid subtitle="Our Engagement Models" title="Support Built Around Your Team" description="Choose the delivery model that matches your workload, processes, review structure, and growth plans." items={solutions} baseUrl="/solutions" columns={3} variant="default" /></section>
-      {/* Accounting firms are a distinct audience from the businesses the
-          general pitch above addresses, so they get a named section rather
-          than being folded in. All three markets appear here: the UK version
+      {/* Each market names its own audience in its own words, so the block
+          below carries all three rather than one generic line. The UK version
           shipped first, and leaving the US and Australia out read as though
           the offer only applied to one of them. Placed after the services grid
           so this narrows rather than replaces. */}

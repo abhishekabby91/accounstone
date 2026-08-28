@@ -49,7 +49,7 @@ const retained = [
 const faqs = [
   { question: 'Do you initiate EFT or BPAY payments?', answer: 'No. We prepare the payment batch — vendor, amount, and due date — but an authorised person inside your organisation initiates the actual payment. We do not hold bank access.' },
   { question: 'How is GST handled on purchase invoices?', answer: "We code GST input tax credits against the vendor's ABN and GST registration status as invoices are entered. Determining GST treatment for an unusual transaction stays with your accountant or BAS agent." },
-  { question: 'Do you handle RCTI arrangements?', answer: 'Where your business operates under a Recipient Created Tax Invoice arrangement, we process the invoices according to the agreement in place. Setting up or verifying an RCTI arrangement stays with your accountant.' },
+  { question: 'Do you handle RCTI arrangements?', answer: 'Where a client operates under a Recipient Created Tax Invoice arrangement, we process the invoices according to the agreement in place. Setting up or verifying an RCTI arrangement stays with your firm.' },
   { question: 'Can this work with three-way matching?', answer: 'Yes. Where purchase orders exist, invoices are matched against PO line items and receiving records before being routed for approval.' },
 ];
 

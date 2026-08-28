@@ -46,7 +46,7 @@ const faqs = [
   { question: 'Do you lodge our BAS?', answer: 'No. We prepare BAS-ready records — GST coding reconciled, ledger current, supporting detail organised — so the lodgment itself is straightforward. Lodgment stays with your registered BAS agent, and income tax lodgment stays with your registered tax agent.' },
   { question: 'Which reporting standard do you work to?', answer: 'Reconciliations, journal entries, and reporting are structured around AASB conventions, which follow IFRS in Australia. Accounting policy decisions and judgement-based treatment stay with your registered agent or finance lead.' },
   { question: 'How does the close fit our BAS cycle?', answer: 'The close calendar can be set around your BAS periods, so the ledger is reconciled and GST-coded when the statement is prepared rather than being caught up afterwards.' },
-  { question: 'Do you work inside our existing software?', answer: 'Yes — Xero, MYOB, or QuickBooks Online, whichever your business already uses. We work inside your existing setup rather than changing it.' },
+  { question: 'Do you work inside our existing software?', answer: 'Yes — Xero, MYOB, or QuickBooks Online, whichever the client already uses. We work inside the existing setup rather than changing it.' },
   { question: 'Do you hold ATO portal access?', answer: 'No. Portal access and lodgment stay with your registered agent. Our work is the preparation and documentation behind what they review and lodge.' },
 ];
 

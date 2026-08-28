@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'What is the typical cost savings?',
-    answer: 'The real cost comparison depends on your transaction volume and current setup, but many businesses find outsourced support more cost-effective than a full in-house hire once salary, benefits, and payroll taxes are factored in. We can walk through the specific numbers for your situation.',
+    answer: 'The real cost comparison depends on your transaction volume and current setup, but many firms find outsourced support more cost-effective than a full in-house hire once salary, benefits, and payroll taxes are factored in. We can walk through the specific numbers for your situation.',
   },
   {
     question: 'How long does onboarding take?',
@@ -136,7 +136,7 @@ export default function OffshoreSolutionPage() {
 
       <CTABanner
         title="Ready to Scale Your Accounting Operations?"
-        description="Let our offshore team handle your accounting while you focus on growing your business."
+        description="Let our offshore team carry the preparation while your people stay on review and client work."
         cta={{
           text: 'Start Your Offshore Team',
           href: '/contact',

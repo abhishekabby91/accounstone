@@ -46,7 +46,7 @@ const retained = [
 const faqs = [
   { question: 'Will your team contact our customers directly?', answer: 'For overdue-invoice follow-up, yes — the AR team can send reminder emails in your company name from a shared or delegated inbox, on a schedule you define. Phone collection calls typically stay with your internal team unless specifically agreed.' },
   { question: 'How does this work with U.S. payment methods?', answer: 'Payments arriving via ACH, check, or card processor sync are matched against open invoices in QuickBooks Online or Xero. Discrepancies are flagged for your review rather than applied automatically when something does not match cleanly.' },
-  { question: 'What is DSO and does this actually reduce it?', answer: 'Days Sales Outstanding measures how long it takes to collect after invoicing. Consistent aging monitoring and follow-up typically reduces DSO by 5–15 days — the cash freed up is working capital your business already earned but had tied up in receivables.' },
+  { question: 'What is DSO and does this actually reduce it?', answer: 'Days Sales Outstanding measures how long it takes to collect after invoicing. Consistent aging monitoring and follow-up typically reduces DSO by 5–15 days — the cash freed up is working capital the client already earned but had tied up in receivables.' },
   { question: 'What stays with our team?', answer: 'Credit decisions, write-off authority, and any judgment call about the customer relationship. We handle the process — invoicing, application, follow-up, reconciliation — and flag exceptions for your decision.' },
 ];
 

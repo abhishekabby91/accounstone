@@ -91,7 +91,7 @@ export default function ServicesPage() {
           <span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span>
           <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Same Discipline, Applied to Three Different Rulebooks</h2>
           <p className="text-lg text-muted leading-relaxed">
-            Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, accounts payable, accounts receivable and audit support to businesses and accounting practices in the United States, the United Kingdom and Australia.
+            Accounstone provides outsourced accounting, bookkeeping, tax preparation, payroll, accounts payable, accounts receivable and audit support to accounting firms and practices in the United States, the United Kingdom and Australia.
           </p>
           <p className="text-lg text-muted leading-relaxed">
             What stays constant is the method: documented workflows, a named preparer and reviewer, evidence retained for every step, and a clear handoff back to whoever holds review and approval. What changes by region is almost everything else — the reporting framework, the compliance calendar, the payroll obligations and the point at which a licensed professional has to take over. That is why the service pages below are region-specific rather than generic.

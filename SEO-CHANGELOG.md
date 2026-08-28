@@ -1,5 +1,64 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (audience wording: "businesses" out of the reader-facing copy)
+
+Follow-on from the repositioning above. With all three markets now addressing
+firms, the site was still calling its reader a business in the places that
+matter most.
+
+**The distinction that governed every edit.** "Business" appears in two
+completely different roles, and a blanket replacement would have wrecked the
+second:
+
+1. *The reader* — "accounting support for businesses", "your business", the CTA
+   copy. Changed.
+2. *The client's clients* — the industry pages, the three US state pages, and
+   the guides explaining what a business does. Left alone. An accounting firm
+   serving e-commerce clients still needs a page about e-commerce businesses;
+   "e-commerce firms" would have meant something else entirely.
+
+Changed: the homepage `h1` and meta description, the delivery-diagram node label
+("Your Business" → "Your Firm"), `lib/data.ts` region and platform descriptions,
+the Organization schema description, the `/services` hub intro, all four
+`/solutions` pages, `/technology/myob`, and eleven Service × Region FAQ answers
+that still said "your business" to what is now a firm audience.
+
+Region descriptions now use each market's own word: CPA firms for the US,
+accountancy practices for the UK, accounting firms for Australia.
+
+**The homepage `h1` changed and the `<title>` did not.** The title the owner
+specified verbatim — `Accounting, Bookkeeping, Tax & Payroll Outsourcing
+Services` — carries no audience word, so it is untouched. The `h1` moved from
+"...for CPA Firms and Businesses" to "...for CPA Firms and Accounting
+Practices", keeping "CPA firms" as the strongest US term while covering the UK
+and Australian audiences.
+
+**The meta description was also owner-specified, and this changes it.** It read
+"...for CPA firms and businesses. Expand your accounting capacity with
+Accounstone." and now reads "...for CPA firms and accounting practices. Expand
+your firm's capacity with Accounstone." Flagged rather than done silently.
+
+**Two pre-existing overclaims fixed while in `/solutions/dedicated-accounting-teams`:**
+an FAQ still quoted team sizes ("1-2 professionals for smaller businesses to 10+
+for larger enterprises") — `identity.md` says team size is not on file and must
+be asked for, not estimated — and another claimed the team handles "all
+accounting and financial operations", which is both an absolute and a drift
+toward financial services.
+
+**Not changed, deliberately:** `knowledge/company/identity.md` still records the
+ICP as CPA firms and growing businesses. Only a human may edit that file, and
+the marketing focus narrowing is not the same as the company's stated ICP
+changing. If the ICP itself has changed, that is an owner edit.
+
+Verified: 84 routes all 200, sitemap parity 84 ↔ 84, 0 duplicate titles,
+canonicals or `h1`s, 0 broken links, 0 links to redirects, 0 orphans, duplication
+unchanged (worst market pair 14.2%), Playwright clean at 320-1440px.
+
+**URL changed:** No. **Metadata changed:** homepage description, staff
+augmentation title, region descriptions. **Content changed:** homepage,
+`/services`, four `/solutions` pages, eleven service-page FAQs,
+`/technology/myob`.
+
 ## 2026-08-28 (US and Australia repositioned for firms, matching the UK pass)
 
 The UK pass on 2026-08-28 moved that market from "outsourced accounting services

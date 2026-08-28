@@ -16,15 +16,15 @@ export const metadata: Metadata = generateMetadata({
 const faqs = [
   {
     question: 'What is a dedicated accounting team?',
-    answer: 'A dedicated accounting team is a group of experienced accounting professionals exclusively assigned to your business. They work as an extension of your team, handling all accounting and financial operations.',
+    answer: 'A dedicated accounting team is a group of accounting professionals assigned to your firm’s work and no one else’s. They work as an extension of your team, on the recurring preparation you scope to them.',
   },
   {
     question: 'How large can a dedicated team be?',
-    answer: 'Teams range from 1-2 professionals for smaller businesses to 10+ for larger enterprises. We customize team size based on your needs and budget.',
+    answer: 'It depends on the volume and the mix of work, so it is set during scoping rather than quoted from a table. What is fixed is that the people are named, assigned to your firm and not rotated between clients.',
   },
   {
     question: 'Can we scale the team up or down?',
-    answer: 'Yes. Your dedicated team can scale with your business — adding resources during growth phases or reducing during slower periods.',
+    answer: 'Yes. The team can flex with your firm — adding capacity through the busiest weeks and reducing when the calendar allows.',
   },
   {
     question: 'Who manages the dedicated team?',
