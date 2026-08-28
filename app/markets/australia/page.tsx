@@ -223,8 +223,8 @@ export default function AustraliaMarketPage() {
               Registration sits with a person, not a process. Nothing we do touches it: we hold no ATO portal access,
               we sign nothing, and we lodge nothing. What moves across is the preparation your registered agent would
               otherwise be doing before they can start reviewing. Your firm remains the client’s accountant, and the
-              engagement letter still has your name on it. Any supplier whose model quietly needs that to blur is
-              solving their growth problem with your client list.
+              engagement letter still has your name on it. Our operating model is built to keep it that way — no
+              client-facing contact without your instruction, and no credential that would let us act in your name.
             </p>
           </Reveal>
 

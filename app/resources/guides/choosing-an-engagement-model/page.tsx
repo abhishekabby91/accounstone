@@ -76,7 +76,7 @@ export default function ChoosingEngagementModelGuide() {
               <td className="p-4 font-semibold text-foreground align-top"><Link href="/solutions/back-office-support" className="text-primary hover:underline">Back Office Support</Link></td>
               <td className="p-4 text-muted align-top">A defined function — bookkeeping, payroll, AP, AR, or some combination — handed off end to end.</td>
               <td className="p-4 text-muted align-top">You want to stop running a whole recurring workflow in-house, not add a person to help run it.</td>
-              <td className="p-4 text-muted align-top">Ongoing, fixed-fee based on transaction volume and function mix.</td>
+              <td className="p-4 text-muted align-top">Ongoing, sized to transaction volume and the mix of functions handed over.</td>
             </tr>
           </tbody>
         </table>

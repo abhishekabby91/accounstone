@@ -1,5 +1,68 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (no price positioning; no competitor framing)
+
+Two owner directives, one pass.
+
+### Price
+
+**The rule, as the owner set it:** market-rate education in the Resources
+guides is fine; Accounstone competing on an exact price is not. So every
+statement about what Accounstone charges is gone, and the guides are untouched.
+
+Removed: the "How is pricing determined?" FAQ from the homepage and `/services`
+(now "How is an engagement scoped?"), the whole "What is included in the
+pricing? / transparent and fixed-fee / No hidden costs or surprise fees" FAQ
+from `/solutions/back-office-support`, "Meaningfully reduce operational
+overhead vs. in-house staffing", "makes the arrangement cheaper over time",
+"Scale Your Operations Affordably", "at a cost-effective rate",
+"Cost-Effective Without Compromising Quality", "at a fraction of the cost",
+the cost-comparison FAQ on `/solutions/offshore-accounting-support`, "Ongoing,
+fixed-fee based on transaction volume and function mix" from the engagement-model
+table, "expect two line items" from the services guide, and "Free
+consultation" / "Schedule Free Consultation" / "Free initial consultation" from
+`/contact` — free is still a price.
+
+Kept deliberately: idiomatic cost-of-error language ("trivial to fix in the
+fall and expensive to chase in January", "cheap early and expensive later").
+That describes the cost of doing the work badly, not what Accounstone charges.
+Also kept: early-payment discounts and invoice discounting in the AR material,
+which are accounting concepts, and "allocating transaction price", which is
+ASC 606 wording.
+
+Verified across every commercial page — homepage, `/services`, all four
+`/solutions`, all three markets, `/contact`, `/about`, `/resources`,
+technology — that no pricing term survives in rendered page text. Nowhere does
+the site say what Accounstone charges.
+
+### Competitors
+
+The owner's framing: the competition is Accounstone's own thinking and system,
+not other suppliers. Three market pages ended a boundary argument by warning
+about what a rival would do — "a supplier who blurs that line is offering you a
+competitor with a copy of your client list". Each now states Accounstone's own
+operating model instead: no client-facing contact without instruction, no
+credential that would allow acting in the firm's name, every file returned for
+review.
+
+The payroll banking-control passages made the same move ("worth questioning,
+whoever is offering it") and now read as a design choice: the workflow is built
+so it never needs banking control, which is why the question does not arise.
+
+The provider-comparison guide lost "a cheap provider that creates rework costs
+more than an expensive one" — the point stands without the price comparison,
+and it reads as advice rather than a swipe.
+
+**Fixed while in `/contact`:** the hero still said "Let's Talk About Your
+Business" to what is now a firm audience.
+
+Verified: 84 routes all 200, 0 duplicate titles or `h1`s, 0 broken links, 0
+links to redirects, 0 orphans, Playwright clean at 320-1440px.
+
+**URL changed:** No. **Metadata changed:** `/solutions/offshore-accounting-support`
+description. **Content changed:** homepage, `/services`, three `/solutions`
+pages, three market pages, `/contact`, two guides, `lib/regional-context.ts`.
+
 ## 2026-08-28 (audience wording: "businesses" out of the reader-facing copy)
 
 Follow-on from the repositioning above. With all three markets now addressing

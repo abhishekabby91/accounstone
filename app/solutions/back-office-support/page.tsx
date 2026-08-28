@@ -34,10 +34,6 @@ const faqs = [
     question: 'Can we customize which functions you handle?',
     answer: 'Yes. You choose which back-office functions you want us to handle — some clients outsource everything, others select specific areas.',
   },
-  {
-    question: 'What is included in the pricing?',
-    answer: 'Pricing is transparent and fixed-fee based on your transaction volume and function mix. No hidden costs or surprise fees.',
-  },
 ];
 
 const faqSchema = generateFAQSchema(faqs);
@@ -125,7 +121,7 @@ export default function BackOfficeSupportPage() {
               <h3 className="text-2xl font-bold text-primary">Benefits</h3>
               <ul className="space-y-3">
                 {[
-                  'Meaningfully reduce operational overhead vs. in-house staffing',
+                  'Recurring workflows run by people dedicated to them',
                   'Eliminate payroll tax headaches',
                   'Support compliance across the regions you operate in',
                   'Improve cash flow management',

@@ -160,7 +160,7 @@ export const regionalContext: Record<string, ContextEntry> = {
     paragraphs: [
       "Payroll errors are rarely arithmetic. The calculation is the part software handles well. What goes wrong is structural: a client's employee who moved states and now creates a withholding and unemployment registration obligation there, a contractor whose classification was never really examined, a tax identification number that has been missing since onboarding and will be missing again in January.",
       "None of these announce themselves at the time. They surface later as a notice, and by then the correction is an amendment rather than an edit. The work that prevents them is unglamorous - keeping employee and vendor data current, checking the registration position when someone is hired, confirming the run before it goes out - and it is exactly the work that gets deferred when payroll is one person's fourth priority.",
-      "One thing we will not do regardless of how it is framed: hold the ability to move money. We prepare the run and the funding file. Releasing payment stays with your firm or the client's authorised signatory. Any payroll arrangement that requires handing over banking control is worth questioning, whoever is offering it.",
+      "One thing we will not do regardless of how it is framed: hold the ability to move money. We prepare the run and the funding file; releasing payment stays with your firm or the client's authorised signatory. That is a deliberate design choice rather than a limitation - a preparation service does not need banking control to do its job, and building the workflow so it never requires one removes the question entirely.",
     ],
     aside: {
       label: 'What stays a decision',
@@ -177,7 +177,7 @@ export const regionalContext: Record<string, ContextEntry> = {
     ],
     aside: {
       label: 'What we will never ask for',
-      text: "Banking control. We prepare the run and the payment file; releasing funds stays with your practice or the client\u2019s authorised signatory. We prepare the RTI data; your practice submits it. Any payroll arrangement that requires handing over the ability to move money is worth questioning, whoever is offering it.",
+      text: "Banking control. We prepare the run and the payment file; releasing funds stays with your practice or the client\u2019s authorised signatory. We prepare the RTI data; your practice submits it. The workflow is built so that neither step ever needs us to hold the ability to move money - which is why the question does not arise.",
     },
   },
   'payroll/australia': {

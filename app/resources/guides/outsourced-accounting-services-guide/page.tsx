@@ -143,7 +143,7 @@ export default function OutsourcedAccountingGuide() {
 
       <h2>What Does It Cost?</h2>
       <p>
-        Accounting operations work is priced separately from bookkeeping, since it's a different layer of work — if you're outsourcing both, expect two line items, not one.
+        Accounting operations work is scoped separately from bookkeeping, since it is a different layer of work — if you are outsourcing both, expect two defined workflows, not one.
       </p>
       <ul>
         <li><strong>SMB accounting operations</strong> (simple accrual, monthly close): roughly $500–$1,500/month offshore</li>

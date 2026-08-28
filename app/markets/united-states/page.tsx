@@ -222,8 +222,9 @@ export default function USMarketPage() {
             <p className="mt-5 text-base md:text-lg text-muted leading-relaxed">
               We do not hold your client relationships, we do not sign, and we do not file. Your firm remains the
               client’s CPA in every sense that matters — professionally, contractually, and in the client’s mind. What
-              moves is the preparation underneath it. A supplier who blurs that line is not offering you capacity; they
-              are offering you a competitor with a copy of your client list.
+              moves is the preparation underneath it. We have built the whole operating model around that line: no
+              client-facing contact without your instruction, no credentials that would let us act in your name, and
+              every file handed back for your review rather than taken forward on our own judgement.
             </p>
           </Reveal>
 

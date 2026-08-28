@@ -38,9 +38,9 @@ const serviceFAQs = [
       'Yes. Where a group has entities in more than one of these markets, the work can be run to each entity’s own reporting requirements while keeping one point of contact and a consistent review process.',
   },
   {
-    question: 'How is pricing determined?',
+    question: 'How is an engagement scoped?',
     answer:
-      'By scope, transaction volume, workflow complexity, the systems involved and turnaround requirements. We put a clear proposal together once we understand the work rather than quoting from a rate card.',
+      'By scope, transaction volume, workflow complexity, the systems involved and turnaround requirements. We put a written proposal together once we understand the work, rather than fitting it to a standard package.',
   },
   {
     question: 'What accounting software do you support?',

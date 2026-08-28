@@ -28,7 +28,7 @@ const homePageFAQs = [
   { question: 'How do you approach data security?', answer: 'Engagements are NDA-backed, with access limited to the team members working on the account. We use controlled access, documented workflows, and security-focused handling practices. We are also transparent about the certifications and controls we do and do not hold.' },
   { question: 'Can you work with our existing software?', answer: 'Yes. Our team works with platforms including QuickBooks Online, Xero, Sage, NetSuite, Drake Tax, CCH Axcess, and MYOB, along with client-specific systems and workflows. The goal is to fit into your existing process rather than force a system change.' },
   { question: 'How quickly can you get started?', answer: 'Most engagements begin with structured discovery and knowledge transfer. The timeline depends on your workflows, systems, documentation, current books, and the scope being handed over.' },
-  { question: 'How is pricing determined?', answer: 'Pricing depends on transaction volume, workflow complexity, systems, service scope, and the engagement model. We first understand the work, review what needs to be handled, and then provide a clear proposal.' },
+  { question: 'How is an engagement scoped?', answer: 'By understanding the work first: transaction volume, workflow complexity, the systems involved, the review points and what you want to keep in-house. We put a written proposal together once that is clear, rather than working from a standard package.' },
   { question: 'Do you provide offshore accounting support?', answer: 'Yes. Our service delivery team operates from our Global Delivery Center in New Delhi, India, supporting accounting firms and practices across the US, UK, and Australia.' },
 ];
 

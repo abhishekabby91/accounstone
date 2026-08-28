@@ -38,7 +38,7 @@ const faqs = [
   {
     question: 'What if a client’s records are a mess?',
     answer:
-      'Common, and it is scoped separately from the recurring work. Bringing prior periods into agreement is a different job from keeping the current one current, and pricing it as though it were routine would misrepresent both.',
+      'Common, and it is scoped separately from the recurring work. Bringing prior periods into agreement is a different job from keeping the current one current, and scoping it as though it were routine would misrepresent both.',
   },
   {
     question: 'Can you work to our templates and file structure?',
@@ -169,8 +169,9 @@ export default function UKMarketPage() {
             <p className="mt-5 text-base md:text-lg text-muted leading-relaxed">
               We do not hold your client relationships, we do not sign anything, and we do not file. Your practice
               stays the client’s accountant in every sense that matters — professionally, contractually, and in the
-              client’s mind. What moves is the preparation underneath. A supplier who blurs that line is offering you
-              a competitor with access to your client list.
+              client’s mind. What moves is the preparation underneath. The whole way we work is built around that
+              line: no client-facing contact without your instruction, no credentials that would let us act in your
+              name, and every file returned for your review rather than carried forward on our judgement.
             </p>
           </Reveal>
 

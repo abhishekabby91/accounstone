@@ -9,7 +9,7 @@ import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Offshore Accounting Support',
-  description: 'Scale your accounting operations with experienced offshore professionals. Cost-effective support for bookkeeping, accounting, payroll, and financial operations.',
+  description: 'Scale your accounting operations with an experienced offshore team. Recurring support for bookkeeping, accounting operations, payroll and back-office work, inside your existing systems.',
   path: '/solutions/offshore-accounting-support',
 });
 
@@ -28,7 +28,7 @@ const faqs = [
   },
   {
     question: 'What is the typical cost savings?',
-    answer: 'The real cost comparison depends on your transaction volume and current setup, but many firms find outsourced support more cost-effective than a full in-house hire once salary, benefits, and payroll taxes are factored in. We can walk through the specific numbers for your situation.',
+    answer: 'That depends on your transaction volume, the systems in use and how much of the work you want to keep in-house. We would rather scope the actual workflow with you than answer it in the abstract.',
   },
   {
     question: 'How long does onboarding take?',
@@ -52,8 +52,8 @@ export default function OffshoreSolutionPage() {
 
       <PremiumHero
         subtitle="Offshore Accounting"
-        title="Scale Your Operations Affordably"
-        description="Experienced offshore accounting professionals to handle your financial operations at a cost-effective rate. NDA-backed engagements, honest communication about our security certification timeline."
+        title="An Offshore Team Inside Your Existing Systems"
+        description="Experienced accounting professionals handling the recurring preparation work, under access you grant and can revoke. NDA-backed engagements, and honest communication about our security certification timeline."
         cta={{
           text: 'Schedule Consultation',
           href: '/contact',
@@ -69,8 +69,8 @@ export default function OffshoreSolutionPage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <Reveal><h2 className="text-4xl font-bold text-primary">Cost-Effective Without Compromising Quality</h2></Reveal>
-              <p className="text-lg text-muted leading-relaxed">Our offshore accounting teams provide the same expertise and quality as onshore professionals, but at a fraction of the cost. We focus on delivering exceptional results while helping you manage your bottom line.</p>
+              <Reveal><h2 className="text-4xl font-bold text-primary">Capacity That Does Not Come With a Hiring Cycle</h2></Reveal>
+              <p className="text-lg text-muted leading-relaxed">An offshore team absorbs the recurring preparation work without a recruitment process, an onboarding ramp or a desk. The work stays in your systems, to your templates, with your people keeping review and every decision that carries judgement.</p>
               
               <div className="space-y-4 pt-4">
                 {[

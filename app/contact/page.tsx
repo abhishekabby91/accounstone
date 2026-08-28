@@ -103,8 +103,8 @@ export default function ContactPage() {
     <main>
       <PremiumHero
         subtitle="Get in Touch"
-        title="Let&apos;s Talk About Your Business"
-        description="Ready to transform your accounting operations? Schedule a free consultation with one of our experts."
+        title="Tell Us What You Are Working With"
+        description="Tell us what you are working with — the volume, the systems, the deadlines — and we will talk through what support would actually change."
         background="primary-gradient"
       />
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="space-y-2">
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Free Consultation
+                  Start a Conversation
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary">
                   Schedule Your Meeting
@@ -266,7 +266,7 @@ export default function ContactPage() {
                   aria-busy={status === 'submitting'}
                   className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md"
                 >
-                  {status === 'submitting' ? 'Sending\u2026' : 'Schedule Free Consultation'}
+                  {status === 'submitting' ? 'Sending\u2026' : 'Send Your Enquiry'}
                 </button>
 
                 <p className="text-xs text-muted text-center">
@@ -344,10 +344,10 @@ export default function ContactPage() {
                   What to Expect
                 </p>
                 {[
-                  'Free initial consultation',
-                  'Expert recommendations tailored to your business',
+                  'A scoping conversation before anything is committed',
+                  'A written proposal built around your actual workflow',
                   'No long-term contracts required',
-                  'Fast response within 24 hours',
+                  'A reply within one business day',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />

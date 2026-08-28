@@ -24,7 +24,7 @@ export default function HowToChoosePartnerGuide() {
       slug="how-to-choose-accounting-outsourcing-partner"
     >
       <p>
-        Most outsourcing comparisons start with a rate card. That is the wrong place to start. A cheap provider that creates rework for your reviewer costs more than an expensive one that does not. A useful comparison starts with how the provider is actually structured to do the work — who touches the file, who reviews it, what happens when something is unclear, and how the relationship would end if it did not work out.
+        Most outsourcing comparisons start with a rate card. That is the wrong place to start, because a rate says nothing about how much work lands back on your reviewer. A useful comparison starts with how the work is actually structured — who touches the file, who reviews it before it reaches you, what happens when something is unclear, and how the relationship would end if it did not work out.
       </p>
       <p>
         This guide is a decision framework, not a sales pitch for any single provider. Use it whether you are a CPA firm considering staff augmentation, a business owner comparing bookkeeping providers, or a finance manager building a shortlist.
@@ -41,7 +41,7 @@ export default function HowToChoosePartnerGuide() {
         ]}
       />
 
-      <h2>1. Start with scope, not price</h2>
+      <h2>1. Start with scope</h2>
       <p>
         Ask exactly what is included before asking what it costs. &ldquo;Bookkeeping&rdquo; or &ldquo;accounting support&rdquo; can mean very different things between two proposals — one may include reconciliations only, another may include AP/AR, month-end close and reporting. A number without a defined scope is not comparable to any other number. Get the scope in writing first, then compare price against equivalent scope.
       </p>
