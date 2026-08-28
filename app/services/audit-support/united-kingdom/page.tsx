@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
@@ -70,6 +71,8 @@ export default function AuditSupportUKPage() {
         <Link href="/services/audit-support/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">Australia</Link>
       </div>
       <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Market Overview</Link><Link href="/services/accounting/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Accounting</Link><Link href="/services/bookkeeping/united-kingdom" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">UK Bookkeeping</Link><Link href="/compliance" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Compliance &amp; Controls</Link></div></div></section>
+
+    <InquirySection region="united-kingdom" service="Audit Support" source="/services/audit-support/united-kingdom" />
 
     <CTABanner title="Preparing for UK Audit Fieldwork?" description="Tell us whether the pressure sits in lead schedules, year-end reconciliations, or chasing sample support — and we can talk through where preparation help would actually shorten the audit." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
   </main>;

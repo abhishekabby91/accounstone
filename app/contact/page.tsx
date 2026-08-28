@@ -104,7 +104,7 @@ export default function ContactPage() {
       <PremiumHero
         subtitle="Get in Touch"
         title="Tell Us What You Are Working With"
-        description="Tell us what you are working with — the volume, the systems, the deadlines — and we will talk through what support would actually change."
+        description="The consultation and the call are always free. Tell us what you are working with — the volume, the systems, the deadlines — and we will talk through what support would actually change."
         background="primary-gradient"
       />
 
@@ -115,7 +115,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="space-y-2">
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Start a Conversation
+                  Free Consultation
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary">
                   Schedule Your Meeting
@@ -266,7 +266,7 @@ export default function ContactPage() {
                   aria-busy={status === 'submitting'}
                   className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md"
                 >
-                  {status === 'submitting' ? 'Sending\u2026' : 'Send Your Enquiry'}
+                  {status === 'submitting' ? 'Sending\u2026' : 'Book Your Free Consultation'}
                 </button>
 
                 <p className="text-xs text-muted text-center">
@@ -344,7 +344,7 @@ export default function ContactPage() {
                   What to Expect
                 </p>
                 {[
-                  'A scoping conversation before anything is committed',
+                  'A free consultation and call, with no commitment',
                   'A written proposal built around your actual workflow',
                   'No long-term contracts required',
                   'A reply within one business day',

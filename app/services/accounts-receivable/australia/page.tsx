@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -110,6 +111,8 @@ export default function AccountsReceivableAUPage() {
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Australia Market Overview</Link><Link href="/services/accounts-payable/australia" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AU Accounts Payable</Link><Link href="/resources/guides/outsourced-accounts-receivable-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AR Guide</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">MYOB</Link></div>
       </div></section>
+
+      <InquirySection region="australia" service="Accounts Receivable" source="/services/accounts-receivable/australia" />
 
       <CTABanner title="Are Debtors Building Up Ahead of 30 June?" description="Tell us where receivables are slipping — tax invoice queries, unapplied receipts, or follow-up that stops during the BAS period — and we can talk through a consistent cycle." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
@@ -370,6 +371,8 @@ export default function USMarketPage() {
       </section>
 
       <FAQSection subtitle="United States" items={faqs} columns={2} />
+
+      <InquirySection region="united-states" source="/markets/united-states" />
 
       <CTABanner
         title="Start With One Client and One Month"

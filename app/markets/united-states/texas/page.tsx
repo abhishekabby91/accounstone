@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import {
@@ -136,6 +137,8 @@ export default function TexasPage() {
       </section>
 
       <FAQSection subtitle="Texas Questions" items={faqs} columns={2} />
+
+      <InquirySection region="united-states" source="/markets/united-states/texas" title="Talk to Us About Your Texas Clients" lead="A free consultation, and a call that costs nothing. Franchise tax, no state income tax, and sales tax that still has to be tracked as it posts — tell us where the work sits." />
 
       <CTABanner
         title="Running a Business in Texas?"

@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
@@ -85,6 +86,8 @@ export default function StaffAugmentationPage() {
       <FAQSection subtitle="Staff Augmentation Questions" items={faqs} columns={2} />
 
       <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/dedicated-accounting-teams" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Dedicated Accounting Teams <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link><Link href="/services/bookkeeping/united-states" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Bookkeeping <ArrowRight size={14} /></Link><Link href="/services/tax-preparation/united-states" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Tax Preparation <ArrowRight size={14} /></Link></div></div></section>
+
+      <InquirySection source="/solutions/staff-augmentation" title="Talk to Us About the Capacity You Are Missing" lead="A free consultation, and a call that costs nothing. Tell us how many hands you are short and for how long, and we will scope around your review structure." />
 
       <CTABanner title="Where Do You Need More Accounting Capacity?" description="Tell us the work that is falling behind, the deadline you are working toward, and the systems involved. We can scope a practical staffing model around it." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>

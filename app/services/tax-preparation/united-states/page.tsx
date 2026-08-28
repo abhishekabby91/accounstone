@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -80,6 +81,8 @@ export default function TaxPrepUSPage() {
       <ServiceDepth serviceSlug="tax-preparation" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
+      <InquirySection region="united-states" service="Tax Preparation" source="/services/tax-preparation/united-states" />
+
       <CTABanner title="Where Is Tax Season Putting Pressure on Your Team?" description="Tell us which preparation tasks are building up and whether the real bottleneck is documents, preparation or review." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );

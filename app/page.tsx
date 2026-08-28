@@ -4,6 +4,7 @@ import Link from 'next/link';
 import HeroCarousel from '@/components/hero-carousel';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import TestimonialsSection from '@/components/testimonials-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
@@ -244,6 +245,8 @@ export default function HomePage() {
 
       <section data-section="testimonials"><Reveal><TestimonialsSection testimonials={testimonials} subtitle="Workflow Context" /></Reveal></section>
       <section data-section="faq"><Reveal><FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} /></Reveal></section>
+      <InquirySection source="/" background="white" title="Talk to Us Before You Hire for It" lead="The consultation and the call are always free. Tell us what is falling behind — the volume, the systems, the deadlines — and we will talk through what would actually change." />
+
       <section data-section="contact"><CTABanner title="Ready to Strengthen Your Accounting Operations?" description="Tell us what is slowing your team down. We can help you build a practical support model around the work that needs to get done." cta={{ text: 'Start a Conversation', href: '/contact' }} ctaSecondary={{ text: 'Learn About Accounstone', href: '/about' }} background="primary" /></section>
     </main>
   );

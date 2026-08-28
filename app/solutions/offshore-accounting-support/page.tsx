@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
@@ -133,6 +134,8 @@ export default function OffshoreSolutionPage() {
       <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/staff-augmentation" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Staff Augmentation <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
 
       <FAQSection subtitle="Offshore Support" items={faqs} columns={2} />
+
+      <InquirySection source="/solutions/offshore-accounting-support" title="Talk to Us About an Offshore Team" lead="A free consultation, and a call that costs nothing. Tell us what the recurring work looks like and which systems it lives in." />
 
       <CTABanner
         title="Ready to Scale Your Accounting Operations?"

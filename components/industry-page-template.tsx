@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import { generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
@@ -42,6 +43,13 @@ export default function IndustryPageTemplate({ path, industry, overview, benefit
       {relatedLinks.length > 0 && <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><Reveal className="space-y-4 mb-8"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Related work</span><h2 className="font-serif text-3xl font-bold text-primary">Explore the workflows that connect to this one</h2></></Reveal><div className="flex flex-wrap gap-3">{relatedLinks.map((link) => <Link key={link.href} href={link.href} className="px-4 py-2 rounded-lg bg-input text-primary hover:bg-border font-medium transition-colors">{link.name}</Link>)}</div></div></section>}
 
       <FAQSection subtitle="Questions we hear" items={faqs} columns={2} />
+      <InquirySection
+        source={`/industries/${slug}`}
+        title={`Talk to Us About ${industry.name} Accounting`}
+        lead={`A free consultation, and a call that costs nothing. Tell us how ${industry.name.toLowerCase()} work is handled today and where the recurring load is landing on the wrong people.`}
+        compact
+      />
+
       <CTABanner title={`Need support with ${industry.name} accounting?`} description="Tell us how the work is handled today and where additional capacity would make the biggest difference." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );

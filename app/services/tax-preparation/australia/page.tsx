@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -47,6 +48,8 @@ export default function TaxPrepAUPage() {
     <ServiceDepth serviceSlug="tax-preparation" regionSlug="australia" />
 
     <FAQSection subtitle="Questions" items={faqs} columns={2} />
+    <InquirySection region="australia" service="Tax Preparation" source="/services/tax-preparation/australia" />
+
     <CTABanner title="Where Is the Australian Tax Queue Getting Stuck?" description="Tell us whether the pressure is source documents, bookkeeping cleanup, BAS preparation or EOFY review capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
   </main>;
 }

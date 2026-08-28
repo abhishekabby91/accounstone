@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
@@ -68,6 +69,8 @@ export default function AuditSupportAUPage() {
         <Link href="/services/audit-support/united-kingdom" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors">United Kingdom</Link>
       </div>
       <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Market Overview</Link><Link href="/services/accounting/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Accounting</Link><Link href="/services/payroll/australia" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Australian Payroll</Link><Link href="/technology/myob" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">MYOB Support</Link></div></div></section>
+
+    <InquirySection region="australia" service="Audit Support" source="/services/audit-support/australia" />
 
     <CTABanner title="Heading Into a 30 June Audit?" description="Tell us whether the pressure sits in year-end reconciliations, GST control accounts, or the auditor's request list — and we can talk through what to prepare before the window closes." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
   </main>;

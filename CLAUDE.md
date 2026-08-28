@@ -213,6 +213,34 @@ Declared in `app/layout.tsx` and `public/manifest.webmanifest`.
 All are rendered on a white ground. The mark is navy and blue, which disappears
 against a dark browser tab bar on transparency.
 
+## The inquiry form is on 51 pages
+
+`components/inquiry-form.tsx` is the one form; `components/inquiry-section.tsx`
+is the band that wraps it, and sits before the `CTABanner` on every commercial
+page — services, markets, solutions, industries, technology, the homepage and
+the hubs. Consultations and calls are free and are the owner's lead source, so
+the ask leads with that.
+
+**It is region-aware because it has to be.** `region` changes the field labels
+("Practice name" in the UK, "Firm name" in the US and AU), the email and phone
+placeholders, the software list (Xero/Sage/IRIS vs QuickBooks/Drake/CCH vs
+Xero/MYOB/Reckon), the assurances beside it, and the business hours line. It
+also carries the region into the Web3Forms subject and payload, so an enquiry
+can be routed without reading it. `service` pre-selects the dropdown; `source`
+records which page it came from.
+
+**Adding it raised near-duplicate scores, and that had to be managed.** The
+first pass put identical copy on 45 pages and pushed `/technology/quickbooks`
+vs `/technology/xero` from 12.0% to 22.8%, with the six industry pages
+clustering around 20%. Two fixes brought the worst new pair to 17.3%: every
+non-region page passes its own `title` and `lead`, and thin pages pass
+`compact` (drops the assurances and contact block, leaving mostly form labels).
+**If you add this band anywhere else, give it page-specific copy and re-measure.**
+
+Every instance ids its fields with a per-instance `uid`, so two forms on one
+page cannot collide. There is exactly one `#inquiry` and one
+`#inquiry-heading` per page — check that if you ever add a second band.
+
 ## Contact form
 
 **`/contact` submits from the browser, and it has to. Do not move it back to

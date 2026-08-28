@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import FAQSection from '@/components/faq-section';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import Reveal from '@/components/reveal';
 import RegionFlag from '@/components/region-flag';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
@@ -209,6 +210,8 @@ export default function ServicesPage() {
       </section>
 
       <FAQSection subtitle="Services" items={serviceFAQs} columns={2} />
+
+      <InquirySection source="/services" title="Talk to Us About the Workflow You Need Covered" lead="A free consultation, and a call that costs nothing. Name the service and the region, and we will scope a pilot rather than quote a package." />
 
       <CTABanner
         title="Not Sure Where to Start?"

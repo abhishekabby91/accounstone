@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { industries } from '@/lib/data';
 
@@ -49,6 +50,8 @@ export default function IndustriesPage() {
         columns={3}
         variant="default"
       />
+
+      <InquirySection source="/industries" title="Talk to Us About Your Sector" lead="A free consultation, and a call that costs nothing. Different sectors break in different places; tell us which one you work in and what keeps recurring." />
 
       <CTABanner
         title="Don't See Your Industry?"

@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import FAQSection from '@/components/faq-section';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { technologies } from '@/lib/data';
 
@@ -153,6 +154,8 @@ export default function TechnologyPage() {
       </section>
 
       <FAQSection subtitle="Technology" items={techFAQs} columns={2} />
+
+      <InquirySection source="/technology" title="Talk to Us About the Platform You Work In" lead="A free consultation, and a call that costs nothing. Name the platform and the work, and we will tell you plainly whether we are a fit for it." compact />
 
       <CTABanner
         title="Which System Are You Working In?"

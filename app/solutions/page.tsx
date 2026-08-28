@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { solutions } from '@/lib/data';
 
@@ -58,6 +59,8 @@ export default function SolutionsPage() {
           </p>
         </div>
       </section>
+
+      <InquirySection source="/solutions" title="Talk to Us About How You Want to Engage" lead="A free consultation, and a call that costs nothing. Tell us whether you need people, a function taken off you, or a team of your own, and we will say which fits." />
 
       <CTABanner
         title="Ready to Find the Right Solution?"

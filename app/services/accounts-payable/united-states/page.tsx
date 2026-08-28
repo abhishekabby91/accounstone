@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -110,6 +111,8 @@ export default function AccountsPayableUSPage() {
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/services/accounts-receivable/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Accounts Receivable</Link><Link href="/resources/guides/outsourced-accounts-payable-guide" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">AP Guide</Link><Link href="/technology/quickbooks" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">QuickBooks</Link></div>
       </div></section>
+
+      <InquirySection region="united-states" service="Accounts Payable" source="/services/accounts-payable/united-states" />
 
       <CTABanner title="Where Is AP Creating a Backlog?" description="Tell us your invoice volume, current approval workflow, and which part of AP is taking the most manual time." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>

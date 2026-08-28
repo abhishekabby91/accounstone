@@ -1,5 +1,56 @@
 # Accounstone SEO Changelog
 
+## 2026-08-28 (an inquiry form on every commercial page, region-specific)
+
+The owner's correction to the pass above: consultations and calls are always
+free, and that is the lead source. The free-consultation language is back on
+`/contact`, and every commercial page now carries a form rather than a link to
+one.
+
+**51 pages.** `components/inquiry-form.tsx` plus `components/inquiry-section.tsx`,
+inserted before the `CTABanner` on every service, market, solution, industry
+and technology page, the four hubs and the homepage. Not on legal pages, not on
+Resources articles, and not on `/contact`, which is the form.
+
+**Region-specific, not one form repeated.** On a region page the band changes
+its field labels ("Practice name" in the UK, "Firm name" elsewhere), its email
+and phone placeholders, its software list — Xero/Sage/IRIS for the UK,
+QuickBooks/Drake/CCH for the US, Xero/MYOB/Reckon for Australia — its
+assurances, and its business-hours line. The region also travels into the
+Web3Forms subject and payload, so an enquiry arrives already routed. Service ×
+Region pages pre-select their own service; every page records its own path.
+
+Verified end to end in a browser against a stubbed Web3Forms. From
+`/services/bookkeeping/united-kingdom` the payload carried
+`service_interest: "Bookkeeping"`, `region: "United Kingdom"`,
+`software: "Xero"`, `page: "/services/bookkeeping/united-kingdom"` and the
+subject `"United Kingdom enquiry from …"`. The blocked path still keeps the
+visitor on the page with their input intact.
+
+**The duplication this created, and the fix.** Putting the same band on 45
+pages is exactly the kind of change that quietly undoes a restructure. The
+first pass pushed `/technology/quickbooks` vs `/technology/xero` from 12.0% to
+**22.8%**, and clustered the six industry pages around 20%. Two changes brought
+it back: every non-region page passes its own `title` and `lead`, and thin
+pages pass `compact`, which drops the shared assurances and contact block.
+
+```
+worst new pair   22.8% -> 17.3%   (industries/professional-services vs technology)
+technology pair  22.8% -> 17.2%
+markets vs each other   US-UK 16.2%, US-AU 9.8%, UK-AU 9.1%
+market vs own services  7.0% / 8.7% / 6.9%  (boundary intact)
+still only one pair above 25%: /resources vs /resources/guides at 28.3%,
+which predates all of this and is structural — both list the same guides
+```
+
+84 routes all 200, sitemap parity 84 ↔ 84, 0 duplicate titles or `h1`s (the
+band uses `h2`), 0 broken links, 0 links to redirects, 0 orphans, exactly one
+`#inquiry` per page, and Playwright clean at 320-1440px with every new field
+above the 24px tap target.
+
+**URL changed:** No. **Metadata changed:** No. **Content changed:** 51 pages
+gain an inquiry band; `/contact` regains its free-consultation copy.
+
 ## 2026-08-28 (no price positioning; no competitor framing)
 
 Two owner directives, one pass.

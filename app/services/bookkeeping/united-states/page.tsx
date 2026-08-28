@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -121,6 +122,8 @@ export default function BookkeepingUSPage() {
       <ServiceDepth serviceSlug="bookkeeping" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
+      <InquirySection region="united-states" service="Bookkeeping" source="/services/bookkeeping/united-states" />
+
       <CTABanner title="Where Is Your Bookkeeping Process Getting Stuck?" description="Tell us what is falling behind—reconciliations, cleanup, AP/AR, month-end or review—and we can start from the actual workflow." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );

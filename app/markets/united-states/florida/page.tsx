@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import {
@@ -136,6 +137,8 @@ export default function FloridaPage() {
       </section>
 
       <FAQSection subtitle="Florida Questions" items={faqs} columns={2} />
+
+      <InquirySection region="united-states" source="/markets/united-states/florida" title="Talk to Us About Your Florida Clients" lead="A free consultation, and a call that costs nothing. No personal income tax does not mean no obligations — tell us what the client base looks like." />
 
       <CTABanner
         title="Running a Business in Florida?"

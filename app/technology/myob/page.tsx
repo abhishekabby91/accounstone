@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
@@ -75,6 +76,8 @@ export default function MYOBPage() {
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto text-center"><span className="text-sm font-semibold uppercase tracking-wide text-accent">Related</span><h2 className="font-serif text-xl md:text-2xl font-bold text-primary mt-3 mb-8">Connect MYOB to the accounting work</h2><div className="flex flex-wrap justify-center gap-3"><Link href="/services/bookkeeping/australia" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Australian Bookkeeping</Link><Link href="/markets/australia" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Australia Market</Link><Link href="/services/payroll/united-states" className="px-4 py-2 rounded-lg bg-input text-primary font-medium hover:bg-border transition-colors">Payroll Processing</Link></div></div></section>
 
       <FAQSection subtitle="MYOB Questions" items={faqs} columns={2} />
+
+      <InquirySection source="/technology/myob" title="Talk to Us About Your MYOB Workload" lead="A free consultation, and a call that costs nothing. Tell us which MYOB edition the client runs and where the GST coding stops holding up." compact />
 
       <CTABanner title="Where Is Your MYOB Bookkeeping Getting Stuck?" description="Tell us whether the pressure is reconciliations, GST/BAS prep, payroll or simply keeping current." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>

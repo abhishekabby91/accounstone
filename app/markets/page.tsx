@@ -3,6 +3,7 @@ import { Check, Target, BarChart3 } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import SectionGrid from '@/components/section-grid';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { markets } from '@/lib/data';
 
@@ -77,6 +78,8 @@ export default function MarketsPage() {
           </div>
         </div>
       </section>
+
+      <InquirySection source="/markets" title="Talk to Us About Your Market" lead="A free consultation, and a call that costs nothing. Tell us which market your clients file in and we will scope around that compliance year." />
 
       <CTABanner
         title="Let's Talk About Your Market"

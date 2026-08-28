@@ -3,6 +3,7 @@ import { Check } from 'lucide-react';
 import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
@@ -80,6 +81,8 @@ export default function AuditSupportUSPage() {
       <ServiceDepth serviceSlug="audit-support" regionSlug="united-states" />
 
       <FAQSection subtitle="Questions" items={faqs} columns={2} />
+      <InquirySection region="united-states" service="Audit Support" source="/services/audit-support/united-states" />
+
       <CTABanner title="What Is Holding Up the Audit?" description="Tell us whether the pressure is coming from schedules, documentation, PBC follow-up or preparation capacity." cta={{ text: 'Start a Conversation', href: '/contact' }} background="primary" />
     </main>
   );
