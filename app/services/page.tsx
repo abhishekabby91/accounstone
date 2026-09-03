@@ -7,6 +7,7 @@ import CTABanner from '@/components/cta-banner';
 import InquirySection from '@/components/inquiry-section';
 import Reveal from '@/components/reveal';
 import RegionFlag from '@/components/region-flag';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { regions, serviceRegions, industries, technologies } from '@/lib/data';
 
@@ -157,10 +158,10 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 gap-4 md:gap-5">
             {supportPillars.map((p, i) => (
               <Reveal key={i} delay={Math.min(i * 0.05, 0.2)}>
-                <div className="h-full p-5 sm:p-6 bg-input rounded-xl border border-border/70">
+                <InquiryTrigger className="h-full p-5 sm:p-6 bg-input rounded-xl border border-border/70 transition-colors hover:border-primary/40" source="/services">
                   <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{p.h}</h3>
                   <p className="text-muted text-sm sm:text-base leading-relaxed">{p.p}</p>
-                </div>
+                </InquiryTrigger>
               </Reveal>
             ))}
           </div>

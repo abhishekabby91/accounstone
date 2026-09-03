@@ -65,6 +65,11 @@ interface InquiryFormProps {
   /** Two columns on wider screens, for a full-width band. */
   columns?: boolean;
   submitLabel?: string;
+  /**
+   * Overrides the id namespace for this instance. The dialog sets it so its
+   * fields cannot collide with the band's when both are on the same page.
+   */
+  formId?: string;
 }
 
 export default function InquiryForm({
@@ -73,6 +78,7 @@ export default function InquiryForm({
   source,
   columns = false,
   submitLabel = 'Book Your Free Consultation',
+  formId,
 }: InquiryFormProps) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -81,7 +87,7 @@ export default function InquiryForm({
   const r = region ? REGION_FORM[region] : null;
   const regionName = region ? regions.find((x) => x.slug === region)?.name : undefined;
   // Unique per instance so two forms on one page cannot collide on ids.
-  const uid = `${region ?? 'all'}-${(source ?? 'page').replace(/[^a-z0-9]+/gi, '-')}`;
+  const uid = formId ?? `${region ?? 'all'}-${(source ?? 'page').replace(/[^a-z0-9]+/gi, '-')}`;
 
   const openMailClient = (data: FormData) => {
     const get = (k: string) => (data.get(k) as string) || '';

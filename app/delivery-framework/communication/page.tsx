@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { User, BarChart3, Zap, MessageSquare, TrendingUp, ClipboardList } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquiryTrigger from '@/components/inquiry-trigger';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -40,13 +42,16 @@ export default function CommunicationPage() {
               { title: 'Monthly Business Reviews', desc: 'Strategic reviews of performance, metrics, and improvements', icon: TrendingUp },
               { title: 'Transparent Reporting', desc: 'Detailed reports on work completed, metrics, and insights', icon: ClipboardList },
             ].map((item, i) => (
-              <div key={i} className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start p-3.5 sm:p-6 bg-input rounded-lg border border-border">
+              <InquiryTrigger key={i} className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start p-3.5 sm:p-6 bg-input rounded-lg border border-border transition-colors hover:border-primary/40" source="/delivery-framework/communication" title="Talk to Us About How We Would Work Together">
                 <item.icon className="w-6 h-6 sm:w-8 sm:h-8 text-accent flex-shrink-0" aria-hidden="true" />
-                <div>
+                {/* min-w-0: a flex item defaults to min-width:auto and will not
+                    shrink below its longest word, which pushed this card past
+                    the viewport at 320px in a two-column grid. */}
+                <div className="w-full min-w-0 break-words">
                   <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{item.title}</h3>
                   <p className="text-xs sm:text-sm text-muted line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                 </div>
-              </div>
+              </InquiryTrigger>
             ))}
           </div>
         </div>
@@ -65,6 +70,13 @@ export default function CommunicationPage() {
           </p>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/delivery-framework/communication"
+        title="See How We Would Communicate With Your Team"
+        lead="Tell us your review points, your time zones and who needs to hear what, and we will describe the reporting rhythm we would set up."
+      />
 
       <CTABanner
         title="Get Started with Accounstone"

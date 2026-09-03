@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/resources/case-studies';
@@ -148,6 +149,12 @@ export default function CaseStudiesPage() {
           ))}
         </div>
       </section>
+
+      <InquirySection
+        source="/resources/case-studies"
+        title="Recognise One of These?"
+        lead="These are patterns, not client names. If one of them reads like your month, tell us how the work runs today and we will scope the version of it that fits."
+      />
 
       <CTABanner
         title="Facing a Similar Situation?"

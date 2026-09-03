@@ -20,6 +20,8 @@ export default function StaffAugTaxSeasonGuide() {
       publishedDate="2026-07-25"
       section="guides"
       slug="staff-augmentation-tax-season-guide"
+      inquiryTitle="Plan Tax-Season Capacity With Us"
+      inquiryLead="Tell us last season's return volume, where the review bottleneck formed and how early you need cover in place, and we will scope capacity against those numbers."
     >
       <p>
         A busy tax season creates a particular problem for accounting firms: the work arrives faster than the team can comfortably process it, but the extra capacity may not be needed at the same level once the deadline pressure passes.

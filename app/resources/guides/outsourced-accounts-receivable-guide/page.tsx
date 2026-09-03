@@ -21,6 +21,8 @@ export default function OutsourcedARGuide() {
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-accounts-receivable-guide"
+      inquiryTitle="Talk to Us About DSO and Collections"
+      inquiryLead="Tell us your billing cycle, your aging profile and how follow-up is handled today, and we will scope the receivables work against those numbers."
     >
       <p>
         Accounts receivable problems almost always start the same way: invoices go out late, or with errors, or the follow-up on overdue accounts happens inconsistently — some customers chased, others not, no clear aging discipline. The cash flow effect compounds quietly until someone looks at the aging report and finds 90-day balances that have been sitting since last quarter.

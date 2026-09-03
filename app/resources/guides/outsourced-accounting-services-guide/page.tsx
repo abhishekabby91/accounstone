@@ -21,6 +21,8 @@ export default function OutsourcedAccountingGuide() {
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-accounting-services-guide"
+      inquiryTitle="Talk to Us About Your Month-End Close"
+      inquiryLead="Tell us what the close looks like now — the ledger, the systems, the review points and where it slips — and we will scope what a close package your reviewer can sign would take."
     >
       <p>
         Bookkeeping is the foundation: transactions recorded, accounts reconciled, bank feeds matched. Accounting operations are the layer above it: journal entries, close checklists, account maintenance, management reporting, and the periodic review work that turns a reconciled ledger into financial statements someone can actually use.

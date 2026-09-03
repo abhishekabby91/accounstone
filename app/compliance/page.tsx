@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquiryTrigger from '@/components/inquiry-trigger';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -44,7 +46,7 @@ export default function CompliancePage() {
                 items: ['IFRS Compliance', 'ATO Requirements', 'GST and BAS Reporting Standards', 'Superannuation Rules'],
               },
             ].map((region, i) => (
-              <div key={i} className="p-6 bg-input rounded-lg border border-border">
+              <InquiryTrigger key={i} className="p-6 bg-input rounded-lg border border-border transition-colors hover:border-primary/40" source={`/compliance — ${region.title}`} title="Talk to Us About Your Compliance Cycle">
                 <h3 className="text-xl font-bold text-primary mb-4">{region.title}</h3>
                 <ul className="space-y-2">
                   {region.items.map((item, j) => (
@@ -54,7 +56,7 @@ export default function CompliancePage() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </InquiryTrigger>
             ))}
           </div>
 
@@ -82,6 +84,13 @@ export default function CompliancePage() {
           </div>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/compliance"
+        title="Ask Us How We Handle Your Requirements"
+        lead="Tell us which obligations and reporting cycles govern your work, and we will explain how the engagement would be structured around them."
+      />
 
       <CTABanner
         title="Compliance You Can Trust"

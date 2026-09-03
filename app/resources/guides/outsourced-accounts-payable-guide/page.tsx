@@ -22,6 +22,8 @@ export default function OutsourcedAPGuide() {
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-accounts-payable-guide"
+      inquiryTitle="Scope Your Payables Work With Us"
+      inquiryLead="Tell us your invoice volume, your approval chain and the system the queue lives in, and we will map which parts of it we would take on and which stay with your team."
     >
       <p>
         Accounts payable often looks simple from the outside: receive an invoice, enter it, get it approved and pay it. The trouble starts when the volume grows. Invoices arrive in different formats, approvals sit in someone's inbox, duplicate bills slip through, and the controller ends up checking work that should already be ready for review.

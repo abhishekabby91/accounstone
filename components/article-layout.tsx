@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import Reveal from '@/components/reveal';
 import ShareButtons from '@/components/share-buttons';
 import {
@@ -16,6 +17,14 @@ interface ArticleLayoutProps {
   publishedDate: string;
   section: 'guides' | 'insights';
   slug: string;
+  /**
+   * The ask at the foot of the article. Every article passes its own, because
+   * the same paragraph on twenty pages both reads as boilerplate and pushes
+   * these pages together on a near-duplicate measure - the problem CLAUDE.md
+   * records from the first time this band was rolled out site-wide.
+   */
+  inquiryTitle?: string;
+  inquiryLead?: string;
   children: ReactNode;
 }
 
@@ -26,6 +35,8 @@ export default function ArticleLayout({
   publishedDate,
   section,
   slug,
+  inquiryTitle,
+  inquiryLead,
   children,
 }: ArticleLayoutProps) {
   const path = `/resources/${section}/${slug}`;
@@ -82,6 +93,17 @@ export default function ArticleLayout({
           <ShareButtons url={`${baseUrl}${path}`} title={title} />
         </div>
       </article>
+
+      <InquirySection
+        compact
+        background="input"
+        source={path}
+        title={inquiryTitle ?? 'Put This to Work on Your Own Files'}
+        lead={
+          inquiryLead ??
+          'Reading about the process is one thing; applying it to your own ledgers, deadlines and review points is another. The consultation and the call are free.'
+        }
+      />
 
       <CTABanner
         title="Ready to Simplify Your Accounting?"

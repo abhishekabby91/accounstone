@@ -21,6 +21,8 @@ export default function ASC606Insight() {
       publishedDate="2026-07-25"
       section="insights"
       slug="asc-606-revenue-recognition-saas"
+      inquiryTitle="Talk to Us About Your Revenue Schedules"
+      inquiryLead="Tell us how contracts, billing and deferred revenue are tracked today, and we will scope the schedule preparation and reconciliation work your reviewers sign off."
     >
       <p>
         If your SaaS business bills customers annually but delivers the service

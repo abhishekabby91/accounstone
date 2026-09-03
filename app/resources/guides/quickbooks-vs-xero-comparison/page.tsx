@@ -20,6 +20,8 @@ export default function QuickBooksVsXeroGuide() {
       publishedDate="2026-07-25"
       section="guides"
       slug="quickbooks-vs-xero-comparison"
+      inquiryTitle="Already Chosen? Talk About the Work Inside It"
+      inquiryLead="We work inside the setup you already run, in either platform. Tell us where the accounting work in it is backing up and we will scope support around it."
     >
       <p>
         If you're comparing QuickBooks Online and Xero, the hardest part usually isn't finding a feature comparison. It's figuring out which system will make your actual accounting work easier to maintain month after month.

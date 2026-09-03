@@ -22,6 +22,8 @@ export default function HowToChoosePartnerGuide() {
       publishedDate="2026-08-21"
       section="guides"
       slug="how-to-choose-accounting-outsourcing-partner"
+      inquiryTitle="Put These Questions to Us"
+      inquiryLead="Every question in this guide is one we expect to be asked. Bring them to a free consultation and judge our answers against the other firms on your shortlist."
     >
       <p>
         Most outsourcing comparisons start with a rate card. That is the wrong place to start, because a rate says nothing about how much work lands back on your reviewer. A useful comparison starts with how the work is actually structured — who touches the file, who reviews it before it reaches you, what happens when something is unclear, and how the relationship would end if it did not work out.

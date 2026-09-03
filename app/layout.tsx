@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import HeaderBar from "@/components/header-bar";
 import TouchRipple from "@/components/touch-ripple";
 import BackToTop from "@/components/back-to-top";
+import InquiryModal from "@/components/inquiry-modal";
 import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
 
 export const viewport: Viewport = {
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div id="main-content">{children}</div>
         <Footer />
         <BackToTop />
+        <InquiryModal />
       </body>
     </html>
   );

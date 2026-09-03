@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import ResourceCard from '@/components/resource-card';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { guides } from '@/lib/resources';
 
@@ -114,6 +115,13 @@ export default function GuidesPage() {
           </div>
         </div>
       </section>
+      <InquirySection
+        compact
+        source="/resources/guides"
+        title="Ready to Apply One of These?"
+        lead="The guides cover the general case. Tell us your systems, volume and deadlines and we will work through the version that applies to you."
+      />
+
     </main>
   );
 }

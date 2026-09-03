@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Accounting & Bookkeeping Knowledge Base',
@@ -125,6 +126,13 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/blog"
+        title="Reading Up Before You Decide?"
+        lead="If one of these pieces describes your situation, skip ahead and put it to us directly. The consultation and the call are free."
+      />
 
       <CTABanner
         title="Looking for Region-Specific Services?"

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Check } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -81,6 +82,13 @@ export default function DataSecurityPage() {
           </div>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/data-security"
+        title="Ask Us the Hard Security Questions"
+        lead="Access, NDAs, device controls, who can see what. Put the specifics to us and we will answer them as they actually stand rather than as a certification list."
+      />
 
       <CTABanner
         title="Have Specific Security Questions?"

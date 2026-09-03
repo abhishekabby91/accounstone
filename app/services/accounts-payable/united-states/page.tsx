@@ -8,6 +8,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-payable/united-states';
@@ -89,7 +90,7 @@ export default function AccountsPayableUSPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">U.S. specifics</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">What Applies to U.S. Accounts Payable</h2></></Reveal>
-          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">{uSElements.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="flex items-start gap-2 sm:gap-3 p-3.5 sm:p-5 bg-white rounded-xl border border-border/70"><Check className="text-accent shrink-0 w-4 h-4 sm:w-5 sm:h-5 mt-0.5" aria-hidden="true" /><span className="text-foreground text-sm sm:text-base leading-5 sm:leading-6">{item}</span></li></Reveal>)}</ul>
+          <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-5">{uSElements.map((item, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><li className="h-full"><InquiryTrigger className="flex items-start gap-2 sm:gap-3 p-3.5 sm:p-5 bg-white rounded-xl border border-border/70 transition-colors hover:border-primary/40 h-full" source="/services/accounts-payable/united-states" service="Accounts Payable" region="united-states"><Check className="text-accent shrink-0 w-4 h-4 sm:w-5 sm:h-5 mt-0.5" aria-hidden="true" /><span className="text-foreground text-sm sm:text-base leading-5 sm:leading-6">{item}</span></InquiryTrigger></li></Reveal>)}</ul>
         </div>
       </section>
 
@@ -97,6 +98,33 @@ export default function AccountsPayableUSPage() {
         <Reveal className="rounded-2xl bg-input border border-border/70 p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Can be delegated</span><h2 className="font-serif text-3xl font-bold text-primary mt-3 mb-6">Recurring processing work</h2><ul className="space-y-4">{delegated.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" /><span className="text-foreground leading-6">{item}</span></li>)}</ul></></Reveal>
         <Reveal delay={0.1} className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Usually retained</span><h2 className="font-serif text-3xl font-bold mt-3 mb-6">Approval and payment authority</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></></Reveal>
       </div></section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">What it covers</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              What &ldquo;Outsourced Accounts Payable&rdquo; Includes, and Where It Stops
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4">
+            <>
+              <p className="text-base md:text-lg text-muted leading-relaxed">Accounts payable outsourcing is usually sold as a single thing and bought as a very different one, so it is worth naming the pieces. On a typical U.S. engagement the delegated work runs: invoice intake and entry, coding against the chart of accounts, purchase-order and receipt matching where a PO process exists, routing invoices into your approval chain and chasing the ones that stall, preparing the payment run, maintaining vendor records and W-9 data, tracking 1099-NEC amounts through the year, and reconciling vendor statements so disputes surface before they age.</p>
+              <div className="overflow-hidden rounded-xl border border-border bg-input">
+                <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">Payment release is not part of it</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">We prepare a payment run. We do not hold banking credentials, initiate transfers, or release payments, and we would decline an engagement structured that way. The approval and the release stay inside your own controls, with your own people, on your own bank.</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">That is not a limitation to work around &mdash; it is most of the point. Separating the person who prepares a payment from the person who authorises it is the basic control that makes payables safe to delegate at all.</p>
+                </div>
+              </div>
+              <p className="text-base md:text-lg text-muted leading-relaxed">What tends to decide whether this works is not invoice volume. It is whether the approval chain is real. Where approvals already run through the system, an outside team can keep the queue clean and the aging honest. Where approvals happen by hallway conversation and get recorded afterwards, the queue will keep stalling no matter who is entering the invoices, and the first useful piece of work is usually documenting the chain rather than staffing it.</p>
+            </>
+          </Reveal>
+        </div>
+      </section>
 
       <RegionalContext serviceSlug="accounts-payable" regionSlug="united-states" />
 

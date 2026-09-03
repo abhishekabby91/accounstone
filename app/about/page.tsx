@@ -6,6 +6,8 @@ import CTABanner from '@/components/cta-banner';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import RegionFlag from '@/components/region-flag';
+import InquiryTrigger from '@/components/inquiry-trigger';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateBreadcrumbSchema, generateOrganizationSchema, baseUrl } from '@/lib/seo';
 import { regions } from '@/lib/data';
 
@@ -258,10 +260,10 @@ export default function AboutPage() {
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
             {engagementModels.map((m, i) => (
               <Reveal key={m.name} delay={Math.min(i * 0.06, 0.24)}>
-                <div className="h-full rounded-xl border border-border bg-white p-5 sm:p-6">
+                <InquiryTrigger className="h-full rounded-xl border border-border bg-white p-5 sm:p-6 transition-colors hover:border-primary/40" source="/about — engagement models" title="Talk to Us About How to Engage" lead="Tell us which shape of engagement fits your workload and we will talk through what it would look like in practice.">
                   <h3 className="font-serif text-lg sm:text-xl font-bold text-primary">{m.name}</h3>
                   <p className="mt-2 text-sm sm:text-base text-muted leading-relaxed">{m.p}</p>
-                </div>
+                </InquiryTrigger>
               </Reveal>
             ))}
           </div>
@@ -472,6 +474,12 @@ export default function AboutPage() {
           </Reveal>
         </div>
       </section>
+
+      <InquirySection
+        source="/about"
+        title="Talk to Us Before You Shortlist"
+        lead="The fastest way to judge whether we fit is a half hour on your actual workload. Tell us what you need covered and we will say plainly whether it is work we do."
+      />
 
       <CTABanner
         title="Tell Us What You Are Working Toward"

@@ -7,6 +7,7 @@ import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
+import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Offshore Accounting Support',
@@ -121,11 +122,11 @@ export default function OffshoreSolutionPage() {
               { step: '3', title: 'Onboarding', desc: 'Complete training and integration setup' },
               { step: '4', title: 'Operations', desc: 'Begin daily accounting operations' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-lg p-6 text-center space-y-3">
+              <InquiryTrigger key={i} className="bg-white rounded-lg p-6 text-center space-y-3 border border-transparent transition-colors hover:border-primary/40" source="/solutions/offshore-accounting-support">
                 <div className="text-4xl font-bold text-primary">{item.step}</div>
                 <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
                 <p className="text-sm text-muted">{item.desc}</p>
-              </div>
+              </InquiryTrigger>
             ))}
           </div>
         </div>

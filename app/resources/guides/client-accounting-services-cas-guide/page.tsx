@@ -22,6 +22,8 @@ export default function CASGuide() {
       publishedDate="2026-08-21"
       section="guides"
       slug="client-accounting-services-cas-guide"
+      inquiryTitle="Talk to Us About Building Out CAS"
+      inquiryLead="Tell us which client accounting work your firm already delivers and where the capacity runs out, and we will scope the preparation layer that sits underneath it."
     >
       <p>
         Client Accounting Services — usually shortened to CAS, and sometimes called CAS 2.0 — is the practice area where a CPA firm takes on a client's ongoing bookkeeping, accounting and reporting as a recurring engagement, rather than showing up once a year for a tax return. Instead of a client handling their own books and bringing a shoebox of records to the firm in March, the firm (or a team working under the firm) maintains the books continuously and delivers regular financial reporting the client actually uses to run the business.

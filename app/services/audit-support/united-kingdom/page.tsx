@@ -7,6 +7,7 @@ import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/united-kingdom';
@@ -56,7 +57,7 @@ export default function AuditSupportUKPage() {
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Where UK Audits Actually Lose Time</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
 
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-12"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Workstreams</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Preparation Work Behind a UK Audit File</h2></></Reveal>
-      <div className="grid md:grid-cols-2 gap-4 md:gap-6">{workstreams.map((w, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><div className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border/70"><h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{w.h}</h3><p className="text-muted text-sm sm:text-base leading-relaxed">{w.p}</p></div></Reveal>)}</div></div></section>
+      <div className="grid md:grid-cols-2 gap-4 md:gap-6">{workstreams.map((w, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><InquiryTrigger className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border/70 transition-colors hover:border-primary/40" source="/services/audit-support/united-kingdom" service="Audit Support" region="united-kingdom"><h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{w.h}</h3><p className="text-muted text-sm sm:text-base leading-relaxed">{w.p}</p></InquiryTrigger></Reveal>)}</div></div></section>
 
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto rounded-2xl bg-primary text-white p-8 md:p-10"><span className="text-sm font-semibold uppercase tracking-wide text-white/70">The line we do not cross</span><h2 className="font-serif text-3xl font-bold mt-3 mb-6">Preparation moves. Assurance does not.</h2><p className="text-white/85 leading-7 mb-6">Everything above is preparation and documentation work performed for the company, not audit work performed for the auditor. The engaged registered auditor directs the audit, evaluates the evidence, and signs the opinion.</p><ul className="grid md:grid-cols-2 gap-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-white shrink-0 mt-0.5" aria-hidden="true" /><span className="text-white/85 leading-6">{item}</span></li>)}</ul></div></section>
 

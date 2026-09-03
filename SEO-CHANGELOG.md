@@ -1,5 +1,158 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03 (first Search Console data; inquiry form site-wide; card triggers)
+
+### Search Console is connected, and it changes the picture
+
+Open item 2 in CLAUDE.md ("no Search Console connection") is resolved. The
+`sc-domain:accounstone.com` property is readable and returns real data for the
+first time. Last 28 days (2026-08-06 to 2026-09-03):
+
+**51 clicks · 2,893 impressions · 1.76% CTR · average position 54.6**
+
+Three findings worth recording, because they contradict assumptions the
+on-page work has been running on:
+
+1. **One query has clicks.** `accounstone` — 15 clicks at position 1. Every
+   other named query returned zero. The remaining 36 clicks sit in queries
+   Google anonymises and does not return through the API.
+2. **There are no CTR quick wins, because almost nothing ranks.** Only 14
+   queries sit in positions 6-20, totalling ~54 impressions; the largest is
+   `us tax preparation outsourcing` at 17 impressions, position 19.6. Every
+   high-impression query ranks 36-75. Rewriting titles cannot help a result on
+   page 4 — this is a ranking problem, not a snippet problem.
+3. **~788 impressions (27% of the site total) are MYOB product research** —
+   "myob consultants", "myob consolidation software", "myob exo", "myob
+   certified consultant", "myob implementation sydney". `/technology/myob` is
+   pulling software-buyer traffic that will never convert, and it drags the
+   site average position down while doing it.
+
+The genuinely commercial cluster is tax-preparation outsourcing: roughly forty
+query variants at positions 19-35, low impressions each but consistently the
+closest thing on the site to page one.
+
+### Content written against that data
+
+Not retitling — new sections that answer the specific question behind the
+query.
+
+- **`/services/tax-preparation/united-states`** — three new sections. What
+  outsourcing return preparation actually moves (and why it does not help if
+  review is the bottleneck); **the IRC §7216 consent requirement**, which is
+  the real answer to the query "outsourcing tax return preparation and its
+  implications" and which nobody in this market writes down; and which returns
+  and which tax software, with the honest note that we work in Drake Tax and
+  CCH Axcess and that a different package depends on licence seats the firm can
+  provide. Four FAQs added covering whether it is allowed, outsource-vs-hire,
+  how a first season runs, and turnaround. The §7216 section explicitly routes
+  the obligation to the firm and its own counsel rather than implying we carry
+  it.
+- **`/services/audit-support/united-states`** — answers "what is audit
+  support" (29 impressions, position 60.7) directly, and separates the two
+  different readers who search it: the company being audited and the audit firm.
+  Restates the preparation-vs-judgment boundary under GAAS/PCAOB, ISAs and ASAs.
+- **`/technology/myob`** — states plainly that Accounstone is not an MYOB
+  partner, reseller, certified consultant or implementer, answers the software
+  question and the Single Touch Payroll question honestly, and routes the
+  reader to what we do do. This is the right answer for the 788 impressions
+  even though most of it is "not us".
+- **`/services/accounts-payable/united-states`** — what outsourced AP includes,
+  and an explicit section on why payment release stays inside the client's own
+  controls (101 impressions on "accounts payable outsourcing", position 65.4).
+- **`/solutions/staff-augmentation`** — augmentation defined against a managed
+  function and a dedicated team, plus when augmentation is the wrong answer.
+  Notes that "finance staff augmentation" searchers often want something we do
+  not offer, and says so rather than implying otherwise.
+- **`/solutions/back-office-support`** — reframed for accounting firms, which
+  is how the demand is actually phrased ("back-office support for accountants",
+  39 impressions). Title was the bare label "Back Office Support".
+- **`/solutions/dedicated-accounting-teams`** — what "dedicated" guarantees and
+  what it does not. This page holds position 11.3, the best non-brand position
+  on the site.
+
+Metadata updated on those pages to match query language, not internal naming.
+
+### The inquiry form is now on 81 of 84 pages
+
+Was 51. Added to the 30 remaining content pages. `/contact` is excluded (it is
+the form), and `/privacy` and `/terms` are excluded on the owner's call.
+
+`ArticleLayout` now renders the band, which covers the 6 blog posts, 11 guides
+and 2 insights in one place — each passing its own `inquiryTitle` and
+`inquiryLead`, because the 2026-08-14 rollout showed what identical copy on
+forty pages does to near-duplicate scores. The other 11 pages pass their own
+copy for the same reason.
+
+### Cards that used to be dead ends now open the form
+
+New `components/inquiry-modal.tsx` (mounted once in `app/layout.tsx`) and
+`components/inquiry-trigger.tsx`. Roughly 60 card-render sites across the site
+— service scope cards, workstream cards, technology situation cards, market
+compliance and trust cards, industry benefit cards, solutions step cards,
+`FeatureCard` with no `href` — now open the enquiry form in a dialog over the
+page.
+
+Two implementation notes worth keeping:
+
+- **It is a dialog, not an anchor.** The owner's requirement was that the form
+  appear without moving the reader. Verified: page `scrollY` is identical
+  before opening, while open, and after closing, at 1280x900 and 390x740. Both
+  the open focus and the focus restore use `preventScroll` — without it, the
+  restore scrolled the page ~340px on close.
+- **The trigger is an overlay button, not a wrapper.** These cards contain
+  headings and lists, which are flow content and invalid inside `<button>`, and
+  a screen reader flattens anything a button does contain into one accessible
+  name. The card keeps its own markup; a transparent `absolute inset-0` button
+  carries the click and the name.
+
+The dialog deliberately avoids `id="inquiry"` and `id="inquiry-heading"` (the
+band owns those; exactly one per page) and its form is namespaced
+`formId="modal"` so field ids cannot collide with the band's. Verified with the
+dialog open: zero duplicate ids on the page, one `#inquiry`.
+
+### Fixed while sweeping
+
+`/delivery-framework/communication` overflowed horizontally at 320px and 375px
+— the card's inner text block is a flex item, and `min-width: auto` stopped it
+shrinking below its longest word inside a two-column grid. Now
+`w-full min-w-0 break-words`.
+
+### Verification
+
+`pnpm eslint .` silent. `pnpm next build` clean, 90/90 static pages. Sitemap
+parity holds at 84 ↔ 84 with nothing in either direction of the drift check.
+Playwright across all 84 routes at 320/375/768/1024/1440px: zero horizontal
+overflow, zero tap targets under 24px.
+
+Near-duplicate re-measured after the band went onto 30 more pages (6-gram
+Jaccard over rendered text, all 84 pages):
+
+- Worst pair across the 21 commercial Service × Region pages: **15.1%**
+  (`accounts-receivable/australia` vs `accounts-receivable/united-kingdom`),
+  down from 16.6%; median across that set 4.4%.
+- `/technology/quickbooks` vs `/technology/xero`: 17.2%, effectively unchanged
+  from the 17.3% recorded on 2026-08-28.
+- Only one pair site-wide sits above 25%: **`/resources` vs
+  `/resources/guides` at 30.0%**. This is **pre-existing and not caused by the
+  band** — measured with the band's text stripped it is 29.6%. Both hubs list
+  the same guide titles and descriptions. Resolving it means restructuring what
+  the Resources hub repeats from its child, which is a content decision for the
+  owner rather than a side effect of this pass.
+
+### Still open
+
+- The 7 service redirects all point at the United States page (CLAUDE.md open
+  item 3), chosen without data. There is now data, but not enough on those
+  specific URLs to justify changing any of them yet. Worth re-checking once
+  impressions accumulate.
+- Blog posts pass `slug="../../../blog/<slug>"` to `ArticleLayout`, which is a
+  workaround for a component that assumes `/resources/{section}/`. It produces
+  a traversal path in the article schema URL and breadcrumbs that read
+  "Resources > Guides" for a `/blog/` URL. Pre-existing, not touched here, but
+  it is a real defect and should be fixed properly rather than patched again.
+- Analytics is still not installed (CLAUDE.md open item 1). None of the
+  conversion work above is measurable until it is.
+
 ## 2026-08-28 (drop the software field from the inquiry form)
 
 The owner confirmed the region-specific inquiry is working in production, and

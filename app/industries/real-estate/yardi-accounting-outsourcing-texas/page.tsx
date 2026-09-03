@@ -5,6 +5,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import {
   generateMetadata,
   generateServiceSchema,
@@ -221,9 +222,9 @@ export default function YardiTexasPage() {
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {deliverables.map((deliverable, i) => (
-              <li key={i} className="p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors">
+              <li key={i} className="h-full"><InquiryTrigger className="h-full p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors" source="/industries/real-estate/yardi-accounting-outsourcing-texas" region="united-states">
                 <p className="text-foreground font-medium">{deliverable}</p>
-              </li>
+              </InquiryTrigger></li>
             ))}
           </ul>
         </div>

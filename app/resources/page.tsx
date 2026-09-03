@@ -5,6 +5,7 @@ import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import ResourceCard from '@/components/resource-card';
 import CTABanner from '@/components/cta-banner';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { guides, insights, articles, topicIndex, topicDestination } from '@/lib/resources';
 
@@ -207,6 +208,13 @@ export default function ResourcesPage() {
           </Reveal>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/resources"
+        title="Cannot Find the Answer Here?"
+        lead="Describe the situation you are working through and we will answer it directly, or point you at the piece that covers it."
+      />
 
       <CTABanner
         title="Cannot Find What You Are Looking For?"

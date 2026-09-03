@@ -8,6 +8,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import RegionFlag from '@/components/region-flag';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { serviceRegions } from '@/lib/data';
 
@@ -251,10 +252,10 @@ export default function UKMarketPage() {
           <ol className="mt-8 space-y-3.5">
             {calendar.map((c, i) => (
               <Reveal key={c.k} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="rounded-xl border border-border bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6">
+                <li className="h-full"><InquiryTrigger className="rounded-xl border border-border bg-white p-5 sm:p-6 flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-6 transition-colors hover:border-primary/40 h-full" source="/markets/united-kingdom" region="united-kingdom">
                   <span className="shrink-0 text-xs font-bold uppercase tracking-wider text-accent sm:w-40 sm:pt-1">{c.k}</span>
                   <p className="text-muted text-sm sm:text-base leading-relaxed">{c.p}</p>
-                </li>
+                </InquiryTrigger></li>
               </Reveal>
             ))}
           </ol>
@@ -275,10 +276,10 @@ export default function UKMarketPage() {
           <div className="mt-8 grid md:grid-cols-2 gap-4 md:gap-5">
             {trust.map((t, i) => (
               <Reveal key={t.h} delay={Math.min(i * 0.05, 0.25)}>
-                <div className="h-full p-5 sm:p-6 bg-input rounded-xl border border-border">
+                <InquiryTrigger className="h-full p-5 sm:p-6 bg-input rounded-xl border border-border transition-colors hover:border-primary/40" source="/markets/united-kingdom" region="united-kingdom">
                   <h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{t.h}</h3>
                   <p className="text-muted text-sm sm:text-base leading-relaxed">{t.p}</p>
-                </div>
+                </InquiryTrigger>
               </Reveal>
             ))}
           </div>

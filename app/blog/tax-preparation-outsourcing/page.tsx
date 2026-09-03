@@ -18,6 +18,8 @@ export default function TaxPrepOutsourcingBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/tax-preparation-outsourcing"
+      inquiryTitle="Talk to Us About Tax-Season Capacity"
+      inquiryLead="Tell us your return mix, your software and how many returns stack up before review, and we will scope a preparation pilot that your firm still reviews, signs and files."
     >
       <p>
         Tax return preparation outsourcing sits at a specific boundary: an offshore team can prepare returns, organize workpapers, and get everything e-filing ready — but the review, signing, and submission must be done by a licensed CPA, Enrolled Agent, or attorney. That boundary is not a technicality; it&rsquo;s regulatory under Circular 230 for US practitioners.

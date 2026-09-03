@@ -21,7 +21,9 @@ export default function QuestionsToAskGuide() {
       description="Before you compare providers, understand the workflow you are actually buying. These questions help you evaluate scope, review, access, pricing and the handoff."
       publishedDate="2026-08-14"
       section="guides"
-      slug="questions-to-ask-before-outsourcing-bookkeeping">
+      slug="questions-to-ask-before-outsourcing-bookkeeping"
+      inquiryTitle="Ask Us These Nine Questions"
+      inquiryLead="This list works best on a call. Bring it to a free consultation and hold our answers to the same standard as anyone else you are considering.">
       <p>
         Outsourcing bookkeeping is not simply a decision about who enters transactions. Someone outside your business may be working in the same accounting file your CPA or accountant relies on, preparing information your management team uses, and handling records that need to stay organised month after month. It is reasonable to ask how that relationship will work before you hand over access.
       </p>

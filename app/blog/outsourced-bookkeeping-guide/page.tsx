@@ -19,6 +19,8 @@ export default function OutsourcedBookkeepingBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/outsourced-bookkeeping-guide"
+      inquiryTitle="Talk to Us About Your Books"
+      inquiryLead="Tell us which ledgers are behind, what software they sit in and who reviews the output, and we will scope a first month against your real files rather than a template."
     >
       <p>
         Before the pricing question comes a more useful one: what does outsourced bookkeeping actually look like once it starts? Who touches the transactions, what access do they need, and how do you know two months in whether it&rsquo;s working?

@@ -6,6 +6,7 @@ import CTABanner from '@/components/cta-banner';
 import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import {
   generateMetadata as genMeta,
   generateServiceSchema,
@@ -126,10 +127,10 @@ export default function TexasPage() {
           <ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">
             {benefits.map((b, i) => (
               <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}>
-                <li className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border">
+                <li className="h-full"><InquiryTrigger className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-lg border-2 border-border transition-colors hover:border-primary/40 h-full" source="/markets/united-states/texas" region="united-states">
                   <Check className="shrink-0 text-accent w-4 h-4 sm:w-5 sm:h-5 mt-0.5 sm:mt-0" aria-hidden="true" />
                   <p className="text-foreground text-sm sm:text-base leading-5 sm:leading-relaxed">{b}</p>
-                </li>
+                </InquiryTrigger></li>
               </Reveal>
             ))}
           </ul>

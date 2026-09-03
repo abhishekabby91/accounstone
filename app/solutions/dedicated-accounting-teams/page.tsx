@@ -7,6 +7,7 @@ import InquirySection from '@/components/inquiry-section';
 import FAQSection from '@/components/faq-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import Reveal from '@/components/reveal';
+import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'A Dedicated Offshore Accounting Team for Your Practice',
@@ -123,10 +124,10 @@ export default function DedicatedTeamsPage() {
               { h: 'Capacity that flexes', p: 'Wider for a January peak or a year-end cycle, narrower afterwards, without rebuilding the process each time.' },
             ].map((item, i) => (
               <Reveal key={item.h} delay={Math.min(i * 0.05, 0.25)}>
-                <div className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border">
+                <InquiryTrigger className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border transition-colors hover:border-primary/40" source="/solutions/dedicated-accounting-teams">
                   <h3 className="font-bold text-primary mb-1.5 text-base sm:text-lg">{item.h}</h3>
                   <p className="text-muted text-sm sm:text-base leading-relaxed">{item.p}</p>
-                </div>
+                </InquiryTrigger>
               </Reveal>
             ))}
           </div>
@@ -173,17 +174,48 @@ export default function DedicatedTeamsPage() {
               { step: '3', title: 'Documented workflow', desc: 'Preparer, reviewer, due dates and escalation' },
               { step: '4', title: 'Steady state', desc: 'Recurring delivery to your calendar, reviewed quarterly' },
             ].map((item, i) => (
-              <div key={i} className="bg-white rounded-lg p-6 text-center space-y-3">
+              <InquiryTrigger key={i} className="bg-white rounded-lg p-6 text-center space-y-3 border border-transparent transition-colors hover:border-primary/40" source="/solutions/dedicated-accounting-teams">
                 <div className="text-4xl font-bold text-primary">{item.step}</div>
                 <h3 className="font-bold text-lg text-foreground">{item.title}</h3>
                 <p className="text-sm text-muted">{item.desc}</p>
-              </div>
+              </InquiryTrigger>
             ))}
           </div>
         </div>
       </section>
 
       <section className="w-full py-12 px-6 md:px-8 bg-white"><div className="max-w-5xl mx-auto"><h2 className="font-serif text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">What &ldquo;dedicated&rdquo; buys</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              What a Dedicated Team Actually Guarantees &mdash; and What It Does Not
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4">
+            <>
+              <p className="text-base md:text-lg text-muted leading-relaxed">&ldquo;Dedicated&rdquo; is doing a lot of work in most descriptions of this model, so it is worth being specific about what it does and does not promise.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">What it does mean</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">The same named people work your portfolio rather than a rotating pool. They learn your chart-of-accounts conventions, your file naming, your reviewer&rsquo;s preferences and the recurring exceptions in your client base once, and then keep them. Your close calendar becomes their calendar. Questions come through one point of contact rather than arriving from four directions.</p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">The practical effect shows up in month three rather than month one. A rotating pool re-learns the same client every cycle, which is why the same questions keep coming back; a standing team stops asking them.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">What it does not mean</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">It does not mean the people are employed by you, or that they can be redirected without notice onto whatever is urgent this week &mdash; a standing team works best against a stable scope, and constant redirection is what turns one back into a pool. It does not mean unlimited hours; a dedicated team has a capacity, and busy season has to be planned against it rather than absorbed by it. And it does not mean review moves. Sign-off stays with your firm in every market we work in.</p>
+              <div className="overflow-hidden rounded-xl border border-border bg-white">
+                <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">The question worth asking any provider</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">What happens when someone on the named team leaves? A model that depends on specific individuals has to have an answer &mdash; documented conventions, overlap on handover, a second person who already knows the portfolio. If the answer is vague, the &ldquo;dedicated&rdquo; part is a staffing label rather than a continuity plan.</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">Ours is documentation plus overlap, and we would rather show you what that documentation looks like than describe it.</p>
+                </div>
+              </div>
+            </>
+          </Reveal>
+        </div>
+      </section>
 
       <FAQSection subtitle="Dedicated Teams" items={faqs} columns={2} />
 

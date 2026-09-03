@@ -18,6 +18,8 @@ export default function PayrollOutsourcingBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/outsourced-payroll-services"
+      inquiryTitle="Talk to Us About Your Payroll Run"
+      inquiryLead="Tell us the headcount, the pay frequency and the provider you already run in, and we will scope the payroll preparation work — without asking for banking control."
     >
       <p>Payroll is one of the more emotionally charged outsourcing decisions for business owners — employees are paid on time or they&rsquo;re not, and the consequences of &ldquo;not&rdquo; are immediate. The hesitation is understandable, but the actual risks of well-structured outsourced payroll are much lower than the risks of a payroll process that depends entirely on one busy person remembering to run it on time every fortnight.</p>
 

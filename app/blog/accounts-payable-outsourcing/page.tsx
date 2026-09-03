@@ -18,6 +18,8 @@ export default function APOutsourcingBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/accounts-payable-outsourcing"
+      inquiryTitle="Talk to Us About Your Payables Queue"
+      inquiryLead="If invoice coding, approval chasing and vendor records are where the month goes, tell us the volume and the systems and we will scope what a reviewable payables queue would take."
     >
       <p>AP problems usually start with the invoice pile — unprocessed bills, approval queues no one monitors, vendor statements unreconciled for months. By the time cash flow is affected, the backlog has been building for a while.</p>
       <p>Outsourcing AP solves the most consistent problem: no one is entering invoices, routing them, and reconciling vendor balances on a predictable schedule.</p>

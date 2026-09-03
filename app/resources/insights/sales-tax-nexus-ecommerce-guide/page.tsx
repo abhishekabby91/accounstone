@@ -21,6 +21,8 @@ export default function SalesTaxNexusInsight() {
       publishedDate="2026-07-25"
       section="insights"
       slug="sales-tax-nexus-ecommerce-guide"
+      inquiryTitle="Talk to Us About Your Nexus Tracking"
+      inquiryLead="Tell us the channels and states you sell into and how thresholds are monitored today, and we will scope the tracking and reconciliation work behind them. Registration and filing positions stay with your tax adviser."
     >
       <p>
         Since the 2018 South Dakota v. Wayfair Supreme Court decision, states can

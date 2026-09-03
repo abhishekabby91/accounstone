@@ -71,9 +71,17 @@ Do **not** resolve these unilaterally. Each needs the owner.
 1. **Analytics is not installed.** No GA4/GTM/Vercel Analytics tag exists anywhere.
    Any CRO or CTR work is unmeasurable until one does, and the 2026-08-27 restructure
    cannot be validated without it. The owner said they would add it.
-2. **No Search Console connection.** All SEO work so far is on-page. Ahrefs returns
-   `Insufficient plan` and Semrush reports insufficient API units, so no traffic,
-   ranking or backlink evidence is obtainable at all. (`robots.txt` also deliberately
+2. **Search Console is connected (2026-09-03).** The `sc-domain:accounstone.com`
+   property is readable. First 28-day read: 51 clicks, 2,893 impressions, 1.76%
+   CTR, average position 54.6 — and only one query (`accounstone`, 15 clicks)
+   has any clicks at all. Two things follow. There are no CTR quick wins: just
+   14 queries sit in positions 6-20 and they total ~54 impressions, while every
+   high-impression query ranks 36-75, so this is a ranking problem rather than a
+   snippet one. And ~788 impressions — 27% of the site — are MYOB *product*
+   research reaching `/technology/myob`, which is off-ICP traffic inflating
+   impressions and dragging average position down. Ahrefs still returns
+   `Insufficient plan` and Semrush reports insufficient API units, so backlink
+   and competitor evidence remains unobtainable. (`robots.txt` also deliberately
    blocks AhrefsBot and SemrushBot.)
 3. **The 7 service redirects all target the United States page.** Chosen without
    traffic data. If GSC shows non-US demand on those URLs, each is one reversible
@@ -213,13 +221,36 @@ Declared in `app/layout.tsx` and `public/manifest.webmanifest`.
 All are rendered on a white ground. The mark is navy and blue, which disappears
 against a dark browser tab bar on transparency.
 
-## The inquiry form is on 51 pages
+## The inquiry form is on 81 pages, and in a dialog
 
 `components/inquiry-form.tsx` is the one form; `components/inquiry-section.tsx`
-is the band that wraps it, and sits before the `CTABanner` on every commercial
-page — services, markets, solutions, industries, technology, the homepage and
-the hubs. Consultations and calls are free and are the owner's lead source, so
-the ask leads with that.
+is the band that wraps it, and sits before the `CTABanner` on every page except
+`/contact` (which is the form), `/privacy` and `/terms`. Consultations and calls
+are free and are the owner's lead source, so the ask leads with that.
+
+**`ArticleLayout` renders the band** for the 6 blog posts, 11 guides and 2
+insights — each page passes its own `inquiryTitle` and `inquiryLead`. Do not
+let those default; see the near-duplicate note below.
+
+**There is also a dialog.** `components/inquiry-modal.tsx` is mounted once in
+`app/layout.tsx`; `components/inquiry-trigger.tsx` opens it. Around 60 card
+render-sites that previously had nowhere to go — service scope cards, workstream
+cards, technology situation cards, market compliance and trust cards, industry
+benefit cards, solutions step cards, and any `FeatureCard` without an `href` —
+now open the form over the page. Three rules if you touch it:
+
+- **It must not scroll.** The whole point is that the reader keeps their place.
+  Both the open focus and the focus restore pass `preventScroll`; without it the
+  restore jumped the page ~340px on close. The overlay is `items-start` with
+  `my-auto` on the panel, because `items-center` pushes a tall form off the top
+  of a short viewport.
+- **The trigger is an overlay button, not a wrapper.** These cards contain
+  headings and lists, which are invalid inside `<button>` and get flattened into
+  one accessible name. The card keeps its markup; an `absolute inset-0` button
+  carries the click and the label.
+- **The dialog must not claim `#inquiry` or `#inquiry-heading`.** The band owns
+  both, one per page. The dialog's form is namespaced with `formId="modal"` so
+  its field ids cannot collide with the band's.
 
 **It is region-aware because it has to be.** `region` changes the field labels
 ("Practice name" in the UK, "Firm name" in the US and AU), the email and phone

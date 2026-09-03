@@ -22,6 +22,8 @@ export default function ChoosingEngagementModelGuide() {
       publishedDate="2026-08-21"
       section="guides"
       slug="choosing-an-engagement-model"
+      inquiryTitle="Not Sure Which Model Fits?"
+      inquiryLead="Describe the workload — recurring, seasonal, or a backlog with an end date — and we will tell you which of these four shapes we would actually propose, and why."
     >
       <p>
         These four terms get used almost interchangeably in outsourcing conversations, which makes comparing providers harder than it needs to be. They are not four tiers of the same thing — they differ in what unit you're actually adding (a person, a function, or ongoing capacity) and how permanent the arrangement is meant to be. Once that's clear, matching a situation to a model is usually straightforward.

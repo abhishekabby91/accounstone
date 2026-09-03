@@ -21,6 +21,8 @@ export default function OutsourcedPayrollGuide() {
       publishedDate="2026-08-14"
       section="guides"
       slug="outsourced-payroll-processing-guide"
+      inquiryTitle="Talk to Us About Payroll in Your Market"
+      inquiryLead="Tell us which market you run payroll in, the provider and the pay calendar, and we will scope the preparation and reporting work around your existing approvals."
     >
       <p>
         &ldquo;Outsourced payroll&rdquo; means different things depending on who you ask. For a US founder with 12 employees it might mean someone runs the Gusto payroll on their behalf. For a UK accountancy firm it might mean a dedicated payroll bureau handling PAYE submissions. For an Australian business owner it means someone keeping STP reporting current across an MYOB or Xero setup. The underlying task is the same; the compliance layer is entirely different in each jurisdiction.

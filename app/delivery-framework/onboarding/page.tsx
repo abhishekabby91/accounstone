@@ -3,6 +3,7 @@ import Link from 'next/link';
 import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import FAQSection from '@/components/faq-section';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -120,6 +121,13 @@ export default function OnboardingPage() {
           </p>
         </div>
       </section>
+
+      <InquirySection
+        compact
+        source="/delivery-framework/onboarding"
+        title="Talk Through What Onboarding Would Look Like"
+        lead="Tell us the systems, the documentation you already have and the first workflow you would hand over, and we will map a realistic ramp-up."
+      />
 
       <CTABanner
         title="Ready to Get Started?"

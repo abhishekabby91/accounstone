@@ -9,8 +9,8 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Back Office Support',
-  description: 'Complete back-office accounting operations including bookkeeping, payroll processing, accounts payable/receivable, and account maintenance.',
+  title: 'Back-Office Support for Accountants and Firms',
+  description: 'Hand over the recurring back-office layer — bookkeeping, payables, receivables, payroll preparation and account maintenance — while review, sign-off and the client relationship stay with your firm.',
   path: '/solutions/back-office-support',
 });
 
@@ -159,6 +159,37 @@ export default function BackOfficeSupportPage() {
       </section>
 
       <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/offshore-accounting-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Offshore Accounting Support <ArrowRight size={14} /></Link><Link href="/solutions/dedicated-accounting-teams" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Dedicated Accounting Teams <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">For accounting firms</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              Back-Office Support When the Firm Is the Client
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4">
+            <>
+              <p className="text-base md:text-lg text-muted leading-relaxed">Most writing about back-office support assumes the reader is a business handing off its own admin. A large share of the people looking for it are accounting firms, and their problem is a different shape: the recurring work is not their own, it belongs to a portfolio of clients, and it has to come back in a state a reviewer can sign.</p>
+              <p className="text-base md:text-lg text-muted leading-relaxed">That changes what &ldquo;handing over a function&rdquo; means in practice. A firm is not trying to stop thinking about bookkeeping. It is trying to stop having qualified staff spend December re-coding transactions so that the same staff can spend December on review, advisory conversations and the client relationship &mdash; the parts of the engagement that are not delegable and that clients are actually paying for.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">What tends to move first</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">The recurring, rules-driven layer: transaction coding and reconciliations across the portfolio, payables and receivables processing, payroll preparation, account maintenance, and the standing month-end tasks that repeat identically across many clients. These carry the most volume and the least judgment, which is exactly the ratio that makes delegation worth the handover cost.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">What generally should not</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">Anything where your firm&rsquo;s name is the product: review, sign-off, the advisory conversation, the client relationship, and the judgment calls that sit behind a set of accounts. A back-office arrangement that quietly absorbs those has not saved the firm capacity &mdash; it has moved the firm&rsquo;s liability somewhere it cannot see it.</p>
+              <div className="overflow-hidden rounded-xl border border-border bg-white">
+                <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">The measure worth agreeing up front</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">Not turnaround. Review time. If a delegated file still takes your reviewer as long to sign as it did when your own team prepared it, the arrangement has moved cost rather than removed it &mdash; and that shows up in the first month if anyone is measuring it.</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">It is a more uncomfortable metric than volume, and a more useful one.</p>
+                </div>
+              </div>
+            </>
+          </Reveal>
+        </div>
+      </section>
 
       <FAQSection subtitle="Back Office Support" items={faqs} columns={2} />
 

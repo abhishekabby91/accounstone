@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight, Check, MessageSquare } from 'lucide-react';
+import InquiryTrigger from '@/components/inquiry-trigger';
 
 interface FeatureCardProps {
   icon?: string | React.ReactNode;
@@ -9,6 +10,13 @@ interface FeatureCardProps {
   features?: string[];
   variant?: 'default' | 'featured' | 'minimal';
   className?: string;
+  /**
+   * Pre-selects the service when a card with no `href` opens the enquiry
+   * dialog. A card that describes work we do should never be a dead end.
+   */
+  inquiryService?: string;
+  /** Set false for a card that is genuinely decorative rather than an offer. */
+  inquiry?: boolean;
 }
 
 export default function FeatureCard({
@@ -19,7 +27,12 @@ export default function FeatureCard({
   features,
   variant = 'default',
   className = '',
+  inquiryService,
+  inquiry = true,
 }: FeatureCardProps) {
+  // A card with somewhere to go navigates. A card without one asks for the
+  // enquiry instead, in a dialog, so the reader keeps their place on the page.
+  const asksForInquiry = !href && inquiry;
   const baseClasses = `group h-full p-3.5 sm:p-5 md:p-8 rounded-2xl transition-all duration-300 ${className}`;
 
   const variantClasses = {
@@ -60,6 +73,15 @@ export default function FeatureCard({
           </span>
         </div>
       )}
+
+      {asksForInquiry && (
+        <div className="pt-3 mt-auto">
+          <span className={`inline-flex items-center gap-2 text-sm font-semibold transition-all duration-300 ${variant === 'featured' ? 'text-white' : 'text-primary'} group-hover:gap-3`}>
+            Talk to us about this
+            <MessageSquare className="w-4 h-4" aria-hidden="true" />
+          </span>
+        </div>
+      )}
     </div>
   );
 
@@ -70,6 +92,20 @@ export default function FeatureCard({
           {content}
         </div>
       </Link>
+    );
+  }
+
+  if (asksForInquiry) {
+    return (
+      <InquiryTrigger
+        className="block h-full"
+        service={inquiryService}
+        source={title}
+        title={`Talk to Us About ${title}`}
+        label={`Ask us about ${title}`}
+      >
+        <div className={`${baseClasses} ${variantClasses}`}>{content}</div>
+      </InquiryTrigger>
     );
   }
 

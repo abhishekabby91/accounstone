@@ -18,6 +18,8 @@ export default function ARManagementBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/accounts-receivable-management"
+      inquiryTitle="Talk to Us About Your Aging Ledger"
+      inquiryLead="Tell us how invoicing, cash application and follow-up run today, and how far the aging has drifted, and we will scope the receivables work around your billing cycle."
     >
       <p>The cash flow argument for outsourced AR is usually straightforward: a business with $400K/month in revenue and a 50-day DSO has $667K tied up in receivables. Reducing DSO to 35 days — achievable with consistent follow-up — frees roughly $200K in working capital. That&rsquo;s often more than the annual cost of the AR service itself.</p>
       <p>The harder part is the process design. AR outsourcing only works if the invoices going out are accurate and on time. An AR team following up on a wrong invoice creates a dispute, not a payment.</p>

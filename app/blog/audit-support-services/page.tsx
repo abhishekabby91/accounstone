@@ -18,6 +18,8 @@ export default function AuditSupportBlog() {
       publishedDate="2026-08-14"
       section="guides"
       slug="../../../blog/audit-support-services"
+      inquiryTitle="Talk to Us About Your Audit Preparation"
+      inquiryLead="Tell us where the PBC list stalls — schedules, reconciliations or evidence requests — and we will scope the preparation work that can move without touching the assurance opinion."
     >
       <p>
         Audit support outsourcing operates at a clear boundary: preparation work can be delegated; judgment work cannot. Organizing evidence, preparing schedules, tying out workpapers, and formatting the file for auditor review are all preparation tasks that an experienced accounting team can handle. The auditor&rsquo;s own professional judgment on materiality, risk assessment, sampling, and conclusions cannot be delegated to anyone — offshore or otherwise.

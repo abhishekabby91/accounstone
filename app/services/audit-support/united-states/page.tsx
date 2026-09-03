@@ -9,13 +9,14 @@ import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
+import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/united-states';
 
 export const metadata: Metadata = genMeta({
   title: 'U.S. Audit Support for CPA Firms and Businesses',
-  description: 'Audit preparation support for U.S. businesses and CPA firms, including working-paper organization, schedules, documentation and testing support before and during fieldwork.',
+  description: 'Audit support services for U.S. firms and businesses: PBC schedules, reconciliations, rollforwards and tie-outs prepared before fieldwork. Preparation work only — the opinion, planning and sampling stay with the auditor.',
   path: PATH,
 });
 
@@ -64,7 +65,7 @@ export default function AuditSupportUSPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><div className="space-y-2"><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Make the Evidence Easier to Work Through</h2></div><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Preparation Work Around the Audit</h2></></Reveal><ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">{support.map((item, i) => <Reveal key={i}><li className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-2xl border border-border/70"><Check className="w-4 h-4 sm:w-5 sm:h-5 text-accent shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" /><span className="text-sm sm:text-base leading-5 sm:leading-7">{item}</span></li></Reveal>)}</ul></div></section>
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-14"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Scope</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Preparation Work Around the Audit</h2></></Reveal><ul className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-6">{support.map((item, i) => <Reveal key={i}><li className="h-full"><InquiryTrigger className="flex items-start gap-2 sm:gap-4 p-3.5 sm:p-6 bg-white rounded-2xl border border-border/70 transition-colors hover:border-primary/40 h-full" source="/services/audit-support/united-states" service="Audit Support" region="united-states"><Check className="w-4 h-4 sm:w-5 sm:h-5 text-accent shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" /><span className="text-sm sm:text-base leading-5 sm:leading-7">{item}</span></InquiryTrigger></li></Reveal>)}</ul></div></section>
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8"><Reveal className="rounded-2xl bg-primary text-white p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-white/70">Support team</span><h2 className="font-serif text-3xl font-bold mt-3 mb-6">Preparation and organization</h2><p className="text-white/85 leading-7">The delivery team can organize schedules, reconciliations, evidence and open-item documentation around the procedures and file structure established by the engagement team.</p></></Reveal><Reveal delay={0.1} className="rounded-2xl bg-input border border-border/70 p-8 md:p-10"><><span className="text-sm font-semibold uppercase tracking-wide text-accent">Auditor / CPA retains</span><h2 className="font-serif text-3xl font-bold text-primary mt-3 mb-6">Judgment and final conclusions</h2><ul className="space-y-4">{retained.map((item, i) => <li key={i} className="flex items-start gap-3"><Check className="w-5 h-5 text-accent shrink-0" aria-hidden="true" /><span className="leading-6">{item}</span></li>)}</ul></></Reveal></div></section>
 
@@ -75,6 +76,37 @@ export default function AuditSupportUSPage() {
           <Link href="/services/audit-support/australia" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-input border border-border text-sm text-primary font-medium hover:bg-border transition-colors"><RegionFlag region="australia" decorative />Australia</Link>
         </div>
         <div className="flex flex-wrap justify-center gap-3"><Link href="/markets/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Market Overview</Link><Link href="/industries/cpa-firms" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">CPA Firms</Link><Link href="/services/bookkeeping/united-states" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">U.S. Bookkeeping</Link><Link href="/solutions/staff-augmentation" className="px-4 py-2 rounded-lg bg-white text-primary font-medium hover:bg-border transition-colors">Staff Augmentation</Link></div></div></section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">The term itself</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              What &ldquo;Audit Support&rdquo; Actually Means
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4">
+            <>
+              <p className="text-base md:text-lg text-muted leading-relaxed">Two different people search this phrase and mean opposite things by it, which is why most pages answering it are vague. Worth separating them.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">If you are the company being audited</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">Audit support is the work of getting your own file ready before the auditor opens it: a trial balance that ties, supporting schedules that agree to it, reconciliations that explain the differences, rollforwards for the balances that move, and the underlying documents filed where they can be found. Most of the time lost in an audit is not lost to testing. It is lost to a request list that keeps coming back because the first answer did not reconcile.</p>
+              <h3 className="font-bold text-primary text-lg pt-2">If you are the audit firm</h3>
+              <p className="text-base md:text-lg text-muted leading-relaxed">The same work, but the distinction matters more. This is preparation performed for the entity being audited, not audit work performed for you. Independence rules exist precisely so that the people preparing a file are not the people concluding on it, and the boundary is the same in substance under U.S. GAAS and PCAOB standards, UK ISAs, and the Australian ASAs.</p>
+              <div className="overflow-hidden rounded-xl border border-border bg-input">
+                <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                  <p className="text-xs font-bold uppercase tracking-wider text-accent">The line that does not move</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">Audit support does not include forming an opinion, planning the audit, assessing risk, choosing samples, evaluating management&rsquo;s representations, or concluding on an account balance. Those are auditor judgment, and no amount of preparation capacity changes who holds them.</p>
+                  <p className="text-sm sm:text-base leading-relaxed text-foreground">What can move is everything in front of that: schedules, tie-outs, reconciliations, evidence gathering, PBC list maintenance and formatting the file so the review is about the numbers rather than about finding them.</p>
+                </div>
+              </div>
+              <p className="text-base md:text-lg text-muted leading-relaxed">&ldquo;Offshore audit support&rdquo; is the same scope with the delivery team in another time zone, which mostly changes the rhythm rather than the work: requests raised at the end of your day are usually answered by the start of the next one, and the tradeoff is that ambiguous requests cost a full cycle instead of a conversation across a desk.</p>
+            </>
+          </Reveal>
+        </div>
+      </section>
 
       <RegionalContext serviceSlug="audit-support" regionSlug="united-states" />
 

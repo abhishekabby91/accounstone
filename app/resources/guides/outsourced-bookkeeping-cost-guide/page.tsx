@@ -22,6 +22,8 @@ export default function OutsourcedBookkeepingCostGuide() {
       publishedDate="2026-07-25"
       section="guides"
       slug="outsourced-bookkeeping-cost-guide"
+      inquiryTitle="Get a Number Against Your Own Scope"
+      inquiryLead="A monthly price only means something against defined work. Tell us the volume, the systems and the review standard, and we will price that scope rather than a tier."
     >
       <p>
         “How much does outsourced bookkeeping cost?” sounds like a pricing question. In practice, it is usually a <strong>scope question first</strong>. A business paying for monthly reconciliations is buying a different workflow from a business that also needs transaction review, AP/AR, month-end close and management reporting.

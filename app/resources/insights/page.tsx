@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Reveal from '@/components/reveal';
 import SectionHeading from '@/components/section-heading';
 import ResourceCard from '@/components/resource-card';
+import InquirySection from '@/components/inquiry-section';
 import { generateMetadata as genMeta, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { insights } from '@/lib/resources';
 
@@ -81,6 +82,13 @@ export default function InsightsPage() {
           </Reveal>
         </div>
       </section>
+      <InquirySection
+        compact
+        source="/resources/insights"
+        title="Want This Applied to Your Numbers?"
+        lead="Tell us how the reporting is put together today and we will scope the schedule and reconciliation work behind it."
+      />
+
     </main>
   );
 }
