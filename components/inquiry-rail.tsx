@@ -81,19 +81,19 @@ export default function InquiryRail({ region, service, source, title }: InquiryR
       aria-label="Quick enquiry"
       // pt-28 keeps the panel clear of the sticky header: centred in the full
       // viewport it sat on top of the navbar's Get Started button.
-      className="pointer-events-none fixed inset-y-0 right-0 z-[90] hidden items-center pb-6 pt-28 xl:flex"
+      className="pointer-events-none fixed inset-y-0 right-0 z-[90] hidden items-center pb-5 pt-24 xl:flex"
     >
       {expanded ? (
         <div
           ref={panelRef}
-          className="pointer-events-auto mr-3 max-h-full w-[330px] overflow-y-auto rounded-2xl border border-border bg-white p-5 shadow-[0_8px_40px_-12px_rgba(30,58,95,0.35)]"
+          className="pointer-events-auto mr-3 max-h-full w-[320px] overflow-y-auto rounded-2xl border border-border bg-white p-4 shadow-[0_8px_40px_-12px_rgba(30,58,95,0.35)]"
         >
-          <div className="mb-4 flex items-start justify-between gap-3">
+          <div className="mb-3 flex items-start justify-between gap-2">
             <div className="min-w-0">
               <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent">
                 Free consultation
               </span>
-              <h2 className="mt-1 font-serif text-lg font-bold leading-tight text-primary text-balance">
+              <h2 className="mt-0.5 font-serif text-base font-bold leading-snug text-primary text-balance">
                 {title ?? 'Ask Us About This Work'}
               </h2>
             </div>
@@ -114,6 +114,7 @@ export default function InquiryRail({ region, service, source, title }: InquiryR
             source={source ? `${source} (rail)` : 'rail'}
             formId="rail"
             size="compact"
+            minimal
             submitLabel="Book a Free Call"
           />
         </div>

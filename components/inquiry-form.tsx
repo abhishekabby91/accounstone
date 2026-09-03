@@ -72,11 +72,11 @@ const SIZES = {
   compact: {
     field: `${FIELD_BASE} px-3 py-2 text-sm`,
     label: 'block text-xs font-semibold text-foreground mb-1',
-    gap: 'space-y-3',
-    grid: 'grid grid-cols-1 gap-3',
-    submit: 'w-full px-4 py-3 rounded-lg text-sm font-semibold',
+    gap: 'space-y-2.5',
+    grid: 'grid grid-cols-1 gap-2.5',
+    submit: 'w-full px-4 py-2.5 rounded-lg text-sm font-semibold',
     note: 'text-[11px]',
-    rows: 3,
+    rows: 2,
   },
 } as const;
 
@@ -97,6 +97,16 @@ interface InquiryFormProps {
   formId?: string;
   /** `compact` trims padding and type size to fit a narrow rail. */
   size?: keyof typeof SIZES;
+  /**
+   * Drops the phone and service fields, leaving name, email, firm and message.
+   *
+   * For the fixed rail, where the full form ran 752px tall and scrolled inside
+   * itself on a 1366x768 laptop - a form you have to scroll to reach the submit
+   * button is worse than a shorter one. Nothing is lost from the enquiry: the
+   * service still reaches the payload from the page's `service` prop, and a
+   * phone number is easier to ask for in the reply than to demand up front.
+   */
+  minimal?: boolean;
 }
 
 export default function InquiryForm({
@@ -107,6 +117,7 @@ export default function InquiryForm({
   submitLabel = 'Book Your Free Consultation',
   formId,
   size = 'default',
+  minimal = false,
 }: InquiryFormProps) {
   const sz = SIZES[size];
   const router = useRouter();
@@ -126,7 +137,7 @@ export default function InquiryForm({
       `Email: ${get('email')}`,
       `Company: ${get('company')}`,
       get('phone') ? `Phone: ${get('phone')}` : null,
-      get('service') ? `Service Interest: ${get('service')}` : null,
+      (get('service') || service) ? `Service Interest: ${get('service') || service}` : null,
       regionName ? `Region: ${regionName}` : null,
       '',
       'Message:',
@@ -174,7 +185,7 @@ export default function InquiryForm({
           message: get('message'),
           ...(get('company') && { company: get('company') }),
           ...(get('phone') && { phone: get('phone') }),
-          ...(get('service') && { service_interest: get('service') }),
+          ...((get('service') || service) && { service_interest: get('service') || service }),
           ...(regionName && { region: regionName }),
           ...(source && { page: source }),
           botcheck: get('botcheck'),
@@ -273,6 +284,7 @@ export default function InquiryForm({
             />
           </div>
 
+          {!minimal && (
           <div>
             <label htmlFor={`phone-${uid}`} className={sz.label}>Phone number</label>
             <input
@@ -283,7 +295,9 @@ export default function InquiryForm({
               className={sz.field}
             />
           </div>
+          )}
 
+          {!minimal && (
           <div>
             <label htmlFor={`service-${uid}`} className={sz.label}>What do you need support with?</label>
             <select id={`service-${uid}`} name="service" defaultValue={service ?? ''} className={sz.field}>
@@ -294,6 +308,7 @@ export default function InquiryForm({
               <option value="Other">Other</option>
             </select>
           </div>
+          )}
 
         </div>
 
