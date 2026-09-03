@@ -96,7 +96,7 @@
 | app/technology/sage/page.tsx | 90/100 | 600 | 1 | 6 | 0 | 0 |
 | app/technology/xero/page.tsx | 90/100 | 610 | 1 | 6 | 0 | 0 |
 | app/thank-you/page.tsx | 90/100 | 596 | 1 | 6 | 0 | 0 |
-| app/page.tsx | 100/100 | 1276 | 1 | 8 | 0 | 0 |
+| app/page.tsx | 100/100 | 1280 | 1 | 8 | 0 | 0 |
 
 ## Priority queue
 
