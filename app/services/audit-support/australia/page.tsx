@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
 import InquiryRail from '@/components/inquiry-rail';
+import ServiceIllustration from '@/components/service-illustration';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/australia';
@@ -60,7 +61,14 @@ export default function AuditSupportAUPage() {
         region="australia" subtitle="Audit Support for Australian Businesses" title="Australian Audit Support Services" description="AASB schedules, 30 June reconciliations and indexed evidence, prepared before the year-end crunch arrives." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
     <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="inline-block py-1.5 hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li><li>Audit Support</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">Australia</li></ol></nav>
 
-    <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The 30 June Squeeze Is the Real Problem</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+    <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
+          <Reveal className="space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The 30 June Squeeze Is the Real Problem</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal>
+          <Reveal delay={0.12}>
+            <ServiceIllustration service="audit-support" className="mx-auto w-full max-w-[300px] lg:max-w-none" />
+          </Reveal>
+        </div>
+      </section>
 
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-12"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Across the cycle</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Where Preparation Support Fits the Australian Audit Year</h2></></Reveal>
       <ol className="space-y-4">{phases.map((w, i) => <Reveal key={i} delay={Math.min(i * 0.06, 0.25)}><li className="h-full"><InquiryTrigger className="p-5 sm:p-6 bg-white rounded-xl border border-border/70 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-6 transition-colors hover:border-primary/40 h-full" source="/services/audit-support/australia" service="Audit Support" region="australia"><span className="shrink-0 text-xs font-bold uppercase tracking-wider text-accent sm:w-36 sm:pt-1">{w.k}</span><div><h3 className="font-bold text-primary mb-1.5 text-base sm:text-lg">{w.h}</h3><p className="text-muted text-sm sm:text-base leading-relaxed">{w.p}</p></div></InquiryTrigger></li></Reveal>)}</ol></div></section>

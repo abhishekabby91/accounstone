@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
 import InquiryRail from '@/components/inquiry-rail';
+import ServiceIllustration from '@/components/service-illustration';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/united-kingdom';
@@ -62,7 +63,14 @@ export default function AuditSupportUKPage() {
         region="united-kingdom" subtitle="Audit Support for UK Businesses" title="UK Audit Support Services" description="FRS 102 schedules, year-end reconciliations and indexed evidence, prepared against your statutory auditor's request list." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
     <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="inline-block py-1.5 hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li><li>Audit Support</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">United Kingdom</li></ol></nav>
 
-    <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white"><Reveal className="max-w-4xl mx-auto space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Where UK Audits Actually Lose Time</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal></section>
+    <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 items-center gap-8 lg:grid-cols-[1.35fr_1fr] lg:gap-14">
+          <Reveal className="space-y-6"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Overview</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">Where UK Audits Actually Lose Time</h2><p className="text-lg text-muted leading-relaxed">{overview}</p></></Reveal>
+          <Reveal delay={0.12}>
+            <ServiceIllustration service="audit-support" className="mx-auto w-full max-w-[300px] lg:max-w-none" />
+          </Reveal>
+        </div>
+      </section>
 
     <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><Reveal className="text-center space-y-4 mb-12"><><span className="text-sm font-semibold tracking-wide uppercase text-accent">Workstreams</span><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance">The Preparation Work Behind a UK Audit File</h2></></Reveal>
       <div className="grid md:grid-cols-2 gap-4 md:gap-6">{workstreams.map((w, i) => <Reveal key={i} delay={Math.min(i * 0.05, 0.25)}><InquiryTrigger className="h-full p-5 sm:p-6 bg-white rounded-xl border border-border/70 transition-colors hover:border-primary/40" source="/services/audit-support/united-kingdom" service="Audit Support" region="united-kingdom"><h3 className="font-bold text-primary mb-2 text-base sm:text-lg">{w.h}</h3><p className="text-muted text-sm sm:text-base leading-relaxed">{w.p}</p></InquiryTrigger></Reveal>)}</div></div></section>

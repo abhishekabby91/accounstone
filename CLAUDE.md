@@ -213,6 +213,40 @@ deliberately 1-per-row — their titles run 60–90 characters and wrap badly at
 
 ---
 
+## Service illustrations
+
+`components/service-illustration.tsx` holds seven original line drawings, one
+per service, rendered beside the Overview copy on all 21 Service x Region pages.
+
+They are drawn rather than sourced, and each shows the **actual mechanic** of
+the work: a ledger reconciling with one exception flagged, a close sequence
+collapsing into a single reviewable report, a return with workpapers fanned
+behind it and the signature line left blank, a pay cycle, an approval gate
+holding one invoice back, an aging profile with the 90+ bucket picked out, a
+schedule tying to a balance. That is `AI-WEBSITE-GUIDE.md` principle 5 -
+operational specificity as proof of understanding - applied to pictures. A
+generic calculator graphic would say nothing a competitor's could not.
+
+What keeps the seven reading as one family, and what to preserve if you add an
+eighth:
+
+- one `200x150` viewBox, one `1.6` stroke weight
+- navy line work through `currentColor`, so the parent sets the colour
+- the brand gold as a single ground rule along the base of every drawing
+- **the burnt-orange accent used exactly once per illustration**, always on the
+  thing that needs a human decision: the exception, the unsigned line, the held
+  invoice, the overdue bucket. That restraint is the whole system - spend it
+  twice and the drawing stops pointing anywhere.
+
+They are decorative and carry `aria-hidden`: each sits beside copy that already
+says the same thing, so exposing them would make a screen reader announce it
+twice. Inline SVG, so no extra request and nothing to lazy-load - the pages
+grew by roughly 120 bytes each.
+
+Text leads on mobile and the art sits right on desktop, which falls out of DOM
+order. An earlier version forced the art above the heading on mobile with
+`order-first`; do not reintroduce it.
+
 ## Icons and favicon
 
 Generated from the mark in `public/accounstone-logo-horizontal.png` (the A/S

@@ -1,5 +1,57 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03d (bespoke service illustrations)
+
+Seven original line drawings, one per service, now render beside the Overview
+copy on all 21 Service x Region pages. `components/service-illustration.tsx`.
+
+They are drawn for this site rather than picked from a stock set, and the point
+of each is that it shows the **actual mechanic** of the work rather than a
+generic finance motif:
+
+- **Bookkeeping** - two ledger columns agreeing, and the one row that does not.
+- **Accounting** - a sequence of period work collapsing into one reviewable
+  close, with the sign-off left to the reviewer.
+- **Tax preparation** - workpapers fanned behind a return, and the signature
+  line deliberately left blank and dashed. It pairs with the copy on that page:
+  "the only part that actually requires your licence".
+- **Payroll** - the same run, every cycle.
+- **Accounts payable** - a queue, an approval gate, and the invoice held back.
+- **Accounts receivable** - the aging profile with the 90+ bucket picked out.
+- **Audit support** - a schedule tying to a balance, with the opinion outside
+  the frame.
+
+This is `AI-WEBSITE-GUIDE.md` principle 5 - operational specificity as proof of
+understanding - applied to pictures instead of prose. A stock calculator
+illustration would say nothing a competitor's could not.
+
+### The system, so an eighth can be added without breaking it
+
+One `200x150` viewBox and one `1.6` stroke weight throughout. Navy line work via
+`currentColor`. The brand gold as a single ground rule along the base of every
+drawing. And the burnt-orange accent used **exactly once per illustration**,
+always on the thing that needs a human decision - the exception, the unsigned
+line, the held invoice, the overdue bucket. Spend that accent twice and the
+drawing stops pointing anywhere.
+
+### Cost and accessibility
+
+Inline SVG, so no extra request and nothing to lazy-load; the pages grew by
+about 120 bytes each. All seven carry `aria-hidden` because each sits beside
+copy that already says the same thing - exposing them would make a screen reader
+announce it twice. Verified across all 85 routes that none is exposed.
+
+Text leads on mobile and the art sits right on desktop, which falls out of DOM
+order. The first version forced the art above the section heading on mobile with
+`order-first`, which pushed the h2 down the page for no benefit; removed.
+
+### Verification
+
+`pnpm eslint .` silent, `pnpm next build` clean. Playwright across all 85 routes
+at 320/768/1280/1440px: no page scrolls horizontally, no tap target under 24px,
+no duplicate element ids, and every illustration correctly hidden from assistive
+technology.
+
 ## 2026-09-03c (/contact rebuilt as a trust page; rail rollout; type sizing)
 
 ### /contact was 153 words and read like a form with an address next to it
