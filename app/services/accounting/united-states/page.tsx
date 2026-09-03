@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounting/united-states';
@@ -65,6 +66,19 @@ export default function AccountingUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-states"
+
+        service="Accounting Services"
+
+        source={PATH}
+
+        title="Talk About Your Close"
+
+      />
+
 
       <PremiumHero
         region="united-states" subtitle="Accounting Services for U.S. Businesses" title="Outsourced Accounting Services for U.S. Businesses" description="GAAP-based reconciliations, month-end close, and management reporting your CPA can review with confidence." cta={{ text: 'Talk Through Your Close Process', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

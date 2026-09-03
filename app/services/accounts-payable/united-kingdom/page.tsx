@@ -10,6 +10,7 @@ import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-payable/united-kingdom';
@@ -69,6 +70,19 @@ export default function AccountsPayableUKPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-kingdom"
+
+        service="Accounts Payable"
+
+        source={PATH}
+
+        title="Talk About Your Payables"
+
+      />
+
 
       <PremiumHero
         region="united-kingdom" subtitle="Accounts Payable for UK Businesses" title="Outsourced Accounts Payable for UK Businesses" description="Invoice processing, input VAT coding, and payment run preparation inside your existing system." cta={{ text: 'Talk Through Your AP Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

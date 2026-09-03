@@ -10,6 +10,7 @@ import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/payroll/australia';
@@ -70,6 +71,19 @@ export default function PayrollAUPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="australia"
+
+        service="Payroll Processing"
+
+        source={PATH}
+
+        title="Talk About Your Payroll Run"
+
+      />
+
 
       <PremiumHero
         region="australia" subtitle="For Australian accounting firms" title="Payroll Support for Australian Firms" description="Client payroll prepared and checked — STP Phase 2 data, superannuation guarantee and PAYG withholding — before your firm submits." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

@@ -98,13 +98,14 @@ interface InquiryFormProps {
   /** `compact` trims padding and type size to fit a narrow rail. */
   size?: keyof typeof SIZES;
   /**
-   * Drops the phone and service fields, leaving name, email, firm and message.
+   * Drops the "What do you need support with?" select.
    *
-   * For the fixed rail, where the full form ran 752px tall and scrolled inside
-   * itself on a 1366x768 laptop - a form you have to scroll to reach the submit
-   * button is worse than a shorter one. Nothing is lost from the enquiry: the
-   * service still reaches the payload from the page's `service` prop, and a
-   * phone number is easier to ask for in the reply than to demand up front.
+   * For the rail on a Service x Region page, where the page has already told
+   * the form which service it is about via `service` - asking the reader to
+   * pick it again is a wasted line on a form that has to fit one screen. The
+   * value still reaches the payload from the prop.
+   *
+   * Only the rail sets this. The band and the dialog keep every field.
    */
   minimal?: boolean;
 }
@@ -284,7 +285,6 @@ export default function InquiryForm({
             />
           </div>
 
-          {!minimal && (
           <div>
             <label htmlFor={`phone-${uid}`} className={sz.label}>Phone number</label>
             <input
@@ -295,7 +295,6 @@ export default function InquiryForm({
               className={sz.field}
             />
           </div>
-          )}
 
           {!minimal && (
           <div>
@@ -334,7 +333,9 @@ export default function InquiryForm({
         </button>
 
         <p className={`${sz.note} text-muted text-center`}>
-          The consultation and the call are always free. {r?.hours ?? 'We reply within 24 business hours.'}
+          {size === 'compact'
+            ? 'Free consultation. No obligation.'
+            : <>The consultation and the call are always free. {r?.hours ?? 'We reply within 24 business hours.'}</>}
         </p>
       </form>
     </div>

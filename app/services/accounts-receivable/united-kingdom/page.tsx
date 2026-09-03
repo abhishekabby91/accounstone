@@ -10,6 +10,7 @@ import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-receivable/united-kingdom';
@@ -67,6 +68,19 @@ export default function AccountsReceivableUKPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-kingdom"
+
+        service="Accounts Receivable"
+
+        source={PATH}
+
+        title="Talk About Your Aging Ledger"
+
+      />
+
 
       <PremiumHero
         region="united-kingdom" subtitle="Accounts Receivable for UK Businesses" title="Outsourced Accounts Receivable for UK Businesses" description="Invoicing with correct VAT, payment application, aging review, and follow-up inside Xero or Sage." cta={{ text: 'Talk Through Your AR Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/payroll/united-states';
@@ -68,6 +69,19 @@ export default function PayrollUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-states"
+
+        service="Payroll Processing"
+
+        source={PATH}
+
+        title="Talk About Your Payroll Run"
+
+      />
+
 
       <PremiumHero
         region="united-states" subtitle="For U.S. CPA firms" title="Payroll Support for CPA Firms" description="Client payroll runs prepared and checked — federal and state withholding, FICA and FUTA/SUTA — before your firm approves them." cta={{ text: 'Talk Through Your Payroll Setup', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

@@ -10,6 +10,7 @@ import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
@@ -31,6 +32,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', url: baseUrl 
 export default function TaxPrepAUPage() {
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <InquiryRail
+      region="australia"
+      service="Tax Preparation"
+      source={PATH}
+      title="Talk Through Your Season"
+    />
+
     <PremiumHero
         region="australia" subtitle="For Australian accounting firms" title="Tax Preparation Support for Australian Firms" description="Company, trust and individual returns prepared to your templates. You review, you advise, your registered agent lodges." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
     <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="inline-block py-1.5">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="inline-block py-1.5">Services</Link></li><li aria-hidden="true">/</li><li>Tax Preparation</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">Australia</li></ol></nav>

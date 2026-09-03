@@ -10,6 +10,7 @@ import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import RegionFlag from '@/components/region-flag';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/bookkeeping/united-states';
@@ -77,6 +78,19 @@ export default function BookkeepingUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-states"
+
+        service="Bookkeeping"
+
+        source={PATH}
+
+        title="Talk About Your Books"
+
+      />
+
 
       <PremiumHero
         region="united-states" subtitle="For U.S. CPA firms" title="Bookkeeping Support for CPA Firms" description="Client bookkeeping, prepared to your chart of accounts and your close calendar — so your people review rather than process." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-receivable/united-states';
@@ -66,6 +67,19 @@ export default function AccountsReceivableUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-states"
+
+        service="Accounts Receivable"
+
+        source={PATH}
+
+        title="Talk About Your Aging Ledger"
+
+      />
+
 
       <PremiumHero
         region="united-states" subtitle="Accounts Receivable for U.S. Businesses" title="Outsourced Accounts Receivable for U.S. Businesses" description="Invoicing, payment application, aging review, and follow-up inside QuickBooks Online or Xero." cta={{ text: 'Talk Through Your AR Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

@@ -8,6 +8,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/audit-support/australia';
@@ -48,6 +49,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([{ name: 'Home', url: baseUrl 
 export default function AuditSupportAUPage() {
   return <main>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+    <InquiryRail
+      region="australia"
+      service="Audit Support"
+      source={PATH}
+      title="Talk About Audit Preparation"
+    />
+
     <PremiumHero
         region="australia" subtitle="Audit Support for Australian Businesses" title="Australian Audit Support Services" description="AASB schedules, 30 June reconciliations and indexed evidence, prepared before the year-end crunch arrives." cta={{ text: 'Get Started', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />
     <nav aria-label="Breadcrumb" className="w-full px-6 md:px-8 pt-6 bg-white"><ol className="max-w-4xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted"><li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li><li aria-hidden="true">/</li><li><Link href="/services" className="inline-block py-1.5 hover:text-primary transition-colors">Services</Link></li><li aria-hidden="true">/</li><li>Audit Support</li><li aria-hidden="true">/</li><li aria-current="page" className="text-primary font-medium">Australia</li></ol></nav>

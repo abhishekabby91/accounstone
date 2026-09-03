@@ -9,6 +9,7 @@ import Reveal from '@/components/reveal';
 import ServiceDepth from '@/components/service-depth';
 import RegionalContext from '@/components/regional-context';
 import InquiryTrigger from '@/components/inquiry-trigger';
+import InquiryRail from '@/components/inquiry-rail';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/accounts-payable/united-states';
@@ -68,6 +69,19 @@ export default function AccountsPayableUSPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+
+      <InquiryRail
+
+        region="united-states"
+
+        service="Accounts Payable"
+
+        source={PATH}
+
+        title="Talk About Your Payables"
+
+      />
+
 
       <PremiumHero
         region="united-states" subtitle="Accounts Payable for U.S. Businesses" title="Outsourced Accounts Payable for U.S. Businesses" description="Invoice processing, ACH/check payment preparation, and 1099 vendor tracking inside your existing system." cta={{ text: 'Talk Through Your AP Workflow', href: '/contact' }} ctaSecondary={{ text: 'View All Services', href: '/services' }} background="primary-gradient" />

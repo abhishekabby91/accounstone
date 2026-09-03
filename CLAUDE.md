@@ -318,6 +318,46 @@ typed and is offered the email fallback. There are Playwright checks for both.
   import into Google Ads as conversions without extra setup; a custom name does
   not.
 
+## The inquiry rail on Service x Region pages
+
+`components/inquiry-rail.tsx` is a compact enquiry form fixed to the right edge
+of all 21 `/services/{service}/{region}` pages. It is the third instance of the
+form, after the band and the dialog, and the rules that keep the three apart are
+worth knowing before touching any of them.
+
+**Widths are measured, not chosen.** The content column is centred and ~1230px
+wide, so its right edge sits at `(viewport + 1230) / 2` and a 320px panel starts
+at `viewport - 332`. Those meet near 1914px. Thresholds of 1700 and 1820 were
+both tried and both still overlapped the copy.
+
+- **>=1960px**: expanded by default, clear of the text.
+- **1280-1959px**: a 40px tab. It was 72px and overlapped at 1280 by 15px.
+- **<1280px**: hidden entirely. At 1024 the content column already fills the
+  viewport, and the band, dialog and card triggers cover the same job there.
+- It expands on click at any width from 1280px up, and floats over the copy when
+  it does. That is fine because the reader asked for it and there is a close
+  button; opening itself on top of a sentence is not.
+
+**It must fit one screen.** The first version was 752px of content and scrolled
+inside itself on a 1366x768 and a 1536x864 laptop. It is now 590px and fits from
+1280x720 up. Two things buy that, and both are per-instance, not global:
+
+- `minimal` on `InquiryForm` drops **only** the service select, because a
+  Service x Region page has already told the form which service it is about via
+  `service`. The value still reaches the payload from the prop - verified
+  against a stubbed Web3Forms response. Phone stays: it is real lead data.
+- `size="compact"` trims padding and type, shortens the message box to two rows
+  and swaps the long assurance line for a single short one.
+
+**The band and the dialog keep every field.** If you change `InquiryForm`, check
+all three instances - there is a Playwright check that compares their field
+lists.
+
+It also stands down whenever the `#inquiry` band is on screen, so two identical
+forms are never visible at once, and it is inset `pt-24` to clear the sticky
+header. It uses `formId="rail"` and must never claim `#inquiry` or
+`#inquiry-heading`.
+
 ## Contact form
 
 **`/contact` submits from the browser, and it has to. Do not move it back to
