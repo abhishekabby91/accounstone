@@ -60,14 +60,22 @@ const FIELD_BASE =
 // below the 24px minimum touch target, because a shorter form that cannot be
 // used on a laptop trackpad is not a smaller form, it is a broken one.
 const SIZES = {
+  // The band ran 1540px tall on a 390px phone - nearly two screens, on 81
+  // pages - because it used desktop padding and rhythm at every width. Every
+  // value below steps up at `sm:`, so the desktop form is unchanged.
+  //
+  // The fields deliberately stay ONE column on mobile. Two-column form fields
+  // on a 390px screen is a known usability regression: smaller targets, more
+  // mis-taps, more errors on the one interaction the page exists for. Height
+  // comes out of padding and rhythm instead, which costs nothing.
   default: {
-    field: `${FIELD_BASE} px-4 py-3`,
-    label: 'block text-sm font-semibold text-foreground mb-2',
-    gap: 'space-y-5',
-    grid: 'grid grid-cols-1 sm:grid-cols-2 gap-5',
-    submit: 'w-full px-6 py-4 rounded-lg font-semibold',
+    field: `${FIELD_BASE} px-3.5 py-2.5 sm:px-4 sm:py-3`,
+    label: 'block text-sm font-semibold text-foreground mb-1 sm:mb-2',
+    gap: 'space-y-3.5 sm:space-y-5',
+    grid: 'grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5',
+    submit: 'w-full px-6 py-3.5 sm:py-4 rounded-lg font-semibold',
     note: 'text-xs',
-    rows: 4,
+    rows: 3,
   },
   compact: {
     // Labels 13px, submit 15px. The first pass used 12px labels and an 11px

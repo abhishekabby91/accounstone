@@ -92,10 +92,10 @@ export default function InquirySection({
     <section
       id="inquiry"
       aria-labelledby="inquiry-heading"
-      className={`w-full py-10 md:py-14 px-6 md:px-8 ${background === 'white' ? 'bg-white' : 'bg-input'}`}
+      className={`w-full py-8 md:py-14 px-6 md:px-8 ${background === 'white' ? 'bg-white' : 'bg-input'}`}
     >
-      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-8 lg:gap-12 items-start">
-        <div className="space-y-5">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-6 lg:gap-12 items-start">
+        <div className="space-y-4 sm:space-y-5">
           <div className="flex items-center gap-3">
             <span aria-hidden="true" className="h-px w-8 bg-secondary" />
             <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">
@@ -114,7 +114,7 @@ export default function InquirySection({
           <p className="text-base md:text-lg text-muted leading-relaxed">{lead ?? copy.lead}</p>
 
           {!compact && (
-          <ul className="space-y-3 pt-1">
+          <ul className="space-y-2.5 pt-1 sm:space-y-3">
             {copy.points.map((point) => (
               <li key={point} className="flex items-start gap-3">
                 <Check className="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true" />
@@ -145,7 +145,7 @@ export default function InquirySection({
           )}
         </div>
 
-        <div className="rounded-2xl border border-border bg-white p-6 sm:p-8 shadow-[0_2px_24px_-8px_rgba(30,58,95,0.16)]">
+        <div className="rounded-2xl border border-border bg-white p-5 sm:p-8 shadow-[0_2px_24px_-8px_rgba(30,58,95,0.16)]">
           <InquiryForm
             region={region}
             service={service}

@@ -115,7 +115,7 @@ export default function OffshoreSolutionPage() {
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><h2 className="text-4xl font-bold text-primary text-center mb-12">How It Works</h2></Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
             {[
               { step: '1', title: 'Consultation', desc: 'Understand your needs and requirements' },
               { step: '2', title: 'Team Assembly', desc: 'Build a dedicated offshore team for you' },

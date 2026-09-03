@@ -167,7 +167,7 @@ export default function DedicatedTeamsPage() {
       <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
         <div className="max-w-5xl mx-auto">
           <Reveal><h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-center mb-10">How the Team Gets Built</h2></Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
             {[
               { step: '1', title: 'Scoping', desc: 'Your portfolio, platforms and where the pressure sits' },
               { step: '2', title: 'Pilot', desc: 'One defined block of work, so you see the output first' },

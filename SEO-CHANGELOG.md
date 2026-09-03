@@ -1,5 +1,72 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03f (mobile height: the form, and which cards actually benefit from 2-up)
+
+The brief was to size the inquiry form properly for mobile and put cards 2-up to
+cut scrolling. The first half was straightforward. The second half was measured,
+and the measurement contradicted the assumption.
+
+### The inquiry band was two screens tall on a phone
+
+1540px at 390px wide, on 81 pages, because it used desktop padding and rhythm at
+every width. Field padding, label spacing, vertical rhythm, the band's left
+column and the message box all now step up at `sm:` instead of starting there.
+The band is 1370px on a Service x Region page, and mean page height across all
+85 routes fell from 11.4 to 11.0 screens.
+
+**The form fields deliberately stay one column.** Two-column fields on a 390px
+screen is a known usability regression - smaller targets, more mis-taps, more
+errors on the one interaction the page exists for. Inputs stay pinned at 16px by
+`globals.css` to stop iOS Safari auto-zooming. Height came out of padding, which
+costs nothing.
+
+FAQ accordions got the same treatment for the same reason: a question in a 170px
+column wraps to four lines, so the padding shrank rather than the column count.
+
+### Six grids went 2-up. Four of them made pages longer.
+
+Each converted grid was measured at 390px against itself forced back to one
+column. The results were not what the instinct predicted:
+
+| Grid | Cards | Chars each | Effect |
+|---|---|---|---|
+| `sm:grid-cols-4` | 4 | ~57 | **-243px** x 11 grids |
+| `md:grid-cols-4 gap-6` | 4 | ~80 | **-255px** x 2 grids |
+| `md:grid-cols-2 gap-3` | 7 | ~117 | +42px - reverted |
+| `sm:grid-cols-2 gap-2.5` | 8 | ~21 | +137px - reverted |
+| `md:grid-cols-3 gap-4` | 3 | ~177 | +221px - reverted |
+| `md:grid-cols-3 gap-6` | 6 | ~135 | +222px - reverted |
+
+The reason is mechanical: a card with 135+ characters wraps far more in a 170px
+column, and the tallest card in a row sets the height for both. Halving the
+column count does not halve the height, and past a certain text length it
+increases it.
+
+**Rule of thumb: 2-up wins below roughly 60 characters per card and loses above
+~120. In between, measure.** The method is cheap - set
+`gridTemplateColumns: '1fr'` on the live element and diff the bounding box.
+
+Three grid sites kept the change; fifteen were reverted.
+
+### Result
+
+Every one of the eleven longest pages is shorter, none longer:
+
+- `/services/tax-preparation/united-states` 17.5 -> 16.8 screens (-568px)
+- `/markets/united-kingdom` 16.6 -> 16.1 (-469px)
+- `/markets/united-states` 17.1 -> 16.6 (-454px)
+- `/services` 15.8 -> 15.3 (-452px)
+- `/markets/australia` 17.5 -> 17.1 (-408px)
+- `/services/bookkeeping/united-states` 16.4 -> 16.0 (-382px)
+- `/` 16.4 -> 16.0 (-370px)
+
+### Verification
+
+`pnpm eslint .` silent, `pnpm next build` clean. Across all 85 routes at 390px:
+zero pages scroll horizontally and zero have a tap target under 24px. Desktop is
+untouched - every changed value is a mobile-first default that steps back up at
+`sm:`.
+
 ## 2026-09-03e (process flow on the homepage)
 
 `components/process-flow.tsx` - four numbered phases on a connected rail, added

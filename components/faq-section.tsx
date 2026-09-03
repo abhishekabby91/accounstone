@@ -38,7 +38,7 @@ export default function FAQSection({
           </h2>
         </div>
 
-        <div className={`grid grid-cols-1 ${colsClass} gap-6`}>
+        <div className={`grid grid-cols-1 gap-3 sm:gap-6 ${colsClass}`}>
           {items.map((item, index) => {
             const isOpen = openIndex === index;
             const panelId = `faq-panel-${index}`;
@@ -54,7 +54,7 @@ export default function FAQSection({
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   aria-expanded={isOpen}
                   aria-controls={panelId}
-                  className="w-full px-6 py-5 text-left font-semibold text-lg text-primary hover:bg-input transition-colors flex items-center justify-between group"
+                  className="w-full px-4 py-3.5 sm:px-6 sm:py-5 text-left font-semibold text-base sm:text-lg text-primary hover:bg-input transition-colors flex items-center justify-between group"
                 >
                   <span>{item.question}</span>
                   <span
@@ -76,7 +76,7 @@ export default function FAQSection({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 py-4 bg-input border-t-2 border-border">
+                    <div className="px-4 py-3.5 sm:px-6 sm:py-4 bg-input border-t-2 border-border">
                       <p className="text-foreground leading-relaxed">
                         {item.answer}
                       </p>

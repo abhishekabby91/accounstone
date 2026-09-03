@@ -34,7 +34,7 @@ export default function ArticleVisual({
         </div>
       </div>
 
-      <div className="grid gap-3 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
         {visualItems.map((item, index) => (
           <div key={`${item.label}-${index}`} className="relative rounded-xl bg-white p-4 shadow-sm ring-1 ring-black/5">
             <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-sm font-bold text-primary" aria-hidden="true">

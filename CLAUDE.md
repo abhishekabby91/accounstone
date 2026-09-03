@@ -361,6 +361,46 @@ Every instance ids its fields with a per-instance `uid`, so two forms on one
 page cannot collide. There is exactly one `#inquiry` and one
 `#inquiry-heading` per page — check that if you ever add a second band.
 
+## Mobile height: measure before assuming 2-up is shorter
+
+The obvious instinct - make every 1-column card grid 2-up on mobile to shorten
+the page - **is wrong more often than it is right here**, and it was measured
+rather than argued.
+
+Six 1-column grids were converted to 2-up at 390px and each one's height was
+compared against the same grid forced back to one column. Four made pages
+**longer**: a card carrying 135+ characters wraps far more in a 170px column,
+and the tallest card in a row sets the height for both. Only two shortened
+anything:
+
+| Grid | Effect at 390px |
+|---|---|
+| `grid-cols-2 gap-3 sm:grid-cols-4` (short labels) | **-243px** each, 11 grids |
+| `grid-cols-2 gap-3 md:grid-cols-4 md:gap-6` | **-255px** each, 2 grids |
+| `md:grid-cols-3 gap-6` (6 cards, ~135 chars) | +222px each - reverted |
+| `md:grid-cols-3 gap-4` (3 cards, ~177 chars) | +221px each - reverted |
+| `sm:grid-cols-2 gap-2.5` (7 items) | +137px each - reverted |
+| `md:grid-cols-2 gap-3` (7 cards, ~117 chars) | +42px each - reverted |
+
+**Rule of thumb from that data: 2-up wins below roughly 60 characters per card
+and loses above ~120.** In between, measure. The method is in
+`SEO-CHANGELOG.md` 2026-09-03f - force `gridTemplateColumns: '1fr'` in the page
+and diff the bounding box.
+
+Two things that must NOT go 2-up on mobile, whatever the height cost:
+
+- **The inquiry form's own fields.** Two-column form fields on a 390px screen
+  means smaller targets, more mis-taps and more errors on the one interaction
+  the page exists for.
+- **FAQ accordions and article listings.** Both are text; a question in a 170px
+  column wraps to four lines. (Article listings were already documented as
+  1-per-row above.)
+
+Both got tighter mobile padding and rhythm instead, which buys height for free.
+Everything steps back up at `sm:`, so desktop is untouched. The inquiry band
+went from 1540px to 1370px on a Service x Region page, and mean page height
+across all 85 routes from 11.4 to 11.0 screens.
+
 ## /thank-you is a conversion target, not a page
 
 `app/thank-you/page.tsx` exists so Google Ads and Meta have a URL to count a
