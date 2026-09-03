@@ -1,21 +1,24 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { Check, Mail, Phone, MapPin } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
 import { companyInfo, services } from '@/lib/data';
 
 export default function ContactPage() {
+  const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   // What the visitor typed, kept only so the fallback below can pre-fill a
   // message without making them retype it.
   const [unsent, setUnsent] = useState<FormData | null>(null);
 
-  // The visitor stays on this page: the form submits, and they see the result
-  // here. The email fallback below is only offered if the send genuinely fails,
-  // and only as a button they can choose - it used to fire on its own, which is
-  // what made the form read as a mailto link in disguise.
+  // On success the visitor goes to /thank-you, which is what gives Google Ads
+  // and Meta a URL to count the conversion on. On failure they stay here with
+  // what they typed intact: the email fallback below is only ever offered as a
+  // button they can choose - it used to fire on its own, which is what made the
+  // form read as a mailto link in disguise.
   const openMailClient = (data: FormData) => {
     const get = (k: string) => (data.get(k) as string) || '';
     const body = [
@@ -86,6 +89,9 @@ export default function ContactPage() {
       if (res.ok && result?.success) {
         form.reset();
         setStatus('sent');
+        // Same reason as components/inquiry-form.tsx: the conversion has to
+        // land on a URL an ad platform can observe.
+        router.push('/thank-you');
         return;
       }
 

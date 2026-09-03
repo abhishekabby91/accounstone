@@ -6,7 +6,7 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/insights/sales-tax-nexus-ecommerce-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Sales Tax Nexus: What E-Commerce Sellers Need to Track',
+  title: 'Sales Tax Nexus for E-Commerce Sellers',
   description:
     'A quick explainer on economic nexus for e-commerce sellers — why growing into new states can quietly create new sales tax obligations.',
   path: PATH,

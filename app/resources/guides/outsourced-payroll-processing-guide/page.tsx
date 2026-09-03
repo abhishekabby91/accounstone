@@ -6,9 +6,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-payroll-processing-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Processing: What It Actually Covers (US, UK & Australia)',
+  title: 'What Outsourced Payroll Processing Covers',
   description:
-    'How outsourced payroll works in QuickBooks, Xero, Gusto and ADP, what it costs in the US, UK and Australia, and the real questions employers ask before handing payroll to an offshore team.',
+    'How outsourced payroll runs in QuickBooks, Xero, Gusto and ADP, what it costs in the US, UK and Australia, and what employers ask before handing it over.',
   path: PATH,
 });
 

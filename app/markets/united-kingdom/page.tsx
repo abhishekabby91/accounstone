@@ -15,9 +15,9 @@ import { serviceRegions } from '@/lib/data';
 const PATH = '/markets/united-kingdom';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Offshore Accounting Team for UK Accountancy Practices',
+  title: 'Offshore Accounting for UK Practices',
   description:
-    'Accounstone works as your practice’s offshore accounting team — bookkeeping, year-end accounts under FRS 102 and tax preparation, prepared for your review and your filing.',
+    'Your practice’s offshore accounting team — bookkeeping, FRS 102 year-end accounts and tax preparation, prepared for your review and your filing.',
   path: PATH,
 });
 

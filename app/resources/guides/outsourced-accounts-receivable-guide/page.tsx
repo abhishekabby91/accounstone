@@ -6,9 +6,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-accounts-receivable-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounts Receivable: DSO, Collections & Software Workflows (US, UK, AU)',
+  title: 'Outsourced Accounts Receivable and DSO',
   description:
-    'What outsourced AR processing covers, how it reduces DSO, how collections follow-up works in QuickBooks and Xero, and the questions business owners ask before outsourcing receivables.',
+    'What outsourced AR covers, how it affects DSO, how collections follow-up runs in QuickBooks and Xero, and what to ask before delegating receivables.',
   path: PATH,
 });
 

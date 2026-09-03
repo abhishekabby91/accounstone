@@ -4,7 +4,7 @@ import { companyInfo } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Terms & Conditions',
-  description: 'Accounstone terms and conditions of service.',
+  description: 'Accounstone’s terms and conditions of service, covering engagement scope, responsibilities and the limits that apply to the work.',
   path: '/terms',
 });
 

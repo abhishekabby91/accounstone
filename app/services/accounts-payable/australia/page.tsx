@@ -15,8 +15,8 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/accounts-payable/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounts Payable for Australian Businesses',
-  description: 'Australian accounts payable support — invoice entry, GST input tax credit coding, payment run preparation, and vendor statement reconciliation inside Xero or MYOB.',
+  title: 'Accounts Payable Outsourcing, Australia',
+  description: 'Australian AP support — invoice entry, GST input tax credit coding, payment run preparation and vendor statement reconciliation in Xero or MYOB.',
   path: PATH,
 });
 

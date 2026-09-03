@@ -3,7 +3,7 @@ import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { companyInfo } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Contact Us',
+  title: 'Contact Accounstone — Free Consultation',
   description:
     'Talk to Accounstone about bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses in the US, UK, and Australia.',
   path: '/contact',

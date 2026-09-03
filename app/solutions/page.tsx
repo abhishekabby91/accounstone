@@ -8,9 +8,9 @@ import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 import { solutions } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Service Solutions',
+  title: 'Engagement Models & Solutions',
   description:
-    'Explore our flexible engagement models and service packages designed for accounting firms and practices.',
+    'Four ways to add accounting capacity — staff augmentation, a dedicated team, offshore support and back office — and how each one is structured.',
   path: '/solutions',
 });
 

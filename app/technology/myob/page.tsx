@@ -11,7 +11,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'MYOB Accounting Support',
-  description: 'Recurring accounting work inside an existing MYOB file — bookkeeping, reconciliations, GST and BAS-ready records, payroll preparation and reporting. Not an MYOB partner or implementer: we work in the setup you already run.',
+  description: 'Recurring accounting inside an existing MYOB file — bookkeeping, reconciliations, GST and BAS-ready records and payroll preparation. Not an implementer.',
   path: '/technology/myob',
 });
 

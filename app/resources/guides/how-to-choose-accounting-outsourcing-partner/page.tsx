@@ -7,9 +7,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/how-to-choose-accounting-outsourcing-partner';
 
 export const metadata: Metadata = genMeta({
-  title: 'How to Choose an Accounting Outsourcing Partner',
+  title: 'How to Choose an Outsourcing Partner',
   description:
-    'A decision framework for evaluating outsourced accounting and bookkeeping providers: what to check before you shortlist, red flags, and what a sound onboarding process looks like.',
+    'A framework for evaluating outsourced accounting providers: what to check before shortlisting, the red flags, and what sound onboarding looks like.',
   path: PATH,
 });
 

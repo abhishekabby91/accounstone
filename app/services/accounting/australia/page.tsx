@@ -14,8 +14,8 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/accounting/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting Services for Australian Businesses',
-  description: 'Australian accounting operations support — reconciliations, month-end close, journal entries, and BAS-ready records prepared for your registered agent to review.',
+  title: 'Accounting Services for Australian Firms',
+  description: 'Australian accounting operations — reconciliations, month-end close, journal entries and BAS-ready records prepared for your registered agent.',
   path: PATH,
 });
 

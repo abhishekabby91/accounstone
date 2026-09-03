@@ -7,9 +7,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/client-accounting-services-cas-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Client Accounting Services (CAS): A Guide for CPA Firms',
+  title: 'Client Accounting Services (CAS) Guide',
   description:
-    'What Client Accounting Services (CAS) actually is, how outsourced back-office production work supports a CAS practice, and where the line sits between production work and advisory work.',
+    'What Client Accounting Services actually is, how outsourced production work supports a CAS practice, and where production ends and advisory begins.',
   path: PATH,
 });
 

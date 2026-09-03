@@ -4,8 +4,8 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Audit Support Outsourcing: What Preparation Work Can Be Delegated (and What Cannot)',
-  description: 'Working papers, evidence organization, schedule preparation — what audit support firms actually outsource. UK FRC, US GAAS, and Australian AUASB context.',
+  title: 'Audit Support: What Can Be Delegated',
+  description: 'Working papers, evidence organisation and schedule preparation — what audit support actually covers, and where auditor judgment stays put.',
   path: '/blog/audit-support-services',
 });
 

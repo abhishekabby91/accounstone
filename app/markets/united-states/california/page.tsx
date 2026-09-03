@@ -18,9 +18,9 @@ import {
 const PATH = '/markets/united-states/california';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting & Bookkeeping for California Businesses',
+  title: 'Outsourced Accounting for California',
   description:
-    'Bookkeeping and accounting support for California businesses — economic sales tax nexus tracking (CDTFA), FTB income tax coordination, and support for high-cost, high-compliance operating environments.',
+    'Bookkeeping and accounting for California businesses — CDTFA economic nexus tracking, FTB coordination, and a high-compliance operating environment.',
   path: PATH,
 });
 

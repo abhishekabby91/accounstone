@@ -15,7 +15,7 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/payroll/australia';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Support for Australian Accounting Firms',
+  title: 'Payroll Support for Australian Firms',
   description: 'Client payroll for Australian firms — STP Phase 2 data, superannuation guarantee and PAYG withholding, prepared and checked before your firm submits.',
   path: PATH,
 });

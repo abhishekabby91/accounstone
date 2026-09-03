@@ -6,7 +6,7 @@ const PATH = '/industries/real-estate';
 
 export const metadata: Metadata = genMeta({
   title: 'Real Estate Accounting Support',
-  description: 'Accounting support for real estate and property management companies, including property-level bookkeeping, reconciliations, AP/AR, owner reporting and multi-entity workflows.',
+  description: 'Property-level bookkeeping, reconciliations, AP/AR, owner reporting and multi-entity workflows for real estate and property management companies.',
   path: PATH,
 });
 

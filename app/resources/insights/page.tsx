@@ -54,6 +54,7 @@ export default function InsightsPage() {
 
       <section className="w-full bg-input px-6 md:px-8 py-10 md:py-14">
         <div className="mx-auto max-w-4xl space-y-4">
+          <SectionHeading eyebrow="Explainers" title="Short Answers to Recurring Questions" />
           {insights.map((insight, i) => (
             <Reveal key={insight.href} delay={Math.min(i * 0.08, 0.24)}>
               <ResourceCard item={insight} />

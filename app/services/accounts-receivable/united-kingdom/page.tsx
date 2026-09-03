@@ -15,7 +15,7 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/accounts-receivable/united-kingdom';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounts Receivable for UK Businesses',
+  title: 'Accounts Receivable Outsourcing, UK',
   description: 'UK accounts receivable support — GBP invoicing with output VAT, payment application, aging review, and follow-up sequences inside Xero or Sage.',
   path: PATH,
 });

@@ -10,8 +10,8 @@ import Reveal from '@/components/reveal';
 import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Offshore Accounting Support',
-  description: 'Scale your accounting operations with an experienced offshore team. Recurring support for bookkeeping, accounting operations, payroll and back-office work, inside your existing systems.',
+  title: 'Offshore Accounting Support for Firms',
+  description: 'An experienced offshore team for recurring bookkeeping, accounting operations, payroll and back-office work — inside your existing systems.',
   path: '/solutions/offshore-accounting-support',
 });
 

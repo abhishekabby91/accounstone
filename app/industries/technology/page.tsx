@@ -7,7 +7,7 @@ const PATH = '/industries/technology';
 export const metadata: Metadata = genMeta({
   title: 'Accounting for SaaS & Technology Companies',
   description:
-    'Outsourced accounting for SaaS and technology companies — MRR/ARR tracking, deferred revenue under ASC 606, burn rate reporting, and investor-ready financials.',
+    'Outsourced accounting for SaaS and technology companies — MRR and ARR tracking, deferred revenue under ASC 606, and investor-ready reporting.',
   path: PATH,
 });
 

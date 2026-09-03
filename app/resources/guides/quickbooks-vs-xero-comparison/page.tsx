@@ -6,7 +6,7 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/quickbooks-vs-xero-comparison';
 
 export const metadata: Metadata = genMeta({
-  title: 'QuickBooks Online vs. Xero: Which Fits Your Business?',
+  title: 'QuickBooks Online vs Xero: Which Fits?',
   description: 'A practical QuickBooks Online vs. Xero comparison built around real bookkeeping workflows, reconciliations, reporting, integrations and switching decisions.',
   path: PATH,
 });

@@ -7,7 +7,7 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping';
 
 export const metadata: Metadata = genMeta({
-  title: '9 Questions to Ask Before Outsourcing Your Bookkeeping',
+  title: '9 Questions Before Outsourcing Bookkeeping',
   description:
     'Considering outsourced bookkeeping? These practical questions cover scope, software access, review, security, pricing, handoff and day-to-day communication.',
   path: PATH,

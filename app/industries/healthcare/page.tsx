@@ -5,9 +5,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/industries/healthcare';
 
 export const metadata: Metadata = genMeta({
-  title: 'Accounting for Medical Practices & Healthcare Providers',
+  title: 'Accounting for Medical Practices',
   description:
-    'Outsourced bookkeeping and accounting for medical practices and healthcare providers — insurance reimbursement reconciliation, payer mix reporting, and practice-specific chart of accounts.',
+    'Outsourced bookkeeping for medical practices and healthcare providers — reimbursement reconciliation, payer mix reporting and a practice chart of accounts.',
   path: PATH,
 });
 

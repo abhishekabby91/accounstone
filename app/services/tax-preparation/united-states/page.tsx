@@ -16,7 +16,7 @@ const PATH = '/services/tax-preparation/united-states';
 
 export const metadata: Metadata = genMeta({
   title: 'US Tax Preparation Outsourcing for CPA Firms',
-  description: 'Outsource tax return preparation without moving review: 1040, 1065, 1120 and 1120-S prepared in Drake Tax and CCH Axcess, with the §7216 consent boundary set out plainly. You review, sign and e-file.',
+  description: 'Outsource return preparation without moving review: 1040, 1065, 1120 and 1120-S in Drake Tax and CCH Axcess. You review, sign and e-file.',
   path: PATH,
 });
 

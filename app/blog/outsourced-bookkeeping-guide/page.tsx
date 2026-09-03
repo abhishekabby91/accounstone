@@ -4,9 +4,9 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Bookkeeping: What to Expect, Software Workflows, and Red Flags to Watch For',
+  title: 'Outsourced Bookkeeping: What to Expect',
   description:
-    "What outsourced bookkeeping looks like day to day in QuickBooks and Xero, the real questions business owners ask before starting, and the warning signs it isn't working. For regional pricing, see our cost guide.",
+    'What outsourced bookkeeping looks like day to day in QuickBooks and Xero, the questions owners ask before starting, and the signs it is not working.',
   path: '/blog/outsourced-bookkeeping-guide',
 });
 

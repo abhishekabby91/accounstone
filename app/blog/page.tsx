@@ -8,7 +8,7 @@ import InquirySection from '@/components/inquiry-section';
 export const metadata: Metadata = generateMetadata({
   title: 'Accounting & Bookkeeping Knowledge Base',
   description:
-    'Practical guides on outsourced bookkeeping, accounts payable, payroll, tax preparation, and audit support — with real answers for US, UK, and Australian businesses.',
+    'Practical guides on outsourced bookkeeping, payables, payroll, tax preparation and audit support for firms in the US, UK and Australia.',
   path: '/blog',
 });
 

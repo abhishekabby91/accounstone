@@ -11,7 +11,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'QuickBooks Online Accounting Support',
-  description: 'QuickBooks Online support for setup, cleanup, bookkeeping, reconciliations, reporting and recurring accounting workflows.',
+  description: 'QuickBooks Online support for cleanup, bookkeeping, reconciliations, reporting and recurring accounting workflows inside your existing file.',
   path: '/technology/quickbooks',
 });
 

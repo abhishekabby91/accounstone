@@ -14,10 +14,10 @@ import { regions } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   // The layout template appends ' | Accounstone'; this title already carries the
   // brand, so opt out rather than ship "About Accounstone | Accounstone".
-  title: 'About Accounstone | Outsourced Accounting Support Team',
+  title: 'About Accounstone: How We Work With Firms',
   absoluteTitle: true,
   description:
-    'Accounstone connects businesses, accounting firms and tax practices with skilled accounting professionals — built around people, shared knowledge and flexible engagement models.',
+    'Who Accounstone is, how engagements are structured, and where the line sits between the work we prepare and the review your firm keeps.',
   path: '/about',
 });
 

@@ -4,8 +4,8 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourcing Accounts Receivable: A Practical Guide for Business Owners',
-  description: 'How AR outsourcing reduces DSO, how follow-up works in QuickBooks and Xero, and real questions from small business owners and CPA firms about outsourcing receivables.',
+  title: 'Outsourcing Accounts Receivable: A Guide',
+  description: 'How AR outsourcing affects DSO, how follow-up works in QuickBooks and Xero, and the questions owners and CPA firms ask before delegating it.',
   path: '/blog/accounts-receivable-management',
 });
 

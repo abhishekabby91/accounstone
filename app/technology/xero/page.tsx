@@ -11,7 +11,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Xero Accounting Support for Growing Businesses',
-  description: 'Xero support for setup, cleanup, bookkeeping, reconciliations, AP/AR, reporting and recurring accounting workflows across supported markets.',
+  description: 'Xero support for cleanup, bookkeeping, reconciliations, AP/AR and recurring reporting inside the Xero file your client already runs.',
   path: '/technology/xero',
 });
 

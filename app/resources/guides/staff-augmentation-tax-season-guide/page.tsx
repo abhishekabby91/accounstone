@@ -6,8 +6,8 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/staff-augmentation-tax-season-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'How CPA Firms Can Handle Tax-Season Capacity Without Overhiring',
-  description: 'A practical guide to tax-season staff augmentation, including what work can be delegated, what should stay with the CPA, and how US, UK and Australian workflows differ.',
+  title: 'Tax-Season Capacity Without Overhiring',
+  description: 'What tax-season work can be delegated, what stays with the CPA, and how the US, UK and Australian busy-season workflows differ.',
   path: PATH,
 });
 

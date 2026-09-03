@@ -8,7 +8,7 @@ import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Quality Assurance & Controls',
-  description: 'Multi-level review, documented checklists, and reconciliation controls behind every close cycle.',
+  description: 'The review layers behind a delivered file — documented checklists, reconciliation controls and the checkpoints agreed before work starts.',
   path: '/delivery-framework/quality-assurance',
 });
 
@@ -43,7 +43,7 @@ export default function QAPage() {
                   { title: 'Performance Metrics', desc: 'Monthly KPI reviews and continuous improvement tracking' },
                 ].map((item, i) => (
                   <InquiryTrigger key={i} className="p-3 sm:p-4 bg-input rounded-lg border border-border transition-colors hover:border-primary/40" source="/delivery-framework/quality-assurance" title="Talk to Us About Review and Quality">
-                    <h4 className="font-bold text-primary text-sm sm:text-base mb-1">{item.title}</h4>
+                    <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{item.title}</h3>
                     <p className="text-xs sm:text-sm text-muted line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                   </InquiryTrigger>
                 ))}
@@ -60,7 +60,7 @@ export default function QAPage() {
                   { title: 'Continuous Training', desc: 'Ongoing professional development for all team members' },
                 ].map((item, i) => (
                   <div key={i} className="p-3 sm:p-4 bg-accent/10 rounded-lg border border-accent">
-                    <h4 className="font-bold text-accent text-sm sm:text-base mb-1">{item.title}</h4>
+                    <h3 className="font-bold text-accent text-sm sm:text-base mb-1">{item.title}</h3>
                     <p className="text-xs sm:text-sm text-muted line-clamp-3 sm:line-clamp-none">{item.desc}</p>
                   </div>
                 ))}

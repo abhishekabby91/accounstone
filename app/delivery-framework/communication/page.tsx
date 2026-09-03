@@ -5,11 +5,12 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import InquiryTrigger from '@/components/inquiry-trigger';
 import InquirySection from '@/components/inquiry-section';
+import SectionHeading from '@/components/section-heading';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Communication & Support',
-  description: 'Transparent, proactive communication with dedicated account managers and multiple support channels.',
+  description: 'How reporting, escalation and day-to-day contact are structured on an engagement, including who you speak to and how often updates arrive.',
   path: '/delivery-framework/communication',
 });
 
@@ -33,7 +34,8 @@ export default function CommunicationPage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-12">
+          <SectionHeading eyebrow="Day to day" title="How Contact Actually Works on an Engagement" lead="Who you speak to, how often, and how quickly a question comes back." />
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-2 gap-3 md:gap-12">
             {[
               { title: 'Dedicated Account Manager', desc: 'Single point of contact for all questions and issues', icon: User },
               { title: 'Weekly Status Updates', desc: 'Regular updates on project status and upcoming deliverables', icon: BarChart3 },

@@ -12,9 +12,9 @@ import { generateMetadata, generateFAQSchema, generateBreadcrumbSchema, baseUrl 
 import { regions, serviceRegions, industries, technologies } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Accounting & Finance Services for the US, UK & Australia',
+  title: 'Accounting Services: US, UK & Australia',
   description:
-    'Outsourced bookkeeping, accounting, tax preparation, payroll, accounts payable, accounts receivable and audit support, delivered to the rules and reporting cycles of each region.',
+    'Outsourced bookkeeping, accounting, tax preparation, payroll, AP, AR and audit support, delivered to each region’s rules and reporting cycle.',
   path: '/services',
 });
 

@@ -16,7 +16,7 @@ const PATH = '/services/bookkeeping/united-states';
 
 export const metadata: Metadata = genMeta({
   title: 'Outsourced Bookkeeping for U.S. CPA Firms',
-  description: 'Client bookkeeping and month-end close for U.S. CPA firms — transaction processing, reconciliations and state-level activity tracking, prepared to your templates for your review.',
+  description: 'Client bookkeeping and month-end close for CPA firms — transaction processing, reconciliations and state activity tracking, prepared to your templates.',
   path: PATH,
 });
 

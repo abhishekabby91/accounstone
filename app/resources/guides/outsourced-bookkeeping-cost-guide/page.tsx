@@ -8,8 +8,8 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-bookkeeping-cost-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'How Much Does Outsourced Bookkeeping Cost? A Practical Guide',
-  description: 'A practical guide to outsourced bookkeeping costs, pricing models, workload factors and the questions businesses and CPA firms should ask before comparing providers.',
+  title: 'How Much Does Outsourced Bookkeeping Cost?',
+  description: 'Pricing models, the workload factors that move the number, and the questions to ask so you are comparing the same scope between providers.',
   path: PATH,
 });
 

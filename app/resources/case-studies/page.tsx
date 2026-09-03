@@ -11,7 +11,7 @@ const PATH = '/resources/case-studies';
 export const metadata: Metadata = genMeta({
   title: 'Case Studies: Outsourced Accounting Scenarios',
   description:
-    'Illustrative scenarios showing how CPA firms and growing businesses use outsourced bookkeeping, staff augmentation, and back-office support to solve real capacity challenges.',
+    'Illustrative scenarios showing how firms and businesses use outsourced bookkeeping, staff augmentation and back-office support to add capacity.',
   path: PATH,
 });
 

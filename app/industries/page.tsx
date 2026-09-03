@@ -8,7 +8,7 @@ import { industries } from '@/lib/data';
 export const metadata: Metadata = genMeta({
   title: 'Industries We Serve',
   description:
-    'Specialized outsourced accounting and finance support for CPA firms, technology companies, healthcare providers, e-commerce businesses, real estate, and professional services firms.',
+    'Outsourced accounting support for CPA firms, technology, healthcare, e-commerce, real estate and professional services businesses.',
   path: '/industries',
 });
 

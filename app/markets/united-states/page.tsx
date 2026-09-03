@@ -17,7 +17,7 @@ const PATH = '/markets/united-states';
 export const metadata: Metadata = generateMetadata({
   title: 'Offshore Accounting Support for U.S. CPA Firms',
   description:
-    'Accounstone works as your firm’s offshore preparation team — bookkeeping, close support, workpapers and return preparation, built for your review and your signature.',
+    'Your firm’s offshore preparation team — bookkeeping, close support, workpapers and return preparation, built for your review and your signature.',
   path: PATH,
 });
 

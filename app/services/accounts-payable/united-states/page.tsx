@@ -14,8 +14,8 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/accounts-payable/united-states';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounts Payable for U.S. Businesses',
-  description: 'U.S. accounts payable support — invoice entry, PO matching, ACH/check payment run preparation, 1099-NEC vendor tracking, and vendor statement reconciliation.',
+  title: 'Accounts Payable Outsourcing, U.S.',
+  description: 'U.S. AP support — invoice entry, PO matching, ACH and check payment run preparation, 1099-NEC vendor tracking and statement reconciliation.',
   path: PATH,
 });
 

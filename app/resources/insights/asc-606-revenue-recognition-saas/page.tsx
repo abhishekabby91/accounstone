@@ -6,7 +6,7 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/insights/asc-606-revenue-recognition-saas';
 
 export const metadata: Metadata = genMeta({
-  title: 'ASC 606 Revenue Recognition for SaaS: A Quick Explainer',
+  title: 'ASC 606 Revenue Recognition for SaaS',
   description:
     'Why subscription businesses cannot just book cash received as revenue, and what ASC 606 and deferred revenue actually mean for your financials.',
   path: PATH,

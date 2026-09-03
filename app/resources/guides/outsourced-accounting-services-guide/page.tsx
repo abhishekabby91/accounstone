@@ -6,9 +6,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-accounting-services-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting Services: Month-End Close, Cost, GAAP vs IFRS, and QuickBooks to NetSuite',
+  title: 'Outsourced Accounting Services Guide',
   description:
-    'What outsourced accounting operations actually cover beyond bookkeeping and what it costs, how month-end close works across QuickBooks, Xero, Sage, and NetSuite, and the real questions controllers ask before outsourcing accounting work.',
+    'What outsourced accounting covers beyond bookkeeping, what it costs, and how month-end close runs across QuickBooks, Xero, Sage and NetSuite.',
   path: PATH,
 });
 

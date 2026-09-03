@@ -15,9 +15,9 @@ import { serviceRegions } from '@/lib/data';
 const PATH = '/markets/australia';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Offshore Accounting Support for Australian Accounting Firms',
+  title: 'Offshore Accounting for Australian Firms',
   description:
-    'Accounstone works as your firm’s offshore accounting team — bookkeeping, BAS-ready records, year-end workpapers and return preparation, ready for your review and your agent’s lodgment.',
+    'Your firm’s offshore accounting team — bookkeeping, BAS-ready records, year-end workpapers and return preparation, ready for your agent’s lodgment.',
   path: PATH,
 });
 

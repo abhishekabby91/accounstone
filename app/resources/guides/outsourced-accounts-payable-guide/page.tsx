@@ -7,9 +7,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/outsourced-accounts-payable-guide';
 
 export const metadata: Metadata = genMeta({
-  title: 'What Does Outsourced Accounts Payable Actually Include?',
+  title: 'What Outsourced Accounts Payable Includes',
   description:
-    'A practical guide to outsourced accounts payable: invoice processing, approvals, payment controls, reconciliations, software workflows and what should stay in-house.',
+    'Invoice processing, approvals, payment controls, reconciliations and software workflows — plus what should stay in-house, and why.',
   path: PATH,
 });
 

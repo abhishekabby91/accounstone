@@ -8,7 +8,7 @@ import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 export const metadata: Metadata = generateMetadata({
   title: 'Data Security & Protection',
   description:
-    'How Accounstone handles client financial data — NDA-backed engagements, security-conscious practices, and an honest account of our current certification status.',
+    'How Accounstone handles client financial data — NDA-backed engagements, access controls, and an honest account of our certification status.',
   path: '/data-security',
 });
 

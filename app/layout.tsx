@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 import Navbar from "@/components/navbar";
@@ -8,6 +9,13 @@ import TouchRipple from "@/components/touch-ripple";
 import BackToTop from "@/components/back-to-top";
 import InquiryModal from "@/components/inquiry-modal";
 import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
+
+// GA4 measurement ID. Public by design - it identifies the property to the
+// browser and is visible in the page source of every site that uses it, so it
+// is not a secret and does not belong in an env var here. Loaded
+// `afterInteractive` so it never competes with LCP: analytics is not worth a
+// slower first paint on a site whose whole job is the first impression.
+const GA_MEASUREMENT_ID = "G-D1L72NM0GY";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -111,6 +119,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Footer />
         <BackToTop />
         <InquiryModal />
+
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GA_MEASUREMENT_ID}');`}
+        </Script>
       </body>
     </html>
   );

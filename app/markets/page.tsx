@@ -10,7 +10,7 @@ import { markets } from '@/lib/data';
 export const metadata: Metadata = generateMetadata({
   title: 'Markets We Serve',
   description:
-    'Outsourced accounting and bookkeeping support for businesses in the United States, United Kingdom, and Australia, with market-specific tax and compliance knowledge.',
+    'Outsourced accounting and bookkeeping for the United States, United Kingdom and Australia, with the tax and reporting cycle of each market.',
   path: '/markets',
 });
 

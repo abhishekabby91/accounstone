@@ -12,7 +12,7 @@ import { guides, insights, articles, topicIndex, topicDestination } from '@/lib/
 const PATH = '/resources';
 
 export const metadata: Metadata = genMeta({
-  title: 'Accounting Resources for CPA Firms & Growing Businesses',
+  title: 'Accounting Guides, Insights & Case Studies',
   description:
     'Practical accounting, bookkeeping, tax preparation and workflow guides for CPA firms, accounting teams and growing businesses.',
   path: PATH,
@@ -100,6 +100,8 @@ export default function ResourcesPage() {
       {featured && (
         <section className="w-full bg-input px-6 md:px-8 py-10 md:py-14">
           <div className="mx-auto max-w-4xl">
+            <SectionHeading eyebrow="Start here" title="The One to Read First" />
+            <div className="mt-6" />
             <Reveal>
               <ResourceCard item={featured} featured />
             </Reveal>

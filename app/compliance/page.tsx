@@ -4,6 +4,7 @@ import PremiumHero from '@/components/premium-hero';
 import CTABanner from '@/components/cta-banner';
 import InquiryTrigger from '@/components/inquiry-trigger';
 import InquirySection from '@/components/inquiry-section';
+import SectionHeading from '@/components/section-heading';
 import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 export const metadata: Metadata = generateMetadata({
@@ -31,7 +32,9 @@ export default function CompliancePage() {
 
       <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
         <div className="max-w-5xl mx-auto space-y-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <SectionHeading eyebrow="By market" title="What Each Market Actually Requires" lead="The obligations differ enough that a single compliance statement would describe none of them accurately." />
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: 'United States',
@@ -58,6 +61,7 @@ export default function CompliancePage() {
                 </ul>
               </InquiryTrigger>
             ))}
+            </div>
           </div>
 
           <div className="bg-primary text-white p-8 rounded-lg space-y-4">

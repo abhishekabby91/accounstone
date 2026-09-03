@@ -10,7 +10,7 @@ import Reveal from '@/components/reveal';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Back-Office Support for Accountants and Firms',
-  description: 'Hand over the recurring back-office layer — bookkeeping, payables, receivables, payroll preparation and account maintenance — while review, sign-off and the client relationship stay with your firm.',
+  description: 'Hand over the recurring back-office layer — bookkeeping, payables, receivables and payroll preparation — while review and sign-off stay with your firm.',
   path: '/solutions/back-office-support',
 });
 

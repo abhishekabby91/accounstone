@@ -18,9 +18,9 @@ import {
 const PATH = '/markets/united-states/florida';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting & Bookkeeping for Florida Businesses',
+  title: 'Outsourced Accounting for Florida',
   description:
-    'Bookkeeping and accounting support for Florida businesses — no state personal income tax, Florida corporate income tax for C-Corps, and sales tax administered by the Florida Department of Revenue.',
+    'Bookkeeping and accounting for Florida businesses — no state personal income tax, corporate income tax for C-Corps, and Department of Revenue sales tax.',
   path: PATH,
 });
 

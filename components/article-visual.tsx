@@ -25,7 +25,7 @@ export default function ArticleVisual({
       <div className="mb-5 flex items-center justify-between gap-4">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">At a glance</p>
-          <h3 className="mt-1 text-lg font-semibold text-foreground">{title}</h3>
+          <p className="mt-1 text-lg font-semibold text-foreground">{title}</p>
         </div>
         <div aria-hidden="true" className="hidden h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-primary shadow-sm sm:flex">
           <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">

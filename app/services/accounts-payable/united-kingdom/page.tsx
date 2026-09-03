@@ -16,7 +16,7 @@ const PATH = '/services/accounts-payable/united-kingdom';
 
 export const metadata: Metadata = genMeta({
   title: 'Outsourced Accounts Payable for UK Businesses',
-  description: 'UK accounts payable support — invoice entry, input VAT coding, Making Tax Digital-ready records, payment run preparation, and vendor statement reconciliation inside Xero or Sage.',
+  description: 'UK AP support — invoice entry, input VAT coding, Making Tax Digital-ready records, payment run preparation and vendor statement reconciliation.',
   path: PATH,
 });
 

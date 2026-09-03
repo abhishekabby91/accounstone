@@ -10,7 +10,7 @@ import Reveal from '@/components/reveal';
 import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'A Dedicated Offshore Accounting Team for Your Practice',
+  title: 'Dedicated Offshore Accounting Team',
   description: 'A named offshore team working only your portfolio — your templates, your close calendar, your review points, and one point of contact.',
   path: '/solutions/dedicated-accounting-teams',
 });

@@ -4,8 +4,8 @@ import ArticleLayout from '@/components/article-layout';
 import { generateMetadata as genMeta } from '@/lib/seo';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll: Costs, Bank-Access Red Flags, and What to Watch Out For',
-  description: "What outsourced payroll costs by employee count in the US, UK, and Australia, the bank-access line that should never move, and the watch-outs from real payroll threads. For jurisdiction-by-jurisdiction compliance, see our payroll processing guide.",
+  title: 'Outsourced Payroll: Costs and Red Flags',
+  description: 'What outsourced payroll costs by headcount in the US, UK and Australia, and the bank-access line that should never move, whoever runs the payroll.',
   path: '/blog/outsourced-payroll-services',
 });
 

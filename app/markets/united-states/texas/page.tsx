@@ -18,9 +18,9 @@ import {
 const PATH = '/markets/united-states/texas';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting & Bookkeeping for Texas Businesses',
+  title: 'Outsourced Accounting for Texas',
   description:
-    'Bookkeeping and accounting support built around Texas specifics — franchise tax (margin tax) awareness, no state income tax, and the fast-growing Houston, Dallas, and Austin business markets.',
+    'Bookkeeping and accounting built around Texas specifics — franchise (margin) tax, no state income tax, and the Houston, Dallas and Austin markets.',
   path: PATH,
 });
 

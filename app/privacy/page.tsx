@@ -3,8 +3,8 @@ import { generateMetadata } from '@/lib/seo';
 import { companyInfo } from '@/lib/data';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Privacy Policy',
-  description: 'Accounstone privacy policy and data protection practices.',
+  title: 'Privacy Policy and Data Handling',
+  description: 'How Accounstone collects, uses and protects personal and client information, and the choices available to you.',
   path: '/privacy',
 });
 

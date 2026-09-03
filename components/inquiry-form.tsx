@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { useRouter } from 'next/navigation';
 import { companyInfo, services, regions } from '@/lib/data';
 
 /**
@@ -80,6 +81,7 @@ export default function InquiryForm({
   submitLabel = 'Book Your Free Consultation',
   formId,
 }: InquiryFormProps) {
+  const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [unsent, setUnsent] = useState<FormData | null>(null);
@@ -155,6 +157,10 @@ export default function InquiryForm({
       if (res.ok && result?.success) {
         form.reset();
         setStatus('sent');
+        // Send the visitor to a real URL so Google Ads and Meta can count the
+        // conversion from the destination. An inline success state never
+        // changes the URL, so neither platform can see it.
+        router.push('/thank-you');
         return;
       }
 

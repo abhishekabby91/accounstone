@@ -13,7 +13,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/australia';
-export const metadata: Metadata = genMeta({ title: 'Tax Return Preparation Support for Australian Firms', description: 'Company, trust and individual return preparation for Australian accounting firms — workpapers, reconciliations and BAS-ready records, prepared for your review and your agent’s lodgment.', path: PATH });
+export const metadata: Metadata = genMeta({ title: 'Tax Return Preparation, Australia', description: 'Company, trust and individual return preparation for Australian firms — workpapers, reconciliations and BAS-ready records for your agent’s lodgment.', path: PATH });
 
 const overview = "The lodgment program looks like relief and behaves like a permanent queue. The preparation backlog grows while the registered agent in your firm is still the only person who can review the work, resolve the exceptions and take the client call. We prepare the returns and the workpapers underneath them, organised around the Australian financial year and the records the client already has, so the queue stops being the constraint. Advice, judgement and lodgment stay with your registered agent.";
 const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Income tax return preparation support', 'BAS preparation support built from organised GST records', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the registered tax or BAS agent responsible for advice and lodgment'];

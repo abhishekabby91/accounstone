@@ -13,7 +13,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
 
 const PATH = '/services/tax-preparation/united-kingdom';
-export const metadata: Metadata = genMeta({ title: 'Corporation Tax & Self Assessment Preparation for UK Practices', description: 'UK tax preparation support for Self Assessment and Corporation Tax workflows, with organised workpapers, reconciliations and review-ready files for UK accountants and tax agents.', path: PATH });
+export const metadata: Metadata = genMeta({ title: 'Corporation Tax & Self Assessment, UK', description: 'UK tax preparation for Self Assessment and Corporation Tax — organised workpapers, reconciliations and review-ready files for your practitioner.', path: PATH });
 
 const overview = "January is not a resourcing problem a practice can hire its way out of. The volume arrives, it arrives at once, and the people who can review it are the same people who could have prepared it. We prepare — year-end accounts under FRS 102 and FRS 105, CT600 computations, Self Assessment workpapers — so your reviewers only review. Nothing is filed by us, and nothing that needs an opinion is decided by us.";
 const benefits = ['Source-document organisation and preparation schedules', 'Book-to-tax reconciliations and supporting workpapers', 'Self Assessment preparation support for individuals and sole traders', 'Corporation Tax preparation support for companies', 'Review-note and exception tracking before final sign-off', 'Structured handoffs to the UK accountant or tax agent responsible for advice and filing'];

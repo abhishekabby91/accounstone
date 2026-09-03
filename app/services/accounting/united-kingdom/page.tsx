@@ -14,8 +14,8 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/accounting/united-kingdom';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Accounting Services for UK Businesses',
-  description: 'UK accounting operations support — reconciliations, month-end close, journal entries, and year-end accounts preparation structured for review by your registered practitioner.',
+  title: 'Accounting Services for UK Practices',
+  description: 'UK accounting operations — reconciliations, month-end close, journal entries and year-end accounts prepared for review by your practitioner.',
   path: PATH,
 });
 

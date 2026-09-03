@@ -53,6 +53,13 @@ background, superseded on specifics by the files above.
 - Zero duplicate titles/canonicals, zero missing metadata, zero missing or duplicate
   `h1`, zero accidental `noindex`, zero broken internal links, zero orphan pages,
   zero internal links pointing at a redirect.
+- **Metadata is length-budgeted (2026-09-03).** Every page title fits inside 60
+  characters *including* the `%s | Accounstone` template, so page titles are
+  written to a 46-character budget; every description sits between 110 and 160.
+  Before this pass 48 titles and 46 descriptions were being truncated in the
+  SERP. If you add a page, hold the same budget — `docs/` has no separate copy
+  of this rule, so it lives here.
+- Heading order is sequential on every page: no `h1 -> h3`, no `h2 -> h4`.
 - Worst near-duplicate pair across the 21 commercial pages is 16.6%; none above 25%.
 - No horizontal overflow at any width 320–1440px.
 
@@ -68,9 +75,14 @@ ended up with zero inbound links before 2026-08-27.
 
 Do **not** resolve these unilaterally. Each needs the owner.
 
-1. **Analytics is not installed.** No GA4/GTM/Vercel Analytics tag exists anywhere.
-   Any CRO or CTR work is unmeasurable until one does, and the 2026-08-27 restructure
-   cannot be validated without it. The owner said they would add it.
+1. **GA4 is installed (2026-09-03).** Measurement ID `G-D1L72NM0GY`, declared as
+   `GA_MEASUREMENT_ID` in `app/layout.tsx` and loaded through `next/script` with
+   `strategy="afterInteractive"` so it never competes with LCP. The ID is public
+   by construction and belongs in the source, not an env var. `/thank-you` fires
+   a `generate_lead` event via `components/conversion-event.tsx`.
+   **Still open:** there is no consent banner. GA4 sets cookies before any
+   consent is given, which is a real exposure for UK and EU visitors, and the
+   privacy policy does not yet mention analytics. Both are the owner's call.
 2. **Search Console is connected (2026-09-03).** The `sc-domain:accounstone.com`
    property is readable. First 28-day read: 51 clicks, 2,893 impressions, 1.76%
    CTR, average position 54.6 — and only one query (`accounstone`, 15 clicks)
@@ -151,7 +163,14 @@ comm -13 /tmp/disk.txt /tmp/sitemap.txt   # in sitemap, no page  → would 404
 comm -23 /tmp/disk.txt /tmp/sitemap.txt   # page exists, unlisted → never crawled
 ```
 
-Both should print nothing. This found four unlisted guides on 2026-08-21, and confirmed 84 ↔ 84 parity after the 2026-08-27 restructure.
+The first command must print nothing. **The second now prints exactly one line,
+`/thank-you`, and that is correct** — it is `noindex` (see below), and a noindex
+URL in a sitemap is a contradiction Search Console reports. Anything else in
+either direction is drift.
+
+This check found four unlisted guides on 2026-08-21, and confirmed 84 ↔ 84
+parity after the 2026-08-27 restructure. As of 2026-09-03 it is 85 routes on
+disk against 84 in the sitemap.
 
 ### Adding a route
 
@@ -274,6 +293,30 @@ non-region page passes its own `title` and `lead`, and thin pages pass
 Every instance ids its fields with a per-instance `uid`, so two forms on one
 page cannot collide. There is exactly one `#inquiry` and one
 `#inquiry-heading` per page — check that if you ever add a second band.
+
+## /thank-you is a conversion target, not a page
+
+`app/thank-you/page.tsx` exists so Google Ads and Meta have a URL to count a
+conversion on. Both platforms can trigger a conversion from a destination URL,
+and an inline "thanks" state inside the form is invisible to them because the
+URL never changes.
+
+All three submission paths land there: `components/inquiry-form.tsx` (the band
+and the dialog) and `app/contact/page.tsx` both `router.push('/thank-you')` on
+success. **The failure path must never redirect** — the visitor keeps what they
+typed and is offered the email fallback. There are Playwright checks for both.
+
+- It is **`noindex`** (`genMeta({ noindex: true })`). A thank-you page that ranks
+  can be reached straight from search, which inflates the conversion count with
+  people who never submitted anything.
+- It is deliberately **absent from `app/sitemap.ts`**, which is the one expected
+  difference in the drift check above.
+- It is crawlable — do **not** add it to `robots.txt`. A blocked URL cannot be
+  crawled, so the `noindex` would never be read.
+- `components/conversion-event.tsx` fires GA4's recommended `generate_lead`
+  event on mount, guarded on `window.gtag` existing. Recommended event names
+  import into Google Ads as conversions without extra setup; a custom name does
+  not.
 
 ## Contact form
 

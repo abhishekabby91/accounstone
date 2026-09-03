@@ -11,7 +11,7 @@ import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
   title: 'NetSuite Accounting Support',
-  description: 'NetSuite accounting support for multi-entity reconciliations, intercompany eliminations, multi-currency consolidation, close activities and recurring reporting.',
+  description: 'NetSuite support for multi-entity reconciliations, intercompany eliminations, multi-currency consolidation and recurring close activities.',
   path: '/technology/netsuite',
 });
 

@@ -7,9 +7,9 @@ import { generateMetadata as genMeta } from '@/lib/seo';
 const PATH = '/resources/guides/choosing-an-engagement-model';
 
 export const metadata: Metadata = genMeta({
-  title: 'Staff Augmentation vs. Dedicated Team vs. Offshore Support vs. Back Office: How to Choose',
+  title: 'Choosing an Outsourcing Engagement Model',
   description:
-    'A comparison of the four ways to add outsourced accounting capacity — staff augmentation, a dedicated team, offshore accounting support, and back-office support — and which fits which situation.',
+    'Staff augmentation, a dedicated team, offshore support or back office — how the four models differ, and which one fits which situation.',
   path: PATH,
 });
 

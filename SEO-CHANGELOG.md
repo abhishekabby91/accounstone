@@ -1,5 +1,129 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03b (metadata length budget, GA4, /thank-you conversion page)
+
+### 48 titles and 46 descriptions were being truncated in the SERP
+
+A full audit of all 84 pages found the largest click-through defect on the site,
+and it had nothing to do with copy quality:
+
+- **48 of 84 titles exceeded 60 characters**, so Google cut them off mid-phrase.
+  The `%s | Accounstone` template adds 14 characters to every page, which nobody
+  had been budgeting for. Worst offenders ran to 100 characters
+  (`/blog/outsourced-bookkeeping-guide`).
+- **46 of 84 descriptions exceeded 160 characters**, truncating mid-sentence.
+  `/blog/outsourced-payroll-services` ran to 247.
+- Two titles were under 30 characters and five descriptions under 110, wasting
+  space that was available.
+
+Every page has been rewritten to a budget: **titles ≤ 46 characters before the
+template so the rendered title lands inside 60, descriptions between 110 and
+160.** Titles now lead with the phrasing Search Console actually shows rather
+than internal naming — "Accounts Payable Outsourcing, U.S." rather than
+"Outsourced Accounts Payable for U.S. Businesses".
+
+After: 0 titles over 60, 0 under 30, 0 descriptions over 160, 0 under 110, and
+still 0 duplicate titles, descriptions or canonicals. Median title 50
+characters, median description 143.
+
+Worth being straight about the expected return. The Search Console read earlier
+today showed every high-impression query ranking 36-75. **Metadata cannot move a
+result on page four.** This work matters because a truncated title wastes the
+impression whenever a page does start ranking, not because it will lift clicks
+next week. The ranking constraint is unchanged.
+
+### Two scope-boundary violations found in metadata
+
+`/technology/quickbooks` and `/technology/xero` both described "support for
+**setup**, cleanup, bookkeeping...". `scope-boundaries.md` §5 forbids claiming
+implementation or configuration for third-party platforms. Both now say cleanup
+and recurring work *inside an existing file*.
+
+### Heading hierarchy
+
+12 pages skipped a heading level. Fixed:
+
+- `components/article-visual.tsx` rendered an `<h3>` inside an `<aside>` that
+  already had `aria-label={title}` — a duplicate label that also injected a
+  phantom heading level into every guide using it. Now a `<p>`; identical
+  visually, and it cleared 7 pages at once.
+- `/delivery-framework/quality-assurance` used `<h4>` under an `<h2>`.
+- Five sections held card `<h3>`s with no `<h2>` above them. Rather than demote
+  the cards, each section got the `SectionHeading` it was missing — these blocks
+  were also unlabelled for anyone scanning the page, so this is a UX fix as much
+  as a semantic one.
+
+Result: 0 heading skips, still exactly one `h1` per page.
+
+### GA4 installed
+
+The owner supplied `G-D1L72NM0GY`, which closes CLAUDE.md open item 1 — the site
+has had no analytics at all until now. Loaded via `next/script` with
+`strategy="afterInteractive"` so it stays off the critical path. Verified in a
+browser: the gtag request fires, `dataLayer` populates, `gtag` is a function and
+the `config` call lands.
+
+No new dependency — `@next/third-parties` would have added one for no benefit
+over eight lines of `next/script`.
+
+**Not done, and it matters:** there is no consent banner. GA4 sets cookies
+before consent, which is a live exposure for UK and EU visitors on a site that
+markets to UK practices, and the privacy policy does not mention analytics.
+Flagged to the owner.
+
+### /thank-you, so ads can count a conversion
+
+New route. Google Ads and Meta both count conversions from a destination URL,
+and the old inline "thanks" state was invisible to them because the URL never
+changed.
+
+All three submission paths now redirect there on success — the inquiry band, the
+inquiry dialog, and `/contact`. **The failure path deliberately does not
+redirect**: the visitor keeps what they typed and is offered the email fallback,
+which is the behaviour recorded in CLAUDE.md and which a redirect would have
+silently destroyed. Both branches are covered by Playwright against a stubbed
+Web3Forms response.
+
+Three decisions worth recording:
+
+- **`noindex`.** A thank-you page that ranks can be reached directly from
+  search, which inflates the conversion count with people who never submitted
+  anything.
+- **Not in the sitemap**, because a noindex URL in a sitemap is a contradiction
+  Search Console reports. This is now the one expected difference in the sitemap
+  drift check: 85 routes on disk, 84 in the sitemap. Documented in CLAUDE.md so
+  a later pass does not "fix" it.
+- **Not in robots.txt.** Blocking it would stop the crawl that reads the
+  `noindex`.
+
+The page fires GA4's recommended `generate_lead` event
+(`components/conversion-event.tsx`), guarded on `window.gtag` existing.
+Recommended event names import into Google Ads as conversions without extra
+configuration; a custom name would need setting up by hand.
+
+### Verification
+
+`pnpm eslint .` silent. `pnpm next build` clean. All 85 routes return 200.
+Sitemap drift check: nothing listed that does not exist, and only `/thank-you`
+existing but unlisted, as intended.
+
+Playwright across all 85 routes: zero tap targets under 24px, zero duplicate
+element ids, and **no page can be scrolled horizontally at 320, 375, 768 or
+1440px**.
+
+One honest note on that last measurement. `/delivery-framework/quality-assurance`
+reports a root `scrollWidth` of 323 against a 320 viewport. Every element
+exceeding the viewport on that page sits inside a clipping ancestor, and the
+page cannot actually be scrolled sideways — it is the ink area of a blurred
+decorative span in the hero, not reachable layout. Recorded rather than rounded
+down to "zero overflow", because `overflow-x: clip` hiding a real problem is
+exactly how the nav CTA became unreachable at 768px once before.
+
+Separately, `/delivery-framework/communication` had a genuine overflow at 320px
+and 375px, fixed earlier today: a flex item with `min-width: auto` could not
+shrink below its longest word inside a two-column grid. Now
+`w-full min-w-0 break-words`.
+
 ## 2026-09-03 (first Search Console data; inquiry form site-wide; card triggers)
 
 ### Search Console is connected, and it changes the picture

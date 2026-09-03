@@ -15,7 +15,7 @@ import { generateMetadata as genMeta, generateServiceSchema, generateFAQSchema, 
 const PATH = '/services/payroll/united-kingdom';
 
 export const metadata: Metadata = genMeta({
-  title: 'Outsourced Payroll Support for UK Accountancy Practices',
+  title: 'Payroll Support for UK Practices',
   description: 'PAYE processing, RTI submission data and auto-enrolment records for UK practices running client payroll — prepared and checked before you submit.',
   path: PATH,
 });

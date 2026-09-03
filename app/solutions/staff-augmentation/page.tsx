@@ -10,8 +10,8 @@ import Reveal from '@/components/reveal';
 import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Accounting Staff Augmentation for CPA Firms & Practices',
-  description: 'Add accounting capacity for tax season, month-end close, cleanup, AP/AR, audit support, or defined projects. Work inside your systems and review process with a flexible staffing model.',
+  title: 'Accounting Staff Augmentation',
+  description: 'Add accounting capacity for tax season, month-end close, cleanup, AP/AR or a defined project — working inside your systems and your review process.',
   path: '/solutions/staff-augmentation',
 });
 
