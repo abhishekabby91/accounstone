@@ -35,11 +35,33 @@ const nextConfig = {
       // lib/service-depth.ts), so no content was lost before these redirects
       // were added.
       //
-      // Target is the United States page because it is the deepest and best
-      // differentiated of each regional set. Every regional page carries a
-      // region switcher so UK and Australia are one click away. If Search
-      // Console later shows non-US demand on these URLs, each line here is
-      // independently reversible.
+      // Target was originally the United States page for all seven, because it
+      // is the deepest and best differentiated of each regional set, and every
+      // regional page carries a region switcher so UK and Australia are one
+      // click away. That was chosen without traffic data, on the note that each
+      // line here is independently reversible once Search Console showed where
+      // the demand actually was.
+      //
+      // 2026-09-03: it did. Country-segmented GSC over 28 days, per retired URL:
+      //
+      //   /services/tax-preparation      usa 59  ind 2  idn 1   -> US confirmed
+      //   /services/accounts-receivable  usa 40  gbr 2  ind 2   -> US confirmed
+      //   /services/audit-support        gbr 40  ind 3  usa 1   -> UK, retargeted
+      //   /services/accounts-payable     ind 3                  -> no signal
+      //   /services/payroll              ind 2   cze 1          -> no signal
+      //   /services/bookkeeping          (none)                 -> no signal
+      //   /services/accounting           (none)                 -> no signal
+      //
+      // Only audit-support was pointed at the wrong market, and it was pointed
+      // there hard: 40 of its 46 country-resolved impressions are British, and
+      // the US page they landed on frames the work around US GAAS/PCAOB and
+      // calls the reader a CPA firm — the exact vocabulary leak CLAUDE.md says
+      // must never reach a UK reader. `/services/audit-support/united-kingdom`
+      // independently draws gbr 53, so the demand and the page agree.
+      //
+      // India is the delivery centre, not a market, so `ind` impressions are
+      // not a signal for any of these. The four URLs with no market signal stay
+      // on the United States page; there is nothing yet to justify moving them.
       {
         source: "/services/bookkeeping",
         destination: "/services/bookkeeping/united-states",
@@ -72,7 +94,7 @@ const nextConfig = {
       },
       {
         source: "/services/audit-support",
-        destination: "/services/audit-support/united-states",
+        destination: "/services/audit-support/united-kingdom",
         permanent: true,
       },
     ];

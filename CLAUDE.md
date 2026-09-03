@@ -36,9 +36,13 @@ background, superseded on specifics by the files above.
   hub and `app/sitemap.ts` from one place. **Do not recreate a generic
   `/services/{slug}` page** — those 7 URLs are 301s and a generic page competes with
   its own regional children.
-- Eight redirects, all single-hop: the 7 retired generic service URLs → their
-  United States page, plus `/blog/outsourced-accounting-services` →
-  `/resources/guides/outsourced-accounting-services-guide`.
+- Eight redirects, all single-hop: the 7 retired generic service URLs → a
+  regional page, plus `/blog/outsourced-accounting-services` →
+  `/resources/guides/outsourced-accounting-services-guide`. Six target United
+  States; **`/services/audit-support` targets United Kingdom** (2026-09-03),
+  because 40 of its 46 country-resolved impressions are British. The evidence
+  for each of the seven is in the comment above the redirects in
+  `next.config.mjs` — read it before changing any of them.
 - **Markets are not in the primary navbar** but the pages are live, indexable and
   linked from the footer and contextually. All three are now firm-facing rather
   than educational: `/markets/{united-states,united-kingdom,australia}` each
@@ -95,24 +99,31 @@ Do **not** resolve these unilaterally. Each needs the owner.
    `Insufficient plan` and Semrush reports insufficient API units, so backlink
    and competitor evidence remains unobtainable. (`robots.txt` also deliberately
    blocks AhrefsBot and SemrushBot.)
-3. **The 7 service redirects all target the United States page — and the
-   page-level GSC read now argues with the region-first architecture itself
-   (2026-09-03).** Six of the seven retired generic URLs still hold impressions a
-   month after being redirected, and four of them rank *better* than any of their
-   own regional children: `/services/accounts-payable` at 27.2 against a best
-   child of 64.4, `/services/payroll` at 28.0 against 86.0,
-   `/services/audit-support` at 71.7 against 79.1, `/services/tax-preparation` at
-   78.8 against 92.6. In the same read `/blog/tax-preparation-outsourcing` holds
-   366 impressions at position 27.8 across ~40 commercial tax-outsourcing
-   queries while `/services/tax-preparation/united-states` holds **zero** — and
-   the blog post has 2 internal links to the service page's 14, so it is not a
-   link-equity problem. Google is choosing non-regional pages for non-regional
-   queries.
-   That is a real argument for a generic tier above the regional pages, and it
-   collides head-on with the "do not recreate a generic `/services/{slug}` page"
-   rule above. **Do not resolve this either way without the owner.** Changing a
-   redirect target is one reversible line in `next.config.mjs`; adding a generic
-   tier is a restructure.
+3. **Redirect targets are settled. The generic-tier question is not
+   (2026-09-03).** The owner authorised deciding the retired-URL targets, and
+   country-segmented GSC decided them: six of the seven stay on United States,
+   `/services/audit-support` moved to United Kingdom (40 of 46 country-resolved
+   impressions are British, and the US page it had been sending them to frames
+   the work around US GAAS/PCAOB and calls the reader a CPA firm). The
+   per-URL evidence is in the comment above the redirects in `next.config.mjs`.
+   **Correction to the earlier reading recorded here:** the note that four
+   retired URLs "rank better than any of their own regional children" was drawn
+   from unsegmented positions and does not survive the country split.
+   `/services/accounts-payable` at 27.2 resolves to three Indian impressions at
+   11.3, and `/services/payroll` at 28.0 to two Indian and one Czech. India is
+   the delivery centre, not a market. Only `/services/tax-preparation` (usa 59),
+   `/services/accounts-receivable` (usa 40) and `/services/audit-support`
+   (gbr 40) carry real market demand, and each now points at the market that
+   wants it.
+   **Still open, and still the owner's:** `/blog/tax-preparation-outsourcing`
+   holds 366 impressions at position 27.8 across ~40 commercial tax-outsourcing
+   queries — 320 of them American — while `/services/tax-preparation/united-states`
+   holds **zero**. The blog post has 2 internal links to the service page's 14,
+   so it is not a link-equity problem: Google is choosing a non-regional page for
+   non-regional American queries. That is an argument for a generic tier above
+   the regional pages, and it collides head-on with the "do not recreate a
+   generic `/services/{slug}` page" rule above. Adding that tier is a
+   restructure, not a redirect line. **Do not do it without the owner.**
 4. **CFO Support and HR services.** Specified in the 2026-08-27 brief, excluded
    because `scope-boundaries.md` forbids both. The owner has said they may be added
    in future — that is a data change plus page files, not a restructure.

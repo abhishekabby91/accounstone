@@ -1,5 +1,73 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03h (retired-URL redirect targets, decided on country data)
+
+The owner authorised settling the retired generic service URLs. The previous
+entry raised them as an open question; this one answers it, and corrects part
+of how that question was framed.
+
+### The country split, which changes the reading
+
+2026-09-03g recorded that four retired URLs "rank better than any of their own
+regional children", from unsegmented positions. Segmenting by country does not
+support that. `/services/accounts-payable` at 27.2 resolves to **three Indian
+impressions at 11.3**, and `/services/payroll` at 28.0 to two Indian and one
+Czech. India is the delivery centre, not a market. Those positions were an
+artifact of tiny off-market samples, and the earlier reading is withdrawn.
+
+What survives is narrower and more actionable — only three of the seven carry
+real market demand at all:
+
+| Retired URL | Country-resolved impressions | Verdict |
+|---|---|---|
+| `/services/tax-preparation` | usa 59, ind 2, idn 1 | US confirmed |
+| `/services/accounts-receivable` | usa 40, gbr 2, ind 2, can 1 | US confirmed |
+| `/services/audit-support` | **gbr 40**, ind 3, usa 1, can 1, vnm 1 | **retargeted to UK** |
+| `/services/accounts-payable` | ind 3 | no signal — stays US |
+| `/services/payroll` | ind 2, cze 1 | no signal — stays US |
+| `/services/bookkeeping` | none | no signal — stays US |
+| `/services/accounting` | none | no signal — stays US |
+
+### One redirect was pointed at the wrong market
+
+`/services/audit-support` now targets `/services/audit-support/united-kingdom`
+instead of the United States page. 40 of its 46 country-resolved impressions are
+British, and the page they were being sent to is written for a different reader
+entirely. Measured on rendered `main` text:
+
+| | UK page | US page |
+|---|---|---|
+| "CPA firm" | 0 | 3 |
+| GAAS / PCAOB | 0 / 0 | 1 / 1 |
+| HMRC | 2 | 0 |
+| Companies House | 2 | 0 |
+| "practice" | 3 | 0 |
+
+So British searchers for outsourced audit support were arriving on a page that
+frames the work around US audit standards and calls them a CPA firm — the exact
+vocabulary leak `CLAUDE.md` says must never reach a UK reader. The UK page draws
+gbr 53 impressions independently, so the demand and the page already agree; the
+redirect was the only thing pointing the wrong way.
+
+The four URLs with no market signal stay on United States. There is nothing to
+justify moving them, and moving a redirect without evidence is how the original
+guess got made.
+
+Verified: all seven retired URLs resolve in **one hop to a 200** (308 Permanent
+Redirect, which is what Next emits for `permanent: true` and which Google
+consolidates identically to a 301). Zero internal links point at any retired
+URL, so nothing internal now traverses a redirect. `/services/cfo-support` still
+returns 410.
+
+### Still open
+
+The generic-tier question is untouched and remains the owner's. Google is
+choosing `/blog/tax-preparation-outsourcing` — 366 impressions, 320 of them
+American, position 27.8 — over `/services/tax-preparation/united-states`, which
+has zero. Redirect targets were a one-line decision with evidence behind them.
+A generic layer above the regional pages is a restructure, and it contradicts a
+standing architectural rule. Not done.
+
 ## 2026-09-03g (first page-level GSC read: two defects, four deepened pages, two overclaims removed)
 
 Every prior Search Console pull on this site used the **query** dimension. This
