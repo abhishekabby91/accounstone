@@ -247,6 +247,33 @@ Text leads on mobile and the art sits right on desktop, which falls out of DOM
 order. An earlier version forced the art above the heading on mobile with
 `order-first`; do not reintroduce it.
 
+## The process flow on the homepage
+
+`components/process-flow.tsx` - four numbered phases on a connected rail,
+between the services grid and the testimonials. It answers the question the
+homepage otherwise left open: what actually happens if I get in touch
+(`AI-WEBSITE-GUIDE.md` principle 1).
+
+**The copy is a compression, not a new claim.** It summarises the seven
+documented steps on `/delivery-framework/onboarding` into Scope / Set up / Soft
+launch / Steady state, and links there so the full version is one click away. If
+the onboarding steps change, change this too.
+
+The structure came from a four-up infographic the owner shared - numbered nodes
+hanging off one line. **The four saturated colours in that reference were
+deliberately not used.** Four unrelated hues read as a stock template and would
+fight a navy-and-gold identity; it is the same failure mode recorded above for
+the emoji icons that were removed sitewide. It follows the service-illustration
+rule instead: navy line work, a gold rail, and the burnt-orange accent spent
+exactly once - here on phase 04, because that is where the boundary sits
+(review, judgement and sign-off stay with the client). Colour carries meaning,
+not decoration.
+
+The rail is inset `left-[12.5%] right-[12.5%]`, which is node-centre to
+node-centre across four columns, so it stops at the first and last node instead
+of running off the edge. It renders only at `lg:` - stacked cards have no
+horizontal line to draw.
+
 ## Icons and favicon
 
 Generated from the mark in `public/accounstone-logo-horizontal.png` (the A/S

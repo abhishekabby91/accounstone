@@ -10,6 +10,7 @@ import FAQSection from '@/components/faq-section';
 import Reveal from '@/components/reveal';
 import RegionFlag from '@/components/region-flag';
 import GlobalDeliveryDiagram from '@/components/global-delivery-diagram';
+import ProcessFlow from '@/components/process-flow';
 import { generateMetadata, generateFAQSchema } from '@/lib/seo';
 import { services, solutions, testimonials, trustBadges } from '@/lib/data';
 
@@ -242,6 +243,8 @@ export default function HomePage() {
       </section>
 
       <div className="max-w-5xl mx-auto ledger-divider" aria-hidden="true" />
+
+      <ProcessFlow />
 
       <section data-section="testimonials"><Reveal><TestimonialsSection testimonials={testimonials} subtitle="Workflow Context" /></Reveal></section>
       <section data-section="faq"><Reveal><FAQSection subtitle="Common Questions" items={homePageFAQs} columns={2} /></Reveal></section>

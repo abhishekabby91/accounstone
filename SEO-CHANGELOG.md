@@ -1,5 +1,51 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03e (process flow on the homepage)
+
+`components/process-flow.tsx` - four numbered phases on a connected rail, added
+between the services grid and the testimonials.
+
+It answers a question the homepage did not: what actually happens if I get in
+touch. That is principle 1 in `AI-WEBSITE-GUIDE.md` - reduce uncertainty before
+selling - and it is also the objection most likely to stop a considered enquiry.
+The heading says the useful part out loud: "Four Phases, and You Can Stop After
+Any of Them".
+
+**The copy is a compression of existing content, not a new claim.** Scope / Set
+up / Soft launch / Steady state summarises the seven documented steps on
+`/delivery-framework/onboarding`, and the section links there. Phase 04 carries
+the boundary that matters - review, judgement and sign-off stay with the client
+firm.
+
+### On the reference it came from
+
+The owner shared a four-up infographic: numbered nodes hanging off a line, each
+with an icon, a title and a short paragraph. The structure is genuinely good and
+was adopted. **The four saturated colours were not.** Teal, orange, red and
+purple against a navy-and-gold identity reads as a stock template - the same
+failure mode this repo already recorded when generic emoji icons were replaced
+sitewide with one designed set.
+
+So it follows the rule the service illustrations established: navy line work, a
+gold rail, and the burnt-orange accent spent exactly once, on the step where
+something actually changes hands. Colour carries meaning rather than decoration,
+and the section reads as part of the site instead of pasted into it.
+
+### Implementation notes
+
+The rail is inset `left-[12.5%] right-[12.5%]` - node-centre to node-centre
+across four columns - so it terminates at the first and last node rather than
+running off the edge. It renders only at `lg:`; stacked cards have no horizontal
+line to draw, and the numbered badge above each card carries the sequence
+instead.
+
+### Verification
+
+`pnpm eslint .` silent, `pnpm next build` clean. Playwright across all 85 routes
+at 320/768/1280/1440px: no page scrolls horizontally, no tap target under 24px,
+no duplicate element ids, no heading-level skips. Sitemap parity holds at 85 on
+disk against 84 listed, with `/thank-you` the single expected exception.
+
 ## 2026-09-03d (bespoke service illustrations)
 
 Seven original line drawings, one per service, now render beside the Overview
