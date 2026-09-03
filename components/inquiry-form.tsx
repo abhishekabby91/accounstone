@@ -75,7 +75,11 @@ const SIZES = {
     grid: 'grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:gap-5',
     submit: 'w-full px-6 py-3.5 sm:py-4 rounded-lg font-semibold',
     note: 'text-xs',
-    rows: 3,
+    rows: 4,
+    // `rows` is an HTML attribute and has no `sm:` variant, so lowering it to
+    // shorten the mobile form would have shortened the desktop one too. The
+    // height comes off with a class instead; desktop keeps all four rows.
+    textarea: 'h-[92px] sm:h-auto',
   },
   compact: {
     // Labels 13px, submit 15px. The first pass used 12px labels and an 11px
@@ -89,6 +93,7 @@ const SIZES = {
     submit: 'w-full px-4 py-2.5 rounded-lg text-[15px] font-semibold',
     note: 'text-xs',
     rows: 2,
+    textarea: '',
   },
 } as const;
 
@@ -331,7 +336,7 @@ export default function InquiryForm({
             placeholder="Volume, deadlines, and what is currently falling behind."
             rows={sz.rows}
             required
-            className={`${sz.field} resize-none`}
+            className={`${sz.field} ${sz.textarea} resize-none`}
           />
         </div>
 

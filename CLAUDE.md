@@ -401,6 +401,15 @@ Everything steps back up at `sm:`, so desktop is untouched. The inquiry band
 went from 1540px to 1370px on a Service x Region page, and mean page height
 across all 85 routes from 11.4 to 11.0 screens.
 
+**No copy was cut anywhere.** Every gain came from padding, rhythm, mobile type
+size and column count. If a future pass claims to have shortened a page, check
+the diff for removed text before believing it.
+
+One trap worth naming: `rows` on a `<textarea>` is an HTML attribute with no
+`sm:` variant, so lowering it to shrink the mobile form silently shrinks the
+desktop one too. That happened once and was caught. The message box keeps
+`rows={4}` and takes its mobile height from `h-[92px] sm:h-auto` instead.
+
 ## /thank-you is a conversion target, not a page
 
 `app/thank-you/page.tsx` exists so Google Ads and Meta have a URL to count a
