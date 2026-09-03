@@ -70,12 +70,16 @@ const SIZES = {
     rows: 4,
   },
   compact: {
-    field: `${FIELD_BASE} px-3 py-2 text-sm`,
-    label: 'block text-xs font-semibold text-foreground mb-1',
+    // Labels 13px, submit 15px. The first pass used 12px labels and an 11px
+    // note, which fit but read as fine print beside the page they sit next to.
+    // Input text is not set here on purpose: globals.css pins every input to
+    // 16px to stop iOS Safari auto-zooming on focus, and that rule wins.
+    field: `${FIELD_BASE} px-3 py-2`,
+    label: 'block text-[13px] font-semibold text-foreground mb-1',
     gap: 'space-y-2.5',
     grid: 'grid grid-cols-1 gap-2.5',
-    submit: 'w-full px-4 py-2.5 rounded-lg text-sm font-semibold',
-    note: 'text-[11px]',
+    submit: 'w-full px-4 py-2.5 rounded-lg text-[15px] font-semibold',
+    note: 'text-xs',
     rows: 2,
   },
 } as const;

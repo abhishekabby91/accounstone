@@ -90,10 +90,10 @@ export default function InquiryRail({ region, service, source, title }: InquiryR
         >
           <div className="mb-3 flex items-start justify-between gap-2">
             <div className="min-w-0">
-              <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent">
+              <span className="text-xs font-bold uppercase tracking-[0.14em] text-accent">
                 Free consultation
               </span>
-              <h2 className="mt-0.5 font-serif text-base font-bold leading-snug text-primary text-balance">
+              <h2 className="mt-0.5 font-serif text-lg font-bold leading-snug text-primary text-balance">
                 {title ?? 'Ask Us About This Work'}
               </h2>
             </div>
