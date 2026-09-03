@@ -52,9 +52,33 @@ const REGION_FORM: Record<RegionSlug, RegionForm> = {
   },
 };
 
-const FIELD =
-  'w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input';
-const LABEL = 'block text-sm font-semibold text-foreground mb-2';
+const FIELD_BASE =
+  'w-full rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input';
+
+// `compact` exists for the fixed rail, where the form has ~330px to live in.
+// It trims padding and type size only - no field is removed and nothing drops
+// below the 24px minimum touch target, because a shorter form that cannot be
+// used on a laptop trackpad is not a smaller form, it is a broken one.
+const SIZES = {
+  default: {
+    field: `${FIELD_BASE} px-4 py-3`,
+    label: 'block text-sm font-semibold text-foreground mb-2',
+    gap: 'space-y-5',
+    grid: 'grid grid-cols-1 sm:grid-cols-2 gap-5',
+    submit: 'w-full px-6 py-4 rounded-lg font-semibold',
+    note: 'text-xs',
+    rows: 4,
+  },
+  compact: {
+    field: `${FIELD_BASE} px-3 py-2 text-sm`,
+    label: 'block text-xs font-semibold text-foreground mb-1',
+    gap: 'space-y-3',
+    grid: 'grid grid-cols-1 gap-3',
+    submit: 'w-full px-4 py-3 rounded-lg text-sm font-semibold',
+    note: 'text-[11px]',
+    rows: 3,
+  },
+} as const;
 
 interface InquiryFormProps {
   /** Tailors the field labels, placeholders and routing to one market. */
@@ -71,6 +95,8 @@ interface InquiryFormProps {
    * fields cannot collide with the band's when both are on the same page.
    */
   formId?: string;
+  /** `compact` trims padding and type size to fit a narrow rail. */
+  size?: keyof typeof SIZES;
 }
 
 export default function InquiryForm({
@@ -80,7 +106,9 @@ export default function InquiryForm({
   columns = false,
   submitLabel = 'Book Your Free Consultation',
   formId,
+  size = 'default',
 }: InquiryFormProps) {
+  const sz = SIZES[size];
   const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'submitting' | 'sent' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -175,7 +203,7 @@ export default function InquiryForm({
   };
 
   return (
-    <div className="space-y-5">
+    <div className={sz.gap}>
       {status === 'sent' && (
         <div role="status" className="p-4 rounded-lg bg-accent/10 border-2 border-accent text-sm text-foreground">
           <strong className="font-semibold">Thanks &mdash; your message is on its way.</strong> We read every enquiry
@@ -210,55 +238,55 @@ export default function InquiryForm({
         </div>
       )}
 
-      <form className="space-y-5" onSubmit={handleSubmit}>
+      <form className={sz.gap} onSubmit={handleSubmit}>
         {/* Honeypot. Hidden from people and from assistive tech; bots fill it
             and Web3Forms discards the submission. */}
         <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
-        <div className={columns ? 'grid grid-cols-1 sm:grid-cols-2 gap-5' : 'space-y-5'}>
+        <div className={columns ? sz.grid : sz.gap}>
           <div>
-            <label htmlFor={`name-${uid}`} className={LABEL}>Full name</label>
-            <input type="text" id={`name-${uid}`} name="name" placeholder="Jane Doe" required className={FIELD} />
+            <label htmlFor={`name-${uid}`} className={sz.label}>Full name</label>
+            <input type="text" id={`name-${uid}`} name="name" placeholder="Jane Doe" required className={sz.field} />
           </div>
 
           <div>
-            <label htmlFor={`email-${uid}`} className={LABEL}>Work email</label>
+            <label htmlFor={`email-${uid}`} className={sz.label}>Work email</label>
             <input
               type="email"
               id={`email-${uid}`}
               name="email"
               placeholder={r?.emailPlaceholder ?? 'you@yourfirm.com'}
               required
-              className={FIELD}
+              className={sz.field}
             />
           </div>
 
           <div>
-            <label htmlFor={`company-${uid}`} className={LABEL}>{r?.companyLabel ?? 'Company name'}</label>
+            <label htmlFor={`company-${uid}`} className={sz.label}>{r?.companyLabel ?? 'Company name'}</label>
             <input
               type="text"
               id={`company-${uid}`}
               name="company"
               placeholder={r?.companyPlaceholder ?? 'Your firm'}
               required
-              className={FIELD}
+              className={sz.field}
             />
           </div>
 
           <div>
-            <label htmlFor={`phone-${uid}`} className={LABEL}>Phone number</label>
+            <label htmlFor={`phone-${uid}`} className={sz.label}>Phone number</label>
             <input
               type="tel"
               id={`phone-${uid}`}
               name="phone"
               placeholder={r?.phonePlaceholder ?? '+1 (555) 123-4567'}
-              className={FIELD}
+              className={sz.field}
             />
           </div>
 
           <div>
-            <label htmlFor={`service-${uid}`} className={LABEL}>What do you need support with?</label>
-            <select id={`service-${uid}`} name="service" defaultValue={service ?? ''} className={FIELD}>
+            <label htmlFor={`service-${uid}`} className={sz.label}>What do you need support with?</label>
+            <select id={`service-${uid}`} name="service" defaultValue={service ?? ''} className={sz.field}>
               <option value="">Select a service</option>
               {services.map((s) => (
                 <option key={s.id} value={s.name}>{s.name}</option>
@@ -270,14 +298,14 @@ export default function InquiryForm({
         </div>
 
         <div>
-          <label htmlFor={`message-${uid}`} className={LABEL}>What is the work you need covered?</label>
+          <label htmlFor={`message-${uid}`} className={sz.label}>What is the work you need covered?</label>
           <textarea
             id={`message-${uid}`}
             name="message"
             placeholder="Volume, deadlines, and what is currently falling behind."
-            rows={4}
+            rows={sz.rows}
             required
-            className={`${FIELD} resize-none`}
+            className={`${sz.field} resize-none`}
           />
         </div>
 
@@ -285,12 +313,12 @@ export default function InquiryForm({
           type="submit"
           disabled={status === 'submitting'}
           aria-busy={status === 'submitting'}
-          className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md"
+          className={`${sz.submit} bg-primary hover:bg-primary-light text-white transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md`}
         >
           {status === 'submitting' ? 'Sending…' : submitLabel}
         </button>
 
-        <p className="text-xs text-muted text-center">
+        <p className={`${sz.note} text-muted text-center`}>
           The consultation and the call are always free. {r?.hours ?? 'We reply within 24 business hours.'}
         </p>
       </form>
