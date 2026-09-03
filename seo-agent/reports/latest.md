@@ -5,7 +5,7 @@
 - Files/pages scanned: **85**
 - High-priority findings: **4**
 - Medium-priority findings: **9**
-- Low-priority findings: **8**
+- Low-priority findings: **7**
 - Duplicate title groups: **0**
 
 ## Page quality scores
@@ -23,7 +23,6 @@
 | app/terms/page.tsx | 75/100 | 240 | 1 | 0 | 0 | 0 |
 | app/markets/page.tsx | 80/100 | 265 | 1 | 3 | 0 | 0 |
 | app/solutions/page.tsx | 80/100 | 224 | 1 | 4 | 0 | 0 |
-| app/contact/page.tsx | 85/100 | 895 | 1 | 0 | 0 | 0 |
 | app/resources/insights/asc-606-revenue-recognition-saas/page.tsx | 85/100 | 387 | 1 | 1 | 0 | 0 |
 | app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx | 85/100 | 379 | 1 | 1 | 0 | 0 |
 | app/about/page.tsx | 90/100 | 1763 | 1 | 22 | 0 | 0 |
@@ -34,6 +33,7 @@
 | app/blog/outsourced-payroll-services/page.tsx | 90/100 | 703 | 1 | 8 | 0 | 0 |
 | app/blog/page.tsx | 90/100 | 509 | 1 | 9 | 0 | 0 |
 | app/blog/tax-preparation-outsourcing/page.tsx | 90/100 | 684 | 1 | 6 | 0 | 0 |
+| app/contact/page.tsx | 90/100 | 1777 | 1 | 8 | 0 | 0 |
 | app/delivery-framework/communication/page.tsx | 90/100 | 357 | 1 | 4 | 0 | 0 |
 | app/delivery-framework/onboarding/page.tsx | 90/100 | 503 | 1 | 4 | 0 | 0 |
 | app/delivery-framework/quality-assurance/page.tsx | 90/100 | 356 | 1 | 5 | 0 | 0 |
@@ -95,7 +95,7 @@
 | app/technology/quickbooks/page.tsx | 90/100 | 651 | 1 | 6 | 0 | 0 |
 | app/technology/sage/page.tsx | 90/100 | 600 | 1 | 6 | 0 | 0 |
 | app/technology/xero/page.tsx | 90/100 | 610 | 1 | 6 | 0 | 0 |
-| app/thank-you/page.tsx | 90/100 | 593 | 1 | 6 | 0 | 0 |
+| app/thank-you/page.tsx | 90/100 | 596 | 1 | 6 | 0 | 0 |
 | app/page.tsx | 100/100 | 1276 | 1 | 8 | 0 | 0 |
 
 ## Priority queue
@@ -104,43 +104,41 @@
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
 2. **LOW — internal-linking** — app/compliance/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-3. **LOW — internal-linking** — app/contact/page.tsx
-   - Add contextual links to closely related Accounstone pages where useful.
-4. **MEDIUM — content-depth** — app/data-security/page.tsx
+3. **MEDIUM — content-depth** — app/data-security/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-5. **LOW — internal-linking** — app/data-security/page.tsx
+4. **LOW — internal-linking** — app/data-security/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-6. **MEDIUM — content-depth** — app/industries/page.tsx
+5. **MEDIUM — content-depth** — app/industries/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-7. **LOW — internal-linking** — app/industries/page.tsx
+6. **LOW — internal-linking** — app/industries/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-8. **MEDIUM — content-depth** — app/markets/page.tsx
+7. **MEDIUM — content-depth** — app/markets/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-9. **MEDIUM — content-depth** — app/privacy/page.tsx
+8. **MEDIUM — content-depth** — app/privacy/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-10. **LOW — internal-linking** — app/privacy/page.tsx
+9. **LOW — internal-linking** — app/privacy/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-11. **HIGH — metadata** — app/resources/case-studies/page.tsx
+10. **HIGH — metadata** — app/resources/case-studies/page.tsx
    - Add missing title, meta description or H1.
-12. **HIGH — metadata** — app/resources/guides/page.tsx
+11. **HIGH — metadata** — app/resources/guides/page.tsx
    - Add missing title, meta description or H1.
-13. **MEDIUM — content-depth** — app/resources/guides/page.tsx
+12. **MEDIUM — content-depth** — app/resources/guides/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-14. **LOW — internal-linking** — app/resources/insights/asc-606-revenue-recognition-saas/page.tsx
+13. **LOW — internal-linking** — app/resources/insights/asc-606-revenue-recognition-saas/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-15. **HIGH — metadata** — app/resources/insights/page.tsx
+14. **HIGH — metadata** — app/resources/insights/page.tsx
    - Add missing title, meta description or H1.
-16. **MEDIUM — content-depth** — app/resources/insights/page.tsx
+15. **MEDIUM — content-depth** — app/resources/insights/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-17. **LOW — internal-linking** — app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx
+16. **LOW — internal-linking** — app/resources/insights/sales-tax-nexus-ecommerce-guide/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
-18. **HIGH — metadata** — app/resources/page.tsx
+17. **HIGH — metadata** — app/resources/page.tsx
    - Add missing title, meta description or H1.
-19. **MEDIUM — content-depth** — app/solutions/page.tsx
+18. **MEDIUM — content-depth** — app/solutions/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-20. **MEDIUM — content-depth** — app/terms/page.tsx
+19. **MEDIUM — content-depth** — app/terms/page.tsx
    - Review whether the page answers its search intent sufficiently; add useful workflow detail rather than filler.
-21. **LOW — internal-linking** — app/terms/page.tsx
+20. **LOW — internal-linking** — app/terms/page.tsx
    - Add contextual links to closely related Accounstone pages where useful.
 
 ## Human-content rules
