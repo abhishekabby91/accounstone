@@ -82,7 +82,7 @@
 | app/services/payroll/united-states/page.tsx | 90/100 | 793 | 1 | 11 | 0 | 0 |
 | app/services/tax-preparation/australia/page.tsx | 90/100 | 716 | 1 | 12 | 0 | 0 |
 | app/services/tax-preparation/united-kingdom/page.tsx | 90/100 | 713 | 1 | 11 | 0 | 0 |
-| app/services/tax-preparation/united-states/page.tsx | 90/100 | 1693 | 1 | 14 | 0 | 0 |
+| app/services/tax-preparation/united-states/page.tsx | 90/100 | 1708 | 1 | 14 | 0 | 0 |
 | app/solutions/back-office-support/page.tsx | 90/100 | 954 | 1 | 6 | 0 | 0 |
 | app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 1284 | 1 | 8 | 0 | 0 |
 | app/solutions/offshore-accounting-support/page.tsx | 90/100 | 679 | 1 | 6 | 0 | 0 |
