@@ -54,7 +54,7 @@ export default function OffshoreSolutionPage() {
 
       <PremiumHero
         subtitle="Offshore Accounting"
-        title="An Offshore Team Inside Your Existing Systems"
+        title="Offshore Accounting Support Inside Your Existing Systems"
         description="Experienced accounting professionals handling the recurring preparation work, under access you grant and can revoke. NDA-backed engagements, and honest communication about our security certification timeline."
         cta={{
           text: 'Schedule Consultation',
@@ -133,6 +133,46 @@ export default function OffshoreSolutionPage() {
       </section>
 
       <section className="w-full py-12 px-6 md:px-8 bg-input"><div className="max-w-5xl mx-auto"><h2 className="text-xl font-bold text-primary mb-4">Related Accounstone solutions</h2><div className="flex flex-wrap gap-3"><Link href="/solutions/staff-augmentation" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Staff Augmentation <ArrowRight size={14} /></Link><Link href="/solutions/back-office-support" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white border border-border text-primary text-sm font-medium">Back Office Support <ArrowRight size={14} /></Link><Link href="/resources/guides/choosing-an-engagement-model" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-white border border-primary text-sm font-medium">Compare All 4 Models <ArrowRight size={14} /></Link></div></div></section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">The real questions</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              Four Things Firms Ask Before They Send Anything Offshore
+            </h2>
+          </></Reveal>
+
+          <Reveal className="space-y-4"><>
+            <h3 className="font-bold text-primary text-lg">1. Where does the data actually go, and who can see it?</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Ask any offshore provider for four specifics rather than a security page. Which named individuals hold access, and how you revoke it on a day&rsquo;s notice. Whether client data is worked on inside your systems or copied into theirs. What the sub-processor list looks like &mdash; who else touches it. And what happens to files when the engagement ends.</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Our answers: access is per-person and granted inside your platforms, so you can see and remove it yourself; engagements are NDA-backed; and delivery runs from our own centre in New Delhi rather than a chain of subcontractors. On certification, the honest position is that we are <strong>working toward SOC 2 and do not yet hold it</strong>. If a provider tells you they are certified, ask for the report and the scope &mdash; a Type I on a narrow scope is not what most firms assume they are being told.</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">For UK practices specifically: sending client personal data outside the UK is a transfer under UK GDPR, and it is your practice that remains the controller. Your data-processing agreement should name the transfer mechanism. That is a real question to put to us in writing, not a formality.</p>
+
+            <h3 className="font-bold text-primary text-lg pt-4">2. What holds the quality up when nobody is in the room?</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Distance does not degrade accounting work. Undocumented convention does. The failure mode is a file that is technically correct and still wrong for you &mdash; coded to a sensible account rather than the one your reviewer expects, formatted to a general standard rather than your workpaper template.</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">What prevents it is unglamorous: discovery that captures your chart-of-accounts conventions, file naming, checklists and known recurring exceptions before work starts; a named reviewer and defined escalation points; and a feedback loop where corrections from the first files are written into the workflow so the same correction is not made every cycle. The measure to watch in month three is not accuracy in the abstract &mdash; it is whether your review time per file is falling.</p>
+
+            <h3 className="font-bold text-primary text-lg pt-4">3. Which work travels well, and which does not?</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Work with a clear input, a defined method and a checkable output travels well: reconciliations, transaction coding, AP and AR processing, payroll preparation, close schedules, workpaper preparation, PBC organisation. Work that is mostly judgment, or that requires reading a client relationship, does not &mdash; and should not. Anything requiring a licensed signature stays with your licensed staff in every jurisdiction we serve.</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">The practical test before you delegate a workflow: could you write down what &ldquo;done&rdquo; looks like for it in ten lines? If yes, it is a good candidate. If the answer is &ldquo;you just know&rdquo;, it is not ready to move yet &mdash; and the useful first project is documenting it, not staffing it.</p>
+
+            <h3 className="font-bold text-primary text-lg pt-4">4. What does offshore audit support actually cover?</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">This is the query we see most often after &ldquo;offshore accounting support&rdquo; itself, and it is the one where the boundary needs stating plainly. Preparation can be delegated: PBC schedules, evidence organisation, reconciliations, rollforwards, tying out workpapers, formatting the file for the auditor&rsquo;s review. Judgment cannot: audit planning, risk assessment, sampling decisions, evaluating management representations, conclusions on balances, and signing the report.</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">That distinction holds under US GAAS and PCAOB standards, UK FRC and the ISAs, and the AUASB standards in Australia alike. It is not a limitation we have chosen &mdash; it is the shape of the work. See <Link href="/services/audit-support/united-states" className="text-primary font-medium hover:underline">audit support</Link> for how the preparation side is structured.</p>
+
+            <div className="overflow-hidden rounded-xl border border-border bg-input">
+              <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-accent">One term that means two things</p>
+                <p className="text-sm sm:text-base leading-relaxed text-foreground">&ldquo;Offshore contractor accounting&rdquo; is searched by two different people. One wants accounting work performed by an offshore team &mdash; that is this page. The other runs a business paying contractors in other countries and wants the bookkeeping for it: vendor records, payment preparation, and the withholding and reporting treatment in their own jurisdiction. We do the second as part of <Link href="/services/accounts-payable/united-states" className="text-primary font-medium hover:underline">accounts payable</Link> and payroll preparation. We do not advise on whether someone is a contractor or an employee &mdash; that classification is a legal question for your employment counsel.</p>
+              </div>
+            </div>
+          </></Reveal>
+        </div>
+      </section>
 
       <FAQSection subtitle="Offshore Support" items={faqs} columns={2} />
 

@@ -40,7 +40,7 @@ export default function StaffAugmentationPage() {
 
       <PremiumHero
         subtitle="Accounting Staff Augmentation"
-        title="Add Accounting Capacity Without Rebuilding Your Team"
+        title="Accounting Staff Augmentation, Without Rebuilding Your Team"
         description="Bring defined accounting work into an extended team model for tax season, month-end close, cleanup, AP/AR, audit support, or projects—while your team keeps the review and approval responsibilities that matter."
         cta={{ text: 'Talk Through Your Staffing Need', href: '/contact' }}
         ctaSecondary={{ text: 'View Accounting Services', href: '/services' }}
@@ -60,7 +60,7 @@ export default function StaffAugmentationPage() {
             </div>
             <div className="bg-primary rounded-2xl p-8 text-white space-y-6">
               <h3 className="text-2xl font-bold">Where augmentation can help</h3>
-              {[['Tax season', 'Move defined preparation and documentation work away from reviewers when volume increases.'], ['Month-end close', 'Add capacity for reconciliations, schedules, account support and close checklists.'], ['Cleanup', 'Work through historical unreconciled items, categorization issues and documentation gaps.'], ['Projects', 'Add accounting capacity for a defined implementation, transition, audit-support or reporting project.']].map(([title, text]) => <div key={title}><div className="font-bold text-lg mb-1">{title}</div><p className="text-white/80 text-sm leading-6">{text}</p></div>)}
+              {[['Tax season', 'Move defined preparation and documentation work away from reviewers when volume increases.'], ['Month-end close', 'Add capacity for reconciliations, schedules, account support and close checklists.'], ['Cleanup', 'Work through historical unreconciled items, categorization issues and documentation gaps.'], ['Projects', 'Add accounting capacity for a defined system transition, cleanup, audit-support or reporting project.']].map(([title, text]) => <div key={title}><div className="font-bold text-lg mb-1">{title}</div><p className="text-white/80 text-sm leading-6">{text}</p></div>)}
             </div>
           </div>
         </div>
@@ -114,6 +114,66 @@ export default function StaffAugmentationPage() {
               <p className="text-base md:text-lg text-muted leading-relaxed">One note on terminology: firms searching for &ldquo;finance staff augmentation&rdquo; often want something broader than this. What we add is accounting capacity &mdash; bookkeeping, close work, payables and receivables, payroll preparation, tax preparation and audit preparation. We do not provide CFO, treasury or financial-advisory support in any form.</p>
             </>
           </Reveal>
+        </div>
+      </section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">The commercials</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              What Actually Drives the Number
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4"><>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Accounting staff augmentation is priced three ways, and the structure matters more than the rate, because it decides who carries the risk of a slow week.</p>
+            <h3 className="font-bold text-primary text-lg pt-2">By the hour</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">You pay for time recorded against your work. Sensible for genuinely variable demand, and for a first engagement where nobody yet knows how long the work takes. It leaves the volume risk with you and makes a busy month hard to forecast.</p>
+            <h3 className="font-bold text-primary text-lg pt-2">By dedicated capacity</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">A defined share of a person&rsquo;s month &mdash; full-time, or a fixed fraction of it &mdash; at a fixed monthly figure. Sensible once the workload is steady and you want both a predictable cost line and someone who accumulates knowledge of your files. Idle time is yours to fill.</p>
+            <h3 className="font-bold text-primary text-lg pt-2">By deliverable</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">A price per return, per reconciliation, per closed entity, per invoice processed. Sensible where the unit is genuinely standard. It moves the efficiency risk to us, which is only fair where we control the method &mdash; and it goes wrong quickly where every file is an exception.</p>
+            <div className="overflow-hidden rounded-xl border border-border bg-white">
+              <div className="border-l-4 border-accent p-5 sm:p-6 space-y-3">
+                <p className="text-xs font-bold uppercase tracking-wider text-accent">Four things move the figure inside any of those</p>
+                <p className="text-sm sm:text-base leading-relaxed text-foreground"><strong>The seniority the work actually needs</strong> &mdash; preparation and review are not the same rate, and paying review rates for preparation is the most common way this gets expensive. <strong>How documented your process is</strong> &mdash; undocumented conventions are paid for in ramp-up either way, in your time or in ours. <strong>How many systems are involved</strong> &mdash; three platforms and a spreadsheet is not one workflow. <strong>How much of the volume is exception work</strong> rather than the repeatable core.</p>
+              </div>
+            </div>
+            <p className="text-base md:text-lg text-muted leading-relaxed">An hourly rate compared across providers without those four is not a comparison. We would rather scope the work and quote against it than publish a rate that would be wrong for most of the firms reading this.</p>
+          </></Reveal>
+        </div>
+      </section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-white">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">The working day</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              Where the Overlap Sits, and Why It Changes What to Delegate
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4"><>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Delivery runs from our centre in New Delhi. India Standard Time is UTC+5:30, and that single fact shapes what this kind of capacity is good at.</p>
+            <div className="space-y-4">
+              {[
+                ['United States', 'IST runs roughly nine and a half hours ahead of US Eastern. Work prepared during the Indian day is waiting when your reviewers start theirs. That suits preparation with a clear brief — reconciliations, workpapers, coding, schedules — and suits ambiguous work badly, because a question asked at 4pm Eastern waits until the following morning.'],
+                ['United Kingdom', 'Around four and a half hours ahead. A UK morning and an Indian afternoon overlap directly, so a question asked and answered the same day is normal rather than exceptional.'],
+                ['Australia', 'Around four and a half hours behind the eastern states. The overlap falls in your afternoon, which is where most review conversations happen anyway.'],
+              ].map(([place, text]) => (
+                <div key={place} className="rounded-xl border border-border bg-input p-5">
+                  <div className="font-bold text-primary mb-1">{place}</div>
+                  <p className="text-sm sm:text-base text-muted leading-relaxed">{text}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base md:text-lg text-muted leading-relaxed">We cover each market&rsquo;s business hours from that delivery centre rather than running one shift and calling it coverage. The implication for scoping is the same in all three: the more precisely the recurring work is defined, the less the time difference costs you &mdash; and the more the capacity is worth.</p>
+          </></Reveal>
         </div>
       </section>
 

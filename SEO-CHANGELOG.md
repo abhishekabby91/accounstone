@@ -1,5 +1,126 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03g (first page-level GSC read: two defects, four deepened pages, two overclaims removed)
+
+Every prior Search Console pull on this site used the **query** dimension. This
+one used **page**, and it answered a question the query view cannot: which URL
+Google actually chose for each search. Three things fell out of it that were not
+visible before.
+
+### /services/cfo-support was ranking. It has never existed.
+
+17 impressions, average position 56.9, on a URL that returns 404 — and one that
+advertises a service `scope-boundaries.md` §1 forbids outright. The historical
+note in that file records ten internal links once pointing at this page; the
+links were removed, the impressions were not.
+
+A 404 tells Google "try again later". `app/services/cfo-support/route.ts` now
+returns **410 Gone**, which is the correct answer for a URL that is never coming
+back, and it is the fastest way to get it out of the index. It is a route
+handler, not a page, so it does not appear in the sitemap and does not change
+the 85-on-disk count.
+
+### Every blog post was emitting a broken breadcrumb
+
+`ArticleLayout` was built for `/resources/guides/*`. The six posts under
+`/blog/*` reached it by passing `slug="../../../blog/tax-preparation-outsourcing"`,
+which produced this in the BreadcrumbList schema on all six:
+
+```
+"item": "https://www.accounstone.com/resources/guides/../../../blog/tax-preparation-outsourcing"
+```
+
+and a visible trail reading **Home > Resources > Guides** on a blog URL. The
+layout now takes `section: 'guides' | 'insights' | 'blog'` and derives the hub
+href, the label, the canonical base and the crumb list from it. Blog posts pass
+their bare slug. Verified: zero `../../../` occurrences in the rendered HTML of
+all six, and the guides and insights trails are unchanged.
+
+### The pages with impressions and no clicks, deepened
+
+Four URLs carry real impression volume and returned nothing:
+
+| Page | Impr. | Clicks | Avg pos | Head query |
+|---|---|---|---|---|
+| `/blog/tax-preparation-outsourcing` | 366 | 0 | 27.8 | ~40 commercial variants |
+| `/solutions/offshore-accounting-support` | 133 | 0 | 75.2 | offshore accounting support (31) |
+| `/solutions/staff-augmentation` | 128 | 0 | 53.9 | accounting staff augmentation (62) |
+| `/blog/accounts-payable-outsourcing` | 123 | 1 | 65.4 | accounts payable outsourcing (101) |
+
+Each got the substance its own query set asks for, not more words:
+
+- **Tax preparation** — the §7216 consent most firms meet late, the return-by-return
+  workflow, entity returns beyond 1040s, why a per-return price can mislead, and
+  five questions to ask before busy season.
+- **Accounts payable** — the seven-step journey of one invoice with the two steps
+  that need your authority named explicitly; three-way matching and when it is
+  the wrong control; what access an AP team needs and what it must never have;
+  and four signals that show a failing arrangement in month three rather than
+  month six.
+- **Staff augmentation** — the three pricing structures and the four variables
+  that move the figure inside any of them (no rate is published, because any
+  rate would be wrong for most readers); and where the working-day overlap
+  actually sits for each market, since IST is UTC+5:30 and that changes what is
+  worth delegating.
+- **Offshore accounting support** — the four questions firms ask before sending
+  anything offshore: where the data goes, what holds quality up at distance,
+  which work travels and which does not, and what offshore *audit* support
+  covers. That last one matters: "offshore audit support" is the second-largest
+  query cluster on the page and the page previously said nothing about it.
+
+`/solutions/back-office-support` (88 impressions) already carried a firm-facing
+section answering its own head query and was left alone.
+
+**Three h1s now carry their head term.** "Add Accounting Capacity Without
+Rebuilding Your Team" ranked at 53.9 for *accounting staff augmentation* without
+containing the phrase; it is now "Accounting Staff Augmentation, Without
+Rebuilding Your Team". Same for offshore support, and "End-to-End Operations
+Support" — which was also filler by `scope-boundaries.md` §7 — became
+"Back-Office Support for the Work That Repeats Every Month".
+
+### Two scope-boundary overclaims found while reading those pages
+
+Neither was introduced by this pass; both were sitting in production.
+
+`/solutions/back-office-support` carried an **Implementation** panel promising
+"Week 3-4: Transition — Data migration and system setup". That is the exact
+list `scope-boundaries.md` §5 forbids, and the same page's own FAQ already said
+data migration and system setup are handled by the client's software vendor or
+an implementation partner. The panel is now **Onboarding** — Discovery, soft
+launch, steady state — which is what actually happens, matches
+`/delivery-framework/onboarding`, and drops three invented week ranges the rest
+of the site refuses to give.
+
+`/solutions/staff-augmentation` offered capacity for "a defined implementation,
+transition, audit-support or reporting project". Staffing an implementation is
+still implementation. Now "a defined system transition, cleanup, audit-support
+or reporting project", which is the vocabulary the same array already used two
+lines down.
+
+### The finding that is not ours to act on
+
+`/blog/tax-preparation-outsourcing` holds 366 impressions at position 27.8 for
+roughly forty commercial tax-outsourcing queries. `/services/tax-preparation/united-states`
+holds **zero**. The blog post has 2 internal links; the service page has 14 — so
+this is not a link-equity problem. Google is choosing the non-regional page for
+non-regional queries.
+
+The retired generic service URLs say the same thing. All seven 301 to their
+United States page, and six still hold impressions a month later:
+
+| Retired URL | Impr. | Pos | Best regional child |
+|---|---|---|---|
+| `/services/tax-preparation` | 70 | 78.8 | AU 92.6 |
+| `/services/accounts-receivable` | 54 | 80.4 | US 64.7 |
+| `/services/audit-support` | 52 | 71.7 | US 79.1 |
+| `/services/accounts-payable` | 17 | 27.2 | UK 64.4 |
+| `/services/payroll` | 11 | 28.0 | AU 86.0 |
+
+Four of those five rank **better** than any of their own regional children. That
+is evidence bearing directly on **open item #3** in `CLAUDE.md` — and on the
+region-first architecture itself. It is not an agent's decision. Recorded here,
+raised with the owner, and nothing was changed.
+
 ## 2026-09-03f (mobile height: the form, and which cards actually benefit from 2-up)
 
 The brief was to size the inquiry form properly for mobile and put cards 2-up to

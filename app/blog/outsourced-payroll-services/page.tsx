@@ -16,8 +16,8 @@ export default function PayrollOutsourcingBlog() {
       category="Payroll"
       description="Per-employee cost ranges for the US, UK, and Australia, the bank-access line that should never move, and the watch-outs that come up in real onboarding calls."
       publishedDate="2026-08-14"
-      section="guides"
-      slug="../../../blog/outsourced-payroll-services"
+      section="blog"
+      slug="outsourced-payroll-services"
       inquiryTitle="Talk to Us About Your Payroll Run"
       inquiryLead="Tell us the headcount, the pay frequency and the provider you already run in, and we will scope the payroll preparation work — without asking for banking control."
     >

@@ -95,12 +95,30 @@ Do **not** resolve these unilaterally. Each needs the owner.
    `Insufficient plan` and Semrush reports insufficient API units, so backlink
    and competitor evidence remains unobtainable. (`robots.txt` also deliberately
    blocks AhrefsBot and SemrushBot.)
-3. **The 7 service redirects all target the United States page.** Chosen without
-   traffic data. If GSC shows non-US demand on those URLs, each is one reversible
-   line in `next.config.mjs`.
+3. **The 7 service redirects all target the United States page — and the
+   page-level GSC read now argues with the region-first architecture itself
+   (2026-09-03).** Six of the seven retired generic URLs still hold impressions a
+   month after being redirected, and four of them rank *better* than any of their
+   own regional children: `/services/accounts-payable` at 27.2 against a best
+   child of 64.4, `/services/payroll` at 28.0 against 86.0,
+   `/services/audit-support` at 71.7 against 79.1, `/services/tax-preparation` at
+   78.8 against 92.6. In the same read `/blog/tax-preparation-outsourcing` holds
+   366 impressions at position 27.8 across ~40 commercial tax-outsourcing
+   queries while `/services/tax-preparation/united-states` holds **zero** — and
+   the blog post has 2 internal links to the service page's 14, so it is not a
+   link-equity problem. Google is choosing non-regional pages for non-regional
+   queries.
+   That is a real argument for a generic tier above the regional pages, and it
+   collides head-on with the "do not recreate a generic `/services/{slug}` page"
+   rule above. **Do not resolve this either way without the owner.** Changing a
+   redirect target is one reversible line in `next.config.mjs`; adding a generic
+   tier is a restructure.
 4. **CFO Support and HR services.** Specified in the 2026-08-27 brief, excluded
    because `scope-boundaries.md` forbids both. The owner has said they may be added
    in future — that is a data change plus page files, not a restructure.
+   `/services/cfo-support` never existed but had been indexed anyway (17
+   impressions, position 56.9); `app/services/cfo-support/route.ts` now returns
+   **410 Gone**. If the service is ever added, delete that route first.
 5. **Is Canada a real market?** Paused by the owner. See `knowledge/company/identity.md`.
 6. **Should "Financial reporting" be a named service line?** See `scope-boundaries.md`.
 
@@ -171,6 +189,9 @@ either direction is drift.
 This check found four unlisted guides on 2026-08-21, and confirmed 84 ↔ 84
 parity after the 2026-08-27 restructure. As of 2026-09-03 it is 85 routes on
 disk against 84 in the sitemap.
+
+`app/services/cfo-support/route.ts` is a `route.ts` returning 410, not a page,
+so it appears in neither count.
 
 ### Adding a route
 
@@ -317,6 +338,15 @@ are free and are the owner's lead source, so the ask leads with that.
 **`ArticleLayout` renders the band** for the 6 blog posts, 11 guides and 2
 insights — each page passes its own `inquiryTitle` and `inquiryLead`. Do not
 let those default; see the near-duplicate note below.
+
+**`ArticleLayout` also takes `section: 'guides' | 'insights' | 'blog'`**, and
+the hub href, the crumb trail, the schema `basePath` and the canonical are all
+derived from it. Pass the bare slug. Before 2026-09-03 the blog posts reached
+this layout by passing `slug="../../../blog/<slug>"` with `section="guides"`,
+which emitted
+`https://www.accounstone.com/resources/guides/../../../blog/<slug>` into
+BreadcrumbList on all six and showed a **Home > Resources > Guides** trail on a
+`/blog/` URL. Never route a section through another section's path.
 
 **There is also a dialog.** `components/inquiry-modal.tsx` is mounted once in
 `app/layout.tsx`; `components/inquiry-trigger.tsx` opens it. Around 60 card

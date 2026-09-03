@@ -53,7 +53,7 @@ export default function BackOfficeSupportPage() {
 
       <PremiumHero
         subtitle="Back Office Support"
-        title="End-to-End Operations Support"
+        title="Back-Office Support for the Work That Repeats Every Month"
         description="Take recurring accounting administration off your team's plate: bookkeeping, payroll processing, payables, and receivables."
         cta={{
           text: 'Schedule Consultation',
@@ -138,19 +138,19 @@ export default function BackOfficeSupportPage() {
             </div>
 
             <div className="bg-white rounded-lg p-8 space-y-4">
-              <h3 className="text-2xl font-bold text-primary">Implementation</h3>
+              <h3 className="text-2xl font-bold text-primary">Onboarding</h3>
               <div className="space-y-4">
                 <div>
-                  <div className="font-bold text-foreground">Week 1-2: Planning</div>
-                  <p className="text-sm text-muted">Understand your processes and requirements</p>
+                  <div className="font-bold text-foreground">Discovery</div>
+                  <p className="text-sm text-muted">Your processes, conventions, deadlines, reviewers and recurring exceptions, documented</p>
                 </div>
                 <div>
-                  <div className="font-bold text-foreground">Week 3-4: Transition</div>
-                  <p className="text-sm text-muted">Data migration and system setup</p>
+                  <div className="font-bold text-foreground">Soft launch</div>
+                  <p className="text-sm text-muted">A first cycle worked inside your existing setup, reviewed closely, corrections written back into the workflow</p>
                 </div>
                 <div>
-                  <div className="font-bold text-foreground">Week 5+: Operations</div>
-                  <p className="text-sm text-muted">Full back-office operations begin</p>
+                  <div className="font-bold text-foreground">Steady state</div>
+                  <p className="text-sm text-muted">The recurring work runs to the agreed rhythm, with review and sign-off staying with you</p>
                 </div>
               </div>
             </div>

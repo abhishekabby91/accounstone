@@ -16,8 +16,8 @@ export default function AuditSupportBlog() {
       category="Audit Support"
       description="What the audit support team prepares vs. what the auditor or CPA judges — and how the boundary is drawn in UK, US, and Australian audit contexts."
       publishedDate="2026-08-14"
-      section="guides"
-      slug="../../../blog/audit-support-services"
+      section="blog"
+      slug="audit-support-services"
       inquiryTitle="Talk to Us About Your Audit Preparation"
       inquiryLead="Tell us where the PBC list stalls — schedules, reconciliations or evidence requests — and we will scope the preparation work that can move without touching the assurance opinion."
     >

@@ -16,8 +16,8 @@ export default function ARManagementBlog() {
       category="Accounts Receivable"
       description="DSO, follow-up schedules, software workflows, and the judgment calls that always stay with you."
       publishedDate="2026-08-14"
-      section="guides"
-      slug="../../../blog/accounts-receivable-management"
+      section="blog"
+      slug="accounts-receivable-management"
       inquiryTitle="Talk to Us About Your Aging Ledger"
       inquiryLead="Tell us how invoicing, cash application and follow-up run today, and how far the aging has drifted, and we will scope the receivables work around your billing cycle."
     >

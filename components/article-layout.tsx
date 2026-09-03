@@ -15,7 +15,14 @@ interface ArticleLayoutProps {
   category: string;
   description: string;
   publishedDate: string;
-  section: 'guides' | 'insights';
+  /**
+   * Which hub the article belongs to. `blog` exists because the six posts under
+   * /blog were previously forced through the /resources/{section}/ shape by
+   * passing `slug="../../../blog/x"`, which put a literal `../../../` traversal
+   * path into the BreadcrumbList and Article schema and made the trail read
+   * "Home > Resources > Guides" on a /blog/ URL.
+   */
+  section: 'guides' | 'insights' | 'blog';
   slug: string;
   /**
    * The ask at the foot of the article. Every article passes its own, because
@@ -39,8 +46,10 @@ export default function ArticleLayout({
   inquiryLead,
   children,
 }: ArticleLayoutProps) {
-  const path = `/resources/${section}/${slug}`;
-  const sectionLabel = section === 'guides' ? 'Guides' : 'Insights';
+  const isBlog = section === 'blog';
+  const hubHref = isBlog ? '/blog' : `/resources/${section}`;
+  const path = `${hubHref}/${slug}`;
+  const sectionLabel = { guides: 'Guides', insights: 'Insights', blog: 'Blog' }[section];
 
   const articleSchema = generateArticleSchema({
     title,
@@ -48,13 +57,15 @@ export default function ArticleLayout({
     imageUrl: `${baseUrl}/og-image.png`,
     publishedDate,
     author: 'Accounstone',
-    slug: `${section}/${slug}`,
+    slug,
+    basePath: `${hubHref}/`,
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: baseUrl },
-    { name: 'Resources', url: `${baseUrl}/resources` },
-    { name: sectionLabel, url: `${baseUrl}/resources/${section}` },
+    // /blog sits at the root, so it has no Resources level above it.
+    ...(isBlog ? [] : [{ name: 'Resources', url: `${baseUrl}/resources` }]),
+    { name: sectionLabel, url: `${baseUrl}${hubHref}` },
     { name: title, url: `${baseUrl}${path}` },
   ]);
 
@@ -77,9 +88,13 @@ export default function ArticleLayout({
         <ol className="max-w-3xl mx-auto flex flex-wrap items-center gap-2 text-sm text-muted">
           <li><Link href="/" className="inline-block py-1.5 hover:text-primary transition-colors">Home</Link></li>
           <li aria-hidden="true">/</li>
-          <li><Link href="/resources" className="inline-block py-1.5 hover:text-primary transition-colors">Resources</Link></li>
-          <li aria-hidden="true">/</li>
-          <li><Link href={`/resources/${section}`} className="inline-block py-1.5 hover:text-primary transition-colors">{sectionLabel}</Link></li>
+          {!isBlog && (
+            <>
+              <li><Link href="/resources" className="inline-block py-1.5 hover:text-primary transition-colors">Resources</Link></li>
+              <li aria-hidden="true">/</li>
+            </>
+          )}
+          <li><Link href={hubHref} className="inline-block py-1.5 hover:text-primary transition-colors">{sectionLabel}</Link></li>
           <li aria-hidden="true">/</li>
           <li aria-current="page" className="text-primary font-medium line-clamp-1">{title}</li>
         </ol>

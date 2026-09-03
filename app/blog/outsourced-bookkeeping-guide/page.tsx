@@ -17,8 +17,8 @@ export default function OutsourcedBookkeepingBlog() {
       category="Bookkeeping"
       description="What to expect day to day in QuickBooks and Xero, the real questions business owners and CPA firm managers ask before outsourcing, and the warning signs it isn't working."
       publishedDate="2026-08-14"
-      section="guides"
-      slug="../../../blog/outsourced-bookkeeping-guide"
+      section="blog"
+      slug="outsourced-bookkeeping-guide"
       inquiryTitle="Talk to Us About Your Books"
       inquiryLead="Tell us which ledgers are behind, what software they sit in and who reviews the output, and we will scope a first month against your real files rather than a template."
     >
