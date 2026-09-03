@@ -1,5 +1,91 @@
 # Accounstone SEO Changelog
 
+## 2026-09-03c (/contact rebuilt as a trust page; rail rollout; type sizing)
+
+### /contact was 153 words and read like a form with an address next to it
+
+Rebuilt to ~1,140 words. The brief was to make it a page where a prospect
+decides to trust us, not a page where they find an email address. Structure
+follows the content-psychology principles already written in
+`AI-WEBSITE-GUIDE.md` - which explicitly ban manufactured urgency, fear framing
+and exaggerated outcomes, so none of that is here. No scarcity language, no
+invented statistic, no testimonial.
+
+What changed, and why each piece is where it is:
+
+- **"What the first call actually is" now sits above the form.** The most common
+  reason a considered B2B enquiry does not get sent is not knowing what happens
+  next, so that answer comes before the ask rather than after it: thirty
+  minutes, free, no obligation, and the person who replies is the person who
+  would scope the work.
+- **"What we will not do, whatever you are paying us"** - six boundaries, every
+  one traced to `scope-boundaries.md`. No filing credentials in any market, no
+  banking control, no tax-authority representation, no tax positions, no audit
+  judgment, no software implementation. This is the strongest trust asset the
+  business has and it was not on the page a prospect visits to decide.
+- **A situation router** - eight lines in the visitor's own words ("busy season
+  is going to break the review queue", "the books are behind and need a cleanup
+  first") linking to the guide that answers each. Placed after the form so the
+  form keeps first claim. It also gave `/contact` its first real internal links:
+  it had none.
+- **Eight objection FAQs**, answering the questions the guide names - will I
+  spend more time reviewing, do we have to train another team, what if the books
+  are behind, who keeps sign-off, is there a contract, how is data handled. They
+  live in `lib/contact-faqs.ts` so the client page can render them and the
+  server layout can emit `FAQPage` schema.
+
+### A factual error found while rebuilding
+
+The coverage block advertised **"9:00 AM - 6:00 PM EST"** and nothing else, on a
+site whose whole architecture is US / UK / Australia. To a UK practice or an
+Australian firm that reads as "not for you", and it contradicted the enquiry
+form, which has always said it covers UK and Australian business hours. All
+three markets now get a line. No new clock time was invented - the US detail was
+already on the page, and the other two say what the form already says.
+
+Also fixed: `companyInfo.contact.phone` is raw E.164 for `tel:` links, and every
+page that displayed it was rendering `+919990597192`. Added
+`phoneDisplay` for the grouped, readable version and used it on `/contact`, the
+enquiry band and `/thank-you`.
+
+### The inquiry rail went to all 21 Service x Region pages
+
+After the owner reviewed it on one page. Phone was restored to it - dropping it
+had been the wrong half of the trade, since it is real lead data. What stays
+hidden is the service select, and only on these pages, because a Service x
+Region page has already told the form which service it is about; the value still
+reaches the payload from the prop, verified against a stubbed Web3Forms
+response.
+
+Height: 752px originally, which scrolled inside itself on a 1366x768 and a
+1536x864 laptop; 590px now, fitting without scrolling from 1280x720 up.
+
+Type was then enlarged without growing the panel - labels 12 to 13px, submit 14
+to 15px, footnote 11 to 12px, panel heading 16 to 18px. Inputs are pinned to
+16px by `globals.css` to stop iOS Safari auto-zooming on focus; an earlier
+comment in the compact size claimed 15px inputs, which was simply untrue and has
+been removed.
+
+### Verification
+
+`pnpm eslint .` silent, `pnpm next build` clean, 91 static pages. Sitemap parity
+holds at 85 on disk against 84 listed, with `/thank-you` the single expected
+exception.
+
+Playwright across all 85 routes at 320/768/1280/1440px: no page scrolls
+horizontally, no tap target under 24px, no duplicate element ids. Metadata still
+inside the length budget on every page - the `/thank-you` description was two
+characters under the 110 floor and was extended.
+
+`/contact` specifically: one `h1`, no heading-level skips, `ContactPage` +
+`BreadcrumbList` + `FAQPage` schema, and both submit branches re-tested against
+a stubbed Web3Forms response - success redirects to `/thank-you` with the
+payload intact, failure stays put and offers the email fallback.
+
+Its title also carried the brand twice ("Contact Accounstone — Free Consultation
+| Accounstone"), which wasted SERP width on a repeat of the site name. Now
+"Contact Us — Free Consultation".
+
 ## 2026-09-03b (metadata length budget, GA4, /thank-you conversion page)
 
 ### 48 titles and 46 descriptions were being truncated in the SERP

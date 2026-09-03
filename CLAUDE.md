@@ -358,6 +358,50 @@ forms are never visible at once, and it is inset `pt-24` to clear the sticky
 header. It uses `formId="rail"` and must never claim `#inquiry` or
 `#inquiry-heading`.
 
+## /contact is a trust page, not a contact page
+
+Rebuilt 2026-09-03. It was 153 words: a form, an address block and "Reach Out
+Today". It is now ~1,140 words, and every section answers a question a firm
+actually has before it sends anything. Structure follows
+`AI-WEBSITE-GUIDE.md`'s content-psychology principles, and that file **bans
+manufactured urgency, fear framing and exaggerated outcomes** - so there is no
+scarcity language here, no countdown, no invented statistic and no testimonial.
+Do not add any.
+
+- **What the first call is** sits *above* the form (principle 1, reduce
+  uncertainty before selling). Thirty minutes, free, no obligation; the person
+  who replies is the person who would scope it; and we will say if the work is
+  not ours.
+- **"What we will not do, whatever you are paying us"** is the trust anchor and
+  the differentiator. Every line traces to
+  `knowledge/company/scope-boundaries.md`: no filing credentials, no banking
+  control, no tax-authority representation, no tax advice, no audit judgment, no
+  software implementation. Naming the limits is what answers "what am I handing
+  over?" (principle 3).
+- **The situation router** matches a visitor's own words to the right reading
+  and links out to eight guides. It sits *after* the form so the form gets first
+  claim, and it exists because principle 10 asks that a visitor learn something
+  useful even if they never make contact. It also gave `/contact` its first real
+  internal links - it had none.
+- **Objection FAQs** live in `lib/contact-faqs.ts`, shared so the client page
+  renders them and `app/contact/layout.tsx` can emit `FAQPage` schema (the page
+  is `'use client'` and cannot).
+
+**The coverage block was factually misleading and is now fixed.** It advertised
+"9:00 AM - 6:00 PM EST" and nothing else, on a site that sells to UK practices
+and Australian firms - to a UK reader that reads as "not for you". All three
+markets now get a line, and no clock time is invented that the rest of the site
+does not already claim.
+
+`companyInfo.contact.phone` is raw E.164 for `tel:` links;
+`companyInfo.contact.phoneDisplay` is the grouped version for reading. The site
+was rendering `+919990597192` on every page that shows a number.
+
+**The submit path is unchanged and must stay that way** - see the section below,
+which is the expensive lesson. Success still redirects to `/thank-you`; failure
+still keeps what the visitor typed and offers the email fallback. Both branches
+have Playwright checks.
+
 ## Contact form
 
 **`/contact` submits from the browser, and it has to. Do not move it back to

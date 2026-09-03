@@ -27,7 +27,7 @@ const PATH = '/thank-you';
  */
 export const metadata: Metadata = genMeta({
   title: 'Thank You — Your Enquiry Is On Its Way',
-  description: 'Your enquiry has reached Accounstone. Here is what happens next and how quickly you can expect to hear back.',
+  description: 'Your enquiry has reached Accounstone. Here is what happens next, how quickly you can expect a reply, and who it goes to.',
   path: PATH,
   noindex: true,
 });
@@ -76,7 +76,7 @@ export default function ThankYouPage() {
                   href={`tel:${companyInfo.contact.phone.replace(/[^+0-9]/g, '')}`}
                   className="inline-block py-1.5 font-semibold text-primary underline underline-offset-2 hover:text-accent"
                 >
-                  {companyInfo.contact.phone}
+                  {companyInfo.contact.phoneDisplay}
                 </a>
                 .
               </p>

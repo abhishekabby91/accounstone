@@ -139,7 +139,7 @@ export default function InquirySection({
               className="inline-flex items-center gap-2 py-1.5 font-medium text-primary hover:text-accent transition-colors"
             >
               <Phone className="w-4 h-4 shrink-0" aria-hidden="true" />
-              {companyInfo.contact.phone}
+              {companyInfo.contact.phoneDisplay}
             </a>
           </div>
           )}

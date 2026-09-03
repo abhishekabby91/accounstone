@@ -120,7 +120,11 @@ export const companyInfo = {
   website: 'https://www.accounstone.com',
   contact: {
     email: 'partner@accounstone.com',
+    // Raw E.164 for `tel:` links.
     phone: '+919990597192',
+    // Grouped for reading. "+919990597192" is technically correct and visually
+    // unparseable, and it was rendering that way on every page that shows it.
+    phoneDisplay: '+91 99905 97192',
     address: 'Global Delivery Center - New Delhi, India',
   },
 };

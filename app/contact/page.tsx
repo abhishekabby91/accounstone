@@ -2,9 +2,17 @@
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
-import { Check, Mail, Phone, MapPin } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, Check, Clock, Mail, MapPin, Phone, ShieldCheck, UserCheck, X } from 'lucide-react';
 import PremiumHero from '@/components/premium-hero';
+import FAQSection from '@/components/faq-section';
+import RegionFlag from '@/components/region-flag';
 import { companyInfo, services } from '@/lib/data';
+import { CONTACT_FAQS } from '@/lib/contact-faqs';
+
+const FIELD =
+  'w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-white';
+const LABEL = 'block text-sm font-semibold text-foreground mb-2';
 
 export default function ContactPage() {
   const router = useRouter();
@@ -105,27 +113,69 @@ export default function ContactPage() {
     }
   };
 
+
   return (
     <main>
       <PremiumHero
-        subtitle="Get in Touch"
-        title="Tell Us What You Are Working With"
-        description="The consultation and the call are always free. Tell us what you are working with — the volume, the systems, the deadlines — and we will talk through what support would actually change."
+        subtitle="Free consultation"
+        title="Start With a Conversation, Not a Contract"
+        description="Half an hour, no cost, no obligation. Tell us what is falling behind — the volume, the systems, the deadlines — and we will tell you plainly whether it is work we do."
         background="primary-gradient"
       />
 
-      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-white">
+      {/* Principle 1 in AI-WEBSITE-GUIDE.md: reduce uncertainty before selling.
+          The single biggest reason a considered B2B enquiry does not get sent is
+          not knowing what happens next. So that goes above the form, not below
+          it. */}
+      <section className="w-full bg-white px-6 md:px-8 py-10 md:py-14">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6">
+            {[
+              {
+                icon: Clock,
+                h: 'Thirty minutes, and it is free',
+                p: 'No deck, no discovery fee, no commitment at the end of it. If the answer is that we are not the right fit, that is a useful half hour too.',
+              },
+              {
+                icon: UserCheck,
+                h: 'You speak to whoever would scope it',
+                p: 'Enquiries are not routed into a sales queue. The person who replies is the person who would work out what the engagement looks like.',
+              },
+              {
+                icon: ShieldCheck,
+                h: 'We will tell you if it is not ours',
+                p: 'There is work we do not do — tax advice, audit opinions, software implementation. We would rather say so on the first call than three weeks in.',
+              },
+            ].map((item) => (
+              <div
+                key={item.h}
+                className="h-full rounded-xl border border-border bg-input p-5 sm:p-6"
+              >
+                <item.icon className="mb-3 h-6 w-6 text-accent" aria-hidden="true" />
+                <h2 className="mb-1.5 font-bold text-primary text-base sm:text-lg">{item.h}</h2>
+                <p className="text-sm leading-relaxed text-muted sm:text-base">{item.p}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full py-8 md:py-12 px-6 md:px-8 bg-input">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <div className="space-y-6">
               <div className="space-y-2">
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Free Consultation
+                  Book the call
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary">
-                  Schedule Your Meeting
+                  Tell Us What Is Falling Behind
                 </h2>
+                <p className="text-muted leading-relaxed">
+                  The more concrete you can be — how many clients, which system, what the deadline is —
+                  the more useful the first reply will be. A single line is fine too.
+                </p>
               </div>
 
               {status === 'sent' && (
@@ -139,7 +189,7 @@ export default function ContactPage() {
               )}
 
               {status === 'error' && errorMessage === 'mailto' && (
-                <div role="alert" className="p-4 rounded-lg bg-input border-2 border-accent text-sm text-foreground space-y-3">
+                <div role="alert" className="p-4 rounded-lg bg-white border-2 border-accent text-sm text-foreground space-y-3">
                   <p>
                     <strong className="font-semibold">We could not send that automatically.</strong> Nothing you typed
                     has been lost &mdash; you can send it as an email instead, already filled in.
@@ -163,7 +213,7 @@ export default function ContactPage() {
               )}
 
               {status === 'error' && errorMessage !== 'mailto' && (
-                <div role="alert" className="p-4 rounded-lg bg-input border-2 border-accent text-sm text-foreground">
+                <div role="alert" className="p-4 rounded-lg bg-white border-2 border-accent text-sm text-foreground">
                   {errorMessage}
                 </div>
               )}
@@ -181,69 +231,28 @@ export default function ContactPage() {
                 />
 
                 <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-foreground mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="John Doe"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
-                  />
+                  <label htmlFor="name" className={LABEL}>Full name</label>
+                  <input type="text" id="name" name="name" placeholder="Jane Doe" required className={FIELD} />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-foreground mb-2">
-                    Business Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="john@company.com"
-                    required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
-                  />
+                  <label htmlFor="email" className={LABEL}>Work email</label>
+                  <input type="email" id="email" name="email" placeholder="you@yourfirm.com" required className={FIELD} />
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-semibold text-foreground mb-2">
-                    Company Name
-                  </label>
-                  <input
-                    type="text"
-                    id="company"
-                    name="company"
-                    placeholder="Acme Inc."
-                    required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
-                  />
+                  <label htmlFor="company" className={LABEL}>Firm or company name</label>
+                  <input type="text" id="company" name="company" placeholder="Your firm" required className={FIELD} />
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-foreground mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="+1 (555) 123-4567"
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
-                  />
+                  <label htmlFor="phone" className={LABEL}>Phone number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" className={FIELD} />
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-foreground mb-2">
-                    Service Interest
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input"
-                  >
+                  <label htmlFor="service" className={LABEL}>What do you need support with?</label>
+                  <select id="service" name="service" defaultValue="" className={FIELD}>
                     <option value="">Select a service</option>
                     {services.map((s) => (
                       <option key={s.id} value={s.name}>{s.name}</option>
@@ -253,16 +262,14 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-foreground mb-2">
-                    How can we help?
-                  </label>
+                  <label htmlFor="message" className={LABEL}>What is the work you need covered?</label>
                   <textarea
                     id="message"
                     name="message"
-                    placeholder="Tell us about your needs..."
-                    rows={4}
+                    rows={5}
+                    placeholder="Volume, deadlines, the systems it lives in, and what is currently falling behind."
                     required
-                    className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors bg-input resize-none"
+                    className={`${FIELD} resize-none`}
                   />
                 </div>
 
@@ -272,90 +279,101 @@ export default function ContactPage() {
                   aria-busy={status === 'submitting'}
                   className="w-full px-6 py-4 rounded-lg bg-primary hover:bg-primary-light text-white font-semibold transition-all duration-300 shadow-md hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:bg-primary disabled:hover:shadow-md"
                 >
-                  {status === 'submitting' ? 'Sending\u2026' : 'Book Your Free Consultation'}
+                  {status === 'submitting' ? 'Sending…' : 'Book Your Free Consultation'}
                 </button>
 
                 <p className="text-xs text-muted text-center">
-                  We&apos;ll respond within 24 business hours.
+                  We reply within one business day. Your details are used to answer your enquiry and
+                  nothing else.
                 </p>
               </form>
             </div>
 
-            {/* Contact Info */}
+            {/* Coverage and direct contact */}
             <div className="space-y-8">
               <div className="space-y-2">
                 <span className="text-sm md:text-base font-semibold tracking-wide uppercase text-accent">
-                  Contact Information
+                  Or reach us directly
                 </span>
-                <h3 className="font-serif text-3xl font-bold text-primary">
-                  Reach Out Today
-                </h3>
+                <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary">
+                  However You Prefer to Start
+                </h2>
               </div>
 
-              {/* Email */}
               <div className="flex gap-4">
                 <Mail className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Email</h4>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
                   <a
                     href={`mailto:${companyInfo.contact.email}`}
-                    className="inline-block py-1 text-primary hover:text-primary-light transition-colors"
+                    className="inline-block py-1 break-words text-primary hover:text-primary-light transition-colors"
                   >
                     {companyInfo.contact.email}
                   </a>
                 </div>
               </div>
 
-              {/* Phone */}
               <div className="flex gap-4">
                 <Phone className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Phone</h4>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-foreground mb-1">Phone</h3>
                   <a
-                    href={`tel:${companyInfo.contact.phone}`}
+                    href={`tel:${companyInfo.contact.phone.replace(/[^+0-9]/g, '')}`}
                     className="inline-block py-1 text-primary hover:text-primary-light transition-colors"
                   >
-                    +91 99905 97192
+                    {companyInfo.contact.phoneDisplay}
                   </a>
                 </div>
               </div>
 
-              {/* Address */}
               <div className="flex gap-4">
                 <MapPin className="w-6 h-6 text-accent flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <h4 className="font-semibold text-foreground mb-1">Address</h4>
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-foreground mb-1">Delivery centre</h3>
                   <p className="text-muted">{companyInfo.contact.address}</p>
                 </div>
               </div>
 
-              {/* Hours */}
-              <div className="bg-input rounded-xl p-6 border-2 border-border space-y-3">
-                <h4 className="font-semibold text-foreground">Client Support Hours</h4>
-                <div className="space-y-2 text-sm text-muted">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span className="text-foreground">9:00 AM - 6:00 PM EST</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday - Sunday</span>
-                    <span className="text-foreground">Closed</span>
-                  </div>
-                </div>
+              {/* The old version of this block advertised "9:00 AM - 6:00 PM
+                  EST" and nothing else, on a site that sells to UK practices
+                  and Australian firms. To a UK reader that reads as "not for
+                  you". Each market gets its own line now, and none of them
+                  invents a clock time the rest of the site does not already
+                  claim. */}
+              <div className="rounded-xl border border-border bg-white p-6 space-y-4">
+                <h3 className="font-semibold text-foreground">When we are covering your day</h3>
+                <p className="text-sm text-muted leading-relaxed">
+                  The delivery team works Monday to Friday from New Delhi, on your market&rsquo;s business
+                  day rather than ours.
+                </p>
+                <ul className="space-y-2.5">
+                  {[
+                    { region: 'united-states' as const, label: 'United States', hours: '9:00 AM – 6:00 PM ET' },
+                    { region: 'united-kingdom' as const, label: 'United Kingdom', hours: 'UK business hours' },
+                    { region: 'australia' as const, label: 'Australia', hours: 'Australian business hours' },
+                  ].map((row) => (
+                    <li key={row.label} className="flex items-center justify-between gap-3 text-sm">
+                      <span className="flex items-center gap-2 text-foreground">
+                        <RegionFlag region={row.region} className="w-6 h-4" decorative />
+                        {row.label}
+                      </span>
+                      <span className="text-muted text-right">{row.hours}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* Features */}
-              <div className="space-y-3 pt-4">
+              <div className="space-y-3 pt-2">
                 <p className="text-sm font-semibold text-foreground uppercase tracking-wide">
-                  What to Expect
+                  What to expect
                 </p>
                 {[
                   'A free consultation and call, with no commitment',
                   'A written proposal built around your actual workflow',
                   'No long-term contracts required',
                   'A reply within one business day',
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-3">
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
                     <Check className="text-accent flex-shrink-0 w-5 h-5" aria-hidden="true" />
                     <span className="text-foreground text-sm">{item}</span>
                   </div>
@@ -365,6 +383,100 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+
+      {/* Principle 3, respect the buyer's control, made concrete. Naming what we
+          will not touch is the fastest way to answer the question a firm is
+          actually asking on this page: what am I handing over? Every line here
+          traces to knowledge/company/scope-boundaries.md. */}
+      <section className="w-full bg-primary px-6 md:px-8 py-10 md:py-14 text-white">
+        <div className="mx-auto max-w-4xl space-y-6">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-white/40" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-white/70">
+                Before you ask
+              </span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-balance leading-tight">
+              What We Will Not Do, Whatever You Are Paying Us
+            </h2>
+            <p className="text-white/85 leading-relaxed">
+              Most providers describe what they take on. The more useful list on a first call is the
+              other one, because it is what decides whether your firm stays in control.
+            </p>
+          </div>
+          <ul className="grid gap-3 sm:grid-cols-2">
+            {[
+              'Hold your filing credentials. No IRS e-services, no HMRC gateway, no ATO portal.',
+              'Touch your bank. We prepare a payment run; releasing it stays inside your own controls.',
+              'Represent you to a tax authority. That needs a licensed CPA, EA or attorney.',
+              'Give tax advice or take a position. We prepare returns; your CPA or agent decides.',
+              'Sign an audit opinion, plan an audit or choose samples. Preparation moves; judgment does not.',
+              'Implement or configure your software. We work inside the setup you already run.',
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 rounded-xl bg-white/10 p-4">
+                <X className="mt-0.5 h-5 w-5 shrink-0 text-white/70" aria-hidden="true" />
+                <span className="text-sm leading-relaxed text-white/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm text-white/70 leading-relaxed">
+            If a provider offers you any of the above, it is worth asking which licence they are
+            holding it under.
+          </p>
+        </div>
+      </section>
+
+      {/* Principle 10: a visitor should learn something useful even if they
+          never send the form. This also gives /contact real internal links -
+          it had almost none. */}
+      <section className="w-full bg-white px-6 md:px-8 py-10 md:py-14">
+        <div className="mx-auto max-w-4xl space-y-6">
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">
+                Not ready to send anything
+              </span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              Find the Situation That Sounds Like Yours
+            </h2>
+            <p className="text-base text-muted leading-relaxed">
+              If you would rather read first, these answer the questions that usually come before a
+              call. None of them requires speaking to us.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {[
+              { h: 'Busy season is going to break the review queue', href: '/resources/guides/staff-augmentation-tax-season-guide' },
+              { h: 'The books are behind and need a cleanup first', href: '/resources/guides/questions-to-ask-before-outsourcing-bookkeeping' },
+              { h: 'Month-end close keeps slipping', href: '/resources/guides/outsourced-accounting-services-guide' },
+              { h: 'The payables queue is eating the week', href: '/resources/guides/outsourced-accounts-payable-guide' },
+              { h: 'Receivables are ageing and nobody is chasing', href: '/resources/guides/outsourced-accounts-receivable-guide' },
+              { h: 'Audit preparation stalls every year', href: '/blog/audit-support-services' },
+              { h: 'We do not know which engagement model fits', href: '/resources/guides/choosing-an-engagement-model' },
+              { h: 'We are comparing providers and want a checklist', href: '/resources/guides/how-to-choose-accounting-outsourcing-partner' },
+            ].map((row) => (
+              <Link
+                key={row.href}
+                href={row.href}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border bg-input p-4 sm:p-5 transition-colors hover:border-primary/50 hover:bg-white"
+              >
+                <span className="min-w-0 text-sm font-medium leading-snug text-foreground sm:text-base">
+                  {row.h}
+                </span>
+                <ArrowRight
+                  className="h-4 w-4 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <FAQSection subtitle="Before you get in touch" items={CONTACT_FAQS} columns={2} />
     </main>
   );
 }

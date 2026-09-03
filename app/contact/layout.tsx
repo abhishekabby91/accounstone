@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
-import { generateMetadata, generateBreadcrumbSchema, baseUrl } from '@/lib/seo';
+import { generateMetadata, generateBreadcrumbSchema, generateFAQSchema, baseUrl } from '@/lib/seo';
 import { companyInfo } from '@/lib/data';
+import { CONTACT_FAQS } from '@/lib/contact-faqs';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Contact Accounstone — Free Consultation',
+  title: 'Contact Us — Free Consultation',
   description:
-    'Talk to Accounstone about bookkeeping, tax preparation, payroll, and back-office support for CPA firms and growing businesses in the US, UK, and Australia.',
+    'A free half-hour scoping call, no obligation. What the first conversation covers, what we will not do whatever you pay us, and who replies to you.',
   path: '/contact',
 });
 
@@ -17,6 +18,10 @@ const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: baseUrl },
   { name: 'Contact', url: `${baseUrl}/contact` },
 ]);
+
+// The objection FAQs render on the page itself; the schema lives here
+// because page.tsx is a client component and cannot emit it.
+const faqSchema = generateFAQSchema(CONTACT_FAQS);
 
 const contactPageSchema = {
   '@context': 'https://schema.org',
@@ -53,6 +58,7 @@ export default function ContactLayout({ children }: { children: React.ReactNode 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {children}
     </>
   );
