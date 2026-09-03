@@ -83,12 +83,12 @@ export default function ProcessFlow() {
             className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-px bg-secondary lg:block"
           />
 
-          <ol className="relative grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+          <ol className="relative grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4 lg:gap-6">
             {PHASES.map((phase, i) => (
               <Reveal key={phase.n} delay={Math.min(i * 0.08, 0.3)}>
                 <li className="flex h-full flex-col items-center text-center">
                   <span
-                    className={`relative z-[1] flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 bg-white font-serif text-lg font-bold tabular-nums ${
+                    className={`relative z-[1] flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 bg-white font-serif text-base font-bold tabular-nums sm:h-14 sm:w-14 sm:text-lg ${
                       phase.accent
                         ? 'border-accent text-accent'
                         : 'border-border text-primary'
@@ -97,13 +97,13 @@ export default function ProcessFlow() {
                     {phase.n}
                   </span>
 
-                  <div className="mt-5 flex h-full w-full flex-col rounded-xl border border-border bg-input p-5 sm:p-6">
+                  <div className="mt-4 flex h-full w-full flex-col rounded-xl border border-border bg-input p-3.5 sm:mt-5 sm:p-6">
                     <phase.icon
-                      className={`mx-auto mb-3 h-6 w-6 ${phase.accent ? 'text-accent' : 'text-primary'}`}
+                      className={`mx-auto mb-2 h-5 w-5 sm:mb-3 sm:h-6 sm:w-6 ${phase.accent ? 'text-accent' : 'text-primary'}`}
                       aria-hidden="true"
                     />
-                    <h3 className="mb-2 font-bold text-primary text-base sm:text-lg">{phase.title}</h3>
-                    <p className="text-sm leading-relaxed text-muted">{phase.body}</p>
+                    <h3 className="mb-1.5 font-bold text-primary text-sm leading-snug sm:mb-2 sm:text-lg">{phase.title}</h3>
+                    <p className="text-xs leading-5 text-muted sm:text-sm sm:leading-relaxed">{phase.body}</p>
                   </div>
                 </li>
               </Reveal>

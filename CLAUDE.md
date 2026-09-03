@@ -271,8 +271,14 @@ not decoration.
 
 The rail is inset `left-[12.5%] right-[12.5%]`, which is node-centre to
 node-centre across four columns, so it stops at the first and last node instead
-of running off the edge. It renders only at `lg:` - stacked cards have no
-horizontal line to draw.
+of running off the edge. It renders only at `lg:` - below that the grid is
+2-up and there is no single horizontal line to draw.
+
+**2 per row below `lg:`, 4 across above it**, matching the site's existing card
+convention. At 320px that leaves each card 128px wide, so the node, padding,
+icon and type all step down at that size and back up at `sm:`. Checked at
+320/375/390/768: no card overflows its own box and the page does not scroll
+horizontally.
 
 ## Icons and favicon
 
