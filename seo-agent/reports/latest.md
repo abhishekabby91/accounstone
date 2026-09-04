@@ -46,7 +46,7 @@
 | app/industries/real-estate/yardi-accounting-outsourcing-texas/page.tsx | 90/100 | 895 | 1 | 6 | 0 | 0 |
 | app/industries/technology/page.tsx | 90/100 | 438 | 1 | 2 | 0 | 0 |
 | app/markets/australia/page.tsx | 90/100 | 1863 | 1 | 14 | 0 | 0 |
-| app/markets/united-kingdom/page.tsx | 90/100 | 1614 | 1 | 14 | 0 | 0 |
+| app/markets/united-kingdom/page.tsx | 90/100 | 1690 | 1 | 15 | 0 | 0 |
 | app/markets/united-states/california/page.tsx | 90/100 | 650 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/florida/page.tsx | 90/100 | 644 | 1 | 6 | 0 | 0 |
 | app/markets/united-states/page.tsx | 90/100 | 1785 | 1 | 16 | 0 | 0 |
@@ -86,11 +86,11 @@
 | app/services/tax-preparation/united-states/page.tsx | 90/100 | 1719 | 1 | 14 | 0 | 0 |
 | app/solutions/back-office-support/page.tsx | 90/100 | 982 | 1 | 6 | 0 | 0 |
 | app/solutions/dedicated-accounting-teams/page.tsx | 90/100 | 1284 | 1 | 8 | 0 | 0 |
-| app/solutions/offshore-accounting-support/page.tsx | 90/100 | 1381 | 1 | 8 | 0 | 0 |
+| app/solutions/offshore-accounting-support/page.tsx | 90/100 | 1747 | 1 | 10 | 0 | 0 |
 | app/solutions/staff-augmentation/page.tsx | 90/100 | 1881 | 1 | 8 | 0 | 0 |
 | app/technology/cch/page.tsx | 90/100 | 526 | 1 | 6 | 0 | 0 |
 | app/technology/drake-tax/page.tsx | 90/100 | 531 | 1 | 6 | 0 | 0 |
-| app/technology/myob/page.tsx | 90/100 | 819 | 1 | 6 | 0 | 0 |
+| app/technology/myob/page.tsx | 90/100 | 938 | 1 | 6 | 0 | 0 |
 | app/technology/netsuite/page.tsx | 90/100 | 606 | 1 | 6 | 0 | 0 |
 | app/technology/page.tsx | 90/100 | 720 | 1 | 3 | 0 | 0 |
 | app/technology/quickbooks/page.tsx | 90/100 | 651 | 1 | 6 | 0 | 0 |
