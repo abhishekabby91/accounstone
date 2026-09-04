@@ -454,6 +454,45 @@ One trap worth naming: `rows` on a `<textarea>` is an HTML attribute with no
 desktop one too. That happened once and was caught. The message box keeps
 `rows={4}` and takes its mobile height from `h-[92px] sm:h-auto` instead.
 
+## Offshore is one cluster, and it belongs to one page
+
+`/solutions/offshore-accounting-support` owns every "offshore …" query.
+`/markets/united-kingdom` owns the UK regulatory brief — HMRC, VAT under MTD,
+FRS 102, Companies House — which is what `docs/SEARCH-INTENTS.md` assigns it.
+
+That split had to be repaired on 2026-09-04, and the way it broke is worth
+knowing because it is easy to redo. The market page was titled **"Offshore
+Accounting for UK Practices"** with an h1 to match, so it ranked for the whole
+offshore cluster — ~140 of its 144 impressions — against the solutions page,
+and beat it on the shared queries while both sat at positions 55-90. Two pages
+split one intent and neither earned a click.
+
+**Do not put "offshore" back in a market page's title, h1 or description.** The
+market pages are about a market. Offshore is an engagement model and has its own
+URL. One contextual link from each market page to the offshore page is the right
+amount; the related-links row on `/markets/united-kingdom` carries it.
+
+After the fix the pair shares 1.7% of its 6-grams, and "offshore" appears twice
+on the market page against 25 times on the solutions page. Re-measure if you
+touch either.
+
+## /technology/myob is mostly traffic we cannot serve
+
+857 impressions in 28 days, the most of any page on the site, and never a single
+click. The query list says why: "myob consultants" (83), "myob consolidation
+software" (79), "myob accounting software" (61), "myob certified consultant"
+(29). That is product research and a hunt for a certified consultant or
+implementer — all three of which `scope-boundaries.md` §5 forbids claiming.
+The page has never had a click because it is honest about what it is.
+
+One query in the whole set is a genuine buyer: **"myob bookkeeper offshore"**,
+30 impressions. The page is now titled and headlined for that reader.
+
+**Do not try to win the rest.** Ranking for "myob certified consultant" would
+require claiming to be one. Whether to `noindex` the page — it is ~27% of site
+impressions and drags average position down for no commercial return — is an
+open question for the owner, recorded in `SEO-CHANGELOG.md` 2026-09-04b.
+
 ## The cookie consent system
 
 Three files, deliberately separate, because mixing them is how consent banners

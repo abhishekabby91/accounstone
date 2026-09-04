@@ -10,8 +10,10 @@ import Reveal from '@/components/reveal';
 import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Offshore Accounting Support for Firms',
-  description: 'An experienced offshore team for recurring bookkeeping, accounting operations, payroll and back-office work — inside your existing systems.',
+  // "offshore accounting services" and "offshore accounting" are the head terms
+  // this cluster actually uses (GSC 2026-09-04); the old title carried neither.
+  title: 'Offshore Accounting Services for Firms',
+  description: 'An offshore accounting team for recurring bookkeeping, audit preparation, payroll and back-office work — working inside your existing systems.',
   path: '/solutions/offshore-accounting-support',
 });
 
@@ -54,7 +56,7 @@ export default function OffshoreSolutionPage() {
 
       <PremiumHero
         subtitle="Offshore Accounting"
-        title="Offshore Accounting Support Inside Your Existing Systems"
+        title="Offshore Accounting Services, Inside Your Existing Systems"
         description="Experienced accounting professionals handling the recurring preparation work, under access you grant and can revoke. NDA-backed engagements, and honest communication about our security certification timeline."
         cta={{
           text: 'Schedule Consultation',
@@ -170,6 +172,41 @@ export default function OffshoreSolutionPage() {
                 <p className="text-sm sm:text-base leading-relaxed text-foreground">&ldquo;Offshore contractor accounting&rdquo; is searched by two different people. One wants accounting work performed by an offshore team &mdash; that is this page. The other runs a business paying contractors in other countries and wants the bookkeeping for it: vendor records, payment preparation, and the withholding and reporting treatment in their own jurisdiction. We do the second as part of <Link href="/services/accounts-payable/united-states" className="text-primary font-medium hover:underline">accounts payable</Link> and payroll preparation. We do not advise on whether someone is a contractor or an employee &mdash; that classification is a legal question for your employment counsel.</p>
               </div>
             </div>
+          </></Reveal>
+        </div>
+      </section>
+
+      <section className="w-full py-10 md:py-14 px-6 md:px-8 bg-input">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <Reveal className="space-y-4"><>
+            <div className="flex items-center gap-3">
+              <span aria-hidden="true" className="h-px w-8 bg-secondary" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.14em] text-accent">What it covers</span>
+            </div>
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-primary text-balance leading-tight">
+              What an Offshore Accounting Company Actually Does
+            </h2>
+          </></Reveal>
+          <Reveal className="space-y-4"><>
+            <p className="text-base md:text-lg text-muted leading-relaxed">&ldquo;Offshore accounting&rdquo; covers several different arrangements, and the word on its own tells you almost nothing about scope. In practice a firm engaging us is asking for one or more of five things.</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                ['Offshore bookkeeping', 'Transaction coding, bank and control-account reconciliations, and the monthly routine that has to happen before anything else can. The largest single block of delegated work.', '/services/bookkeeping/united-states'],
+                ['Offshore audit support', 'PBC schedules, evidence organisation, rollforwards and tying out workpapers. Preparation only — planning, sampling and the opinion stay with your auditor.', '/services/audit-support/united-kingdom'],
+                ['Offshore payroll preparation', 'Pay runs prepared, reconciled to the ledger and returned for approval. Filing and the employment decisions stay with you.', '/services/payroll/united-states'],
+                ['Offshore AP and AR', 'Invoice intake, coding, approval routing and payment preparation; invoicing, cash application and the aging on the other side. No banking control, ever.', '/services/accounts-payable/united-states'],
+                ['Offshore tax preparation', 'Returns and workpapers prepared to e-file-ready and left unsigned, for your licensed reviewer.', '/services/tax-preparation/united-states'],
+                ['A dedicated offshore accountant', 'Where the volume is steady, the same named person or small team works only your files and accumulates the knowledge, rather than work being pooled.', '/solutions/dedicated-accounting-teams'],
+              ].map(([title, text, href]) => (
+                <Link key={title} href={href} className="block rounded-xl border border-border bg-white p-5 transition-colors hover:border-primary/40">
+                  <div className="font-bold text-primary mb-1">{title}</div>
+                  <p className="text-sm text-muted leading-relaxed">{text}</p>
+                </Link>
+              ))}
+            </div>
+            <h3 className="font-bold text-primary text-lg pt-2">How firms usually start</h3>
+            <p className="text-base md:text-lg text-muted leading-relaxed">Rarely with the whole portfolio. The pattern that works is one client, or one workflow, run for a full cycle end to end &mdash; long enough to see a real month-end rather than a demo. That gives both sides a factual answer to the only question that matters at the start: does the work come back in a state your reviewer can sign without redoing it?</p>
+            <p className="text-base md:text-lg text-muted leading-relaxed">If you are a UK practice weighing this up, the market-specific version &mdash; FRS 102, VAT under Making Tax Digital, Companies House deadlines and who holds which credential &mdash; is on the <Link href="/markets/united-kingdom" className="text-primary font-medium hover:underline">UK practices page</Link>. Australian firms have <Link href="/markets/australia" className="text-primary font-medium hover:underline">the same for the ATO and BAS</Link>.</p>
           </></Reveal>
         </div>
       </section>

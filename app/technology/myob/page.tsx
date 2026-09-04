@@ -10,8 +10,17 @@ import Reveal from '@/components/reveal';
 import InquiryTrigger from '@/components/inquiry-trigger';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'MYOB Accounting Support',
-  description: 'Recurring accounting inside an existing MYOB file — bookkeeping, reconciliations, GST and BAS-ready records and payroll preparation. Not an implementer.',
+  // Refocused 2026-09-04. This page draws more impressions than any other on the
+  // site (857 in 28 days) and has never had a click, because almost all of that
+  // demand is MYOB *product* research — "myob consultants" 83, "myob
+  // consolidation software" 79, "myob accounting software" 61, "myob certified
+  // consultant" 29 — and scope-boundaries.md §5 forbids claiming any of it. The
+  // one genuine buyer query in the set is "myob bookkeeper offshore" (30 impr,
+  // position 62), so the title now speaks to that reader rather than to someone
+  // shopping for software. See SEO-CHANGELOG 2026-09-04b; whether to noindex the
+  // page outright is an open question for the owner.
+  title: 'Offshore MYOB Bookkeeping Support',
+  description: 'Offshore bookkeepers working inside your existing MYOB file — reconciliations, GST and BAS-ready records and payroll preparation. Not an implementer.',
   path: '/technology/myob',
 });
 
@@ -63,7 +72,7 @@ export default function MYOBPage() {
 
       <PremiumHero
         subtitle="Platform Workflow Support"
-        title="MYOB Accounting Support"
+        title="Offshore MYOB Bookkeeping, Inside Your Existing File"
         description="Help with the recurring accounting work inside MYOB — reconciliations, GST/BAS records, payroll bookkeeping and reporting for AU/NZ businesses."
         cta={{ text: 'Get Started', href: '/contact' }}
         ctaSecondary={{ text: 'View Services', href: '/services' }}

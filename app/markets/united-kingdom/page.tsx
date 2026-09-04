@@ -15,9 +15,15 @@ import { serviceRegions } from '@/lib/data';
 const PATH = '/markets/united-kingdom';
 
 export const metadata: Metadata = generateMetadata({
-  title: 'Offshore Accounting for UK Practices',
+  // Retitled 2026-09-04. This page was called "Offshore Accounting for UK
+  // Practices" and was therefore ranking for the whole "offshore *" cluster
+  // (~140 of its 144 impressions) against
+  // /solutions/offshore-accounting-support, which is the page built for that
+  // intent. docs/SEARCH-INTENTS.md assigns this URL the UK regulatory brief —
+  // HMRC, VAT, MTD, PAYE, Companies House — so the title now says that.
+  title: 'Outsourced Accounting for UK Practices',
   description:
-    'Your practice’s offshore accounting team — bookkeeping, FRS 102 year-end accounts and tax preparation, prepared for your review and your filing.',
+    'Bookkeeping, FRS 102 year-end accounts, VAT under MTD and tax preparation for UK accountancy practices — prepared for your review, sign-off and filing.',
   path: PATH,
 });
 
@@ -128,8 +134,8 @@ export default function UKMarketPage() {
       <PremiumHero
         region="united-kingdom"
         subtitle="For UK accountancy practices"
-        title="Your Practice’s Offshore Accounting Team"
-        description="Bookkeeping, year-end accounts and tax preparation, prepared to your templates. You review, you advise, you file — and you keep the client."
+        title="Your Practice’s Outsourced Accounting Team"
+        description="Bookkeeping, FRS 102 year-end accounts, VAT returns under Making Tax Digital and tax preparation, prepared to your templates. You review, you advise, you file — and you keep the client."
         cta={{ text: 'Start With One Client', href: '/contact' }}
         ctaSecondary={{ text: 'View UK Services', href: '/services#united-kingdom' }}
         background="primary-gradient"
@@ -306,6 +312,7 @@ export default function UKMarketPage() {
           </ul>
           <Reveal delay={0.1}>
             <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="/solutions/offshore-accounting-support" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Offshore accounting</Link>
               <Link href="/solutions/dedicated-accounting-teams" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Dedicated team</Link>
               <Link href="/solutions/staff-augmentation" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Staff augmentation</Link>
               <Link href="/compliance" className="px-4 py-2 rounded-lg bg-white text-primary text-sm font-medium hover:bg-border transition-colors">Compliance &amp; controls</Link>

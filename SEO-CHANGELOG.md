@@ -1,5 +1,99 @@
 # Accounstone SEO Changelog
 
+## 2026-09-04b (two pages were fighting over "offshore"; MYOB refocused)
+
+### The UK market page had been quietly eating the offshore cluster
+
+`/markets/united-kingdom` is now the site's third-biggest page by impressions
+(160, up from 124 a day earlier). Reading its query list explains why, and it is
+not a good reason: **roughly 140 of its 144 country-resolved impressions are
+"offshore …" queries** — offshore accounting (15), offshore accounting services
+(15), offshore audit services (11), dedicated offshore bookkeeping team (10),
+offshore bookkeeping uk (6), hire offshore accountant for uk firm (8), and so on.
+
+`/solutions/offshore-accounting-support` — the page actually built for that
+intent — holds 148 impressions on its own overlapping set. The two share
+queries outright, and on the shared ones **the market page ranks better**:
+offshore contractor accounting at 79.3 against 83.8, offshore audit at 75.3
+against 83.1. Google was picking the wrong page, and the cluster was split
+across two URLs at positions 55–90, earning nothing.
+
+The cause was in plain sight in the metadata:
+
+| | Before |
+|---|---|
+| `/markets/united-kingdom` title | **Offshore Accounting for UK Practices** |
+| `/markets/united-kingdom` h1 | Your Practice's **Offshore** Accounting Team |
+| `/solutions/offshore-accounting-support` title | Offshore Accounting Support for Firms |
+
+Two pages both announcing themselves as offshore pages. `docs/SEARCH-INTENTS.md`
+already assigns `/markets/united-kingdom` a different brief entirely — "how
+accounting/tax/payroll works in the UK (HMRC, VAT, MTD, PAYE, Companies House),
+informational, regional authority" — so the page had drifted off its own
+registry entry.
+
+Realigned rather than deleted:
+
+- `/markets/united-kingdom` → **Outsourced Accounting for UK Practices**, h1
+  "Your Practice's Outsourced Accounting Team", description led by FRS 102, VAT
+  under MTD and Companies House. "Offshore" now appears twice in the body
+  instead of framing the page, and the related-links row gained a direct link to
+  the offshore page, so the intent is handed over rather than contested.
+- `/solutions/offshore-accounting-support` → **Offshore Accounting Services for
+  Firms**, h1 "Offshore Accounting Services, Inside Your Existing Systems".
+  "Offshore accounting services" and "offshore accounting" are the head terms
+  the cluster actually uses and the old title carried neither.
+- A new section on that page, *What an Offshore Accounting Company Actually
+  Does*, gives the long-tail sub-intents a home for the first time — offshore
+  bookkeeping, offshore audit support, offshore payroll, offshore AP/AR,
+  offshore tax preparation, a dedicated offshore accountant — each linking to
+  the service page behind it, plus how firms actually start.
+
+Measured after: the two pages now share **1.7%** of their 6-grams, "offshore"
+appears 2 times on the market page against 25 on the solutions page, and no
+site-wide near-duplicate pair moved above 6.6%.
+
+### MYOB: 857 impressions, no clicks, and almost none of it ours to win
+
+The biggest page on the site by impressions, and the query list finally makes
+the reason unambiguous:
+
+| Query | Impressions | Position |
+|---|---|---|
+| myob consultants | 83 | 58.7 |
+| myob consolidation software | 79 | 39.6 |
+| myob accounting software | 61 | 49.2 |
+| myob consultant | 40 | 58.4 |
+| myob accounting | 35 | 41.9 |
+| **myob bookkeeper offshore** | **30** | **62.1** |
+| myob certified consultant | 29 | 67.2 |
+| myob cloud software | 21 | 50.2 |
+
+Almost all of it is product research or a search for a **certified consultant or
+implementer** — which `scope-boundaries.md` §5 forbids Accounstone claiming, and
+which the page correctly refuses to claim. That is why it has never had a click:
+the page is honest, and the traffic is looking for something else.
+
+Exactly one query in the set is a real buyer: **"myob bookkeeper offshore"**, 30
+impressions. So the page now speaks to that reader — title **Offshore MYOB
+Bookkeeping Support**, h1 "Offshore MYOB Bookkeeping, Inside Your Existing File"
+— rather than presenting as a general MYOB resource competing for software
+research it cannot serve.
+
+**Open for the owner:** whether to `noindex` this page. It is ~27% of site
+impressions and none of it converts, so it drags average position down for a
+metric-shaped reason rather than a commercial one. Refocusing the title is the
+reversible half; removing it from the index is a judgement call about whether
+the vanity impressions are worth anything. Not done unilaterally.
+
+### Also worth recording: last pass is working
+
+"accounting staff augmentation" moved from **62 impressions at 53.9** to **85 at
+36.1** in a day, and `/solutions/staff-augmentation` took its first click. That
+page got the pricing-structure and working-day sections plus a head-term h1 on
+2026-09-03. `/blog/tax-preparation-outsourcing` grew 366 → 435 impressions at a
+held position of 27.8.
+
 ## 2026-09-04 (cookie consent: GA4 now waits to be asked)
 
 Closes open item #1 in `CLAUDE.md`, which had been sitting since GA4 went in on
