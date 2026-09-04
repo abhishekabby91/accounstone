@@ -489,9 +489,18 @@ Things that will look like bugs but are not:
   If you add one, add it to that category's `services` array so both surfaces
   update from one place.
 
+**The banner is deliberately small** — a 22rem card, three actions on one row,
+162px tall against the 280px first version. It is a question, not a landing
+page. The owner asked for it twice as small; do not grow it back. The detail
+belongs in the preferences dialog, which keeps the fuller card treatment.
+
 **Accept and Reject are the same size, weight and prominence tier.** Only
 colour separates them. Making Reject harder to find is a dark pattern and is
-the one change this component must never take.
+the one change this component must never take. The banner's Reject reads
+"Reject" to keep the row compact and carries
+`aria-label="Reject non-essential cookies"`, so its accessible name is the full
+one — worth knowing, because a Playwright `getByRole` on "Reject" will not
+match it.
 
 The preferences dialog is a **flex column capped to the viewport**: header and
 actions pinned, only the category list scrolls. The first version was 1042px

@@ -26,9 +26,11 @@ import {
  *
  * Design notes, so a later change does not undo the reasoning:
  *
- * - The card is `rounded-2xl border border-border bg-white shadow-2xl`, which
- *   is the same card the inquiry dialog uses. It is meant to read as one more
- *   Accounstone surface, not as an overlay from somewhere else.
+ * - The banner is deliberately small: a ~22rem card, three actions on one row,
+ *   roughly a third the height of the first version. It is a question, not a
+ *   landing page, and it should cost the reader as little of the screen as
+ *   possible. The preferences dialog is where the detail lives, and that one
+ *   keeps the inquiry dialog's fuller card treatment.
  * - The burnt-orange accent is spent **once**, on the shield mark. That is the
  *   rule the service illustrations follow (`CLAUDE.md`): the accent points at
  *   one thing or it stops pointing at anything.
@@ -192,62 +194,50 @@ export default function CookieConsent() {
         <div
           role="region"
           aria-label="Cookie choices"
-          className={`fixed inset-x-3 bottom-3 z-[115] sm:inset-x-auto sm:bottom-6 sm:left-6 sm:max-w-[28rem] ${PANEL_TRANSITION} ${
-            entered ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
+          className={`fixed inset-x-3 bottom-3 z-[115] sm:inset-x-auto sm:bottom-5 sm:left-5 sm:max-w-[22rem] ${PANEL_TRANSITION} ${
+            entered ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
           }`}
         >
-          <div className="rounded-2xl border border-border bg-white/95 p-5 shadow-2xl backdrop-blur-sm sm:p-6">
-            <div className="flex items-start gap-3">
-              <span
-                aria-hidden="true"
-                className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent"
+          <div className="rounded-xl border border-border bg-white/95 p-4 shadow-xl backdrop-blur-sm">
+            <h2 className="flex items-center gap-2 font-serif text-sm font-bold leading-tight text-primary">
+              <ShieldCheck className="h-4 w-4 shrink-0 text-accent" aria-hidden="true" />
+              Your privacy matters
+            </h2>
+            <p className="mt-1.5 text-xs leading-relaxed text-muted">
+              We use cookies to see how this site is used. Nothing optional runs until you say so.{' '}
+              <Link
+                href="/cookie-policy"
+                className="inline-block py-1 font-medium text-primary underline underline-offset-2 hover:text-accent"
               >
-                <ShieldCheck className="h-5 w-5" />
-              </span>
-              <div className="space-y-1.5">
-                <h2 className="font-serif text-lg font-bold leading-tight text-primary">
-                  Your privacy matters
-                </h2>
-                <p className="text-sm leading-relaxed text-muted">
-                  We use cookies to understand how this site is used and to improve it. Nothing
-                  optional runs until you say so.{' '}
-                  <Link
-                    href="/cookie-policy"
-                    className="inline-block py-1 font-medium text-primary underline underline-offset-2 hover:text-accent"
-                  >
-                    Cookie Policy
-                  </Link>
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-5 space-y-2.5">
+                Cookie Policy
+              </Link>
+            </p>
+            <div className="mt-3 grid grid-cols-3 gap-2">
               <button
                 type="button"
                 onClick={() => save(ALLOW_ALL, 'accept-all')}
-                className="w-full rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-primary-light hover:shadow-lg motion-reduce:transition-none"
+                className="rounded-lg bg-primary px-2 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-primary-light motion-reduce:transition-none"
               >
-                Accept all
+                Accept
               </button>
-              <div className="grid grid-cols-2 gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => save(DENY_ALL, 'reject-non-essential')}
-                  className="rounded-lg border-2 border-border bg-white px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:border-primary/50 hover:bg-input motion-reduce:transition-none"
-                >
-                  Reject non-essential
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    returnFocusRef.current = document.activeElement as HTMLElement | null;
-                    setPanelOpen(true);
-                  }}
-                  className="rounded-lg border-2 border-border bg-white px-3 py-2.5 text-sm font-semibold text-primary transition-colors hover:border-primary/50 hover:bg-input motion-reduce:transition-none"
-                >
-                  Customise
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => save(DENY_ALL, 'reject-non-essential')}
+                aria-label="Reject non-essential cookies"
+                className="rounded-lg border border-border bg-white px-2 py-2 text-xs font-semibold text-primary transition-colors hover:border-primary/50 hover:bg-input motion-reduce:transition-none"
+              >
+                Reject
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  returnFocusRef.current = document.activeElement as HTMLElement | null;
+                  setPanelOpen(true);
+                }}
+                className="rounded-lg border border-border bg-white px-2 py-2 text-xs font-semibold text-primary transition-colors hover:border-primary/50 hover:bg-input motion-reduce:transition-none"
+              >
+                Customise
+              </button>
             </div>
           </div>
         </div>

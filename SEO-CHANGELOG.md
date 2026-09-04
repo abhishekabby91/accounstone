@@ -88,6 +88,25 @@ client chunks 404'd and no JavaScript ran at all. **Do not build against a
 running dev server** — and treat an all-green consent test with suspicion until
 you have seen it go red for the right reason.
 
+### The banner was too big, and is now a third smaller
+
+First version was 280px tall and 448px wide. The owner asked for it to be very
+small, which was the right call: it is a question, not a landing page, and on a
+site whose homepage is the first impression it should cost as little of the
+screen as possible.
+
+Now **162px tall and 352px wide** — the icon moved inline with the heading, the
+copy is one shorter sentence, and the three actions sit on a single row instead
+of stacking. Nothing was traded away for it: all three choices are still equally
+prominent (same size, same weight, only colour differs), buttons are 34px and
+step to 44px on touch devices via the existing `globals.css` rule, and the
+Cookie Policy link keeps its own target. The preferences dialog is unchanged —
+that is where the detail belongs.
+
+The compact Reject reads "Reject" and carries
+`aria-label="Reject non-essential cookies"`, so its accessible name stays the
+full one.
+
 ### Content
 
 `/cookie-policy` added (86 routes on disk, 85 in the sitemap, `/thank-you` still
