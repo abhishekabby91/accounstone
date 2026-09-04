@@ -1,5 +1,76 @@
 # Accounstone SEO Changelog
 
+## 2026-09-04c (US company registration cluster)
+
+Four new pages: `/company-registration` and one each for Delaware, Wyoming and
+Nevada. 90 routes on disk, 89 in the sitemap, `/thank-you` still the one expected
+difference.
+
+### The premise had to be checked first
+
+The brief was to target company registration. The site had no such service line
+— `identity.md` lists seven, and registration is not among them — and
+`scope-boundaries.md` §2 explicitly forbids **entity selection advice**, which is
+most of what a registration page is tempted to offer. So the work paused on one
+question: does Accounstone actually do this?
+
+The owner confirmed it is arranged and coordinated rather than performed
+in-house, and asked that the arrangement not be named on the page. Every line is
+written to that split: the filing is coordinated, the accounting that follows is
+ours. Nothing claims Accounstone lodges the documents, acts as registered agent
+or opens bank accounts, and a grep for the two words the owner excluded runs as
+part of verification.
+
+`knowledge/company/identity.md` still does not list this service. That file is
+human-edit-only by its own rule, so **the owner needs to add it there.**
+
+### What the pages do and do not say
+
+Each page names the boundary explicitly rather than hedging around it: we do not
+advise which entity or which state, do not give legal advice or interpret the
+Corporate Transparency Act, do not sign or file returns, do not hold banking
+credentials. Two FAQs on the hub exist purely to answer "which state should we
+pick?" and "LLC or corporation?" with *that is not our call, and here is whose it
+is*.
+
+No filing fee, franchise tax figure or turnaround time appears anywhere. Those
+move by state and by year, and the site's rule against inventing statistics
+applies. The pages describe the mechanics — how Delaware's franchise tax is
+calculated from share structure rather than profit, why Nevada's commerce tax is
+a gross-revenue measure, why forming in one state and operating in another means
+two sets of deadlines — and say the current figures are confirmed at scoping.
+
+### The near-duplicate problem, found by measuring
+
+Three state pages sharing one component measured **53-55% 6-gram overlap against
+each other** on the first build — more than twice the 25% ceiling, and enough for
+Google to treat them as one page. About 730 of each page's 1,100 words were
+shared boilerplate.
+
+| Pass | Worst state-vs-state pair |
+|---|---|
+| First build | **55.2%** |
+| Shared steps and full boundaries moved to the hub; per-state FAQs | 24.2% |
+| Per-state `feesNote`, `ctaNote` and `whoFormsHere` replacing the last shared paragraphs | **18.0%** |
+
+That final figure sits alongside the site's existing worst pair of 16.6%. The
+lesson is recorded in `CLAUDE.md`: a fourth state needs all of those fields
+written properly rather than templated.
+
+### Structure
+
+Explicit `page.tsx` files per state rather than a `[state]` dynamic segment,
+because the sitemap drift check walks `find app -name "page.tsx"` and a dynamic
+segment would appear there as a literal `[state]` path that can never match a
+sitemap URL — permanent false drift. The cluster is linked from the footer,
+which is the site's actual crawl skeleton since the navbar emits no server-side
+links.
+
+Verified: eslint silent, build green at 97 static pages, zero duplicate titles
+across all 90 routes, every title and description inside the length budget,
+sitemap parity correct, and the sweep at 320/768/1280/1440 clean on scroll, tap
+targets, duplicate ids, heading skips and h1 count.
+
 ## 2026-09-04b (two pages were fighting over "offshore"; MYOB refocused)
 
 ### The UK market page had been quietly eating the offshore cluster

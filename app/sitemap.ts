@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next';
 import { baseUrl } from '@/lib/seo';
 import { solutions, markets, technologies, industries, serviceRegionPaths } from '@/lib/data';
+import { registrationStates } from '@/lib/company-registration';
 
 /**
  * Sitemap policy:
@@ -89,6 +90,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Indexable and footer-linked, like /compliance and /data-security which
     // were already listed. Low priority, but excluding only these two was an
     // inconsistency rather than a decision.
+    { path: '/company-registration', priority: 0.7, changeFrequency: 'monthly' as const },
+    ...registrationStates.map((st) => ({
+      path: `/company-registration/${st.slug}`,
+      priority: 0.6,
+      changeFrequency: 'monthly' as const,
+    })),
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/cookie-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },

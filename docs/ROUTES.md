@@ -145,6 +145,8 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 | `/` | Corp | Published |
 | `/about` | Corp | Published |
 | `/contact` | Corp | Published |
+| `/company-registration` | Hub | US Company Registration | Published (added 2026-09-04) |
+| `/company-registration/{delaware,wyoming,nevada}` | B | US Company Registration | Published (added 2026-09-04) |
 | `/privacy` | Corp | Published |
 | `/cookie-policy` | Corp | Published (added 2026-09-04 with the consent system) |
 | `/terms` | Corp | Published |

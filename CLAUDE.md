@@ -29,7 +29,7 @@ background, superseded on specifics by the files above.
 
 ## Current state (verified 2026-08-27)
 
-- **86 routes** on disk, all returning 200; 85 in the sitemap (`/thank-you` is
+- **90 routes** on disk, all returning 200; 89 in the sitemap (`/thank-you` is
   deliberately excluded — see the drift check below).
 - **Services are region-first.** 21 commercial pages = 7 services × 3 regions, at
   `/services/{service}/{region}`. The matrix lives in `lib/data.ts` (`regions`,
@@ -453,6 +453,54 @@ One trap worth naming: `rows` on a `<textarea>` is an HTML attribute with no
 `sm:` variant, so lowering it to shrink the mobile form silently shrinks the
 desktop one too. That happened once and was caught. The message box keeps
 `rows={4}` and takes its mobile height from `h-[92px] sm:h-auto` instead.
+
+## The US company registration cluster
+
+`/company-registration` plus `/company-registration/{delaware,wyoming,nevada}`,
+added 2026-09-04. Four files do the work: `lib/company-registration.ts` (all the
+copy and the per-state data), `components/registration-state-page.tsx` (one
+render for every state), the hub page, and three thin `page.tsx` files.
+
+**The owner confirmed on 2026-09-04 that registration is arranged and
+coordinated rather than performed in-house**, and every line of copy is written
+to that split: the filing is coordinated, the accounting that follows is
+Accounstone's. Nothing claims Accounstone lodges formation documents, acts as
+registered agent, or opens bank accounts. `knowledge/company/identity.md` still
+lists seven service lines and does not include this one — that file says only a
+human may edit it, so **the owner needs to add it there**.
+
+**`scope-boundaries.md` §2 forbids entity selection advice, and this is the
+cluster where it is easiest to cross that line.** Describing what an LLC and a
+C-corp *are* is fine and is what the reader is searching for. Saying which to
+pick is not, in any phrasing — including softened ones like "most businesses in
+your position choose". Every page in the cluster carries a boundaries block for
+that reason; do not strip it to save space.
+
+**Two words are banned from this cluster by the owner's instruction:
+"partner" and "consultant".** The referral arrangement is described as
+coordinated or arranged, never by naming who does it. There is a grep for both
+in the verification run.
+
+**No filing fee, franchise tax figure or turnaround time appears anywhere.**
+They change per state and per year, and inventing them would breach the
+never-invent-statistics rule. The pages say figures are confirmed at scoping,
+which is how the rest of the site handles pricing.
+
+Two structural decisions worth keeping:
+
+- **Explicit `page.tsx` files per state, not a `[state]` dynamic segment.** The
+  sitemap drift check walks `find app -name "page.tsx"`; a dynamic segment would
+  show up there as a literal `[state]` path that can never match a sitemap URL,
+  reporting drift on every run forever.
+- **The cluster is in the footer.** The navbar emits no links into server HTML,
+  so a cluster that is not in the footer is not discoverable by link.
+
+**Watch the near-duplicate score if you add a state.** The first version shared
+so much boilerplate across the three pages that they measured **53-55%** against
+each other, more than twice the 25% ceiling. Moving the five-step block and the
+full boundaries list to the hub, and giving each state its own FAQs, `feesNote`,
+`ctaNote` and `whoFormsHere`, brought the worst pair to **18.0%**. A new state
+needs all of those written properly, not templated — re-measure before shipping.
 
 ## Offshore is one cluster, and it belongs to one page
 

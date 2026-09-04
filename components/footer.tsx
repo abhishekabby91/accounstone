@@ -4,6 +4,7 @@ import { Mail, MapPin } from 'lucide-react';
 import { companyInfo, regions, serviceRegions, technologies, industries } from '@/lib/data';
 import SocialIcon from '@/components/social-icon';
 import CookieSettingsButton from '@/components/cookie-settings-button';
+import { registrationStates } from '@/lib/company-registration';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -38,6 +39,12 @@ export default function Footer() {
         { title: 'Markets', links: [
           ...regions.map((r) => ({ name: r.name, href: `/markets/${r.slug}` })),
           { name: 'All Markets', href: '/markets' },
+        ]},
+        // The navbar emits no links into server HTML, so a cluster that is not
+        // in the footer is not discoverable by link. See CLAUDE.md.
+        { title: 'US Company Registration', links: [
+          { name: 'Register a US company', href: '/company-registration' },
+          ...registrationStates.map((st) => ({ name: st.name, href: `/company-registration/${st.slug}` })),
         ]},
       ],
     },

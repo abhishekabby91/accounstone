@@ -46,6 +46,8 @@ this specific work for me there". Measured overlap between the two is 0.0%.
 
 | Search intent | Primary URL | Intent class |
 |---|---|---|
+| Registering / forming a company in the US, and what follows it | `/company-registration` | Commercial — cluster hub |
+| Registering in a specific state (Delaware, Wyoming, Nevada) | `/company-registration/{state}` | Commercial — state detail |
 | How accounting/tax/payroll works in the US (IRS, GAAP, state, nexus) | `/markets/united-states` | Informational — regional authority |
 | How accounting/tax/payroll works in the UK (HMRC, VAT, MTD, PAYE, Companies House) | `/markets/united-kingdom` | Informational — regional authority |
 | How accounting/tax/payroll works in Australia (ATO, GST, BAS, PAYG, STP, super) | `/markets/australia` | Informational — regional authority |
