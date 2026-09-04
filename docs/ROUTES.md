@@ -146,6 +146,7 @@ Canada is not a route. See `knowledge/company/identity.md` — open business dec
 | `/about` | Corp | Published |
 | `/contact` | Corp | Published |
 | `/privacy` | Corp | Published |
+| `/cookie-policy` | Corp | Published (added 2026-09-04 with the consent system) |
 | `/terms` | Corp | Published |
 
 ---

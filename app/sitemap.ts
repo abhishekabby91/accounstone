@@ -90,6 +90,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // were already listed. Low priority, but excluding only these two was an
     // inconsistency rather than a decision.
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' as const },
+    { path: '/cookie-policy', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' as const },
     { path: '/markets/united-states/texas', priority: 0.65, changeFrequency: 'monthly' as const },
     { path: '/markets/united-states/california', priority: 0.65, changeFrequency: 'monthly' as const },

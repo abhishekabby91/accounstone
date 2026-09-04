@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { generateMetadata } from '@/lib/seo';
 import { companyInfo } from '@/lib/data';
 
@@ -47,14 +48,28 @@ export default function PrivacyPage() {
         </div>
 
         <div className="bg-input p-6 rounded-lg border border-border">
-          <h2 className="text-2xl font-bold text-primary mb-4">4. Data Security</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">4. Cookies and Analytics</h2>
+          <p className="text-muted mb-4">
+            This website uses one analytics service, Google Analytics 4, to understand which pages are useful and where visitors get stuck. It does not run advertising pixels, session recording, heat-mapping or social media trackers.
+          </p>
+          <p className="text-muted mb-4">
+            Analytics does not load until you allow it. If you decline, no request is made to Google and no analytics cookie is created. You can change or withdraw that choice at any time using the Cookie Settings control in the footer of every page.
+          </p>
+          <p className="text-muted">
+            The full list of what can be stored, what each item does and how long it lasts is in our{' '}
+            <Link href="/cookie-policy" className="text-primary font-medium underline underline-offset-2 hover:text-accent">Cookie Policy</Link>.
+          </p>
+        </div>
+
+        <div className="bg-input p-6 rounded-lg border border-border">
+          <h2 className="text-2xl font-bold text-primary mb-4">5. Data Security</h2>
           <p className="text-muted">
             We handle client data under NDA-backed engagements with security-conscious practices. We are actively working toward formal certifications such as SOC 2, and we will clearly communicate our current certification status to any client who asks rather than overstating it.
           </p>
         </div>
 
         <div className="bg-input p-6 rounded-lg border border-border">
-          <h2 className="text-2xl font-bold text-primary mb-4">5. Your Rights</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">6. Your Rights</h2>
           <p className="text-muted mb-4">Depending on your location, you may have rights under applicable privacy laws (such as GDPR for UK/EU residents or the CCPA/CPRA for California residents), including the right to:</p>
           <ul className="list-disc list-inside space-y-2 text-muted">
             <li>Access your personal data</li>
@@ -65,7 +80,7 @@ export default function PrivacyPage() {
         </div>
 
         <div className="bg-input p-6 rounded-lg border border-border">
-          <h2 className="text-2xl font-bold text-primary mb-4">6. Contact Us</h2>
+          <h2 className="text-2xl font-bold text-primary mb-4">7. Contact Us</h2>
           <p className="text-muted">
             For privacy inquiries, contact us at {companyInfo.contact.email} or through our contact form.
           </p>

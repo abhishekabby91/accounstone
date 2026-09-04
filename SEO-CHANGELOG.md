@@ -1,5 +1,102 @@
 # Accounstone SEO Changelog
 
+## 2026-09-04 (cookie consent: GA4 now waits to be asked)
+
+Closes open item #1 in `CLAUDE.md`, which had been sitting since GA4 went in on
+2026-09-03: analytics loaded on every page for every visitor, before anyone had
+been asked anything, on a site that sells to UK practices.
+
+### The audit came first, and it shortened the job considerably
+
+Both source and a real browser session, rather than assumption. What is actually
+on this site:
+
+| Tracker | Provider | Category | Consent needed |
+|---|---|---|---|
+| `_ga`, `_ga_D1L72NM0GY` | Google Analytics 4 | Analytics | Yes |
+| `accounstone.cookie-consent` | Accounstone | Essential | No — it *is* the choice |
+| Web3Forms POST | api.web3forms.com | Essential | No — fires only on submit, sets no cookie |
+
+And, more usefully, what is **not**: no Google Tag Manager container, no Google
+Ads tag, no Meta Pixel, no Microsoft Clarity, no Hotjar, no chat or CRM widget,
+no social pixels, no embedded players, no web fonts from a third party. The
+social icons in the footer are ordinary links. A browser session across four
+representative pages requested exactly two hosts: `localhost` and
+`googletagmanager.com`.
+
+Two things worth recording from the sweep:
+
+- **`components/SectorSection.tsx` references nine images on
+  `cdn.corenexis.com`** — a host nobody has documented and which is not in
+  `next.config.mjs`'s `remotePatterns`. It is an orphan: nothing imports it, so
+  it never renders and never makes a request. Left in place, flagged here. If it
+  is ever wired up it becomes both an unconsented third-party request and a
+  build error. **Unknown — Requires Verification.**
+- `__next_hmr_refresh_hash__` appears in dev only. It is Next's hot-reload
+  cookie and does not exist in production.
+
+### The gate is that the script is never rendered
+
+Not "loaded and told to behave". Before a choice is made there is no request to
+googletagmanager.com and no `_ga` cookie — asserted in the test suite, not
+assumed. On top of that, `app/layout.tsx` sets Consent Mode v2 defaults to
+denied in a plain inline `<head>` script, so a tag added later through GTM would
+inherit denied even if it bypassed the loader entirely.
+
+Three files, kept apart on purpose: `lib/consent.ts` is the state and has no
+React in it, `components/cookie-consent.tsx` is the interface and knows nothing
+about Google, `components/analytics.tsx` is the consequence. Adding a service
+later means editing one array and one loader, not the UI.
+
+The record is stored in `localStorage` rather than a cookie — nothing
+server-side varies on it, so a cookie would ride on every request for no
+benefit. A corrupt, foreign or out-of-version record is treated as *no* record,
+so the failure mode is asking again rather than assuming consent.
+
+### Design: it had to stop looking like a plugin
+
+Same card as the inquiry dialog — `rounded-2xl border border-border bg-white
+shadow-2xl` — same serif heading, same accent eyebrow, and the burnt-orange
+accent spent exactly once, on the shield mark, per the rule the service
+illustrations follow. Accept and Reject are the same size, weight and prominence
+tier; only colour separates them.
+
+Two measured fixes:
+
+- The preferences panel was **1042px tall against a 768px laptop**, putting Save
+  below the fold, and on mobile the bottom sheet pushed its own heading off the
+  top — the same failure `inquiry-modal.tsx` already had recorded. It is now a
+  flex column capped to the viewport with header and actions pinned and only the
+  list scrolling: **774px at 1440x900, 660px at 1366x768, 523px at 320x568**,
+  Save in viewport at every size.
+- "Reject non-essential" needed 161px and had 162px, so it wrapped to two lines
+  on desktop while "Customise" did not. The card went 26rem → 28rem; both are
+  44px now.
+
+### Tested
+
+64 assertions, all passing: first visit, Accept all, Reject non-essential,
+Customise → toggle → Save, returning visitor, navigation, stale version, corrupt
+record, footer reopen, withdrawal (record + `ga-disable` flag + Consent Mode
+update), Escape, focus trap, scroll lock, focus restore, keyboard-operable
+switches, and banner/panel geometry at 320/390/768/1440.
+
+One methodology note worth keeping: an early run reported "no analytics request"
+on every check, which looked like a pass and was not. Running `pnpm next build`
+while `pnpm dev` was live had clobbered the shared `.next/` directory, so the
+client chunks 404'd and no JavaScript ran at all. **Do not build against a
+running dev server** — and treat an all-green consent test with suspicion until
+you have seen it go red for the right reason.
+
+### Content
+
+`/cookie-policy` added (86 routes on disk, 85 in the sitemap, `/thank-you` still
+the one expected difference). It names every stored item, what it does and how
+long it lasts, says plainly that the Google durations are documented rather than
+observed, and marks four items `[CLIENT / LEGAL REVIEW REQUIRED]` instead of
+asserting compliance. `/privacy` gained a Cookies and Analytics section — it
+previously did not use the word "cookie" once.
+
 ## 2026-09-03h (retired-URL redirect targets, decided on country data)
 
 The owner authorised settling the retired generic service URLs. The previous

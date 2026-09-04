@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Mail, MapPin } from 'lucide-react';
 import { companyInfo, regions, serviceRegions, technologies, industries } from '@/lib/data';
 import SocialIcon from '@/components/social-icon';
+import CookieSettingsButton from '@/components/cookie-settings-button';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -75,6 +76,7 @@ export default function Footer() {
   ];
   const legalLinks = [
     { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Cookie Policy', href: '/cookie-policy' },
     { name: 'Terms & Conditions', href: '/terms' },
     { name: 'Data Security', href: '/data-security' },
     { name: 'Compliance', href: '/compliance' },
@@ -156,6 +158,7 @@ export default function Footer() {
             <p className="text-white/50 text-xs md:text-sm">© {currentYear} Accounstone. All rights reserved.</p>
             <ul className="flex flex-wrap items-center gap-x-5">
               {legalLinks.map((link) => (<li key={link.name}><Link href={link.href} className="inline-block py-1.5 text-white/50 hover:text-white transition-colors text-xs md:text-sm leading-5">{link.name}</Link></li>))}
+              <li><CookieSettingsButton /></li>
             </ul>
           </div>
           <p className="text-white/40 text-xs mt-3 max-w-3xl leading-5">Security-focused with NDA-backed engagements. Actively pursuing SOC 2 certification.</p>

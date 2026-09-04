@@ -29,7 +29,8 @@ background, superseded on specifics by the files above.
 
 ## Current state (verified 2026-08-27)
 
-- **84 routes**, all returning 200. Sitemap has exact parity: 84 ↔ 84.
+- **86 routes** on disk, all returning 200; 85 in the sitemap (`/thank-you` is
+  deliberately excluded — see the drift check below).
 - **Services are region-first.** 21 commercial pages = 7 services × 3 regions, at
   `/services/{service}/{region}`. The matrix lives in `lib/data.ts` (`regions`,
   `serviceRegions`, `serviceRegionPaths`) and drives the navbar, footer, `/services`
@@ -84,9 +85,11 @@ Do **not** resolve these unilaterally. Each needs the owner.
    `strategy="afterInteractive"` so it never competes with LCP. The ID is public
    by construction and belongs in the source, not an env var. `/thank-you` fires
    a `generate_lead` event via `components/conversion-event.tsx`.
-   **Still open:** there is no consent banner. GA4 sets cookies before any
-   consent is given, which is a real exposure for UK and EU visitors, and the
-   privacy policy does not yet mention analytics. Both are the owner's call.
+   **Resolved 2026-09-04.** GA4 no longer loads until analytics consent
+   exists — see "The cookie consent system" below. The privacy policy now has
+   a Cookies and Analytics section, and `/cookie-policy` documents every item
+   that can be stored. What remains open is legal rather than technical, and is
+   listed on that page under `[CLIENT / LEGAL REVIEW REQUIRED]`.
 2. **Search Console is connected (2026-09-03).** The `sc-domain:accounstone.com`
    property is readable. First 28-day read: 51 clicks, 2,893 impressions, 1.76%
    CTR, average position 54.6 — and only one query (`accounstone`, 15 clicks)
@@ -450,6 +453,62 @@ One trap worth naming: `rows` on a `<textarea>` is an HTML attribute with no
 `sm:` variant, so lowering it to shrink the mobile form silently shrinks the
 desktop one too. That happened once and was caught. The message box keeps
 `rows={4}` and takes its mobile height from `h-[92px] sm:h-auto` instead.
+
+## The cookie consent system
+
+Three files, deliberately separate, because mixing them is how consent banners
+end up being decoration that does not actually gate anything:
+
+- `lib/consent.ts` — the state. No React, no UI. Categories, the stored record,
+  read/write, and the change event. This is where you add or remove a service
+  from a category.
+- `components/cookie-consent.tsx` — the interface. The corner card and the
+  preferences dialog. Knows nothing about Google.
+- `components/analytics.tsx` — the consequence. Loads GA4, and only on consent.
+
+**The gate is that the script is never rendered without consent**, not that it
+is loaded and told to behave. Before a choice is made there is no request to
+googletagmanager.com and no `_ga` cookie — verified, not assumed. On top of
+that, `app/layout.tsx` sets Google Consent Mode v2 defaults to denied in a
+plain inline `<head>` script, so any tag added later (through GTM, say)
+inherits denied even if it bypasses `analytics.tsx`. That snippet must stay a
+plain `<script>`: `next/script` with `beforeInteractive` outside the layout
+trips an eslint rule, and `pnpm eslint .` has to stay silent.
+
+Things that will look like bugs but are not:
+
+- **The record lives in `localStorage`, not a cookie.** Nothing server-side
+  varies on it, so a cookie would be sent on every request for no benefit.
+- **A corrupt, foreign or old-version record is treated as no record.** It
+  fails closed — the worst case is asking again, never assuming consent.
+  `CONSENT_VERSION` exists for exactly that: bump it when the categories or the
+  services inside them change materially.
+- **Functional and Marketing have nothing in them.** The toggles are real and
+  the choice is stored, but the panel and the policy both say "nothing in this
+  category is in use today" rather than implying vendors that do not exist.
+  If you add one, add it to that category's `services` array so both surfaces
+  update from one place.
+
+**Accept and Reject are the same size, weight and prominence tier.** Only
+colour separates them. Making Reject harder to find is a dark pattern and is
+the one change this component must never take.
+
+The preferences dialog is a **flex column capped to the viewport**: header and
+actions pinned, only the category list scrolls. The first version was 1042px
+tall against a 768px laptop, which put Save below the fold, and on mobile the
+bottom sheet pushed its own heading off the top of the screen — the same
+failure `inquiry-modal.tsx` already records. Do not remove the `max-h` or the
+`flex-1 overflow-y-auto` on the list.
+
+Withdrawal is best-effort and honest about it: a loaded script cannot be
+unloaded, so turning analytics off pushes a Consent Mode update, sets Google's
+`ga-disable-*` flag and deletes the `_ga` cookies. The next page load renders
+no script at all.
+
+`components/cookie-settings-button.tsx` is the footer control and
+`components/cookie-settings-inline-button.tsx` the in-sentence one on
+`/cookie-policy`; both are client islands so `footer.tsx` can stay a server
+component.
 
 ## /thank-you is a conversion target, not a page
 

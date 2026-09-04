@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
 import "./globals.css";
 
 import Navbar from "@/components/navbar";
@@ -8,14 +7,9 @@ import HeaderBar from "@/components/header-bar";
 import TouchRipple from "@/components/touch-ripple";
 import BackToTop from "@/components/back-to-top";
 import InquiryModal from "@/components/inquiry-modal";
+import Analytics from "@/components/analytics";
+import CookieConsent from "@/components/cookie-consent";
 import { generateOrganizationSchema, generateWebsiteSchema, baseUrl } from "@/lib/seo";
-
-// GA4 measurement ID. Public by design - it identifies the property to the
-// browser and is visible in the page source of every site that uses it, so it
-// is not a secret and does not belong in an env var here. Loaded
-// `afterInteractive` so it never competes with LCP: analytics is not worth a
-// slower first paint on a site whose whole job is the first impression.
-const GA_MEASUREMENT_ID = "G-D1L72NM0GY";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -102,6 +96,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="bg-background">
       <head>
+        {/*
+          Google Consent Mode v2 defaults, denied. Must run before any Google
+          tag, so it is a plain inline script in <head> rather than next/script
+          — ~300 bytes, no network request, no cookie. It is what any tag added
+          later (through GTM, say) inherits, so nothing can fire unasked even if
+          it bypasses components/analytics.tsx.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=window.gtag||gtag;" +
+              "gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'," +
+              "analytics_storage:'denied',functionality_storage:'denied',personalization_storage:'denied'," +
+              "security_storage:'granted',wait_for_update:500});",
+          }}
+        />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
       </head>
@@ -120,16 +130,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <BackToTop />
         <InquiryModal />
 
-        <Script
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-          strategy="afterInteractive"
-        />
-        <Script id="ga4-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GA_MEASUREMENT_ID}');`}
-        </Script>
+        {/*
+          GA4 lives in `components/analytics.tsx` and renders no script at all
+          until analytics consent exists. It used to load unconditionally here,
+          which set `_ga` before the visitor had been asked anything.
+        */}
+        <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );
